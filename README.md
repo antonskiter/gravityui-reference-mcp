@@ -51,10 +51,14 @@ The server communicates over stdio using the MCP protocol.
 To refresh the documentation from the Gravity UI GitHub repos:
 
 ```bash
-GITHUB_TOKEN=ghp_... npm run ingest
+npm run ingest
 ```
 
-A GitHub token is only needed for ingestion (to avoid rate limits). The server itself requires no token.
+This works without any configuration. To avoid GitHub API rate limits on frequent re-ingests, you can optionally provide a token:
+
+```bash
+GITHUB_TOKEN=ghp_... npm run ingest
+```
 
 ## Scripts
 
