@@ -1,0 +1,2542 @@
+[
+  {
+    "id": "guide:ActionTooltip",
+    "title": "ActionTooltip",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/actiontooltip",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/ActionTooltip.mdx",
+    "breadcrumbs": [
+      "ActionTooltip"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:ActionTooltip:actiontooltip",
+      "guide:ActionTooltip:structure",
+      "guide:ActionTooltip:options",
+      "guide:ActionTooltip:sizes",
+      "guide:ActionTooltip:position",
+      "guide:ActionTooltip:timing",
+      "guide:ActionTooltip:use-cases"
+    ]
+  },
+  {
+    "id": "guide:Alert",
+    "title": "Alert",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/alert",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Alert.mdx",
+    "breadcrumbs": [
+      "Alert"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Alert:alert",
+      "guide:Alert:when-to-use",
+      "guide:Alert:types",
+      "guide:Alert:when-not-to-use",
+      "guide:Alert:content",
+      "guide:Alert:options"
+    ]
+  },
+  {
+    "id": "guide:Basics",
+    "title": "Basics",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/basics",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Basics.mdx",
+    "breadcrumbs": [
+      "Basics"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Basics:basics"
+    ]
+  },
+  {
+    "id": "guide:Branding",
+    "title": "Quick theme creation",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/branding",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Branding.mdx",
+    "breadcrumbs": [
+      "Quick theme creation"
+    ],
+    "description": "Quick branding allows you to switch between themes quickly and see an immediate…",
+    "section_ids": [
+      "guide:Branding:quick-theme-creation",
+      "guide:Branding:before-you-start",
+      "guide:Branding:1-base-brand-colors",
+      "guide:Branding:2-typography",
+      "guide:Branding:3-corner-radius",
+      "guide:Branding:primary-set",
+      "guide:Branding:technical-set",
+      "guide:Branding:4-technical-colors",
+      "guide:Branding:private-color-tuning",
+      "guide:Branding:semantic-color-tuning"
+    ]
+  },
+  {
+    "id": "guide:Breadcrumbs",
+    "title": "Breadcrumbs",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/breadcrumbs",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Breadcrumbs.mdx",
+    "breadcrumbs": [
+      "Breadcrumbs"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Breadcrumbs:breadcrumbs",
+      "guide:Breadcrumbs:when-to-use",
+      "guide:Breadcrumbs:structure",
+      "guide:Breadcrumbs:sizes",
+      "guide:Breadcrumbs:states",
+      "guide:Breadcrumbs:modifications",
+      "guide:Breadcrumbs:customization"
+    ]
+  },
+  {
+    "id": "guide:Button",
+    "title": "Button",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/button",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Button.mdx",
+    "breadcrumbs": [
+      "Button"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Button:button",
+      "guide:Button:appearance",
+      "guide:Button:accent",
+      "guide:Button:primary",
+      "guide:Button:semantic",
+      "guide:Button:info",
+      "guide:Button:anatomy",
+      "guide:Button:states",
+      "guide:Button:sizes",
+      "guide:Button:form",
+      "guide:Button:width",
+      "guide:Button:recommendations"
+    ]
+  },
+  {
+    "id": "guide:Card",
+    "title": "Card",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/card",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Card.mdx",
+    "breadcrumbs": [
+      "Card"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Card:card",
+      "guide:Card:usage",
+      "guide:Card:with-themes",
+      "guide:Card:selectable-card",
+      "guide:Card:raised",
+      "guide:Card:raised-with-action",
+      "guide:Card:size"
+    ]
+  },
+  {
+    "id": "guide:ChangelogDialog",
+    "title": "ChangelogDialog",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/changelogdialog",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/ChangelogDialog.mdx",
+    "breadcrumbs": [
+      "ChangelogDialog"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:ChangelogDialog:changelogdialog",
+      "guide:ChangelogDialog:elements",
+      "guide:ChangelogDialog:usage-recommendations"
+    ]
+  },
+  {
+    "id": "guide:Checkbox",
+    "title": "Checkbox",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/checkbox",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Checkbox.mdx",
+    "breadcrumbs": [
+      "Checkbox"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Checkbox:checkbox",
+      "guide:Checkbox:use-cases",
+      "guide:Checkbox:anatomy",
+      "guide:Checkbox:sizes",
+      "guide:Checkbox:states",
+      "guide:Checkbox:recommendations"
+    ]
+  },
+  {
+    "id": "guide:ClipboardButton",
+    "title": "ClipboardButton",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/clipboardbutton",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/ClipboardButton.mdx",
+    "breadcrumbs": [
+      "ClipboardButton"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:ClipboardButton:clipboardbutton"
+    ]
+  },
+  {
+    "id": "guide:Color",
+    "title": "Color",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/color",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Color.mdx",
+    "breadcrumbs": [
+      "Color",
+      "Two-layer color system"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Color:two-layer-color-system",
+      "guide:Color:private-colors",
+      "guide:Color:colors-with-an-alpha-channel",
+      "guide:Color:solid-colors",
+      "guide:Color:how-to-create-tones",
+      "guide:Color:semantic-colors",
+      "guide:Color:categories-based-on-types",
+      "guide:Color:categories-based-on-meaning",
+      "guide:Color:variables-and-colorstyles",
+      "guide:Color:themes"
+    ]
+  },
+  {
+    "id": "guide:CornerRadius",
+    "title": "CornerRadius",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/cornerradius",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/CornerRadius.mdx",
+    "breadcrumbs": [
+      "CornerRadius"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:CornerRadius:cornerradius"
+    ]
+  },
+  {
+    "id": "guide:Dialog",
+    "title": "Dialog",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/dialog",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Dialog.mdx",
+    "breadcrumbs": [
+      "Dialog"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Dialog:dialog",
+      "guide:Dialog:entry-point",
+      "guide:Dialog:sizes",
+      "guide:Dialog:content-area",
+      "guide:Dialog:buttons",
+      "guide:Dialog:in-dialog-navigation",
+      "guide:Dialog:positioning-the-dialog-box-on-the-page",
+      "guide:Dialog:closing-a-window",
+      "guide:Dialog:preventing-user-data-loss"
+    ]
+  },
+  {
+    "id": "guide:DropdownMenu",
+    "title": "Structure",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/dropdownmenu",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/DropdownMenu.mdx",
+    "breadcrumbs": [
+      "Structure"
+    ],
+    "description": "➊ Context menu icon",
+    "section_ids": [
+      "guide:DropdownMenu:structure"
+    ]
+  },
+  {
+    "id": "guide:GridAndContainer",
+    "title": "Grid structure",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/gridandcontainer",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/GridAndContainer.mdx",
+    "breadcrumbs": [
+      "Grid structure"
+    ],
+    "description": "Columns ➊ define the boundaries for horizontal alignment; spaces ➋ provide…",
+    "section_ids": [
+      "guide:GridAndContainer:grid-structure"
+    ]
+  },
+  {
+    "id": "guide:Hotkey",
+    "title": "Hotkey",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/hotkey",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Hotkey.mdx",
+    "breadcrumbs": [
+      "Hotkey"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Hotkey:hotkey",
+      "guide:Hotkey:platforms-platform",
+      "guide:Hotkey:use-cases"
+    ]
+  },
+  {
+    "id": "guide:Label",
+    "title": "Label",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/label",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Label.mdx",
+    "breadcrumbs": [
+      "Label"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Label:label",
+      "guide:Label:when-to-use",
+      "guide:Label:structure",
+      "guide:Label:sizes",
+      "guide:Label:themes",
+      "guide:Label:semantic-labels-vs-buttons",
+      "guide:Label:modifications-and-states",
+      "guide:Label:additional-features",
+      "guide:Label:customization"
+    ]
+  },
+  {
+    "id": "guide:Links",
+    "title": "Links",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/links",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Links.mdx",
+    "breadcrumbs": [
+      "Links"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Links:links",
+      "guide:Links:states",
+      "guide:Links:can-be-used-as",
+      "guide:Links:size",
+      "guide:Links:recommendations"
+    ]
+  },
+  {
+    "id": "guide:ListItem",
+    "title": "List structure",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/listitem",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/ListItem.mdx",
+    "breadcrumbs": [
+      "List structure"
+    ],
+    "description": "➊ Filter area",
+    "section_ids": [
+      "guide:ListItem:list-structure"
+    ]
+  },
+  {
+    "id": "guide:Loader",
+    "title": "Loader",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/loader",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Loader.mdx",
+    "breadcrumbs": [
+      "Loader"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Loader:loader"
+    ]
+  },
+  {
+    "id": "guide:Module",
+    "title": "Module",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/module",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Module.mdx",
+    "breadcrumbs": [
+      "Module"
+    ],
+    "description": "To shape and measure space in our design system, we use the 4x4 px module. All…",
+    "section_ids": [
+      "guide:Module:module"
+    ]
+  },
+  {
+    "id": "guide:Pagination",
+    "title": "Pagination",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/pagination",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Pagination.mdx",
+    "breadcrumbs": [
+      "Pagination"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Pagination:pagination",
+      "guide:Pagination:when-to-use",
+      "guide:Pagination:structure",
+      "guide:Pagination:sizes",
+      "guide:Pagination:states",
+      "guide:Pagination:modifications"
+    ]
+  },
+  {
+    "id": "guide:Popover",
+    "title": "Popover",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/popover",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Popover.mdx",
+    "breadcrumbs": [
+      "Popover"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Popover:popover",
+      "guide:Popover:types-of-popover",
+      "guide:Popover:parameters",
+      "guide:Popover:special-cases"
+    ]
+  },
+  {
+    "id": "guide:Popup",
+    "title": "Popup",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/popup",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Popup.mdx",
+    "breadcrumbs": [
+      "Popup"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Popup:popup",
+      "guide:Popup:when-to-use-popup",
+      "guide:Popup:style",
+      "guide:Popup:positioning"
+    ]
+  },
+  {
+    "id": "guide:Progress",
+    "title": "Progress",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/progress",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Progress.mdx",
+    "breadcrumbs": [
+      "Progress"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Progress:progress",
+      "guide:Progress:use-cases",
+      "guide:Progress:structure",
+      "guide:Progress:sizes",
+      "guide:Progress:themes",
+      "guide:Progress:scope",
+      "guide:Progress:use-cases-2"
+    ]
+  },
+  {
+    "id": "guide:Radio",
+    "title": "Radio",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/radio",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Radio.mdx",
+    "breadcrumbs": [
+      "Radio"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Radio:radio"
+    ]
+  },
+  {
+    "id": "guide:RadioGroup",
+    "title": "RadioGroup",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/radiogroup",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/RadioGroup.mdx",
+    "breadcrumbs": [
+      "RadioGroup"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:RadioGroup:radiogroup"
+    ]
+  },
+  {
+    "id": "guide:Resources",
+    "title": "Resources",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/resources",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Resources.mdx",
+    "breadcrumbs": [
+      "Resources"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Resources:resources",
+      "guide:Resources:how-to-use"
+    ]
+  },
+  {
+    "id": "guide:SegmentedRadioGroup",
+    "title": "SegmentedRadioGroup",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/segmentedradiogroup",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/SegmentedRadioGroup.mdx",
+    "breadcrumbs": [
+      "SegmentedRadioGroup"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:SegmentedRadioGroup:segmentedradiogroup",
+      "guide:SegmentedRadioGroup:when-to-use",
+      "guide:SegmentedRadioGroup:when-not-to-use"
+    ]
+  },
+  {
+    "id": "guide:Select",
+    "title": "Select",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/select",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Select.mdx",
+    "breadcrumbs": [
+      "Select"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Select:select",
+      "guide:Select:use-cases",
+      "guide:Select:options",
+      "guide:Select:types",
+      "guide:Select:structure",
+      "guide:Select:states",
+      "guide:Select:sizes",
+      "guide:Select:usage-recommendations"
+    ]
+  },
+  {
+    "id": "guide:Skeleton",
+    "title": "Skeleton",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/skeleton",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Skeleton.mdx",
+    "breadcrumbs": [
+      "Skeleton"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Skeleton:skeleton"
+    ]
+  },
+  {
+    "id": "guide:Spin",
+    "title": "Spin",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/spin",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Spin.mdx",
+    "breadcrumbs": [
+      "Spin"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Spin:spin"
+    ]
+  },
+  {
+    "id": "guide:Switch",
+    "title": "Switch",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/switch",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Switch.mdx",
+    "breadcrumbs": [
+      "Switch",
+      "Description"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Switch:description",
+      "guide:Switch:dimensions",
+      "guide:Switch:states",
+      "guide:Switch:properties",
+      "guide:Switch:user-guide"
+    ]
+  },
+  {
+    "id": "guide:Table",
+    "title": "Table",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/table",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Table.mdx",
+    "breadcrumbs": [
+      "Table"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Table:table",
+      "guide:Table:table-cell",
+      "guide:Table:table-header",
+      "guide:Table:table-columns",
+      "guide:Table:table-rows",
+      "guide:Table:usage-recommendations"
+    ]
+  },
+  {
+    "id": "guide:Tabs",
+    "title": "Tabs",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/tabs",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Tabs.mdx",
+    "breadcrumbs": [
+      "Tabs",
+      "Description"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Tabs:description",
+      "guide:Tabs:sizes",
+      "guide:Tabs:states",
+      "guide:Tabs:properties",
+      "guide:Tabs:usage-recommendations"
+    ]
+  },
+  {
+    "id": "guide:TextArea",
+    "title": "TextArea",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/textarea",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/TextArea.mdx",
+    "breadcrumbs": [
+      "TextArea"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:TextArea:textarea",
+      "guide:TextArea:application",
+      "guide:TextArea:types",
+      "guide:TextArea:structure",
+      "guide:TextArea:states",
+      "guide:TextArea:sizes",
+      "guide:TextArea:user-guide"
+    ]
+  },
+  {
+    "id": "guide:TextInput",
+    "title": "TextInput",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/textinput",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/TextInput.mdx",
+    "breadcrumbs": [
+      "TextInput"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:TextInput:textinput",
+      "guide:TextInput:application",
+      "guide:TextInput:types",
+      "guide:TextInput:structure",
+      "guide:TextInput:states",
+      "guide:TextInput:sizes",
+      "guide:TextInput:user-guide"
+    ]
+  },
+  {
+    "id": "guide:Toaster",
+    "title": "Toaster",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/toaster",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Toaster.mdx",
+    "breadcrumbs": [
+      "Toaster"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Toaster:toaster",
+      "guide:Toaster:main-types",
+      "guide:Toaster:modifications",
+      "guide:Toaster:when-to-use",
+      "guide:Toaster:when-not-to-use",
+      "guide:Toaster:position-on-screen",
+      "guide:Toaster:customization"
+    ]
+  },
+  {
+    "id": "guide:Tooltip",
+    "title": "Tooltip",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/tooltip",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Tooltip.mdx",
+    "breadcrumbs": [
+      "Tooltip"
+    ],
+    "description": "",
+    "section_ids": [
+      "guide:Tooltip:tooltip"
+    ]
+  },
+  {
+    "id": "guide:Typography",
+    "title": "Font parameters",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/typography",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Typography.mdx",
+    "breadcrumbs": [
+      "Font parameters"
+    ],
+    "description": "The leading determines the space between the baselines, and the font size…",
+    "section_ids": [
+      "guide:Typography:font-parameters"
+    ]
+  },
+  {
+    "id": "guide:User",
+    "title": "Structure",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/user",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/User.mdx",
+    "breadcrumbs": [
+      "Structure"
+    ],
+    "description": "XL - 50x50px avatar + text frame that can be adjusted to the content width",
+    "section_ids": [
+      "guide:User:structure"
+    ]
+  },
+  {
+    "id": "guide:UserAvatar",
+    "title": "Size",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/useravatar",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/UserAvatar.mdx",
+    "breadcrumbs": [
+      "Size"
+    ],
+    "description": "XL - 50 x 50 px",
+    "section_ids": [
+      "guide:UserAvatar:size"
+    ]
+  },
+  {
+    "id": "guide:UserLabel",
+    "title": "Structure",
+    "page_type": "guide",
+    "url": "https://gravity-ui.com/design/userlabel",
+    "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/UserLabel.mdx",
+    "breadcrumbs": [
+      "Structure"
+    ],
+    "description": "➊ Avatar container (image, icon or initials)",
+    "section_ids": [
+      "guide:UserLabel:structure"
+    ]
+  },
+  {
+    "id": "library:uikit",
+    "title": "UIKit · npm package CI storybook tests storybook",
+    "page_type": "library",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/libraries/uikit",
+    "github_url": "https://github.com/gravity-ui/uikit",
+    "breadcrumbs": [
+      "UIKit · npm package CI storybook tests storybook"
+    ],
+    "description": "A set of flexible, highly practical, and efficient React components for…",
+    "section_ids": [
+      "library:uikit:uikit-npm-package-ci-storybook-tests-storybook",
+      "library:uikit:resources",
+      "library:uikit:install",
+      "library:uikit:usage",
+      "library:uikit:development"
+    ]
+  },
+  {
+    "id": "component:uikit:Accordion",
+    "title": "Accordion",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/accordion",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Accordion",
+    "breadcrumbs": [
+      "Accordion"
+    ],
+    "description": "The Accordion component allows you to create collapsible content panels where…",
+    "section_ids": [
+      "component:uikit:Accordion:accordion",
+      "component:uikit:Accordion:base-example",
+      "component:uikit:Accordion:controlling-state-of-accordion",
+      "component:uikit:Accordion:size",
+      "component:uikit:Accordion:view",
+      "component:uikit:Accordion:arrow-position",
+      "component:uikit:Accordion:multiple",
+      "component:uikit:Accordion:custom-summary",
+      "component:uikit:Accordion:disabled-state",
+      "component:uikit:Accordion:properties",
+      "component:uikit:Accordion:accordion-2",
+      "component:uikit:Accordion:accordionitem",
+      "component:uikit:Accordion:accordionsummary"
+    ]
+  },
+  {
+    "id": "component:uikit:ActionTooltip",
+    "title": "ActionTooltip",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/actiontooltip",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/ActionTooltip",
+    "breadcrumbs": [
+      "ActionTooltip"
+    ],
+    "description": "Tooltip for labeling action buttons without descriptive text (e.g. icon…",
+    "section_ids": [
+      "component:uikit:ActionTooltip:actiontooltip",
+      "component:uikit:ActionTooltip:usage",
+      "component:uikit:ActionTooltip:anchor"
+    ]
+  },
+  {
+    "id": "component:uikit:ActionsPanel",
+    "title": "ActionsPanel",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/actionspanel",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/ActionsPanel",
+    "breadcrumbs": [
+      "ActionsPanel"
+    ],
+    "description": "Use an ActionsPanel to render multiple buttons in a row.\nWhen there is not…",
+    "section_ids": [
+      "component:uikit:ActionsPanel:actionspanel",
+      "component:uikit:ActionsPanel:example",
+      "component:uikit:ActionsPanel:action-icons",
+      "component:uikit:ActionsPanel:note",
+      "component:uikit:ActionsPanel:groups-in-dropdown-menu",
+      "component:uikit:ActionsPanel:action-sub-menu-and-nested-dropdown-menu",
+      "component:uikit:ActionsPanel:properties",
+      "component:uikit:ActionsPanel:actionspanelitem"
+    ]
+  },
+  {
+    "id": "component:uikit:Alert",
+    "title": "Alert",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/alert",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Alert",
+    "breadcrumbs": [
+      "Alert"
+    ],
+    "description": "normal: Main theme (used by default).",
+    "section_ids": [
+      "component:uikit:Alert:alert",
+      "component:uikit:Alert:alert-title"
+    ]
+  },
+  {
+    "id": "component:uikit:ArrowToggle",
+    "title": "ArrowToggle",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/arrowtoggle",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/ArrowToggle",
+    "breadcrumbs": [
+      "ArrowToggle"
+    ],
+    "description": "ArrowToggle is a component for displaying the chevron icon. It can rotate in…",
+    "section_ids": [
+      "component:uikit:ArrowToggle:arrowtoggle",
+      "component:uikit:ArrowToggle:appearance",
+      "component:uikit:ArrowToggle:size",
+      "component:uikit:ArrowToggle:use-as-an-interactive-element",
+      "component:uikit:ArrowToggle:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Avatar",
+    "title": "Avatar",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/avatar",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Avatar",
+    "breadcrumbs": [
+      "Avatar"
+    ],
+    "description": "This component is intended for rendering avatars. It has three basic avatar…",
+    "section_ids": [
+      "component:uikit:Avatar:avatar",
+      "component:uikit:Avatar:types",
+      "component:uikit:Avatar:appearance",
+      "component:uikit:Avatar:theme-and-view",
+      "component:uikit:Avatar:custom-colors",
+      "component:uikit:Avatar:size",
+      "component:uikit:Avatar:shape",
+      "component:uikit:Avatar:properties",
+      "component:uikit:Avatar:common",
+      "component:uikit:Avatar:image-specific",
+      "component:uikit:Avatar:icon-specific",
+      "component:uikit:Avatar:text-specific",
+      "component:uikit:Avatar:css-api"
+    ]
+  },
+  {
+    "id": "component:uikit:AvatarStack",
+    "title": "AvatarStack",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/avatarstack",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/AvatarStack",
+    "breadcrumbs": [
+      "AvatarStack"
+    ],
+    "description": "This component is used for a stack of images with overlap over one another and,…",
+    "section_ids": [
+      "component:uikit:AvatarStack:avatarstack",
+      "component:uikit:AvatarStack:usage",
+      "component:uikit:AvatarStack:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Breadcrumbs",
+    "title": "Breadcrumbs",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/breadcrumbs",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Breadcrumbs",
+    "breadcrumbs": [
+      "Breadcrumbs"
+    ],
+    "description": "Breadcrumbs is a navigation element that shows the current location of a page…",
+    "section_ids": [
+      "component:uikit:Breadcrumbs:breadcrumbs",
+      "component:uikit:Breadcrumbs:example",
+      "component:uikit:Breadcrumbs:events",
+      "component:uikit:Breadcrumbs:links",
+      "component:uikit:Breadcrumbs:root-context",
+      "component:uikit:Breadcrumbs:separator",
+      "component:uikit:Breadcrumbs:integration-with-routers",
+      "component:uikit:Breadcrumbs:landmarks",
+      "component:uikit:Breadcrumbs:disabled-items",
+      "component:uikit:Breadcrumbs:end-content",
+      "component:uikit:Breadcrumbs:properties",
+      "component:uikit:Breadcrumbs:breadcrumbsitemprops"
+    ]
+  },
+  {
+    "id": "component:uikit:Button",
+    "title": "Button",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/button",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Button",
+    "breadcrumbs": [
+      "Button"
+    ],
+    "description": "Buttons act as a trigger for certain actions. While this is their main purpose,…",
+    "section_ids": [
+      "component:uikit:Button:button",
+      "component:uikit:Button:appearance",
+      "component:uikit:Button:basic",
+      "component:uikit:Button:outlined",
+      "component:uikit:Button:flat",
+      "component:uikit:Button:contrast",
+      "component:uikit:Button:icons",
+      "component:uikit:Button:states",
+      "component:uikit:Button:size",
+      "component:uikit:Button:width",
+      "component:uikit:Button:pin",
+      "component:uikit:Button:properties",
+      "component:uikit:Button:css-api"
+    ]
+  },
+  {
+    "id": "component:uikit:Card",
+    "title": "Card",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/card",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Card",
+    "breadcrumbs": [
+      "Card"
+    ],
+    "description": "Card is a reusable React component that basically is a card-like container with…",
+    "section_ids": [
+      "component:uikit:Card:card",
+      "component:uikit:Card:description",
+      "component:uikit:Card:appearance",
+      "component:uikit:Card:theme",
+      "component:uikit:Card:type",
+      "component:uikit:Card:view",
+      "component:uikit:Card:properties",
+      "component:uikit:Card:css-api"
+    ]
+  },
+  {
+    "id": "component:uikit:Checkbox",
+    "title": "Checkbox",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/checkbox",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Checkbox",
+    "breadcrumbs": [
+      "Checkbox"
+    ],
+    "description": "The Checkbox component allows the user to select or deselect a specific value.",
+    "section_ids": [
+      "component:uikit:Checkbox:checkbox",
+      "component:uikit:Checkbox:states",
+      "component:uikit:Checkbox:size",
+      "component:uikit:Checkbox:label",
+      "component:uikit:Checkbox:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:ClipboardButton",
+    "title": "ClipboardButton",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/clipboardbutton",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/ClipboardButton",
+    "breadcrumbs": [
+      "ClipboardButton"
+    ],
+    "description": "This component puts CopyToClipboard and ClipboardIcon together. CopyToClipboard…",
+    "section_ids": [
+      "component:uikit:ClipboardButton:clipboardbutton",
+      "component:uikit:ClipboardButton:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:ClipboardIcon",
+    "title": "ClipboardIcon",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/clipboardicon",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/ClipboardIcon",
+    "breadcrumbs": [
+      "ClipboardIcon"
+    ],
+    "description": "This component is mainly used along with CopyToClipboard as a wrap component.",
+    "section_ids": [
+      "component:uikit:ClipboardIcon:clipboardicon"
+    ]
+  },
+  {
+    "id": "component:uikit:CopyToClipboard",
+    "title": "CopyToClipboard",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/copytoclipboard",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/CopyToClipboard",
+    "breadcrumbs": [
+      "CopyToClipboard"
+    ],
+    "description": "CopyToClipboard is a wrapper component that copies text to clipboard and can…",
+    "section_ids": [
+      "component:uikit:CopyToClipboard:copytoclipboard",
+      "component:uikit:CopyToClipboard:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:DefinitionList",
+    "title": "DefinitionList",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/definitionlist",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/DefinitionList",
+    "breadcrumbs": [
+      "DefinitionList"
+    ],
+    "description": "The component to display definition list with term and definition separated by…",
+    "section_ids": [
+      "component:uikit:DefinitionList:definitionlist",
+      "component:uikit:DefinitionList:examples",
+      "component:uikit:DefinitionList:properties",
+      "component:uikit:DefinitionList:css-api"
+    ]
+  },
+  {
+    "id": "component:uikit:Dialog",
+    "title": "Dialog",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/dialog",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Dialog",
+    "breadcrumbs": [
+      "Dialog"
+    ],
+    "description": "This is a component used for dialogs.",
+    "section_ids": [
+      "component:uikit:Dialog:dialog",
+      "component:uikit:Dialog:usage",
+      "component:uikit:Dialog:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Disclosure",
+    "title": "Disclosure",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/disclosure",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Disclosure",
+    "breadcrumbs": [
+      "Disclosure"
+    ],
+    "description": "Disclosure is a collapsible component that allows to display and hide its…",
+    "section_ids": [
+      "component:uikit:Disclosure:disclosure",
+      "component:uikit:Disclosure:base-example",
+      "component:uikit:Disclosure:controlling-expansion-state",
+      "component:uikit:Disclosure:size",
+      "component:uikit:Disclosure:arrow-position",
+      "component:uikit:Disclosure:custom-content",
+      "component:uikit:Disclosure:disabled-state",
+      "component:uikit:Disclosure:properties",
+      "component:uikit:Disclosure:css-api"
+    ]
+  },
+  {
+    "id": "component:uikit:Divider",
+    "title": "Divider",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/divider",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Divider",
+    "breadcrumbs": [
+      "Divider"
+    ],
+    "description": "The Divider component is used as a thin line for delimiting and grouping…",
+    "section_ids": [
+      "component:uikit:Divider:divider",
+      "component:uikit:Divider:orientation",
+      "component:uikit:Divider:custom-content",
+      "component:uikit:Divider:alignment",
+      "component:uikit:Divider:properties",
+      "component:uikit:Divider:css-api"
+    ]
+  },
+  {
+    "id": "component:uikit:Drawer",
+    "title": "Drawer",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/drawer",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Drawer",
+    "breadcrumbs": [
+      "Drawer"
+    ],
+    "description": "The Drawer component is a versatile interface element used in web applications…",
+    "section_ids": [
+      "component:uikit:Drawer:drawer",
+      "component:uikit:Drawer:usage",
+      "component:uikit:Drawer:placement",
+      "component:uikit:Drawer:resizable",
+      "component:uikit:Drawer:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:DropdownMenu",
+    "title": "DropdownMenu",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/dropdownmenu",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/DropdownMenu",
+    "breadcrumbs": [
+      "DropdownMenu"
+    ],
+    "description": "The dropdown menu component provides item grouping, submenus, and a…",
+    "section_ids": [
+      "component:uikit:DropdownMenu:dropdownmenu",
+      "component:uikit:DropdownMenu:grouped-items",
+      "component:uikit:DropdownMenu:submenus",
+      "component:uikit:DropdownMenu:custom-menu-toggle",
+      "component:uikit:DropdownMenu:custom-icons",
+      "component:uikit:DropdownMenu:properties",
+      "component:uikit:DropdownMenu:dropdownmenuitem",
+      "component:uikit:DropdownMenu:switcherprops"
+    ]
+  },
+  {
+    "id": "component:uikit:FilePreview",
+    "title": "FilePreview",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/filepreview",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/FilePreview",
+    "breadcrumbs": [
+      "FilePreview"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:uikit:FilePreview:filepreview",
+      "component:uikit:FilePreview:filepreview-2",
+      "component:uikit:FilePreview:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:HelpMark",
+    "title": "HelpMark",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/helpmark",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/HelpMark",
+    "breadcrumbs": [
+      "HelpMark"
+    ],
+    "description": "Component to display help icon with popover",
+    "section_ids": [
+      "component:uikit:HelpMark:helpmark",
+      "component:uikit:HelpMark:examples",
+      "component:uikit:HelpMark:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Hotkey",
+    "title": "Hotkey",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/hotkey",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Hotkey",
+    "breadcrumbs": [
+      "Hotkey"
+    ],
+    "description": "You can use the Hotkey component to display keyboard shortcuts for both Mac and…",
+    "section_ids": [
+      "component:uikit:Hotkey:hotkey",
+      "component:uikit:Hotkey:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Icon",
+    "title": "Icon",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/icon",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Icon",
+    "breadcrumbs": [
+      "Icon"
+    ],
+    "description": "The Icon component is a wrapper for SVG icon. SVGs can be loaded in different…",
+    "section_ids": [
+      "component:uikit:Icon:icon",
+      "component:uikit:Icon:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Label",
+    "title": "Label",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/label",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Label",
+    "breadcrumbs": [
+      "Label"
+    ],
+    "description": "You can use Labels for highlighting certain information. A Label with the Close…",
+    "section_ids": [
+      "component:uikit:Label:label",
+      "component:uikit:Label:appearance",
+      "component:uikit:Label:theme",
+      "component:uikit:Label:type",
+      "component:uikit:Label:icon",
+      "component:uikit:Label:value",
+      "component:uikit:Label:state",
+      "component:uikit:Label:size",
+      "component:uikit:Label:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Link",
+    "title": "Link",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/link",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Link",
+    "breadcrumbs": [
+      "Link"
+    ],
+    "description": "Link is a part of text that, when clicked, takes the user to another part of…",
+    "section_ids": [
+      "component:uikit:Link:link",
+      "component:uikit:Link:appearance",
+      "component:uikit:Link:href",
+      "component:uikit:Link:usage",
+      "component:uikit:Link:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:List",
+    "title": "List",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/list",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/List",
+    "breadcrumbs": [
+      "List"
+    ],
+    "description": "Determines the item list height (or a function that returns the height value…",
+    "section_ids": [
+      "component:uikit:List:list",
+      "component:uikit:List:itemsheight",
+      "component:uikit:List:items",
+      "component:uikit:List:filterable",
+      "component:uikit:List:sortable",
+      "component:uikit:List:virtualization",
+      "component:uikit:List:external-management",
+      "component:uikit:List:filter",
+      "component:uikit:List:proptypes"
+    ]
+  },
+  {
+    "id": "component:uikit:Loader",
+    "title": "Loader",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/loader",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Loader",
+    "breadcrumbs": [
+      "Loader"
+    ],
+    "description": "The Loader component displays the loading progress as flashing bars. Unlike…",
+    "section_ids": [
+      "component:uikit:Loader:loader",
+      "component:uikit:Loader:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Menu",
+    "title": "Menu",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/menu",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Menu",
+    "breadcrumbs": [
+      "Menu"
+    ],
+    "description": "The Menu component enables easily creating views for action lists.",
+    "section_ids": [
+      "component:uikit:Menu:menu",
+      "component:uikit:Menu:properties",
+      "component:uikit:Menu:menuitem",
+      "component:uikit:Menu:icon",
+      "component:uikit:Menu:theme",
+      "component:uikit:Menu:properties-2",
+      "component:uikit:Menu:menugroup"
+    ]
+  },
+  {
+    "id": "component:uikit:Modal",
+    "title": "Modal",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/modal",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Modal",
+    "breadcrumbs": [
+      "Modal"
+    ],
+    "description": "The Modal component serves as base for creating pop-up windows with a backdrop…",
+    "section_ids": [
+      "component:uikit:Modal:modal",
+      "component:uikit:Modal:usage",
+      "component:uikit:Modal:properties",
+      "component:uikit:Modal:css-api"
+    ]
+  },
+  {
+    "id": "component:uikit:NumberInput",
+    "title": "NumberInput",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/numberinput",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/NumberInput",
+    "breadcrumbs": [
+      "NumberInput"
+    ],
+    "description": "NumberInput allow users to enter numbers into a UI.",
+    "section_ids": [
+      "component:uikit:NumberInput:numberinput",
+      "component:uikit:NumberInput:appearance",
+      "component:uikit:NumberInput:states",
+      "component:uikit:NumberInput:size",
+      "component:uikit:NumberInput:label",
+      "component:uikit:NumberInput:additional-content",
+      "component:uikit:NumberInput:behaviour",
+      "component:uikit:NumberInput:properties",
+      "component:uikit:NumberInput:css-api"
+    ]
+  },
+  {
+    "id": "component:uikit:Overlay",
+    "title": "Overlay",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/overlay",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Overlay",
+    "breadcrumbs": [
+      "Overlay"
+    ],
+    "description": "The Overlay component renders an overlay over the parent element with the…",
+    "section_ids": [
+      "component:uikit:Overlay:overlay",
+      "component:uikit:Overlay:appearance"
+    ]
+  },
+  {
+    "id": "component:uikit:Pagination",
+    "title": "Pagination",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/pagination",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Pagination",
+    "breadcrumbs": [
+      "Pagination"
+    ],
+    "description": "This component renders pagination.",
+    "section_ids": [
+      "component:uikit:Pagination:pagination",
+      "component:uikit:Pagination:usage",
+      "component:uikit:Pagination:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Palette",
+    "title": "Palette",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/palette",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Palette",
+    "breadcrumbs": [
+      "Palette"
+    ],
+    "description": "The Palette component is used to display a grid of icons, emojis, reactions,…",
+    "section_ids": [
+      "component:uikit:Palette:palette",
+      "component:uikit:Palette:disabled-state",
+      "component:uikit:Palette:size",
+      "component:uikit:Palette:columns",
+      "component:uikit:Palette:multiple",
+      "component:uikit:Palette:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:PinInput",
+    "title": "PinInput",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/pininput",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/PinInput",
+    "breadcrumbs": [
+      "PinInput"
+    ],
+    "description": "PinInput is a group of inputs to enter sequence of numeric or alphanumeric…",
+    "section_ids": [
+      "component:uikit:PinInput:pininput",
+      "component:uikit:PinInput:type",
+      "component:uikit:PinInput:size",
+      "component:uikit:PinInput:state",
+      "component:uikit:PinInput:placeholder",
+      "component:uikit:PinInput:mask",
+      "component:uikit:PinInput:otp",
+      "component:uikit:PinInput:api",
+      "component:uikit:PinInput:css-api",
+      "component:uikit:PinInput:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:PlaceholderContainer",
+    "title": "PlaceholderContainer",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/placeholdercontainer",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/PlaceholderContainer",
+    "breadcrumbs": [
+      "PlaceholderContainer"
+    ],
+    "description": "PlaceholderContainer is a component for displaying content with an image, text…",
+    "section_ids": [
+      "component:uikit:PlaceholderContainer:placeholdercontainer",
+      "component:uikit:PlaceholderContainer:direction",
+      "component:uikit:PlaceholderContainer:size",
+      "component:uikit:PlaceholderContainer:action-controls",
+      "component:uikit:PlaceholderContainer:image-and-content",
+      "component:uikit:PlaceholderContainer:align",
+      "component:uikit:PlaceholderContainer:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Popover",
+    "title": "Popover",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/popover",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Popover",
+    "breadcrumbs": [
+      "Popover"
+    ],
+    "description": "The Popover component is technically the Popup with some trigger interactivity…",
+    "section_ids": [
+      "component:uikit:Popover:popover",
+      "component:uikit:Popover:usage",
+      "component:uikit:Popover:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Popup",
+    "title": "Popup",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/popup",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Popup",
+    "breadcrumbs": [
+      "Popup"
+    ],
+    "description": "You can use a Popup to display floating content above the page. Technically, it…",
+    "section_ids": [
+      "component:uikit:Popup:popup",
+      "component:uikit:Popup:anchor",
+      "component:uikit:Popup:placement",
+      "component:uikit:Popup:properties",
+      "component:uikit:Popup:css-api"
+    ]
+  },
+  {
+    "id": "component:uikit:Portal",
+    "title": "Portal",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/portal",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Portal",
+    "breadcrumbs": [
+      "Portal"
+    ],
+    "description": "Portal is a utility component. Basically, it is a simple wrapper around React's…",
+    "section_ids": [
+      "component:uikit:Portal:portal",
+      "component:uikit:Portal:container",
+      "component:uikit:Portal:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Progress",
+    "title": "Progress",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/progress",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Progress",
+    "breadcrumbs": [
+      "Progress"
+    ],
+    "description": "The Progress component shows current operation progress. It can also be divided…",
+    "section_ids": [
+      "component:uikit:Progress:progress",
+      "component:uikit:Progress:theme",
+      "component:uikit:Progress:states",
+      "component:uikit:Progress:size",
+      "component:uikit:Progress:breakpoints",
+      "component:uikit:Progress:stack"
+    ]
+  },
+  {
+    "id": "component:uikit:Radio",
+    "title": "Radio",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/radio",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Radio",
+    "breadcrumbs": [
+      "Radio"
+    ],
+    "description": "The Radio component allows the users to select a single option from a list of…",
+    "section_ids": [
+      "component:uikit:Radio:radio",
+      "component:uikit:Radio:states",
+      "component:uikit:Radio:size",
+      "component:uikit:Radio:label",
+      "component:uikit:Radio:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:RadioGroup",
+    "title": "RadioGroup",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/radiogroup",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/RadioGroup",
+    "breadcrumbs": [
+      "RadioGroup"
+    ],
+    "description": "The RadioGroup component is used to create a group where users can select a…",
+    "section_ids": [
+      "component:uikit:RadioGroup:radiogroup",
+      "component:uikit:RadioGroup:disabled-state",
+      "component:uikit:RadioGroup:size",
+      "component:uikit:RadioGroup:direction",
+      "component:uikit:RadioGroup:properties",
+      "component:uikit:RadioGroup:radiogroupoption"
+    ]
+  },
+  {
+    "id": "component:uikit:SegmentedRadioGroup",
+    "title": "SegmentedRadioGroup",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/segmentedradiogroup",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/SegmentedRadioGroup",
+    "breadcrumbs": [
+      "SegmentedRadioGroup"
+    ],
+    "description": "The SegmentedRadioGroup component is used to create a group of radio buttons…",
+    "section_ids": [
+      "component:uikit:SegmentedRadioGroup:segmentedradiogroup",
+      "component:uikit:SegmentedRadioGroup:disabled-state",
+      "component:uikit:SegmentedRadioGroup:size",
+      "component:uikit:SegmentedRadioGroup:width",
+      "component:uikit:SegmentedRadioGroup:properties",
+      "component:uikit:SegmentedRadioGroup:segmentedradiogroupoption"
+    ]
+  },
+  {
+    "id": "component:uikit:Select",
+    "title": "Select",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/select",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Select",
+    "breadcrumbs": [
+      "Select"
+    ],
+    "description": "Select is a control that provides a list of options that a user can select.",
+    "section_ids": [
+      "component:uikit:Select:select",
+      "component:uikit:Select:options",
+      "component:uikit:Select:defining-options",
+      "component:uikit:Select:storing-data-in-options",
+      "component:uikit:Select:selecting-multiple-options",
+      "component:uikit:Select:filtering-options",
+      "component:uikit:Select:size",
+      "component:uikit:Select:control-width",
+      "component:uikit:Select:popup-width",
+      "component:uikit:Select:non-virtualized-list",
+      "component:uikit:Select:virtualized-list",
+      "component:uikit:Select:advanced-usage",
+      "component:uikit:Select:rendering-custom-control",
+      "component:uikit:Select:rendering-custom-filter-section",
+      "component:uikit:Select:rendering-custom-options",
+      "component:uikit:Select:rendering-custom-selected-options",
+      "component:uikit:Select:rendering-options-with-different-heights",
+      "component:uikit:Select:rendering-custom-counter",
+      "component:uikit:Select:rendering-options-list",
+      "component:uikit:Select:error",
+      "component:uikit:Select:properties",
+      "component:uikit:Select:css-api"
+    ]
+  },
+  {
+    "id": "component:uikit:Sheet",
+    "title": "Sheet",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/sheet",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Sheet",
+    "breadcrumbs": [
+      "Sheet"
+    ],
+    "description": "Sheet is a component designed for using in the mobile context as an information…",
+    "section_ids": [
+      "component:uikit:Sheet:sheet",
+      "component:uikit:Sheet:usage",
+      "component:uikit:Sheet:properties",
+      "component:uikit:Sheet:css-api"
+    ]
+  },
+  {
+    "id": "component:uikit:Skeleton",
+    "title": "Skeleton",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/skeleton",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Skeleton",
+    "breadcrumbs": [
+      "Skeleton"
+    ],
+    "description": "The Skeleton component displays a placeholder preview of your content before…",
+    "section_ids": [
+      "component:uikit:Skeleton:skeleton",
+      "component:uikit:Skeleton:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Slider",
+    "title": "Slider",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/slider",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Slider",
+    "breadcrumbs": [
+      "Slider"
+    ],
+    "description": "The slider is a customizable and responsive React component that allows users…",
+    "section_ids": [
+      "component:uikit:Slider:slider",
+      "component:uikit:Slider:slider-variations",
+      "component:uikit:Slider:states",
+      "component:uikit:Slider:size",
+      "component:uikit:Slider:value",
+      "component:uikit:Slider:start-point",
+      "component:uikit:Slider:inverted",
+      "component:uikit:Slider:tooltip",
+      "component:uikit:Slider:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Spin",
+    "title": "Spin",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/spin",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Spin",
+    "breadcrumbs": [
+      "Spin"
+    ],
+    "description": "The Spin component displays the loading state (a rotating semicircle) in inline…",
+    "section_ids": [
+      "component:uikit:Spin:spin",
+      "component:uikit:Spin:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Stepper",
+    "title": "Stepper",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/stepper",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Stepper",
+    "breadcrumbs": [
+      "Stepper"
+    ],
+    "description": "Stepper convey progress through numbered steps. It provides a wizard-like…",
+    "section_ids": [
+      "component:uikit:Stepper:stepper",
+      "component:uikit:Stepper:example",
+      "component:uikit:Stepper:interactive-items",
+      "component:uikit:Stepper:different-views",
+      "component:uikit:Stepper:different-sizes",
+      "component:uikit:Stepper:disabled-steps",
+      "component:uikit:Stepper:custom-icons",
+      "component:uikit:Stepper:properties",
+      "component:uikit:Stepper:stepperitemprops",
+      "component:uikit:Stepper:css-api"
+    ]
+  },
+  {
+    "id": "component:uikit:Switch",
+    "title": "Switch",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/switch",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Switch",
+    "breadcrumbs": [
+      "Switch"
+    ],
+    "description": "The Switch component is used to toggle between two states: typically, between…",
+    "section_ids": [
+      "component:uikit:Switch:switch",
+      "component:uikit:Switch:states",
+      "component:uikit:Switch:size",
+      "component:uikit:Switch:label",
+      "component:uikit:Switch:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Table",
+    "title": "Table",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/table",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Table",
+    "breadcrumbs": [
+      "Table"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:uikit:Table:table",
+      "component:uikit:Table:table-2",
+      "component:uikit:Table:properties",
+      "component:uikit:Table:descriptortype",
+      "component:uikit:Table:tablecolumnconfig",
+      "component:uikit:Table:using-table-with-the-withtableactions-hoc",
+      "component:uikit:Table:properties-2",
+      "component:uikit:Table:tableactionconfig",
+      "component:uikit:Table:example",
+      "component:uikit:Table:using-table-with-the-withtablecopy-hoc",
+      "component:uikit:Table:using-table-with-the-withtableselection-hoc",
+      "component:uikit:Table:using-table-with-the-withtablesettings-hoc",
+      "component:uikit:Table:options",
+      "component:uikit:Table:columnmeta",
+      "component:uikit:Table:properties-3",
+      "component:uikit:Table:tablesettingsdata",
+      "component:uikit:Table:rendercontrols",
+      "component:uikit:Table:example-2",
+      "component:uikit:Table:using-table-with-the-withtablesorting-hoc"
+    ]
+  },
+  {
+    "id": "component:uikit:TableColumnSetup",
+    "title": "TableColumnSetup",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/tablecolumnsetup",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/TableColumnSetup",
+    "breadcrumbs": [
+      "TableColumnSetup"
+    ],
+    "description": "The TableColumnSetup component provides a user interface for configuring table…",
+    "section_ids": [
+      "component:uikit:TableColumnSetup:tablecolumnsetup",
+      "component:uikit:TableColumnSetup:status-display",
+      "component:uikit:TableColumnSetup:custom-switcher",
+      "component:uikit:TableColumnSetup:properties",
+      "component:uikit:TableColumnSetup:tablecolumnsetupitem",
+      "component:uikit:TableColumnSetup:switcherprops"
+    ]
+  },
+  {
+    "id": "component:uikit:Text",
+    "title": "Text",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/text",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Text",
+    "breadcrumbs": [
+      "Text"
+    ],
+    "description": "These are the default fonts that can be overridden in the project. You can see…",
+    "section_ids": [
+      "component:uikit:Text:text",
+      "component:uikit:Text:variant",
+      "component:uikit:Text:ellipsis",
+      "component:uikit:Text:white-space",
+      "component:uikit:Text:word-break",
+      "component:uikit:Text:color",
+      "component:uikit:Text:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Toaster",
+    "title": "Toaster",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/toaster",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Toaster",
+    "breadcrumbs": [
+      "Toaster"
+    ],
+    "description": "This is a component for adjustable notifications also known as toasts.",
+    "section_ids": [
+      "component:uikit:Toaster:toaster",
+      "component:uikit:Toaster:using-toaster",
+      "component:uikit:Toaster:using-usetoaster",
+      "component:uikit:Toaster:using-toaster-as-a-hoc",
+      "component:uikit:Toaster:constructor-arguments",
+      "component:uikit:Toaster:methods",
+      "component:uikit:Toaster:more-on-add",
+      "component:uikit:Toaster:css-api"
+    ]
+  },
+  {
+    "id": "component:uikit:Toc",
+    "title": "Toc",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/toc",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Toc",
+    "breadcrumbs": [
+      "Toc"
+    ],
+    "description": "The Toc component is designed to display a table of contents of the page,…",
+    "section_ids": [
+      "component:uikit:Toc:toc",
+      "component:uikit:Toc:usage",
+      "component:uikit:Toc:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:Tooltip",
+    "title": "Tooltip",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/tooltip",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Tooltip",
+    "breadcrumbs": [
+      "Tooltip"
+    ],
+    "description": "A simple text tip that uses its child node as an anchor. This component accepts…",
+    "section_ids": [
+      "component:uikit:Tooltip:tooltip",
+      "component:uikit:Tooltip:usage",
+      "component:uikit:Tooltip:anchor"
+    ]
+  },
+  {
+    "id": "component:uikit:User",
+    "title": "User",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/user",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/User",
+    "breadcrumbs": [
+      "User"
+    ],
+    "description": "This is a general component for displaying a user avatar with an info block. It…",
+    "section_ids": [
+      "component:uikit:User:user",
+      "component:uikit:User:name-and-description",
+      "component:uikit:User:size",
+      "component:uikit:User:properties",
+      "component:uikit:User:css-api"
+    ]
+  },
+  {
+    "id": "component:uikit:UserLabel",
+    "title": "UserLabel",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/userlabel",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/UserLabel",
+    "breadcrumbs": [
+      "UserLabel"
+    ],
+    "description": "The UserLabel component can be used to display users or user-related…",
+    "section_ids": [
+      "component:uikit:UserLabel:userlabel",
+      "component:uikit:UserLabel:type",
+      "component:uikit:UserLabel:avatar"
+    ]
+  },
+  {
+    "id": "component:uikit:tabs",
+    "title": "Tabs components",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/tabs",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/tabs",
+    "breadcrumbs": [
+      "Tabs components"
+    ],
+    "description": "Tabs components is used to explore, organize content and switch between…",
+    "section_ids": [
+      "component:uikit:tabs:tabs-components",
+      "component:uikit:tabs:tabprovider",
+      "component:uikit:tabs:tablist",
+      "component:uikit:tabs:tab",
+      "component:uikit:tabs:icon",
+      "component:uikit:tabs:states",
+      "component:uikit:tabs:counter",
+      "component:uikit:tabs:label",
+      "component:uikit:tabs:properties",
+      "component:uikit:tabs:tabpanel",
+      "component:uikit:tabs:css-api"
+    ]
+  },
+  {
+    "id": "library:components",
+    "title": "@gravity-ui/components · npm package CI storybook",
+    "page_type": "library",
+    "library": "components",
+    "url": "https://gravity-ui.com/libraries/components",
+    "github_url": "https://github.com/gravity-ui/components",
+    "breadcrumbs": [
+      "@gravity-ui/components · npm package CI storybook"
+    ],
+    "description": "A set of complex React components",
+    "section_ids": [
+      "library:components:gravity-uicomponents-npm-package-ci-storybook",
+      "library:components:install"
+    ]
+  },
+  {
+    "id": "component:components:AdaptiveTabs",
+    "title": "AdaptiveTabs",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/adaptivetabs",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/AdaptiveTabs",
+    "breadcrumbs": [
+      "AdaptiveTabs"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:components:AdaptiveTabs:adaptivetabs",
+      "component:components:AdaptiveTabs:tabitem-proptypes",
+      "component:components:AdaptiveTabs:adaptivetabs-proptypes",
+      "component:components:AdaptiveTabs:breakpointsconfig",
+      "component:components:AdaptiveTabs:example"
+    ]
+  },
+  {
+    "id": "component:components:ChangelogDialog",
+    "title": "ChangelogDialog",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/changelogdialog",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/ChangelogDialog",
+    "breadcrumbs": [
+      "ChangelogDialog"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:components:ChangelogDialog:changelogdialog",
+      "component:components:ChangelogDialog:proptypes",
+      "component:components:ChangelogDialog:changelogitem-object",
+      "component:components:ChangelogDialog:imagedata-object",
+      "component:components:ChangelogDialog:changelogstoryclickhandler-function"
+    ]
+  },
+  {
+    "id": "component:components:ConfirmDialog",
+    "title": "ConfirmDialog",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/confirmdialog",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/ConfirmDialog",
+    "breadcrumbs": [
+      "ConfirmDialog"
+    ],
+    "description": "ConfirmDialog is a utility component, which renders confirmation dialogs",
+    "section_ids": [
+      "component:components:ConfirmDialog:confirmdialog",
+      "component:components:ConfirmDialog:properties",
+      "component:components:ConfirmDialog:usage"
+    ]
+  },
+  {
+    "id": "component:components:CookieConsent",
+    "title": "CookieConsent",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/cookieconsent",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/CookieConsent",
+    "breadcrumbs": [
+      "CookieConsent"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:components:CookieConsent:cookieconsent",
+      "component:components:CookieConsent:usage-consentmodebase",
+      "component:components:CookieConsent:usage-consentmodemanage",
+      "component:components:CookieConsent:props"
+    ]
+  },
+  {
+    "id": "component:components:DelayedTextInput",
+    "title": "DelayedTextInput",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/delayedtextinput",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/DelayedTextInput",
+    "breadcrumbs": [
+      "DelayedTextInput"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:components:DelayedTextInput:delayedtextinput"
+    ]
+  },
+  {
+    "id": "component:components:FormRow",
+    "title": "FormRow",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/formrow",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/FormRow",
+    "breadcrumbs": [
+      "FormRow"
+    ],
+    "description": "Base component to place form input and label.",
+    "section_ids": [
+      "component:components:FormRow:formrow",
+      "component:components:FormRow:usage"
+    ]
+  },
+  {
+    "id": "component:components:Gallery",
+    "title": "Gallery",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/gallery",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/Gallery",
+    "breadcrumbs": [
+      "Gallery"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:components:Gallery:gallery",
+      "component:components:Gallery:features",
+      "component:components:Gallery:proptypes",
+      "component:components:Gallery:galleryitem",
+      "component:components:Gallery:image-zoom",
+      "component:components:Gallery:gallery-context",
+      "component:components:Gallery:default-gallery-item-props",
+      "component:components:Gallery:examples"
+    ]
+  },
+  {
+    "id": "component:components:InfiniteScroll",
+    "title": "InfiniteScroll",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/infinitescroll",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/InfiniteScroll",
+    "breadcrumbs": [
+      "InfiniteScroll"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:components:InfiniteScroll:infinitescroll"
+    ]
+  },
+  {
+    "id": "component:components:ItemSelector",
+    "title": "ItemSelector",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/itemselector",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/ItemSelector",
+    "breadcrumbs": [
+      "ItemSelector"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:components:ItemSelector:itemselector",
+      "component:components:ItemSelector:proptypes"
+    ]
+  },
+  {
+    "id": "component:components:Notifications",
+    "title": "Notifications",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/notifications",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/Notifications",
+    "breadcrumbs": [
+      "Notifications"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:components:Notifications:notifications"
+    ]
+  },
+  {
+    "id": "component:components:OnboardingMenu",
+    "title": "OnboardingMenu",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/onboardingmenu",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/OnboardingMenu",
+    "breadcrumbs": [
+      "OnboardingMenu"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:components:OnboardingMenu:onboardingmenu",
+      "component:components:OnboardingMenu:props"
+    ]
+  },
+  {
+    "id": "component:components:PromoSheet",
+    "title": "PromoSheet",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/promosheet",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/PromoSheet",
+    "breadcrumbs": [
+      "PromoSheet"
+    ],
+    "description": "A component for displaying a promo dialog informing the user about a new…",
+    "section_ids": [
+      "component:components:PromoSheet:promosheet"
+    ]
+  },
+  {
+    "id": "component:components:Reactions",
+    "title": "Reactions",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/reactions",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/Reactions",
+    "breadcrumbs": [
+      "Reactions"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:components:Reactions:reactions",
+      "component:components:Reactions:usage-example",
+      "component:components:Reactions:props"
+    ]
+  },
+  {
+    "id": "component:components:SharePopover",
+    "title": "SharePopover",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/sharepopover",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/SharePopover",
+    "breadcrumbs": [
+      "SharePopover"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:components:SharePopover:sharepopover",
+      "component:components:SharePopover:proptypes",
+      "component:components:SharePopover:examples"
+    ]
+  },
+  {
+    "id": "component:components:StoreBadge",
+    "title": "StoreBadge",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/storebadge",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/StoreBadge",
+    "breadcrumbs": [
+      "StoreBadge"
+    ],
+    "description": "Store Badge can be used to place links to the Google Play and AppStore app…",
+    "section_ids": [
+      "component:components:StoreBadge:storebadge",
+      "component:components:StoreBadge:description",
+      "component:components:StoreBadge:properties"
+    ]
+  },
+  {
+    "id": "component:components:Stories",
+    "title": "Stories",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/stories",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/Stories",
+    "breadcrumbs": [
+      "Stories"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:components:Stories:stories",
+      "component:components:Stories:proptypes",
+      "component:components:Stories:storiesitem-object",
+      "component:components:Stories:storiesitemmedia-object",
+      "component:components:Stories:storiesitemtextstyles-object"
+    ]
+  },
+  {
+    "id": "component:components:StoriesGroup",
+    "title": "StoriesGroup",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/storiesgroup",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/StoriesGroup",
+    "breadcrumbs": [
+      "StoriesGroup"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:components:StoriesGroup:storiesgroup",
+      "component:components:StoriesGroup:proptypes",
+      "component:components:StoriesGroup:storiesgroupitem-object"
+    ]
+  },
+  {
+    "id": "library:date-components",
+    "title": "@gravity-ui/date-components · npm package CI storybook coverage tests-report",
+    "page_type": "library",
+    "library": "date-components",
+    "url": "https://gravity-ui.com/libraries/date-components",
+    "github_url": "https://github.com/gravity-ui/date-components",
+    "breadcrumbs": [
+      "@gravity-ui/date-components · npm package CI storybook coverage tests-report"
+    ],
+    "description": "If the app supports language switching, preload all supported locales when the…",
+    "section_ids": [
+      "library:date-components:gravity-uidate-components-npm-package-ci-storybook-coverage-tests-report",
+      "library:date-components:install",
+      "library:date-components:usage",
+      "library:date-components:development"
+    ]
+  },
+  {
+    "id": "component:date-components:Calendar",
+    "title": "Calendar",
+    "page_type": "component",
+    "library": "date-components",
+    "url": "https://gravity-ui.com/components/date-components/calendar",
+    "github_url": "https://github.com/gravity-ui/date-components/tree/main/src/components/Calendar",
+    "breadcrumbs": [
+      "Calendar"
+    ],
+    "description": "Calendar is a flexible, user-friendly calendar component for React…",
+    "section_ids": [
+      "component:date-components:Calendar:calendar",
+      "component:date-components:Calendar:useful-addition",
+      "component:date-components:Calendar:size",
+      "component:date-components:Calendar:value",
+      "component:date-components:Calendar:mode",
+      "component:date-components:Calendar:states",
+      "component:date-components:Calendar:focused-value",
+      "component:date-components:Calendar:multiple-selection",
+      "component:date-components:Calendar:time-zone",
+      "component:date-components:Calendar:properties"
+    ]
+  },
+  {
+    "id": "component:date-components:DateField",
+    "title": "DateField",
+    "page_type": "component",
+    "library": "date-components",
+    "url": "https://gravity-ui.com/components/date-components/datefield",
+    "github_url": "https://github.com/gravity-ui/date-components/tree/main/src/components/DateField",
+    "breadcrumbs": [
+      "DateField"
+    ],
+    "description": "DateField component is a versatile and convenient input field specifically…",
+    "section_ids": [
+      "component:date-components:DateField:datefield",
+      "component:date-components:DateField:useful-addition",
+      "component:date-components:DateField:appearance",
+      "component:date-components:DateField:value",
+      "component:date-components:DateField:states",
+      "component:date-components:DateField:additional-content",
+      "component:date-components:DateField:time-zone",
+      "component:date-components:DateField:properties"
+    ]
+  },
+  {
+    "id": "component:date-components:DatePicker",
+    "title": "DatePicker",
+    "page_type": "component",
+    "library": "date-components",
+    "url": "https://gravity-ui.com/components/date-components/datepicker",
+    "github_url": "https://github.com/gravity-ui/date-components/tree/main/src/components/DatePicker",
+    "breadcrumbs": [
+      "DatePicker"
+    ],
+    "description": "DatePicker is a sophisticated, lightweight, and fully customizable component…",
+    "section_ids": [
+      "component:date-components:DatePicker:datepicker",
+      "component:date-components:DatePicker:appearance",
+      "component:date-components:DatePicker:value",
+      "component:date-components:DatePicker:states",
+      "component:date-components:DatePicker:additional-content",
+      "component:date-components:DatePicker:format",
+      "component:date-components:DatePicker:time-zone",
+      "component:date-components:DatePicker:customisation",
+      "component:date-components:DatePicker:properties"
+    ]
+  },
+  {
+    "id": "component:date-components:RangeCalendar",
+    "title": "RangeCalendar",
+    "page_type": "component",
+    "library": "date-components",
+    "url": "https://gravity-ui.com/components/date-components/rangecalendar",
+    "github_url": "https://github.com/gravity-ui/date-components/tree/main/src/components/RangeCalendar",
+    "breadcrumbs": [
+      "RangeCalendar"
+    ],
+    "description": "RangeCalendar is a powerful, flexible, and user-friendly UI component designed…",
+    "section_ids": [
+      "component:date-components:RangeCalendar:rangecalendar",
+      "component:date-components:RangeCalendar:size",
+      "component:date-components:RangeCalendar:value",
+      "component:date-components:RangeCalendar:mode",
+      "component:date-components:RangeCalendar:states",
+      "component:date-components:RangeCalendar:focused-value",
+      "component:date-components:RangeCalendar:time-zone",
+      "component:date-components:RangeCalendar:properties"
+    ]
+  },
+  {
+    "id": "component:date-components:RelativeDateField",
+    "title": "RelativeDateField",
+    "page_type": "component",
+    "library": "date-components",
+    "url": "https://gravity-ui.com/components/date-components/relativedatefield",
+    "github_url": "https://github.com/gravity-ui/date-components/tree/main/src/components/RelativeDateField",
+    "breadcrumbs": [
+      "RelativeDateField"
+    ],
+    "description": "RelativeDateField component is used only for entering relative dates. It can't…",
+    "section_ids": [
+      "component:date-components:RelativeDateField:relativedatefield",
+      "component:date-components:RelativeDateField:relative-input",
+      "component:date-components:RelativeDateField:valid-input-rules",
+      "component:date-components:RelativeDateField:properties"
+    ]
+  },
+  {
+    "id": "component:date-components:RelativeDatePicker",
+    "title": "RelativeDatePicker",
+    "page_type": "component",
+    "library": "date-components",
+    "url": "https://gravity-ui.com/components/date-components/relativedatepicker",
+    "github_url": "https://github.com/gravity-ui/date-components/tree/main/src/components/RelativeDatePicker",
+    "breadcrumbs": [
+      "RelativeDatePicker"
+    ],
+    "description": "RelativeDatePicker is almost the same component as DatePicker but it has…",
+    "section_ids": [
+      "component:date-components:RelativeDatePicker:relativedatepicker",
+      "component:date-components:RelativeDatePicker:difference-from-datepicker",
+      "component:date-components:RelativeDatePicker:properties"
+    ]
+  },
+  {
+    "id": "library:navigation",
+    "title": "@gravity-ui/navigation · npm package CI storybook",
+    "page_type": "library",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/libraries/navigation",
+    "github_url": "https://github.com/gravity-ui/navigation",
+    "breadcrumbs": [
+      "@gravity-ui/navigation · npm package CI storybook"
+    ],
+    "description": "Ensure that peer dependencies are installed in your project",
+    "section_ids": [
+      "library:navigation:gravity-uinavigation-npm-package-ci-storybook",
+      "library:navigation:install",
+      "library:navigation:sandboxes",
+      "library:navigation:roadmap-2025",
+      "library:navigation:components",
+      "library:navigation:css-api"
+    ]
+  },
+  {
+    "id": "component:navigation:ActionBar",
+    "title": "ActionBar",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/actionbar",
+    "github_url": "https://github.com/gravity-ui/navigation/tree/main/src/components/ActionBar",
+    "breadcrumbs": [
+      "ActionBar"
+    ],
+    "description": "The component is a flexible horizontal bar that provides a standardized layout…",
+    "section_ids": [
+      "component:navigation:ActionBar:actionbar",
+      "component:navigation:ActionBar:usage",
+      "component:navigation:ActionBar:properties",
+      "component:navigation:ActionBar:actionbarsection",
+      "component:navigation:ActionBar:actionbargroup",
+      "component:navigation:ActionBar:actionbaritem",
+      "component:navigation:ActionBar:actionbarseparator"
+    ]
+  },
+  {
+    "id": "component:navigation:AsideHeader",
+    "title": "AsideHeader",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/asideheader",
+    "github_url": "https://github.com/gravity-ui/navigation/tree/main/src/components/AsideHeader",
+    "breadcrumbs": [
+      "AsideHeader"
+    ],
+    "description": "AsideHeader is provided a flexible and customizable navigation experience…",
+    "section_ids": [
+      "component:navigation:AsideHeader:asideheader",
+      "component:navigation:AsideHeader:appearance",
+      "component:navigation:AsideHeader:sections",
+      "component:navigation:AsideHeader:elements",
+      "component:navigation:AsideHeader:rendering-content",
+      "component:navigation:AsideHeader:properties",
+      "component:navigation:AsideHeader:asideheaderitem",
+      "component:navigation:AsideHeader:menugroup",
+      "component:navigation:AsideHeader:topalert",
+      "component:navigation:AsideHeader:css-api"
+    ]
+  },
+  {
+    "id": "component:navigation:Footer",
+    "title": "Footer",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/footer",
+    "github_url": "https://github.com/gravity-ui/navigation/tree/main/src/components/Footer",
+    "breadcrumbs": [
+      "Footer",
+      "Footer and MobileFooter"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:navigation:Footer:footer-and-mobilefooter",
+      "component:navigation:Footer:proptypes",
+      "component:navigation:Footer:view",
+      "component:navigation:Footer:usage",
+      "component:navigation:Footer:examples"
+    ]
+  },
+  {
+    "id": "component:navigation:HotkeysPanel",
+    "title": "HotkeysPanel",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/hotkeyspanel",
+    "github_url": "https://github.com/gravity-ui/navigation/tree/main/src/components/HotkeysPanel",
+    "breadcrumbs": [
+      "HotkeysPanel"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:navigation:HotkeysPanel:hotkeyspanel",
+      "component:navigation:HotkeysPanel:hotkeyspanel-2",
+      "component:navigation:HotkeysPanel:css-api"
+    ]
+  },
+  {
+    "id": "component:navigation:MobileHeader",
+    "title": "MobileHeader",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/mobileheader",
+    "github_url": "https://github.com/gravity-ui/navigation/tree/main/src/components/MobileHeader",
+    "breadcrumbs": [
+      "MobileHeader"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:navigation:MobileHeader:mobileheader",
+      "component:navigation:MobileHeader:mobileheader-vars"
+    ]
+  },
+  {
+    "id": "component:navigation:Settings",
+    "title": "Settings",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/settings",
+    "github_url": "https://github.com/gravity-ui/navigation/tree/main/src/components/Settings",
+    "breadcrumbs": [
+      "Settings"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:navigation:Settings:settings",
+      "component:navigation:Settings:settings-2",
+      "component:navigation:Settings:usage",
+      "component:navigation:Settings:properties",
+      "component:navigation:Settings:settingsgroup",
+      "component:navigation:Settings:settingspage",
+      "component:navigation:Settings:settingssection",
+      "component:navigation:Settings:settingsitem"
+    ]
+  }
+]
