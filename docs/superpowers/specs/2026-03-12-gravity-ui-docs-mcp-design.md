@@ -27,6 +27,41 @@ All content is fetched from GitHub as raw markdown/MDX. No web crawling, no brow
 
 **Locale:** English only. No `/ru/` variants.
 
+**Authentication:** A `GITHUB_TOKEN` environment variable is supported for higher rate limits (5000 req/hr vs 60 unauthenticated). The ingest pipeline checks for it and warns if missing. If rate-limited, the pipeline waits for the reset window and retries. Cached `data/raw-pages.json` from a previous run can be used as fallback for failed fetches.
+
+---
+
+## ID Format
+
+Stable, deterministic IDs for pages and chunks:
+
+| Type | Page ID | Chunk ID |
+|------|---------|----------|
+| Guide | `guide:{page_name}` | `guide:{page_name}:{section_slug}` |
+| Component | `component:{library}:{name}` | `component:{library}:{name}:{section_slug}` |
+| Library | `library:{library}` | `library:{library}:{section_slug}` |
+
+`section_slug` is derived from the heading text: lowercased, non-alphanumeric replaced with hyphens, deduplicated.
+
+Examples:
+- `guide:Button` → `guide:Button:sizes-and-shapes`
+- `component:uikit:Button` → `component:uikit:Button:properties`
+- `library:navigation` → `library:navigation:installation`
+
+---
+
+## Canonical URL Mapping
+
+GitHub paths are mapped to gravity-ui.com URLs:
+
+| Source | URL pattern |
+|--------|------------|
+| Design guide MDX: `.../en/{Name}.mdx` | `https://gravity-ui.com/design/guides?sectionId=guides&articleId={name}` |
+| Component README: `gravity-ui/{repo}/.../{Name}/README.md` | `https://gravity-ui.com/components/{repo}/{name}` |
+| Library README: `gravity-ui/{repo}/README.md` | `https://gravity-ui.com/libraries/{repo}` |
+
+`{name}` is lowercased from `{Name}`.
+
 ---
 
 ## Ingest Pipeline
@@ -38,10 +73,11 @@ Three stages, fully offline after fetch. Single entry point: `npm run ingest`.
 1. Call GitHub API tree endpoint for `gravity-ui/landing` to list all `en/*.mdx` design guide files
 2. Call GitHub API tree endpoints for each library repo to enumerate `src/components/*/README.md`
 3. Fetch each library's root `README.md`
-4. Download all files from `raw.githubusercontent.com`
-5. Small delay between requests to be polite
-6. Failed fetches logged and skipped, not fatal
-7. Output: `data/raw-pages.json` — map of URL → raw markdown content
+4. Download all files from `raw.githubusercontent.com` (uses `GITHUB_TOKEN` if set)
+5. 100ms delay between requests; exponential backoff on 429/403
+6. Failed fetches logged and skipped; falls back to cached `raw-pages.json` if available
+7. Records source commit SHA per repo (from tree API response)
+8. Output: `data/raw-pages.json` — map of URL → raw markdown content + source SHAs
 
 ### Stage 2: Parse & Chunk
 
@@ -53,21 +89,21 @@ For each raw page:
    - Page type: `guide` | `component` | `library`
    - Library name (from path)
    - Breadcrumbs (from path hierarchy)
-   - Short description: first substantive sentence, 30-50 chars, describing "what it is" (strip install instructions, badges, imports)
+   - Short description: first substantive sentence, target ~30-50 chars (soft guideline, not a hard limit — can go up to ~80 if needed for clarity). Strip install instructions, badges, imports. Describes "what it is."
 3. **Extract heading hierarchy**: h1 → h2 → h3
 4. **Split into semantic chunks at h2 boundaries**
    - Further split at h3 if an h2 section exceeds ~3000 chars
    - Keep code blocks attached to their parent section
-5. **Generate stable section IDs**: `{page_type}:{library}:{page_name}:{section_slug}`
-   - `section_slug` derived from heading text, lowercased, hyphenated
+5. **Generate stable section IDs** per the ID Format table above
 6. **Extract code examples** as separate array per chunk
+7. **Extract keywords**: component/library name, all heading words tokenized, prop names from API tables if present. No external alias mapping — keywords are derived from the document content only.
 
 **Chunk schema:**
 ```typescript
 interface Chunk {
-  id: string;               // stable section ID
-  page_id: string;          // parent page ID
-  page_url: string;         // canonical gravity-ui.com URL
+  id: string;               // stable section ID (see ID Format table)
+  page_id: string;          // parent page ID (see ID Format table)
+  url: string;              // canonical gravity-ui.com URL
   page_title: string;
   page_type: "guide" | "component" | "library";
   library?: string;
@@ -75,21 +111,21 @@ interface Chunk {
   breadcrumbs: string[];
   content: string;          // markdown text without code blocks
   code_examples: string[];  // extracted code blocks
-  keywords: string[];       // component name, heading words, aliases
+  keywords: string[];       // stored as array, joined to space-separated string for MiniSearch indexing
 }
 ```
 
 **Page schema:**
 ```typescript
 interface Page {
-  id: string;               // e.g. "guide:Button", "component:uikit:Button"
+  id: string;               // see ID Format table
   title: string;
   page_type: "guide" | "component" | "library";
   library?: string;
-  url: string;
+  url: string;              // canonical gravity-ui.com URL
   github_url?: string;
   breadcrumbs: string[];
-  description: string;      // short, 30-50 chars
+  description: string;      // short, ~30-50 chars target
   section_ids: string[];    // ordered list of chunk IDs
 }
 ```
@@ -111,6 +147,9 @@ MiniSearch config:
 - Prefix search enabled
 - Fuzzy matching with threshold 0.2
 - Combine score with field weights
+- `keywords` field uses custom `extractField` that joins the `string[]` to a space-separated string before indexing
+
+Expected index size: ~500 chunks, serialized JSON ~1-3 MB.
 
 Output: `data/search-index.json` (serialized MiniSearch)
 
@@ -143,7 +182,7 @@ Output:
     page_type: string,
     library?: string,
     section_title: string,
-    snippet: string (~200 chars),
+    snippet: string,      // first 200 chars of chunk content, truncated at word boundary
     url: string
   }]
   total_matches: number
@@ -168,7 +207,7 @@ Output:
   breadcrumbs: string[],
   content: string (full markdown),
   code_examples: string[],
-  related_sections: [{section_id: string, title: string}],
+  related_sections: [{section_id: string, title: string}],  // sibling chunks on the same page, derived from page.section_ids
   url: string
 ```
 
@@ -195,8 +234,8 @@ Output:
   sections: [{
     section_id: string,
     title: string,
-    summary: string (~150 chars),
-    has_code: boolean
+    summary: string,     // first 150 chars of chunk content, truncated at word boundary
+    has_code: boolean    // true if chunk has any code_examples
   }]
 ```
 
@@ -233,6 +272,7 @@ Input: (none)
 
 Output:
   indexed_at: string (ISO date),
+  source_commits: {[repo: string]: string},  // repo → commit SHA at time of ingest
   libraries: [{id: string, title: string, component_count: number}],
   total_pages: number,
   total_sections: number,
@@ -291,6 +331,8 @@ gravityui-reference-mcp/
 | Native `fetch` (Node 18+) | HTTP requests to GitHub |
 
 No Playwright. No Cheerio. No Turndown. No vector DB.
+
+**Runtime requirement:** Node.js >= 18 (for native `fetch`). Enforced via `engines` field in `package.json`.
 
 ## Scripts
 
