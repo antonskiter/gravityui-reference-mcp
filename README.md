@@ -22,46 +22,12 @@ npm install
 
 ## Usage
 
-### With Claude Code
-
-Add to your Claude Code MCP config (`~/.claude/claude_desktop_config.json` or project-level `.mcp.json`):
-
-```json
-{
-  "mcpServers": {
-    "gravityui-docs": {
-      "command": "npx",
-      "args": ["tsx", "src/server/server.ts"],
-      "cwd": "/path/to/gravityui-reference-mcp"
-    }
-  }
-}
-```
-
-### With Cursor
-
-Add to your Cursor MCP config (`.cursor/mcp.json` in your project or `~/.cursor/mcp.json` globally):
-
-```json
-{
-  "mcpServers": {
-    "gravityui-docs": {
-      "command": "npx",
-      "args": ["tsx", "src/server/server.ts"],
-      "cwd": "/path/to/gravityui-reference-mcp"
-    }
-  }
-}
-```
-
-Then restart Cursor or reload the MCP servers from **Cursor Settings > MCP**.
-
-### Local setup step-by-step
+### Local setup
 
 1. **Clone and install**
 
    ```bash
-   git clone https://github.com/<your-org>/gravityui-reference-mcp.git
+   git clone https://github.com/antonskiter/gravityui-reference-mcp.git
    cd gravityui-reference-mcp
    npm install
    ```
@@ -75,50 +41,53 @@ Then restart Cursor or reload the MCP servers from **Cursor Settings > MCP**.
    You should see no errors — the server communicates over stdio and waits for MCP messages.
    Press `Ctrl+C` to stop it.
 
-3. **Register in Claude Code** — add the server to your project-level `.mcp.json` (recommended) or to `~/.claude/claude_desktop_config.json`:
+### With Claude Code
 
-   ```bash
-   # From the project where you want Gravity UI docs available:
-   claude mcp add gravityui-docs -- npx tsx /absolute/path/to/gravityui-reference-mcp/src/server/server.ts
-   ```
+Register the server globally (available in all projects):
 
-   Or manually create/edit `.mcp.json` at the root of your project:
+```bash
+claude mcp add gravityui-docs -s user -- npx tsx /absolute/path/to/gravityui-reference-mcp/src/server/server.ts
+```
 
-   ```json
-   {
-     "mcpServers": {
-       "gravityui-docs": {
-         "command": "npx",
-         "args": ["tsx", "src/server/server.ts"],
-         "cwd": "/absolute/path/to/gravityui-reference-mcp"
-       }
-     }
-   }
-   ```
+Or for a single project only:
 
-4. **Register in Cursor** — create or edit `.cursor/mcp.json` at the root of your project (or `~/.cursor/mcp.json` globally):
+```bash
+claude mcp add gravityui-docs -- npx tsx /absolute/path/to/gravityui-reference-mcp/src/server/server.ts
+```
 
-   ```json
-   {
-     "mcpServers": {
-       "gravityui-docs": {
-         "command": "npx",
-         "args": ["tsx", "src/server/server.ts"],
-         "cwd": "/absolute/path/to/gravityui-reference-mcp"
-       }
-     }
-   }
-   ```
+Verify the connection:
 
-   Then open **Cursor Settings > MCP** and verify the server appears with a green status indicator.
+```bash
+claude mcp list
+# gravityui-docs: ... - ✓ Connected
+```
 
-5. **Test** — ask your AI assistant something like:
+> **Important:** Use the absolute path to `src/server/server.ts`. The `claude mcp add` CLI does not support `cwd`, so relative paths won't work.
 
-   > What Gravity UI components are available for date picking?
+### With Cursor
 
-   It should use the `search_docs` or `list_components` tools to answer from the indexed documentation.
+Create or edit `.cursor/mcp.json` in your project root (or `~/.cursor/mcp.json` globally):
 
-> **Tip:** Replace `/absolute/path/to/gravityui-reference-mcp` with the actual path where you cloned the repo. The `cwd` field is required so the server can find the pre-ingested data.
+```json
+{
+  "mcpServers": {
+    "gravityui-docs": {
+      "command": "npx",
+      "args": ["tsx", "/absolute/path/to/gravityui-reference-mcp/src/server/server.ts"]
+    }
+  }
+}
+```
+
+Then restart Cursor or reload the MCP servers from **Cursor Settings > MCP**. The server should appear with a green status indicator.
+
+### Test it
+
+Ask your AI assistant something like:
+
+> What Gravity UI components are available for date picking?
+
+It should use the `search_docs` or `list_components` tools to answer from the indexed documentation.
 
 ### Standalone (stdio)
 

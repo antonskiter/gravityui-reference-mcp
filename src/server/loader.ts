@@ -1,10 +1,13 @@
 import { readFileSync } from "node:fs";
-import { join } from "node:path";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import { deserializeIndex } from "../ingest/index.js";
 import type { Page, Chunk, IngestMetadata } from "../types.js";
 import type MiniSearch from "minisearch";
 
-const DATA_DIR = join(process.cwd(), "data");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const DATA_DIR = join(__dirname, "..", "..", "data");
 
 export interface LoadedData {
   pages: Page[];
