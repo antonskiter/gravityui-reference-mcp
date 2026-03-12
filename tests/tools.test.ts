@@ -183,12 +183,21 @@ describe("handleGetSection", () => {
     expect(output.section_title).toBe("Appearance");
   });
 
-  it("includes related_sections (siblings on same page)", () => {
+  it("includes breadcrumbs from chunk", () => {
+    const output = handleGetSection(mockData, { section_id: "guide:Button:appearance" });
+    if ("error" in output) throw new Error("Expected success");
+    expect(output.breadcrumbs).toEqual(["Guides", "Button", "Appearance"]);
+  });
+
+  it("includes related_sections (siblings on same page) with title field", () => {
     const output = handleGetSection(mockData, { section_id: "guide:Button:appearance" });
     if ("error" in output) throw new Error("Expected success");
     const relatedIds = output.related_sections.map(r => r.section_id);
     expect(relatedIds).toContain("guide:Button:sizes");
     expect(relatedIds).not.toContain("guide:Button:appearance");
+    // Verify it uses 'title' not 'section_title'
+    expect(output.related_sections[0]).toHaveProperty("title");
+    expect(output.related_sections[0]).not.toHaveProperty("section_title");
   });
 
   it("returns error for unknown section ID", () => {
@@ -238,18 +247,17 @@ describe("handleGetPage", () => {
 // ---------------------------------------------------------------------------
 
 describe("handleListComponents", () => {
-  it("groups component pages by library", () => {
+  it("groups component pages by library in libraries array", () => {
     const output = handleListComponents(mockData, {});
-    expect(output.components_by_library).toHaveProperty("uikit");
-    const uikitComponents = output.components_by_library["uikit"];
-    expect(uikitComponents).toBeDefined();
-    expect(uikitComponents.some(c => c.name === "Select")).toBe(true);
+    const uikitLib = output.libraries.find(l => l.id === "uikit");
+    expect(uikitLib).toBeDefined();
+    expect(uikitLib!.components.some(c => c.name === "Select")).toBe(true);
   });
 
   it("does not include guide pages in component list", () => {
     const output = handleListComponents(mockData, {});
-    for (const components of Object.values(output.components_by_library)) {
-      for (const comp of components) {
+    for (const lib of output.libraries) {
+      for (const comp of lib.components) {
         expect(comp.page_id).not.toMatch(/^guide:/);
       }
     }
@@ -257,18 +265,15 @@ describe("handleListComponents", () => {
 
   it("filters by library", () => {
     const output = handleListComponents(mockData, { library: "uikit" });
-    const keys = Object.keys(output.components_by_library);
-    expect(keys).toContain("uikit");
-    // Only uikit library should be present
-    for (const key of keys) {
-      expect(key).toBe("uikit");
-    }
+    expect(output.libraries).toHaveLength(1);
+    expect(output.libraries[0].id).toBe("uikit");
   });
 
   it("sets has_design_guide when a guide page with matching name exists", () => {
     // "Button" guide exists; "Select" does not (guide:Button, component:uikit:Select)
     const output = handleListComponents(mockData, {});
-    const selectComp = output.components_by_library["uikit"]?.find(c => c.name === "Select");
+    const uikitLib = output.libraries.find(l => l.id === "uikit");
+    const selectComp = uikitLib?.components.find(c => c.name === "Select");
     // There's no guide page named "Select", so has_design_guide should be false
     expect(selectComp?.has_design_guide).toBe(false);
   });
@@ -292,7 +297,8 @@ describe("handleListComponents", () => {
       pageById: new Map(pages.map(p => [p.id, p])),
     };
     const output = handleListComponents(testData, { library: "uikit" });
-    const names = output.components_by_library["uikit"].map(c => c.name);
+    const uikitLib = output.libraries.find(l => l.id === "uikit");
+    const names = uikitLib!.components.map(c => c.name);
     expect(names).toEqual([...names].sort());
   });
 });
@@ -302,17 +308,21 @@ describe("handleListComponents", () => {
 // ---------------------------------------------------------------------------
 
 describe("handleListSources", () => {
-  it("returns metadata with counts grouped by type", () => {
+  it("returns metadata with page_counts and libraries array", () => {
     const output = handleListSources(mockData);
     expect(output.indexed_at).toBe(mockMetadata.indexed_at);
     expect(output.source_commits).toEqual(mockMetadata.source_commits);
     expect(output.total_pages).toBe(2);
     expect(output.total_sections).toBe(3);
-    expect(output.by_type).toHaveProperty("guide");
-    expect(output.by_type).toHaveProperty("component");
-    expect(output.by_type["guide"].page_count).toBe(1);
-    expect(output.by_type["guide"].section_count).toBe(2);
-    expect(output.by_type["component"].page_count).toBe(1);
-    expect(output.by_type["component"].section_count).toBe(1);
+    expect(output.page_counts.guides).toBe(1);
+    expect(output.page_counts.components).toBe(1);
+    expect(output.page_counts.libraries).toBe(0);
+  });
+
+  it("returns libraries array with component counts", () => {
+    const output = handleListSources(mockData);
+    const uikitLib = output.libraries.find(l => l.id === "uikit");
+    expect(uikitLib).toBeDefined();
+    expect(uikitLib!.component_count).toBe(1);
   });
 });

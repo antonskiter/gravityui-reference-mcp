@@ -1,36 +1,61 @@
 import type { LoadedData } from "../loader.js";
-import type { PageType } from "../../types.js";
 
-export interface PageTypeStats {
-  page_count: number;
-  section_count: number;
+export interface LibrarySummary {
+  id: string;
+  title: string;
+  component_count: number;
 }
 
 export interface ListSourcesOutput {
   indexed_at: string;
   source_commits: Record<string, string>;
+  libraries: LibrarySummary[];
   total_pages: number;
   total_sections: number;
-  by_type: Record<PageType, PageTypeStats>;
+  page_counts: { guides: number; components: number; libraries: number };
 }
 
 export function handleListSources(data: LoadedData): ListSourcesOutput {
-  const byType: Record<string, PageTypeStats> = {};
+  let guides = 0;
+  let components = 0;
+  let libraryPages = 0;
+
+  const libComponentCounts = new Map<string, number>();
 
   for (const page of data.pages) {
-    const type = page.page_type;
-    if (!byType[type]) {
-      byType[type] = { page_count: 0, section_count: 0 };
+    switch (page.page_type) {
+      case "guide":
+        guides++;
+        break;
+      case "component":
+        components++;
+        if (page.library) {
+          libComponentCounts.set(
+            page.library,
+            (libComponentCounts.get(page.library) ?? 0) + 1,
+          );
+        }
+        break;
+      case "library":
+        libraryPages++;
+        // Ensure library appears even if it has no components
+        if (page.library && !libComponentCounts.has(page.library)) {
+          libComponentCounts.set(page.library, 0);
+        }
+        break;
     }
-    byType[type].page_count += 1;
-    byType[type].section_count += page.section_ids.length;
   }
+
+  const libraries: LibrarySummary[] = [...libComponentCounts.entries()]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([id, count]) => ({ id, title: id, component_count: count }));
 
   return {
     indexed_at: data.metadata.indexed_at,
     source_commits: data.metadata.source_commits,
+    libraries,
     total_pages: data.pages.length,
     total_sections: data.chunks.length,
-    by_type: byType as Record<PageType, PageTypeStats>,
+    page_counts: { guides, components, libraries: libraryPages },
   };
 }

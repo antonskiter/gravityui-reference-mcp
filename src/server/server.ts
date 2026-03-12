@@ -19,7 +19,7 @@ server.tool(
   {
     query: z.string().describe("The search query or question"),
     limit: z.number().int().min(1).max(10).optional().describe("Maximum number of results to return (1-10)"),
-    page_type: z.enum(["component", "guide", "overview"]).optional().describe("Filter results by page type"),
+    page_type: z.enum(["component", "guide", "library"]).optional().describe("Filter results by page type"),
     library: z.string().optional().describe("Filter results by library name"),
   },
   (args) => {

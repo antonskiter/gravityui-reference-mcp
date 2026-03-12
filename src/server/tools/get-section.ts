@@ -6,7 +6,7 @@ export interface GetSectionInput {
 
 export interface RelatedSection {
   section_id: string;
-  section_title: string;
+  title: string;
 }
 
 export interface GetSectionOutput {
@@ -16,6 +16,7 @@ export interface GetSectionOutput {
   page_type: string;
   library?: string;
   section_title: string;
+  breadcrumbs: string[];
   content: string;
   code_examples: string[];
   url: string;
@@ -43,7 +44,7 @@ export function handleGetSection(
     .map(id => {
       const sibling = data.chunkById.get(id);
       if (!sibling) return null;
-      return { section_id: sibling.id, section_title: sibling.section_title };
+      return { section_id: sibling.id, title: sibling.section_title };
     })
     .filter((s): s is RelatedSection => s !== null);
 
@@ -54,6 +55,7 @@ export function handleGetSection(
     page_type: chunk.page_type,
     library: chunk.library,
     section_title: chunk.section_title,
+    breadcrumbs: chunk.breadcrumbs,
     content: chunk.content,
     code_examples: chunk.code_examples,
     url: chunk.url,

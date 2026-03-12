@@ -5,21 +5,20 @@ export interface ListComponentsInput {
 }
 
 export interface ComponentEntry {
-  page_id: string;
   name: string;
-  library: string;
-  url: string;
+  page_id: string;
   description: string;
   has_design_guide: boolean;
 }
 
-export interface ComponentsByLibrary {
-  [library: string]: ComponentEntry[];
+export interface LibraryGroup {
+  id: string;
+  title: string;
+  components: ComponentEntry[];
 }
 
 export interface ListComponentsOutput {
-  components_by_library: ComponentsByLibrary;
-  total: number;
+  libraries: LibraryGroup[];
 }
 
 export function handleListComponents(
@@ -43,32 +42,38 @@ export function handleListComponents(
     }
   }
 
-  const componentsByLibrary: ComponentsByLibrary = {};
+  // Group by library
+  const groupMap = new Map<string, ComponentEntry[]>();
 
   for (const page of componentPages) {
     const lib = page.library ?? "unknown";
-    if (!componentsByLibrary[lib]) {
-      componentsByLibrary[lib] = [];
+    if (!groupMap.has(lib)) {
+      groupMap.set(lib, []);
     }
 
     const has_design_guide = guideNames.has(page.title.toLowerCase());
 
-    componentsByLibrary[lib].push({
-      page_id: page.id,
+    groupMap.get(lib)!.push({
       name: page.title,
-      library: lib,
-      url: page.url,
+      page_id: page.id,
       description: page.description,
       has_design_guide,
     });
   }
 
-  // Sort by name within each library
-  for (const lib of Object.keys(componentsByLibrary)) {
-    componentsByLibrary[lib].sort((a, b) => a.name.localeCompare(b.name));
+  // Sort components by name within each library, build output
+  const libraries: LibraryGroup[] = [];
+  for (const [lib, components] of groupMap) {
+    components.sort((a, b) => a.name.localeCompare(b.name));
+    libraries.push({
+      id: lib,
+      title: lib,
+      components,
+    });
   }
 
-  const total = componentPages.length;
+  // Sort libraries by id
+  libraries.sort((a, b) => a.id.localeCompare(b.id));
 
-  return { components_by_library: componentsByLibrary, total };
+  return { libraries };
 }

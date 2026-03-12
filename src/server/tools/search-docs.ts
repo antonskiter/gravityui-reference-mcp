@@ -35,7 +35,7 @@ export function handleSearchDocs(
   data: LoadedData,
   input: SearchDocsInput,
 ): SearchDocsOutput {
-  const { query, limit = 10, page_type, library } = input;
+  const { query, limit = 5, page_type, library } = input;
 
   // Search with a higher internal limit so we can pre-filter
   const rawResults = searchIndex(data.index, query, 50);

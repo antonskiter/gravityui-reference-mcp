@@ -54,7 +54,7 @@ function makeCanonicalUrl(
   if (pageType === "library" && library) {
     return `https://gravity-ui.com/libraries/${library}`;
   }
-  return `https://gravity-ui.com/design/${toSlug(name)}`;
+  return `https://gravity-ui.com/design/guides?sectionId=guides&articleId=${name.toLowerCase()}`;
 }
 
 // ---------------------------------------------------------------------------
