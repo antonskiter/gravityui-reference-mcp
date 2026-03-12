@@ -41,7 +41,7 @@ Stable, deterministic IDs for pages and chunks:
 | Component | `component:{library}:{name}` | `component:{library}:{name}:{section_slug}` |
 | Library | `library:{library}` | `library:{library}:{section_slug}` |
 
-`section_slug` is derived from the heading text: lowercased, non-alphanumeric replaced with hyphens, deduplicated.
+`section_slug` is derived from the heading text: lowercased, non-alphanumeric replaced with hyphens. If duplicate slugs occur on the same page, append `-2`, `-3`, etc.
 
 Examples:
 - `guide:Button` → `guide:Button:sizes-and-shapes`
@@ -61,6 +61,8 @@ GitHub paths are mapped to gravity-ui.com URLs:
 | Library README: `gravity-ui/{repo}/README.md` | `https://gravity-ui.com/libraries/{repo}` |
 
 `{name}` is lowercased from `{Name}`.
+
+`github_url` on Page objects is the raw GitHub source URL from the fetch stage (e.g. `https://github.com/gravity-ui/uikit/tree/main/src/components/Button`).
 
 ---
 
@@ -171,8 +173,8 @@ Prefer specific terms over vague queries. Do not call more than 3 times per ques
 Input:
   query: string (required) — search terms or natural language question
   limit: number (optional, default 5, max 10)
-  page_type: "guide" | "component" | "library" (optional)
-  library: string (optional) — e.g. "uikit"
+  page_type: "guide" | "component" | "library" (optional) — pre-filter, applied before search
+  library: string (optional) — pre-filter, e.g. "uikit". Guide pages (no library) are excluded when this is set.
 
 Output:
   results: [{
