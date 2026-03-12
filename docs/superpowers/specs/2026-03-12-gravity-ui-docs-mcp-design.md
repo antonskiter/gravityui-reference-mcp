@@ -318,7 +318,8 @@ gravityui-reference-mcp/
 │   ├── raw-pages.json
 │   ├── pages.json
 │   ├── chunks.json
-│   └── search-index.json
+│   ├── search-index.json
+│   └── metadata.json        # indexed_at, source_commits
 └── scripts/
     └── test-queries.ts      # smoke test with example queries
 ```
