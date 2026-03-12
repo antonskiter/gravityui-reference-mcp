@@ -41,10 +41,10 @@ console.log();
 console.log("--- Test 5: list_components('uikit') (first 5 per library) ---");
 const test5 = handleListComponents(data, { library: "uikit" });
 const truncated5 = {
-  ...test5,
-  components_by_library: Object.fromEntries(
-    Object.entries(test5.components_by_library).map(([lib, comps]) => [lib, comps.slice(0, 5)]),
-  ),
+  libraries: test5.libraries.map(lib => ({
+    ...lib,
+    components: lib.components.slice(0, 5),
+  })),
 };
 console.log(JSON.stringify(truncated5, null, 2));
 console.log();

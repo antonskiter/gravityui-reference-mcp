@@ -3,7 +3,7 @@
     "id": "guide:ActionTooltip",
     "title": "ActionTooltip",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/actiontooltip",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=actiontooltip",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/ActionTooltip.mdx",
     "breadcrumbs": [
       "ActionTooltip"
@@ -23,7 +23,7 @@
     "id": "guide:Alert",
     "title": "Alert",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/alert",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=alert",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Alert.mdx",
     "breadcrumbs": [
       "Alert"
@@ -42,7 +42,7 @@
     "id": "guide:Basics",
     "title": "Basics",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/basics",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=basics",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Basics.mdx",
     "breadcrumbs": [
       "Basics"
@@ -56,7 +56,7 @@
     "id": "guide:Branding",
     "title": "Quick theme creation",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/branding",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=branding",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Branding.mdx",
     "breadcrumbs": [
       "Quick theme creation"
@@ -79,7 +79,7 @@
     "id": "guide:Breadcrumbs",
     "title": "Breadcrumbs",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/breadcrumbs",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=breadcrumbs",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Breadcrumbs.mdx",
     "breadcrumbs": [
       "Breadcrumbs"
@@ -99,7 +99,7 @@
     "id": "guide:Button",
     "title": "Button",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/button",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=button",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Button.mdx",
     "breadcrumbs": [
       "Button"
@@ -124,7 +124,7 @@
     "id": "guide:Card",
     "title": "Card",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/card",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=card",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Card.mdx",
     "breadcrumbs": [
       "Card"
@@ -144,7 +144,7 @@
     "id": "guide:ChangelogDialog",
     "title": "ChangelogDialog",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/changelogdialog",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=changelogdialog",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/ChangelogDialog.mdx",
     "breadcrumbs": [
       "ChangelogDialog"
@@ -160,7 +160,7 @@
     "id": "guide:Checkbox",
     "title": "Checkbox",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/checkbox",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=checkbox",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Checkbox.mdx",
     "breadcrumbs": [
       "Checkbox"
@@ -179,7 +179,7 @@
     "id": "guide:ClipboardButton",
     "title": "ClipboardButton",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/clipboardbutton",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=clipboardbutton",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/ClipboardButton.mdx",
     "breadcrumbs": [
       "ClipboardButton"
@@ -193,7 +193,7 @@
     "id": "guide:Color",
     "title": "Color",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/color",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=color",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Color.mdx",
     "breadcrumbs": [
       "Color",
@@ -217,7 +217,7 @@
     "id": "guide:CornerRadius",
     "title": "CornerRadius",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/cornerradius",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=cornerradius",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/CornerRadius.mdx",
     "breadcrumbs": [
       "CornerRadius"
@@ -231,7 +231,7 @@
     "id": "guide:Dialog",
     "title": "Dialog",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/dialog",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=dialog",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Dialog.mdx",
     "breadcrumbs": [
       "Dialog"
@@ -253,7 +253,7 @@
     "id": "guide:DropdownMenu",
     "title": "Structure",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/dropdownmenu",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=dropdownmenu",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/DropdownMenu.mdx",
     "breadcrumbs": [
       "Structure"
@@ -267,7 +267,7 @@
     "id": "guide:GridAndContainer",
     "title": "Grid structure",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/gridandcontainer",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=gridandcontainer",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/GridAndContainer.mdx",
     "breadcrumbs": [
       "Grid structure"
@@ -281,7 +281,7 @@
     "id": "guide:Hotkey",
     "title": "Hotkey",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/hotkey",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=hotkey",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Hotkey.mdx",
     "breadcrumbs": [
       "Hotkey"
@@ -297,7 +297,7 @@
     "id": "guide:Label",
     "title": "Label",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/label",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=label",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Label.mdx",
     "breadcrumbs": [
       "Label"
@@ -319,7 +319,7 @@
     "id": "guide:Links",
     "title": "Links",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/links",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=links",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Links.mdx",
     "breadcrumbs": [
       "Links"
@@ -337,7 +337,7 @@
     "id": "guide:ListItem",
     "title": "List structure",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/listitem",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=listitem",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/ListItem.mdx",
     "breadcrumbs": [
       "List structure"
@@ -351,7 +351,7 @@
     "id": "guide:Loader",
     "title": "Loader",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/loader",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=loader",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Loader.mdx",
     "breadcrumbs": [
       "Loader"
@@ -365,7 +365,7 @@
     "id": "guide:Module",
     "title": "Module",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/module",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=module",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Module.mdx",
     "breadcrumbs": [
       "Module"
@@ -379,7 +379,7 @@
     "id": "guide:Pagination",
     "title": "Pagination",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/pagination",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=pagination",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Pagination.mdx",
     "breadcrumbs": [
       "Pagination"
@@ -398,7 +398,7 @@
     "id": "guide:Popover",
     "title": "Popover",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/popover",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=popover",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Popover.mdx",
     "breadcrumbs": [
       "Popover"
@@ -415,7 +415,7 @@
     "id": "guide:Popup",
     "title": "Popup",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/popup",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=popup",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Popup.mdx",
     "breadcrumbs": [
       "Popup"
@@ -432,7 +432,7 @@
     "id": "guide:Progress",
     "title": "Progress",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/progress",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=progress",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Progress.mdx",
     "breadcrumbs": [
       "Progress"
@@ -452,7 +452,7 @@
     "id": "guide:Radio",
     "title": "Radio",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/radio",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=radio",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Radio.mdx",
     "breadcrumbs": [
       "Radio"
@@ -466,7 +466,7 @@
     "id": "guide:RadioGroup",
     "title": "RadioGroup",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/radiogroup",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=radiogroup",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/RadioGroup.mdx",
     "breadcrumbs": [
       "RadioGroup"
@@ -480,7 +480,7 @@
     "id": "guide:Resources",
     "title": "Resources",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/resources",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=resources",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Resources.mdx",
     "breadcrumbs": [
       "Resources"
@@ -495,7 +495,7 @@
     "id": "guide:SegmentedRadioGroup",
     "title": "SegmentedRadioGroup",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/segmentedradiogroup",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=segmentedradiogroup",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/SegmentedRadioGroup.mdx",
     "breadcrumbs": [
       "SegmentedRadioGroup"
@@ -511,7 +511,7 @@
     "id": "guide:Select",
     "title": "Select",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/select",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=select",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Select.mdx",
     "breadcrumbs": [
       "Select"
@@ -532,7 +532,7 @@
     "id": "guide:Skeleton",
     "title": "Skeleton",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/skeleton",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=skeleton",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Skeleton.mdx",
     "breadcrumbs": [
       "Skeleton"
@@ -546,7 +546,7 @@
     "id": "guide:Spin",
     "title": "Spin",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/spin",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=spin",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Spin.mdx",
     "breadcrumbs": [
       "Spin"
@@ -560,7 +560,7 @@
     "id": "guide:Switch",
     "title": "Switch",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/switch",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=switch",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Switch.mdx",
     "breadcrumbs": [
       "Switch",
@@ -579,7 +579,7 @@
     "id": "guide:Table",
     "title": "Table",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/table",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=table",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Table.mdx",
     "breadcrumbs": [
       "Table"
@@ -598,7 +598,7 @@
     "id": "guide:Tabs",
     "title": "Tabs",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/tabs",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=tabs",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Tabs.mdx",
     "breadcrumbs": [
       "Tabs",
@@ -617,7 +617,7 @@
     "id": "guide:TextArea",
     "title": "TextArea",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/textarea",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textarea",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/TextArea.mdx",
     "breadcrumbs": [
       "TextArea"
@@ -637,7 +637,7 @@
     "id": "guide:TextInput",
     "title": "TextInput",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/textinput",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textinput",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/TextInput.mdx",
     "breadcrumbs": [
       "TextInput"
@@ -657,7 +657,7 @@
     "id": "guide:Toaster",
     "title": "Toaster",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/toaster",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=toaster",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Toaster.mdx",
     "breadcrumbs": [
       "Toaster"
@@ -677,7 +677,7 @@
     "id": "guide:Tooltip",
     "title": "Tooltip",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/tooltip",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=tooltip",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Tooltip.mdx",
     "breadcrumbs": [
       "Tooltip"
@@ -691,7 +691,7 @@
     "id": "guide:Typography",
     "title": "Font parameters",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/typography",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=typography",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/Typography.mdx",
     "breadcrumbs": [
       "Font parameters"
@@ -705,7 +705,7 @@
     "id": "guide:User",
     "title": "Structure",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/user",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=user",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/User.mdx",
     "breadcrumbs": [
       "Structure"
@@ -719,7 +719,7 @@
     "id": "guide:UserAvatar",
     "title": "Size",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/useravatar",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=useravatar",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/UserAvatar.mdx",
     "breadcrumbs": [
       "Size"
@@ -733,7 +733,7 @@
     "id": "guide:UserLabel",
     "title": "Structure",
     "page_type": "guide",
-    "url": "https://gravity-ui.com/design/userlabel",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=userlabel",
     "github_url": "https://github.com/gravity-ui/landing/blob/main/src/content/design/guides/content/en/UserLabel.mdx",
     "breadcrumbs": [
       "Structure"

@@ -2,7 +2,7 @@
   {
     "id": "guide:ActionTooltip:actiontooltip",
     "page_id": "guide:ActionTooltip",
-    "url": "https://gravity-ui.com/design/actiontooltip",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=actiontooltip",
     "page_title": "ActionTooltip",
     "page_type": "guide",
     "section_title": "ActionTooltip",
@@ -19,7 +19,7 @@
   {
     "id": "guide:ActionTooltip:structure",
     "page_id": "guide:ActionTooltip",
-    "url": "https://gravity-ui.com/design/actiontooltip",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=actiontooltip",
     "page_title": "ActionTooltip",
     "page_type": "guide",
     "section_title": "Structure",
@@ -37,7 +37,7 @@
   {
     "id": "guide:ActionTooltip:options",
     "page_id": "guide:ActionTooltip",
-    "url": "https://gravity-ui.com/design/actiontooltip",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=actiontooltip",
     "page_title": "ActionTooltip",
     "page_type": "guide",
     "section_title": "Options",
@@ -55,7 +55,7 @@
   {
     "id": "guide:ActionTooltip:sizes",
     "page_id": "guide:ActionTooltip",
-    "url": "https://gravity-ui.com/design/actiontooltip",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=actiontooltip",
     "page_title": "ActionTooltip",
     "page_type": "guide",
     "section_title": "Sizes",
@@ -73,7 +73,7 @@
   {
     "id": "guide:ActionTooltip:position",
     "page_id": "guide:ActionTooltip",
-    "url": "https://gravity-ui.com/design/actiontooltip",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=actiontooltip",
     "page_title": "ActionTooltip",
     "page_type": "guide",
     "section_title": "Position",
@@ -91,7 +91,7 @@
   {
     "id": "guide:ActionTooltip:timing",
     "page_id": "guide:ActionTooltip",
-    "url": "https://gravity-ui.com/design/actiontooltip",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=actiontooltip",
     "page_title": "ActionTooltip",
     "page_type": "guide",
     "section_title": "Timing",
@@ -109,7 +109,7 @@
   {
     "id": "guide:ActionTooltip:use-cases",
     "page_id": "guide:ActionTooltip",
-    "url": "https://gravity-ui.com/design/actiontooltip",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=actiontooltip",
     "page_title": "ActionTooltip",
     "page_type": "guide",
     "section_title": "Use cases",
@@ -128,7 +128,7 @@
   {
     "id": "guide:Alert:alert",
     "page_id": "guide:Alert",
-    "url": "https://gravity-ui.com/design/alert",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=alert",
     "page_title": "Alert",
     "page_type": "guide",
     "section_title": "Alert",
@@ -145,7 +145,7 @@
   {
     "id": "guide:Alert:when-to-use",
     "page_id": "guide:Alert",
-    "url": "https://gravity-ui.com/design/alert",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=alert",
     "page_title": "Alert",
     "page_type": "guide",
     "section_title": "When to use",
@@ -164,7 +164,7 @@
   {
     "id": "guide:Alert:types",
     "page_id": "guide:Alert",
-    "url": "https://gravity-ui.com/design/alert",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=alert",
     "page_title": "Alert",
     "page_type": "guide",
     "section_title": "Types",
@@ -182,7 +182,7 @@
   {
     "id": "guide:Alert:when-not-to-use",
     "page_id": "guide:Alert",
-    "url": "https://gravity-ui.com/design/alert",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=alert",
     "page_title": "Alert",
     "page_type": "guide",
     "section_title": "When not to use",
@@ -202,7 +202,7 @@
   {
     "id": "guide:Alert:content",
     "page_id": "guide:Alert",
-    "url": "https://gravity-ui.com/design/alert",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=alert",
     "page_title": "Alert",
     "page_type": "guide",
     "section_title": "Content",
@@ -220,7 +220,7 @@
   {
     "id": "guide:Alert:options",
     "page_id": "guide:Alert",
-    "url": "https://gravity-ui.com/design/alert",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=alert",
     "page_title": "Alert",
     "page_type": "guide",
     "section_title": "Options",
@@ -238,7 +238,7 @@
   {
     "id": "guide:Basics:basics",
     "page_id": "guide:Basics",
-    "url": "https://gravity-ui.com/design/basics",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=basics",
     "page_title": "Basics",
     "page_type": "guide",
     "section_title": "Basics",
@@ -255,7 +255,7 @@
   {
     "id": "guide:Branding:quick-theme-creation",
     "page_id": "guide:Branding",
-    "url": "https://gravity-ui.com/design/branding",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=branding",
     "page_title": "Quick theme creation",
     "page_type": "guide",
     "section_title": "Quick theme creation",
@@ -274,7 +274,7 @@
   {
     "id": "guide:Branding:before-you-start",
     "page_id": "guide:Branding",
-    "url": "https://gravity-ui.com/design/branding",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=branding",
     "page_title": "Quick theme creation",
     "page_type": "guide",
     "section_title": "Before you start",
@@ -294,7 +294,7 @@
   {
     "id": "guide:Branding:1-base-brand-colors",
     "page_id": "guide:Branding",
-    "url": "https://gravity-ui.com/design/branding",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=branding",
     "page_title": "Quick theme creation",
     "page_type": "guide",
     "section_title": "1. Base brand colors",
@@ -315,7 +315,7 @@
   {
     "id": "guide:Branding:2-typography",
     "page_id": "guide:Branding",
-    "url": "https://gravity-ui.com/design/branding",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=branding",
     "page_title": "Quick theme creation",
     "page_type": "guide",
     "section_title": "2. Typography",
@@ -334,7 +334,7 @@
   {
     "id": "guide:Branding:3-corner-radius",
     "page_id": "guide:Branding",
-    "url": "https://gravity-ui.com/design/branding",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=branding",
     "page_title": "Quick theme creation",
     "page_type": "guide",
     "section_title": "3. Corner radius",
@@ -354,7 +354,7 @@
   {
     "id": "guide:Branding:primary-set",
     "page_id": "guide:Branding",
-    "url": "https://gravity-ui.com/design/branding",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=branding",
     "page_title": "Quick theme creation",
     "page_type": "guide",
     "section_title": "Primary set",
@@ -373,7 +373,7 @@
   {
     "id": "guide:Branding:technical-set",
     "page_id": "guide:Branding",
-    "url": "https://gravity-ui.com/design/branding",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=branding",
     "page_title": "Quick theme creation",
     "page_type": "guide",
     "section_title": "Technical set",
@@ -392,7 +392,7 @@
   {
     "id": "guide:Branding:4-technical-colors",
     "page_id": "guide:Branding",
-    "url": "https://gravity-ui.com/design/branding",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=branding",
     "page_title": "Quick theme creation",
     "page_type": "guide",
     "section_title": "4. Technical colors",
@@ -412,7 +412,7 @@
   {
     "id": "guide:Branding:private-color-tuning",
     "page_id": "guide:Branding",
-    "url": "https://gravity-ui.com/design/branding",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=branding",
     "page_title": "Quick theme creation",
     "page_type": "guide",
     "section_title": "Private color tuning",
@@ -432,7 +432,7 @@
   {
     "id": "guide:Branding:semantic-color-tuning",
     "page_id": "guide:Branding",
-    "url": "https://gravity-ui.com/design/branding",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=branding",
     "page_title": "Quick theme creation",
     "page_type": "guide",
     "section_title": "Semantic color tuning",
@@ -452,7 +452,7 @@
   {
     "id": "guide:Breadcrumbs:breadcrumbs",
     "page_id": "guide:Breadcrumbs",
-    "url": "https://gravity-ui.com/design/breadcrumbs",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=breadcrumbs",
     "page_title": "Breadcrumbs",
     "page_type": "guide",
     "section_title": "Breadcrumbs",
@@ -469,7 +469,7 @@
   {
     "id": "guide:Breadcrumbs:when-to-use",
     "page_id": "guide:Breadcrumbs",
-    "url": "https://gravity-ui.com/design/breadcrumbs",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=breadcrumbs",
     "page_title": "Breadcrumbs",
     "page_type": "guide",
     "section_title": "When to use",
@@ -488,7 +488,7 @@
   {
     "id": "guide:Breadcrumbs:structure",
     "page_id": "guide:Breadcrumbs",
-    "url": "https://gravity-ui.com/design/breadcrumbs",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=breadcrumbs",
     "page_title": "Breadcrumbs",
     "page_type": "guide",
     "section_title": "Structure",
@@ -506,7 +506,7 @@
   {
     "id": "guide:Breadcrumbs:sizes",
     "page_id": "guide:Breadcrumbs",
-    "url": "https://gravity-ui.com/design/breadcrumbs",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=breadcrumbs",
     "page_title": "Breadcrumbs",
     "page_type": "guide",
     "section_title": "Sizes",
@@ -524,7 +524,7 @@
   {
     "id": "guide:Breadcrumbs:states",
     "page_id": "guide:Breadcrumbs",
-    "url": "https://gravity-ui.com/design/breadcrumbs",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=breadcrumbs",
     "page_title": "Breadcrumbs",
     "page_type": "guide",
     "section_title": "States",
@@ -542,7 +542,7 @@
   {
     "id": "guide:Breadcrumbs:modifications",
     "page_id": "guide:Breadcrumbs",
-    "url": "https://gravity-ui.com/design/breadcrumbs",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=breadcrumbs",
     "page_title": "Breadcrumbs",
     "page_type": "guide",
     "section_title": "Modifications",
@@ -560,7 +560,7 @@
   {
     "id": "guide:Breadcrumbs:customization",
     "page_id": "guide:Breadcrumbs",
-    "url": "https://gravity-ui.com/design/breadcrumbs",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=breadcrumbs",
     "page_title": "Breadcrumbs",
     "page_type": "guide",
     "section_title": "Customization",
@@ -578,7 +578,7 @@
   {
     "id": "guide:Button:button",
     "page_id": "guide:Button",
-    "url": "https://gravity-ui.com/design/button",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=button",
     "page_title": "Button",
     "page_type": "guide",
     "section_title": "Button",
@@ -595,7 +595,7 @@
   {
     "id": "guide:Button:appearance",
     "page_id": "guide:Button",
-    "url": "https://gravity-ui.com/design/button",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=button",
     "page_title": "Button",
     "page_type": "guide",
     "section_title": "Appearance",
@@ -613,7 +613,7 @@
   {
     "id": "guide:Button:accent",
     "page_id": "guide:Button",
-    "url": "https://gravity-ui.com/design/button",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=button",
     "page_title": "Button",
     "page_type": "guide",
     "section_title": "**Accent**",
@@ -631,7 +631,7 @@
   {
     "id": "guide:Button:primary",
     "page_id": "guide:Button",
-    "url": "https://gravity-ui.com/design/button",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=button",
     "page_title": "Button",
     "page_type": "guide",
     "section_title": "Primary",
@@ -649,7 +649,7 @@
   {
     "id": "guide:Button:semantic",
     "page_id": "guide:Button",
-    "url": "https://gravity-ui.com/design/button",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=button",
     "page_title": "Button",
     "page_type": "guide",
     "section_title": "Semantic",
@@ -667,7 +667,7 @@
   {
     "id": "guide:Button:info",
     "page_id": "guide:Button",
-    "url": "https://gravity-ui.com/design/button",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=button",
     "page_title": "Button",
     "page_type": "guide",
     "section_title": "Info",
@@ -685,7 +685,7 @@
   {
     "id": "guide:Button:anatomy",
     "page_id": "guide:Button",
-    "url": "https://gravity-ui.com/design/button",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=button",
     "page_title": "Button",
     "page_type": "guide",
     "section_title": "Anatomy",
@@ -703,7 +703,7 @@
   {
     "id": "guide:Button:states",
     "page_id": "guide:Button",
-    "url": "https://gravity-ui.com/design/button",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=button",
     "page_title": "Button",
     "page_type": "guide",
     "section_title": "States",
@@ -721,7 +721,7 @@
   {
     "id": "guide:Button:sizes",
     "page_id": "guide:Button",
-    "url": "https://gravity-ui.com/design/button",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=button",
     "page_title": "Button",
     "page_type": "guide",
     "section_title": "Sizes",
@@ -739,7 +739,7 @@
   {
     "id": "guide:Button:form",
     "page_id": "guide:Button",
-    "url": "https://gravity-ui.com/design/button",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=button",
     "page_title": "Button",
     "page_type": "guide",
     "section_title": "Form",
@@ -757,7 +757,7 @@
   {
     "id": "guide:Button:width",
     "page_id": "guide:Button",
-    "url": "https://gravity-ui.com/design/button",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=button",
     "page_title": "Button",
     "page_type": "guide",
     "section_title": "Width",
@@ -775,7 +775,7 @@
   {
     "id": "guide:Button:recommendations",
     "page_id": "guide:Button",
-    "url": "https://gravity-ui.com/design/button",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=button",
     "page_title": "Button",
     "page_type": "guide",
     "section_title": "Recommendations",
@@ -793,7 +793,7 @@
   {
     "id": "guide:Card:card",
     "page_id": "guide:Card",
-    "url": "https://gravity-ui.com/design/card",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=card",
     "page_title": "Card",
     "page_type": "guide",
     "section_title": "Card",
@@ -810,7 +810,7 @@
   {
     "id": "guide:Card:usage",
     "page_id": "guide:Card",
-    "url": "https://gravity-ui.com/design/card",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=card",
     "page_title": "Card",
     "page_type": "guide",
     "section_title": "Usage",
@@ -828,7 +828,7 @@
   {
     "id": "guide:Card:with-themes",
     "page_id": "guide:Card",
-    "url": "https://gravity-ui.com/design/card",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=card",
     "page_title": "Card",
     "page_type": "guide",
     "section_title": "**With themes**",
@@ -847,7 +847,7 @@
   {
     "id": "guide:Card:selectable-card",
     "page_id": "guide:Card",
-    "url": "https://gravity-ui.com/design/card",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=card",
     "page_title": "Card",
     "page_type": "guide",
     "section_title": "**Selectable card**",
@@ -866,7 +866,7 @@
   {
     "id": "guide:Card:raised",
     "page_id": "guide:Card",
-    "url": "https://gravity-ui.com/design/card",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=card",
     "page_title": "Card",
     "page_type": "guide",
     "section_title": "**Raised**",
@@ -884,7 +884,7 @@
   {
     "id": "guide:Card:raised-with-action",
     "page_id": "guide:Card",
-    "url": "https://gravity-ui.com/design/card",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=card",
     "page_title": "Card",
     "page_type": "guide",
     "section_title": "**Raised with action**",
@@ -903,7 +903,7 @@
   {
     "id": "guide:Card:size",
     "page_id": "guide:Card",
-    "url": "https://gravity-ui.com/design/card",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=card",
     "page_title": "Card",
     "page_type": "guide",
     "section_title": "Size",
@@ -921,7 +921,7 @@
   {
     "id": "guide:ChangelogDialog:changelogdialog",
     "page_id": "guide:ChangelogDialog",
-    "url": "https://gravity-ui.com/design/changelogdialog",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=changelogdialog",
     "page_title": "ChangelogDialog",
     "page_type": "guide",
     "section_title": "ChangelogDialog",
@@ -938,7 +938,7 @@
   {
     "id": "guide:ChangelogDialog:elements",
     "page_id": "guide:ChangelogDialog",
-    "url": "https://gravity-ui.com/design/changelogdialog",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=changelogdialog",
     "page_title": "ChangelogDialog",
     "page_type": "guide",
     "section_title": "Elements",
@@ -956,7 +956,7 @@
   {
     "id": "guide:ChangelogDialog:usage-recommendations",
     "page_id": "guide:ChangelogDialog",
-    "url": "https://gravity-ui.com/design/changelogdialog",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=changelogdialog",
     "page_title": "ChangelogDialog",
     "page_type": "guide",
     "section_title": "Usage recommendations",
@@ -975,7 +975,7 @@
   {
     "id": "guide:Checkbox:checkbox",
     "page_id": "guide:Checkbox",
-    "url": "https://gravity-ui.com/design/checkbox",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=checkbox",
     "page_title": "Checkbox",
     "page_type": "guide",
     "section_title": "Checkbox",
@@ -992,7 +992,7 @@
   {
     "id": "guide:Checkbox:use-cases",
     "page_id": "guide:Checkbox",
-    "url": "https://gravity-ui.com/design/checkbox",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=checkbox",
     "page_title": "Checkbox",
     "page_type": "guide",
     "section_title": "Use cases",
@@ -1011,7 +1011,7 @@
   {
     "id": "guide:Checkbox:anatomy",
     "page_id": "guide:Checkbox",
-    "url": "https://gravity-ui.com/design/checkbox",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=checkbox",
     "page_title": "Checkbox",
     "page_type": "guide",
     "section_title": "Anatomy",
@@ -1029,7 +1029,7 @@
   {
     "id": "guide:Checkbox:sizes",
     "page_id": "guide:Checkbox",
-    "url": "https://gravity-ui.com/design/checkbox",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=checkbox",
     "page_title": "Checkbox",
     "page_type": "guide",
     "section_title": "Sizes",
@@ -1047,7 +1047,7 @@
   {
     "id": "guide:Checkbox:states",
     "page_id": "guide:Checkbox",
-    "url": "https://gravity-ui.com/design/checkbox",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=checkbox",
     "page_title": "Checkbox",
     "page_type": "guide",
     "section_title": "States",
@@ -1065,7 +1065,7 @@
   {
     "id": "guide:Checkbox:recommendations",
     "page_id": "guide:Checkbox",
-    "url": "https://gravity-ui.com/design/checkbox",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=checkbox",
     "page_title": "Checkbox",
     "page_type": "guide",
     "section_title": "Recommendations",
@@ -1083,7 +1083,7 @@
   {
     "id": "guide:ClipboardButton:clipboardbutton",
     "page_id": "guide:ClipboardButton",
-    "url": "https://gravity-ui.com/design/clipboardbutton",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=clipboardbutton",
     "page_title": "ClipboardButton",
     "page_type": "guide",
     "section_title": "ClipboardButton",
@@ -1100,7 +1100,7 @@
   {
     "id": "guide:Color:two-layer-color-system",
     "page_id": "guide:Color",
-    "url": "https://gravity-ui.com/design/color",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=color",
     "page_title": "Color",
     "page_type": "guide",
     "section_title": "Two-layer color system",
@@ -1121,7 +1121,7 @@
   {
     "id": "guide:Color:private-colors",
     "page_id": "guide:Color",
-    "url": "https://gravity-ui.com/design/color",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=color",
     "page_title": "Color",
     "page_type": "guide",
     "section_title": "**Private colors**",
@@ -1140,7 +1140,7 @@
   {
     "id": "guide:Color:colors-with-an-alpha-channel",
     "page_id": "guide:Color",
-    "url": "https://gravity-ui.com/design/color",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=color",
     "page_title": "Color",
     "page_type": "guide",
     "section_title": "**Colors with an alpha channel**",
@@ -1160,7 +1160,7 @@
   {
     "id": "guide:Color:solid-colors",
     "page_id": "guide:Color",
-    "url": "https://gravity-ui.com/design/color",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=color",
     "page_title": "Color",
     "page_type": "guide",
     "section_title": "**Solid colors**",
@@ -1179,7 +1179,7 @@
   {
     "id": "guide:Color:how-to-create-tones",
     "page_id": "guide:Color",
-    "url": "https://gravity-ui.com/design/color",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=color",
     "page_title": "Color",
     "page_type": "guide",
     "section_title": "How to create tones",
@@ -1198,7 +1198,7 @@
   {
     "id": "guide:Color:semantic-colors",
     "page_id": "guide:Color",
-    "url": "https://gravity-ui.com/design/color",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=color",
     "page_title": "Color",
     "page_type": "guide",
     "section_title": "**Semantic colors**",
@@ -1217,7 +1217,7 @@
   {
     "id": "guide:Color:categories-based-on-types",
     "page_id": "guide:Color",
-    "url": "https://gravity-ui.com/design/color",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=color",
     "page_title": "Color",
     "page_type": "guide",
     "section_title": "**Categories based on types**",
@@ -1237,7 +1237,7 @@
   {
     "id": "guide:Color:categories-based-on-meaning",
     "page_id": "guide:Color",
-    "url": "https://gravity-ui.com/design/color",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=color",
     "page_title": "Color",
     "page_type": "guide",
     "section_title": "Categories based on meaning",
@@ -1257,7 +1257,7 @@
   {
     "id": "guide:Color:variables-and-colorstyles",
     "page_id": "guide:Color",
-    "url": "https://gravity-ui.com/design/color",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=color",
     "page_title": "Color",
     "page_type": "guide",
     "section_title": "Variables and colorstyles",
@@ -1276,7 +1276,7 @@
   {
     "id": "guide:Color:themes",
     "page_id": "guide:Color",
-    "url": "https://gravity-ui.com/design/color",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=color",
     "page_title": "Color",
     "page_type": "guide",
     "section_title": "Themes",
@@ -1294,7 +1294,7 @@
   {
     "id": "guide:CornerRadius:cornerradius",
     "page_id": "guide:CornerRadius",
-    "url": "https://gravity-ui.com/design/cornerradius",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=cornerradius",
     "page_title": "CornerRadius",
     "page_type": "guide",
     "section_title": "CornerRadius",
@@ -1311,7 +1311,7 @@
   {
     "id": "guide:Dialog:dialog",
     "page_id": "guide:Dialog",
-    "url": "https://gravity-ui.com/design/dialog",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=dialog",
     "page_title": "Dialog",
     "page_type": "guide",
     "section_title": "Dialog",
@@ -1328,7 +1328,7 @@
   {
     "id": "guide:Dialog:entry-point",
     "page_id": "guide:Dialog",
-    "url": "https://gravity-ui.com/design/dialog",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=dialog",
     "page_title": "Dialog",
     "page_type": "guide",
     "section_title": "Entry point",
@@ -1347,7 +1347,7 @@
   {
     "id": "guide:Dialog:sizes",
     "page_id": "guide:Dialog",
-    "url": "https://gravity-ui.com/design/dialog",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=dialog",
     "page_title": "Dialog",
     "page_type": "guide",
     "section_title": "Sizes",
@@ -1365,7 +1365,7 @@
   {
     "id": "guide:Dialog:content-area",
     "page_id": "guide:Dialog",
-    "url": "https://gravity-ui.com/design/dialog",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=dialog",
     "page_title": "Dialog",
     "page_type": "guide",
     "section_title": "Content area",
@@ -1384,7 +1384,7 @@
   {
     "id": "guide:Dialog:buttons",
     "page_id": "guide:Dialog",
-    "url": "https://gravity-ui.com/design/dialog",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=dialog",
     "page_title": "Dialog",
     "page_type": "guide",
     "section_title": "Buttons",
@@ -1402,7 +1402,7 @@
   {
     "id": "guide:Dialog:in-dialog-navigation",
     "page_id": "guide:Dialog",
-    "url": "https://gravity-ui.com/design/dialog",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=dialog",
     "page_title": "Dialog",
     "page_type": "guide",
     "section_title": "In-dialog Navigation",
@@ -1421,7 +1421,7 @@
   {
     "id": "guide:Dialog:positioning-the-dialog-box-on-the-page",
     "page_id": "guide:Dialog",
-    "url": "https://gravity-ui.com/design/dialog",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=dialog",
     "page_title": "Dialog",
     "page_type": "guide",
     "section_title": "Positioning the dialog box on the page",
@@ -1442,7 +1442,7 @@
   {
     "id": "guide:Dialog:closing-a-window",
     "page_id": "guide:Dialog",
-    "url": "https://gravity-ui.com/design/dialog",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=dialog",
     "page_title": "Dialog",
     "page_type": "guide",
     "section_title": "Closing a window",
@@ -1461,7 +1461,7 @@
   {
     "id": "guide:Dialog:preventing-user-data-loss",
     "page_id": "guide:Dialog",
-    "url": "https://gravity-ui.com/design/dialog",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=dialog",
     "page_title": "Dialog",
     "page_type": "guide",
     "section_title": "Preventing User Data Loss",
@@ -1482,7 +1482,7 @@
   {
     "id": "guide:DropdownMenu:structure",
     "page_id": "guide:DropdownMenu",
-    "url": "https://gravity-ui.com/design/dropdownmenu",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=dropdownmenu",
     "page_title": "Structure",
     "page_type": "guide",
     "section_title": "Structure",
@@ -1499,7 +1499,7 @@
   {
     "id": "guide:GridAndContainer:grid-structure",
     "page_id": "guide:GridAndContainer",
-    "url": "https://gravity-ui.com/design/gridandcontainer",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=gridandcontainer",
     "page_title": "Grid structure",
     "page_type": "guide",
     "section_title": "Grid structure",
@@ -1517,7 +1517,7 @@
   {
     "id": "guide:Hotkey:hotkey",
     "page_id": "guide:Hotkey",
-    "url": "https://gravity-ui.com/design/hotkey",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=hotkey",
     "page_title": "Hotkey",
     "page_type": "guide",
     "section_title": "Hotkey",
@@ -1534,7 +1534,7 @@
   {
     "id": "guide:Hotkey:platforms-platform",
     "page_id": "guide:Hotkey",
-    "url": "https://gravity-ui.com/design/hotkey",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=hotkey",
     "page_title": "Hotkey",
     "page_type": "guide",
     "section_title": "Platforms /. **platform**",
@@ -1553,7 +1553,7 @@
   {
     "id": "guide:Hotkey:use-cases",
     "page_id": "guide:Hotkey",
-    "url": "https://gravity-ui.com/design/hotkey",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=hotkey",
     "page_title": "Hotkey",
     "page_type": "guide",
     "section_title": "Use cases",
@@ -1572,7 +1572,7 @@
   {
     "id": "guide:Label:label",
     "page_id": "guide:Label",
-    "url": "https://gravity-ui.com/design/label",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=label",
     "page_title": "Label",
     "page_type": "guide",
     "section_title": "Label",
@@ -1589,7 +1589,7 @@
   {
     "id": "guide:Label:when-to-use",
     "page_id": "guide:Label",
-    "url": "https://gravity-ui.com/design/label",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=label",
     "page_title": "Label",
     "page_type": "guide",
     "section_title": "When to use",
@@ -1608,7 +1608,7 @@
   {
     "id": "guide:Label:structure",
     "page_id": "guide:Label",
-    "url": "https://gravity-ui.com/design/label",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=label",
     "page_title": "Label",
     "page_type": "guide",
     "section_title": "Structure",
@@ -1626,7 +1626,7 @@
   {
     "id": "guide:Label:sizes",
     "page_id": "guide:Label",
-    "url": "https://gravity-ui.com/design/label",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=label",
     "page_title": "Label",
     "page_type": "guide",
     "section_title": "Sizes",
@@ -1644,7 +1644,7 @@
   {
     "id": "guide:Label:themes",
     "page_id": "guide:Label",
-    "url": "https://gravity-ui.com/design/label",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=label",
     "page_title": "Label",
     "page_type": "guide",
     "section_title": "Themes",
@@ -1662,7 +1662,7 @@
   {
     "id": "guide:Label:semantic-labels-vs-buttons",
     "page_id": "guide:Label",
-    "url": "https://gravity-ui.com/design/label",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=label",
     "page_title": "Label",
     "page_type": "guide",
     "section_title": "Semantic Labels vs Buttons",
@@ -1683,7 +1683,7 @@
   {
     "id": "guide:Label:modifications-and-states",
     "page_id": "guide:Label",
-    "url": "https://gravity-ui.com/design/label",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=label",
     "page_title": "Label",
     "page_type": "guide",
     "section_title": "Modifications and states",
@@ -1702,7 +1702,7 @@
   {
     "id": "guide:Label:additional-features",
     "page_id": "guide:Label",
-    "url": "https://gravity-ui.com/design/label",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=label",
     "page_title": "Label",
     "page_type": "guide",
     "section_title": "Additional features",
@@ -1721,7 +1721,7 @@
   {
     "id": "guide:Label:customization",
     "page_id": "guide:Label",
-    "url": "https://gravity-ui.com/design/label",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=label",
     "page_title": "Label",
     "page_type": "guide",
     "section_title": "Customization",
@@ -1739,7 +1739,7 @@
   {
     "id": "guide:Links:links",
     "page_id": "guide:Links",
-    "url": "https://gravity-ui.com/design/links",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=links",
     "page_title": "Links",
     "page_type": "guide",
     "section_title": "Links",
@@ -1756,7 +1756,7 @@
   {
     "id": "guide:Links:states",
     "page_id": "guide:Links",
-    "url": "https://gravity-ui.com/design/links",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=links",
     "page_title": "Links",
     "page_type": "guide",
     "section_title": "**States**",
@@ -1774,7 +1774,7 @@
   {
     "id": "guide:Links:can-be-used-as",
     "page_id": "guide:Links",
-    "url": "https://gravity-ui.com/design/links",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=links",
     "page_title": "Links",
     "page_type": "guide",
     "section_title": "**Can be used as:**",
@@ -1794,7 +1794,7 @@
   {
     "id": "guide:Links:size",
     "page_id": "guide:Links",
-    "url": "https://gravity-ui.com/design/links",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=links",
     "page_title": "Links",
     "page_type": "guide",
     "section_title": "Size",
@@ -1812,7 +1812,7 @@
   {
     "id": "guide:Links:recommendations",
     "page_id": "guide:Links",
-    "url": "https://gravity-ui.com/design/links",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=links",
     "page_title": "Links",
     "page_type": "guide",
     "section_title": "Recommendations",
@@ -1830,7 +1830,7 @@
   {
     "id": "guide:ListItem:list-structure",
     "page_id": "guide:ListItem",
-    "url": "https://gravity-ui.com/design/listitem",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=listitem",
     "page_title": "List structure",
     "page_type": "guide",
     "section_title": "List structure",
@@ -1848,7 +1848,7 @@
   {
     "id": "guide:Loader:loader",
     "page_id": "guide:Loader",
-    "url": "https://gravity-ui.com/design/loader",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=loader",
     "page_title": "Loader",
     "page_type": "guide",
     "section_title": "Loader",
@@ -1865,7 +1865,7 @@
   {
     "id": "guide:Module:module",
     "page_id": "guide:Module",
-    "url": "https://gravity-ui.com/design/module",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=module",
     "page_title": "Module",
     "page_type": "guide",
     "section_title": "Module",
@@ -1882,7 +1882,7 @@
   {
     "id": "guide:Pagination:pagination",
     "page_id": "guide:Pagination",
-    "url": "https://gravity-ui.com/design/pagination",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=pagination",
     "page_title": "Pagination",
     "page_type": "guide",
     "section_title": "Pagination",
@@ -1899,7 +1899,7 @@
   {
     "id": "guide:Pagination:when-to-use",
     "page_id": "guide:Pagination",
-    "url": "https://gravity-ui.com/design/pagination",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=pagination",
     "page_title": "Pagination",
     "page_type": "guide",
     "section_title": "When to use",
@@ -1918,7 +1918,7 @@
   {
     "id": "guide:Pagination:structure",
     "page_id": "guide:Pagination",
-    "url": "https://gravity-ui.com/design/pagination",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=pagination",
     "page_title": "Pagination",
     "page_type": "guide",
     "section_title": "Structure",
@@ -1936,7 +1936,7 @@
   {
     "id": "guide:Pagination:sizes",
     "page_id": "guide:Pagination",
-    "url": "https://gravity-ui.com/design/pagination",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=pagination",
     "page_title": "Pagination",
     "page_type": "guide",
     "section_title": "Sizes",
@@ -1954,7 +1954,7 @@
   {
     "id": "guide:Pagination:states",
     "page_id": "guide:Pagination",
-    "url": "https://gravity-ui.com/design/pagination",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=pagination",
     "page_title": "Pagination",
     "page_type": "guide",
     "section_title": "States",
@@ -1972,7 +1972,7 @@
   {
     "id": "guide:Pagination:modifications",
     "page_id": "guide:Pagination",
-    "url": "https://gravity-ui.com/design/pagination",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=pagination",
     "page_title": "Pagination",
     "page_type": "guide",
     "section_title": "Modifications",
@@ -1990,7 +1990,7 @@
   {
     "id": "guide:Popover:popover",
     "page_id": "guide:Popover",
-    "url": "https://gravity-ui.com/design/popover",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=popover",
     "page_title": "Popover",
     "page_type": "guide",
     "section_title": "Popover",
@@ -2007,7 +2007,7 @@
   {
     "id": "guide:Popover:types-of-popover",
     "page_id": "guide:Popover",
-    "url": "https://gravity-ui.com/design/popover",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=popover",
     "page_title": "Popover",
     "page_type": "guide",
     "section_title": "Types of popover",
@@ -2026,7 +2026,7 @@
   {
     "id": "guide:Popover:parameters",
     "page_id": "guide:Popover",
-    "url": "https://gravity-ui.com/design/popover",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=popover",
     "page_title": "Popover",
     "page_type": "guide",
     "section_title": "Parameters",
@@ -2044,7 +2044,7 @@
   {
     "id": "guide:Popover:special-cases",
     "page_id": "guide:Popover",
-    "url": "https://gravity-ui.com/design/popover",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=popover",
     "page_title": "Popover",
     "page_type": "guide",
     "section_title": "Special cases",
@@ -2063,7 +2063,7 @@
   {
     "id": "guide:Popup:popup",
     "page_id": "guide:Popup",
-    "url": "https://gravity-ui.com/design/popup",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=popup",
     "page_title": "Popup",
     "page_type": "guide",
     "section_title": "Popup",
@@ -2080,7 +2080,7 @@
   {
     "id": "guide:Popup:when-to-use-popup",
     "page_id": "guide:Popup",
-    "url": "https://gravity-ui.com/design/popup",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=popup",
     "page_title": "Popup",
     "page_type": "guide",
     "section_title": "When to use Popup",
@@ -2100,7 +2100,7 @@
   {
     "id": "guide:Popup:style",
     "page_id": "guide:Popup",
-    "url": "https://gravity-ui.com/design/popup",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=popup",
     "page_title": "Popup",
     "page_type": "guide",
     "section_title": "Style",
@@ -2118,7 +2118,7 @@
   {
     "id": "guide:Popup:positioning",
     "page_id": "guide:Popup",
-    "url": "https://gravity-ui.com/design/popup",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=popup",
     "page_title": "Popup",
     "page_type": "guide",
     "section_title": "Positioning",
@@ -2136,7 +2136,7 @@
   {
     "id": "guide:Progress:progress",
     "page_id": "guide:Progress",
-    "url": "https://gravity-ui.com/design/progress",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=progress",
     "page_title": "Progress",
     "page_type": "guide",
     "section_title": "Progress",
@@ -2153,7 +2153,7 @@
   {
     "id": "guide:Progress:use-cases",
     "page_id": "guide:Progress",
-    "url": "https://gravity-ui.com/design/progress",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=progress",
     "page_title": "Progress",
     "page_type": "guide",
     "section_title": "Use cases",
@@ -2172,7 +2172,7 @@
   {
     "id": "guide:Progress:structure",
     "page_id": "guide:Progress",
-    "url": "https://gravity-ui.com/design/progress",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=progress",
     "page_title": "Progress",
     "page_type": "guide",
     "section_title": "Structure",
@@ -2190,7 +2190,7 @@
   {
     "id": "guide:Progress:sizes",
     "page_id": "guide:Progress",
-    "url": "https://gravity-ui.com/design/progress",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=progress",
     "page_title": "Progress",
     "page_type": "guide",
     "section_title": "Sizes",
@@ -2208,7 +2208,7 @@
   {
     "id": "guide:Progress:themes",
     "page_id": "guide:Progress",
-    "url": "https://gravity-ui.com/design/progress",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=progress",
     "page_title": "Progress",
     "page_type": "guide",
     "section_title": "Themes",
@@ -2226,7 +2226,7 @@
   {
     "id": "guide:Progress:scope",
     "page_id": "guide:Progress",
-    "url": "https://gravity-ui.com/design/progress",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=progress",
     "page_title": "Progress",
     "page_type": "guide",
     "section_title": "Scope",
@@ -2244,7 +2244,7 @@
   {
     "id": "guide:Progress:use-cases-2",
     "page_id": "guide:Progress",
-    "url": "https://gravity-ui.com/design/progress",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=progress",
     "page_title": "Progress",
     "page_type": "guide",
     "section_title": "Use cases",
@@ -2263,7 +2263,7 @@
   {
     "id": "guide:Radio:radio",
     "page_id": "guide:Radio",
-    "url": "https://gravity-ui.com/design/radio",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=radio",
     "page_title": "Radio",
     "page_type": "guide",
     "section_title": "Radio",
@@ -2280,7 +2280,7 @@
   {
     "id": "guide:RadioGroup:radiogroup",
     "page_id": "guide:RadioGroup",
-    "url": "https://gravity-ui.com/design/radiogroup",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=radiogroup",
     "page_title": "RadioGroup",
     "page_type": "guide",
     "section_title": "RadioGroup",
@@ -2297,7 +2297,7 @@
   {
     "id": "guide:Resources:resources",
     "page_id": "guide:Resources",
-    "url": "https://gravity-ui.com/design/resources",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=resources",
     "page_title": "Resources",
     "page_type": "guide",
     "section_title": "Resources",
@@ -2314,7 +2314,7 @@
   {
     "id": "guide:Resources:how-to-use",
     "page_id": "guide:Resources",
-    "url": "https://gravity-ui.com/design/resources",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=resources",
     "page_title": "Resources",
     "page_type": "guide",
     "section_title": "How to use",
@@ -2332,7 +2332,7 @@
   {
     "id": "guide:SegmentedRadioGroup:segmentedradiogroup",
     "page_id": "guide:SegmentedRadioGroup",
-    "url": "https://gravity-ui.com/design/segmentedradiogroup",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=segmentedradiogroup",
     "page_title": "SegmentedRadioGroup",
     "page_type": "guide",
     "section_title": "SegmentedRadioGroup",
@@ -2349,7 +2349,7 @@
   {
     "id": "guide:SegmentedRadioGroup:when-to-use",
     "page_id": "guide:SegmentedRadioGroup",
-    "url": "https://gravity-ui.com/design/segmentedradiogroup",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=segmentedradiogroup",
     "page_title": "SegmentedRadioGroup",
     "page_type": "guide",
     "section_title": "When to use",
@@ -2368,7 +2368,7 @@
   {
     "id": "guide:SegmentedRadioGroup:when-not-to-use",
     "page_id": "guide:SegmentedRadioGroup",
-    "url": "https://gravity-ui.com/design/segmentedradiogroup",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=segmentedradiogroup",
     "page_title": "SegmentedRadioGroup",
     "page_type": "guide",
     "section_title": "When not to use",
@@ -2388,7 +2388,7 @@
   {
     "id": "guide:Select:select",
     "page_id": "guide:Select",
-    "url": "https://gravity-ui.com/design/select",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=select",
     "page_title": "Select",
     "page_type": "guide",
     "section_title": "Select",
@@ -2405,7 +2405,7 @@
   {
     "id": "guide:Select:use-cases",
     "page_id": "guide:Select",
-    "url": "https://gravity-ui.com/design/select",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=select",
     "page_title": "Select",
     "page_type": "guide",
     "section_title": "Use cases",
@@ -2424,7 +2424,7 @@
   {
     "id": "guide:Select:options",
     "page_id": "guide:Select",
-    "url": "https://gravity-ui.com/design/select",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=select",
     "page_title": "Select",
     "page_type": "guide",
     "section_title": "Options",
@@ -2442,7 +2442,7 @@
   {
     "id": "guide:Select:types",
     "page_id": "guide:Select",
-    "url": "https://gravity-ui.com/design/select",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=select",
     "page_title": "Select",
     "page_type": "guide",
     "section_title": "Types",
@@ -2460,7 +2460,7 @@
   {
     "id": "guide:Select:structure",
     "page_id": "guide:Select",
-    "url": "https://gravity-ui.com/design/select",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=select",
     "page_title": "Select",
     "page_type": "guide",
     "section_title": "Structure",
@@ -2478,7 +2478,7 @@
   {
     "id": "guide:Select:states",
     "page_id": "guide:Select",
-    "url": "https://gravity-ui.com/design/select",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=select",
     "page_title": "Select",
     "page_type": "guide",
     "section_title": "States",
@@ -2496,7 +2496,7 @@
   {
     "id": "guide:Select:sizes",
     "page_id": "guide:Select",
-    "url": "https://gravity-ui.com/design/select",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=select",
     "page_title": "Select",
     "page_type": "guide",
     "section_title": "Sizes",
@@ -2514,7 +2514,7 @@
   {
     "id": "guide:Select:usage-recommendations",
     "page_id": "guide:Select",
-    "url": "https://gravity-ui.com/design/select",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=select",
     "page_title": "Select",
     "page_type": "guide",
     "section_title": "Usage recommendations",
@@ -2533,7 +2533,7 @@
   {
     "id": "guide:Skeleton:skeleton",
     "page_id": "guide:Skeleton",
-    "url": "https://gravity-ui.com/design/skeleton",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=skeleton",
     "page_title": "Skeleton",
     "page_type": "guide",
     "section_title": "Skeleton",
@@ -2550,7 +2550,7 @@
   {
     "id": "guide:Spin:spin",
     "page_id": "guide:Spin",
-    "url": "https://gravity-ui.com/design/spin",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=spin",
     "page_title": "Spin",
     "page_type": "guide",
     "section_title": "Spin",
@@ -2567,7 +2567,7 @@
   {
     "id": "guide:Switch:description",
     "page_id": "guide:Switch",
-    "url": "https://gravity-ui.com/design/switch",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=switch",
     "page_title": "Switch",
     "page_type": "guide",
     "section_title": "Description",
@@ -2585,7 +2585,7 @@
   {
     "id": "guide:Switch:dimensions",
     "page_id": "guide:Switch",
-    "url": "https://gravity-ui.com/design/switch",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=switch",
     "page_title": "Switch",
     "page_type": "guide",
     "section_title": "Dimensions",
@@ -2603,7 +2603,7 @@
   {
     "id": "guide:Switch:states",
     "page_id": "guide:Switch",
-    "url": "https://gravity-ui.com/design/switch",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=switch",
     "page_title": "Switch",
     "page_type": "guide",
     "section_title": "States",
@@ -2621,7 +2621,7 @@
   {
     "id": "guide:Switch:properties",
     "page_id": "guide:Switch",
-    "url": "https://gravity-ui.com/design/switch",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=switch",
     "page_title": "Switch",
     "page_type": "guide",
     "section_title": "Properties",
@@ -2639,7 +2639,7 @@
   {
     "id": "guide:Switch:user-guide",
     "page_id": "guide:Switch",
-    "url": "https://gravity-ui.com/design/switch",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=switch",
     "page_title": "Switch",
     "page_type": "guide",
     "section_title": "User guide",
@@ -2658,7 +2658,7 @@
   {
     "id": "guide:Table:table",
     "page_id": "guide:Table",
-    "url": "https://gravity-ui.com/design/table",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=table",
     "page_title": "Table",
     "page_type": "guide",
     "section_title": "Table",
@@ -2675,7 +2675,7 @@
   {
     "id": "guide:Table:table-cell",
     "page_id": "guide:Table",
-    "url": "https://gravity-ui.com/design/table",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=table",
     "page_title": "Table",
     "page_type": "guide",
     "section_title": "**Table cell**",
@@ -2694,7 +2694,7 @@
   {
     "id": "guide:Table:table-header",
     "page_id": "guide:Table",
-    "url": "https://gravity-ui.com/design/table",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=table",
     "page_title": "Table",
     "page_type": "guide",
     "section_title": "**Table** header",
@@ -2713,7 +2713,7 @@
   {
     "id": "guide:Table:table-columns",
     "page_id": "guide:Table",
-    "url": "https://gravity-ui.com/design/table",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=table",
     "page_title": "Table",
     "page_type": "guide",
     "section_title": "**Table columns**",
@@ -2732,7 +2732,7 @@
   {
     "id": "guide:Table:table-rows",
     "page_id": "guide:Table",
-    "url": "https://gravity-ui.com/design/table",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=table",
     "page_title": "Table",
     "page_type": "guide",
     "section_title": "**Table rows**",
@@ -2751,7 +2751,7 @@
   {
     "id": "guide:Table:usage-recommendations",
     "page_id": "guide:Table",
-    "url": "https://gravity-ui.com/design/table",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=table",
     "page_title": "Table",
     "page_type": "guide",
     "section_title": "Usage recommendations",
@@ -2770,7 +2770,7 @@
   {
     "id": "guide:Tabs:description",
     "page_id": "guide:Tabs",
-    "url": "https://gravity-ui.com/design/tabs",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=tabs",
     "page_title": "Tabs",
     "page_type": "guide",
     "section_title": "Description",
@@ -2788,7 +2788,7 @@
   {
     "id": "guide:Tabs:sizes",
     "page_id": "guide:Tabs",
-    "url": "https://gravity-ui.com/design/tabs",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=tabs",
     "page_title": "Tabs",
     "page_type": "guide",
     "section_title": "Sizes",
@@ -2806,7 +2806,7 @@
   {
     "id": "guide:Tabs:states",
     "page_id": "guide:Tabs",
-    "url": "https://gravity-ui.com/design/tabs",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=tabs",
     "page_title": "Tabs",
     "page_type": "guide",
     "section_title": "States",
@@ -2824,7 +2824,7 @@
   {
     "id": "guide:Tabs:properties",
     "page_id": "guide:Tabs",
-    "url": "https://gravity-ui.com/design/tabs",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=tabs",
     "page_title": "Tabs",
     "page_type": "guide",
     "section_title": "Properties",
@@ -2842,7 +2842,7 @@
   {
     "id": "guide:Tabs:usage-recommendations",
     "page_id": "guide:Tabs",
-    "url": "https://gravity-ui.com/design/tabs",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=tabs",
     "page_title": "Tabs",
     "page_type": "guide",
     "section_title": "Usage recommendations",
@@ -2861,7 +2861,7 @@
   {
     "id": "guide:TextArea:textarea",
     "page_id": "guide:TextArea",
-    "url": "https://gravity-ui.com/design/textarea",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textarea",
     "page_title": "TextArea",
     "page_type": "guide",
     "section_title": "TextArea",
@@ -2878,7 +2878,7 @@
   {
     "id": "guide:TextArea:application",
     "page_id": "guide:TextArea",
-    "url": "https://gravity-ui.com/design/textarea",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textarea",
     "page_title": "TextArea",
     "page_type": "guide",
     "section_title": "**Application**",
@@ -2896,7 +2896,7 @@
   {
     "id": "guide:TextArea:types",
     "page_id": "guide:TextArea",
-    "url": "https://gravity-ui.com/design/textarea",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textarea",
     "page_title": "TextArea",
     "page_type": "guide",
     "section_title": "Types",
@@ -2914,7 +2914,7 @@
   {
     "id": "guide:TextArea:structure",
     "page_id": "guide:TextArea",
-    "url": "https://gravity-ui.com/design/textarea",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textarea",
     "page_title": "TextArea",
     "page_type": "guide",
     "section_title": "Structure",
@@ -2932,7 +2932,7 @@
   {
     "id": "guide:TextArea:states",
     "page_id": "guide:TextArea",
-    "url": "https://gravity-ui.com/design/textarea",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textarea",
     "page_title": "TextArea",
     "page_type": "guide",
     "section_title": "States",
@@ -2950,7 +2950,7 @@
   {
     "id": "guide:TextArea:sizes",
     "page_id": "guide:TextArea",
-    "url": "https://gravity-ui.com/design/textarea",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textarea",
     "page_title": "TextArea",
     "page_type": "guide",
     "section_title": "Sizes",
@@ -2968,7 +2968,7 @@
   {
     "id": "guide:TextArea:user-guide",
     "page_id": "guide:TextArea",
-    "url": "https://gravity-ui.com/design/textarea",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textarea",
     "page_title": "TextArea",
     "page_type": "guide",
     "section_title": "User guide",
@@ -2987,7 +2987,7 @@
   {
     "id": "guide:TextInput:textinput",
     "page_id": "guide:TextInput",
-    "url": "https://gravity-ui.com/design/textinput",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textinput",
     "page_title": "TextInput",
     "page_type": "guide",
     "section_title": "TextInput",
@@ -3004,7 +3004,7 @@
   {
     "id": "guide:TextInput:application",
     "page_id": "guide:TextInput",
-    "url": "https://gravity-ui.com/design/textinput",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textinput",
     "page_title": "TextInput",
     "page_type": "guide",
     "section_title": "**Application**",
@@ -3022,7 +3022,7 @@
   {
     "id": "guide:TextInput:types",
     "page_id": "guide:TextInput",
-    "url": "https://gravity-ui.com/design/textinput",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textinput",
     "page_title": "TextInput",
     "page_type": "guide",
     "section_title": "Types",
@@ -3040,7 +3040,7 @@
   {
     "id": "guide:TextInput:structure",
     "page_id": "guide:TextInput",
-    "url": "https://gravity-ui.com/design/textinput",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textinput",
     "page_title": "TextInput",
     "page_type": "guide",
     "section_title": "Structure",
@@ -3058,7 +3058,7 @@
   {
     "id": "guide:TextInput:states",
     "page_id": "guide:TextInput",
-    "url": "https://gravity-ui.com/design/textinput",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textinput",
     "page_title": "TextInput",
     "page_type": "guide",
     "section_title": "States",
@@ -3076,7 +3076,7 @@
   {
     "id": "guide:TextInput:sizes",
     "page_id": "guide:TextInput",
-    "url": "https://gravity-ui.com/design/textinput",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textinput",
     "page_title": "TextInput",
     "page_type": "guide",
     "section_title": "Sizes",
@@ -3094,7 +3094,7 @@
   {
     "id": "guide:TextInput:user-guide",
     "page_id": "guide:TextInput",
-    "url": "https://gravity-ui.com/design/textinput",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=textinput",
     "page_title": "TextInput",
     "page_type": "guide",
     "section_title": "User guide",
@@ -3113,7 +3113,7 @@
   {
     "id": "guide:Toaster:toaster",
     "page_id": "guide:Toaster",
-    "url": "https://gravity-ui.com/design/toaster",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=toaster",
     "page_title": "Toaster",
     "page_type": "guide",
     "section_title": "Toaster",
@@ -3130,7 +3130,7 @@
   {
     "id": "guide:Toaster:main-types",
     "page_id": "guide:Toaster",
-    "url": "https://gravity-ui.com/design/toaster",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=toaster",
     "page_title": "Toaster",
     "page_type": "guide",
     "section_title": "Main types",
@@ -3149,7 +3149,7 @@
   {
     "id": "guide:Toaster:modifications",
     "page_id": "guide:Toaster",
-    "url": "https://gravity-ui.com/design/toaster",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=toaster",
     "page_title": "Toaster",
     "page_type": "guide",
     "section_title": "Modifications",
@@ -3167,7 +3167,7 @@
   {
     "id": "guide:Toaster:when-to-use",
     "page_id": "guide:Toaster",
-    "url": "https://gravity-ui.com/design/toaster",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=toaster",
     "page_title": "Toaster",
     "page_type": "guide",
     "section_title": "When to use",
@@ -3186,7 +3186,7 @@
   {
     "id": "guide:Toaster:when-not-to-use",
     "page_id": "guide:Toaster",
-    "url": "https://gravity-ui.com/design/toaster",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=toaster",
     "page_title": "Toaster",
     "page_type": "guide",
     "section_title": "When not to use",
@@ -3206,7 +3206,7 @@
   {
     "id": "guide:Toaster:position-on-screen",
     "page_id": "guide:Toaster",
-    "url": "https://gravity-ui.com/design/toaster",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=toaster",
     "page_title": "Toaster",
     "page_type": "guide",
     "section_title": "Position on screen",
@@ -3225,7 +3225,7 @@
   {
     "id": "guide:Toaster:customization",
     "page_id": "guide:Toaster",
-    "url": "https://gravity-ui.com/design/toaster",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=toaster",
     "page_title": "Toaster",
     "page_type": "guide",
     "section_title": "Customization",
@@ -3243,7 +3243,7 @@
   {
     "id": "guide:Tooltip:tooltip",
     "page_id": "guide:Tooltip",
-    "url": "https://gravity-ui.com/design/tooltip",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=tooltip",
     "page_title": "Tooltip",
     "page_type": "guide",
     "section_title": "Tooltip",
@@ -3260,7 +3260,7 @@
   {
     "id": "guide:Typography:font-parameters",
     "page_id": "guide:Typography",
-    "url": "https://gravity-ui.com/design/typography",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=typography",
     "page_title": "Font parameters",
     "page_type": "guide",
     "section_title": "Font parameters",
@@ -3278,7 +3278,7 @@
   {
     "id": "guide:User:structure",
     "page_id": "guide:User",
-    "url": "https://gravity-ui.com/design/user",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=user",
     "page_title": "Structure",
     "page_type": "guide",
     "section_title": "Structure",
@@ -3295,7 +3295,7 @@
   {
     "id": "guide:UserAvatar:size",
     "page_id": "guide:UserAvatar",
-    "url": "https://gravity-ui.com/design/useravatar",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=useravatar",
     "page_title": "Size",
     "page_type": "guide",
     "section_title": "Size",
@@ -3312,7 +3312,7 @@
   {
     "id": "guide:UserLabel:structure",
     "page_id": "guide:UserLabel",
-    "url": "https://gravity-ui.com/design/userlabel",
+    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=userlabel",
     "page_title": "Structure",
     "page_type": "guide",
     "section_title": "Structure",
