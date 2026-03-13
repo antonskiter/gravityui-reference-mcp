@@ -176,3 +176,9 @@ All libraries available at [gravity-ui.com/libraries](https://gravity-ui.com/lib
 | `npm run build` | Compile TypeScript |
 | `npm test` | Run tests |
 | `npm run test-queries` | Run example queries against the server |
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+Documentation content included in the `data/` directory is sourced from [Gravity UI](https://github.com/gravity-ui) repositories and is copyright © the Gravity UI contributors, licensed under MIT. See the individual repositories listed above for their license files.
