@@ -37,8 +37,8 @@ suggest_component({
 **Implementation:**
 1. Tokenize `use_case` into words, lowercase, remove stop words
 2. For each component in `tagsByPageId` (scoped to `page_type === "component"` only), score by counting tag matches (exact + fuzzy via inline Levenshtein, ~15 lines, no external dependency)
-3. Also run a MiniSearch query against the index filtered to component pages — merge scores
-4. **Score normalization:** normalize MiniSearch scores to 0-1 by dividing by max score in result set; normalize tag scores to 0-1 by dividing by number of query terms. Combine: `0.4 * tagScore + 0.6 * searchScore`
+3. Also run a MiniSearch query against the index, then post-filter results to `page_type === "component"` only (consistent with existing `search-docs.ts` filtering pattern). Merge scores.
+4. **Score normalization:** normalize MiniSearch scores to 0-1 by dividing by max score in the post-filtered result set (guard: if no results, MiniSearch component is 0); normalize tag scores to 0-1 by dividing by number of query terms. Combine: `0.4 * tagScore + 0.6 * searchScore`. If either source returns zero results, that component contributes 0 to the final score.
 5. Rank by combined score, return top N
 
 **Error handling:** If no matches found, return `{ suggestions: [] }`. No error object — an empty result is valid.
@@ -87,7 +87,7 @@ get_component_reference({
 - `description`: full page description (not truncated)
 - `props`: content from chunk whose `section_title` case-insensitively matches `["Properties", "Props", "API"]` (first match wins). Field is optional — omitted if no matching chunk found.
 - `example`: first non-empty code example from the intro chunk. Optional — omitted if none.
-- `design_guide_sections`: found by constructing `guide:${componentTitle}` and looking up in `pageById`. If found, return its `section_ids`. If no guide exists, return empty array `[]`.
+- `design_guide_sections`: found by constructing `guide:${page.title}` (using the looked-up page's `title` field, not the raw `name` input) and looking up in `pageById`. If found, return its `section_ids`. If no guide exists, return empty array `[]`.
 
 **Full response** — compact plus:
 - `all_sections`: `{ title, content, code_examples }[]` for every chunk on the page (including intro/Properties — no deduplication, keeps response predictable)
@@ -202,7 +202,7 @@ get_design_system_overview({
 `"Get the Gravity UI design system philosophy and library overview. Returns theming model, color system, spacing conventions, and per-library purpose with dependency relationships. Call this once at the start of a session to understand the design system before building with it."`
 
 **Implementation:**
-1. System-level content is assembled at ingest time from specific design guide page IDs: `["guide:Basics", "guide:Color", "guide:Module", "guide:Typography", "guide:CornerRadius", "guide:Branding"]`. Content is pulled from the first section of each guide and truncated to ~300 chars at sentence boundary. Stored as `data/overview.json`.
+1. System-level content is assembled at ingest time from specific design guide page IDs: `["guide:Basics", "guide:Color", "guide:Module", "guide:Typography", "guide:CornerRadius", "guide:Branding"]`. Content is pulled from the first section of each guide and truncated to ~300 chars at sentence boundary. Stored as `data/overview.json`. **Fallback:** if a guide page ID does not exist (renamed/removed), skip it and log a warning during ingest. The overview is valid with partial data.
 2. Per-library entries include purpose (extracted from library page description with ~200 char limit), component count, and dependency relationships.
 3. **Dependency graph:** parse peer dependencies from each library's Install chunk text (regex for `@gravity-ui/` package references). Build forward map (`depends_on`), then invert to build reverse map (`is_peer_dependency_of`).
 
@@ -233,11 +233,14 @@ get_design_system_overview({
       "package": "@gravity-ui/date-components",
       "purpose": "Date and time selection components — DatePicker, RangeCalendar, RelativeDatePicker.",
       "component_count": 6,
-      "depends_on": ["uikit"]
+      "depends_on": ["uikit"],
+      "is_peer_dependency_of": []
     }
   ]
 }
 ```
+
+Both `depends_on` and `is_peer_dependency_of` are always present (empty array when none). `url` and `github_url` for components and libraries come directly from the `Page` record fields.
 
 ---
 
