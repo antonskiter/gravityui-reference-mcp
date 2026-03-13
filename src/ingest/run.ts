@@ -5,6 +5,8 @@ import { fetchAllPages } from "./fetch.js";
 import { parsePage } from "./parse.js";
 import { chunkPage } from "./chunk.js";
 import { buildIndex, serializeIndex } from "./index.js";
+import { generateAllTags } from "./tags.js";
+import { generateOverview } from "./overview.js";
 import type { Page, Chunk, IngestMetadata } from "../types.js";
 
 const DATA_DIR = join(process.cwd(), "data");
@@ -50,6 +52,16 @@ async function run() {
   writeFileSync(join(DATA_DIR, "pages.json"), JSON.stringify(pages, null, 2));
   writeFileSync(join(DATA_DIR, "chunks.json"), JSON.stringify(allChunks, null, 2));
   console.log(`  Parsed ${pages.length} pages into ${allChunks.length} chunks`);
+
+  // Stage 2b: Generate tags and overview
+  console.log("Stage 2b: Generating component tags and design system overview...");
+  const tags = generateAllTags(pages, allChunks);
+  writeFileSync(join(DATA_DIR, "tags.json"), JSON.stringify(tags, null, 2));
+  console.log(`  Generated tags for ${Object.keys(tags).length} components`);
+
+  const overview = generateOverview(pages, allChunks);
+  writeFileSync(join(DATA_DIR, "overview.json"), JSON.stringify(overview, null, 2));
+  console.log(`  Generated overview with ${overview.libraries.length} libraries`);
 
   // Stage 3: Index
   console.log("Stage 3: Building search index...");
