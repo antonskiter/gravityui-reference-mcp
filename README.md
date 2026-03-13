@@ -6,13 +6,24 @@ Pre-ingested data is included in the repo, so the server works offline with no s
 
 ## Tools
 
+### Agent-optimized (recommended for coding)
+
 | Tool | Description |
 |------|-------------|
-| `list_sources` | Show indexed libraries, page counts, and freshness |
-| `list_components` | List all components (optionally filtered by library) |
+| `suggest_component` | Describe a use case, get ranked component suggestions with semantic tag matching |
+| `get_component_reference` | Single-call component reference: import, props, example, design guide (compact or full) |
+| `get_quick_start` | Library onboarding: install command, setup code, and component list |
+| `get_design_system_overview` | System philosophy (theming, spacing, typography) + per-library purpose and dependencies |
+
+### Exploration
+
+| Tool | Description |
+|------|-------------|
 | `search_docs` | Full-text search across all documentation |
 | `get_page` | Get page structure and table of contents |
 | `get_section` | Get full content of a specific section |
+| `list_components` | List all components (optionally filtered by library) |
+| `list_sources` | Show indexed libraries, page counts, and freshness |
 
 ## Setup
 
@@ -85,9 +96,9 @@ Then restart Cursor or reload the MCP servers from **Cursor Settings > MCP**. Th
 
 Ask your AI assistant something like:
 
-> What Gravity UI components are available for date picking?
+> I need a date range picker for a booking form
 
-It should use the `search_docs` or `list_components` tools to answer from the indexed documentation.
+It should use `suggest_component` to find the right component, then `get_component_reference` to get the import and props.
 
 ### Standalone (stdio)
 
