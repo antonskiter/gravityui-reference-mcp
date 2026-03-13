@@ -2538,5 +2538,762 @@
       "component:navigation:Settings:settingssection",
       "component:navigation:Settings:settingsitem"
     ]
+  },
+  {
+    "id": "library:markdown-editor",
+    "title": "@gravity-ui/markdown-editor · npm package CI Release storybook",
+    "page_type": "library",
+    "library": "markdown-editor",
+    "url": "https://gravity-ui.com/libraries/markdown-editor",
+    "github_url": "https://github.com/gravity-ui/markdown-editor",
+    "breadcrumbs": [
+      "@gravity-ui/markdown-editor · npm package CI Release storybook"
+    ],
+    "description": "MarkdownEditor is a powerful tool for working with Markdown, which combines…",
+    "section_ids": [
+      "library:markdown-editor:gravity-uimarkdown-editor-npm-package-ci-release-storybook",
+      "library:markdown-editor:markdown-wysiwyg-and-markup-editor",
+      "library:markdown-editor:install",
+      "library:markdown-editor:getting-started"
+    ]
+  },
+  {
+    "id": "library:aikit",
+    "title": "AIKit · npm package CI storybook",
+    "page_type": "library",
+    "library": "aikit",
+    "url": "https://gravity-ui.com/libraries/aikit",
+    "github_url": "https://github.com/gravity-ui/aikit",
+    "breadcrumbs": [
+      "AIKit · npm package CI storybook"
+    ],
+    "description": "UI component library for AI chats built with Atomic Design principles.",
+    "section_ids": [
+      "library:aikit:aikit-npm-package-ci-storybook",
+      "library:aikit:resources",
+      "library:aikit:description",
+      "library:aikit:project-structure",
+      "library:aikit:installation",
+      "library:aikit:quick-start",
+      "library:aikit:architecture",
+      "library:aikit:documentation",
+      "library:aikit:testing",
+      "library:aikit:development",
+      "library:aikit:license"
+    ]
+  },
+  {
+    "id": "library:graph",
+    "title": "@gravity-ui/graph · npm package Release storybook",
+    "page_type": "library",
+    "library": "graph",
+    "url": "https://gravity-ui.com/libraries/graph",
+    "github_url": "https://github.com/gravity-ui/graph",
+    "breadcrumbs": [
+      "@gravity-ui/graph · npm package Release storybook"
+    ],
+    "description": "A graph visualization library that combines the best of both worlds:",
+    "section_ids": [
+      "library:graph:gravity-uigraph-npm-package-release-storybook",
+      "library:graph:motivation",
+      "library:graph:how-it-works",
+      "library:graph:install",
+      "library:graph:examples",
+      "library:graph:react-example",
+      "library:graph:vanilla-javascript-example",
+      "library:graph:live-examples",
+      "library:graph:documentation"
+    ]
+  },
+  {
+    "id": "library:chartkit",
+    "title": "@gravity-ui/chartkit · license npm package storybook",
+    "page_type": "library",
+    "library": "chartkit",
+    "url": "https://gravity-ui.com/libraries/chartkit",
+    "github_url": "https://github.com/gravity-ui/chartkit",
+    "breadcrumbs": [
+      "@gravity-ui/chartkit · license npm package storybook"
+    ],
+    "description": "React component used to render charts based on any sources you need",
+    "section_ids": [
+      "library:chartkit:gravity-uichartkit-license-npm-package-storybook",
+      "library:chartkit:install",
+      "library:chartkit:usage"
+    ]
+  },
+  {
+    "id": "library:charts",
+    "title": "Gravity UI Charts",
+    "page_type": "library",
+    "library": "charts",
+    "url": "https://gravity-ui.com/libraries/charts",
+    "github_url": "https://github.com/gravity-ui/charts",
+    "breadcrumbs": [
+      "Gravity UI Charts"
+    ],
+    "description": "A flexible JavaScript library for data visualization and chart rendering using…",
+    "section_ids": [
+      "library:charts:gravity-ui-charts",
+      "library:charts:documentation",
+      "library:charts:get-started",
+      "library:charts:contributing"
+    ]
+  },
+  {
+    "id": "library:table",
+    "title": "@gravity-ui/table · npm package CI storybook",
+    "page_type": "library",
+    "library": "table",
+    "url": "https://gravity-ui.com/libraries/table",
+    "github_url": "https://github.com/gravity-ui/table",
+    "breadcrumbs": [
+      "@gravity-ui/table · npm package CI storybook"
+    ],
+    "description": "There are two Table components that you can use:",
+    "section_ids": [
+      "library:table:gravity-uitable-npm-package-ci-storybook",
+      "library:table:install",
+      "library:table:usage",
+      "library:table:components",
+      "library:table:row-selection",
+      "library:table:custom-ranged-selection-column",
+      "library:table:sorting",
+      "library:table:grouping",
+      "library:table:reordering",
+      "library:table:virtualization",
+      "library:table:window-virtualization",
+      "library:table:resizing",
+      "library:table:column-settings",
+      "library:table:known-issues-and-compatibility"
+    ]
+  },
+  {
+    "id": "component:table:BaseTable",
+    "title": "BaseTable",
+    "page_type": "component",
+    "library": "table",
+    "url": "https://gravity-ui.com/components/table/basetable",
+    "github_url": "https://github.com/gravity-ui/table/tree/main/src/components/BaseTable",
+    "breadcrumbs": [
+      "BaseTable"
+    ],
+    "description": "| Name                        | Description                                    …",
+    "section_ids": [
+      "component:table:BaseTable:basetable",
+      "component:table:BaseTable:properties"
+    ]
+  },
+  {
+    "id": "library:dashkit",
+    "title": "@gravity-ui/dashkit · npm package CI storybook",
+    "page_type": "library",
+    "library": "dashkit",
+    "url": "https://gravity-ui.com/libraries/dashkit",
+    "github_url": "https://github.com/gravity-ui/dashkit",
+    "breadcrumbs": [
+      "@gravity-ui/dashkit · npm package CI storybook"
+    ],
+    "description": "A dashboard grid rendering library.",
+    "section_ids": [
+      "library:dashkit:gravity-uidashkit-npm-package-ci-storybook",
+      "library:dashkit:installation",
+      "library:dashkit:description",
+      "library:dashkit:plugins",
+      "library:dashkit:props",
+      "library:dashkit:usage",
+      "library:dashkit:dashkit-configuration",
+      "library:dashkit:config",
+      "library:dashkit:params",
+      "library:dashkit:itemsstateandparams",
+      "library:dashkit:menu",
+      "library:dashkit:css-api",
+      "library:dashkit:development"
+    ]
+  },
+  {
+    "id": "library:yagr",
+    "title": "Ẏagr <img src=\"https://raw.githubusercontent.com/gravity-ui/yagr/main/docs/assets/yagr.svg\" width=\"24px\" height=\"24px\" />",
+    "page_type": "library",
+    "library": "yagr",
+    "url": "https://gravity-ui.com/libraries/yagr",
+    "github_url": "https://github.com/gravity-ui/yagr",
+    "breadcrumbs": [
+      "Ẏagr <img src=\"https://raw.githubusercontent.com/gravity-ui/yagr/main/docs/assets/yagr.svg\" width=\"24px\" height=\"24px\" />"
+    ],
+    "description": "Yagr is a high-performance HTML5 canvas chart renderer based on uPlot. It…",
+    "section_ids": [
+      "library:yagr:agr-img-srchttpsrawgithubusercontentcomgravity-uiyagrmaindocsassetsyagrsvg-width24px-height24px",
+      "library:yagr:features",
+      "library:yagr:documentationhttpsyagrtech",
+      "library:yagr:quick-start"
+    ]
+  },
+  {
+    "id": "library:timeline",
+    "title": "@gravity-ui/timeline npm package Release storybook",
+    "page_type": "library",
+    "library": "timeline",
+    "url": "https://gravity-ui.com/libraries/timeline",
+    "github_url": "https://github.com/gravity-ui/timeline",
+    "breadcrumbs": [
+      "@gravity-ui/timeline npm package Release storybook"
+    ],
+    "description": "A React-based library for building interactive timeline visualizations with…",
+    "section_ids": [
+      "library:timeline:gravity-uitimeline-npm-package-release-storybook",
+      "library:timeline:documentation",
+      "library:timeline:preview",
+      "library:timeline:features",
+      "library:timeline:installation",
+      "library:timeline:usage",
+      "library:timeline:axis-structure",
+      "library:timeline:section-structure",
+      "library:timeline:marker-structure",
+      "library:timeline:marker-grouping-and-zoom",
+      "library:timeline:how-it-works",
+      "library:timeline:component-architecture",
+      "library:timeline:event-handling",
+      "library:timeline:react-integration",
+      "library:timeline:event-structure",
+      "library:timeline:direct-typescript-usage",
+      "library:timeline:live-examples",
+      "library:timeline:development",
+      "library:timeline:license"
+    ]
+  },
+  {
+    "id": "library:icons",
+    "title": "@gravity-ui/icons · npm package CI storybook",
+    "page_type": "library",
+    "library": "icons",
+    "url": "https://gravity-ui.com/libraries/icons",
+    "github_url": "https://github.com/gravity-ui/icons",
+    "breadcrumbs": [
+      "@gravity-ui/icons · npm package CI storybook"
+    ],
+    "description": "A pack of Gravity UI icons. Icons have two sources, SVG and React. Have a look…",
+    "section_ids": [
+      "library:icons:gravity-uiicons-npm-package-ci-storybook",
+      "library:icons:install",
+      "library:icons:usage"
+    ]
+  },
+  {
+    "id": "library:illustrations",
+    "title": "@gravity-ui/illustrations · npm package CI storybook",
+    "page_type": "library",
+    "library": "illustrations",
+    "url": "https://gravity-ui.com/libraries/illustrations",
+    "github_url": "https://github.com/gravity-ui/illustrations",
+    "breadcrumbs": [
+      "@gravity-ui/illustrations · npm package CI storybook"
+    ],
+    "description": "Setup illustrations theme. Execute any of the following steps:",
+    "section_ids": [
+      "library:illustrations:gravity-uiillustrations-npm-package-ci-storybook",
+      "library:illustrations:installation",
+      "library:illustrations:usage"
+    ]
+  },
+  {
+    "id": "library:dynamic-forms",
+    "title": "@gravity-ui/dynamic-forms · npm package CI storybook",
+    "page_type": "library",
+    "library": "dynamic-forms",
+    "url": "https://gravity-ui.com/libraries/dynamic-forms",
+    "github_url": "https://github.com/gravity-ui/dynamic-forms",
+    "breadcrumbs": [
+      "@gravity-ui/dynamic-forms · npm package CI storybook"
+    ],
+    "description": "The JSON Schema-based library for rendering forms and form values.",
+    "section_ids": [
+      "library:dynamic-forms:gravity-uidynamic-forms-npm-package-ci-storybook",
+      "library:dynamic-forms:install",
+      "library:dynamic-forms:usage",
+      "library:dynamic-forms:development"
+    ]
+  },
+  {
+    "id": "library:page-constructor",
+    "title": "@gravity-ui/page-constructor · npm package CI Release storybook",
+    "page_type": "library",
+    "library": "page-constructor",
+    "url": "https://gravity-ui.com/libraries/page-constructor",
+    "github_url": "https://github.com/gravity-ui/page-constructor",
+    "breadcrumbs": [
+      "@gravity-ui/page-constructor · npm package CI Release storybook"
+    ],
+    "description": "Page-constructor is a library for rendering web pages or their parts based on…",
+    "section_ids": [
+      "library:page-constructor:gravity-uipage-constructor-npm-package-ci-release-storybook",
+      "library:page-constructor:page-constructor",
+      "library:page-constructor:install",
+      "library:page-constructor:quick-start",
+      "library:page-constructor:documentation",
+      "library:page-constructor:parameters",
+      "library:page-constructor:server-utils",
+      "library:page-constructor:detailed-documentation-on-server-utilities-and-transformers",
+      "library:page-constructor:custom-blocks",
+      "library:page-constructor:loadable-blocks",
+      "library:page-constructor:grid",
+      "library:page-constructor:navigation",
+      "library:page-constructor:blocks",
+      "library:page-constructor:sub-blocks",
+      "library:page-constructor:how-to-add-a-new-block-to-the-page-constructor",
+      "library:page-constructor:themes",
+      "library:page-constructor:i18n",
+      "library:page-constructor:maps",
+      "library:page-constructor:analytics",
+      "library:page-constructor:development",
+      "library:page-constructor:release-flow",
+      "library:page-constructor:alpha-versions-release",
+      "library:page-constructor:beta-major-versions-release",
+      "library:page-constructor:release-flow-for-previous-major-versions",
+      "library:page-constructor:page-constructor-editor",
+      "library:page-constructor:memory-bank",
+      "library:page-constructor:tests"
+    ]
+  },
+  {
+    "id": "component:page-constructor:Button",
+    "title": "Button",
+    "page_type": "component",
+    "library": "page-constructor",
+    "url": "https://gravity-ui.com/components/page-constructor/button",
+    "github_url": "https://github.com/gravity-ui/page-constructor/tree/main/src/components/Button",
+    "breadcrumbs": [
+      "Button"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:page-constructor:Button:button"
+    ]
+  },
+  {
+    "id": "component:page-constructor:ErrorWrapper",
+    "title": "ErrorWrapper",
+    "page_type": "component",
+    "library": "page-constructor",
+    "url": "https://gravity-ui.com/components/page-constructor/errorwrapper",
+    "github_url": "https://github.com/gravity-ui/page-constructor/tree/main/src/components/ErrorWrapper",
+    "breadcrumbs": [
+      "ErrorWrapper"
+    ],
+    "description": "The ErrorWrapper component is used to gracefully handle and display local…",
+    "section_ids": [
+      "component:page-constructor:ErrorWrapper:errorwrapper",
+      "component:page-constructor:ErrorWrapper:installation-import",
+      "component:page-constructor:ErrorWrapper:when-to-use",
+      "component:page-constructor:ErrorWrapper:props",
+      "component:page-constructor:ErrorWrapper:example"
+    ]
+  },
+  {
+    "id": "component:page-constructor:Link",
+    "title": "Link",
+    "page_type": "component",
+    "library": "page-constructor",
+    "url": "https://gravity-ui.com/components/page-constructor/link",
+    "github_url": "https://github.com/gravity-ui/page-constructor/tree/main/src/components/Link",
+    "breadcrumbs": [
+      "Link"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:page-constructor:Link:link"
+    ]
+  },
+  {
+    "id": "component:page-constructor:Map",
+    "title": "Map",
+    "page_type": "component",
+    "library": "page-constructor",
+    "url": "https://gravity-ui.com/components/page-constructor/map",
+    "github_url": "https://github.com/gravity-ui/page-constructor/tree/main/src/components/Map",
+    "breadcrumbs": [
+      "Map"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:page-constructor:Map:map"
+    ]
+  },
+  {
+    "id": "component:page-constructor:Table",
+    "title": "Table",
+    "page_type": "component",
+    "library": "page-constructor",
+    "url": "https://gravity-ui.com/components/page-constructor/table",
+    "github_url": "https://github.com/gravity-ui/page-constructor/tree/main/src/components/Table",
+    "breadcrumbs": [
+      "Table"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:page-constructor:Table:table"
+    ]
+  },
+  {
+    "id": "component:page-constructor:Title",
+    "title": "Title",
+    "page_type": "component",
+    "library": "page-constructor",
+    "url": "https://gravity-ui.com/components/page-constructor/title",
+    "github_url": "https://github.com/gravity-ui/page-constructor/tree/main/src/components/Title",
+    "breadcrumbs": [
+      "Title"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:page-constructor:Title:title"
+    ]
+  },
+  {
+    "id": "library:blog-constructor",
+    "title": "@gravity-ui/blog-constructor · npm package CI CI storybook",
+    "page_type": "library",
+    "library": "blog-constructor",
+    "url": "https://gravity-ui.com/libraries/blog-constructor",
+    "github_url": "https://github.com/gravity-ui/blog-constructor",
+    "breadcrumbs": [
+      "@gravity-ui/blog-constructor · npm package CI CI storybook"
+    ],
+    "description": "Blog-constructor is a library based on the Page-constructor library for…",
+    "section_ids": [
+      "library:blog-constructor:gravity-uiblog-constructor-npm-package-ci-ci-storybook",
+      "library:blog-constructor:install",
+      "library:blog-constructor:blog-constructor",
+      "library:blog-constructor:development"
+    ]
+  },
+  {
+    "id": "component:blog-constructor:PromptSignIn",
+    "title": "PromptSignIn",
+    "page_type": "component",
+    "library": "blog-constructor",
+    "url": "https://gravity-ui.com/components/blog-constructor/promptsignin",
+    "github_url": "https://github.com/gravity-ui/blog-constructor/tree/main/src/components/PromptSignIn",
+    "breadcrumbs": [
+      "PromptSignIn"
+    ],
+    "description": "",
+    "section_ids": [
+      "component:blog-constructor:PromptSignIn:promptsignin"
+    ]
+  },
+  {
+    "id": "library:page-constructor-builder",
+    "title": "Page Constructor Builder",
+    "page_type": "library",
+    "library": "page-constructor-builder",
+    "url": "https://gravity-ui.com/libraries/page-constructor-builder",
+    "github_url": "https://github.com/gravity-ui/page-constructor-builder",
+    "breadcrumbs": [
+      "Page Constructor Builder"
+    ],
+    "description": "A powerful command-line utility for building static pages from YAML…",
+    "section_ids": [
+      "library:page-constructor-builder:page-constructor-builder",
+      "library:page-constructor-builder:quick-start",
+      "library:page-constructor-builder:usage",
+      "library:page-constructor-builder:commands",
+      "library:page-constructor-builder:configuration",
+      "library:page-constructor-builder:page-configuration",
+      "library:page-constructor-builder:custom-components",
+      "library:page-constructor-builder:custom-styles",
+      "library:page-constructor-builder:static-assets",
+      "library:page-constructor-builder:favicon",
+      "library:page-constructor-builder:navigation",
+      "library:page-constructor-builder:analytics-configuration"
+    ]
+  },
+  {
+    "id": "library:dialog-fields",
+    "title": "dialog-fields",
+    "page_type": "library",
+    "library": "dialog-fields",
+    "url": "https://gravity-ui.com/libraries/dialog-fields",
+    "github_url": "https://github.com/gravity-ui/dialog-fields",
+    "breadcrumbs": [
+      "dialog-fields",
+      "Short description"
+    ],
+    "description": "",
+    "section_ids": [
+      "library:dialog-fields:short-description",
+      "library:dialog-fields:install",
+      "library:dialog-fields:usage"
+    ]
+  },
+  {
+    "id": "library:nodekit",
+    "title": "NodeKit",
+    "page_type": "library",
+    "library": "nodekit",
+    "url": "https://gravity-ui.com/libraries/nodekit",
+    "github_url": "https://github.com/gravity-ui/nodekit",
+    "breadcrumbs": [
+      "NodeKit"
+    ],
+    "description": "NodeKit is a simple toolkit for your Node.js apps, scripts and libraries. It…",
+    "section_ids": [
+      "library:nodekit:nodekit",
+      "library:nodekit:getting-started",
+      "library:nodekit:documentation",
+      "library:nodekit:contributing"
+    ]
+  },
+  {
+    "id": "library:expresskit",
+    "title": "ExpressKit",
+    "page_type": "library",
+    "library": "expresskit",
+    "url": "https://gravity-ui.com/libraries/expresskit",
+    "github_url": "https://github.com/gravity-ui/expresskit",
+    "breadcrumbs": [
+      "ExpressKit"
+    ],
+    "description": "ExpressKit is a lightweight express.js wrapper that integrates with NodeKit and…",
+    "section_ids": [
+      "library:expresskit:expresskit",
+      "library:expresskit:csp",
+      "library:expresskit:csrf-protection",
+      "library:expresskit:caching-control",
+      "library:expresskit:validation-and-response-serialization"
+    ]
+  },
+  {
+    "id": "library:app-layout",
+    "title": "@gravity-ui/app-layout · npm package CI",
+    "page_type": "library",
+    "library": "app-layout",
+    "url": "https://gravity-ui.com/libraries/app-layout",
+    "github_url": "https://github.com/gravity-ui/app-layout",
+    "breadcrumbs": [
+      "@gravity-ui/app-layout · npm package CI"
+    ],
+    "description": "With express:",
+    "section_ids": [
+      "library:app-layout:gravity-uiapp-layout-npm-package-ci",
+      "library:app-layout:install",
+      "library:app-layout:usage",
+      "library:app-layout:meta",
+      "library:app-layout:icon",
+      "library:app-layout:links",
+      "library:app-layout:scripts",
+      "library:app-layout:plugins",
+      "library:app-layout:google-analytics",
+      "library:app-layout:yandex-metrika",
+      "library:app-layout:layout",
+      "library:app-layout:gravity-uiuikit",
+      "library:app-layout:remote-versions",
+      "library:app-layout:helpers",
+      "library:app-layout:alternative-usage"
+    ]
+  },
+  {
+    "id": "library:date-utils",
+    "title": "@gravity-ui/date-utils",
+    "page_type": "library",
+    "library": "date-utils",
+    "url": "https://gravity-ui.com/libraries/date-utils",
+    "github_url": "https://github.com/gravity-ui/date-utils",
+    "breadcrumbs": [
+      "@gravity-ui/date-utils"
+    ],
+    "description": "Helpers for managing Date and Time.",
+    "section_ids": [
+      "library:date-utils:gravity-uidate-utils",
+      "library:date-utils:install",
+      "library:date-utils:usage",
+      "library:date-utils:settings"
+    ]
+  },
+  {
+    "id": "library:axios-wrapper",
+    "title": "Axios Wrapper",
+    "page_type": "library",
+    "library": "axios-wrapper",
+    "url": "https://gravity-ui.com/libraries/axios-wrapper",
+    "github_url": "https://github.com/gravity-ui/axios-wrapper",
+    "breadcrumbs": [
+      "Axios Wrapper"
+    ],
+    "description": "This library provides a convenient wrapper around Axios adding automatic…",
+    "section_ids": [
+      "library:axios-wrapper:axios-wrapper",
+      "library:axios-wrapper:install",
+      "library:axios-wrapper:http-api",
+      "library:axios-wrapper:constructor-parameters",
+      "library:axios-wrapper:basic-methods",
+      "library:axios-wrapper:headers",
+      "library:axios-wrapper:csrf",
+      "library:axios-wrapper:concurrent-requests",
+      "library:axios-wrapper:collecting-requests",
+      "library:axios-wrapper:usage"
+    ]
+  },
+  {
+    "id": "library:i18n",
+    "title": "🌍 Gravity-UI i18n Tools",
+    "page_type": "library",
+    "library": "i18n",
+    "url": "https://gravity-ui.com/libraries/i18n",
+    "github_url": "https://github.com/gravity-ui/i18n",
+    "breadcrumbs": [
+      "🌍 Gravity-UI i18n Tools"
+    ],
+    "description": "This repository contains common utilities, libraries, and plugins used for i18n…",
+    "section_ids": [
+      "library:i18n:gravity-ui-i18n-tools",
+      "library:i18n:useful-links",
+      "library:i18n:libraries",
+      "library:i18n:development"
+    ]
+  },
+  {
+    "id": "library:data-source",
+    "title": "Data Source · npm version ci",
+    "page_type": "library",
+    "library": "data-source",
+    "url": "https://gravity-ui.com/libraries/data-source",
+    "github_url": "https://github.com/gravity-ui/data-source",
+    "breadcrumbs": [
+      "Data Source · npm version ci"
+    ],
+    "description": "Data Source is a simple wrapper around data fetching. It is a kind of \"port\" in…",
+    "section_ids": [
+      "library:data-source:data-source-npm-version-ci",
+      "library:data-source:installation",
+      "library:data-source:quick-start"
+    ]
+  },
+  {
+    "id": "library:eslint-config",
+    "title": "@gravity-ui/eslint-config",
+    "page_type": "library",
+    "library": "eslint-config",
+    "url": "https://gravity-ui.com/libraries/eslint-config",
+    "github_url": "https://github.com/gravity-ui/eslint-config",
+    "breadcrumbs": [
+      "@gravity-ui/eslint-config"
+    ],
+    "description": "Add eslint.config.js file in your project with the following content:",
+    "section_ids": [
+      "library:eslint-config:gravity-uieslint-config",
+      "library:eslint-config:install",
+      "library:eslint-config:usage"
+    ]
+  },
+  {
+    "id": "library:tsconfig",
+    "title": "@gravity-ui/tsconfig",
+    "page_type": "library",
+    "library": "tsconfig",
+    "url": "https://gravity-ui.com/libraries/tsconfig",
+    "github_url": "https://github.com/gravity-ui/tsconfig",
+    "breadcrumbs": [
+      "@gravity-ui/tsconfig"
+    ],
+    "description": "Add tsconfig.json file in the project root with the following content:",
+    "section_ids": [
+      "library:tsconfig:gravity-uitsconfig",
+      "library:tsconfig:install",
+      "library:tsconfig:usage"
+    ]
+  },
+  {
+    "id": "library:prettier-config",
+    "title": "@gravity-ui/prettier-config",
+    "page_type": "library",
+    "library": "prettier-config",
+    "url": "https://gravity-ui.com/libraries/prettier-config",
+    "github_url": "https://github.com/gravity-ui/prettier-config",
+    "breadcrumbs": [
+      "@gravity-ui/prettier-config"
+    ],
+    "description": "Add .prettierrc.js file in the project root with the following content:",
+    "section_ids": [
+      "library:prettier-config:gravity-uiprettier-config",
+      "library:prettier-config:install",
+      "library:prettier-config:usage"
+    ]
+  },
+  {
+    "id": "library:stylelint-config",
+    "title": "@gravity-ui/stylelint-config",
+    "page_type": "library",
+    "library": "stylelint-config",
+    "url": "https://gravity-ui.com/libraries/stylelint-config",
+    "github_url": "https://github.com/gravity-ui/stylelint-config",
+    "breadcrumbs": [
+      "@gravity-ui/stylelint-config"
+    ],
+    "description": "Stylelint configuration for Gravity UI projects.",
+    "section_ids": [
+      "library:stylelint-config:gravity-uistylelint-config",
+      "library:stylelint-config:requirements",
+      "library:stylelint-config:install",
+      "library:stylelint-config:usage"
+    ]
+  },
+  {
+    "id": "library:babel-preset",
+    "title": "@gravity-ui/babel-preset",
+    "page_type": "library",
+    "library": "babel-preset",
+    "url": "https://gravity-ui.com/libraries/babel-preset",
+    "github_url": "https://github.com/gravity-ui/babel-preset",
+    "breadcrumbs": [
+      "@gravity-ui/babel-preset"
+    ],
+    "description": "Babel preset for Gravity UI projects",
+    "section_ids": [
+      "library:babel-preset:gravity-uibabel-preset",
+      "library:babel-preset:install",
+      "library:babel-preset:usage"
+    ]
+  },
+  {
+    "id": "library:browserslist-config",
+    "title": "Browserslist config of Gravity UI packages family",
+    "page_type": "library",
+    "library": "browserslist-config",
+    "url": "https://gravity-ui.com/libraries/browserslist-config",
+    "github_url": "https://github.com/gravity-ui/browserslist-config",
+    "breadcrumbs": [
+      "Browserslist config of Gravity UI packages family"
+    ],
+    "description": "You can check compatible browsers on browsersl.ist.",
+    "section_ids": [
+      "library:browserslist-config:browserslist-config-of-gravity-ui-packages-family",
+      "library:browserslist-config:compatible-browsers",
+      "library:browserslist-config:install",
+      "library:browserslist-config:usage"
+    ]
+  },
+  {
+    "id": "library:webpack-i18n-assets-plugin",
+    "title": "🌍 webpack-i18n-assets-plugin",
+    "page_type": "library",
+    "library": "webpack-i18n-assets-plugin",
+    "url": "https://gravity-ui.com/libraries/webpack-i18n-assets-plugin",
+    "github_url": "https://github.com/gravity-ui/webpack-i18n-assets-plugin",
+    "breadcrumbs": [
+      "🌍 webpack-i18n-assets-plugin"
+    ],
+    "description": "A plugin for Webpack that replaces calls to localization functions (i18n) with…",
+    "section_ids": [
+      "library:webpack-i18n-assets-plugin:webpack-i18n-assets-plugin",
+      "library:webpack-i18n-assets-plugin:how-to-use",
+      "library:webpack-i18n-assets-plugin:settings",
+      "library:webpack-i18n-assets-plugin:importresolver",
+      "library:webpack-i18n-assets-plugin:declarationresolver",
+      "library:webpack-i18n-assets-plugin:replacer",
+      "library:webpack-i18n-assets-plugin:collectunusedkeys",
+      "library:webpack-i18n-assets-plugin:frameworks-settings",
+      "library:webpack-i18n-assets-plugin:faq"
+    ]
   }
 ]

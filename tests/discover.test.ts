@@ -21,11 +21,14 @@ describe("buildManifestFromTrees", () => {
   it("extracts component README entries from library trees", () => {
     const landingTree: any[] = [];
     const libTrees = {
-      uikit: [
-        { path: "src/components/Button/README.md", type: "blob" },
-        { path: "src/components/Button/Button.tsx", type: "blob" },
-        { path: "src/components/Select/README.md", type: "blob" },
-      ],
+      uikit: {
+        tree: [
+          { path: "src/components/Button/README.md", type: "blob" },
+          { path: "src/components/Button/Button.tsx", type: "blob" },
+          { path: "src/components/Select/README.md", type: "blob" },
+        ],
+        branch: "main",
+      },
     };
     const result = buildManifestFromTrees(landingTree, libTrees);
     const components = result.filter((e) => e.page_type === "component");
@@ -36,7 +39,10 @@ describe("buildManifestFromTrees", () => {
 
   it("adds library README entries for each repo", () => {
     const landingTree: any[] = [];
-    const libTrees = { uikit: [], navigation: [] };
+    const libTrees = {
+      uikit: { tree: [], branch: "main" },
+      navigation: { tree: [], branch: "main" },
+    };
     const result = buildManifestFromTrees(landingTree, libTrees);
     const libs = result.filter((e) => e.page_type === "library");
     expect(libs).toHaveLength(2);
