@@ -2,8 +2,10 @@ import { readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { deserializeIndex } from "../ingest/index.js";
-import type { Page, Chunk, IngestMetadata } from "../types.js";
+import type { Page, Chunk, IngestMetadata, ComponentTags, DesignSystemOverview } from "../types.js";
 import type MiniSearch from "minisearch";
+
+export type { DesignSystemOverview } from "../types.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -17,6 +19,8 @@ export interface LoadedData {
   pageById: Map<string, Page>;
   chunkById: Map<string, Chunk>;
   chunksByPageId: Map<string, Chunk[]>;
+  tagsByPageId: Map<string, string[]>;
+  overview: DesignSystemOverview;
 }
 
 export function loadData(): LoadedData {
@@ -25,6 +29,8 @@ export function loadData(): LoadedData {
   const metadata: IngestMetadata = JSON.parse(readFileSync(join(DATA_DIR, "metadata.json"), "utf-8"));
   const indexJson = readFileSync(join(DATA_DIR, "search-index.json"), "utf-8");
   const index = deserializeIndex(indexJson);
+  const tagsRaw: ComponentTags = JSON.parse(readFileSync(join(DATA_DIR, "tags.json"), "utf-8"));
+  const overview: DesignSystemOverview = JSON.parse(readFileSync(join(DATA_DIR, "overview.json"), "utf-8"));
 
   const pageById = new Map(pages.map(p => [p.id, p]));
   const chunkById = new Map(chunks.map(c => [c.id, c]));
@@ -35,5 +41,7 @@ export function loadData(): LoadedData {
     chunksByPageId.set(chunk.page_id, list);
   }
 
-  return { pages, chunks, metadata, index, pageById, chunkById, chunksByPageId };
+  const tagsByPageId = new Map(Object.entries(tagsRaw));
+
+  return { pages, chunks, metadata, index, pageById, chunkById, chunksByPageId, tagsByPageId, overview };
 }

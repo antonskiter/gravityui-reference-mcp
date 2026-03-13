@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { buildIndex } from "../src/ingest/index.js";
 import type { LoadedData } from "../src/server/loader.js";
-import type { Page, Chunk, IngestMetadata } from "../src/types.js";
+import type { Page, Chunk, IngestMetadata, DesignSystemOverview } from "../src/types.js";
 import { handleSearchDocs } from "../src/server/tools/search-docs.js";
 import { handleGetSection } from "../src/server/tools/get-section.js";
 import { handleGetPage } from "../src/server/tools/get-page.js";
@@ -78,6 +78,27 @@ const mockMetadata: IngestMetadata = {
   source_commits: { uikit: "abc123", guides: "def456" },
 };
 
+const mockOverview: DesignSystemOverview = {
+  system: {
+    description: "Gravity UI is a design system for building interfaces.",
+    theming: "Supports light and dark themes via CSS custom properties.",
+    spacing: "Uses a 4px base grid for consistent spacing.",
+    typography: "System font stack with defined type scale.",
+    corner_radius: "Configurable corner radius tokens.",
+    branding: "Supports custom branding through theme overrides.",
+  },
+  libraries: [
+    {
+      id: "uikit",
+      package: "@gravity-ui/uikit",
+      purpose: "Core UI component library",
+      component_count: 1,
+      depends_on: [],
+      is_peer_dependency_of: [],
+    },
+  ],
+};
+
 let mockData: LoadedData;
 
 beforeAll(() => {
@@ -94,6 +115,9 @@ beforeAll(() => {
     chunksByPageId.set(chunk.page_id, list);
   }
 
+  const tagsByPageId = new Map<string, string[]>();
+  tagsByPageId.set("component:uikit:Select", ["select", "dropdown", "picker", "uikit"]);
+
   mockData = {
     pages,
     chunks,
@@ -102,6 +126,8 @@ beforeAll(() => {
     pageById,
     chunkById,
     chunksByPageId,
+    tagsByPageId,
+    overview: mockOverview,
   };
 });
 
