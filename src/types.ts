@@ -47,3 +47,28 @@ export interface PageManifestEntry {
   library?: string;
   name: string;
 }
+
+export type ComponentTags = Record<string, string[]>;
+
+export interface SystemOverview {
+  description: string;
+  theming: string;
+  spacing: string;
+  typography: string;
+  corner_radius: string;
+  branding: string;
+}
+
+export interface LibraryOverviewEntry {
+  id: string;
+  package: string;
+  purpose: string;
+  component_count: number;
+  depends_on: string[];
+  is_peer_dependency_of: string[];
+}
+
+export interface DesignSystemOverview {
+  system: SystemOverview;
+  libraries: LibraryOverviewEntry[];
+}
