@@ -15,7 +15,9 @@ Pre-ingested data is included in the repo, so the server works offline with no s
 | `get_quick_start` | Library onboarding: install command, setup code, and component list |
 | `get_design_system_overview` | System philosophy (theming, spacing, typography) + per-library purpose and dependencies |
 
-### Exploration
+### Exploration (planning/ideation only)
+
+Use these tools during planning, research, or ideation — **not during active development**. They return raw documentation sections and require multiple round-trips, which wastes tokens and context when coding. Prefer the agent-optimized tools above for implementation tasks.
 
 | Tool | Description |
 |------|-------------|

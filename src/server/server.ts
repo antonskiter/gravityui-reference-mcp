@@ -19,7 +19,7 @@ const server = new McpServer({ name: "gravityui-docs", version: "0.1.0" });
 
 server.tool(
   "search_docs",
-  "Search Gravity UI documentation by keyword or question. Returns ranked snippets with section IDs for drill-down. Use this as the first step for any documentation question. Call get_section afterward to retrieve full content. Prefer specific terms over vague queries. Do not call more than 3 times per question.",
+  "Search Gravity UI documentation by keyword or question. Best suited for planning and research — for coding tasks, prefer suggest_component or get_component_reference instead. Returns ranked snippets with section IDs for drill-down. Call get_section afterward to retrieve full content. Prefer specific terms over vague queries. Do not call more than 3 times per question.",
   {
     query: z.string().describe("The search query or question"),
     limit: z.number().int().min(1).max(10).optional().describe("Maximum number of results to return (1-10)"),
@@ -34,7 +34,7 @@ server.tool(
 
 server.tool(
   "get_section",
-  "Retrieve the full content of a documentation section by its ID. Use this after search_docs to get complete text and code examples. Do not call this without first searching — use the section_id from search results.",
+  "Retrieve the full content of a documentation section by its ID. Best suited for planning and research — for coding tasks, prefer get_component_reference with detail='full' instead. Use this after search_docs to get complete text and code examples. Do not call this without first searching — use the section_id from search results.",
   {
     section_id: z.string().describe("The section ID from search results"),
   },
@@ -46,7 +46,7 @@ server.tool(
 
 server.tool(
   "get_page",
-  "Get the full structure of a documentation page — metadata and a table of contents with section summaries. Use this when you need to understand what a component or guide covers before drilling into specific sections. Do not use this for search — use search_docs instead.",
+  "Get the full structure of a documentation page — metadata and a table of contents with section summaries. Best suited for planning and research — for coding tasks, prefer get_component_reference instead. Use this when you need to understand what a component or guide covers before drilling into specific sections.",
   {
     page_id: z.string().describe("The page ID to retrieve"),
   },
@@ -58,7 +58,7 @@ server.tool(
 
 server.tool(
   "list_components",
-  "List all available components, optionally filtered by library. Use this for discovery — to see what components exist before searching. Returns names, short descriptions, and IDs only.",
+  "List all available components, optionally filtered by library. Best suited for planning and research — for coding tasks, prefer suggest_component or get_quick_start instead. Returns names, short descriptions, and IDs only.",
   {
     library: z.string().optional().describe("Filter components by library name"),
   },
@@ -70,7 +70,7 @@ server.tool(
 
 server.tool(
   "list_sources",
-  "Show what documentation is indexed: libraries, page counts, and freshness. Call this once at the start of a session to understand available coverage.",
+  "Show what documentation is indexed: libraries, page counts, and freshness. Best suited for planning and research — for coding tasks, prefer get_design_system_overview instead. Call this once at the start of a session to understand available coverage.",
   {},
   () => {
     const result = handleListSources(data);
