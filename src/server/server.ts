@@ -7,6 +7,10 @@ import { handleGetSection } from "./tools/get-section.js";
 import { handleGetPage } from "./tools/get-page.js";
 import { handleListComponents } from "./tools/list-components.js";
 import { handleListSources } from "./tools/list-sources.js";
+import { handleSuggestComponent } from "./tools/suggest-component.js";
+import { handleGetComponentReference } from "./tools/get-component-reference.js";
+import { handleGetQuickStart } from "./tools/get-quick-start.js";
+import { handleGetDesignSystemOverview } from "./tools/get-design-system-overview.js";
 
 const data = loadData();
 console.error(`Loaded ${data.pages.length} pages, ${data.chunks.length} chunks`);
@@ -70,6 +74,58 @@ server.tool(
   {},
   () => {
     const result = handleListSources(data);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  },
+);
+
+server.tool(
+  "suggest_component",
+  "Suggest Gravity UI components for a described use case. Returns ranked suggestions based on semantic tag matching. Use this when you know what you need but not which component provides it.",
+  {
+    use_case: z.string().describe("Describe what you need, e.g. 'date range selection' or 'sidebar navigation'"),
+    library: z.string().optional().describe("Filter suggestions to a specific library"),
+    limit: z.number().int().min(1).max(5).optional().describe("Maximum number of suggestions (1-5, default 3)"),
+  },
+  (args) => {
+    const result = handleSuggestComponent(data, args);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  },
+);
+
+server.tool(
+  "get_component_reference",
+  "Get a complete reference for a Gravity UI component in a single call. Returns import statement, props, code example, and optionally full documentation. Use this when you know which component you need and want to start coding.",
+  {
+    name: z.string().describe("Component name, e.g. 'Button', 'Select', 'DatePicker'"),
+    library: z.string().describe("Library name, e.g. 'uikit', 'date-components'"),
+    detail: z.enum(["compact", "full"]).optional().describe("Level of detail: 'compact' (default) for props + example, 'full' for everything"),
+  },
+  (args) => {
+    const result = handleGetComponentReference(data, args);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  },
+);
+
+server.tool(
+  "get_quick_start",
+  "Get everything needed to start using a Gravity UI library: install command, setup code, and a list of available components. Use this when you've decided which library to use and need to set it up.",
+  {
+    library: z.string().describe("Library name, e.g. 'uikit', 'navigation', 'date-components'"),
+  },
+  (args) => {
+    const result = handleGetQuickStart(data, args);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  },
+);
+
+server.tool(
+  "get_design_system_overview",
+  "Get the Gravity UI design system philosophy and library overview. Returns theming model, color system, spacing conventions, and per-library purpose with dependency relationships. Call this once at the start of a session to understand the design system before building with it.",
+  {
+    library: z.string().optional().describe("Optional: filter to show only this library's entry alongside the system overview"),
+  },
+  (args) => {
+    const result = handleGetDesignSystemOverview(data, args);
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   },
 );
