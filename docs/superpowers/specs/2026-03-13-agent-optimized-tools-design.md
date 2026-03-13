@@ -31,11 +31,17 @@ suggest_component({
 })
 ```
 
+**MCP tool description:**
+`"Suggest Gravity UI components for a described use case. Returns ranked suggestions based on semantic tag matching. Use this when you know what you need but not which component provides it."`
+
 **Implementation:**
 1. Tokenize `use_case` into words, lowercase, remove stop words
-2. For each component in `tagsByPageId`, score by counting tag matches (exact + fuzzy via Levenshtein)
+2. For each component in `tagsByPageId` (scoped to `page_type === "component"` only), score by counting tag matches (exact + fuzzy via inline Levenshtein, ~15 lines, no external dependency)
 3. Also run a MiniSearch query against the index filtered to component pages — merge scores
-4. Rank by combined score, return top N
+4. **Score normalization:** normalize MiniSearch scores to 0-1 by dividing by max score in result set; normalize tag scores to 0-1 by dividing by number of query terms. Combine: `0.4 * tagScore + 0.6 * searchScore`
+5. Rank by combined score, return top N
+
+**Error handling:** If no matches found, return `{ suggestions: [] }`. No error object — an empty result is valid.
 
 **Response:**
 ```json
@@ -68,26 +74,29 @@ get_component_reference({
 })
 ```
 
+**MCP tool description:**
+`"Get a complete reference for a Gravity UI component in a single call. Returns import statement, props, code example, and optionally full documentation. Use this when you know which component you need and want to start coding."`
+
 **Implementation:**
-1. Look up page by constructing `component:${library}:${name}` page ID
+1. Look up page by constructing `component:${library}:${name}` page ID. If not found, return `{ error: "Component not found: ${name} in ${library}" }`.
 2. Gather all chunks for that page via `chunksByPageId`
 3. Build response based on `detail` level
 
 **Compact response** (default):
-- `import_statement`: `import {${title}} from '@gravity-ui/${library}';`
+- `import_statement`: `import {${title}} from '@gravity-ui/${library}';` (assumes PascalCase page titles, which holds for all current components)
 - `description`: full page description (not truncated)
-- `props`: content from chunk with section_title "Properties"
-- `example`: first non-empty code example from the intro chunk
-- `design_guide_sections`: section_ids from matching guide page
+- `props`: content from chunk whose `section_title` case-insensitively matches `["Properties", "Props", "API"]` (first match wins). Field is optional — omitted if no matching chunk found.
+- `example`: first non-empty code example from the intro chunk. Optional — omitted if none.
+- `design_guide_sections`: found by constructing `guide:${componentTitle}` and looking up in `pageById`. If found, return its `section_ids`. If no guide exists, return empty array `[]`.
 
 **Full response** — compact plus:
-- `all_sections`: `{ title, content, code_examples }[]` for every chunk
-- `design_guide`: full content of all design guide sections
-- `css_api`: content from "CSS API" chunk
+- `all_sections`: `{ title, content, code_examples }[]` for every chunk on the page (including intro/Properties — no deduplication, keeps response predictable)
+- `design_guide`: array of `{ title: string, content: string }` objects, one per section of the matching guide page. Empty array if no guide.
+- `css_api`: content from "CSS API" chunk. Optional — omitted if not found.
 
 **Import statement derivation:**
 - Package: `@gravity-ui/${library}` (consistent across all libraries)
-- Component: page title
+- Component: page title (PascalCase, no spaces in current data)
 - Result: `import {${title}} from '@gravity-ui/${library}';`
 
 **Response (compact):**
@@ -105,6 +114,28 @@ get_component_reference({
 }
 ```
 
+**Response (full) — extends compact with:**
+```json
+{
+  "...compact fields...",
+  "all_sections": [
+    { "title": "Button", "content": "Buttons act as a trigger...", "code_examples": ["<Button view=\"action\">Action</Button>"] },
+    { "title": "Appearance", "content": "There are four Button types...", "code_examples": [] },
+    { "title": "Properties", "content": "| Name | Description | ...", "code_examples": [] }
+  ],
+  "design_guide": [
+    { "title": "Appearance", "content": "..." },
+    { "title": "Sizes", "content": "Each button can have four sizes..." }
+  ],
+  "css_api": "| Name | Description |\n| --button-height | ... |"
+}
+```
+
+**Error response:**
+```json
+{ "error": "Component not found: Foo in uikit" }
+```
+
 ---
 
 ## Tool 3: `get_quick_start`
@@ -118,16 +149,19 @@ get_quick_start({
 })
 ```
 
+**MCP tool description:**
+`"Get everything needed to start using a Gravity UI library: install command, setup code, and a list of available components. Use this when you've decided which library to use and need to set it up."`
+
 **Implementation:**
-1. Look up library page via `library:${library}` page ID
+1. Look up library page via `library:${library}` page ID. If not found, return `{ error: "Library not found: ${library}" }`.
 2. Extract install/usage from library chunks
 3. List components via page filtering
 
 **Extraction logic:**
-- `install`: chunk with section_title "Install" → first code block
-- `peer_dependencies`: same chunk → second code block or peer dep text
-- `setup_code`: chunk with section_title "Usage" → first code block
-- `description`: page description or first chunk intro
+- `install`: chunk with section_title "Install" → first code block. Optional — omitted if no Install chunk.
+- `peer_dependencies`: same Install chunk → second code block or text mentioning peer deps. Optional — omitted if not found.
+- `setup_code`: chunk with section_title matching `["Usage", "Getting started", "Get started"]` (case-insensitive) → first code block. Optional — omitted if no matching chunk (only ~5 of 34 libraries have this).
+- `description`: page description or first chunk intro text
 - `components`: `data.pages.filter(p => p.page_type === "component" && p.library === library)`
 
 **Response:**
@@ -164,9 +198,15 @@ get_design_system_overview({
 })
 ```
 
+**MCP tool description:**
+`"Get the Gravity UI design system philosophy and library overview. Returns theming model, color system, spacing conventions, and per-library purpose with dependency relationships. Call this once at the start of a session to understand the design system before building with it."`
+
 **Implementation:**
-1. System-level content is assembled at ingest time from design guide sections (Basics, Color, Module, Typography, CornerRadius, Branding) and stored as `data/overview.json`
-2. Per-library entries include purpose (extracted from library page description, ~200 char limit), component count, and dependency relationships (parsed from Install chunk peer dep text)
+1. System-level content is assembled at ingest time from specific design guide page IDs: `["guide:Basics", "guide:Color", "guide:Module", "guide:Typography", "guide:CornerRadius", "guide:Branding"]`. Content is pulled from the first section of each guide and truncated to ~300 chars at sentence boundary. Stored as `data/overview.json`.
+2. Per-library entries include purpose (extracted from library page description with ~200 char limit), component count, and dependency relationships.
+3. **Dependency graph:** parse peer dependencies from each library's Install chunk text (regex for `@gravity-ui/` package references). Build forward map (`depends_on`), then invert to build reverse map (`is_peer_dependency_of`).
+
+**Error handling:** If `library` filter is provided and not found, return `{ error: "Library not found: ${library}" }`. System section is always returned.
 
 **Response:**
 ```json
@@ -268,6 +308,26 @@ Assembles `data/overview.json` at ingest time:
 - Existing 5 tools (untouched)
 - `parse.ts`, `chunk.ts`, `index.ts` (no modifications)
 - `discover.ts`, `fetch.ts` (no new data sources)
+
+### Implementation notes
+
+**`LoadedData` extensions:**
+- `tagsByPageId: Map<string, string[]>` — loaded from `tags.json` Record and converted to Map for consistency with existing `pageById`/`chunkById` pattern
+- `overview: DesignSystemOverview` — loaded from `overview.json`
+
+**DATA_DIR resolution:** `run.ts` uses `process.cwd()` for DATA_DIR while `loader.ts` uses `__dirname`-relative paths. New data files (`tags.json`, `overview.json`) must be loaded in `loader.ts` using the existing `__dirname`-based DATA_DIR, same as `pages.json` and `chunks.json`. Writing in `run.ts` continues to use `process.cwd()` (existing pattern).
+
+---
+
+## Testing
+
+New tool handlers should have unit tests in `tests/tools.test.ts` (extending existing test file), covering:
+
+- **`suggest_component`**: matching known components by use case, empty results for nonsense input, library filter, score ordering
+- **`get_component_reference`**: compact vs full response, missing component error, missing Properties/guide graceful fallback
+- **`get_quick_start`**: library with full data (uikit), library with minimal data (missing Usage section), unknown library error
+- **`get_design_system_overview`**: full response, library filter, unknown library error
+- **Tag generation**: synonym expansion, keyword extraction from description, prop name inference
 
 ---
 
