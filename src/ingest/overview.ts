@@ -1,4 +1,5 @@
 import type { Page, Chunk, DesignSystemOverview, LibraryOverviewEntry, SystemOverview } from "../types.js";
+import { sanitize } from "../server/format.js";
 
 function truncateAtSentence(text: string, maxLen: number): string {
   if (text.length <= maxLen) return text;
@@ -122,7 +123,7 @@ function buildLibraryEntries(
   for (const lib of [...allLibIds].sort()) {
     const libPage = pages.find(p => p.page_type === "library" && p.library === lib);
     const purpose = libPage
-      ? truncateAtSentence(libPage.description || libPage.title, 200)
+      ? truncateAtSentence(sanitize(libPage.description || libPage.title), 200)
       : "";
 
     entries.push({
