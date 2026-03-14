@@ -13,7 +13,7 @@ The MCP server has four interconnected quality issues:
 
 **File:** `src/ingest/parse.ts`
 
-**Change:** In `parsePage()`, before calling `mdastToString()` on the H1 heading node, recursively walk its children and remove all `image` nodes. Badge images like `[![npm package](url)](link)` get flattened by `mdastToString()` into junk text. After image removal, trim trailing ` · ` or `·` separators and excess whitespace.
+**Change:** In `parsePage()`, before calling `mdastToString()` on the H1 heading node, recursively walk its children and remove all `image` nodes. Badge images like `[![npm package](url)](link)` get flattened by `mdastToString()` into junk text. After image removal, trim trailing separators and whitespace using `/[\s·]+$/`.
 
 **Before:** `@gravity-ui/markdown-editor · npm package CI Release storybook`
 **After:** `@gravity-ui/markdown-editor`
@@ -22,13 +22,15 @@ The MCP server has four interconnected quality issues:
 
 ## Fix 2: Discover Nested Components
 
-**File:** `src/ingest/discover.ts`
+**Files:** `src/ingest/discover.ts`, `src/ingest/chunk.ts`
 
 **Change:** Replace the component discovery regex:
 - **Current:** `/^src\/components\/([^/]+)\/README\.md$/`
 - **New:** `/^src\/components\/(.+)\/README\.md$/`
 
-Extract the component name as the **last path segment** (e.g., `lab/FileDropZone` → name is `FileDropZone`). Include the full relative path in the `page_id` to keep IDs unique (e.g., `component:uikit:lab/FileDropZone`).
+The regex capture now yields the full relative path (e.g., `lab/FileDropZone`). Set `name` to the **full captured path** (e.g., `lab/FileDropZone`), not just the last segment. This flows into `makePageId()` and `makeChunkId()` in `chunk.ts`, producing unique IDs like `component:uikit:lab/FileDropZone`. The `makeCanonicalUrl()` function in `chunk.ts` also uses `name` — verify it produces valid URLs with slashes in the name (the gravity-ui.com URL structure supports nested paths).
+
+The `github_url` construction in `discover.ts` interpolates `componentName` directly into the path, so `lab/FileDropZone` produces the correct GitHub URL: `https://github.com/gravity-ui/uikit/tree/main/src/components/lab/FileDropZone`.
 
 **Components gained:** `lab/FileDropZone`, `lab/ColorPicker`, `controls/TextInput`, `controls/TextArea`, `controls/PasswordInput`, `layout/Col`, `layout/Row`, `layout/Flex`, `layout/Box`, `layout/Container`, and any others in subdirectories.
 
@@ -38,11 +40,12 @@ Extract the component name as the **last path segment** (e.g., `lab/FileDropZone
 
 **Change:** In `handleSearchDocs()`, after MiniSearch returns raw results and before applying the limit:
 
-1. Group results by `page_id`
-2. For each page, keep only the highest-scoring section
-3. Return deduplicated results up to `limit`
+1. Look up each result's chunk via `data.chunkById` to access `chunk.page_id`
+2. Group results by `page_id`
+3. For each page, keep only the highest-scoring section
+4. Return deduplicated results up to `limit`
 
-To ensure enough results survive dedup, fetch more from MiniSearch internally. Current internal fetch is 50, which should be sufficient. If not, scale to `limit * 10`.
+Note: `page_id` is not on the MiniSearch result object — it's accessed via the chunk lookup that already happens in the function. To ensure enough results survive dedup, fetch more from MiniSearch internally. Current internal fetch is 50, which should be sufficient. If not, scale to `limit * 10`.
 
 **Before:** 4 results from `markdown-editor`, all score 100, all same URL base
 **After:** 1 result from `markdown-editor` (best section), plus 3 results from other pages
@@ -62,11 +65,15 @@ To ensure enough results survive dedup, fetch more from MiniSearch internally. C
 - `CHANGELOG.md`, `CONTRIBUTING.md`, `LICENSE.md` (at any depth)
 - `__tests__/`, `__fixtures__/`, `test/`, `tests/`
 - `node_modules/`, `.github/`, `.storybook/`
-- Files with `example` or `migration` in the path
+- Files with `example` in the path
 
-**Page type:** These get `page_type: "library"` with a section ID derived from the file path within the repo (e.g., `library:markdown-editor:docs/getting-started`).
+**Page type:** These get `page_type: "library"`. Each sub-doc file becomes its own page with a unique `name` derived from the file path (e.g., `docs/getting-started` for `docs/getting-started.md`). This flows into `makePageId()` producing IDs like `library:markdown-editor:docs/getting-started`, distinct from the root README's `library:markdown-editor`.
 
-**Deduplication:** The root README is already indexed as a library page. Ensure it's not double-indexed when the new pass also matches it.
+**Files also affected:** `src/ingest/chunk.ts` — `makePageId()` must handle the new `name` values containing path separators to produce unique page IDs.
+
+**Deduplication:** The root README is already indexed as a library page. Skip `README.md` at repository root in the new matching pass to avoid double-indexing. Nested `README.md` files (e.g., `docs/README.md`) are fine to include.
+
+**Note on migration docs:** Do not exclude files with `migration` in the path — migration guides (e.g., "Migrating from v3 to v4") are useful documentation. Only exclude `CHANGELOG.md` and `CONTRIBUTING.md`.
 
 ## Testing Strategy
 
@@ -75,6 +82,7 @@ To ensure enough results survive dedup, fetch more from MiniSearch internally. C
 3. **Unit tests for dedup logic** — Verify grouping by page_id keeps best score
 4. **Integration test** — Run ingestion, verify new components and library docs appear in the index
 5. **Search quality test** — Verify "markdown editor" query returns diverse results
+6. **Regression test** — Verify existing page counts (guides, top-level components) are unchanged after ingestion
 
 ## Implementation Order
 
