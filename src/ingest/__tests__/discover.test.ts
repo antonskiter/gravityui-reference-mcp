@@ -163,6 +163,26 @@ describe("buildManifestFromTrees — library sub-documentation", () => {
     expect(subDoc?.library).toBe("markdown-editor");
   });
 
+  it("does not double-index component READMEs", () => {
+    const libTrees = {
+      uikit: {
+        tree: makeTree([
+          "README.md",
+          "src/components/Button/README.md",
+          "src/components/Label/README.md",
+        ]),
+        branch: "main",
+      },
+    };
+    const entries = buildManifestFromTrees([], libTrees);
+    const componentEntries = entries.filter(e => e.page_type === "component");
+    const libSubDocs = entries.filter(
+      e => e.page_type === "library" && e.name !== "uikit",
+    );
+    expect(componentEntries.length).toBe(2); // Button + Label as components
+    expect(libSubDocs.length).toBe(0); // No library sub-docs from component paths
+  });
+
   it("discovers nested README.md files (not root)", () => {
     const libTrees = {
       aikit: {

@@ -102,6 +102,9 @@ function isDocFile(path: string): boolean {
   // Skip excluded directories
   if (EXCLUDED_DIR_PATTERNS.some((re) => re.test(path))) return false;
 
+  // Skip component READMEs (already indexed as component pages)
+  if (/^src\/components\/.+\/README\.md$/.test(path)) return false;
+
   // Must be in a known doc location:
   // - docs/ directory
   // - README.md at any nested depth
