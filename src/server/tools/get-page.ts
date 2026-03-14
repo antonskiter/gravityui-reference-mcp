@@ -1,6 +1,5 @@
 import type { LoadedData } from "../loader.js";
 import { truncateAtWord } from "./search-docs.js";
-import { sanitize } from "../format.js";
 
 export interface GetPageInput {
   page_id: string;
@@ -75,7 +74,7 @@ export function formatGetPage(result: GetPageOutput | GetPageError): string {
   ];
   for (const s of result.sections) {
     const code = s.has_code ? " [code]" : "";
-    lines.push(`- ${s.section_title} (${s.section_id}): ${sanitize(s.summary)}${code}`);
+    lines.push(`- ${s.section_title} (${s.section_id}): ${s.summary}${code}`);
   }
   return lines.join("\n");
 }

@@ -1,6 +1,7 @@
 import { searchIndex } from "../../ingest/index.js";
 import { levenshtein, tokenizeAndClean } from "../../ingest/tags.js";
 import type { LoadedData } from "../loader.js";
+import { indent } from "../format.js";
 
 export interface SuggestComponentInput {
   use_case: string;
@@ -145,7 +146,7 @@ export function formatSuggestComponent(result: SuggestComponentOutput): string {
   suggestions.forEach((s, i) => {
     const tags = s.matching_tags.length > 0 ? `\n   Tags: ${s.matching_tags.join(", ")}` : "";
     lines.push(`${i + 1}. ${s.component} (${s.library}) ${Math.round(s.score * 100)}`);
-    lines.push(`   ${s.description}${tags}`);
+    lines.push(`${indent(s.description)}${tags}`);
   });
   return lines.join("\n");
 }

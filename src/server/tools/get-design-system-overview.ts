@@ -1,5 +1,5 @@
 import type { LoadedData, DesignSystemOverview } from "../loader.js";
-import { sanitize } from "../format.js";
+import { indent } from "../format.js";
 
 export interface GetDesignSystemOverviewInput {
   library?: string;
@@ -35,22 +35,22 @@ export function formatGetDesignSystemOverview(result: DesignSystemOverview | Get
   const { system, libraries } = result;
   const lines: string[] = [
     "Gravity UI Design System",
-    sanitize(system.description),
+    indent(system.description),
     "",
     "Theming:",
-    sanitize(system.theming),
+    indent(system.theming),
     "",
     "Spacing:",
-    sanitize(system.spacing),
+    indent(system.spacing),
     "",
     "Typography:",
-    sanitize(system.typography),
+    indent(system.typography),
     "",
     "Corner Radius:",
-    sanitize(system.corner_radius),
+    indent(system.corner_radius),
     "",
     "Branding:",
-    sanitize(system.branding),
+    indent(system.branding),
     "",
     "Libraries:",
   ];
