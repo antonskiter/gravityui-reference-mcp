@@ -1,3 +1,18 @@
+import { remark } from "remark";
+import stripMarkdown from "strip-markdown";
+
+const stripProcessor = remark().use(stripMarkdown, { keep: ["code"] });
+
+/**
+ * Sanitizes content for LLM consumption:
+ * 1. Converts markdown tables to compact text (compactTable)
+ * 2. Strips all markdown formatting except code blocks (strip-markdown)
+ */
+export function sanitize(input: string): string {
+  const compacted = compactTable(input);
+  return String(stripProcessor.processSync(compacted)).trim();
+}
+
 export function codeBlock(lang: string, code: string): string {
   return `\`\`\`${lang}\n${code}\n\`\`\``;
 }
