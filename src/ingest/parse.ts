@@ -81,11 +81,26 @@ function parseMarkdown(content: string): Root {
   return processor.parse(content) as Root;
 }
 
+/** Recursively remove image nodes from an MDAST subtree in-place. */
+function removeImages(node: { children?: unknown[] }): void {
+  if (!node.children) return;
+  node.children = node.children.filter(
+    (child: any) => child.type !== "image",
+  );
+  for (const child of node.children) {
+    removeImages(child as { children?: unknown[] });
+  }
+}
+
 function extractTitle(tree: Root): string | null {
   let title: string | null = null;
   visit(tree, "heading", (node: Heading) => {
     if (title === null && node.depth === 1) {
-      title = mdastToString(node);
+      // Deep clone to avoid mutating the original tree
+      const clone = JSON.parse(JSON.stringify(node));
+      // Remove all image nodes (badges) from the cloned heading
+      removeImages(clone);
+      title = mdastToString(clone).replace(/[\s·]+$/, "").trim();
     }
   });
   return title;
