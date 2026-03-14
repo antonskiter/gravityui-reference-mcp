@@ -1,5 +1,5 @@
 import type { LoadedData } from "../loader.js";
-import { codeBlock, compactTable, sanitize } from "../format.js";
+import { codeBlock, indent } from "../format.js";
 
 export interface GetSectionInput {
   section_id: string;
@@ -57,7 +57,7 @@ export function handleGetSection(
     library: chunk.library,
     section_title: chunk.section_title,
     breadcrumbs: chunk.breadcrumbs,
-    content: compactTable(chunk.content),
+    content: chunk.content,
     code_examples: chunk.code_examples,
     url: chunk.url,
     related_sections,
@@ -71,7 +71,7 @@ export function formatGetSection(result: GetSectionOutput | GetSectionError): st
     `${result.section_title}`,
     `Page: ${result.page_title}${lib} | ${result.url}`,
     "",
-    sanitize(result.content),
+    indent(result.content),
   ];
   if (result.code_examples.length > 0) {
     lines.push("");
