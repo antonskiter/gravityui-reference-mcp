@@ -54,6 +54,20 @@ describe("junk chunk filtering", () => {
   });
 });
 
+describe("keyword deduplication", () => {
+  it("does not include component name in keywords (already in page_title)", () => {
+    const md = "# Button\n\n## Usage\n\nUse the button component for actions and triggering events in your application.";
+    const parsed = parsePage(md, "component", "Button");
+    const { chunks } = chunkPage(parsed, "component", "Button", "uikit");
+    const chunk = chunks[0];
+    expect(chunk).toBeDefined();
+    // "Button" should NOT be in keywords — it's already in page_title with 3x boost
+    expect(chunk!.keywords).not.toContain("Button");
+    // Library should still be there
+    expect(chunk!.keywords).toContain("uikit");
+  });
+});
+
 describe("chunkPage with library sub-docs", () => {
   it("produces unique page_id for library sub-docs", () => {
     const md1 = "# Markdown Editor\n\nMain readme content.";

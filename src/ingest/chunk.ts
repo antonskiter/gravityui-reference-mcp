@@ -101,14 +101,11 @@ const STOP_WORDS = new Set([
 ]);
 
 function extractKeywords(
-  name: string,
+  _name: string,
   sectionTitle: string,
   library?: string,
 ): string[] {
   const keywords: string[] = [];
-
-  // Component/page name (preserve casing)
-  keywords.push(name);
 
   // Library name
   if (library) {
