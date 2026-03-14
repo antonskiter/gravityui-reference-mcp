@@ -110,7 +110,7 @@ export function formatGetQuickStart(result: GetQuickStartOutput | GetQuickStartE
 
   lines.push("", `Components (${result.components.length}):`);
   for (const c of result.components) {
-    lines.push(`- ${c.name} (${c.page_id}): ${c.description}`);
+    lines.push(`- ${c.name} (${c.page_id})`);
   }
 
   return lines.join("\n");

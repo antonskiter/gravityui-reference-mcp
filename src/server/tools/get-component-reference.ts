@@ -1,5 +1,5 @@
 import type { LoadedData } from "../loader.js";
-import { codeBlock, compactTable } from "../format.js";
+import { codeBlock, compactTable, sanitize } from "../format.js";
 
 export interface GetComponentReferenceInput {
   name: string;
@@ -132,7 +132,7 @@ export function formatGetComponentReference(result: GetComponentReferenceOutput 
   ];
 
   if (result.props) {
-    lines.push("", "Props:", result.props);
+    lines.push("", "Props:", sanitize(result.props));
   }
 
   if (result.example) {
@@ -150,7 +150,7 @@ export function formatGetComponentReference(result: GetComponentReferenceOutput 
   if (result.all_sections && result.all_sections.length > 0) {
     lines.push("", "All Sections:");
     for (const s of result.all_sections) {
-      lines.push("", `${s.title}:`, s.content);
+      lines.push("", `${s.title}:`, sanitize(s.content));
       for (const code of s.code_examples) {
         lines.push(codeBlock("tsx", code));
       }
@@ -160,12 +160,12 @@ export function formatGetComponentReference(result: GetComponentReferenceOutput 
   if (result.design_guide && result.design_guide.length > 0) {
     lines.push("", "Design Guide:");
     for (const g of result.design_guide) {
-      lines.push("", `${g.title}:`, g.content);
+      lines.push("", `${g.title}:`, sanitize(g.content));
     }
   }
 
   if (result.css_api) {
-    lines.push("", "CSS API:", result.css_api);
+    lines.push("", "CSS API:", sanitize(result.css_api));
   }
 
   return lines.join("\n");

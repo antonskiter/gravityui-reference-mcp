@@ -1,5 +1,6 @@
 import { searchIndex } from "../../ingest/index.js";
 import type { LoadedData } from "../loader.js";
+import { sanitize } from "../format.js";
 
 export function truncateAtWord(text: string, maxLen: number): string {
   if (text.length <= maxLen) return text;
@@ -75,8 +76,8 @@ export function formatSearchDocs(result: SearchDocsOutput): string {
     lines.push("");
     results.forEach((r, i) => {
       const lib = r.library ? `, ${r.library}` : "";
-      lines.push(`${i + 1}. ${r.page_title} (${r.page_type}${lib}) score: ${r.score}`);
-      lines.push(`   ${r.snippet}`);
+      lines.push(`${i + 1}. ${r.page_title} (${r.page_type}${lib}) score: ${Math.min(100, Math.round(r.score))}`);
+      lines.push(`   ${sanitize(r.snippet)}`);
       lines.push(`   Section: ${r.section_id} | ${r.url}`);
     });
   }

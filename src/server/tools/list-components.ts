@@ -83,8 +83,7 @@ export function formatListComponents(result: ListComponentsOutput): string {
   for (const lib of result.libraries) {
     lines.push(`${lib.title} (${lib.components.length} components)`);
     for (const c of lib.components) {
-      const guide = c.has_design_guide ? " [guide]" : "";
-      lines.push(`- ${c.name} (${c.page_id}): ${c.description}${guide}`);
+      lines.push(`- ${c.name} (${c.page_id})`);
     }
   }
   return lines.join("\n");

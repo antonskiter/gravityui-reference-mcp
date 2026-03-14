@@ -1,5 +1,5 @@
 import type { LoadedData } from "../loader.js";
-import { codeBlock, compactTable } from "../format.js";
+import { codeBlock, compactTable, sanitize } from "../format.js";
 
 export interface GetSectionInput {
   section_id: string;
@@ -67,24 +67,17 @@ export function handleGetSection(
 export function formatGetSection(result: GetSectionOutput | GetSectionError): string {
   if ("error" in result) return `Error: ${result.error}`;
   const lib = result.library ? ` (${result.library})` : "";
-  const breadcrumbs = result.breadcrumbs.join(" > ");
   const lines: string[] = [
     `${result.section_title}`,
     `Page: ${result.page_title}${lib} | ${result.url}`,
-    `Breadcrumbs: ${breadcrumbs}`,
     "",
-    result.content,
+    sanitize(result.content),
   ];
   if (result.code_examples.length > 0) {
     lines.push("");
     for (const code of result.code_examples) {
       lines.push(codeBlock("tsx", code));
     }
-  }
-  if (result.related_sections.length > 0) {
-    lines.push("");
-    const related = result.related_sections.map(s => `${s.section_id} (${s.title})`).join(", ");
-    lines.push(`Related sections: ${related}`);
   }
   return lines.join("\n");
 }

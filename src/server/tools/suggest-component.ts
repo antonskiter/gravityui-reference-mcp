@@ -144,7 +144,7 @@ export function formatSuggestComponent(result: SuggestComponentOutput): string {
   const lines: string[] = [];
   suggestions.forEach((s, i) => {
     const tags = s.matching_tags.length > 0 ? `\n   Tags: ${s.matching_tags.join(", ")}` : "";
-    lines.push(`${i + 1}. ${s.component} (${s.library}) ${s.score}`);
+    lines.push(`${i + 1}. ${s.component} (${s.library}) ${Math.round(s.score * 100)}`);
     lines.push(`   ${s.description}${tags}`);
   });
   return lines.join("\n");
