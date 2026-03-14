@@ -10,8 +10,6 @@
     "content",
     "panels",
     "where…",
-    "base",
-    "example",
     "controlling",
     "state",
     "size",
@@ -22,7 +20,6 @@
     "custom",
     "summary",
     "disabled",
-    "properties",
     "item"
   ],
   "component:uikit:ActionTooltip": [
@@ -39,7 +36,6 @@
     "descriptive",
     "text",
     "icon…",
-    "usage",
     "anchor",
     "popover"
   ],
@@ -90,7 +86,6 @@
     "rotate",
     "in…",
     "appearance",
-    "size",
     "interactive",
     "element",
     "properties"
@@ -110,13 +105,6 @@
     "avatar…",
     "types",
     "appearance",
-    "theme",
-    "view",
-    "custom",
-    "colors",
-    "size",
-    "shape",
-    "properties",
     "common",
     "image-specific",
     "icon-specific",
@@ -159,21 +147,8 @@
     "location",
     "page…",
     "example",
-    "events",
-    "links",
-    "root",
-    "context",
-    "separator",
-    "integration",
-    "routers",
-    "landmarks",
-    "disabled",
-    "items",
-    "end",
-    "content",
     "properties",
     "breadcrumbsitemprops",
-    "disableable",
     "path"
   ],
   "component:uikit:Button": [
@@ -193,10 +168,6 @@
     "main",
     "purpose",
     "appearance",
-    "basic",
-    "outlined",
-    "flat",
-    "contrast",
     "icons",
     "states",
     "size",
@@ -204,11 +175,7 @@
     "pin",
     "properties",
     "css",
-    "api",
-    "disableable",
-    "loading-state",
-    "loading",
-    "state"
+    "api"
   ],
   "component:uikit:Card": [
     "card",
@@ -229,7 +196,6 @@
     "properties",
     "css",
     "api",
-    "disableable",
     "like"
   ],
   "component:uikit:Checkbox": [
@@ -255,8 +221,7 @@
     "states",
     "size",
     "label",
-    "properties",
-    "disableable"
+    "properties"
   ],
   "component:uikit:ClipboardButton": [
     "clipboardbutton",
@@ -300,7 +265,6 @@
     "term",
     "separated",
     "by…",
-    "examples",
     "properties",
     "css",
     "api",
@@ -326,8 +290,6 @@
     "display",
     "hide",
     "its…",
-    "base",
-    "example",
     "controlling",
     "expansion",
     "state",
@@ -339,8 +301,7 @@
     "disabled",
     "properties",
     "css",
-    "api",
-    "disableable"
+    "api"
   ],
   "component:uikit:Divider": [
     "divider",
@@ -350,14 +311,7 @@
     "line",
     "thin",
     "delimiting",
-    "grouping…",
-    "orientation",
-    "custom",
-    "content",
-    "alignment",
-    "properties",
-    "css",
-    "api"
+    "grouping…"
   ],
   "component:uikit:Drawer": [
     "drawer",
@@ -406,8 +360,7 @@
   "component:uikit:FilePreview": [
     "filepreview",
     "uikit",
-    "properties",
-    "disableable"
+    "properties"
   ],
   "component:uikit:HelpMark": [
     "helpmark",
@@ -460,16 +413,9 @@
     "information",
     "close…",
     "appearance",
-    "theme",
-    "type",
-    "icon",
     "value",
     "state",
-    "size",
-    "properties",
-    "disableable",
-    "loading-state",
-    "loading"
+    "properties"
   ],
   "component:uikit:Link": [
     "link",
@@ -545,8 +491,6 @@
     "lists",
     "properties",
     "item",
-    "icon",
-    "theme",
     "group",
     "context",
     "dropdown",
@@ -586,8 +530,7 @@
     "behaviour",
     "properties",
     "css",
-    "api",
-    "disableable"
+    "api"
   ],
   "component:uikit:Overlay": [
     "overlay",
@@ -627,11 +570,7 @@
     "size",
     "columns",
     "multiple",
-    "properties",
-    "disableable",
-    "multi-select",
-    "multi",
-    "select"
+    "properties"
   ],
   "component:uikit:PinInput": [
     "pininput",
@@ -677,8 +616,7 @@
     "trigger",
     "interactivity…",
     "usage",
-    "properties",
-    "disableable"
+    "properties"
   ],
   "component:uikit:Popup": [
     "popup",
@@ -719,10 +657,8 @@
     "also",
     "divided…",
     "theme",
-    "states",
     "size",
     "breakpoints",
-    "stack",
     "bar",
     "loading"
   ],
@@ -748,7 +684,6 @@
     "size",
     "label",
     "properties",
-    "disableable",
     "button",
     "group",
     "item"
@@ -771,8 +706,7 @@
     "size",
     "direction",
     "properties",
-    "option",
-    "disableable"
+    "option"
   ],
   "component:uikit:SegmentedRadioGroup": [
     "segmentedradiogroup",
@@ -784,12 +718,9 @@
     "option",
     "radio-group",
     "buttons…",
-    "disabled",
-    "state",
     "size",
     "width",
     "properties",
-    "disableable",
     "button"
   ],
   "component:uikit:Select": [
@@ -809,17 +740,12 @@
     "profile",
     "identity",
     "account",
-    "defining",
-    "storing",
-    "data",
     "selecting",
     "multiple",
     "filtering",
     "size",
     "width",
     "popup",
-    "non-virtualized",
-    "virtualized",
     "advanced",
     "usage",
     "rendering",
@@ -834,12 +760,7 @@
     "properties",
     "css",
     "api",
-    "disableable",
-    "loading-state",
-    "item",
-    "non",
-    "loading",
-    "state"
+    "item"
   ],
   "component:uikit:Sheet": [
     "sheet",
@@ -921,14 +842,6 @@
     "provides",
     "wizard-like…",
     "example",
-    "interactive",
-    "items",
-    "different",
-    "views",
-    "sizes",
-    "disabled",
-    "custom",
-    "icons",
     "properties",
     "stepperitemprops",
     "css",
@@ -954,12 +867,8 @@
     "size",
     "label",
     "properties",
-    "disableable",
-    "loading-state",
     "on",
-    "off",
-    "loading",
-    "state"
+    "off"
   ],
   "component:uikit:Table": [
     "table",
@@ -1005,9 +914,7 @@
     "switcher",
     "properties",
     "tablecolumnsetupitem",
-    "switcherprops",
-    "disableable",
-    "sorting"
+    "switcherprops"
   ],
   "component:uikit:Text": [
     "text",
@@ -1019,12 +926,6 @@
     "project",
     "see…",
     "variant",
-    "ellipsis",
-    "white",
-    "space",
-    "word",
-    "break",
-    "color",
     "properties"
   ],
   "component:uikit:Toaster": [
@@ -1077,7 +978,6 @@
     "node",
     "anchor",
     "accepts…",
-    "usage",
     "popover"
   ],
   "component:uikit:User": [
@@ -1139,8 +1039,7 @@
     "resizable",
     "properties",
     "css",
-    "api",
-    "disableable"
+    "api"
   ],
   "component:uikit:controls/TextInput": [
     "textinput",
@@ -1195,11 +1094,7 @@
     "arbitrary",
     "layout",
     "all…",
-    "properties",
-    "multi-select",
-    "disableable",
-    "multi",
-    "select"
+    "properties"
   ],
   "component:uikit:lab/Menu": [
     "unstable_menu",
@@ -1223,7 +1118,6 @@
     "properties",
     "menuitem",
     "menutrigger",
-    "disableable",
     "context",
     "dropdown",
     "navigation",
@@ -1245,9 +1139,6 @@
     "location",
     "page…",
     "appearance",
-    "custom",
-    "divider",
-    "title",
     "properties",
     "renderbreadcrumbsitemprops`<t>`",
     "breadcrumbsitem",
@@ -1265,25 +1156,12 @@
     "some",
     "pop-up",
     "content",
-    "simple",
-    "usage",
-    "jsx",
-    "html",
-    "links",
-    "action",
-    "button",
-    "automatic",
-    "closing",
-    "when",
-    "cursor",
-    "outside",
-    "`delayclosing`",
     "instance",
+    "usage",
     "properties",
     "triggerprops",
     "linkprops",
     "popoverbuttonprops",
-    "disableable",
     "pop",
     "up"
   ],
@@ -1326,15 +1204,9 @@
     "tabprovider",
     "tablist",
     "tab",
-    "icon",
-    "states",
-    "counter",
-    "label",
-    "properties",
     "tabpanel",
     "css",
     "api",
-    "disableable",
     "bar",
     "panel",
     "on",
@@ -1446,8 +1318,7 @@
     "return",
     "value",
     "behavior",
-    "example",
-    "disableable"
+    "example"
   ],
   "component:components:InfiniteScroll": [
     "infinitescroll",
@@ -1586,7 +1457,6 @@
     "time",
     "zone",
     "properties",
-    "disableable",
     "date",
     "components",
     "text",
@@ -1646,7 +1516,6 @@
     "valid",
     "rules",
     "properties",
-    "disableable",
     "date",
     "components"
   ],
@@ -1661,7 +1530,6 @@
     "difference",
     "`datepicker`",
     "properties",
-    "disableable",
     "date",
     "components"
   ],
@@ -1750,10 +1618,7 @@
     "group",
     "page",
     "section",
-    "item",
-    "loading-state",
-    "loading",
-    "state"
+    "item"
   ],
   "component:aikit:atoms/ActionButton": [
     "actionbutton",
@@ -1775,7 +1640,6 @@
     "features",
     "usage",
     "props",
-    "variants",
     "behavior",
     "accessibility",
     "implementation",
@@ -1900,7 +1764,6 @@
     "automatic",
     "loading",
     "of…",
-    "usage",
     "props"
   ],
   "component:aikit:atoms/Loader": [
@@ -1952,7 +1815,6 @@
     "effect",
     "over",
     "children",
-    "usage",
     "props",
     "customization"
   ],
@@ -1986,7 +1848,6 @@
     "icons",
     "based",
     "tool…",
-    "usage",
     "props"
   ],
   "component:aikit:molecules/BaseMessage": [
@@ -2224,7 +2085,6 @@
     "localized",
     "text",
     "features",
-    "usage",
     "props"
   ],
   "component:aikit:organisms/AssistantMessage": [
@@ -2260,8 +2120,8 @@
     "aside",
     "actions",
     "features",
-    "usage",
     "basic",
+    "usage",
     "icon",
     "preview",
     "additional",
@@ -2292,8 +2152,8 @@
     "message",
     "renderers…",
     "features",
-    "usage",
     "basic",
+    "usage",
     "types",
     "default",
     "actions",
@@ -2401,7 +2261,6 @@
     "features",
     "usage",
     "props",
-    "types",
     "welcomeconfig",
     "messagelistconfig",
     "chatcontaineri18nconfig",
@@ -2418,6 +2277,7 @@
     "recommended",
     "available",
     "action",
+    "types",
     "overrides",
     "welcome",
     "screen",
@@ -2538,8 +2398,6 @@
     "handle",
     "display",
     "local…",
-    "installation",
-    "import",
     "when",
     "props",
     "example",

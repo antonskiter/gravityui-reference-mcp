@@ -1,11 +1,11 @@
 {
   "system": {
-    "description": "Gravity-UI is a collection of libraries and components for building functional user interfaces. The design system supports multiple themes: **light**, **dark**, and **high-contrast** variations of each.",
-    "theming": "## Two-layer color system\n\nThere are two types of color schemes used in the library: private and semantic. These two color schemes, or palettes, vary in structure and purpose.",
+    "description": "Gravity-UI is a collection of libraries and components for building functional user interfaces. The design system supports multiple themes: light, dark, and high-contrast variations of each.",
+    "theming": "Two-layer color system\n\nThere are two types of color schemes used in the library: private and semantic. These two color schemes, or palettes, vary in structure and purpose.",
     "spacing": "The module is the fundamental unit of measurement in the design system. The spatial module is the foundation for building the grid and determining component and spacing sizes.",
     "typography": "Typography is based on the use of two fonts and a set of styles that include font, weight, font size, and leading.\n\nTwo fonts are used by default: Inter for standard typesetting and headings, and Menlo as a monospace font.",
-    "corner_radius": "The corner radius of controls can be overridden. To do this, use the following variables:\n\n- --g-border-radius-xs: 3px;\n- --g-border-radius-s: 5px;\n- --g-border-radius-m: 6px;\n- --g-border-radius-l: 8px;\n- --g-border-radius-xl: 10px;\n- --g-border-radius-2xl: 16px;\n\n![Corner…",
-    "branding": "# Quick theme creation\n\nQuick branding allows you to switch between themes quickly and see an immediate result that you can use or optimize further. Simply choose a few colors, and all of the controls will be adjusted accordingly. Repeat for all supported themes, and you are all set."
+    "corner_radius": "The corner radius of controls can be overridden. To do this, use the following variables:\n\n--g-border-radius-xs: 3px;\n\n--g-border-radius-s: 5px;\n\n--g-border-radius-m: 6px;\n\n--g-border-radius-l: 8px;\n\n--g-border-radius-xl: 10px;\n\n--g-border-radius-2xl: 16px;\n\nYou can override the values in…",
+    "branding": "Quick theme creation\n\nQuick branding allows you to switch between themes quickly and see an immediate result that you can use or optimize further. Simply choose a few colors, and all of the controls will be adjusted accordingly. Repeat for all supported themes, and you are all set."
   },
   "libraries": [
     {

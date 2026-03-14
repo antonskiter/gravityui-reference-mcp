@@ -15,8 +15,7 @@
       "guide:ActionTooltip:options",
       "guide:ActionTooltip:sizes",
       "guide:ActionTooltip:position",
-      "guide:ActionTooltip:timing",
-      "guide:ActionTooltip:use-cases"
+      "guide:ActionTooltip:timing"
     ]
   },
   {
@@ -775,7 +774,6 @@
     "description": "The Accordion component allows you to create collapsible content panels where…",
     "section_ids": [
       "component:uikit:Accordion:accordion",
-      "component:uikit:Accordion:base-example",
       "component:uikit:Accordion:controlling-state-of-accordion",
       "component:uikit:Accordion:size",
       "component:uikit:Accordion:view",
@@ -783,7 +781,6 @@
       "component:uikit:Accordion:multiple",
       "component:uikit:Accordion:custom-summary",
       "component:uikit:Accordion:disabled-state",
-      "component:uikit:Accordion:properties",
       "component:uikit:Accordion:accordion-2",
       "component:uikit:Accordion:accordionitem",
       "component:uikit:Accordion:accordionsummary"
@@ -802,7 +799,6 @@
     "description": "Tooltip for labeling action buttons without descriptive text (e.g. icon…",
     "section_ids": [
       "component:uikit:ActionTooltip:actiontooltip",
-      "component:uikit:ActionTooltip:usage",
       "component:uikit:ActionTooltip:anchor"
     ]
   },
@@ -858,7 +854,6 @@
     "section_ids": [
       "component:uikit:ArrowToggle:arrowtoggle",
       "component:uikit:ArrowToggle:appearance",
-      "component:uikit:ArrowToggle:size",
       "component:uikit:ArrowToggle:use-as-an-interactive-element",
       "component:uikit:ArrowToggle:properties"
     ]
@@ -878,11 +873,6 @@
       "component:uikit:Avatar:avatar",
       "component:uikit:Avatar:types",
       "component:uikit:Avatar:appearance",
-      "component:uikit:Avatar:theme-and-view",
-      "component:uikit:Avatar:custom-colors",
-      "component:uikit:Avatar:size",
-      "component:uikit:Avatar:shape",
-      "component:uikit:Avatar:properties",
       "component:uikit:Avatar:common",
       "component:uikit:Avatar:image-specific",
       "component:uikit:Avatar:icon-specific",
@@ -921,14 +911,6 @@
     "section_ids": [
       "component:uikit:Breadcrumbs:breadcrumbs",
       "component:uikit:Breadcrumbs:example",
-      "component:uikit:Breadcrumbs:events",
-      "component:uikit:Breadcrumbs:links",
-      "component:uikit:Breadcrumbs:root-context",
-      "component:uikit:Breadcrumbs:separator",
-      "component:uikit:Breadcrumbs:integration-with-routers",
-      "component:uikit:Breadcrumbs:landmarks",
-      "component:uikit:Breadcrumbs:disabled-items",
-      "component:uikit:Breadcrumbs:end-content",
       "component:uikit:Breadcrumbs:properties",
       "component:uikit:Breadcrumbs:breadcrumbsitemprops"
     ]
@@ -947,10 +929,6 @@
     "section_ids": [
       "component:uikit:Button:button",
       "component:uikit:Button:appearance",
-      "component:uikit:Button:basic",
-      "component:uikit:Button:outlined",
-      "component:uikit:Button:flat",
-      "component:uikit:Button:contrast",
       "component:uikit:Button:icons",
       "component:uikit:Button:states",
       "component:uikit:Button:size",
@@ -968,11 +946,11 @@
     "url": "https://gravity-ui.com/components/uikit/card",
     "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Card",
     "breadcrumbs": [
-      "Card"
+      "Card",
+      "Description"
     ],
     "description": "Card is a reusable React component that basically is a card-like container with…",
     "section_ids": [
-      "component:uikit:Card:card",
       "component:uikit:Card:description",
       "component:uikit:Card:appearance",
       "component:uikit:Card:theme",
@@ -1061,7 +1039,6 @@
     "description": "The component to display definition list with term and definition separated by…",
     "section_ids": [
       "component:uikit:DefinitionList:definitionlist",
-      "component:uikit:DefinitionList:examples",
       "component:uikit:DefinitionList:properties",
       "component:uikit:DefinitionList:css-api"
     ]
@@ -1096,7 +1073,6 @@
     "description": "Disclosure is a collapsible component that allows to display and hide its…",
     "section_ids": [
       "component:uikit:Disclosure:disclosure",
-      "component:uikit:Disclosure:base-example",
       "component:uikit:Disclosure:controlling-expansion-state",
       "component:uikit:Disclosure:size",
       "component:uikit:Disclosure:arrow-position",
@@ -1118,12 +1094,7 @@
     ],
     "description": "The Divider component is used as a thin line for delimiting and grouping…",
     "section_ids": [
-      "component:uikit:Divider:divider",
-      "component:uikit:Divider:orientation",
-      "component:uikit:Divider:custom-content",
-      "component:uikit:Divider:alignment",
-      "component:uikit:Divider:properties",
-      "component:uikit:Divider:css-api"
+      "component:uikit:Divider:divider"
     ]
   },
   {
@@ -1180,7 +1151,6 @@
     "description": "",
     "section_ids": [
       "component:uikit:FilePreview:filepreview",
-      "component:uikit:FilePreview:filepreview-2",
       "component:uikit:FilePreview:properties"
     ]
   },
@@ -1247,12 +1217,8 @@
     "section_ids": [
       "component:uikit:Label:label",
       "component:uikit:Label:appearance",
-      "component:uikit:Label:theme",
-      "component:uikit:Label:type",
-      "component:uikit:Label:icon",
       "component:uikit:Label:value",
       "component:uikit:Label:state",
-      "component:uikit:Label:size",
       "component:uikit:Label:properties"
     ]
   },
@@ -1283,11 +1249,11 @@
     "url": "https://gravity-ui.com/components/uikit/list",
     "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/List",
     "breadcrumbs": [
-      "List"
+      "List",
+      "ItemsHeight"
     ],
     "description": "Determines the item list height (or a function that returns the height value…",
     "section_ids": [
-      "component:uikit:List:list",
       "component:uikit:List:itemsheight",
       "component:uikit:List:items",
       "component:uikit:List:filterable",
@@ -1329,9 +1295,6 @@
       "component:uikit:Menu:menu",
       "component:uikit:Menu:properties",
       "component:uikit:Menu:menuitem",
-      "component:uikit:Menu:icon",
-      "component:uikit:Menu:theme",
-      "component:uikit:Menu:properties-2",
       "component:uikit:Menu:menugroup"
     ]
   },
@@ -1541,10 +1504,8 @@
     "section_ids": [
       "component:uikit:Progress:progress",
       "component:uikit:Progress:theme",
-      "component:uikit:Progress:states",
       "component:uikit:Progress:size",
-      "component:uikit:Progress:breakpoints",
-      "component:uikit:Progress:stack"
+      "component:uikit:Progress:breakpoints"
     ]
   },
   {
@@ -1599,7 +1560,6 @@
     "description": "The SegmentedRadioGroup component is used to create a group of radio buttons…",
     "section_ids": [
       "component:uikit:SegmentedRadioGroup:segmentedradiogroup",
-      "component:uikit:SegmentedRadioGroup:disabled-state",
       "component:uikit:SegmentedRadioGroup:size",
       "component:uikit:SegmentedRadioGroup:width",
       "component:uikit:SegmentedRadioGroup:properties",
@@ -1620,15 +1580,11 @@
     "section_ids": [
       "component:uikit:Select:select",
       "component:uikit:Select:options",
-      "component:uikit:Select:defining-options",
-      "component:uikit:Select:storing-data-in-options",
       "component:uikit:Select:selecting-multiple-options",
       "component:uikit:Select:filtering-options",
       "component:uikit:Select:size",
       "component:uikit:Select:control-width",
       "component:uikit:Select:popup-width",
-      "component:uikit:Select:non-virtualized-list",
-      "component:uikit:Select:virtualized-list",
       "component:uikit:Select:advanced-usage",
       "component:uikit:Select:rendering-custom-control",
       "component:uikit:Select:rendering-custom-filter-section",
@@ -1729,11 +1685,6 @@
     "section_ids": [
       "component:uikit:Stepper:stepper",
       "component:uikit:Stepper:example",
-      "component:uikit:Stepper:interactive-items",
-      "component:uikit:Stepper:different-views",
-      "component:uikit:Stepper:different-sizes",
-      "component:uikit:Stepper:disabled-steps",
-      "component:uikit:Stepper:custom-icons",
       "component:uikit:Stepper:properties",
       "component:uikit:Stepper:stepperitemprops",
       "component:uikit:Stepper:css-api"
@@ -1771,7 +1722,6 @@
     "description": "",
     "section_ids": [
       "component:uikit:Table:table",
-      "component:uikit:Table:table-2",
       "component:uikit:Table:properties",
       "component:uikit:Table:descriptortype",
       "component:uikit:Table:tablecolumnconfig",
@@ -1819,16 +1769,12 @@
     "url": "https://gravity-ui.com/components/uikit/text",
     "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/Text",
     "breadcrumbs": [
-      "Text"
+      "Text",
+      "Variant"
     ],
     "description": "These are the default fonts that can be overridden in the project. You can see…",
     "section_ids": [
-      "component:uikit:Text:text",
       "component:uikit:Text:variant",
-      "component:uikit:Text:ellipsis",
-      "component:uikit:Text:white-space",
-      "component:uikit:Text:word-break",
-      "component:uikit:Text:color",
       "component:uikit:Text:properties"
     ]
   },
@@ -1884,7 +1830,6 @@
     "description": "A simple text tip that uses its child node as an anchor. This component accepts…",
     "section_ids": [
       "component:uikit:Tooltip:tooltip",
-      "component:uikit:Tooltip:usage",
       "component:uikit:Tooltip:anchor"
     ]
   },
@@ -1932,11 +1877,11 @@
     "url": "https://gravity-ui.com/components/uikit/controlspasswordinput",
     "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/controls/PasswordInput",
     "breadcrumbs": [
-      "controls/PasswordInput"
+      "controls/PasswordInput",
+      "Password Input"
     ],
     "description": "",
     "section_ids": [
-      "component:uikit:controls/PasswordInput:controlspasswordinput",
       "component:uikit:controls/PasswordInput:password-input"
     ]
   },
@@ -2053,8 +1998,6 @@
     "section_ids": [
       "component:uikit:legacy/Breadcrumbs:breadcrumbs",
       "component:uikit:legacy/Breadcrumbs:appearance",
-      "component:uikit:legacy/Breadcrumbs:custom-divider",
-      "component:uikit:legacy/Breadcrumbs:custom-title",
       "component:uikit:legacy/Breadcrumbs:properties",
       "component:uikit:legacy/Breadcrumbs:renderbreadcrumbsitempropst",
       "component:uikit:legacy/Breadcrumbs:breadcrumbsitem"
@@ -2073,12 +2016,6 @@
     "description": "This component allows you to add a section with some pop-up content.",
     "section_ids": [
       "component:uikit:legacy/Popover:popover",
-      "component:uikit:legacy/Popover:simple-usage",
-      "component:uikit:legacy/Popover:with-jsx-content",
-      "component:uikit:legacy/Popover:with-html-content",
-      "component:uikit:legacy/Popover:with-links",
-      "component:uikit:legacy/Popover:with-action-button",
-      "component:uikit:legacy/Popover:with-automatic-closing-when-the-cursor-is-outside-for-delayclosing",
       "component:uikit:legacy/Popover:instance-usage",
       "component:uikit:legacy/Popover:properties",
       "component:uikit:legacy/Popover:triggerprops",
@@ -2122,11 +2059,6 @@
       "component:uikit:tabs:tabprovider",
       "component:uikit:tabs:tablist",
       "component:uikit:tabs:tab",
-      "component:uikit:tabs:icon",
-      "component:uikit:tabs:states",
-      "component:uikit:tabs:counter",
-      "component:uikit:tabs:label",
-      "component:uikit:tabs:properties",
       "component:uikit:tabs:tabpanel",
       "component:uikit:tabs:css-api"
     ]
@@ -2157,14 +2089,13 @@
     "url": "https://gravity-ui.com/libraries/uikit",
     "github_url": "https://github.com/gravity-ui/uikit/blob/main/playwright/README.md",
     "breadcrumbs": [
-      "Playwright Test Component"
+      "Playwright Test Component",
+      "How to write a test"
     ],
     "description": "",
     "section_ids": [
-      "library:uikit:uikit/playwright/README:playwright-test-component",
       "library:uikit:uikit/playwright/README:how-to-write-a-test",
       "library:uikit:uikit/playwright/README:description-of-possible-commands",
-      "library:uikit:uikit/playwright/README:test-examples",
       "library:uikit:uikit/playwright/README:npm-scripts"
     ]
   },
@@ -2349,8 +2280,7 @@
     "description": "The usePrevious hook stores the previous value during renders",
     "section_ids": [
       "library:uikit:uikit/src/hooks/private/usePrevious/README:useprevious",
-      "library:uikit:uikit/src/hooks/private/usePrevious/README:properties",
-      "library:uikit:uikit/src/hooks/private/usePrevious/README:result"
+      "library:uikit:uikit/src/hooks/private/usePrevious/README:properties"
     ]
   },
   {
@@ -2682,8 +2612,7 @@
     ],
     "description": "The useUniqId hook creates unique ID.",
     "section_ids": [
-      "library:uikit:uikit/src/hooks/useUniqId/README:useuniqid",
-      "library:uikit:uikit/src/hooks/useUniqId/README:result"
+      "library:uikit:uikit/src/hooks/useUniqId/README:useuniqid"
     ]
   },
   {
@@ -2798,11 +2727,11 @@
     "url": "https://gravity-ui.com/components/components/cookieconsent",
     "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/CookieConsent",
     "breadcrumbs": [
-      "CookieConsent"
+      "CookieConsent",
+      "Usage ConsentMode.Base"
     ],
     "description": "",
     "section_ids": [
-      "component:components:CookieConsent:cookieconsent",
       "component:components:CookieConsent:usage-consentmodebase",
       "component:components:CookieConsent:usage-consentmodemanage",
       "component:components:CookieConsent:props"
@@ -3019,11 +2948,11 @@
     "url": "https://gravity-ui.com/components/components/storebadge",
     "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/StoreBadge",
     "breadcrumbs": [
-      "StoreBadge"
+      "StoreBadge",
+      "Description"
     ],
     "description": "Store Badge can be used to place links to the Google Play and AppStore app…",
     "section_ids": [
-      "component:components:StoreBadge:storebadge",
       "component:components:StoreBadge:description",
       "component:components:StoreBadge:properties"
     ]
@@ -3104,11 +3033,11 @@
     "url": "https://gravity-ui.com/libraries/date-components",
     "github_url": "https://github.com/gravity-ui/date-components",
     "breadcrumbs": [
-      "@gravity-ui/date-components"
+      "@gravity-ui/date-components",
+      "Install"
     ],
     "description": "If the app supports language switching, preload all supported locales when the…",
     "section_ids": [
-      "library:date-components:gravity-uidate-components",
       "library:date-components:install",
       "library:date-components:usage",
       "library:date-components:development"
@@ -3355,7 +3284,6 @@
     "description": "",
     "section_ids": [
       "component:navigation:HotkeysPanel:hotkeyspanel",
-      "component:navigation:HotkeysPanel:hotkeyspanel-2",
       "component:navigation:HotkeysPanel:css-api"
     ]
   },
@@ -3388,7 +3316,6 @@
     "description": "",
     "section_ids": [
       "component:navigation:Settings:settings",
-      "component:navigation:Settings:settings-2",
       "component:navigation:Settings:usage",
       "component:navigation:Settings:properties",
       "component:navigation:Settings:settingsgroup",
@@ -3405,14 +3332,13 @@
     "url": "https://gravity-ui.com/libraries/navigation",
     "github_url": "https://github.com/gravity-ui/navigation/blob/main/playwright/README.md",
     "breadcrumbs": [
-      "Playwright Test Component"
+      "Playwright Test Component",
+      "How to write a test"
     ],
     "description": "",
     "section_ids": [
-      "library:navigation:navigation/playwright/README:playwright-test-component",
       "library:navigation:navigation/playwright/README:how-to-write-a-test",
       "library:navigation:navigation/playwright/README:description-of-possible-commands",
-      "library:navigation:navigation/playwright/README:test-examples",
       "library:navigation:navigation/playwright/README:npm-scripts"
     ]
   },
@@ -3440,11 +3366,11 @@
     "url": "https://gravity-ui.com/libraries/markdown-editor",
     "github_url": "https://github.com/gravity-ui/markdown-editor",
     "breadcrumbs": [
-      "@gravity-ui/markdown-editor"
+      "@gravity-ui/markdown-editor",
+      "Markdown wysiwyg and markup editor"
     ],
     "description": "MarkdownEditor is a powerful tool for working with Markdown, which combines…",
     "section_ids": [
-      "library:markdown-editor:gravity-uimarkdown-editor",
       "library:markdown-editor:markdown-wysiwyg-and-markup-editor",
       "library:markdown-editor:install",
       "library:markdown-editor:getting-started"
@@ -3458,11 +3384,11 @@
     "url": "https://gravity-ui.com/libraries/markdown-editor",
     "github_url": "https://github.com/gravity-ui/markdown-editor/blob/main/docs/guidelines-contributions.md",
     "breadcrumbs": [
-      "markdown-editor/docs/guidelines-contributions"
+      "markdown-editor/docs/guidelines-contributions",
+      "Important Information for Contributors"
     ],
     "description": "",
     "section_ids": [
-      "library:markdown-editor:markdown-editor/docs/guidelines-contributions:markdown-editordocsguidelines-contributions",
       "library:markdown-editor:markdown-editor/docs/guidelines-contributions:important-information-for-contributors",
       "library:markdown-editor:markdown-editor/docs/guidelines-contributions:thank-you-for-your-contribution",
       "library:markdown-editor:markdown-editor/docs/guidelines-contributions:core-contributors",
@@ -3487,7 +3413,6 @@
     "description": "",
     "section_ids": [
       "library:markdown-editor:markdown-editor/docs/how-to-add-editor-with-create-react-app:markdown-editordocshow-to-add-editor-with-create-react-app",
-      "library:markdown-editor:markdown-editor/docs/how-to-add-editor-with-create-react-app:installation-guide",
       "library:markdown-editor:markdown-editor/docs/how-to-add-editor-with-create-react-app:1-setting-up-the-environment-for-the-react-application",
       "library:markdown-editor:markdown-editor/docs/how-to-add-editor-with-create-react-app:2-installing-the-markdown-editor",
       "library:markdown-editor:markdown-editor/docs/how-to-add-editor-with-create-react-app:3-install-peer-dependencies",
@@ -3503,11 +3428,11 @@
     "url": "https://gravity-ui.com/libraries/markdown-editor",
     "github_url": "https://github.com/gravity-ui/markdown-editor/blob/main/docs/how-to-add-editor-with-nextjs.md",
     "breadcrumbs": [
-      "markdown-editor/docs/how-to-add-editor-with-nextjs"
+      "markdown-editor/docs/how-to-add-editor-with-nextjs",
+      "Connection and Configuration"
     ],
     "description": "",
     "section_ids": [
-      "library:markdown-editor:markdown-editor/docs/how-to-add-editor-with-nextjs:markdown-editordocshow-to-add-editor-with-nextjs",
       "library:markdown-editor:markdown-editor/docs/how-to-add-editor-with-nextjs:connection-and-configuration"
     ]
   },
@@ -3519,11 +3444,11 @@
     "url": "https://gravity-ui.com/libraries/markdown-editor",
     "github_url": "https://github.com/gravity-ui/markdown-editor/blob/main/docs/how-to-add-preview.md",
     "breadcrumbs": [
-      "markdown-editor/docs/how-to-add-preview"
+      "markdown-editor/docs/how-to-add-preview",
+      "How to Add Preview for Markup Mode"
     ],
     "description": "",
     "section_ids": [
-      "library:markdown-editor:markdown-editor/docs/how-to-add-preview:markdown-editordocshow-to-add-preview",
       "library:markdown-editor:markdown-editor/docs/how-to-add-preview:how-to-add-preview-for-markup-mode"
     ]
   },
@@ -3574,11 +3499,11 @@
     "url": "https://gravity-ui.com/libraries/markdown-editor",
     "github_url": "https://github.com/gravity-ui/markdown-editor/blob/main/docs/how-to-connect-gpt-extensions.md",
     "breadcrumbs": [
-      "markdown-editor/docs/how-to-connect-gpt-extensions"
+      "markdown-editor/docs/how-to-connect-gpt-extensions",
+      "How to connect GPT extensions to editor"
     ],
     "description": "",
     "section_ids": [
-      "library:markdown-editor:markdown-editor/docs/how-to-connect-gpt-extensions:markdown-editordocshow-to-connect-gpt-extensions",
       "library:markdown-editor:markdown-editor/docs/how-to-connect-gpt-extensions:how-to-connect-gpt-extensions-to-editor",
       "library:markdown-editor:markdown-editor/docs/how-to-connect-gpt-extensions:1-add-extension-usage-and-extensions-props",
       "library:markdown-editor:markdown-editor/docs/how-to-connect-gpt-extensions:2-implementation-gptwidgetprops",
@@ -3594,13 +3519,12 @@
     "url": "https://gravity-ui.com/libraries/markdown-editor",
     "github_url": "https://github.com/gravity-ui/markdown-editor/blob/main/docs/how-to-connect-html-extension.md",
     "breadcrumbs": [
-      "markdown-editor/docs/how-to-connect-html-extension"
+      "markdown-editor/docs/how-to-connect-html-extension",
+      "How to Connect the HTML Extension in the Editor"
     ],
     "description": "",
     "section_ids": [
-      "library:markdown-editor:markdown-editor/docs/how-to-connect-html-extension:markdown-editordocshow-to-connect-html-extension",
       "library:markdown-editor:markdown-editor/docs/how-to-connect-html-extension:how-to-connect-the-html-extension-in-the-editor",
-      "library:markdown-editor:markdown-editor/docs/how-to-connect-html-extension:usage",
       "library:markdown-editor:markdown-editor/docs/how-to-connect-html-extension:1-install-the-packages",
       "library:markdown-editor:markdown-editor/docs/how-to-connect-html-extension:2-integrate-the-plugin-in-the-transformer",
       "library:markdown-editor:markdown-editor/docs/how-to-connect-html-extension:3-integrate-into-editor",
@@ -3617,11 +3541,11 @@
     "url": "https://gravity-ui.com/libraries/markdown-editor",
     "github_url": "https://github.com/gravity-ui/markdown-editor/blob/main/docs/how-to-connect-latex-extension.md",
     "breadcrumbs": [
-      "markdown-editor/docs/how-to-connect-latex-extension"
+      "markdown-editor/docs/how-to-connect-latex-extension",
+      "How to Connect the Latex Extension in the Editor"
     ],
     "description": "",
     "section_ids": [
-      "library:markdown-editor:markdown-editor/docs/how-to-connect-latex-extension:markdown-editordocshow-to-connect-latex-extension",
       "library:markdown-editor:markdown-editor/docs/how-to-connect-latex-extension:how-to-connect-the-latex-extension-in-the-editor",
       "library:markdown-editor:markdown-editor/docs/how-to-connect-latex-extension:usage"
     ]
@@ -3651,11 +3575,11 @@
     "url": "https://gravity-ui.com/libraries/markdown-editor",
     "github_url": "https://github.com/gravity-ui/markdown-editor/blob/main/docs/how-to-create-extension.md",
     "breadcrumbs": [
-      "markdown-editor/docs/how-to-create-extension"
+      "markdown-editor/docs/how-to-create-extension",
+      "How to Create Extension"
     ],
     "description": "",
     "section_ids": [
-      "library:markdown-editor:markdown-editor/docs/how-to-create-extension:markdown-editordocshow-to-create-extension",
       "library:markdown-editor:markdown-editor/docs/how-to-create-extension:how-to-create-extension",
       "library:markdown-editor:markdown-editor/docs/how-to-create-extension:wysiwyg-and-markup-modes",
       "library:markdown-editor:markdown-editor/docs/how-to-create-extension:step-by-step-guide"
@@ -3690,7 +3614,6 @@
     "description": "",
     "section_ids": [
       "library:markdown-editor:markdown-editor/docs/how-to-customize-toolbars:markdown-editordocshow-to-customize-toolbars",
-      "library:markdown-editor:markdown-editor/docs/how-to-customize-toolbars:how-to-customize-toolbars",
       "library:markdown-editor:markdown-editor/docs/how-to-customize-toolbars:understanding-presets",
       "library:markdown-editor:markdown-editor/docs/how-to-customize-toolbars:toolbar-types",
       "library:markdown-editor:markdown-editor/docs/how-to-customize-toolbars:toolbar-configuration",
@@ -3754,8 +3677,7 @@
       "library:aikit:architecture",
       "library:aikit:documentation",
       "library:aikit:testing",
-      "library:aikit:development",
-      "library:aikit:license"
+      "library:aikit:development"
     ]
   },
   {
@@ -3774,7 +3696,6 @@
       "component:aikit:atoms/ActionButton:features",
       "component:aikit:atoms/ActionButton:usage",
       "component:aikit:atoms/ActionButton:props",
-      "component:aikit:atoms/ActionButton:variants",
       "component:aikit:atoms/ActionButton:tooltip-behavior",
       "component:aikit:atoms/ActionButton:accessibility",
       "component:aikit:atoms/ActionButton:implementation-details"
@@ -3912,7 +3833,6 @@
     "description": "Wrapper component for Intersection Observer API. Used for automatic loading of…",
     "section_ids": [
       "component:aikit:atoms/IntersectionContainer:intersectioncontainer",
-      "component:aikit:atoms/IntersectionContainer:usage",
       "component:aikit:atoms/IntersectionContainer:props"
     ]
   },
@@ -3986,7 +3906,6 @@
     "description": "A loading animation component that creates a shimmer effect over its children.",
     "section_ids": [
       "component:aikit:atoms/Shimmer:shimmer",
-      "component:aikit:atoms/Shimmer:usage",
       "component:aikit:atoms/Shimmer:props",
       "component:aikit:atoms/Shimmer:customization"
     ]
@@ -4024,7 +3943,6 @@
     "description": "A status indicator component that displays different icons based on the tool…",
     "section_ids": [
       "component:aikit:atoms/ToolIndicator:toolindicator",
-      "component:aikit:atoms/ToolIndicator:usage",
       "component:aikit:atoms/ToolIndicator:props"
     ]
   },
@@ -4277,7 +4195,6 @@
     "section_ids": [
       "component:aikit:molecules/ToolStatus:toolstatus",
       "component:aikit:molecules/ToolStatus:features",
-      "component:aikit:molecules/ToolStatus:usage",
       "component:aikit:molecules/ToolStatus:props"
     ]
   },
@@ -4316,7 +4233,6 @@
     "section_ids": [
       "component:aikit:organisms/Header:header",
       "component:aikit:organisms/Header:features",
-      "component:aikit:organisms/Header:usage",
       "component:aikit:organisms/Header:basic-usage",
       "component:aikit:organisms/Header:with-icon-and-preview",
       "component:aikit:organisms/Header:with-additional-actions",
@@ -4343,7 +4259,6 @@
     "section_ids": [
       "component:aikit:organisms/MessageList:messagelist",
       "component:aikit:organisms/MessageList:features",
-      "component:aikit:organisms/MessageList:usage",
       "component:aikit:organisms/MessageList:basic-usage",
       "component:aikit:organisms/MessageList:with-custom-message-types",
       "component:aikit:organisms/MessageList:with-default-actions",
@@ -4454,7 +4369,6 @@
       "component:aikit:pages/ChatContainer:features",
       "component:aikit:pages/ChatContainer:usage",
       "component:aikit:pages/ChatContainer:props",
-      "component:aikit:pages/ChatContainer:types",
       "component:aikit:pages/ChatContainer:welcomeconfig",
       "component:aikit:pages/ChatContainer:messagelistconfig",
       "component:aikit:pages/ChatContainer:chatcontaineri18nconfig",
@@ -4564,11 +4478,11 @@
     "url": "https://gravity-ui.com/libraries/aikit",
     "github_url": "https://github.com/gravity-ui/aikit/blob/main/docs/ARCHITECTURE.md",
     "breadcrumbs": [
-      "Aikit Library Architecture"
+      "Aikit Library Architecture",
+      "Atomic Design Principles"
     ],
     "description": "The library is built on Atomic Design principles, which ensure:",
     "section_ids": [
-      "library:aikit:aikit/docs/ARCHITECTURE:aikit-library-architecture",
       "library:aikit:aikit/docs/ARCHITECTURE:atomic-design-principles",
       "library:aikit:aikit/docs/ARCHITECTURE:component-levels",
       "library:aikit:aikit/docs/ARCHITECTURE:two-level-approach",
@@ -4631,11 +4545,11 @@
     "url": "https://gravity-ui.com/libraries/aikit",
     "github_url": "https://github.com/gravity-ui/aikit/blob/main/docs/PROJECT_STRUCTURE.md",
     "breadcrumbs": [
-      "Aikit Project Structure"
+      "Aikit Project Structure",
+      "File Tree"
     ],
     "description": "Storybook configuration for interactive component documentation.",
     "section_ids": [
-      "library:aikit:aikit/docs/PROJECT_STRUCTURE:aikit-project-structure",
       "library:aikit:aikit/docs/PROJECT_STRUCTURE:file-tree",
       "library:aikit:aikit/docs/PROJECT_STRUCTURE:directory-description",
       "library:aikit:aikit/docs/PROJECT_STRUCTURE:organization-principles",
@@ -4690,14 +4604,13 @@
     "url": "https://gravity-ui.com/libraries/aikit",
     "github_url": "https://github.com/gravity-ui/aikit/blob/main/playwright/README.md",
     "breadcrumbs": [
-      "Playwright Test Component"
+      "Playwright Test Component",
+      "How to write a test"
     ],
     "description": "",
     "section_ids": [
-      "library:aikit:aikit/playwright/README:playwright-test-component",
       "library:aikit:aikit/playwright/README:how-to-write-a-test",
       "library:aikit:aikit/playwright/README:description-of-possible-commands",
-      "library:aikit:aikit/playwright/README:test-examples",
       "library:aikit:aikit/playwright/README:npm-scripts"
     ]
   },
@@ -4736,7 +4649,6 @@
       "library:graph:motivation",
       "library:graph:how-it-works",
       "library:graph:install",
-      "library:graph:examples",
       "library:graph:react-example",
       "library:graph:vanilla-javascript-example",
       "library:graph:live-examples",
@@ -4829,7 +4741,6 @@
     "section_ids": [
       "library:graph:graph/docs/components/canvas-graph-component:canvas-graphcomponent-the-foundation-of-visual-rendering",
       "library:graph:graph/docs/components/canvas-graph-component:what-makes-graphcomponent-special",
-      "library:graph:graph/docs/components/canvas-graph-component:the-core-capabilities",
       "library:graph:graph/docs/components/canvas-graph-component:1-spatial-awareness-with-hitbox-and-r-tree",
       "library:graph:graph/docs/components/canvas-graph-component:2-camera-based-culling-with-hitbox-visibility-checks",
       "library:graph:graph/docs/components/canvas-graph-component:3-mouse-event-handling",
@@ -4841,7 +4752,6 @@
       "library:graph:graph/docs/components/canvas-graph-component:pattern-2-intelligent-rendering",
       "library:graph:graph/docs/components/canvas-graph-component:pattern-3-proper-cleanup",
       "library:graph:graph/docs/components/canvas-graph-component:pattern-4-reactive-updates",
-      "library:graph:graph/docs/components/canvas-graph-component:practical-examples",
       "library:graph:graph/docs/components/canvas-graph-component:example-1-a-simple-badge-component",
       "library:graph:graph/docs/components/canvas-graph-component:example-2-a-connection-line-with-hover-effects",
       "library:graph:graph/docs/components/canvas-graph-component:performance-tips-for-graphcomponent",
@@ -4912,11 +4822,11 @@
     "url": "https://gravity-ui.com/libraries/graph",
     "github_url": "https://github.com/gravity-ui/graph/blob/main/docs/migration-guides/v0-to-v1.md",
     "breadcrumbs": [
-      "Migration Guide: v0.x → v1.x"
+      "Migration Guide: v0.x → v1.x",
+      "What's Changed"
     ],
     "description": "The major architectural change in v1.x is the extraction of React from the core…",
     "section_ids": [
-      "library:graph:graph/docs/migration-guides/v0-to-v1:migration-guide-v0x-v1x",
       "library:graph:graph/docs/migration-guides/v0-to-v1:whats-changed",
       "library:graph:graph/docs/migration-guides/v0-to-v1:quick-migration-checklist",
       "library:graph:graph/docs/migration-guides/v0-to-v1:new-import-structure",
@@ -4934,11 +4844,11 @@
     "url": "https://gravity-ui.com/libraries/graph",
     "github_url": "https://github.com/gravity-ui/graph/blob/main/docs/plugins/cssVariables.md",
     "breadcrumbs": [
-      "CSS Variables Plugin"
+      "CSS Variables Plugin",
+      "Overview"
     ],
     "description": "The CSSVariablesLayer plugin enables seamless synchronization between CSS…",
     "section_ids": [
-      "library:graph:graph/docs/plugins/cssVariables:css-variables-plugin",
       "library:graph:graph/docs/plugins/cssVariables:overview",
       "library:graph:graph/docs/plugins/cssVariables:features",
       "library:graph:graph/docs/plugins/cssVariables:usage",
@@ -4968,11 +4878,11 @@
     "url": "https://gravity-ui.com/libraries/graph",
     "github_url": "https://github.com/gravity-ui/graph/blob/main/docs/plugins/devtools.md",
     "breadcrumbs": [
-      "DevTools Plugin"
+      "DevTools Plugin",
+      "Overview"
     ],
     "description": "The DevToolsLayer plugin provides visual development tools for the…",
     "section_ids": [
-      "library:graph:graph/docs/plugins/devtools:devtools-plugin",
       "library:graph:graph/docs/plugins/devtools:overview",
       "library:graph:graph/docs/plugins/devtools:features",
       "library:graph:graph/docs/plugins/devtools:usage",
@@ -5015,7 +4925,6 @@
       "library:graph:graph/docs/react/hooks:react-hooks",
       "library:graph:graph/docs/react/hooks:table-of-contents",
       "library:graph:graph/docs/react/hooks:import",
-      "library:graph:graph/docs/react/hooks:core-hooks",
       "library:graph:graph/docs/react/hooks:usegraph",
       "library:graph:graph/docs/react/hooks:uselayer",
       "library:graph:graph/docs/react/hooks:event-hooks",
@@ -5028,7 +4937,6 @@
       "library:graph:graph/docs/react/hooks:useschedulerdebounce",
       "library:graph:graph/docs/react/hooks:useschedulerthrottle",
       "library:graph:graph/docs/react/hooks:usescheduledtask",
-      "library:graph:graph/docs/react/hooks:scene-hooks",
       "library:graph:graph/docs/react/hooks:usescenechange",
       "library:graph:graph/docs/react/hooks:usage-patterns"
     ]
@@ -5041,14 +4949,13 @@
     "url": "https://gravity-ui.com/libraries/graph",
     "github_url": "https://github.com/gravity-ui/graph/blob/main/docs/react/usage.md",
     "breadcrumbs": [
-      "React Components API"
+      "React Components API",
+      "Import Structure"
     ],
     "description": "The library separates core functionality from React components:",
     "section_ids": [
-      "library:graph:graph/docs/react/usage:react-components-api",
       "library:graph:graph/docs/react/usage:import-structure",
       "library:graph:graph/docs/react/usage:architecture",
-      "library:graph:graph/docs/react/usage:key-components",
       "library:graph:graph/docs/react/usage:graphcanvas",
       "library:graph:graph/docs/react/usage:graphblock",
       "library:graph:graph/docs/react/usage:graphblockanchor",
@@ -5068,17 +4975,16 @@
     "url": "https://gravity-ui.com/libraries/graph",
     "github_url": "https://github.com/gravity-ui/graph/blob/main/docs/rendering/layers.md",
     "breadcrumbs": [
-      "Layers"
+      "Layers",
+      "Core Concepts"
     ],
     "description": "Layers are essentially plugins that extend the graph library's functionality.…",
     "section_ids": [
-      "library:graph:graph/docs/rendering/layers:layers",
       "library:graph:graph/docs/rendering/layers:core-concepts",
       "library:graph:graph/docs/rendering/layers:layer-lifecycle",
       "library:graph:graph/docs/rendering/layers:built-in-layers",
       "library:graph:graph/docs/rendering/layers:using-layers",
       "library:graph:graph/docs/rendering/layers:html-rendering-in-layers",
-      "library:graph:graph/docs/rendering/layers:creating-custom-layers",
       "library:graph:graph/docs/rendering/layers:basic-structure",
       "library:graph:graph/docs/rendering/layers:handling-transformations-and-device-pixel-ratio-dpr",
       "library:graph:graph/docs/rendering/layers:built-in-css-classes",
@@ -5337,18 +5243,17 @@
     "url": "https://gravity-ui.com/libraries/graph",
     "github_url": "https://github.com/gravity-ui/graph/blob/main/docs/system/selection-manager.md",
     "breadcrumbs": [
-      "Selection Management System"
+      "Selection Management System",
+      "1. Overview"
     ],
     "description": "The Selection Management System provides a centralized way to handle entity…",
     "section_ids": [
-      "library:graph:graph/docs/system/selection-manager:selection-management-system",
       "library:graph:graph/docs/system/selection-manager:1-overview",
       "library:graph:graph/docs/system/selection-manager:2-buckets-and-selectionservice-behavior",
       "library:graph:graph/docs/system/selection-manager:3-custom-layer-integration",
       "library:graph:graph/docs/system/selection-manager:4-component-layer-usage",
       "library:graph:graph/docs/system/selection-manager:5-selectionservice-api-reference",
       "library:graph:graph/docs/system/selection-manager:6-examples",
-      "library:graph:graph/docs/system/selection-manager:7-component-resolution",
       "library:graph:graph/docs/system/selection-manager:overview",
       "library:graph:graph/docs/system/selection-manager:resolution-flow",
       "library:graph:graph/docs/system/selection-manager:creating-buckets-with-resolvers",
@@ -5384,11 +5289,11 @@
     "url": "https://gravity-ui.com/libraries/chartkit",
     "github_url": "https://github.com/gravity-ui/chartkit/blob/main/docs/testing.md",
     "breadcrumbs": [
-      "Testing Guide"
+      "Testing Guide",
+      "Scripts"
     ],
     "description": "| Script                            | Description                              …",
     "section_ids": [
-      "library:chartkit:chartkit/docs/testing:testing-guide",
       "library:chartkit:chartkit/docs/testing:scripts",
       "library:chartkit:chartkit/docs/testing:test-projects",
       "library:chartkit:chartkit/docs/testing:unit-tests",
@@ -5423,11 +5328,11 @@
     "url": "https://gravity-ui.com/libraries/charts",
     "github_url": "https://github.com/gravity-ui/charts/blob/main/docs/diplodoc/pages/get-started.md",
     "breadcrumbs": [
-      "Get started"
+      "Get started",
+      "Install"
     ],
     "description": "To start the development server with storybook run the following:",
     "section_ids": [
-      "library:charts:charts/docs/diplodoc/pages/get-started:get-started",
       "library:charts:charts/docs/diplodoc/pages/get-started:install",
       "library:charts:charts/docs/diplodoc/pages/get-started:development"
     ]
@@ -5459,11 +5364,11 @@
     "url": "https://gravity-ui.com/libraries/charts",
     "github_url": "https://github.com/gravity-ui/charts/blob/main/docs/diplodoc/pages/guides/data-labels.md",
     "breadcrumbs": [
-      "Data Labels"
+      "Data Labels",
+      "Introduction"
     ],
     "description": "Data Labels are a feature used to display textual or numeric information…",
     "section_ids": [
-      "library:charts:charts/docs/diplodoc/pages/guides/data-labels:data-labels",
       "library:charts:charts/docs/diplodoc/pages/guides/data-labels:introduction",
       "library:charts:charts/docs/diplodoc/pages/guides/data-labels:enabling-and-disabling-data-labels"
     ]
@@ -5476,11 +5381,11 @@
     "url": "https://gravity-ui.com/libraries/charts",
     "github_url": "https://github.com/gravity-ui/charts/blob/main/docs/diplodoc/pages/guides/legend.md",
     "breadcrumbs": [
-      "Legend"
+      "Legend",
+      "Introduction"
     ],
     "description": "The legend is a key component that identifies the various series or categories…",
     "section_ids": [
-      "library:charts:charts/docs/diplodoc/pages/guides/legend:legend",
       "library:charts:charts/docs/diplodoc/pages/guides/legend:introduction",
       "library:charts:charts/docs/diplodoc/pages/guides/legend:overriding-legend-labels"
     ]
@@ -5493,11 +5398,11 @@
     "url": "https://gravity-ui.com/libraries/charts",
     "github_url": "https://github.com/gravity-ui/charts/blob/main/docs/diplodoc/pages/guides/theming.md",
     "breadcrumbs": [
-      "Theming"
+      "Theming",
+      "CSS custom properties"
     ],
     "description": "The chart exposes a set of CSS custom properties that you can override to…",
     "section_ids": [
-      "library:charts:charts/docs/diplodoc/pages/guides/theming:theming",
       "library:charts:charts/docs/diplodoc/pages/guides/theming:css-custom-properties"
     ]
   },
@@ -5509,11 +5414,11 @@
     "url": "https://gravity-ui.com/libraries/charts",
     "github_url": "https://github.com/gravity-ui/charts/blob/main/docs/diplodoc/pages/guides/tooltip.md",
     "breadcrumbs": [
-      "Tooltip"
+      "Tooltip",
+      "Introduction"
     ],
     "description": "Tooltips are contextual overlays that appear when a user hovers, focuses, or…",
     "section_ids": [
-      "library:charts:charts/docs/diplodoc/pages/guides/tooltip:tooltip",
       "library:charts:charts/docs/diplodoc/pages/guides/tooltip:introduction",
       "library:charts:charts/docs/diplodoc/pages/guides/tooltip:totals",
       "library:charts:charts/docs/diplodoc/pages/guides/tooltip:hiding-specific-series-from-the-tooltip",
@@ -5528,11 +5433,11 @@
     "url": "https://gravity-ui.com/libraries/charts",
     "github_url": "https://github.com/gravity-ui/charts/blob/main/docs/diplodoc/pages/overview.md",
     "breadcrumbs": [
-      "Overview"
+      "Overview",
+      "About Gravity UI Charts"
     ],
     "description": "Gravity UI Charts is a charting library built with D3 and React. It's designed…",
     "section_ids": [
-      "library:charts:charts/docs/diplodoc/pages/overview:overview",
       "library:charts:charts/docs/diplodoc/pages/overview:about-gravity-ui-charts",
       "library:charts:charts/docs/diplodoc/pages/overview:what-you-can-already-do-with-gravity-ui-charts"
     ]
@@ -5545,11 +5450,11 @@
     "url": "https://gravity-ui.com/libraries/table",
     "github_url": "https://github.com/gravity-ui/table",
     "breadcrumbs": [
-      "@gravity-ui/table"
+      "@gravity-ui/table",
+      "Install"
     ],
     "description": "There are two Table components that you can use:",
     "section_ids": [
-      "library:table:gravity-uitable",
       "library:table:install",
       "library:table:usage",
       "library:table:components",
@@ -5573,11 +5478,11 @@
     "url": "https://gravity-ui.com/components/table/basetable",
     "github_url": "https://github.com/gravity-ui/table/tree/main/src/components/BaseTable",
     "breadcrumbs": [
-      "BaseTable"
+      "BaseTable",
+      "Properties"
     ],
     "description": "| Name                        | Description                                    …",
     "section_ids": [
-      "component:table:BaseTable:basetable",
       "component:table:BaseTable:properties"
     ]
   },
@@ -5594,22 +5499,15 @@
     "description": "@gravity-ui/table — это современное решение для работы со сложными табличными…",
     "section_ids": [
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:table-gravity-uiuikit-table-gravity-uitable",
-      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:",
-      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:-2",
-      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:-3",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:-4",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:-5",
-      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:-6",
-      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:props",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:-7",
-      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:hoc",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:1-withtablesorting",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:2-withtableselection",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:3-withtableactions",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:4-withtablesettings",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:41-tablecolumnsetup",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:5-withtablecopy",
-      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:-8",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:1-tree-table",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:2-column-pinning",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:3-column-resizing",
@@ -5630,13 +5528,10 @@
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:131-footer-table-footer",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:14-column-auto-sizing",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:15",
-      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:-9",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:1",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:2",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:3",
-      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:-",
-      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:-10",
-      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:-11"
+      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table-ru:-10"
     ]
   },
   {
@@ -5657,7 +5552,6 @@
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:when-to-migrate",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:installation-and-setup",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:basic-migration",
-      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:props-migration",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:props-mapping-table",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:detailed-props-migration",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:hoc-migration",
@@ -5667,7 +5561,6 @@
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:4-withtablesettings-column-settings",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:41-tablecolumnsetup-column-setup-component",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:5-withtablecopy-data-copying",
-      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:new-features",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:1-tree-table",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:2-column-pinning",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:3-column-resizing",
@@ -5688,7 +5581,6 @@
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:131-table-footer",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:14-column-auto-sizing",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:15-custom-row-and-cell-styles",
-      "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:practical-examples",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:example-1-complex-table-with-multiple-features",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:example-2-tree-table-with-file-system",
       "library:table:table/docs/migration-from-uikit-table/migration-from-uikit-table:example-3-table-with-virtualization-and-infinite-scroll",
@@ -5712,7 +5604,6 @@
       "library:table:table/src/hooks/useColumnsAutoSize/README:experimentalusecolumnsautosize",
       "library:table:table/src/hooks/useColumnsAutoSize/README:features",
       "library:table:table/src/hooks/useColumnsAutoSize/README:usage",
-      "library:table:table/src/hooks/useColumnsAutoSize/README:api-reference",
       "library:table:table/src/hooks/useColumnsAutoSize/README:experimentalusecolumnsautosize-2",
       "library:table:table/src/hooks/useColumnsAutoSize/README:usage-example",
       "library:table:table/src/hooks/useColumnsAutoSize/README:how-it-works",
@@ -5736,7 +5627,6 @@
       "library:dashkit:description",
       "library:dashkit:plugins",
       "library:dashkit:props",
-      "library:dashkit:usage",
       "library:dashkit:dashkit-configuration",
       "library:dashkit:config",
       "library:dashkit:params",
@@ -5760,7 +5650,6 @@
     "section_ids": [
       "library:yagr:agr-img-srchttpsrawgithubusercontentcomgravity-uiyagrmaindocsassetsyagrsvg-width24px-height24px",
       "library:yagr:features",
-      "library:yagr:documentationhttpsyagrtech",
       "library:yagr:quick-start"
     ]
   },
@@ -5821,11 +5710,11 @@
     "url": "https://gravity-ui.com/libraries/yagr",
     "github_url": "https://github.com/gravity-ui/yagr/blob/main/docs/en/api/data-processing.md",
     "breadcrumbs": [
-      "Data alignment"
+      "Data alignment",
+      "Problem"
     ],
     "description": "Sometimes you have different data sources on different time grids. And when you…",
     "section_ids": [
-      "library:yagr:yagr/docs/en/api/data-processing:data-alignment",
       "library:yagr:yagr/docs/en/api/data-processing:problem",
       "library:yagr:yagr/docs/en/api/data-processing:solution",
       "library:yagr:yagr/docs/en/api/data-processing:data-interpolation"
@@ -5963,7 +5852,6 @@
     "description": "",
     "section_ids": [
       "library:yagr:yagr/docs/en/api/series:series",
-      "library:yagr:yagr/docs/en/api/series:configuration",
       "library:yagr:yagr/docs/en/api/series:data",
       "library:yagr:yagr/docs/en/api/series:name-and-id",
       "library:yagr:yagr/docs/en/api/series:appearance",
@@ -6039,10 +5927,7 @@
     "description": "Yagr supports four timeseries visualization types:",
     "section_ids": [
       "library:yagr:yagr/docs/en/api/visualization:visualization-types",
-      "library:yagr:yagr/docs/en/api/visualization:line",
       "library:yagr:yagr/docs/en/api/visualization:area",
-      "library:yagr:yagr/docs/en/api/visualization:dots",
-      "library:yagr:yagr/docs/en/api/visualization:column",
       "library:yagr:yagr/docs/en/api/visualization:configuration"
     ]
   },
@@ -6180,7 +6065,6 @@
     "description": "",
     "section_ids": [
       "library:yagr:yagr/docs/en/plugins/tooltip:tooltip",
-      "library:yagr:yagr/docs/en/plugins/tooltip:configuration",
       "library:yagr:yagr/docs/en/plugins/tooltip:general",
       "library:yagr:yagr/docs/en/plugins/tooltip:tracking",
       "library:yagr:yagr/docs/en/plugins/tooltip:render",
@@ -6196,11 +6080,11 @@
     "url": "https://gravity-ui.com/libraries/yagr",
     "github_url": "https://github.com/gravity-ui/yagr/blob/main/docs/en/quickstart.md",
     "breadcrumbs": [
-      "Quick start"
+      "Quick start",
+      "Install"
     ],
     "description": "By default, Yagr exposes the ES2019 module for TypeScript, though you can…",
     "section_ids": [
-      "library:yagr:yagr/docs/en/quickstart:quick-start",
       "library:yagr:yagr/docs/en/quickstart:install",
       "library:yagr:yagr/docs/en/quickstart:integration",
       "library:yagr:yagr/docs/en/quickstart:run"
@@ -6235,8 +6119,7 @@
       "library:timeline:event-structure",
       "library:timeline:direct-typescript-usage",
       "library:timeline:live-examples",
-      "library:timeline:development",
-      "library:timeline:license"
+      "library:timeline:development"
     ]
   },
   {
@@ -6297,7 +6180,6 @@
       "library:timeline:timeline/docs/CanvasApi:canvasapi-api-reference",
       "library:timeline:timeline/docs/CanvasApi:overview",
       "library:timeline:timeline/docs/CanvasApi:properties",
-      "library:timeline:timeline/docs/CanvasApi:methods",
       "library:timeline:timeline/docs/CanvasApi:component-management",
       "library:timeline:timeline/docs/CanvasApi:rendering",
       "library:timeline:timeline/docs/CanvasApi:timeline-management",
@@ -6371,7 +6253,6 @@
       "library:timeline:timeline/docs/Markers:marker-structure",
       "library:timeline:timeline/docs/Markers:marker-grouping-and-zoom",
       "library:timeline:timeline/docs/Markers:examples",
-      "library:timeline:timeline/docs/Markers:implementation-details",
       "library:timeline:timeline/docs/Markers:label-collision-avoidance-and-render-priority",
       "library:timeline:timeline/docs/Markers:marker-state-priority",
       "library:timeline:timeline/docs/Markers:text-width-caching",
@@ -6399,7 +6280,6 @@
       "library:timeline:timeline/docs/Ruler:properties",
       "library:timeline:timeline/docs/Ruler:methods",
       "library:timeline:timeline/docs/Ruler:ruler-levels",
-      "library:timeline:timeline/docs/Ruler:examples",
       "library:timeline:timeline/docs/Ruler:basic-usage",
       "library:timeline:timeline/docs/Ruler:custom-ruler-configuration",
       "library:timeline:timeline/docs/Ruler:custom-level-labels",
@@ -6428,7 +6308,6 @@
       "library:timeline:timeline/docs/Sections:section-structure",
       "library:timeline:timeline/docs/Sections:section-renderers",
       "library:timeline:timeline/docs/Sections:configuration",
-      "library:timeline:timeline/docs/Sections:examples",
       "library:timeline:timeline/docs/Sections:basic-usage",
       "library:timeline:timeline/docs/Sections:react-integration",
       "library:timeline:timeline/docs/Sections:custom-section-renderer",
@@ -6454,20 +6333,17 @@
       "library:timeline:timeline/docs/Timeline:timeline-api-reference",
       "library:timeline:timeline/docs/Timeline:overview",
       "library:timeline:timeline/docs/Timeline:properties",
-      "library:timeline:timeline/docs/Timeline:methods",
       "library:timeline:timeline/docs/Timeline:constructorconfig-timelineconfig",
       "library:timeline:timeline/docs/Timeline:initcanvas-htmlcanvaselement",
       "library:timeline:timeline/docs/Timeline:destroy",
       "library:timeline:timeline/docs/Timeline:oneventnametype-eventname-listener-apieventeventname-options-boolean-addeventlisteneroptions",
       "library:timeline:timeline/docs/Timeline:offeventnametype-eventname-listener-apieventeventname-options-boolean-eventlisteneroptions",
       "library:timeline:timeline/docs/Timeline:emiteventnametype-eventname-detail-eventparams",
-      "library:timeline:timeline/docs/Timeline:configuration-options",
       "library:timeline:timeline/docs/Timeline:click-collection-filters",
       "library:timeline:timeline/docs/Timeline:marker-deselection-behavior",
       "library:timeline:timeline/docs/Timeline:custom-ruler-level-labels",
       "library:timeline:timeline/docs/Timeline:camera-configuration",
       "library:timeline:timeline/docs/Timeline:events",
-      "library:timeline:timeline/docs/Timeline:examples",
       "library:timeline:timeline/docs/Timeline:basic-timeline-setup",
       "library:timeline:timeline/docs/Timeline:timeline-with-click-filters",
       "library:timeline:timeline/docs/Timeline:event-handling",
@@ -6544,11 +6420,11 @@
     "url": "https://gravity-ui.com/libraries/illustrations",
     "github_url": "https://github.com/gravity-ui/illustrations",
     "breadcrumbs": [
-      "@gravity-ui/illustrations"
+      "@gravity-ui/illustrations",
+      "Installation"
     ],
     "description": "Setup illustrations theme. Execute any of the following steps:",
     "section_ids": [
-      "library:illustrations:gravity-uiillustrations",
       "library:illustrations:installation",
       "library:illustrations:usage"
     ]
@@ -6617,7 +6493,6 @@
     "description": "The library uses specs to describe the entities of arrays, objects, strings,…",
     "section_ids": [
       "library:dynamic-forms:dynamic-forms/docs/lib:dynamic-forms",
-      "library:dynamic-forms:dynamic-forms/docs/lib:form",
       "library:dynamic-forms:dynamic-forms/docs/lib:dynamicfield",
       "library:dynamic-forms:dynamic-forms/docs/lib:controller",
       "library:dynamic-forms:dynamic-forms/docs/lib:view"
@@ -6652,15 +6527,14 @@
     "url": "https://gravity-ui.com/libraries/dynamic-forms",
     "github_url": "https://github.com/gravity-ui/dynamic-forms/blob/main/docs/styles.md",
     "breadcrumbs": [
-      "How to Use the CSS API"
+      "How to Use the CSS API",
+      "How to Adjust Spacing"
     ],
     "description": "We base our spacing on the modular grid system with a base unit of 4px.",
     "section_ids": [
-      "library:dynamic-forms:dynamic-forms/docs/styles:how-to-use-the-css-api",
       "library:dynamic-forms:dynamic-forms/docs/styles:how-to-adjust-spacing",
       "library:dynamic-forms:dynamic-forms/docs/styles:examples-of-overriding-scss-variables",
       "library:dynamic-forms:dynamic-forms/docs/styles:common-variables",
-      "library:dynamic-forms:dynamic-forms/docs/styles:components",
       "library:dynamic-forms:dynamic-forms/docs/styles:copybutton",
       "library:dynamic-forms:dynamic-forms/docs/styles:accordeon-card",
       "library:dynamic-forms:dynamic-forms/docs/styles:card",
@@ -6670,7 +6544,6 @@
       "library:dynamic-forms:dynamic-forms/docs/styles:long-value",
       "library:dynamic-forms:dynamic-forms/docs/styles:simple-vertical-accordeon",
       "library:dynamic-forms:dynamic-forms/docs/styles:toggler-card",
-      "library:dynamic-forms:dynamic-forms/docs/styles:inputs",
       "library:dynamic-forms:dynamic-forms/docs/styles:array-base",
       "library:dynamic-forms:dynamic-forms/docs/styles:checkbox-group",
       "library:dynamic-forms:dynamic-forms/docs/styles:date-input",
@@ -6686,7 +6559,6 @@
       "library:dynamic-forms:dynamic-forms/docs/styles:table-array",
       "library:dynamic-forms:dynamic-forms/docs/styles:text-content",
       "library:dynamic-forms:dynamic-forms/docs/styles:radio-group",
-      "library:dynamic-forms:dynamic-forms/docs/styles:views",
       "library:dynamic-forms:dynamic-forms/docs/styles:array-base-view",
       "library:dynamic-forms:dynamic-forms/docs/styles:checkbox-group-view",
       "library:dynamic-forms:dynamic-forms/docs/styles:monaco-input-view",
@@ -6696,13 +6568,11 @@
       "library:dynamic-forms:dynamic-forms/docs/styles:oneof-view",
       "library:dynamic-forms:dynamic-forms/docs/styles:table-array-view",
       "library:dynamic-forms:dynamic-forms/docs/styles:text-area-view",
-      "library:dynamic-forms:dynamic-forms/docs/styles:layouts",
       "library:dynamic-forms:dynamic-forms/docs/styles:accordion-card-form",
       "library:dynamic-forms:dynamic-forms/docs/styles:column",
       "library:dynamic-forms:dynamic-forms/docs/styles:row",
       "library:dynamic-forms:dynamic-forms/docs/styles:section",
       "library:dynamic-forms:dynamic-forms/docs/styles:transparent",
-      "library:dynamic-forms:dynamic-forms/docs/styles:view-layouts",
       "library:dynamic-forms:dynamic-forms/docs/styles:view-column",
       "library:dynamic-forms:dynamic-forms/docs/styles:view-row",
       "library:dynamic-forms:dynamic-forms/docs/styles:view-table-cell",
@@ -6718,11 +6588,11 @@
     "url": "https://gravity-ui.com/libraries/dynamic-forms",
     "github_url": "https://github.com/gravity-ui/dynamic-forms/blob/main/playwright/README.md",
     "breadcrumbs": [
-      "Playwright Test Component"
+      "Playwright Test Component",
+      "How to write a test"
     ],
     "description": "If you are using system other than Linux, then you need to run tests via docker…",
     "section_ids": [
-      "library:dynamic-forms:dynamic-forms/playwright/README:playwright-test-component",
       "library:dynamic-forms:dynamic-forms/playwright/README:how-to-write-a-test",
       "library:dynamic-forms:dynamic-forms/playwright/README:description-of-possible-commands",
       "library:dynamic-forms:dynamic-forms/playwright/README:test-examples",
@@ -6745,7 +6615,6 @@
       "library:page-constructor:page-constructor",
       "library:page-constructor:install",
       "library:page-constructor:quick-start",
-      "library:page-constructor:documentation",
       "library:page-constructor:parameters",
       "library:page-constructor:server-utils",
       "library:page-constructor:detailed-documentation-on-server-utilities-and-transformers",
@@ -6798,7 +6667,6 @@
     "description": "The ErrorWrapper component is used to gracefully handle and display local…",
     "section_ids": [
       "component:page-constructor:ErrorWrapper:errorwrapper",
-      "component:page-constructor:ErrorWrapper:installation-import",
       "component:page-constructor:ErrorWrapper:when-to-use",
       "component:page-constructor:ErrorWrapper:props",
       "component:page-constructor:ErrorWrapper:example"
@@ -6877,7 +6745,6 @@
     "description": "Документацию по серверным утилитам для преобразования контента, включая…",
     "section_ids": [
       "library:page-constructor:page-constructor/docs/data-preparation-ru:",
-      "library:page-constructor:page-constructor/docs/data-preparation-ru:createitemsparser",
       "library:page-constructor:page-constructor/docs/data-preparation-ru:-2",
       "library:page-constructor:page-constructor/docs/data-preparation-ru:-3",
       "library:page-constructor:page-constructor/docs/data-preparation-ru:-4"
@@ -6912,14 +6779,13 @@
     "url": "https://gravity-ui.com/libraries/page-constructor",
     "github_url": "https://github.com/gravity-ui/page-constructor/blob/main/playwright/README.md",
     "breadcrumbs": [
-      "Playwright Test Component"
+      "Playwright Test Component",
+      "How to write a test"
     ],
     "description": "",
     "section_ids": [
-      "library:page-constructor:page-constructor/playwright/README:playwright-test-component",
       "library:page-constructor:page-constructor/playwright/README:how-to-write-a-test",
       "library:page-constructor:page-constructor/playwright/README:description-of-possible-commands",
-      "library:page-constructor:page-constructor/playwright/README:test-examples",
       "library:page-constructor:page-constructor/playwright/README:npm-scripts"
     ]
   },
@@ -7071,11 +6937,10 @@
     "github_url": "https://github.com/gravity-ui/page-constructor/blob/main/test-utils/docs/README.md",
     "breadcrumbs": [
       "page-constructor/test-utils/docs/README",
-      "Tests"
+      "Run Tests"
     ],
     "description": "",
     "section_ids": [
-      "library:page-constructor:page-constructor/test-utils/docs/README:tests",
       "library:page-constructor:page-constructor/test-utils/docs/README:run-tests",
       "library:page-constructor:page-constructor/test-utils/docs/README:utils",
       "library:page-constructor:page-constructor/test-utils/docs/README:component-test",
@@ -7124,14 +6989,13 @@
     "url": "https://gravity-ui.com/libraries/blog-constructor",
     "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/playwright/README.md",
     "breadcrumbs": [
-      "Playwright Test Component"
+      "Playwright Test Component",
+      "How to write a test"
     ],
     "description": "",
     "section_ids": [
-      "library:blog-constructor:blog-constructor/playwright/README:playwright-test-component",
       "library:blog-constructor:blog-constructor/playwright/README:how-to-write-a-test",
       "library:blog-constructor:blog-constructor/playwright/README:description-of-possible-commands",
-      "library:blog-constructor:blog-constructor/playwright/README:test-examples",
       "library:blog-constructor:blog-constructor/playwright/README:npm-scripts"
     ]
   },
@@ -7384,30 +7248,22 @@
     "title": "blog-constructor/src/containers/BlogPage/README",
     "page_type": "library",
     "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
+    "url": "",
     "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/containers/BlogPage/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/containers/BlogPage/README"
-    ],
+    "breadcrumbs": [],
     "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/containers/BlogPage/README:blog-constructorsrccontainersblogpagereadme"
-    ]
+    "section_ids": []
   },
   {
     "id": "library:blog-constructor:blog-constructor/src/containers/BlogPostPage/README",
     "title": "blog-constructor/src/containers/BlogPostPage/README",
     "page_type": "library",
     "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
+    "url": "",
     "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/containers/BlogPostPage/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/containers/BlogPostPage/README"
-    ],
+    "breadcrumbs": [],
     "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/containers/BlogPostPage/README:blog-constructorsrccontainersblogpostpagereadme"
-    ]
+    "section_ids": []
   },
   {
     "id": "library:blog-constructor:blog-constructor/src/schema/README",
@@ -7439,7 +7295,6 @@
     "section_ids": [
       "library:page-constructor-builder:page-constructor-builder",
       "library:page-constructor-builder:quick-start",
-      "library:page-constructor-builder:usage",
       "library:page-constructor-builder:commands",
       "library:page-constructor-builder:configuration",
       "library:page-constructor-builder:page-configuration",
@@ -7628,17 +7483,13 @@
     "url": "https://gravity-ui.com/libraries/expresskit",
     "github_url": "https://github.com/gravity-ui/expresskit/blob/main/docs/VALIDATOR-ru.md",
     "breadcrumbs": [
-      "ExpressKit Validator"
+      "ExpressKit Validator",
+      "Быстрый старт: Автоматическая валидация"
     ],
     "description": "Обеспечивает валидацию запросов (body, params, query, headers) и сериализацию…",
     "section_ids": [
-      "library:expresskit:expresskit/docs/VALIDATOR-ru:expresskit-validator",
-      "library:expresskit:expresskit/docs/VALIDATOR-ru:",
       "library:expresskit:expresskit/docs/VALIDATOR-ru:-2",
-      "library:expresskit:expresskit/docs/VALIDATOR-ru:-3",
       "library:expresskit:expresskit/docs/VALIDATOR-ru:withcontractconfig-settingshandler",
-      "library:expresskit:expresskit/docs/VALIDATOR-ru:request-contractrequest",
-      "library:expresskit:expresskit/docs/VALIDATOR-ru:response-contractresponse",
       "library:expresskit:expresskit/docs/VALIDATOR-ru:-4"
     ]
   },
@@ -7672,11 +7523,11 @@
     "url": "https://gravity-ui.com/libraries/app-layout",
     "github_url": "https://github.com/gravity-ui/app-layout",
     "breadcrumbs": [
-      "@gravity-ui/app-layout"
+      "@gravity-ui/app-layout",
+      "Install"
     ],
     "description": "With express:",
     "section_ids": [
-      "library:app-layout:gravity-uiapp-layout",
       "library:app-layout:install",
       "library:app-layout:usage",
       "library:app-layout:meta",
@@ -7719,13 +7570,12 @@
     "url": "https://gravity-ui.com/libraries/date-utils",
     "github_url": "https://github.com/gravity-ui/date-utils/blob/main/docs/diplodoc/pages/get-started.md",
     "breadcrumbs": [
-      "Getting Started"
+      "Getting Started",
+      "Installation"
     ],
     "description": "You can install the Date Utils library using npm or yarn:",
     "section_ids": [
-      "library:date-utils:date-utils/docs/diplodoc/pages/get-started:getting-started",
       "library:date-utils:date-utils/docs/diplodoc/pages/get-started:installation",
-      "library:date-utils:date-utils/docs/diplodoc/pages/get-started:basic-usage",
       "library:date-utils:date-utils/docs/diplodoc/pages/get-started:importing",
       "library:date-utils:date-utils/docs/diplodoc/pages/get-started:parsing-dates",
       "library:date-utils:date-utils/docs/diplodoc/pages/get-started:creating-datetime-objects",
@@ -7745,11 +7595,11 @@
     "url": "https://gravity-ui.com/libraries/date-utils",
     "github_url": "https://github.com/gravity-ui/date-utils/blob/main/docs/diplodoc/pages/overview.md",
     "breadcrumbs": [
-      "Overview"
+      "Overview",
+      "About Date Utils"
     ],
     "description": "Date Utils is a library for dealing with dates and times in JavaScript built…",
     "section_ids": [
-      "library:date-utils:date-utils/docs/diplodoc/pages/overview:overview",
       "library:date-utils:date-utils/docs/diplodoc/pages/overview:about-date-utils",
       "library:date-utils:date-utils/docs/diplodoc/pages/overview:key-features",
       "library:date-utils:date-utils/docs/diplodoc/pages/overview:roadmap"
@@ -7769,7 +7619,6 @@
     "section_ids": [
       "library:axios-wrapper:axios-wrapper",
       "library:axios-wrapper:install",
-      "library:axios-wrapper:http-api",
       "library:axios-wrapper:constructor-parameters",
       "library:axios-wrapper:basic-methods",
       "library:axios-wrapper:headers",
@@ -7792,7 +7641,6 @@
     "description": "This repository contains common utilities, libraries, and plugins used for i18n…",
     "section_ids": [
       "library:i18n:gravity-ui-i18n-tools",
-      "library:i18n:useful-links",
       "library:i18n:libraries",
       "library:i18n:development"
     ]
@@ -7802,15 +7650,11 @@
     "title": "i18n-eslint-config",
     "page_type": "library",
     "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
+    "url": "",
     "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/eslint-config/README.md",
-    "breadcrumbs": [
-      "i18n-eslint-config"
-    ],
+    "breadcrumbs": [],
     "description": "",
-    "section_ids": [
-      "library:i18n:i18n/packages/eslint-config/README:i18n-eslint-config"
-    ]
+    "section_ids": []
   },
   {
     "id": "library:i18n:i18n/packages/eslint-plugin-i18n/README",
@@ -7837,13 +7681,12 @@
     "url": "https://gravity-ui.com/libraries/i18n",
     "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/eslint-plugin-i18n/docs/rules/auto-generate-translation-message-id.md",
     "breadcrumbs": [
-      "auto-generate-translation-message-id"
+      "auto-generate-translation-message-id",
+      "Подключение"
     ],
     "description": "Проверяет наличие идентификатора в объекте перевода и добавляет его при…",
     "section_ids": [
-      "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/auto-generate-translation-message-id:auto-generate-translation-message-id",
       "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/auto-generate-translation-message-id:",
-      "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/auto-generate-translation-message-id:-2",
       "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/auto-generate-translation-message-id:-3"
     ]
   },
@@ -7870,13 +7713,12 @@
     "url": "https://gravity-ui.com/libraries/i18n",
     "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/eslint-plugin-i18n/docs/rules/restrict-i18n-imports.md",
     "breadcrumbs": [
-      "restrict-i18n-imports"
+      "restrict-i18n-imports",
+      "Подключение"
     ],
     "description": "Запрещает импорт файлов с текстами (i18n.ts) из директорий других уровней.",
     "section_ids": [
-      "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/restrict-i18n-imports:restrict-i18n-imports",
       "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/restrict-i18n-imports:",
-      "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/restrict-i18n-imports:-2",
       "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/restrict-i18n-imports:-3"
     ]
   },
@@ -7958,15 +7800,12 @@
     "url": "https://gravity-ui.com/libraries/i18n",
     "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/i18n-node/README.md",
     "breadcrumbs": [
-      "i18n-node"
+      "i18n-node",
+      "Использование"
     ],
     "description": "Библиотека i18n-node - это решение для интернационализации (i18n),…",
     "section_ids": [
-      "library:i18n:i18n/packages/i18n-node/README:i18n-node",
-      "library:i18n:i18n/packages/i18n-node/README:",
-      "library:i18n:i18n/packages/i18n-node/README:-2",
-      "library:i18n:i18n/packages/i18n-node/README:-3",
-      "library:i18n:i18n/packages/i18n-node/README:-4"
+      "library:i18n:i18n/packages/i18n-node/README:"
     ]
   },
   {
@@ -7983,7 +7822,6 @@
     "section_ids": [
       "library:i18n:i18n/packages/i18n-optimize-plugin/README:gravity-uii18n-optimize-plugin",
       "library:i18n:i18n/packages/i18n-optimize-plugin/README:usage",
-      "library:i18n:i18n/packages/i18n-optimize-plugin/README:settings",
       "library:i18n:i18n/packages/i18n-optimize-plugin/README:typograf",
       "library:i18n:i18n/packages/i18n-optimize-plugin/README:optimizelocalechunks"
     ]
@@ -7996,11 +7834,11 @@
     "url": "https://gravity-ui.com/libraries/i18n",
     "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/i18n-react/README.md",
     "breadcrumbs": [
-      "i18n-react"
+      "i18n-react",
+      "Использование"
     ],
     "description": "Библиотека i18n-react - это решение для интернационализации (i18n),…",
     "section_ids": [
-      "library:i18n:i18n/packages/i18n-react/README:i18n-react",
       "library:i18n:i18n/packages/i18n-react/README:"
     ]
   },
@@ -8009,15 +7847,11 @@
     "title": "Common i18n Types",
     "page_type": "library",
     "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
+    "url": "",
     "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/i18n-types/README.md",
-    "breadcrumbs": [
-      "Common i18n Types"
-    ],
+    "breadcrumbs": [],
     "description": "",
-    "section_ids": [
-      "library:i18n:i18n/packages/i18n-types/README:common-i18n-types"
-    ]
+    "section_ids": []
   },
   {
     "id": "library:i18n:i18n/packages/i18n/README",
@@ -8027,11 +7861,11 @@
     "url": "https://gravity-ui.com/libraries/i18n",
     "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/i18n/README.md",
     "breadcrumbs": [
-      "@gravity-ui/i18n"
+      "@gravity-ui/i18n",
+      "I18N utilities"
     ],
     "description": "Utilities in the I18N package are designed for internationalization of Gravity…",
     "section_ids": [
-      "library:i18n:i18n/packages/i18n/README:gravity-uii18n",
       "library:i18n:i18n/packages/i18n/README:i18n-utilities",
       "library:i18n:i18n/packages/i18n/README:install",
       "library:i18n:i18n/packages/i18n/README:api",
@@ -8055,8 +7889,7 @@
     "description": "Simplifies creating i18n.ts localization files. Adds new keys to existing…",
     "section_ids": [
       "library:i18n:i18n/packages/vscode-extension/README:i18n-vs-code-extension",
-      "library:i18n:i18n/packages/vscode-extension/README:installation",
-      "library:i18n:i18n/packages/vscode-extension/README:build"
+      "library:i18n:i18n/packages/vscode-extension/README:installation"
     ]
   },
   {
@@ -8084,11 +7917,11 @@
     "url": "https://gravity-ui.com/libraries/eslint-config",
     "github_url": "https://github.com/gravity-ui/eslint-config",
     "breadcrumbs": [
-      "@gravity-ui/eslint-config"
+      "@gravity-ui/eslint-config",
+      "Install"
     ],
     "description": "Add eslint.config.js file in your project with the following content:",
     "section_ids": [
-      "library:eslint-config:gravity-uieslint-config",
       "library:eslint-config:install",
       "library:eslint-config:usage"
     ]
@@ -8101,11 +7934,11 @@
     "url": "https://gravity-ui.com/libraries/tsconfig",
     "github_url": "https://github.com/gravity-ui/tsconfig",
     "breadcrumbs": [
-      "@gravity-ui/tsconfig"
+      "@gravity-ui/tsconfig",
+      "Install"
     ],
     "description": "Add tsconfig.json file in the project root with the following content:",
     "section_ids": [
-      "library:tsconfig:gravity-uitsconfig",
       "library:tsconfig:install",
       "library:tsconfig:usage"
     ]
@@ -8118,11 +7951,11 @@
     "url": "https://gravity-ui.com/libraries/prettier-config",
     "github_url": "https://github.com/gravity-ui/prettier-config",
     "breadcrumbs": [
-      "@gravity-ui/prettier-config"
+      "@gravity-ui/prettier-config",
+      "Install"
     ],
     "description": "Add .prettierrc.js file in the project root with the following content:",
     "section_ids": [
-      "library:prettier-config:gravity-uiprettier-config",
       "library:prettier-config:install",
       "library:prettier-config:usage"
     ]
