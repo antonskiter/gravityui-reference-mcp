@@ -76,6 +76,25 @@ function stripMdx(content: string): string {
   return result.join("\n");
 }
 
+/**
+ * Remove junk from markdown string before parsing/chunking.
+ * Operates on the string (not AST) to avoid remark-stringify dependency.
+ */
+function cleanMarkdownString(md: string): string {
+  return md
+    // Remove HTML comments (single and multi-line)
+    .replace(/<!--[\s\S]*?-->/g, "")
+    // Remove linked images: [![alt](img-url)](link-url)
+    .replace(/\[!\[[^\]]*\]\([^)]*\)\]\([^)]*\)/g, "")
+    // Remove image references: ![alt](url)
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+    // Remove lines that are only whitespace after cleanup
+    .replace(/^\s+$/gm, "")
+    // Collapse 3+ blank lines to 2
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 function parseMarkdown(content: string): Root {
   const processor = unified().use(remarkParse);
   return processor.parse(content) as Root;
@@ -195,7 +214,7 @@ export function parsePage(
   pageType: PageType,
   name: string,
 ): ParseResult {
-  const cleanMarkdown = stripMdx(rawContent);
+  const cleanMarkdown = cleanMarkdownString(stripMdx(rawContent));
   const tree = parseMarkdown(cleanMarkdown);
 
   const title = extractTitle(tree) ?? name;

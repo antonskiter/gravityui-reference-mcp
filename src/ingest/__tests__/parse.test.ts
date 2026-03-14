@@ -29,3 +29,45 @@ Some description here.
     expect(result.title).toBe("Simple Title");
   });
 });
+
+describe("cleanMarkdownString", () => {
+  it("removes HTML comments from content", () => {
+    const md = `# Title\n\n<!--GITHUB_BLOCK-->\n\nSome content here.\n\n<!--/GITHUB_BLOCK-->`;
+    const result = parsePage(md, "component", "Test");
+    expect(result.cleanMarkdown).not.toContain("<!--");
+    expect(result.cleanMarkdown).toContain("Some content here.");
+  });
+
+  it("removes image references from content", () => {
+    const md = `# Title\n\n## Sizes\n\n![Sizes](/static/images/Button/sizes.png)\n\nEach button has four sizes.`;
+    const result = parsePage(md, "guide", "Test");
+    expect(result.cleanMarkdown).not.toContain("![");
+    expect(result.cleanMarkdown).toContain("Each button has four sizes.");
+  });
+
+  it("removes linked images (badge pattern)", () => {
+    const md = `# Title\n\n[![badge](https://img.shields.io/badge)](https://url)\n\nReal content.`;
+    const result = parsePage(md, "library", "Test");
+    expect(result.cleanMarkdown).not.toContain("badge");
+    expect(result.cleanMarkdown).toContain("Real content.");
+  });
+
+  it("preserves headings for section splitting", () => {
+    const md = `# Title\n\n## Section One\n\nContent one.\n\n## Section Two\n\nContent two.`;
+    const result = parsePage(md, "component", "Test");
+    expect(result.cleanMarkdown).toContain("## Section One");
+    expect(result.cleanMarkdown).toContain("## Section Two");
+  });
+
+  it("preserves code blocks", () => {
+    const md = "# Title\n\n```tsx\nconst x = 1;\n```\n\nText.";
+    const result = parsePage(md, "component", "Test");
+    expect(result.cleanMarkdown).toContain("```tsx");
+  });
+
+  it("collapses resulting blank lines", () => {
+    const md = `# Title\n\n<!--comment-->\n\n\n\n<!--comment-->\n\nContent.`;
+    const result = parsePage(md, "component", "Test");
+    expect(result.cleanMarkdown).not.toMatch(/\n{4,}/);
+  });
+});
