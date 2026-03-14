@@ -16,19 +16,19 @@ function makeResult(overrides: Partial<ParseResult> = {}): ParseResult {
 const markdownWithH2Sections = `
 # Button
 
-Intro paragraph.
+Intro paragraph about the button component.
 
 ## Variants
 
-There are several button variants available.
+There are several button variants available for different use cases in the UI.
 
 ## Sizes
 
-Buttons come in multiple sizes.
+Buttons come in multiple sizes that can be configured via the size prop.
 
 ## API
 
-Full API reference here.
+Full API reference for the button component is documented below in detail.
 `.trim();
 
 const markdownWithCodeBlocks = `
@@ -112,11 +112,11 @@ describe("chunkPage", () => {
 
 ## Usage
 
-First usage section.
+First usage section with enough content to pass the junk filter threshold.
 
 ## Usage
 
-Second usage section.
+Second usage section with enough content to pass the junk filter threshold.
 `.trim();
     const parsed = makeResult({
       cleanMarkdown: duplicateMd,

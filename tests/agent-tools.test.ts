@@ -98,7 +98,7 @@ const buttonPropsChunk: Chunk = {
   library: "uikit",
   section_title: "Properties",
   breadcrumbs: ["Button", "Properties"],
-  content: "| Name | Description | Type | Default |\n| size | Button size | string | m |",
+  content: "size: string = m — Button size",
   code_examples: [],
   keywords: ["button", "properties"],
 };
@@ -112,7 +112,7 @@ const buttonCssChunk: Chunk = {
   library: "uikit",
   section_title: "CSS API",
   breadcrumbs: ["Button", "CSS API"],
-  content: "| Name | Description |\n| --button-height | Button height |",
+  content: "--button-height: Button height",
   code_examples: [],
   keywords: ["button", "css"],
 };
@@ -265,7 +265,7 @@ describe("handleGetComponentReference", () => {
     expect(output.library).toBe("uikit");
     expect(output.import_statement).toBe("import {Button} from '@gravity-ui/uikit';");
     expect(output.description).toBe("Buttons act as a trigger for certain actions.");
-    expect(output.props).toContain("| Name |");
+    expect(output.props).toContain("size");
     expect(output.example).toBe("<Button view=\"action\" size=\"l\">Action</Button>");
     expect(output.url).toBe("https://gravity-ui.com/components/uikit/button");
     expect(output.github_url).toBe("https://github.com/gravity-ui/uikit/tree/main/src/components/Button");

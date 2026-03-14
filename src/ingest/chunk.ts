@@ -1,5 +1,6 @@
 import type { Chunk, PageType } from "../types.js";
 import type { ParseResult } from "./parse.js";
+import { sanitize } from "../server/format.js";
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -206,6 +207,27 @@ function splitSectionByH3(section: Section): Section[] {
 }
 
 // ---------------------------------------------------------------------------
+// Content quality filters
+// ---------------------------------------------------------------------------
+
+/** Check if content is predominantly non-Latin (Cyrillic, CJK, etc.) */
+function isNonLatin(text: string): boolean {
+  const alphaChars = text.replace(/[^a-zA-Zа-яёА-ЯЁ\u4e00-\u9fff\u3040-\u309f\u30a0-\u30ff]/g, "");
+  if (alphaChars.length === 0) return false;
+  const latinChars = text.replace(/[^a-zA-Z]/g, "").length;
+  return latinChars / alphaChars.length < 0.5;
+}
+
+/** Check if a chunk has enough value to keep */
+function isJunkChunk(content: string, codeExamples: string[]): boolean {
+  const hasCode = codeExamples.some(e => e.trim().length > 0);
+  if (hasCode) return false;
+  if (content.trim().length < 30) return true;
+  if (isNonLatin(content)) return true;
+  return false;
+}
+
+// ---------------------------------------------------------------------------
 // Main chunker
 // ---------------------------------------------------------------------------
 
@@ -245,7 +267,10 @@ export function chunkPage(
     const slug = count === 1 ? baseSlug : `${baseSlug}-${count}`;
 
     const chunkId = makeChunkId(pageType, name, slug, library);
-    const { content, codeExamples } = extractCodeBlocks(section.body);
+    const { content: rawContent, codeExamples } = extractCodeBlocks(section.body);
+    const content = sanitize(rawContent);
+
+    if (isJunkChunk(content, codeExamples)) continue;
     const keywords = extractKeywords(name, section.title, library);
 
     // Breadcrumbs: page title > section title (skip if same)
