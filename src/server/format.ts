@@ -10,7 +10,23 @@ const stripProcessor = remark().use(stripMarkdown, { keep: ["code"] });
  */
 export function sanitize(input: string): string {
   const compacted = compactTable(input);
-  return String(stripProcessor.processSync(compacted)).trim();
+  const stripped = String(stripProcessor.processSync(compacted));
+  return postClean(stripped).trim();
+}
+
+/**
+ * Post-processing cleanup for remark artifacts:
+ * - Unescape backslash-escaped characters (e.g. \-- → --)
+ * - Remove truncated/broken image refs (e.g. ![Corner…)
+ * - Remove HTML comment remnants
+ * - Collapse 3+ consecutive blank lines to 2
+ */
+function postClean(input: string): string {
+  return input
+    .replace(/\\([^\\])/g, "$1")          // unescape \-- \* etc.
+    .replace(/!\[[^\]]*(?:\](?:\([^)]*\))?)?…?/g, "") // broken image refs
+    .replace(/<!--[\s\S]*?-->/g, "")       // HTML comments
+    .replace(/\n{3,}/g, "\n\n");           // collapse blank lines
 }
 
 export function codeBlock(lang: string, code: string): string {
