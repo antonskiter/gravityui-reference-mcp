@@ -41,6 +41,7 @@ export function handleSearchDocs(
   // Search with a higher internal limit so we can pre-filter
   const rawResults = searchIndex(data.index, query, 50);
 
+  const seenPages = new Set<string>();
   const filtered: SearchDocsResult[] = [];
   for (const result of rawResults) {
     const chunk = data.chunkById.get(result.id);
@@ -48,6 +49,10 @@ export function handleSearchDocs(
 
     if (page_type && chunk.page_type !== page_type) continue;
     if (library && chunk.library !== library) continue;
+
+    // Deduplicate: keep only the best-scoring section per page
+    if (seenPages.has(chunk.page_id)) continue;
+    seenPages.add(chunk.page_id);
 
     filtered.push({
       section_id: chunk.id,
