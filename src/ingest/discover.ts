@@ -70,6 +70,49 @@ function getHeaders(): Record<string, string> {
   return headers;
 }
 
+/** Files to exclude from library sub-doc discovery. */
+const EXCLUDED_FILENAMES = new Set([
+  "CHANGELOG.md",
+  "CONTRIBUTING.md",
+  "LICENSE.md",
+  "LICENSE",
+]);
+
+const EXCLUDED_DIR_PATTERNS = [
+  /(?:^|\/)__tests__\//,
+  /(?:^|\/)__fixtures__\//,
+  /(?:^|\/)tests?\//,
+  /(?:^|\/)node_modules\//,
+  /(?:^|\/)\.github\//,
+  /(?:^|\/)\.storybook\//,
+  /(?:^|\/)examples?\//,
+];
+
+function isDocFile(path: string): boolean {
+  // Must be .md or .mdx
+  if (!/\.mdx?$/.test(path)) return false;
+
+  // Skip root README (already indexed as library page)
+  if (path === "README.md") return false;
+
+  // Skip excluded filenames (at any depth)
+  const filename = path.split("/").pop() ?? "";
+  if (EXCLUDED_FILENAMES.has(filename)) return false;
+
+  // Skip excluded directories
+  if (EXCLUDED_DIR_PATTERNS.some((re) => re.test(path))) return false;
+
+  // Must be in a known doc location:
+  // - docs/ directory
+  // - README.md at any nested depth
+  // - .md/.mdx in src/ subdirectories
+  const isInDocs = path.startsWith("docs/") || path.includes("/docs/");
+  const isNestedReadme = filename === "README.md";
+  const isInSrc = path.startsWith("src/");
+
+  return isInDocs || isNestedReadme || isInSrc;
+}
+
 export function buildManifestFromTrees(
   landingTree: TreeEntry[],
   libTrees: Record<string, { tree: TreeEntry[]; branch: string }>,
@@ -115,6 +158,21 @@ export function buildManifestFromTrees(
           page_type: "component",
           library: repo,
           name: componentName,
+        });
+      }
+    }
+
+    // Discover library sub-documentation
+    for (const item of tree) {
+      if (item.type === "blob" && isDocFile(item.path)) {
+        // Derive a unique name from the file path
+        const docName = `${repo}/${item.path.replace(/\.mdx?$/, "")}`;
+        entries.push({
+          raw_url: `${GITHUB_RAW}/${repo}/${branch}/${item.path}`,
+          github_url: `https://github.com/gravity-ui/${repo}/blob/${branch}/${item.path}`,
+          page_type: "library",
+          library: repo,
+          name: docName,
         });
       }
     }

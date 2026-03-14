@@ -37,6 +37,10 @@ function makePageId(pageType: PageType, name: string, library?: string): string 
     return `component:${library}:${name}`;
   }
   if (pageType === "library" && library) {
+    // Sub-doc pages have name !== library (e.g., "markdown-editor/docs/getting-started")
+    if (name !== library) {
+      return `library:${library}:${name}`;
+    }
     return `library:${library}`;
   }
   return `guide:${name}`;
