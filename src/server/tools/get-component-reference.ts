@@ -1,5 +1,5 @@
 import type { LoadedData } from "../loader.js";
-import { codeBlock } from "../format.js";
+import { codeBlock, compactTable } from "../format.js";
 
 export interface GetComponentReferenceInput {
   name: string;
@@ -83,7 +83,7 @@ export function handleGetComponentReference(
   };
 
   if (propsChunk) {
-    result.props = propsChunk.content;
+    result.props = compactTable(propsChunk.content);
   }
 
   if (firstExample) {
@@ -94,7 +94,7 @@ export function handleGetComponentReference(
   if (detail === "full") {
     result.all_sections = chunks.map(c => ({
       title: c.section_title,
-      content: c.content,
+      content: compactTable(c.content),
       code_examples: c.code_examples,
     }));
 
@@ -103,7 +103,7 @@ export function handleGetComponentReference(
       const guideChunks = data.chunksByPageId.get(guidePage.id) ?? [];
       result.design_guide = guideChunks.map(c => ({
         title: c.section_title,
-        content: c.content,
+        content: compactTable(c.content),
       }));
     } else {
       result.design_guide = [];
@@ -114,7 +114,7 @@ export function handleGetComponentReference(
       c.section_title.toLowerCase() === CSS_API_TITLE
     );
     if (cssChunk) {
-      result.css_api = cssChunk.content;
+      result.css_api = compactTable(cssChunk.content);
     }
   }
 

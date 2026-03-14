@@ -1,5 +1,5 @@
 import type { LoadedData } from "../loader.js";
-import { codeBlock } from "../format.js";
+import { codeBlock, compactTable } from "../format.js";
 
 export interface GetSectionInput {
   section_id: string;
@@ -57,7 +57,7 @@ export function handleGetSection(
     library: chunk.library,
     section_title: chunk.section_title,
     breadcrumbs: chunk.breadcrumbs,
-    content: chunk.content,
+    content: compactTable(chunk.content),
     code_examples: chunk.code_examples,
     url: chunk.url,
     related_sections,

@@ -1,4 +1,5 @@
 import type { LoadedData, DesignSystemOverview } from "../loader.js";
+import { compactTable } from "../format.js";
 
 export interface GetDesignSystemOverviewInput {
   library?: string;
@@ -34,22 +35,22 @@ export function formatGetDesignSystemOverview(result: DesignSystemOverview | Get
   const { system, libraries } = result;
   const lines: string[] = [
     "Gravity UI Design System",
-    system.description,
+    compactTable(system.description),
     "",
     "Theming:",
-    system.theming,
+    compactTable(system.theming),
     "",
     "Spacing:",
-    system.spacing,
+    compactTable(system.spacing),
     "",
     "Typography:",
-    system.typography,
+    compactTable(system.typography),
     "",
     "Corner Radius:",
-    system.corner_radius,
+    compactTable(system.corner_radius),
     "",
     "Branding:",
-    system.branding,
+    compactTable(system.branding),
     "",
     "Libraries:",
   ];
