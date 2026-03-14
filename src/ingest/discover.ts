@@ -105,7 +105,7 @@ export function buildManifestFromTrees(
 
     for (const item of tree) {
       const match = item.path.match(
-        /^src\/components\/([^/]+)\/README\.md$/,
+        /^src\/components\/(.+)\/README\.md$/,
       );
       if (item.type === "blob" && match) {
         const componentName = match[1];
