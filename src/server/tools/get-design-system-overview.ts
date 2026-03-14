@@ -33,32 +33,32 @@ export function formatGetDesignSystemOverview(result: DesignSystemOverview | Get
 
   const { system, libraries } = result;
   const lines: string[] = [
-    "# Gravity UI Design System",
+    "Gravity UI Design System",
     system.description,
     "",
-    "## Theming",
+    "Theming:",
     system.theming,
     "",
-    "## Spacing",
+    "Spacing:",
     system.spacing,
     "",
-    "## Typography",
+    "Typography:",
     system.typography,
     "",
-    "## Corner Radius",
+    "Corner Radius:",
     system.corner_radius,
     "",
-    "## Branding",
+    "Branding:",
     system.branding,
     "",
-    "## Libraries",
+    "Libraries:",
   ];
 
   for (const lib of libraries) {
     const depends = lib.depends_on.length > 0 ? `Depends on: ${lib.depends_on.join(", ")}` : "";
     const peer = lib.is_peer_dependency_of.length > 0 ? `Peer of: ${lib.is_peer_dependency_of.join(", ")}` : "";
     const meta = [depends, peer].filter(Boolean).join(" | ");
-    lines.push(`- **${lib.id}** (${lib.package}) — ${lib.component_count} components — ${lib.purpose}`);
+    lines.push(`- ${lib.id} (${lib.package}): ${lib.component_count} components: ${lib.purpose}`);
     if (meta) lines.push(`  ${meta}`);
   }
 

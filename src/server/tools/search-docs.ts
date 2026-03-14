@@ -75,9 +75,9 @@ export function formatSearchDocs(result: SearchDocsOutput): string {
     lines.push("");
     results.forEach((r, i) => {
       const lib = r.library ? `, ${r.library}` : "";
-      lines.push(`${i + 1}. **${r.page_title}** (${r.page_type}${lib}) — score: ${r.score}`);
+      lines.push(`${i + 1}. ${r.page_title} (${r.page_type}${lib}) score: ${r.score}`);
       lines.push(`   ${r.snippet}`);
-      lines.push(`   Section: \`${r.section_id}\` | ${r.url}`);
+      lines.push(`   Section: ${r.section_id} | ${r.url}`);
     });
   }
   return lines.join("\n");

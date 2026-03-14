@@ -81,10 +81,10 @@ export function handleListComponents(
 export function formatListComponents(result: ListComponentsOutput): string {
   const lines: string[] = [];
   for (const lib of result.libraries) {
-    lines.push(`## ${lib.title} (${lib.components.length} components)`);
+    lines.push(`${lib.title} (${lib.components.length} components)`);
     for (const c of lib.components) {
-      const star = c.has_design_guide ? " ★" : "";
-      lines.push(`- **${c.name}** (\`${c.page_id}\`) — ${c.description}${star}`);
+      const guide = c.has_design_guide ? " [guide]" : "";
+      lines.push(`- ${c.name} (${c.page_id}): ${c.description}${guide}`);
     }
   }
   return lines.join("\n");

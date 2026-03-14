@@ -92,25 +92,25 @@ export function formatGetQuickStart(result: GetQuickStartOutput | GetQuickStartE
   if ("error" in result) return `Error: ${result.error}`;
 
   const lines: string[] = [
-    `## ${result.library} (${result.package})`,
+    `${result.library} (${result.package})`,
     result.description,
   ];
 
   if (result.install) {
-    lines.push("", "### Install", codeBlock("bash", result.install));
+    lines.push("", "Install:", codeBlock("bash", result.install));
   }
 
   if (result.peer_dependencies) {
-    lines.push("", "### Peer Dependencies", codeBlock("bash", result.peer_dependencies));
+    lines.push("", "Peer Dependencies:", codeBlock("bash", result.peer_dependencies));
   }
 
   if (result.setup_code) {
-    lines.push("", "### Setup", codeBlock("tsx", result.setup_code));
+    lines.push("", "Setup:", codeBlock("tsx", result.setup_code));
   }
 
-  lines.push("", `### Components (${result.components.length})`);
+  lines.push("", `Components (${result.components.length}):`);
   for (const c of result.components) {
-    lines.push(`- **${c.name}** (\`${c.page_id}\`) — ${c.description}`);
+    lines.push(`- ${c.name} (${c.page_id}): ${c.description}`);
   }
 
   return lines.join("\n");

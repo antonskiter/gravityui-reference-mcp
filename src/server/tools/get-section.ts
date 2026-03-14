@@ -69,7 +69,7 @@ export function formatGetSection(result: GetSectionOutput | GetSectionError): st
   const lib = result.library ? ` (${result.library})` : "";
   const breadcrumbs = result.breadcrumbs.join(" > ");
   const lines: string[] = [
-    `## ${result.section_title}`,
+    `${result.section_title}`,
     `Page: ${result.page_title}${lib} | ${result.url}`,
     `Breadcrumbs: ${breadcrumbs}`,
     "",
@@ -83,8 +83,8 @@ export function formatGetSection(result: GetSectionOutput | GetSectionError): st
   }
   if (result.related_sections.length > 0) {
     lines.push("");
-    const related = result.related_sections.map(s => `\`${s.section_id}\` (${s.title})`).join(", ");
-    lines.push(`**Related sections:** ${related}`);
+    const related = result.related_sections.map(s => `${s.section_id} (${s.title})`).join(", ");
+    lines.push(`Related sections: ${related}`);
   }
   return lines.join("\n");
 }
