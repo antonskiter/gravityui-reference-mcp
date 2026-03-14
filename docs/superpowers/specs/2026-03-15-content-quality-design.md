@@ -25,9 +25,20 @@ Add a `cleanAst(tree: Root): Root` function called after `parseMarkdown()` and b
 - Paragraphs containing only images/links with no text content — badge rows, shield rows
 - Does NOT remove: headings (needed for section splitting), links with text (keep text, strip URL later via sanitize), code nodes
 
+Also strip image children from h2/h3 headings (same pattern as the existing h1 badge fix in `extractTitle`).
+
 This must run before `extractTitle()`, `extractDescription()`, `extractHeadings()` and before the markdown is passed to `chunkPage()`.
 
-The cleaned AST is stringified back to markdown using `remark-stringify` for downstream processing (section splitting, code extraction).
+**Serialization approach:** Use string-based removal (same approach as `stripMdx()`) rather than AST roundtrip. This avoids adding `remark-stringify` as a dependency and avoids the risk of remark reformatting headings in ways that break the regex-based section splitter (`^## `). Specifically:
+
+- Remove HTML comments: `/<!--[\s\S]*?-->/g` → empty
+- Remove image references: `/!\[[^\]]*\]\([^)]*\)/g` → empty
+- Remove image-only paragraphs (lines that are only images/badges after the above)
+- Collapse resulting blank lines
+
+This runs on the clean markdown string (after `stripMdx()`), before `parseMarkdown()` is called for title/description/heading extraction, and before the string is passed to `chunkPage()`.
+
+**Renamed:** `cleanMarkdownString()` instead of `cleanAst()` — it operates on the string, not the AST.
 
 ### 1B. Sanitize content during chunking
 
@@ -95,9 +106,11 @@ After all ingestion changes, run `npm run build-index` to rebuild. Expected resu
 
 ```typescript
 export function indent(text: string, prefix = "   "): string {
-  return text.split("\n").map(line => prefix + line).join("\n");
+  return text.split("\n").map(line => line ? prefix + line : "").join("\n");
 }
 ```
+
+Note: empty lines stay empty (no trailing whitespace from prefix).
 
 ### 2B. Remove all `sanitize()` calls from format functions
 
@@ -113,28 +126,29 @@ Since data is now pre-cleaned (Part 1), remove:
 | `get-section.ts` | `sanitize(result.content)` → `result.content` |
 | `get-page.ts` | `sanitize(s.summary)` → `s.summary` |
 
-Also remove `compactTable()` calls from `get-component-reference.ts` — tables are already compacted during ingestion.
+Also remove `compactTable()` calls from **handler functions** (not just format functions):
+
+| File                          | Handler calls to remove                                                                                                       |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `get-component-reference.ts`  | `compactTable(propsChunk.content)` line 86, `compactTable(c.content)` lines 97/105, `compactTable(cssChunk.content)` line 117 |
+| `get-section.ts`              | `compactTable(chunk.content)` line 60                                                                                         |
+
+Tables are already compacted during ingestion (1B).
 
 Remove `import { sanitize }` and `import { compactTable }` from tool files that no longer need them.
 
 ### 2C. Fix multi-line indentation (14 instances)
 
-Replace `lines.push(\`   ${content}\`)` with `lines.push(indent(content))` in:
+Wrap all multi-line content with `indent()`. The actual patterns vary per file — some use template literal prefix (`` `   ${text}` ``), others push bare sanitized text. The implementer should read each format function and apply `indent()` to every content/description/snippet field that could be multi-line. Key locations:
 
-1. `search-docs.ts:85` — snippet
-2. `get-component-reference.ts:135` — props
-3. `get-component-reference.ts:153` — section content
-4. `get-component-reference.ts:163` — guide content
-5. `get-component-reference.ts:168` — CSS API
-6. `get-design-system-overview.ts:38` — description
-7. `get-design-system-overview.ts:41` — theming
-8. `get-design-system-overview.ts:44` — spacing
-9. `get-design-system-overview.ts:47` — typography
-10. `get-design-system-overview.ts:50` — corner_radius
-11. `get-design-system-overview.ts:53` — branding
-12. `get-section.ts:74` — content
-13. `get-page.ts:78` — summary
-14. `suggest-component.ts:148` — description
+- `search-docs.ts` `formatSearchDocs` — snippet field
+- `get-component-reference.ts` `formatGetComponentReference` — props, section content, guide content, CSS API
+- `get-design-system-overview.ts` `formatGetDesignSystemOverview` — all system fields (description, theming, spacing, typography, corner_radius, branding)
+- `get-section.ts` `formatGetSection` — main content
+- `get-page.ts` `formatGetPage` — summary
+- `suggest-component.ts` `formatSuggestComponent` — description
+
+Note: `list-components.ts`, `list-sources.ts`, `get-quick-start.ts` were reviewed and have no multi-line content issues.
 
 ### 2D. Add result separators in search output
 
@@ -167,20 +181,21 @@ Add empty line between each result block in `formatSearchDocs()` so results don'
 
 ## Implementation Order
 
-Part 1 and Part 2 are independent and can be parallelized:
+**IMPORTANT: Part 2 depends on Part 1.** Removing `sanitize()` from format functions before ingestion cleanup is complete would serve raw markdown to users. Both parts must ship together.
 
-**Part 1 (ingestion):**
-1. 1A — cleanAst in parse.ts
+**Part 1 (ingestion) — do first:**
+
+1. 1A — cleanMarkdownString in parse.ts
 2. 1B — sanitize in chunk.ts
 3. 1C — junk filter in chunk.ts
 4. 1E — clean descriptions and overview
 5. 1F — keyword dedup
-6. 1G — rebuild index
+6. 1G — rebuild index with `npm run build-index`
 
-**Part 2 (formatting):**
+**Part 2 (formatting) — do after Part 1 is verified:**
 1. 2A — indent helper
-2. 2B — remove sanitize calls
-3. 2C — fix 14 indentation instances
+2. 2B — remove sanitize/compactTable calls from format functions AND handlers
+3. 2C — fix multi-line indentation instances
 4. 2D — result separators
 
 **After both:** update eval tests, verify all pass.
