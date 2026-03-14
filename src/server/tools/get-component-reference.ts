@@ -1,5 +1,5 @@
 import type { LoadedData } from "../loader.js";
-import { codeBlock, compactTable, sanitize } from "../format.js";
+import { codeBlock, indent } from "../format.js";
 
 export interface GetComponentReferenceInput {
   name: string;
@@ -83,7 +83,7 @@ export function handleGetComponentReference(
   };
 
   if (propsChunk) {
-    result.props = compactTable(propsChunk.content);
+    result.props = propsChunk.content;
   }
 
   if (firstExample) {
@@ -94,7 +94,7 @@ export function handleGetComponentReference(
   if (detail === "full") {
     result.all_sections = chunks.map(c => ({
       title: c.section_title,
-      content: compactTable(c.content),
+      content: c.content,
       code_examples: c.code_examples,
     }));
 
@@ -103,7 +103,7 @@ export function handleGetComponentReference(
       const guideChunks = data.chunksByPageId.get(guidePage.id) ?? [];
       result.design_guide = guideChunks.map(c => ({
         title: c.section_title,
-        content: compactTable(c.content),
+        content: c.content,
       }));
     } else {
       result.design_guide = [];
@@ -114,7 +114,7 @@ export function handleGetComponentReference(
       c.section_title.toLowerCase() === CSS_API_TITLE
     );
     if (cssChunk) {
-      result.css_api = compactTable(cssChunk.content);
+      result.css_api = cssChunk.content;
     }
   }
 
@@ -132,7 +132,7 @@ export function formatGetComponentReference(result: GetComponentReferenceOutput 
   ];
 
   if (result.props) {
-    lines.push("", "Props:", sanitize(result.props));
+    lines.push("", "Props:", indent(result.props));
   }
 
   if (result.example) {
@@ -150,7 +150,7 @@ export function formatGetComponentReference(result: GetComponentReferenceOutput 
   if (result.all_sections && result.all_sections.length > 0) {
     lines.push("", "All Sections:");
     for (const s of result.all_sections) {
-      lines.push("", `${s.title}:`, sanitize(s.content));
+      lines.push("", `${s.title}:`, indent(s.content));
       for (const code of s.code_examples) {
         lines.push(codeBlock("tsx", code));
       }
@@ -160,12 +160,12 @@ export function formatGetComponentReference(result: GetComponentReferenceOutput 
   if (result.design_guide && result.design_guide.length > 0) {
     lines.push("", "Design Guide:");
     for (const g of result.design_guide) {
-      lines.push("", `${g.title}:`, sanitize(g.content));
+      lines.push("", `${g.title}:`, indent(g.content));
     }
   }
 
   if (result.css_api) {
-    lines.push("", "CSS API:", sanitize(result.css_api));
+    lines.push("", "CSS API:", indent(result.css_api));
   }
 
   return lines.join("\n");
