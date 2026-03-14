@@ -199,7 +199,12 @@ describe("search relevance", () => {
 // ---------------------------------------------------------------------------
 
 describe("snippet quality", () => {
-  it.todo("snippets do not contain raw markdown image syntax — needs sanitize on snippets");
+  it("snippets do not contain raw markdown image syntax", () => {
+    const result = handleSearchDocs(data, { query: "button component", limit: 10 });
+    for (const r of result.results) {
+      expect(r.snippet).not.toMatch(/!\[/);
+    }
+  });
 
   it("snippets are within length limit", () => {
     const queries = ["button", "select", "graph", "markdown", "table"];
@@ -211,7 +216,11 @@ describe("snippet quality", () => {
     }
   });
 
-  it.todo("formatted output does not contain broken markdown links — needs ToC/link-list chunk filtering");
+  it("formatted output does not contain broken markdown links", () => {
+    const result = handleSearchDocs(data, { query: "graph documentation", limit: 5 });
+    const formatted = formatSearchDocs(result);
+    expect(formatted).not.toMatch(/\[(?![^\]]*\])/);
+  });
 
   it("scores are normalized 0-100", () => {
     const result = handleSearchDocs(data, { query: "button sizes props", limit: 10 });
@@ -225,6 +234,48 @@ describe("snippet quality", () => {
       expect(score).toBeGreaterThanOrEqual(0);
       expect(score).toBeLessThanOrEqual(100);
     }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Content cleanliness: sanitized chunks
+// ---------------------------------------------------------------------------
+
+describe("content cleanliness", () => {
+  it("no chunks contain HTML comments", () => {
+    for (const chunk of data.chunks) {
+      expect(chunk.content).not.toMatch(/<!--/);
+    }
+  });
+
+  it("no chunks contain image references", () => {
+    for (const chunk of data.chunks) {
+      expect(chunk.content).not.toMatch(/!\[/);
+    }
+  });
+
+  it("no chunks contain raw markdown heading syntax outside code blocks", () => {
+    for (const chunk of data.chunks) {
+      // Strip code blocks before checking for heading syntax
+      const withoutCode = chunk.content.replace(/```[\s\S]*?```/g, "");
+      expect(withoutCode).not.toMatch(/^#{1,3}\s/m);
+    }
+  });
+
+  it("no chunks under 30 chars without code", () => {
+    for (const chunk of data.chunks) {
+      const hasCode = chunk.code_examples.some(e => e.trim().length > 0);
+      if (!hasCode) {
+        expect(chunk.content.trim().length).toBeGreaterThanOrEqual(30);
+      }
+    }
+  });
+
+  it("chunk count reduced from pre-cleanup baseline", () => {
+    // Was 2334 before cleanup
+    expect(data.chunks.length).toBeLessThan(2334);
+    // But should still have substantial content
+    expect(data.chunks.length).toBeGreaterThan(1500);
   });
 });
 
