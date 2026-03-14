@@ -62,3 +62,19 @@ export function handleGetPage(
     sections,
   };
 }
+
+export function formatGetPage(result: GetPageOutput | GetPageError): string {
+  if ("error" in result) return `Error: ${result.error}`;
+  const lib = result.library ? ` | Library: ${result.library}` : "";
+  const lines: string[] = [
+    `## ${result.title}`,
+    `Type: ${result.page_type}${lib} | ${result.url}`,
+    "",
+    "### Sections",
+  ];
+  for (const s of result.sections) {
+    const code = s.has_code ? " [code]" : "";
+    lines.push(`- **${s.section_title}** (\`${s.section_id}\`) — ${s.summary}${code}`);
+  }
+  return lines.join("\n");
+}

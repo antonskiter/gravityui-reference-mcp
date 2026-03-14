@@ -59,3 +59,15 @@ export function handleListSources(data: LoadedData): ListSourcesOutput {
     page_counts: { guides, components, libraries: libraryPages },
   };
 }
+
+export function formatListSources(result: ListSourcesOutput): string {
+  const { indexed_at, total_pages, total_sections, libraries, page_counts } = result;
+  const libSummary = libraries.map(l => `${l.id} (${l.component_count})`).join(", ");
+  const lines: string[] = [
+    `Indexed: ${indexed_at} | ${total_pages} pages, ${total_sections} sections`,
+    "",
+    `Libraries: ${libSummary}`,
+    `Pages: ${page_counts.guides} guides, ${page_counts.components} components, ${page_counts.libraries} libraries`,
+  ];
+  return lines.join("\n");
+}

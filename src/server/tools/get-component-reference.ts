@@ -1,4 +1,5 @@
 import type { LoadedData } from "../loader.js";
+import { codeBlock } from "../format.js";
 
 export interface GetComponentReferenceInput {
   name: string;
@@ -118,4 +119,54 @@ export function handleGetComponentReference(
   }
 
   return result;
+}
+
+export function formatGetComponentReference(result: GetComponentReferenceOutput | GetComponentReferenceError): string {
+  if ("error" in result) return `Error: ${result.error}`;
+
+  const lines: string[] = [
+    `## ${result.component} (@gravity-ui/${result.library})`,
+    result.description,
+    "",
+    codeBlock("ts", result.import_statement),
+  ];
+
+  if (result.props) {
+    lines.push("", "### Props", result.props);
+  }
+
+  if (result.example) {
+    lines.push("", "### Example", codeBlock("tsx", result.example));
+  }
+
+  if (result.design_guide_sections.length > 0) {
+    lines.push("", `Design guide sections: ${result.design_guide_sections.join(", ")}`);
+  }
+
+  const urlLine = result.github_url ? `${result.url} | ${result.github_url}` : result.url;
+  lines.push("", urlLine);
+
+  // Full mode extras
+  if (result.all_sections && result.all_sections.length > 0) {
+    lines.push("", "### All Sections");
+    for (const s of result.all_sections) {
+      lines.push("", `#### ${s.title}`, s.content);
+      for (const code of s.code_examples) {
+        lines.push(codeBlock("tsx", code));
+      }
+    }
+  }
+
+  if (result.design_guide && result.design_guide.length > 0) {
+    lines.push("", "### Design Guide");
+    for (const g of result.design_guide) {
+      lines.push("", `#### ${g.title}`, g.content);
+    }
+  }
+
+  if (result.css_api) {
+    lines.push("", "### CSS API", result.css_api);
+  }
+
+  return lines.join("\n");
 }

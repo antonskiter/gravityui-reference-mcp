@@ -137,3 +137,15 @@ export function handleSuggestComponent(
 
   return { suggestions };
 }
+
+export function formatSuggestComponent(result: SuggestComponentOutput): string {
+  const { suggestions } = result;
+  if (suggestions.length === 0) return "No suggestions found.";
+  const lines: string[] = [];
+  suggestions.forEach((s, i) => {
+    const tags = s.matching_tags.length > 0 ? `\n   Tags: ${s.matching_tags.join(", ")}` : "";
+    lines.push(`${i + 1}. **${s.component}** (${s.library}) — ${s.score}`);
+    lines.push(`   ${s.description}${tags}`);
+  });
+  return lines.join("\n");
+}

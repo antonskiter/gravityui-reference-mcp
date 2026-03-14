@@ -2,15 +2,15 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { loadData } from "./loader.js";
-import { handleSearchDocs } from "./tools/search-docs.js";
-import { handleGetSection } from "./tools/get-section.js";
-import { handleGetPage } from "./tools/get-page.js";
-import { handleListComponents } from "./tools/list-components.js";
-import { handleListSources } from "./tools/list-sources.js";
-import { handleSuggestComponent } from "./tools/suggest-component.js";
-import { handleGetComponentReference } from "./tools/get-component-reference.js";
-import { handleGetQuickStart } from "./tools/get-quick-start.js";
-import { handleGetDesignSystemOverview } from "./tools/get-design-system-overview.js";
+import { handleSearchDocs, formatSearchDocs } from "./tools/search-docs.js";
+import { handleGetSection, formatGetSection } from "./tools/get-section.js";
+import { handleGetPage, formatGetPage } from "./tools/get-page.js";
+import { handleListComponents, formatListComponents } from "./tools/list-components.js";
+import { handleListSources, formatListSources } from "./tools/list-sources.js";
+import { handleSuggestComponent, formatSuggestComponent } from "./tools/suggest-component.js";
+import { handleGetComponentReference, formatGetComponentReference } from "./tools/get-component-reference.js";
+import { handleGetQuickStart, formatGetQuickStart } from "./tools/get-quick-start.js";
+import { handleGetDesignSystemOverview, formatGetDesignSystemOverview } from "./tools/get-design-system-overview.js";
 
 const data = loadData();
 console.error(`Loaded ${data.pages.length} pages, ${data.chunks.length} chunks`);
@@ -28,7 +28,7 @@ server.tool(
   },
   (args) => {
     const result = handleSearchDocs(data, args);
-    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+    return { content: [{ type: "text", text: formatSearchDocs(result) }] };
   },
 );
 
@@ -40,7 +40,7 @@ server.tool(
   },
   (args) => {
     const result = handleGetSection(data, args);
-    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+    return { content: [{ type: "text", text: formatGetSection(result) }] };
   },
 );
 
@@ -52,7 +52,7 @@ server.tool(
   },
   (args) => {
     const result = handleGetPage(data, args);
-    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+    return { content: [{ type: "text", text: formatGetPage(result) }] };
   },
 );
 
@@ -64,7 +64,7 @@ server.tool(
   },
   (args) => {
     const result = handleListComponents(data, args);
-    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+    return { content: [{ type: "text", text: formatListComponents(result) }] };
   },
 );
 
@@ -74,7 +74,7 @@ server.tool(
   {},
   () => {
     const result = handleListSources(data);
-    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+    return { content: [{ type: "text", text: formatListSources(result) }] };
   },
 );
 
@@ -88,7 +88,7 @@ server.tool(
   },
   (args) => {
     const result = handleSuggestComponent(data, args);
-    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+    return { content: [{ type: "text", text: formatSuggestComponent(result) }] };
   },
 );
 
@@ -102,7 +102,7 @@ server.tool(
   },
   (args) => {
     const result = handleGetComponentReference(data, args);
-    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+    return { content: [{ type: "text", text: formatGetComponentReference(result) }] };
   },
 );
 
@@ -114,7 +114,7 @@ server.tool(
   },
   (args) => {
     const result = handleGetQuickStart(data, args);
-    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+    return { content: [{ type: "text", text: formatGetQuickStart(result) }] };
   },
 );
 
@@ -126,7 +126,7 @@ server.tool(
   },
   (args) => {
     const result = handleGetDesignSystemOverview(data, args);
-    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+    return { content: [{ type: "text", text: formatGetDesignSystemOverview(result) }] };
   },
 );
 

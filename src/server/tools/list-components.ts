@@ -77,3 +77,15 @@ export function handleListComponents(
 
   return { libraries };
 }
+
+export function formatListComponents(result: ListComponentsOutput): string {
+  const lines: string[] = [];
+  for (const lib of result.libraries) {
+    lines.push(`## ${lib.title} (${lib.components.length} components)`);
+    for (const c of lib.components) {
+      const star = c.has_design_guide ? " ★" : "";
+      lines.push(`- **${c.name}** (\`${c.page_id}\`) — ${c.description}${star}`);
+    }
+  }
+  return lines.join("\n");
+}
