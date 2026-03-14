@@ -8,6 +8,8 @@
   "scripts": {
     "build": "tsc",
     "ingest": "tsx src/ingest/run.ts",
+    "fetch": "tsx src/ingest/run-fetch.ts",
+    "build-index": "tsx src/ingest/run-build.ts",
     "serve": "tsx src/server/server.ts",
     "test": "vitest run",
     "test:watch": "vitest",
