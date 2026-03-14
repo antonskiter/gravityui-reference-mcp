@@ -12,7 +12,7 @@
       "id": "aikit",
       "package": "@gravity-ui/aikit",
       "purpose": "UI component library for AI chats built with Atomic Design principles.",
-      "component_count": 0,
+      "component_count": 38,
       "depends_on": [],
       "is_peer_dependency_of": []
     },
@@ -61,9 +61,7 @@
       "package": "@gravity-ui/chartkit",
       "purpose": "React component used to render charts based on any sources you need",
       "component_count": 0,
-      "depends_on": [
-        "uikit"
-      ],
+      "depends_on": [],
       "is_peer_dependency_of": []
     },
     {
@@ -78,12 +76,9 @@
       "id": "components",
       "package": "@gravity-ui/components",
       "purpose": "A set of complex React components",
-      "component_count": 17,
+      "component_count": 20,
       "depends_on": [],
-      "is_peer_dependency_of": [
-        "navigation",
-        "markdown-editor"
-      ]
+      "is_peer_dependency_of": []
     },
     {
       "id": "dashkit",
@@ -176,9 +171,7 @@
       "purpose": "A pack of Gravity UI icons. Icons have two sources, SVG and React. Have a look…",
       "component_count": 0,
       "depends_on": [],
-      "is_peer_dependency_of": [
-        "navigation"
-      ]
+      "is_peer_dependency_of": []
     },
     {
       "id": "illustrations",
@@ -193,22 +186,15 @@
       "package": "@gravity-ui/markdown-editor",
       "purpose": "MarkdownEditor is a powerful tool for working with Markdown, which combines…",
       "component_count": 0,
-      "depends_on": [
-        "uikit",
-        "components"
-      ],
+      "depends_on": [],
       "is_peer_dependency_of": []
     },
     {
       "id": "navigation",
       "package": "@gravity-ui/navigation",
       "purpose": "Ensure that peer dependencies are installed in your project",
-      "component_count": 6,
-      "depends_on": [
-        "uikit",
-        "icons",
-        "components"
-      ],
+      "component_count": 7,
+      "depends_on": [],
       "is_peer_dependency_of": []
     },
     {
@@ -279,13 +265,10 @@
       "id": "uikit",
       "package": "@gravity-ui/uikit",
       "purpose": "A set of flexible, highly practical, and efficient React components for…",
-      "component_count": 59,
+      "component_count": 68,
       "depends_on": [],
       "is_peer_dependency_of": [
-        "date-components",
-        "navigation",
-        "markdown-editor",
-        "chartkit"
+        "date-components"
       ]
     },
     {

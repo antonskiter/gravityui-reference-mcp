@@ -81,11 +81,14 @@ const EXCLUDED_FILENAMES = new Set([
 const EXCLUDED_DIR_PATTERNS = [
   /(?:^|\/)__tests__\//,
   /(?:^|\/)__fixtures__\//,
+  /(?:^|\/)__stories__\//,
   /(?:^|\/)tests?\//,
   /(?:^|\/)node_modules\//,
   /(?:^|\/)\.github\//,
   /(?:^|\/)\.storybook\//,
   /(?:^|\/)examples?\//,
+  /(?:^|\/)e2e\//,
+  /(?:^|\/)demo\//,
 ];
 
 function isDocFile(path: string): boolean {
@@ -106,14 +109,12 @@ function isDocFile(path: string): boolean {
   if (/^src\/components\/.+\/README\.md$/.test(path)) return false;
 
   // Must be in a known doc location:
-  // - docs/ directory
+  // - docs/ directory at any level
   // - README.md at any nested depth
-  // - .md/.mdx in src/ subdirectories
   const isInDocs = path.startsWith("docs/") || path.includes("/docs/");
   const isNestedReadme = filename === "README.md";
-  const isInSrc = path.startsWith("src/");
 
-  return isInDocs || isNestedReadme || isInSrc;
+  return isInDocs || isNestedReadme;
 }
 
 export function buildManifestFromTrees(
@@ -155,6 +156,8 @@ export function buildManifestFromTrees(
       );
       if (item.type === "blob" && match) {
         const componentName = match[1];
+        // Skip non-component subdirectories (storybook, hooks, etc.)
+        if (/__stories__|__tests__|hooks-public/.test(componentName)) continue;
         entries.push({
           raw_url: `${GITHUB_RAW}/${repo}/${branch}/${item.path}`,
           github_url: `https://github.com/gravity-ui/${repo}/tree/${branch}/src/components/${componentName}`,

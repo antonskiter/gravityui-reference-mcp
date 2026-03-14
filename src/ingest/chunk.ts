@@ -26,6 +26,10 @@ function makeChunkId(
     return `component:${library}:${name}:${slug}`;
   }
   if (pageType === "library" && library) {
+    // Sub-doc pages include name to avoid collisions across different sub-docs
+    if (name !== library) {
+      return `library:${library}:${name}:${slug}`;
+    }
     return `library:${library}:${slug}`;
   }
   return `guide:${name}:${slug}`;
