@@ -7,16 +7,11 @@
   },
   "scripts": {
     "build": "tsc",
-    "ingest": "tsx src/ingest/run.ts",
-    "fetch": "tsx src/ingest/run-fetch.ts",
-    "build-index": "tsx src/ingest/run-build.ts",
     "serve": "tsx src/server/server.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test-queries": "tsx scripts/test-queries.ts",
-    "extract": "tsx src/extract/run-extract.ts",
     "update-submodules": "git submodule update --remote --depth 1",
-    "generate-llms-txt": "tsx src/generate/run-generate-llms.ts",
     "build-search-index": "tsx src/ingest/run-build-index.ts",
     "llm-ingest": "tsx src/ingest/run-llm-ingest.ts",
     "validate-data": "tsx src/ingest/run-validate.ts"

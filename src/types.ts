@@ -26,26 +26,9 @@ export interface Chunk {
   keywords: string[];
 }
 
-export interface RawPage {
-  url: string;
-  github_url: string;
-  content: string;
-  page_type: PageType;
-  library?: string;
-  name: string;
-}
-
 export interface IngestMetadata {
   indexed_at: string;
   source_commits: Record<string, string>;
-}
-
-export interface PageManifestEntry {
-  raw_url: string;
-  github_url: string;
-  page_type: PageType;
-  library?: string;
-  name: string;
 }
 
 export type ComponentTags = Record<string, string[]>;
