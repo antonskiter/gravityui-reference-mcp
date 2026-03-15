@@ -17,7 +17,9 @@
     "extract": "tsx src/extract/run-extract.ts",
     "update-submodules": "git submodule update --remote --depth 1",
     "generate-llms-txt": "tsx src/generate/run-generate-llms.ts",
-    "build-search-index": "tsx src/ingest/run-build-index.ts"
+    "build-search-index": "tsx src/ingest/run-build-index.ts",
+    "llm-ingest": "tsx src/ingest/run-llm-ingest.ts",
+    "validate-data": "tsx src/ingest/run-validate.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0",
