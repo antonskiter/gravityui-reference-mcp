@@ -13,7 +13,9 @@
     "serve": "tsx src/server/server.ts",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test-queries": "tsx scripts/test-queries.ts"
+    "test-queries": "tsx scripts/test-queries.ts",
+    "extract": "tsx src/extract/run-extract.ts",
+    "update-submodules": "git submodule update --remote --depth 1"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0",
