@@ -125,6 +125,11 @@ beforeAll(() => {
     chunksByPageId,
     tagsByPageId,
     overview: mockOverview,
+    componentDefs: [],
+    componentByName: new Map(),
+    componentsByLibrary: new Map(),
+    tokens: { spacing: {}, breakpoints: {}, sizes: {} },
+    categoryMap: { categories: {}, components: {} },
   };
 });
 
@@ -160,9 +165,9 @@ describe("handleSearchDocs", () => {
     expect(output.results.length).toBeLessThanOrEqual(1);
   });
 
-  it("snippet is truncated to word boundary at 200 chars", () => {
-    // chunk1 content is < 200 chars so snippet equals content; use a long content chunk
-    const longContent = "word ".repeat(60); // 300 chars
+  it("snippet is truncated to word boundary at 500 chars", () => {
+    // Use a long content chunk to verify truncation
+    const longContent = "word ".repeat(120); // 600 chars
     const longChunk: Chunk = {
       ...chunk1,
       id: "guide:Button:long",
@@ -179,8 +184,8 @@ describe("handleSearchDocs", () => {
     const output = handleSearchDocs(testData, { query: "longcontent" });
     const result = output.results.find(r => r.section_id === "guide:Button:long");
     expect(result).toBeDefined();
-    expect(result!.snippet.length).toBeLessThanOrEqual(200);
-    // Should not end mid-word (last char should be a letter of "word" or be end of word)
+    expect(result!.snippet.length).toBeLessThanOrEqual(500);
+    // Should not end mid-word
     expect(result!.snippet).not.toMatch(/\s$/);
   });
 
@@ -196,59 +201,58 @@ describe("handleSearchDocs", () => {
 // ---------------------------------------------------------------------------
 
 describe("handleListComponents", () => {
-  it("groups component pages by library in libraries array", () => {
+  it("returns groups with totalCount", () => {
     const output = handleListComponents(mockData, {});
-    const uikitLib = output.libraries.find(l => l.id === "uikit");
-    expect(uikitLib).toBeDefined();
-    expect(uikitLib!.components.some(c => c.name === "Select")).toBe(true);
+    // With empty componentDefs, expect 0 total and empty groups
+    expect(output.totalCount).toBe(0);
+    expect(output.groups).toHaveLength(0);
   });
 
-  it("does not include guide pages in component list", () => {
-    const output = handleListComponents(mockData, {});
-    for (const lib of output.libraries) {
-      for (const comp of lib.components) {
-        expect(comp.page_id).not.toMatch(/^guide:/);
-      }
-    }
+  it("returns empty groups for unrecognized library filter", () => {
+    const output = handleListComponents(mockData, { library: "nonexistent" });
+    expect(output.groups).toHaveLength(0);
+    expect(output.totalCount).toBe(0);
   });
 
-  it("filters by library", () => {
-    const output = handleListComponents(mockData, { library: "uikit" });
-    expect(output.libraries).toHaveLength(1);
-    expect(output.libraries[0].id).toBe("uikit");
+  it("returns empty groups for unknown category filter", () => {
+    const output = handleListComponents(mockData, { category: "nonexistent" });
+    expect(output.groups).toHaveLength(0);
+    expect(output.totalCount).toBe(0);
   });
 
-  it("sets has_design_guide when a guide page with matching name exists", () => {
-    // "Button" guide exists; "Select" does not (guide:Button, component:uikit:Select)
-    const output = handleListComponents(mockData, {});
-    const uikitLib = output.libraries.find(l => l.id === "uikit");
-    const selectComp = uikitLib?.components.find(c => c.name === "Select");
-    // There's no guide page named "Select", so has_design_guide should be false
-    expect(selectComp?.has_design_guide).toBe(false);
-  });
-
-  it("sorts components by name within library", () => {
-    // Add another component to test sorting
-    const buttonComponentPage: Page = {
-      id: "component:uikit:Button",
-      title: "Button",
-      page_type: "component",
-      library: "uikit",
-      url: "https://gravity-ui.com/components/uikit/button",
-      breadcrumbs: ["Components", "uikit", "Button"],
-      description: "A clickable button.",
-      section_ids: [],
-    };
-    const pages = [...mockData.pages, buttonComponentPage];
+  it("groups components by category using componentDefs", () => {
+    const comps = [
+      { name: "Select", library: "uikit", import_path: "@gravity-ui/uikit", import_statement: "", props: [], examples: [], description: "A dropdown select.", source_file: "" },
+    ];
     const testData: LoadedData = {
       ...mockData,
-      pages,
-      pageById: new Map(pages.map(p => [p.id, p])),
+      componentDefs: comps,
+      componentByName: new Map([["Select", comps]]),
+      componentsByLibrary: new Map([["uikit", comps]]),
+      categoryMap: { categories: { forms: "Form Controls" }, components: { Select: "forms" } },
     };
-    const output = handleListComponents(testData, { library: "uikit" });
-    const uikitLib = output.libraries.find(l => l.id === "uikit");
-    const names = uikitLib!.components.map(c => c.name);
-    expect(names).toEqual([...names].sort());
+    const output = handleListComponents(testData, {});
+    expect(output.totalCount).toBe(1);
+    expect(output.groups.length).toBe(1);
+    expect(output.groups[0].category).toBe("forms");
+    expect(output.groups[0].components[0].name).toBe("Select");
+  });
+
+  it("filters by category slug", () => {
+    const comps = [
+      { name: "Select", library: "uikit", import_path: "@gravity-ui/uikit", import_statement: "", props: [], examples: [], description: "A dropdown.", source_file: "" },
+      { name: "Button", library: "uikit", import_path: "@gravity-ui/uikit", import_statement: "", props: [], examples: [], description: "A button.", source_file: "" },
+    ];
+    const testData: LoadedData = {
+      ...mockData,
+      componentDefs: comps,
+      componentByName: new Map(comps.map(c => [c.name, [c]])),
+      componentsByLibrary: new Map([["uikit", comps]]),
+      categoryMap: { categories: { forms: "Forms", actions: "Actions" }, components: { Select: "forms", Button: "actions" } },
+    };
+    const output = handleListComponents(testData, { category: "forms" });
+    expect(output.totalCount).toBe(1);
+    expect(output.groups[0].components[0].name).toBe("Select");
   });
 });
 

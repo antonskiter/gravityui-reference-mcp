@@ -247,6 +247,11 @@ beforeAll(() => {
     index, pageById, chunkById, chunksByPageId,
     tagsByPageId,
     overview: mockOverview,
+    componentDefs: [],
+    componentByName: new Map(),
+    componentsByLibrary: new Map(),
+    tokens: { spacing: {}, breakpoints: {}, sizes: {} },
+    categoryMap: { categories: {}, components: {} },
   };
 });
 
