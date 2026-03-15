@@ -147,7 +147,7 @@ Second usage section with enough content to pass the junk filter threshold.
     expect(usageChunk!.content).not.toContain("```tsx");
   });
 
-  it("extracts keywords from component name and heading", () => {
+  it("extracts keywords from heading and library (not component name)", () => {
     const parsed = makeResult({
       cleanMarkdown: markdownWithH2Sections,
       headings: [{ depth: 2, text: "Variants" }],
@@ -155,7 +155,8 @@ Second usage section with enough content to pass the junk filter threshold.
     const { chunks } = chunkPage(parsed, "component", "Button", "uikit");
     const variantsChunk = chunks.find((c) => c.section_title === "Variants");
     expect(variantsChunk).toBeDefined();
-    expect(variantsChunk!.keywords).toContain("Button");
+    // Component name removed from keywords to reduce boost stacking (already in page_title 3x)
+    expect(variantsChunk!.keywords).not.toContain("Button");
     expect(variantsChunk!.keywords).toContain("variants");
     expect(variantsChunk!.keywords).toContain("uikit");
   });
