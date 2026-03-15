@@ -1,8 +1,41 @@
 import { searchIndex } from "../../ingest/index.js";
-import { levenshtein, tokenizeAndClean } from "../../ingest/tags.js";
 import type { LoadedData } from "../loader.js";
 import type { ComponentDef } from "../../types.js";
 import { indent } from "../format.js";
+
+// ---------------------------------------------------------------------------
+// String utilities (previously in ingest/tags.ts, inlined after pipeline cleanup)
+// ---------------------------------------------------------------------------
+
+const STOP_WORDS = new Set([
+  "a", "an", "the", "and", "or", "in", "of", "to", "for",
+  "with", "on", "at", "by", "is", "it", "its", "be", "as",
+  "are", "was", "were", "that", "this", "from", "up", "how",
+  "can", "you", "use", "used", "using", "component", "components",
+]);
+
+export function tokenizeAndClean(text: string): string[] {
+  return text
+    .toLowerCase()
+    .split(/[\s_/,.:;()]+/)
+    .filter(w => w.length > 1 && !STOP_WORDS.has(w));
+}
+
+export function levenshtein(a: string, b: string): number {
+  const m = a.length;
+  const n = b.length;
+  const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      dp[i][j] = a[i - 1] === b[j - 1]
+        ? dp[i - 1][j - 1]
+        : 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+    }
+  }
+  return dp[m][n];
+}
 
 export interface SuggestComponentInput {
   use_case: string;

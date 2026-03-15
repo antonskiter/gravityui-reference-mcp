@@ -32,7 +32,7 @@ export function handleGetComponent(
 
   let comp = library
     ? candidates.find(c => c.library === library)
-    : candidates[0];
+    : candidates.find(c => c.library === 'uikit') || candidates[0];
 
   if (!comp) {
     const available = data.componentDefs

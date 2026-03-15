@@ -19,10 +19,12 @@ export function loadJsonFile<T>(filePath: string, fallback: T): T {
   }
 }
 
-function sortByNameOrId<T extends Record<string, unknown>>(items: T[]): T[] {
+function sortByNameOrId<T extends object>(items: T[]): T[] {
   return items.sort((a, b) => {
-    const keyA = (a.name ?? a.id ?? '') as string;
-    const keyB = (b.name ?? b.id ?? '') as string;
+    const rec = a as Record<string, unknown>;
+    const rec2 = b as Record<string, unknown>;
+    const keyA = ((rec.name ?? rec.id ?? '') as string);
+    const keyB = ((rec2.name ?? rec2.id ?? '') as string);
     return keyA.localeCompare(keyB);
   });
 }
@@ -32,7 +34,7 @@ function sortByNameOrId<T extends Record<string, unknown>>(items: T[]): T[] {
  * concatenating and sorting results. Falls back to dataDir/{collectionName}.json.
  * Returns an empty array when neither exists.
  */
-export function loadJsonArray<T extends Record<string, unknown>>(dataDir: string, collectionName: string): T[] {
+export function loadJsonArray<T extends object>(dataDir: string, collectionName: string): T[] {
   const dirPath = join(dataDir, collectionName);
   if (existsSync(dirPath)) {
     const files = readdirSync(dirPath).filter(f => f.endsWith('.json')).sort();

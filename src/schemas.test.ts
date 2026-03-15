@@ -27,13 +27,13 @@ describe("PageTypeSchema", () => {
 });
 
 describe("ComponentDefSchema", () => {
-  const minimal: unknown = {
+  const minimal = {
     name: "Button",
     library: "uikit",
     import_path: "@gravity-ui/uikit",
     import_statement: "import {Button} from '@gravity-ui/uikit';",
-    props: [],
-    examples: [],
+    props: [] as unknown[],
+    examples: [] as string[],
     source_file: "src/components/Button/Button.tsx",
   };
 
@@ -73,16 +73,16 @@ describe("ComponentDefSchema", () => {
 });
 
 describe("ChunkSchema", () => {
-  const valid: unknown = {
+  const valid = {
     id: "chunk-1",
     page_id: "page-1",
     url: "https://example.com/page",
     page_title: "Button",
-    page_type: "component",
+    page_type: "component" as const,
     section_title: "Overview",
     breadcrumbs: ["Components", "Button"],
     content: "The Button component...",
-    code_examples: [],
+    code_examples: [] as string[],
     keywords: ["button", "click"],
   };
 
@@ -109,10 +109,10 @@ describe("ChunkSchema", () => {
 });
 
 describe("TokenSetSchema", () => {
-  const valid: unknown = {
-    spacing: { "0": "0px", "1": "4px" },
-    breakpoints: { xs: 0, s: 576 },
-    sizes: { xs: "20px", s: "24px" },
+  const valid = {
+    spacing: { "0": "0px", "1": "4px" } as Record<string, string>,
+    breakpoints: { xs: 0, s: 576 } as Record<string, number>,
+    sizes: { xs: "20px", s: "24px" } as Record<string, string>,
   };
 
   it("accepts a valid TokenSet without colors", () => {
@@ -165,10 +165,10 @@ describe("PropDefSchema", () => {
 });
 
 describe("PageSchema", () => {
-  const valid: unknown = {
+  const valid = {
     id: "page-1",
     title: "Button",
-    page_type: "component",
+    page_type: "component" as const,
     url: "https://example.com/button",
     breadcrumbs: ["Components"],
     description: "A button.",

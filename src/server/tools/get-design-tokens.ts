@@ -18,13 +18,22 @@ export function handleGetDesignTokens(
   return { [topic]: tokens[topic] } as GetDesignTokensOutput;
 }
 
+const SIZE_ORDER = ['xs', 's', 'm', 'l', 'xl', 'xxl'];
+
+function sortedEntries<V>(
+  obj: Record<string, V>,
+  compareFn: (a: [string, V], b: [string, V]) => number,
+): [string, V][] {
+  return Object.entries(obj).sort(compareFn);
+}
+
 export function formatGetDesignTokens(output: GetDesignTokensOutput): string {
   const lines: string[] = [];
 
   if (output.spacing) {
     lines.push('Spacing (base unit: 4px)');
     lines.push('');
-    for (const [key, value] of Object.entries(output.spacing)) {
+    for (const [key, value] of sortedEntries(output.spacing, (a, b) => parseFloat(a[0]) - parseFloat(b[0]))) {
       lines.push(`  ${key}: ${value}`);
     }
     lines.push('');
@@ -35,7 +44,7 @@ export function formatGetDesignTokens(output: GetDesignTokensOutput): string {
     if (lines.length) lines.push('');
     lines.push('Breakpoints');
     lines.push('');
-    for (const [key, value] of Object.entries(output.breakpoints)) {
+    for (const [key, value] of sortedEntries(output.breakpoints, (a, b) => Number(a[1]) - Number(b[1]))) {
       lines.push(`  ${key}: ${value}px`);
     }
     lines.push('');
@@ -46,7 +55,11 @@ export function formatGetDesignTokens(output: GetDesignTokensOutput): string {
     if (lines.length) lines.push('');
     lines.push('Component sizes (height)');
     lines.push('');
-    for (const [key, value] of Object.entries(output.sizes)) {
+    for (const [key, value] of sortedEntries(output.sizes, (a, b) => {
+      const ai = SIZE_ORDER.indexOf(a[0]);
+      const bi = SIZE_ORDER.indexOf(b[0]);
+      return (ai === -1 ? SIZE_ORDER.length : ai) - (bi === -1 ? SIZE_ORDER.length : bi);
+    })) {
       lines.push(`  ${key}: ${value}`);
     }
     lines.push('');

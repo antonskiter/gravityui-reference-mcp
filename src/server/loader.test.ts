@@ -27,7 +27,7 @@ describe('loadJsonArray', () => {
       { name: 'Alert', library: 'aikit' },
     ]));
 
-    const result = loadJsonArray(tmpDir, 'components');
+    const result = loadJsonArray<{ name: string; library: string }>(tmpDir, 'components');
     expect(result).toHaveLength(3);
     expect(result[0].name).toBe('Alert');
     expect(result[1].name).toBe('Button');
@@ -40,14 +40,14 @@ describe('loadJsonArray', () => {
       { name: 'Card', library: 'uikit' },
     ]));
 
-    const result = loadJsonArray(tmpDir, 'components');
+    const result = loadJsonArray<{ name: string; library: string }>(tmpDir, 'components');
     expect(result).toHaveLength(2);
     expect(result[0].name).toBe('Card');
     expect(result[1].name).toBe('Select');
   });
 
   it('returns empty array when neither directory nor file exists', () => {
-    const result = loadJsonArray(tmpDir, 'components');
+    const result = loadJsonArray<{ name: string }>(tmpDir, 'components');
     expect(result).toEqual([]);
   });
 
@@ -59,7 +59,7 @@ describe('loadJsonArray', () => {
       { id: 'a-chunk', content: 'A' },
     ]));
 
-    const result = loadJsonArray(tmpDir, 'chunks');
+    const result = loadJsonArray<{ id: string; content: string }>(tmpDir, 'chunks');
     expect(result).toHaveLength(2);
     expect(result[0].id).toBe('a-chunk');
     expect(result[1].id).toBe('z-chunk');
@@ -72,7 +72,7 @@ describe('loadJsonArray', () => {
     writeFileSync(join(dir, 'README.md'), '# Docs');
     writeFileSync(join(dir, '.gitkeep'), '');
 
-    const result = loadJsonArray(tmpDir, 'components');
+    const result = loadJsonArray<{ name: string; library: string }>(tmpDir, 'components');
     expect(result).toHaveLength(1);
     expect(result[0].name).toBe('Button');
   });

@@ -61,6 +61,14 @@ export function formatListComponents(output: ListComponentsOutput): string {
   const lines: string[] = [];
   const isFiltered = output.groups.length === 1;
 
+  // Detect names that appear in multiple libraries so we can disambiguate
+  const nameCounts = new Map<string, number>();
+  for (const group of output.groups) {
+    for (const comp of group.components) {
+      nameCounts.set(comp.name, (nameCounts.get(comp.name) || 0) + 1);
+    }
+  }
+
   lines.push(`${output.totalCount} components`);
   lines.push('');
 
@@ -68,10 +76,13 @@ export function formatListComponents(output: ListComponentsOutput): string {
     lines.push(`${group.displayName} (${group.components.length})`);
 
     for (const comp of group.components) {
+      const displayName = (nameCounts.get(comp.name) || 0) > 1
+        ? `${comp.name} (${comp.library})`
+        : comp.name;
       if (isFiltered && comp.description) {
-        lines.push(`  ${comp.name} — ${comp.description}`);
+        lines.push(`  ${displayName} — ${comp.description}`);
       } else {
-        lines.push(`  ${comp.name}`);
+        lines.push(`  ${displayName}`);
       }
     }
     lines.push('');
