@@ -1,0 +1,1977 @@
+{
+  "entries": [
+    {
+      "library": "aikit",
+      "git_sha": "2c8bf894f2f6",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "app-layout",
+      "git_sha": "686524b3e6c2",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "axios-wrapper",
+      "git_sha": "868d6e334cf5",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "babel-preset",
+      "git_sha": "af5ed349fc6d",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "blog-constructor",
+      "git_sha": "40918e642f4c",
+      "changed": false,
+      "batches": [
+        {
+          "batch_id": "blog-constructor-batch-1",
+          "components": [
+            {
+              "name": "PromptSignIn",
+              "readme_path": "src/components/PromptSignIn/README.md",
+              "source_paths": [
+                "src/components/PromptSignIn/PromptSignIn.tsx",
+                "src/components/PromptSignIn/hooks/usePromptSignInProps.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "library": "browserslist-config",
+      "git_sha": "5b1278926b99",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "chartkit",
+      "git_sha": "084f84603ce2",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "charts",
+      "git_sha": "71255cacbfa3",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "components",
+      "git_sha": "f461a4953c6f",
+      "changed": false,
+      "batches": [
+        {
+          "batch_id": "components-batch-1",
+          "components": [
+            {
+              "name": "AdaptiveTabs",
+              "readme_path": "src/components/AdaptiveTabs/README.md",
+              "source_paths": [
+                "src/components/AdaptiveTabs/AdaptiveTabs.tsx",
+                "src/components/AdaptiveTabs/constants.ts",
+                "src/components/AdaptiveTabs/i18n/index.ts",
+                "src/components/AdaptiveTabs/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/AdaptiveTabs/AdaptiveTabs.scss"
+              ]
+            },
+            {
+              "name": "ChangelogDialog",
+              "readme_path": "src/components/ChangelogDialog/README.md",
+              "source_paths": [
+                "src/components/ChangelogDialog/ChangelogDialog.tsx",
+                "src/components/ChangelogDialog/components/ErrorContainer/ErrorContainer.tsx",
+                "src/components/ChangelogDialog/components/Item/Item.tsx",
+                "src/components/ChangelogDialog/components/Picture/Picture.tsx",
+                "src/components/ChangelogDialog/i18n/index.ts",
+                "src/components/ChangelogDialog/index.ts",
+                "src/components/ChangelogDialog/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/ChangelogDialog/ChangelogDialog.scss",
+                "src/components/ChangelogDialog/components/Item/Item.scss",
+                "src/components/ChangelogDialog/components/Picture/Picture.scss"
+              ]
+            },
+            {
+              "name": "ConfirmDialog",
+              "readme_path": "src/components/ConfirmDialog/README.md",
+              "source_paths": [
+                "src/components/ConfirmDialog/ConfirmDialog.tsx",
+                "src/components/ConfirmDialog/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/ConfirmDialog/ConfirmDialog.scss"
+              ]
+            },
+            {
+              "name": "CookieConsent",
+              "readme_path": "src/components/CookieConsent/README.md",
+              "source_paths": [
+                "src/components/CookieConsent/ConsentManager.ts",
+                "src/components/CookieConsent/CookieConsent.tsx",
+                "src/components/CookieConsent/components/ConsentNotification/ConsentNotification.tsx",
+                "src/components/CookieConsent/components/ConsentNotification/index.ts",
+                "src/components/CookieConsent/components/ConsentNotification/types.ts",
+                "src/components/CookieConsent/components/ConsentPopup/ConsentPopup.tsx",
+                "src/components/CookieConsent/components/ConsentPopup/index.ts",
+                "src/components/CookieConsent/components/ConsentPopup/types.ts",
+                "src/components/CookieConsent/components/FoldableList/FoldableList.tsx",
+                "src/components/CookieConsent/components/FoldableList/types.ts",
+                "src/components/CookieConsent/components/SimpleConsent/SimpleConsent.tsx",
+                "src/components/CookieConsent/components/SimpleConsent/index.ts",
+                "src/components/CookieConsent/components/SimpleConsent/types.ts",
+                "src/components/CookieConsent/i18n/index.ts",
+                "src/components/CookieConsent/index.ts",
+                "src/components/CookieConsent/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/CookieConsent/components/ConsentNotification/ConsentNotification.scss",
+                "src/components/CookieConsent/components/ConsentPopup/ConsentPopup.scss",
+                "src/components/CookieConsent/components/FoldableList/FoldableList.scss",
+                "src/components/CookieConsent/components/SimpleConsent/SimpleConsent.scss"
+              ]
+            },
+            {
+              "name": "DelayedTextInput",
+              "readme_path": "src/components/DelayedTextInput/README.md",
+              "source_paths": [
+                "src/components/DelayedTextInput/DelayedTextInput.tsx",
+                "src/components/DelayedTextInput/hooks/useDelayedValue.ts",
+                "src/components/DelayedTextInput/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": []
+            },
+            {
+              "name": "FormRow",
+              "readme_path": "src/components/FormRow/README.md",
+              "source_paths": [
+                "src/components/FormRow/FormRow.tsx",
+                "src/components/FormRow/FormRowFieldDescription.tsx",
+                "src/components/FormRow/i18n/index.ts",
+                "src/components/FormRow/index.ts",
+                "src/components/FormRow/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/FormRow/FormRow.scss"
+              ]
+            },
+            {
+              "name": "Gallery",
+              "readme_path": "src/components/Gallery/README.md",
+              "source_paths": [
+                "src/components/Gallery/Gallery.tsx",
+                "src/components/Gallery/GalleryItem.tsx",
+                "src/components/Gallery/components/DesktopGalleryHeader/DesktopGalleryHeader.tsx",
+                "src/components/Gallery/components/FallbackText/FallbackText.tsx",
+                "src/components/Gallery/components/FallbackText/i18n/index.ts",
+                "src/components/Gallery/components/FallbackText/index.ts",
+                "src/components/Gallery/components/GalleryHeader/GalleryHeader.tsx",
+                "src/components/Gallery/components/GalleryItemName/GalleryItemName.tsx",
+                "src/components/Gallery/components/GalleryItemName/index.ts",
+                "src/components/Gallery/components/MobileGalleryActions/MobileGalleryActions.tsx",
+                "src/components/Gallery/components/MobileGalleryHeader/MobileGalleryHeader.tsx",
+                "src/components/Gallery/components/MobileGalleryHeader/constants.ts",
+                "src/components/Gallery/components/NavigationButton/NavigationButton.tsx",
+                "src/components/Gallery/components/actions/FullScreenAction/FullScreenAction.tsx",
+                "src/components/Gallery/components/actions/FullScreenAction/i18n/index.ts",
+                "src/components/Gallery/components/actions/FullScreenAction/index.ts",
+                "src/components/Gallery/components/actions/index.ts",
+                "src/components/Gallery/components/views/DocumentView/DocumentView.tsx",
+                "src/components/Gallery/components/views/ImageView/ImageView.tsx",
+                "src/components/Gallery/components/views/VideoView/VideoView.tsx",
+                "src/components/Gallery/components/views/VideoView/i18n/index.ts",
+                "src/components/Gallery/constants.ts",
+                "src/components/Gallery/contexts/GalleryContext/GalleryContext.tsx",
+                "src/components/Gallery/contexts/GalleryContext/index.ts",
+                "src/components/Gallery/hooks/useFullScreen.ts",
+                "src/components/Gallery/hooks/useImageZoom/constants.ts",
+                "src/components/Gallery/hooks/useImageZoom/index.ts",
+                "src/components/Gallery/hooks/useImageZoom/types.ts",
+                "src/components/Gallery/hooks/useImageZoom/useImageZoom.ts",
+                "src/components/Gallery/hooks/useImageZoom/useImageZoomDesktop.ts",
+                "src/components/Gallery/hooks/useImageZoom/useImageZoomTouch.ts",
+                "src/components/Gallery/hooks/useImageZoom/utils.ts",
+                "src/components/Gallery/hooks/useLatest.ts",
+                "src/components/Gallery/hooks/useMobileGestures/constants.ts",
+                "src/components/Gallery/hooks/useMobileGestures/useMobileGestures.ts",
+                "src/components/Gallery/hooks/useMobileGestures/utils.ts",
+                "src/components/Gallery/hooks/useNavigation.ts",
+                "src/components/Gallery/i18n/index.ts",
+                "src/components/Gallery/index.ts",
+                "src/components/Gallery/utils/getGalleryItemCopyLinkAction.tsx",
+                "src/components/Gallery/utils/getGalleryItemDocument.tsx",
+                "src/components/Gallery/utils/getGalleryItemDownloadAction.tsx",
+                "src/components/Gallery/utils/getGalleryItemImage.tsx",
+                "src/components/Gallery/utils/getGalleryItemVideo.tsx",
+                "src/components/Gallery/utils/getMode.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Gallery/Gallery.scss",
+                "src/components/Gallery/components/DesktopGalleryHeader/DesktopGalleryHeader.scss",
+                "src/components/Gallery/components/FallbackText/FallbackText.scss",
+                "src/components/Gallery/components/MobileGalleryActions/MobileGalleryActions.scss",
+                "src/components/Gallery/components/MobileGalleryHeader/MobileGalleryHeader.scss",
+                "src/components/Gallery/components/NavigationButton/NavigationButton.scss",
+                "src/components/Gallery/components/views/DocumentView/DocumentView.scss",
+                "src/components/Gallery/components/views/ImageView/ImageView.scss",
+                "src/components/Gallery/components/views/VideoView/VideoView.scss",
+                "src/components/Gallery/variables.scss"
+              ]
+            },
+            {
+              "name": "InfiniteScroll",
+              "readme_path": "src/components/InfiniteScroll/README.md",
+              "source_paths": [
+                "src/components/InfiniteScroll/InfiniteScroll.tsx",
+                "src/components/InfiniteScroll/hooks/useOnIntersected.ts",
+                "src/components/InfiniteScroll/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/InfiniteScroll/InfiniteScroll.scss"
+              ]
+            },
+            {
+              "name": "ItemSelector",
+              "readme_path": "src/components/ItemSelector/README.md",
+              "source_paths": [
+                "src/components/ItemSelector/ItemSelector.tsx",
+                "src/components/ItemSelector/i18n/index.ts",
+                "src/components/ItemSelector/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/ItemSelector/ItemSelector.scss"
+              ]
+            },
+            {
+              "name": "Notifications",
+              "readme_path": "src/components/Notifications/README.md",
+              "source_paths": [
+                "src/components/Notifications/NotificationWrapper.tsx",
+                "src/components/Notifications/Notifications.tsx",
+                "src/components/Notifications/NotificationsEmptyState.tsx",
+                "src/components/Notifications/NotificationsErrorState.tsx",
+                "src/components/Notifications/NotificationsList.tsx",
+                "src/components/Notifications/NotificationsLoadingState.tsx",
+                "src/components/Notifications/NotificationsPopupWrapper.tsx",
+                "src/components/Notifications/definitions.ts",
+                "src/components/Notifications/i18n/index.ts",
+                "src/components/Notifications/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Notifications/Notifications.scss"
+              ]
+            }
+          ]
+        },
+        {
+          "batch_id": "components-batch-2",
+          "components": [
+            {
+              "name": "OnboardingMenu",
+              "readme_path": "src/components/OnboardingMenu/README.md",
+              "source_paths": [
+                "src/components/OnboardingMenu/OnboardingMenu.tsx",
+                "src/components/OnboardingMenu/components/OnboardingMenuItem.tsx",
+                "src/components/OnboardingMenu/components/OnboardingMenuItemImage.tsx",
+                "src/components/OnboardingMenu/components/OnboardingMenuItemText.tsx",
+                "src/components/OnboardingMenu/components/index.ts",
+                "src/components/OnboardingMenu/i18n/index.ts",
+                "src/components/OnboardingMenu/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/OnboardingMenu/OnboardingMenu.scss",
+                "src/components/OnboardingMenu/components/OnboardingMenuItem.scss"
+              ]
+            },
+            {
+              "name": "PromoSheet",
+              "readme_path": "src/components/PromoSheet/README.md",
+              "source_paths": [
+                "src/components/PromoSheet/PromoSheet.tsx",
+                "src/components/PromoSheet/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/PromoSheet/PromoSheet.scss"
+              ]
+            },
+            {
+              "name": "Reactions",
+              "readme_path": "src/components/Reactions/README.md",
+              "source_paths": [
+                "src/components/Reactions/Reaction.tsx",
+                "src/components/Reactions/Reactions.tsx",
+                "src/components/Reactions/ReactionsContainer.tsx",
+                "src/components/Reactions/context.ts",
+                "src/components/Reactions/hooks.ts",
+                "src/components/Reactions/i18n/index.ts",
+                "src/components/Reactions/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Reactions/Reactions.scss"
+              ]
+            },
+            {
+              "name": "SharePopover",
+              "readme_path": "src/components/SharePopover/README.md",
+              "source_paths": [
+                "src/components/SharePopover/ShareList/ShareList.tsx",
+                "src/components/SharePopover/ShareListItem/ShareListItem.tsx",
+                "src/components/SharePopover/SharePopover.tsx",
+                "src/components/SharePopover/constants.ts",
+                "src/components/SharePopover/i18n/index.ts",
+                "src/components/SharePopover/icons/Facebook.tsx",
+                "src/components/SharePopover/icons/LinkedIn.tsx",
+                "src/components/SharePopover/icons/Mail.tsx",
+                "src/components/SharePopover/icons/Telegram.tsx",
+                "src/components/SharePopover/icons/Twitter.tsx",
+                "src/components/SharePopover/icons/VK.tsx",
+                "src/components/SharePopover/icons/index.ts",
+                "src/components/SharePopover/index.ts",
+                "src/components/SharePopover/models.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/SharePopover/ShareList/ShareList.scss",
+                "src/components/SharePopover/ShareListItem/ShareListItem.scss",
+                "src/components/SharePopover/SharePopover.scss"
+              ]
+            },
+            {
+              "name": "StoreBadge",
+              "readme_path": "src/components/StoreBadge/README.md",
+              "source_paths": [
+                "src/components/StoreBadge/StoreBadge.tsx",
+                "src/components/StoreBadge/index.tsx"
+              ],
+              "story_paths": [],
+              "scss_paths": []
+            },
+            {
+              "name": "Stories",
+              "readme_path": "src/components/Stories/README.md",
+              "source_paths": [
+                "src/components/Stories/Stories.tsx",
+                "src/components/Stories/components/ImageView/ImageView.tsx",
+                "src/components/Stories/components/MediaRenderer/MediaRenderer.tsx",
+                "src/components/Stories/components/StoriesLayout/StoriesLayout.tsx",
+                "src/components/Stories/components/VideoView/VideoView.tsx",
+                "src/components/Stories/components/index.ts",
+                "src/components/Stories/hooks/index.ts",
+                "src/components/Stories/hooks/useSyncWithLS/index.ts",
+                "src/components/Stories/hooks/useSyncWithLS/useSyncWithLS.ts",
+                "src/components/Stories/i18n/index.ts",
+                "src/components/Stories/index.ts",
+                "src/components/Stories/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Stories/Stories.scss",
+                "src/components/Stories/components/ImageView/ImageView.scss",
+                "src/components/Stories/components/StoriesLayout/StoriesLayout.scss",
+                "src/components/Stories/components/VideoView/VideoView.scss"
+              ]
+            },
+            {
+              "name": "StoriesGroup",
+              "readme_path": "src/components/StoriesGroup/README.md",
+              "source_paths": [
+                "src/components/StoriesGroup/StoriesGroup.tsx",
+                "src/components/StoriesGroup/components/StoriesPreview/StoriesPreview.tsx",
+                "src/components/StoriesGroup/components/index.ts",
+                "src/components/StoriesGroup/index.ts",
+                "src/components/StoriesGroup/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/StoriesGroup/StoriesGroup.scss",
+                "src/components/StoriesGroup/components/StoriesPreview/StoriesPreview.scss"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "library": "dashkit",
+      "git_sha": "a0a8278c9e57",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "data-source",
+      "git_sha": "70d7d921c5ee",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "date-components",
+      "git_sha": "cc274ed19037",
+      "changed": false,
+      "batches": [
+        {
+          "batch_id": "date-components-batch-1",
+          "components": [
+            {
+              "name": "Calendar",
+              "readme_path": "src/components/Calendar/README.md",
+              "source_paths": [
+                "src/components/Calendar/Calendar.tsx",
+                "src/components/Calendar/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": []
+            },
+            {
+              "name": "DateField",
+              "readme_path": "src/components/DateField/README.md",
+              "source_paths": [
+                "src/components/DateField/DateField.tsx",
+                "src/components/DateField/IncompleteDate.ts",
+                "src/components/DateField/hooks/useBaseDateFieldState.ts",
+                "src/components/DateField/hooks/useDateFieldProps.ts",
+                "src/components/DateField/hooks/useDateFieldState.ts",
+                "src/components/DateField/hooks/useFocusManager.ts",
+                "src/components/DateField/hooks/useRangeDateFieldState.ts",
+                "src/components/DateField/i18n/index.ts",
+                "src/components/DateField/index.ts",
+                "src/components/DateField/types.ts",
+                "src/components/DateField/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/DateField/DateField.scss"
+              ]
+            },
+            {
+              "name": "DatePicker",
+              "readme_path": "src/components/DatePicker/README.md",
+              "source_paths": [
+                "src/components/DatePicker/DatePicker.tsx",
+                "src/components/DatePicker/MobileCalendar.tsx",
+                "src/components/DatePicker/StubButton.tsx",
+                "src/components/DatePicker/hooks/datePickerStateFactory.ts",
+                "src/components/DatePicker/hooks/useDatePickerProps.ts",
+                "src/components/DatePicker/hooks/useDatePickerState.ts",
+                "src/components/DatePicker/i18n/index.ts",
+                "src/components/DatePicker/index.ts",
+                "src/components/DatePicker/utils/cn.ts",
+                "src/components/DatePicker/utils/getCalendarModes.ts",
+                "src/components/DatePicker/utils/getDateTimeValue.ts",
+                "src/components/DatePicker/utils/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/DatePicker/DatePicker.scss",
+                "src/components/DatePicker/MobileCalendar.scss",
+                "src/components/DatePicker/StubButton.scss"
+              ]
+            },
+            {
+              "name": "RangeCalendar",
+              "readme_path": "src/components/RangeCalendar/README.md",
+              "source_paths": [
+                "src/components/RangeCalendar/RangeCalendar.tsx",
+                "src/components/RangeCalendar/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": []
+            },
+            {
+              "name": "RelativeDateField",
+              "readme_path": "src/components/RelativeDateField/README.md",
+              "source_paths": [
+                "src/components/RelativeDateField/RelativeDateField.tsx",
+                "src/components/RelativeDateField/hooks/useRelativeDateFieldProps.ts",
+                "src/components/RelativeDateField/hooks/useRelativeDateFieldState.ts",
+                "src/components/RelativeDateField/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/RelativeDateField/RelativeDateField.scss"
+              ]
+            },
+            {
+              "name": "RelativeDatePicker",
+              "readme_path": "src/components/RelativeDatePicker/README.md",
+              "source_paths": [
+                "src/components/RelativeDatePicker/RelativeDatePicker.tsx",
+                "src/components/RelativeDatePicker/hooks/useRelativeDatePickerProps.ts",
+                "src/components/RelativeDatePicker/hooks/useRelativeDatePickerState.ts",
+                "src/components/RelativeDatePicker/i18n/index.ts",
+                "src/components/RelativeDatePicker/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/RelativeDatePicker/RelativeDatePicker.scss"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "library": "date-utils",
+      "git_sha": "8c3af50da17f",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "dialog-fields",
+      "git_sha": "697b803abb8f",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "dynamic-forms",
+      "git_sha": "1d0193ce9bf3",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "eslint-config",
+      "git_sha": "0a1b752f2a84",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "expresskit",
+      "git_sha": "9ece5a0642e8",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "graph",
+      "git_sha": "080bbbd01ca3",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "i18n",
+      "git_sha": "37cfcdc0568b",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "icons",
+      "git_sha": "f1cfd13a7d82",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "illustrations",
+      "git_sha": "eaf4bf392da2",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "landing",
+      "git_sha": "d0ca6f443886",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "markdown-editor",
+      "git_sha": "a1c5ac17cd6b",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "navigation",
+      "git_sha": "b390fe4b66d7",
+      "changed": false,
+      "batches": [
+        {
+          "batch_id": "navigation-batch-1",
+          "components": [
+            {
+              "name": "ActionBar",
+              "readme_path": "src/components/ActionBar/README.md",
+              "source_paths": [
+                "src/components/ActionBar/ActionBar.tsx",
+                "src/components/ActionBar/Group/ActionBarGroup.tsx",
+                "src/components/ActionBar/Item/ActionBarItem.tsx",
+                "src/components/ActionBar/Section/ActionBarSection.tsx",
+                "src/components/ActionBar/Separator/ActionBarSeparator.tsx",
+                "src/components/ActionBar/index.ts",
+                "src/components/ActionBar/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/ActionBar/ActionBar.module.scss",
+                "src/components/ActionBar/Group/ActionBarGroup.module.scss",
+                "src/components/ActionBar/Item/ActionBarItem.module.scss",
+                "src/components/ActionBar/Section/ActionBarSection.module.scss",
+                "src/components/ActionBar/Separator/ActionBarSeparator.module.scss",
+                "src/components/ActionBar/mixins/list-item.scss",
+                "src/components/ActionBar/mixins/pull.scss",
+                "src/components/ActionBar/variables.scss"
+              ]
+            },
+            {
+              "name": "AsideHeader",
+              "readme_path": "src/components/AsideHeader/README.md",
+              "source_paths": [
+                "src/components/AsideHeader/AsideHeader.tsx",
+                "src/components/AsideHeader/AsideHeaderContext.ts",
+                "src/components/AsideHeader/FooterLayoutContext.ts",
+                "src/components/AsideHeader/components/AllPagesPanel/AllPagesPanel.tsx",
+                "src/components/AsideHeader/components/AllPagesPanel/constants.ts",
+                "src/components/AsideHeader/components/AllPagesPanel/i18n/index.ts",
+                "src/components/AsideHeader/components/AllPagesPanel/index.ts",
+                "src/components/AsideHeader/components/AllPagesPanel/useGroupedMenuItems.ts",
+                "src/components/AsideHeader/components/AllPagesPanel/utils/buildExpandedFromFlatList.ts",
+                "src/components/AsideHeader/components/AllPagesPanel/utils/getExpandedIndexForSortableIndex.ts",
+                "src/components/AsideHeader/components/AllPagesPanel/utils/getIsMenuItem.ts",
+                "src/components/AsideHeader/components/AllPagesPanel/utils/getRealIndexInGroup.ts",
+                "src/components/AsideHeader/components/AllPagesPanel/utils/sortMenuItemsWithDividers.ts",
+                "src/components/AsideHeader/components/CollapseButton/CollapseButton.tsx",
+                "src/components/AsideHeader/components/CompositeBar/CompositeBar.tsx",
+                "src/components/AsideHeader/components/CompositeBar/HighlightedItem/HighlightedItem.tsx",
+                "src/components/AsideHeader/components/CompositeBar/Item/Item.tsx",
+                "src/components/AsideHeader/components/CompositeBar/ScrollableWithScrollbar/ScrollableWithScrollbar.tsx",
+                "src/components/AsideHeader/components/CompositeBar/ScrollableWithScrollbar/index.ts",
+                "src/components/AsideHeader/components/CompositeBar/ScrollableWithScrollbar/useScrollbar.ts",
+                "src/components/AsideHeader/components/CompositeBar/constants.ts",
+                "src/components/AsideHeader/components/CompositeBar/index.ts",
+                "src/components/AsideHeader/components/CompositeBar/utils.ts",
+                "src/components/AsideHeader/components/FirstPanel.tsx",
+                "src/components/AsideHeader/components/FooterBar/FooterBar.tsx",
+                "src/components/AsideHeader/components/FooterBar/constants.ts",
+                "src/components/AsideHeader/components/FooterBar/index.ts",
+                "src/components/AsideHeader/components/FooterItem/FooterItem.tsx",
+                "src/components/AsideHeader/components/Header.tsx",
+                "src/components/AsideHeader/components/PageLayout/AsideFallback.tsx",
+                "src/components/AsideHeader/components/PageLayout/PageLayout.tsx",
+                "src/components/AsideHeader/components/PageLayout/PageLayoutAside.tsx",
+                "src/components/AsideHeader/components/Panels.tsx",
+                "src/components/AsideHeader/components/index.ts",
+                "src/components/AsideHeader/hooks/useDelayedToggle.ts",
+                "src/components/AsideHeader/hooks/useIsExpanded.ts",
+                "src/components/AsideHeader/i18n/index.ts",
+                "src/components/AsideHeader/index.ts",
+                "src/components/AsideHeader/types.tsx",
+                "src/components/AsideHeader/useAsideHeaderInnerContextValue.tsx",
+                "src/components/AsideHeader/utils.ts",
+                "src/components/AsideHeader/utils/getGroupHeight.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/AsideHeader/AsideHeader.module.scss",
+                "src/components/AsideHeader/components/AllPagesPanel/AllPagesPanel.module.scss",
+                "src/components/AsideHeader/components/CollapseButton/CollapseButton.module.scss",
+                "src/components/AsideHeader/components/CompositeBar/CompositeBar.module.scss",
+                "src/components/AsideHeader/components/CompositeBar/HighlightedItem/HighlightedItem.module.scss",
+                "src/components/AsideHeader/components/CompositeBar/Item/Item.module.scss",
+                "src/components/AsideHeader/components/CompositeBar/ScrollableWithScrollbar/ScrollableWithScrollbar.module.scss",
+                "src/components/AsideHeader/components/FooterBar/FooterBar.module.scss",
+                "src/components/AsideHeader/components/FooterItem/FooterItem.module.scss"
+              ]
+            },
+            {
+              "name": "Footer",
+              "readme_path": "src/components/Footer/README.md",
+              "source_paths": [
+                "src/components/Footer/MenuItem/MenuItem.tsx",
+                "src/components/Footer/desktop/Footer.tsx",
+                "src/components/Footer/desktop/constants/moreItemsPopupProps.ts",
+                "src/components/Footer/desktop/index.ts",
+                "src/components/Footer/index.ts",
+                "src/components/Footer/mobile/Footer.tsx",
+                "src/components/Footer/mobile/index.ts",
+                "src/components/Footer/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Footer/MenuItem/MenuItem.module.scss",
+                "src/components/Footer/desktop/Footer.module.scss",
+                "src/components/Footer/mobile/Footer.module.scss"
+              ]
+            },
+            {
+              "name": "HotkeysPanel",
+              "readme_path": "src/components/HotkeysPanel/README.md",
+              "source_paths": [
+                "src/components/HotkeysPanel/HotkeysPanel.tsx",
+                "src/components/HotkeysPanel/index.ts",
+                "src/components/HotkeysPanel/types.ts",
+                "src/components/HotkeysPanel/utils/filterHotkeys.ts",
+                "src/components/HotkeysPanel/utils/flattenHotkeyGroups.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/HotkeysPanel/HotkeysPanel.module.scss"
+              ]
+            },
+            {
+              "name": "Logo",
+              "readme_path": "src/components/Logo/README.md",
+              "source_paths": [
+                "src/components/Logo/Logo.tsx",
+                "src/components/Logo/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Logo/Logo.module.scss"
+              ]
+            },
+            {
+              "name": "MobileHeader",
+              "readme_path": "src/components/MobileHeader/README.md",
+              "source_paths": [
+                "src/components/MobileHeader/Burger/Burger.tsx",
+                "src/components/MobileHeader/BurgerMenu/BurgerCompositeBar/BurgerCompositeBar.tsx",
+                "src/components/MobileHeader/BurgerMenu/BurgerMenu.tsx",
+                "src/components/MobileHeader/FooterItem/FooterItem.tsx",
+                "src/components/MobileHeader/MobileHeader.tsx",
+                "src/components/MobileHeader/OverlapPanel/OverlapPanel.tsx",
+                "src/components/MobileHeader/constants.ts",
+                "src/components/MobileHeader/i18n/index.ts",
+                "src/components/MobileHeader/index.ts",
+                "src/components/MobileHeader/types.ts",
+                "src/components/MobileHeader/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/MobileHeader/Burger/Burger.module.scss",
+                "src/components/MobileHeader/BurgerMenu/BurgerCompositeBar/BurgerCompositeBar.module.scss",
+                "src/components/MobileHeader/BurgerMenu/BurgerMenu.module.scss",
+                "src/components/MobileHeader/FooterItem/FooterItem.module.scss",
+                "src/components/MobileHeader/MobileHeader.module.scss",
+                "src/components/MobileHeader/OverlapPanel/OverlapPanel.module.scss"
+              ]
+            },
+            {
+              "name": "Settings",
+              "readme_path": "src/components/Settings/README.md",
+              "source_paths": [
+                "src/components/Settings/Selection/context.ts",
+                "src/components/Settings/Selection/index.ts",
+                "src/components/Settings/Selection/types.ts",
+                "src/components/Settings/Selection/utils.ts",
+                "src/components/Settings/Settings.tsx",
+                "src/components/Settings/SettingsContext/SettingsContext.tsx",
+                "src/components/Settings/SettingsContext/types.ts",
+                "src/components/Settings/SettingsContext/useSettingsContext.tsx",
+                "src/components/Settings/SettingsMenu/SettingsMenu.tsx",
+                "src/components/Settings/SettingsMenuMobile/SettingsMenuMobile.tsx",
+                "src/components/Settings/SettingsPage/SettingsPageComponent.tsx",
+                "src/components/Settings/SettingsPage/getPageTitleById.tsx",
+                "src/components/Settings/SettingsRow/SettingsRow.tsx",
+                "src/components/Settings/SettingsRow/prepareTitle.tsx",
+                "src/components/Settings/SettingsSearch/AllResultsPage.tsx",
+                "src/components/Settings/SettingsSearch/SettingsSearch.tsx",
+                "src/components/Settings/SettingsSection.tsx",
+                "src/components/Settings/b.tsx",
+                "src/components/Settings/collect-settings.ts",
+                "src/components/Settings/helpers.ts",
+                "src/components/Settings/i18n/index.ts",
+                "src/components/Settings/index.ts",
+                "src/components/Settings/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Settings/Settings.module.scss",
+                "src/components/Settings/SettingsMenu/SettingsMenu.module.scss",
+                "src/components/Settings/SettingsMenuMobile/SettingsMenuMobile.module.scss"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "library": "nodekit",
+      "git_sha": "a4307fa70af0",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "page-constructor",
+      "git_sha": "7adfbdcaa50d",
+      "changed": false,
+      "batches": [
+        {
+          "batch_id": "page-constructor-batch-1",
+          "components": [
+            {
+              "name": "Button",
+              "readme_path": "src/components/Button/README.md",
+              "source_paths": [
+                "src/components/Button/Button.tsx",
+                "src/components/Button/i18n/index.ts",
+                "src/components/Button/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Button/Button.scss"
+              ]
+            },
+            {
+              "name": "ErrorWrapper",
+              "readme_path": "src/components/ErrorWrapper/README.md",
+              "source_paths": [
+                "src/components/ErrorWrapper/ErrorWrapper.tsx"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/ErrorWrapper/ErrorWrapper.scss"
+              ]
+            },
+            {
+              "name": "Link",
+              "readme_path": "src/components/Link/README.md",
+              "source_paths": [
+                "src/components/Link/Link.tsx"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Link/Link.scss"
+              ]
+            },
+            {
+              "name": "Map",
+              "readme_path": "src/components/Map/README.md",
+              "source_paths": [
+                "src/components/Map/GoogleMap.tsx",
+                "src/components/Map/Map.tsx",
+                "src/components/Map/YMap/YMap.ts",
+                "src/components/Map/YMap/YandexMap.tsx",
+                "src/components/Map/YMap/YandexMapApiLoader.ts",
+                "src/components/Map/YMap/i18n/index.ts",
+                "src/components/Map/YMap/utils.ts",
+                "src/components/Map/helpers.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Map/Map.scss"
+              ]
+            },
+            {
+              "name": "Table",
+              "readme_path": "src/components/Table/README.md",
+              "source_paths": [
+                "src/components/Table/Table.tsx"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Table/Table.scss"
+              ]
+            },
+            {
+              "name": "Title",
+              "readme_path": "src/components/Title/README.md",
+              "source_paths": [
+                "src/components/Title/Title.tsx",
+                "src/components/Title/TitleItem.tsx"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Title/Title.scss",
+                "src/components/Title/TitleItem.scss"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "library": "page-constructor-builder",
+      "git_sha": "aa99602e5d5c",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "prettier-config",
+      "git_sha": "7d8951a4508a",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "stylelint-config",
+      "git_sha": "17a3a0d704ae",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "table",
+      "git_sha": "f24f2841c89a",
+      "changed": false,
+      "batches": [
+        {
+          "batch_id": "table-batch-1",
+          "components": [
+            {
+              "name": "BaseTable",
+              "readme_path": "src/components/BaseTable/README.md",
+              "source_paths": [
+                "src/components/BaseTable/BaseTable.classname.ts",
+                "src/components/BaseTable/BaseTable.tsx",
+                "src/components/BaseTable/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/BaseTable/BaseTable.scss"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "library": "timeline",
+      "git_sha": "af2f71a7ad87",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "tsconfig",
+      "git_sha": "a5a9aeeab52b",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "uikit",
+      "git_sha": "0858ec4eedce",
+      "changed": false,
+      "batches": [
+        {
+          "batch_id": "uikit-batch-1",
+          "components": [
+            {
+              "name": "Accordion",
+              "readme_path": "src/components/Accordion/README.md",
+              "source_paths": [
+                "src/components/Accordion/Accordion.tsx",
+                "src/components/Accordion/AccordionContext.tsx",
+                "src/components/Accordion/AccordionItem/AccordionItem.tsx",
+                "src/components/Accordion/AccordionSummary/AccordionSummary.tsx",
+                "src/components/Accordion/constants.ts",
+                "src/components/Accordion/i18n/index.ts",
+                "src/components/Accordion/index.ts",
+                "src/components/Accordion/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Accordion/Accordion.scss",
+                "src/components/Accordion/AccordionItem/AccordionItem.scss",
+                "src/components/Accordion/AccordionSummary/AccordionSummary.scss"
+              ]
+            },
+            {
+              "name": "ActionsPanel",
+              "readme_path": "src/components/ActionsPanel/README.md",
+              "source_paths": [
+                "src/components/ActionsPanel/ActionsPanel.tsx",
+                "src/components/ActionsPanel/components/CollapseActions.tsx",
+                "src/components/ActionsPanel/components/hooks/index.ts",
+                "src/components/ActionsPanel/components/hooks/types.ts",
+                "src/components/ActionsPanel/components/hooks/useCollapseActions.ts",
+                "src/components/ActionsPanel/components/hooks/useDropdownActions.ts",
+                "src/components/ActionsPanel/components/hooks/useObserveIntersection.ts",
+                "src/components/ActionsPanel/i18n/index.ts",
+                "src/components/ActionsPanel/index.ts",
+                "src/components/ActionsPanel/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/ActionsPanel/ActionsPanel.scss",
+                "src/components/ActionsPanel/components/CollapseActions.scss"
+              ]
+            },
+            {
+              "name": "ActionTooltip",
+              "readme_path": "src/components/ActionTooltip/README.md",
+              "source_paths": [
+                "src/components/ActionTooltip/ActionTooltip.tsx",
+                "src/components/ActionTooltip/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/ActionTooltip/ActionTooltip.scss"
+              ]
+            },
+            {
+              "name": "Alert",
+              "readme_path": "src/components/Alert/README.md",
+              "source_paths": [
+                "src/components/Alert/Alert.test.tsx",
+                "src/components/Alert/Alert.tsx",
+                "src/components/Alert/AlertAction.tsx",
+                "src/components/Alert/AlertActions.tsx",
+                "src/components/Alert/AlertContext.tsx",
+                "src/components/Alert/AlertContextProvider.tsx",
+                "src/components/Alert/AlertIcon.tsx",
+                "src/components/Alert/AlertTitle.tsx",
+                "src/components/Alert/constants.ts",
+                "src/components/Alert/i18n/index.ts",
+                "src/components/Alert/index.ts",
+                "src/components/Alert/types.ts",
+                "src/components/Alert/useAlertContext.tsx"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Alert/Alert.scss"
+              ]
+            },
+            {
+              "name": "ArrowToggle",
+              "readme_path": "src/components/ArrowToggle/README.md",
+              "source_paths": [
+                "src/components/ArrowToggle/ArrowToggle.tsx",
+                "src/components/ArrowToggle/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/ArrowToggle/ArrowToggle.scss"
+              ]
+            },
+            {
+              "name": "Avatar",
+              "readme_path": "src/components/Avatar/README.md",
+              "source_paths": [
+                "src/components/Avatar/Avatar.tsx",
+                "src/components/Avatar/AvatarIcon/AvatarIcon.tsx",
+                "src/components/Avatar/AvatarIcon/index.ts",
+                "src/components/Avatar/AvatarIcon/types.ts",
+                "src/components/Avatar/AvatarImage/AvatarImage.tsx",
+                "src/components/Avatar/AvatarImage/index.ts",
+                "src/components/Avatar/AvatarImage/types.ts",
+                "src/components/Avatar/AvatarText/AvatarText.tsx",
+                "src/components/Avatar/AvatarText/index.ts",
+                "src/components/Avatar/AvatarText/types.ts",
+                "src/components/Avatar/AvatarText/utils.ts",
+                "src/components/Avatar/constants.ts",
+                "src/components/Avatar/index.ts",
+                "src/components/Avatar/types/common.ts",
+                "src/components/Avatar/types/main.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Avatar/Avatar.scss",
+                "src/components/Avatar/_variables.scss"
+              ]
+            },
+            {
+              "name": "AvatarStack",
+              "readme_path": "src/components/AvatarStack/README.md",
+              "source_paths": [
+                "src/components/AvatarStack/AvatarStack.tsx",
+                "src/components/AvatarStack/AvatarStackItem.tsx",
+                "src/components/AvatarStack/AvatarStackMore.tsx",
+                "src/components/AvatarStack/AvatarStackMoreButton.tsx",
+                "src/components/AvatarStack/constants.ts",
+                "src/components/AvatarStack/i18n/index.ts",
+                "src/components/AvatarStack/index.ts",
+                "src/components/AvatarStack/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/AvatarStack/AvatarStack.scss"
+              ]
+            },
+            {
+              "name": "Breadcrumbs",
+              "readme_path": "src/components/Breadcrumbs/README.md",
+              "source_paths": [
+                "src/components/Breadcrumbs/Breadcrumbs.tsx",
+                "src/components/Breadcrumbs/BreadcrumbsDropdownMenu.tsx",
+                "src/components/Breadcrumbs/BreadcrumbsItem.tsx",
+                "src/components/Breadcrumbs/BreadcrumbsSeparator.tsx",
+                "src/components/Breadcrumbs/i18n/index.ts",
+                "src/components/Breadcrumbs/index.ts",
+                "src/components/Breadcrumbs/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Breadcrumbs/Breadcrumbs.scss"
+              ]
+            },
+            {
+              "name": "Button",
+              "readme_path": "src/components/Button/README.md",
+              "source_paths": [
+                "src/components/Button/Button.tsx",
+                "src/components/Button/ButtonIcon.tsx",
+                "src/components/Button/constants.ts",
+                "src/components/Button/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Button/Button.scss"
+              ]
+            },
+            {
+              "name": "Card",
+              "readme_path": "src/components/Card/README.md",
+              "source_paths": [
+                "src/components/Card/Card.tsx",
+                "src/components/Card/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Card/Card.scss"
+              ]
+            }
+          ]
+        },
+        {
+          "batch_id": "uikit-batch-2",
+          "components": [
+            {
+              "name": "Checkbox",
+              "readme_path": "src/components/Checkbox/README.md",
+              "source_paths": [
+                "src/components/Checkbox/Checkbox.tsx",
+                "src/components/Checkbox/CheckboxDashIcon.tsx",
+                "src/components/Checkbox/CheckboxTickIcon.tsx",
+                "src/components/Checkbox/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Checkbox/Checkbox.scss"
+              ]
+            },
+            {
+              "name": "ClipboardButton",
+              "readme_path": "src/components/ClipboardButton/README.md",
+              "source_paths": [
+                "src/components/ClipboardButton/ClipboardButton.tsx",
+                "src/components/ClipboardButton/i18n/index.ts",
+                "src/components/ClipboardButton/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/ClipboardButton/ClipboardButton.scss"
+              ]
+            },
+            {
+              "name": "ClipboardIcon",
+              "readme_path": "src/components/ClipboardIcon/README.md",
+              "source_paths": [
+                "src/components/ClipboardIcon/ClipboardIcon.tsx",
+                "src/components/ClipboardIcon/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": []
+            },
+            {
+              "name": "CopyToClipboard",
+              "readme_path": "src/components/CopyToClipboard/README.md",
+              "source_paths": [
+                "src/components/CopyToClipboard/CopyToClipboard.tsx",
+                "src/components/CopyToClipboard/copyText.ts",
+                "src/components/CopyToClipboard/index.ts",
+                "src/components/CopyToClipboard/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": []
+            },
+            {
+              "name": "DefinitionList",
+              "readme_path": "src/components/DefinitionList/README.md",
+              "source_paths": [
+                "src/components/DefinitionList/DefinitionList.tsx",
+                "src/components/DefinitionList/components/DefinitionContent.tsx",
+                "src/components/DefinitionList/components/DefinitionListContext.tsx",
+                "src/components/DefinitionList/components/DefinitionListItem.tsx",
+                "src/components/DefinitionList/components/TermContent.tsx",
+                "src/components/DefinitionList/constants.ts",
+                "src/components/DefinitionList/i18n/index.ts",
+                "src/components/DefinitionList/index.ts",
+                "src/components/DefinitionList/types.ts",
+                "src/components/DefinitionList/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/DefinitionList/DefinitionList.scss"
+              ]
+            },
+            {
+              "name": "Dialog",
+              "readme_path": "src/components/Dialog/README.md",
+              "source_paths": [
+                "src/components/Dialog/ButtonClose/ButtonClose.tsx",
+                "src/components/Dialog/Dialog.tsx",
+                "src/components/Dialog/DialogBody/DialogBody.tsx",
+                "src/components/Dialog/DialogDivider/DialogDivider.tsx",
+                "src/components/Dialog/DialogFooter/DialogFooter.tsx",
+                "src/components/Dialog/DialogHeader/DialogHeader.tsx",
+                "src/components/Dialog/DialogPrivateContext.ts",
+                "src/components/Dialog/i18n/index.ts",
+                "src/components/Dialog/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Dialog/ButtonClose/ButtonClose.scss",
+                "src/components/Dialog/Dialog.scss",
+                "src/components/Dialog/DialogBody/DialogBody.scss",
+                "src/components/Dialog/DialogDivider/DialogDivider.scss",
+                "src/components/Dialog/DialogFooter/DialogFooter.scss",
+                "src/components/Dialog/DialogHeader/DialogHeader.scss",
+                "src/components/Dialog/variables.scss"
+              ]
+            },
+            {
+              "name": "Disclosure",
+              "readme_path": "src/components/Disclosure/README.md",
+              "source_paths": [
+                "src/components/Disclosure/Disclosure.tsx",
+                "src/components/Disclosure/DisclosureContext.tsx",
+                "src/components/Disclosure/DisclosureDetails/DisclosureDetails.tsx",
+                "src/components/Disclosure/DisclosureSummary/DisclosureSummary.tsx",
+                "src/components/Disclosure/constants.ts",
+                "src/components/Disclosure/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Disclosure/Disclosure.scss"
+              ]
+            },
+            {
+              "name": "Divider",
+              "readme_path": "src/components/Divider/README.md",
+              "source_paths": [
+                "src/components/Divider/Divider.tsx",
+                "src/components/Divider/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Divider/Divider.scss"
+              ]
+            },
+            {
+              "name": "Drawer",
+              "readme_path": "src/components/Drawer/README.md",
+              "source_paths": [
+                "src/components/Drawer/components/Drawer.tsx",
+                "src/components/Drawer/components/DrawerItem.tsx",
+                "src/components/Drawer/constants.ts",
+                "src/components/Drawer/hooks/useResizableDrawerItem.ts",
+                "src/components/Drawer/hooks/useResizeHandlers.ts",
+                "src/components/Drawer/i18n/index.ts",
+                "src/components/Drawer/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Drawer/components/Drawer.scss"
+              ]
+            },
+            {
+              "name": "DropdownMenu",
+              "readme_path": "src/components/DropdownMenu/README.md",
+              "source_paths": [
+                "src/components/DropdownMenu/DropdownMenu.classname.ts",
+                "src/components/DropdownMenu/DropdownMenu.test.tsx",
+                "src/components/DropdownMenu/DropdownMenu.tsx",
+                "src/components/DropdownMenu/DropdownMenuContext.ts",
+                "src/components/DropdownMenu/DropdownMenuItem.tsx",
+                "src/components/DropdownMenu/DropdownMenuNavigationContext.tsx",
+                "src/components/DropdownMenu/DropdownMenuPopup.tsx",
+                "src/components/DropdownMenu/constants.ts",
+                "src/components/DropdownMenu/hooks/usePopupVisibility.ts",
+                "src/components/DropdownMenu/hooks/useScrollHandler.ts",
+                "src/components/DropdownMenu/hooks/useSubmenu.ts",
+                "src/components/DropdownMenu/index.ts",
+                "src/components/DropdownMenu/types.ts",
+                "src/components/DropdownMenu/utils/isMenuActive.ts",
+                "src/components/DropdownMenu/utils/isSeparator.ts",
+                "src/components/DropdownMenu/utils/isSubmenuOpen.ts",
+                "src/components/DropdownMenu/utils/shouldSkipItemNavigation.ts",
+                "src/components/DropdownMenu/utils/stringifyNavigationPath.ts",
+                "src/components/DropdownMenu/utils/toItemList.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/DropdownMenu/DropdownMenu.scss"
+              ]
+            }
+          ]
+        },
+        {
+          "batch_id": "uikit-batch-3",
+          "components": [
+            {
+              "name": "FilePreview",
+              "readme_path": "src/components/FilePreview/README.md",
+              "source_paths": [
+                "src/components/FilePreview/FilePreview.tsx",
+                "src/components/FilePreview/FilePreviewActions/DesktopActionsMenu/DesktopActionsMenu.tsx",
+                "src/components/FilePreview/FilePreviewActions/FilePreviewActions.tsx",
+                "src/components/FilePreview/FilePreviewActions/MobileActionsMenu/MobileActionsMenu.tsx",
+                "src/components/FilePreview/i18n/index.ts",
+                "src/components/FilePreview/index.ts",
+                "src/components/FilePreview/types.ts",
+                "src/components/FilePreview/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/FilePreview/FilePreview.scss",
+                "src/components/FilePreview/FilePreviewActions/DesktopActionsMenu/DesktopActionsMenu.scss",
+                "src/components/FilePreview/FilePreviewActions/MobileActionsMenu/MobileActionsMenu.scss",
+                "src/components/FilePreview/variables.scss"
+              ]
+            },
+            {
+              "name": "HelpMark",
+              "readme_path": "src/components/HelpMark/README.md",
+              "source_paths": [
+                "src/components/HelpMark/HelpMark.tsx",
+                "src/components/HelpMark/constants.ts",
+                "src/components/HelpMark/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/HelpMark/HelpMark.scss"
+              ]
+            },
+            {
+              "name": "Hotkey",
+              "readme_path": "src/components/Hotkey/README.md",
+              "source_paths": [
+                "src/components/Hotkey/Hotkey.tsx",
+                "src/components/Hotkey/definitions.ts",
+                "src/components/Hotkey/index.ts",
+                "src/components/Hotkey/parse.ts",
+                "src/components/Hotkey/types.ts",
+                "src/components/Hotkey/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Hotkey/Hotkey.scss"
+              ]
+            },
+            {
+              "name": "Icon",
+              "readme_path": "src/components/Icon/README.md",
+              "source_paths": [
+                "src/components/Icon/Icon.tsx",
+                "src/components/Icon/index.ts",
+                "src/components/Icon/types.ts",
+                "src/components/Icon/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Icon/Icon.scss"
+              ]
+            },
+            {
+              "name": "Label",
+              "readme_path": "src/components/Label/README.md",
+              "source_paths": [
+                "src/components/Label/Label.tsx",
+                "src/components/Label/constants.ts",
+                "src/components/Label/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Label/Label.scss"
+              ]
+            },
+            {
+              "name": "Link",
+              "readme_path": "src/components/Link/README.md",
+              "source_paths": [
+                "src/components/Link/Link.tsx",
+                "src/components/Link/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Link/Link.scss"
+              ]
+            },
+            {
+              "name": "List",
+              "readme_path": "src/components/List/README.md",
+              "source_paths": [
+                "src/components/List/List.tsx",
+                "src/components/List/ListLoadingIndicator.tsx",
+                "src/components/List/components/ListItem.tsx",
+                "src/components/List/components/SimpleContainer.tsx",
+                "src/components/List/components/VariableSizeListElementType.tsx",
+                "src/components/List/components/index.ts",
+                "src/components/List/constants.ts",
+                "src/components/List/index.tsx",
+                "src/components/List/types.ts",
+                "src/components/List/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/List/List.scss"
+              ]
+            },
+            {
+              "name": "Loader",
+              "readme_path": "src/components/Loader/README.md",
+              "source_paths": [
+                "src/components/Loader/Loader.tsx",
+                "src/components/Loader/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Loader/Loader.scss"
+              ]
+            },
+            {
+              "name": "Menu",
+              "readme_path": "src/components/Menu/README.md",
+              "source_paths": [
+                "src/components/Menu/Menu.tsx",
+                "src/components/Menu/MenuGroup.tsx",
+                "src/components/Menu/MenuItem.tsx",
+                "src/components/Menu/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Menu/Menu.scss"
+              ]
+            },
+            {
+              "name": "Modal",
+              "readme_path": "src/components/Modal/README.md",
+              "source_paths": [
+                "src/components/Modal/Modal.tsx",
+                "src/components/Modal/i18n/index.ts",
+                "src/components/Modal/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Modal/Modal.scss"
+              ]
+            }
+          ]
+        },
+        {
+          "batch_id": "uikit-batch-4",
+          "components": [
+            {
+              "name": "NumberInput",
+              "readme_path": "src/components/NumberInput/README.md",
+              "source_paths": [
+                "src/components/NumberInput/NumberInput.tsx",
+                "src/components/NumberInput/NumericArrows/NumericArrows.tsx",
+                "src/components/NumberInput/i18n/index.ts",
+                "src/components/NumberInput/index.ts",
+                "src/components/NumberInput/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/NumberInput/NumberInput.scss",
+                "src/components/NumberInput/NumericArrows/NumericArrows.scss"
+              ]
+            },
+            {
+              "name": "Overlay",
+              "readme_path": "src/components/Overlay/README.md",
+              "source_paths": [
+                "src/components/Overlay/Overlay.tsx",
+                "src/components/Overlay/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Overlay/Overlay.scss"
+              ]
+            },
+            {
+              "name": "Pagination",
+              "readme_path": "src/components/Pagination/README.md",
+              "source_paths": [
+                "src/components/Pagination/Pagination.tsx",
+                "src/components/Pagination/components/PaginationButton/PaginationButton.tsx",
+                "src/components/Pagination/components/PaginationEllipsis/PaginationEllipsis.tsx",
+                "src/components/Pagination/components/PaginationInput/PaginationInput.tsx",
+                "src/components/Pagination/components/PaginationPage/PaginationPage.tsx",
+                "src/components/Pagination/components/PaginationPageOf/PaginationPageOf.tsx",
+                "src/components/Pagination/components/PaginationPageSizer/PaginationPageSizer.tsx",
+                "src/components/Pagination/components/index.ts",
+                "src/components/Pagination/constants.ts",
+                "src/components/Pagination/hooks/usePagination.ts",
+                "src/components/Pagination/i18n/index.ts",
+                "src/components/Pagination/index.ts",
+                "src/components/Pagination/types.ts",
+                "src/components/Pagination/utils.test.ts",
+                "src/components/Pagination/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Pagination/Pagination.scss",
+                "src/components/Pagination/components/PaginationEllipsis/PaginationEllipsis.scss",
+                "src/components/Pagination/components/PaginationInput/PaginationInput.scss",
+                "src/components/Pagination/components/PaginationPage/PaginationPage.scss",
+                "src/components/Pagination/components/PaginationPageOf/PaginationPageOf.scss"
+              ]
+            },
+            {
+              "name": "Palette",
+              "readme_path": "src/components/Palette/README.md",
+              "source_paths": [
+                "src/components/Palette/Palette.tsx",
+                "src/components/Palette/hooks.ts",
+                "src/components/Palette/index.ts",
+                "src/components/Palette/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Palette/Palette.scss"
+              ]
+            },
+            {
+              "name": "PinInput",
+              "readme_path": "src/components/PinInput/README.md",
+              "source_paths": [
+                "src/components/PinInput/PinInput.tsx",
+                "src/components/PinInput/i18n/index.ts",
+                "src/components/PinInput/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/PinInput/PinInput.scss"
+              ]
+            },
+            {
+              "name": "PlaceholderContainer",
+              "readme_path": "src/components/PlaceholderContainer/README.md",
+              "source_paths": [
+                "src/components/PlaceholderContainer/PlaceholderContainer.tsx",
+                "src/components/PlaceholderContainer/constants.ts",
+                "src/components/PlaceholderContainer/index.ts",
+                "src/components/PlaceholderContainer/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/PlaceholderContainer/PlaceholderContainer.scss"
+              ]
+            },
+            {
+              "name": "Popover",
+              "readme_path": "src/components/Popover/README.md",
+              "source_paths": [
+                "src/components/Popover/Popover.tsx",
+                "src/components/Popover/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": []
+            },
+            {
+              "name": "Popup",
+              "readme_path": "src/components/Popup/README.md",
+              "source_paths": [
+                "src/components/Popup/Popup.tsx",
+                "src/components/Popup/PopupArrow.tsx",
+                "src/components/Popup/constants.ts",
+                "src/components/Popup/hooks.ts",
+                "src/components/Popup/i18n/index.ts",
+                "src/components/Popup/index.ts",
+                "src/components/Popup/types.ts",
+                "src/components/Popup/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Popup/Popup.scss"
+              ]
+            },
+            {
+              "name": "Portal",
+              "readme_path": "src/components/Portal/README.md",
+              "source_paths": [
+                "src/components/Portal/Portal.tsx",
+                "src/components/Portal/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Portal/Portal.scss"
+              ]
+            },
+            {
+              "name": "Progress",
+              "readme_path": "src/components/Progress/README.md",
+              "source_paths": [
+                "src/components/Progress/Progress.tsx",
+                "src/components/Progress/ProgressInnerText.tsx",
+                "src/components/Progress/ProgressStackItem.tsx",
+                "src/components/Progress/ProgressWithStack.tsx",
+                "src/components/Progress/ProgressWithValue.tsx",
+                "src/components/Progress/constants.ts",
+                "src/components/Progress/index.ts",
+                "src/components/Progress/types.ts",
+                "src/components/Progress/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Progress/Progress.scss"
+              ]
+            }
+          ]
+        },
+        {
+          "batch_id": "uikit-batch-5",
+          "components": [
+            {
+              "name": "Radio",
+              "readme_path": "src/components/Radio/README.md",
+              "source_paths": [
+                "src/components/Radio/Radio.tsx",
+                "src/components/Radio/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Radio/Radio.scss"
+              ]
+            },
+            {
+              "name": "RadioGroup",
+              "readme_path": "src/components/RadioGroup/README.md",
+              "source_paths": [
+                "src/components/RadioGroup/RadioGroup.tsx",
+                "src/components/RadioGroup/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/RadioGroup/RadioGroup.scss"
+              ]
+            },
+            {
+              "name": "SegmentedRadioGroup",
+              "readme_path": "src/components/SegmentedRadioGroup/README.md",
+              "source_paths": [
+                "src/components/SegmentedRadioGroup/SegmentedRadioGroup.tsx",
+                "src/components/SegmentedRadioGroup/SegmentedRadioGroupOption.tsx",
+                "src/components/SegmentedRadioGroup/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/SegmentedRadioGroup/SegmentedRadioGroup.scss"
+              ]
+            },
+            {
+              "name": "Select",
+              "readme_path": "src/components/Select/README.md",
+              "source_paths": [
+                "src/components/Select/Select.tsx",
+                "src/components/Select/components/EmptyOptions/EmptyOptions.tsx",
+                "src/components/Select/components/HiddenSelect/HiddenSelect.tsx",
+                "src/components/Select/components/SelectClear/SelectClear.tsx",
+                "src/components/Select/components/SelectControl/SelectControl.tsx",
+                "src/components/Select/components/SelectCounter/SelectCounter.tsx",
+                "src/components/Select/components/SelectFilter/SelectFilter.tsx",
+                "src/components/Select/components/SelectList/GroupLabel.tsx",
+                "src/components/Select/components/SelectList/OptionWrap.tsx",
+                "src/components/Select/components/SelectList/SelectList.tsx",
+                "src/components/Select/components/SelectList/SelectLoadingIndicator.tsx",
+                "src/components/Select/components/SelectPopup/SelectPopup.tsx",
+                "src/components/Select/components/SelectPopup/middlewares.ts",
+                "src/components/Select/components/SelectPopup/types.ts",
+                "src/components/Select/components/index.ts",
+                "src/components/Select/constants.ts",
+                "src/components/Select/hooks-public/index.ts",
+                "src/components/Select/hooks-public/useSelectOptions/index.ts",
+                "src/components/Select/hooks/index.ts",
+                "src/components/Select/hooks/useActiveItemIndex.ts",
+                "src/components/Select/hooks/useQuickSearch.ts",
+                "src/components/Select/i18n/index.ts",
+                "src/components/Select/index.ts",
+                "src/components/Select/tech-components.tsx",
+                "src/components/Select/types-misc.ts",
+                "src/components/Select/types.ts",
+                "src/components/Select/utils.tsx"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Select/Select.scss",
+                "src/components/Select/components/EmptyOptions/EmptyOptions.scss",
+                "src/components/Select/components/SelectClear/SelectClear.scss",
+                "src/components/Select/components/SelectControl/SelectControl.scss",
+                "src/components/Select/components/SelectCounter/SelectCounter.scss",
+                "src/components/Select/components/SelectFilter/SelectFilter.scss",
+                "src/components/Select/components/SelectList/SelectList.scss",
+                "src/components/Select/components/SelectPopup/SelectPopup.scss",
+                "src/components/Select/variables.scss"
+              ]
+            },
+            {
+              "name": "Sheet",
+              "readme_path": "src/components/Sheet/README.md",
+              "source_paths": [
+                "src/components/Sheet/Sheet.tsx",
+                "src/components/Sheet/SheetContent.tsx",
+                "src/components/Sheet/constants.ts",
+                "src/components/Sheet/index.ts",
+                "src/components/Sheet/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Sheet/Sheet.scss"
+              ]
+            },
+            {
+              "name": "Skeleton",
+              "readme_path": "src/components/Skeleton/README.md",
+              "source_paths": [
+                "src/components/Skeleton/Skeleton.tsx",
+                "src/components/Skeleton/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Skeleton/Skeleton.scss"
+              ]
+            },
+            {
+              "name": "Slider",
+              "readme_path": "src/components/Slider/README.md",
+              "source_paths": [
+                "src/components/Slider/BaseSlider/BaseSlider.tsx",
+                "src/components/Slider/HandleWithTooltip/HandleWithTooltip.tsx",
+                "src/components/Slider/Slider.tsx",
+                "src/components/Slider/SliderTooltip/SliderTooltip.tsx",
+                "src/components/Slider/SliderTooltip/SliderTooltipPin.tsx",
+                "src/components/Slider/__tetsts__/Slider.form.test.tsx",
+                "src/components/Slider/constants.ts",
+                "src/components/Slider/index.ts",
+                "src/components/Slider/types.ts",
+                "src/components/Slider/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Slider/BaseSlider/BaseSlider.scss",
+                "src/components/Slider/Slider.scss",
+                "src/components/Slider/SliderTooltip/SliderTooltip.scss",
+                "src/components/Slider/variables.scss"
+              ]
+            },
+            {
+              "name": "Spin",
+              "readme_path": "src/components/Spin/README.md",
+              "source_paths": [
+                "src/components/Spin/Spin.tsx",
+                "src/components/Spin/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Spin/Spin.scss"
+              ]
+            },
+            {
+              "name": "Stepper",
+              "readme_path": "src/components/Stepper/README.md",
+              "source_paths": [
+                "src/components/Stepper/Stepper.tsx",
+                "src/components/Stepper/StepperItem.tsx",
+                "src/components/Stepper/StepperSeparator.tsx",
+                "src/components/Stepper/context.ts",
+                "src/components/Stepper/index.ts",
+                "src/components/Stepper/types.ts",
+                "src/components/Stepper/utils.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Stepper/Stepper.scss"
+              ]
+            },
+            {
+              "name": "Switch",
+              "readme_path": "src/components/Switch/README.md",
+              "source_paths": [
+                "src/components/Switch/Switch.tsx",
+                "src/components/Switch/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Switch/Switch.scss"
+              ]
+            }
+          ]
+        },
+        {
+          "batch_id": "uikit-batch-6",
+          "components": [
+            {
+              "name": "Table",
+              "readme_path": "src/components/Table/README.md",
+              "source_paths": [
+                "src/components/Table/Table.tsx",
+                "src/components/Table/hoc/index.ts",
+                "src/components/Table/hoc/withTableActions/withTableActions.tsx",
+                "src/components/Table/hoc/withTableCopy/withTableCopy.tsx",
+                "src/components/Table/hoc/withTableSelection/withTableSelection.tsx",
+                "src/components/Table/hoc/withTableSettings/TableColumnSetup/TableColumnSetup.tsx",
+                "src/components/Table/hoc/withTableSettings/TableColumnSetup/i18n/index.ts",
+                "src/components/Table/hoc/withTableSettings/i18n/index.ts",
+                "src/components/Table/hoc/withTableSettings/withTableSettings.tsx",
+                "src/components/Table/hoc/withTableSorting/SortIndicator/SortIndicator.tsx",
+                "src/components/Table/hoc/withTableSorting/withTableSorting.tsx",
+                "src/components/Table/i18n/index.ts",
+                "src/components/Table/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Table/Table.scss",
+                "src/components/Table/hoc/withTableActions/withTableActions.scss",
+                "src/components/Table/hoc/withTableCopy/withTableCopy.scss",
+                "src/components/Table/hoc/withTableSelection/withTableSelection.scss",
+                "src/components/Table/hoc/withTableSettings/TableColumnSetup/TableColumnSetup.scss",
+                "src/components/Table/hoc/withTableSettings/withTableSettings.scss",
+                "src/components/Table/hoc/withTableSorting/withTableSorting.scss",
+                "src/components/Table/variables.scss"
+              ]
+            },
+            {
+              "name": "TableColumnSetup",
+              "readme_path": "src/components/TableColumnSetup/README.md",
+              "source_paths": [
+                "src/components/TableColumnSetup/TableColumnSetup.tsx",
+                "src/components/TableColumnSetup/i18n/index.ts",
+                "src/components/TableColumnSetup/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/TableColumnSetup/TableColumnSetup.scss"
+              ]
+            },
+            {
+              "name": "Text",
+              "readme_path": "src/components/Text/README.md",
+              "source_paths": [
+                "src/components/Text/Text.tsx",
+                "src/components/Text/colorText/colorText.ts",
+                "src/components/Text/index.ts",
+                "src/components/Text/text/text.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Text/colorText/colorText.scss",
+                "src/components/Text/text/text.scss"
+              ]
+            },
+            {
+              "name": "Toaster",
+              "readme_path": "src/components/Toaster/README.md",
+              "source_paths": [
+                "src/components/Toaster/Provider/ToasterContext.ts",
+                "src/components/Toaster/Provider/ToasterProvider.tsx",
+                "src/components/Toaster/Provider/ToastsContext.ts",
+                "src/components/Toaster/Toast/Toast.tsx",
+                "src/components/Toaster/ToastList/ToastList.tsx",
+                "src/components/Toaster/Toaster.ts",
+                "src/components/Toaster/ToasterComponent/ToasterComponent.tsx",
+                "src/components/Toaster/__mocks__/fireAnimationEndEvent.ts",
+                "src/components/Toaster/__mocks__/getToast.ts",
+                "src/components/Toaster/__mocks__/tick.ts",
+                "src/components/Toaster/constants.ts",
+                "src/components/Toaster/hooks/useInToasterContext.ts",
+                "src/components/Toaster/hooks/useToaster.ts",
+                "src/components/Toaster/i18n/index.ts",
+                "src/components/Toaster/index.ts",
+                "src/components/Toaster/types.ts",
+                "src/components/Toaster/utilities/getToastIndex.tsx",
+                "src/components/Toaster/utilities/hasToast.ts",
+                "src/components/Toaster/utilities/removeToast.ts",
+                "src/components/Toaster/withToaster.tsx"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Toaster/Toast/Toast.scss",
+                "src/components/Toaster/ToastList/ToastAnimation.scss",
+                "src/components/Toaster/ToastList/ToastList.scss"
+              ]
+            },
+            {
+              "name": "Toc",
+              "readme_path": "src/components/Toc/README.md",
+              "source_paths": [
+                "src/components/Toc/Toc.tsx",
+                "src/components/Toc/TocItem/TocItem.tsx",
+                "src/components/Toc/TocItem/index.ts",
+                "src/components/Toc/TocSections/TocSections.tsx",
+                "src/components/Toc/TocSections/index.ts",
+                "src/components/Toc/index.ts",
+                "src/components/Toc/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Toc/TocItem/TocItem.scss",
+                "src/components/Toc/TocSections/TocSections.scss"
+              ]
+            },
+            {
+              "name": "Tooltip",
+              "readme_path": "src/components/Tooltip/README.md",
+              "source_paths": [
+                "src/components/Tooltip/Tooltip.tsx",
+                "src/components/Tooltip/index.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/Tooltip/Tooltip.scss"
+              ]
+            },
+            {
+              "name": "User",
+              "readme_path": "src/components/User/README.md",
+              "source_paths": [
+                "src/components/User/User.tsx",
+                "src/components/User/constants.ts",
+                "src/components/User/index.ts",
+                "src/components/User/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/User/User.scss"
+              ]
+            },
+            {
+              "name": "UserLabel",
+              "readme_path": "src/components/UserLabel/README.md",
+              "source_paths": [
+                "src/components/UserLabel/UserLabel.tsx",
+                "src/components/UserLabel/constants.ts",
+                "src/components/UserLabel/i18n/index.ts",
+                "src/components/UserLabel/index.ts",
+                "src/components/UserLabel/types.ts"
+              ],
+              "story_paths": [],
+              "scss_paths": [
+                "src/components/UserLabel/UserLabel.scss"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "library": "webpack-i18n-assets-plugin",
+      "git_sha": "d30ee5a4124f",
+      "changed": false,
+      "batches": []
+    },
+    {
+      "library": "yagr",
+      "git_sha": "b5dc8dbb7f57",
+      "changed": false,
+      "batches": []
+    }
+  ],
+  "timestamp": "2026-03-15T19:57:57.426Z"
+}

@@ -1,0 +1,1249 @@
+[
+  {
+    "id": "component:components:adaptive-tabs:overview",
+    "page_id": "component:components:adaptive-tabs",
+    "url": "https://gravity-ui.com/components/components/adaptive-tabs#overview",
+    "page_title": "AdaptiveTabs",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "AdaptiveTabs",
+      "Overview"
+    ],
+    "content": "AdaptiveTabs is a navigation component from @gravity-ui/components. If there is not enough container width to fit all the tabs, the tabs that do not fit will be hidden and accessible via the select with the caption 'More'. If only one tab fits, the select is displayed instead of the tabs. Import: import {AdaptiveTabs} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "adaptive",
+      "tabs",
+      "navigation",
+      "responsive",
+      "overflow",
+      "select"
+    ]
+  },
+  {
+    "id": "component:components:adaptive-tabs:props",
+    "page_id": "component:components:adaptive-tabs",
+    "url": "https://gravity-ui.com/components/components/adaptive-tabs#props",
+    "page_title": "AdaptiveTabs",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "AdaptiveTabs",
+      "Props"
+    ],
+    "content": "AdaptiveTabs props: items (TabItem[], required) array of tabs; onSelectTab ((tabId: string, event?: React.MouseEvent) => void, required) select tab handler; activeTab (string) active tab id; allowNotSelected (boolean) allows not specifying activeTab; breakpointsConfig (Record<string, number>) breakpoints config controlling tab size thresholds; className (string) class name for the tabs container; moreControlProps (Pick<SelectProps>) controls for the more select dropdown; wrapTo (function) custom wrap function for tab elements.",
+    "code_examples": [],
+    "keywords": [
+      "items",
+      "onSelectTab",
+      "activeTab",
+      "allowNotSelected",
+      "breakpointsConfig",
+      "moreControlProps"
+    ]
+  },
+  {
+    "id": "component:components:adaptive-tabs:examples",
+    "page_id": "component:components:adaptive-tabs",
+    "url": "https://gravity-ui.com/components/components/adaptive-tabs#examples",
+    "page_title": "AdaptiveTabs",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "AdaptiveTabs",
+      "Examples"
+    ],
+    "content": "Basic AdaptiveTabs usage with items array and tab selection handler.",
+    "code_examples": [
+      "<AdaptiveTabs\n  items={[\n    {id: 'tab1', title: 'Tab 1'},\n    {id: 'tab2', title: 'Tab 2'},\n    {id: 'tab3', title: 'Tab 3'},\n  ]}\n  activeTab=\"tab1\"\n  onSelectTab={(tabId) => setActiveTab(tabId)}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "tabs",
+      "adaptive"
+    ]
+  },
+  {
+    "id": "component:components:changelog-dialog:overview",
+    "page_id": "component:components:changelog-dialog",
+    "url": "https://gravity-ui.com/components/components/changelog-dialog#overview",
+    "page_title": "ChangelogDialog",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "ChangelogDialog",
+      "Overview"
+    ],
+    "content": "ChangelogDialog is a modal dialog component from @gravity-ui/components that displays a list of changelog entries. Each entry has a date, title, image, description, and optional link. Supports loading states and custom empty content. Import: import {ChangelogDialog} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "changelog",
+      "dialog",
+      "modal",
+      "release notes",
+      "history",
+      "versions"
+    ]
+  },
+  {
+    "id": "component:components:changelog-dialog:props",
+    "page_id": "component:components:changelog-dialog",
+    "url": "https://gravity-ui.com/components/components/changelog-dialog#props",
+    "page_title": "ChangelogDialog",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "ChangelogDialog",
+      "Props"
+    ],
+    "content": "ChangelogDialog props: items (ChangelogItem[], required) array of changelog entries each with date, title, image, description, and optional link; onClose (function, required) close handler; open (boolean, required) controls dialog visibility; isLoading (boolean) shows loading state; renderItem (function) custom renderer for changelog entries; title (string) dialog title.",
+    "code_examples": [],
+    "keywords": [
+      "items",
+      "onClose",
+      "open",
+      "isLoading",
+      "renderItem",
+      "title",
+      "ChangelogItem"
+    ]
+  },
+  {
+    "id": "component:components:changelog-dialog:examples",
+    "page_id": "component:components:changelog-dialog",
+    "url": "https://gravity-ui.com/components/components/changelog-dialog#examples",
+    "page_title": "ChangelogDialog",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "ChangelogDialog",
+      "Examples"
+    ],
+    "content": "Basic ChangelogDialog usage with changelog items.",
+    "code_examples": [
+      "<ChangelogDialog\n  open={isOpen}\n  onClose={() => setIsOpen(false)}\n  items={[\n    {\n      date: new Date('2024-01-15'),\n      title: 'New feature released',\n      description: 'We added support for dark mode.',\n      image: {src: '/images/dark-mode.png', alt: 'Dark mode preview'},\n    },\n  ]}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "changelog",
+      "dialog"
+    ]
+  },
+  {
+    "id": "component:components:confirm-dialog:overview",
+    "page_id": "component:components:confirm-dialog",
+    "url": "https://gravity-ui.com/components/components/confirm-dialog#overview",
+    "page_title": "ConfirmDialog",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "ConfirmDialog",
+      "Overview"
+    ],
+    "content": "ConfirmDialog is a modal dialog from @gravity-ui/components for user confirmation actions. It provides a title, message body, and two buttons for confirming or cancelling. Wraps the uikit Dialog component. Import: import {ConfirmDialog} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "confirm",
+      "dialog",
+      "modal",
+      "confirmation",
+      "cancel",
+      "destructive action"
+    ]
+  },
+  {
+    "id": "component:components:confirm-dialog:props",
+    "page_id": "component:components:confirm-dialog",
+    "url": "https://gravity-ui.com/components/components/confirm-dialog#props",
+    "page_title": "ConfirmDialog",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "ConfirmDialog",
+      "Props"
+    ],
+    "content": "ConfirmDialog props: cancelButtonText (string, required) cancel button label; confirmButtonText (string, required) confirm button label; message (ReactNode, required) dialog body content; onCancel (function, required) cancel handler; onConfirm (function, required) confirm handler; open (boolean, required) controls visibility; cancelButtonProps (ButtonProps) props for cancel button; confirmButtonProps (ButtonProps) props for confirm button; confirmButtonView (string) button view variant; isLoading (boolean) shows loading state on confirm button; title (string) dialog title.",
+    "code_examples": [],
+    "keywords": [
+      "cancelButtonText",
+      "confirmButtonText",
+      "message",
+      "onCancel",
+      "onConfirm",
+      "open",
+      "isLoading"
+    ]
+  },
+  {
+    "id": "component:components:confirm-dialog:examples",
+    "page_id": "component:components:confirm-dialog",
+    "url": "https://gravity-ui.com/components/components/confirm-dialog#examples",
+    "page_title": "ConfirmDialog",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "ConfirmDialog",
+      "Examples"
+    ],
+    "content": "Basic ConfirmDialog usage for a delete confirmation.",
+    "code_examples": [
+      "<ConfirmDialog\n  open={showConfirm}\n  title=\"Delete item\"\n  message=\"Are you sure you want to delete this item? This action cannot be undone.\"\n  confirmButtonText=\"Delete\"\n  cancelButtonText=\"Cancel\"\n  confirmButtonProps={{view: 'danger'}}\n  onConfirm={handleDelete}\n  onCancel={() => setShowConfirm(false)}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "confirm",
+      "delete",
+      "dialog"
+    ]
+  },
+  {
+    "id": "component:components:cookie-consent:overview",
+    "page_id": "component:components:cookie-consent",
+    "url": "https://gravity-ui.com/components/components/cookie-consent#overview",
+    "page_title": "CookieConsent",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "CookieConsent",
+      "Overview"
+    ],
+    "content": "CookieConsent is a component from @gravity-ui/components that renders a cookie consent banner with a title, description, and action buttons. Supports floating and inline layout modes with configurable button actions. Import: import {CookieConsent} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "cookie",
+      "consent",
+      "banner",
+      "gdpr",
+      "privacy",
+      "floating",
+      "inline"
+    ]
+  },
+  {
+    "id": "component:components:cookie-consent:props",
+    "page_id": "component:components:cookie-consent",
+    "url": "https://gravity-ui.com/components/components/cookie-consent#props",
+    "page_title": "CookieConsent",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "CookieConsent",
+      "Props"
+    ],
+    "content": "CookieConsent props: actions (CookieConsentAction[], required) array of action buttons; title (string, required) banner title; className (string) additional CSS class; description (string) banner description text; view ('floating' | 'inline') layout mode.",
+    "code_examples": [],
+    "keywords": [
+      "actions",
+      "title",
+      "description",
+      "view",
+      "floating",
+      "inline",
+      "CookieConsentAction"
+    ]
+  },
+  {
+    "id": "component:components:cookie-consent:examples",
+    "page_id": "component:components:cookie-consent",
+    "url": "https://gravity-ui.com/components/components/cookie-consent#examples",
+    "page_title": "CookieConsent",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "CookieConsent",
+      "Examples"
+    ],
+    "content": "Basic CookieConsent floating banner with accept and decline actions.",
+    "code_examples": [
+      "<CookieConsent\n  view=\"floating\"\n  title=\"Cookie consent\"\n  description=\"We use cookies to improve your experience.\"\n  actions={[\n    {text: 'Accept all', onClick: handleAccept, buttonProps: {view: 'action'}},\n    {text: 'Decline', onClick: handleDecline},\n  ]}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "cookie",
+      "gdpr",
+      "banner"
+    ]
+  },
+  {
+    "id": "component:components:delayed-text-input:overview",
+    "page_id": "component:components:delayed-text-input",
+    "url": "https://gravity-ui.com/components/components/delayed-text-input#overview",
+    "page_title": "DelayedTextInput",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "DelayedTextInput",
+      "Overview"
+    ],
+    "content": "DelayedTextInput is a component from @gravity-ui/components that wraps the uikit TextInput with debounced onChange behavior. The onChange callback fires only after the user stops typing for the specified delay period. Useful for search inputs and filters. Import: import {DelayedTextInput} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "delayed",
+      "text input",
+      "debounce",
+      "search",
+      "filter",
+      "throttle"
+    ]
+  },
+  {
+    "id": "component:components:delayed-text-input:props",
+    "page_id": "component:components:delayed-text-input",
+    "url": "https://gravity-ui.com/components/components/delayed-text-input#props",
+    "page_title": "DelayedTextInput",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "DelayedTextInput",
+      "Props"
+    ],
+    "content": "DelayedTextInput extends TextInputProps and adds: delay (number, required) debounce delay in milliseconds; onUpdate (function, required) callback fired after the delay with the current value. All standard TextInput props are also supported.",
+    "code_examples": [],
+    "keywords": [
+      "delay",
+      "onUpdate",
+      "debounce",
+      "TextInput",
+      "milliseconds"
+    ]
+  },
+  {
+    "id": "component:components:delayed-text-input:examples",
+    "page_id": "component:components:delayed-text-input",
+    "url": "https://gravity-ui.com/components/components/delayed-text-input#examples",
+    "page_title": "DelayedTextInput",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "DelayedTextInput",
+      "Examples"
+    ],
+    "content": "DelayedTextInput usage for a search field that fires after 300ms.",
+    "code_examples": [
+      "<DelayedTextInput\n  delay={300}\n  placeholder=\"Search...\"\n  onUpdate={(value) => handleSearch(value)}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "search",
+      "debounce",
+      "text input"
+    ]
+  },
+  {
+    "id": "component:components:form-row:overview",
+    "page_id": "component:components:form-row",
+    "url": "https://gravity-ui.com/components/components/form-row#overview",
+    "page_title": "FormRow",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "FormRow",
+      "Overview"
+    ],
+    "content": "FormRow is a layout component from @gravity-ui/components for form fields. It renders a label, the field content, and an optional hint or error message in a consistent row layout. Ideal for building forms with aligned labels and inputs. Import: import {FormRow} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "form",
+      "row",
+      "label",
+      "field",
+      "layout",
+      "hint",
+      "error",
+      "validation"
+    ]
+  },
+  {
+    "id": "component:components:form-row:props",
+    "page_id": "component:components:form-row",
+    "url": "https://gravity-ui.com/components/components/form-row#props",
+    "page_title": "FormRow",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "FormRow",
+      "Props"
+    ],
+    "content": "FormRow props: children (ReactNode, required) form field content; fieldId (string, required) id linking the label to its field; label (string, required) field label text; className (string) additional CSS class; direction ('row' | 'column') layout direction; hint (string) hint text displayed below the field; isRequired (boolean) marks the field as required.",
+    "code_examples": [],
+    "keywords": [
+      "children",
+      "fieldId",
+      "label",
+      "direction",
+      "hint",
+      "isRequired"
+    ]
+  },
+  {
+    "id": "component:components:form-row:examples",
+    "page_id": "component:components:form-row",
+    "url": "https://gravity-ui.com/components/components/form-row#examples",
+    "page_title": "FormRow",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "FormRow",
+      "Examples"
+    ],
+    "content": "FormRow usage with a TextInput field and hint.",
+    "code_examples": [
+      "<FormRow\n  fieldId=\"username\"\n  label=\"Username\"\n  hint=\"Must be 3-20 characters\"\n  isRequired\n>\n  <TextInput id=\"username\" placeholder=\"Enter username\" />\n</FormRow>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "form",
+      "label",
+      "input"
+    ]
+  },
+  {
+    "id": "component:components:gallery:overview",
+    "page_id": "component:components:gallery",
+    "url": "https://gravity-ui.com/components/components/gallery#overview",
+    "page_title": "Gallery",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "Gallery",
+      "Overview"
+    ],
+    "content": "Gallery is a fullscreen lightbox component from @gravity-ui/components for images or custom content. Supports navigation between items with arrow buttons or keyboard, and custom rendering via render props. Import: import {Gallery} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "gallery",
+      "lightbox",
+      "fullscreen",
+      "images",
+      "carousel",
+      "navigation"
+    ]
+  },
+  {
+    "id": "component:components:gallery:props",
+    "page_id": "component:components:gallery",
+    "url": "https://gravity-ui.com/components/components/gallery#props",
+    "page_title": "Gallery",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "Gallery",
+      "Props"
+    ],
+    "content": "Gallery props: items (GalleryItem[], required) array of gallery items; onClose (function, required) close handler; open (boolean, required) controls visibility; initialItemIndex (number) index of the initially displayed item; renderItem (function) custom item renderer; withArrows (boolean) shows navigation arrows.",
+    "code_examples": [],
+    "keywords": [
+      "items",
+      "onClose",
+      "open",
+      "initialItemIndex",
+      "renderItem",
+      "withArrows"
+    ]
+  },
+  {
+    "id": "component:components:gallery:examples",
+    "page_id": "component:components:gallery",
+    "url": "https://gravity-ui.com/components/components/gallery#examples",
+    "page_title": "Gallery",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "Gallery",
+      "Examples"
+    ],
+    "content": "Gallery usage with image items.",
+    "code_examples": [
+      "<Gallery\n  open={isOpen}\n  onClose={() => setIsOpen(false)}\n  initialItemIndex={0}\n  items={[\n    {src: '/images/photo1.jpg', alt: 'Photo 1'},\n    {src: '/images/photo2.jpg', alt: 'Photo 2'},\n  ]}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "gallery",
+      "images",
+      "lightbox"
+    ]
+  },
+  {
+    "id": "component:components:infinite-scroll:overview",
+    "page_id": "component:components:infinite-scroll",
+    "url": "https://gravity-ui.com/components/components/infinite-scroll#overview",
+    "page_title": "InfiniteScroll",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "InfiniteScroll",
+      "Overview"
+    ],
+    "content": "InfiniteScroll is a component from @gravity-ui/components that triggers a callback to load more data when the user scrolls near the bottom of a container. Supports error state, loading indicator, and customizable scroll threshold. Import: import {InfiniteScroll} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "infinite scroll",
+      "pagination",
+      "load more",
+      "scroll",
+      "virtualization"
+    ]
+  },
+  {
+    "id": "component:components:infinite-scroll:props",
+    "page_id": "component:components:infinite-scroll",
+    "url": "https://gravity-ui.com/components/components/infinite-scroll#props",
+    "page_title": "InfiniteScroll",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "InfiniteScroll",
+      "Props"
+    ],
+    "content": "InfiniteScroll props: children (ReactNode, required) scrollable content; onActivate (function, required) callback triggered when near the bottom; error (boolean) shows error state; hasMore (boolean) indicates more data is available; loading (boolean) shows loading indicator; renderError (function) custom error renderer; renderLoading (function) custom loading renderer; threshold (number) scroll threshold in pixels from bottom.",
+    "code_examples": [],
+    "keywords": [
+      "onActivate",
+      "hasMore",
+      "loading",
+      "error",
+      "threshold",
+      "renderLoading"
+    ]
+  },
+  {
+    "id": "component:components:infinite-scroll:examples",
+    "page_id": "component:components:infinite-scroll",
+    "url": "https://gravity-ui.com/components/components/infinite-scroll#examples",
+    "page_title": "InfiniteScroll",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "InfiniteScroll",
+      "Examples"
+    ],
+    "content": "InfiniteScroll usage with a list of items.",
+    "code_examples": [
+      "<InfiniteScroll\n  hasMore={hasNextPage}\n  loading={isFetching}\n  onActivate={fetchNextPage}\n>\n  {items.map((item) => (\n    <ListItem key={item.id} item={item} />\n  ))}\n</InfiniteScroll>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "infinite scroll",
+      "pagination",
+      "load more"
+    ]
+  },
+  {
+    "id": "component:components:item-selector:overview",
+    "page_id": "component:components:item-selector",
+    "url": "https://gravity-ui.com/components/components/item-selector#overview",
+    "page_title": "ItemSelector",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "ItemSelector",
+      "Overview"
+    ],
+    "content": "ItemSelector is a dual-panel component from @gravity-ui/components for moving items between available and selected lists. Supports search filtering, custom item rendering, and controlled or uncontrolled selection state. Import: import {ItemSelector} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "item selector",
+      "dual panel",
+      "transfer",
+      "available",
+      "selected",
+      "multi-select"
+    ]
+  },
+  {
+    "id": "component:components:item-selector:props",
+    "page_id": "component:components:item-selector",
+    "url": "https://gravity-ui.com/components/components/item-selector#props",
+    "page_title": "ItemSelector",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "ItemSelector",
+      "Props"
+    ],
+    "content": "ItemSelector props: items (ItemSelectorItem[], required) all available items; onUpdate (function, required) callback with updated selected items; className (string) additional CSS class; filterItem (function) custom filter function; getItemId (function) returns unique id for an item; renderItem (function) custom item renderer; selectedItems (ItemSelectorItem[]) controlled selected items; selectorTitle (string) panel title.",
+    "code_examples": [],
+    "keywords": [
+      "items",
+      "onUpdate",
+      "selectedItems",
+      "filterItem",
+      "renderItem",
+      "getItemId"
+    ]
+  },
+  {
+    "id": "component:components:item-selector:examples",
+    "page_id": "component:components:item-selector",
+    "url": "https://gravity-ui.com/components/components/item-selector#examples",
+    "page_title": "ItemSelector",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "ItemSelector",
+      "Examples"
+    ],
+    "content": "ItemSelector with a list of users to select from.",
+    "code_examples": [
+      "<ItemSelector\n  items={users}\n  selectedItems={selected}\n  getItemId={(user) => user.id}\n  renderItem={(user) => <span>{user.name}</span>}\n  onUpdate={(selected) => setSelected(selected)}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "item selector",
+      "transfer",
+      "multi-select"
+    ]
+  },
+  {
+    "id": "component:components:notifications:overview",
+    "page_id": "component:components:notifications",
+    "url": "https://gravity-ui.com/components/components/notifications#overview",
+    "page_title": "Notifications",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "Notifications",
+      "Overview"
+    ],
+    "content": "Notifications is a component from @gravity-ui/components that renders a list of notification items with title, formatted date, content, and action buttons. Supports loading and empty states with customizable empty content. Import: import {Notifications} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "notifications",
+      "list",
+      "inbox",
+      "alerts",
+      "messages"
+    ]
+  },
+  {
+    "id": "component:components:notifications:props",
+    "page_id": "component:components:notifications",
+    "url": "https://gravity-ui.com/components/components/notifications#props",
+    "page_title": "Notifications",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "Notifications",
+      "Props"
+    ],
+    "content": "Notifications props: items (NotificationItem[], required) array of notification items each with id, title, formattedDate, content, actions; className (string) additional CSS class; emptyContent (ReactNode) content shown when there are no notifications; isLoading (boolean) shows loading state.",
+    "code_examples": [],
+    "keywords": [
+      "items",
+      "emptyContent",
+      "isLoading",
+      "NotificationItem",
+      "title",
+      "formattedDate"
+    ]
+  },
+  {
+    "id": "component:components:notifications:examples",
+    "page_id": "component:components:notifications",
+    "url": "https://gravity-ui.com/components/components/notifications#examples",
+    "page_title": "Notifications",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "Notifications",
+      "Examples"
+    ],
+    "content": "Notifications usage with a list of notification items.",
+    "code_examples": [
+      "<Notifications\n  items={[\n    {\n      id: '1',\n      title: 'New comment',\n      formattedDate: '2 hours ago',\n      content: 'Alice replied to your post.',\n      actions: [{text: 'View', onClick: handleView}],\n    },\n  ]}\n  emptyContent={<div>No notifications</div>}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "notifications",
+      "list",
+      "inbox"
+    ]
+  },
+  {
+    "id": "component:components:onboarding-menu:overview",
+    "page_id": "component:components:onboarding-menu",
+    "url": "https://gravity-ui.com/components/components/onboarding-menu#overview",
+    "page_title": "OnboardingMenu",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "OnboardingMenu",
+      "Overview"
+    ],
+    "content": "OnboardingMenu is a component from @gravity-ui/components that renders a guided onboarding checklist in a popover. Displays tasks with completion status, progress indicator, and supports custom rendering of task items. Import: import {OnboardingMenu} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "onboarding",
+      "menu",
+      "checklist",
+      "progress",
+      "tasks",
+      "getting started"
+    ]
+  },
+  {
+    "id": "component:components:onboarding-menu:props",
+    "page_id": "component:components:onboarding-menu",
+    "url": "https://gravity-ui.com/components/components/onboarding-menu#props",
+    "page_title": "OnboardingMenu",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "OnboardingMenu",
+      "Props"
+    ],
+    "content": "OnboardingMenu props: items (OnboardingMenuItem[], required) array of onboarding task items; onClose (function, required) close handler; open (boolean, required) controls visibility; className (string) additional CSS class; renderItem (function) custom task item renderer; title (string) menu title.",
+    "code_examples": [],
+    "keywords": [
+      "items",
+      "onClose",
+      "open",
+      "renderItem",
+      "title",
+      "OnboardingMenuItem"
+    ]
+  },
+  {
+    "id": "component:components:onboarding-menu:examples",
+    "page_id": "component:components:onboarding-menu",
+    "url": "https://gravity-ui.com/components/components/onboarding-menu#examples",
+    "page_title": "OnboardingMenu",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "OnboardingMenu",
+      "Examples"
+    ],
+    "content": "OnboardingMenu usage with a checklist of getting-started tasks.",
+    "code_examples": [
+      "<OnboardingMenu\n  open={showMenu}\n  onClose={() => setShowMenu(false)}\n  title=\"Getting started\"\n  items={[\n    {id: '1', title: 'Create a project', completed: true},\n    {id: '2', title: 'Invite team members', completed: false},\n    {id: '3', title: 'Deploy your first app', completed: false},\n  ]}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "onboarding",
+      "checklist",
+      "getting started"
+    ]
+  },
+  {
+    "id": "component:components:promo-sheet:overview",
+    "page_id": "component:components:promo-sheet",
+    "url": "https://gravity-ui.com/components/components/promo-sheet#overview",
+    "page_title": "PromoSheet",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "PromoSheet",
+      "Overview"
+    ],
+    "content": "PromoSheet is a component from @gravity-ui/components that renders a bottom sheet overlay for promotional content with an image, title, description, and action buttons. Designed for mobile-first promotional flows. Import: import {PromoSheet} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "promo",
+      "sheet",
+      "bottom sheet",
+      "mobile",
+      "promotional",
+      "overlay"
+    ]
+  },
+  {
+    "id": "component:components:promo-sheet:props",
+    "page_id": "component:components:promo-sheet",
+    "url": "https://gravity-ui.com/components/components/promo-sheet#props",
+    "page_title": "PromoSheet",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "PromoSheet",
+      "Props"
+    ],
+    "content": "PromoSheet props: actions (PromoSheetAction[], required) array of action buttons; description (string, required) promotional description text; onClose (function, required) close handler; open (boolean, required) controls visibility; title (string, required) sheet title; className (string) additional CSS class; image (PromoSheetImage) image configuration.",
+    "code_examples": [],
+    "keywords": [
+      "actions",
+      "description",
+      "onClose",
+      "open",
+      "title",
+      "image",
+      "PromoSheetAction"
+    ]
+  },
+  {
+    "id": "component:components:promo-sheet:examples",
+    "page_id": "component:components:promo-sheet",
+    "url": "https://gravity-ui.com/components/components/promo-sheet#examples",
+    "page_title": "PromoSheet",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "PromoSheet",
+      "Examples"
+    ],
+    "content": "PromoSheet usage for a promotional bottom sheet.",
+    "code_examples": [
+      "<PromoSheet\n  open={isOpen}\n  onClose={() => setIsOpen(false)}\n  title=\"Try Premium\"\n  description=\"Unlock advanced features with a premium subscription.\"\n  image={{src: '/images/premium.png', alt: 'Premium features'}}\n  actions={[\n    {text: 'Upgrade now', onClick: handleUpgrade, buttonProps: {view: 'action'}},\n    {text: 'Maybe later', onClick: () => setIsOpen(false)},\n  ]}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "promo",
+      "bottom sheet",
+      "promotional"
+    ]
+  },
+  {
+    "id": "component:components:reactions:overview",
+    "page_id": "component:components:reactions",
+    "url": "https://gravity-ui.com/components/components/reactions#overview",
+    "page_title": "Reactions",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "Reactions",
+      "Overview"
+    ],
+    "content": "Reactions is a component from @gravity-ui/components that renders a set of emoji reaction buttons with counts. Supports toggling reactions on/off, adding new reactions via a palette popover, and read-only display mode. Import: import {Reactions} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "reactions",
+      "emoji",
+      "likes",
+      "toggle",
+      "feedback",
+      "comments"
+    ]
+  },
+  {
+    "id": "component:components:reactions:props",
+    "page_id": "component:components:reactions",
+    "url": "https://gravity-ui.com/components/components/reactions#props",
+    "page_title": "Reactions",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "Reactions",
+      "Props"
+    ],
+    "content": "Reactions props: reactions (ReactionConfig[], required) array of reaction configs with emoji, count, and selected state; onToggle (function, required) callback when a reaction is toggled; className (string) additional CSS class; palette (ReactionConfig[]) available reactions in the add-reaction palette; readonly (boolean) disables toggling.",
+    "code_examples": [],
+    "keywords": [
+      "reactions",
+      "onToggle",
+      "palette",
+      "readonly",
+      "ReactionConfig",
+      "emoji",
+      "count"
+    ]
+  },
+  {
+    "id": "component:components:reactions:examples",
+    "page_id": "component:components:reactions",
+    "url": "https://gravity-ui.com/components/components/reactions#examples",
+    "page_title": "Reactions",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "Reactions",
+      "Examples"
+    ],
+    "content": "Reactions usage with emoji reactions and a palette.",
+    "code_examples": [
+      "<Reactions\n  reactions={[\n    {emoji: '👍', count: 5, selected: true},\n    {emoji: '❤️', count: 3, selected: false},\n  ]}\n  palette={[\n    {emoji: '👍'}, {emoji: '❤️'}, {emoji: '🎉'}, {emoji: '🤔'},\n  ]}\n  onToggle={(emoji) => handleToggle(emoji)}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "reactions",
+      "emoji",
+      "toggle"
+    ]
+  },
+  {
+    "id": "component:components:share-popover:overview",
+    "page_id": "component:components:share-popover",
+    "url": "https://gravity-ui.com/components/components/share-popover#overview",
+    "page_title": "SharePopover",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "SharePopover",
+      "Overview"
+    ],
+    "content": "SharePopover is a component from @gravity-ui/components that renders a popover with social sharing options including copy link, Telegram, VK, Twitter/X, and LinkedIn. Supports custom social items and configurable share URL. Import: import {SharePopover} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "share",
+      "popover",
+      "social",
+      "copy link",
+      "telegram",
+      "twitter",
+      "linkedin",
+      "sharing"
+    ]
+  },
+  {
+    "id": "component:components:share-popover:props",
+    "page_id": "component:components:share-popover",
+    "url": "https://gravity-ui.com/components/components/share-popover#props",
+    "page_title": "SharePopover",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "SharePopover",
+      "Props"
+    ],
+    "content": "SharePopover props: url (string, required) URL to share; className (string) additional CSS class; copy (boolean) shows copy link option; customItems (ShareSocialItem[]) custom social sharing items; socialNets (SocialShareNetwork[]) which social networks to show; title (string) share title used in social posts; withCopyLink (boolean) shows copy link button.",
+    "code_examples": [],
+    "keywords": [
+      "url",
+      "copy",
+      "customItems",
+      "socialNets",
+      "title",
+      "withCopyLink",
+      "SocialShareNetwork"
+    ]
+  },
+  {
+    "id": "component:components:share-popover:examples",
+    "page_id": "component:components:share-popover",
+    "url": "https://gravity-ui.com/components/components/share-popover#examples",
+    "page_title": "SharePopover",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "SharePopover",
+      "Examples"
+    ],
+    "content": "SharePopover usage for sharing a page URL.",
+    "code_examples": [
+      "<SharePopover\n  url=\"https://example.com/article/123\"\n  title=\"Check out this article\"\n  withCopyLink\n  socialNets={['telegram', 'twitter', 'linkedin']}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "share",
+      "social",
+      "popover"
+    ]
+  },
+  {
+    "id": "component:components:store-badge:overview",
+    "page_id": "component:components:store-badge",
+    "url": "https://gravity-ui.com/components/components/store-badge#overview",
+    "page_title": "StoreBadge",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "StoreBadge",
+      "Overview"
+    ],
+    "content": "StoreBadge is a component from @gravity-ui/components that renders an App Store or Google Play download badge as a link. Supports custom theme, size override, and additional HTML anchor attributes. Import: import {StoreBadge} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "store badge",
+      "app store",
+      "google play",
+      "download",
+      "mobile app",
+      "badge"
+    ]
+  },
+  {
+    "id": "component:components:store-badge:props",
+    "page_id": "component:components:store-badge",
+    "url": "https://gravity-ui.com/components/components/store-badge#props",
+    "page_title": "StoreBadge",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "StoreBadge",
+      "Props"
+    ],
+    "content": "StoreBadge props: platform ('app-store' | 'google-play', required) which store badge to show; url (string, required) link URL; className (string) additional CSS class; size (number) badge height in pixels; theme ('light' | 'dark') badge color theme.",
+    "code_examples": [],
+    "keywords": [
+      "platform",
+      "url",
+      "size",
+      "theme",
+      "app-store",
+      "google-play"
+    ]
+  },
+  {
+    "id": "component:components:store-badge:examples",
+    "page_id": "component:components:store-badge",
+    "url": "https://gravity-ui.com/components/components/store-badge#examples",
+    "page_title": "StoreBadge",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "StoreBadge",
+      "Examples"
+    ],
+    "content": "StoreBadge usage for App Store and Google Play badges.",
+    "code_examples": [
+      "<StoreBadge platform=\"app-store\" url=\"https://apps.apple.com/app/id123\" />\n<StoreBadge platform=\"google-play\" url=\"https://play.google.com/store/apps/details?id=com.example\" />"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "app store",
+      "google play",
+      "badge",
+      "download"
+    ]
+  },
+  {
+    "id": "component:components:stories:overview",
+    "page_id": "component:components:stories",
+    "url": "https://gravity-ui.com/components/components/stories#overview",
+    "page_title": "Stories",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "Stories",
+      "Overview"
+    ],
+    "content": "Stories is a component from @gravity-ui/components that renders an Instagram-like stories viewer in a modal dialog. Displays story items with media, title, description, and navigation controls. Supports autoplay and custom rendering. Import: import {Stories} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "stories",
+      "story viewer",
+      "modal",
+      "instagram",
+      "slideshow",
+      "media"
+    ]
+  },
+  {
+    "id": "component:components:stories:props",
+    "page_id": "component:components:stories",
+    "url": "https://gravity-ui.com/components/components/stories#props",
+    "page_title": "Stories",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "Stories",
+      "Props"
+    ],
+    "content": "Stories props: items (StoryItem[], required) array of story items each with title, description, media; onClose (function, required) close handler; open (boolean, required) controls visibility; autoplay (boolean) enables autoplay between stories; className (string) additional CSS class; disableOutsideClick (boolean) disables closing on outside click; initialStoryIndex (number) index of initial story; renderCustomFooter (function) custom footer renderer.",
+    "code_examples": [],
+    "keywords": [
+      "items",
+      "onClose",
+      "open",
+      "autoplay",
+      "initialStoryIndex",
+      "StoryItem",
+      "renderCustomFooter"
+    ]
+  },
+  {
+    "id": "component:components:stories:examples",
+    "page_id": "component:components:stories",
+    "url": "https://gravity-ui.com/components/components/stories#examples",
+    "page_title": "Stories",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "Stories",
+      "Examples"
+    ],
+    "content": "Stories viewer usage with image story items.",
+    "code_examples": [
+      "<Stories\n  open={isOpen}\n  onClose={() => setIsOpen(false)}\n  items={[\n    {\n      title: 'New Feature',\n      description: 'We launched dark mode!',\n      media: {url: '/images/dark-mode.png', type: 'image'},\n    },\n    {\n      title: 'Performance',\n      description: '2x faster loading times.',\n      media: {url: '/images/perf.png', type: 'image'},\n    },\n  ]}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "stories",
+      "slideshow",
+      "modal"
+    ]
+  },
+  {
+    "id": "component:components:stories-group:overview",
+    "page_id": "component:components:stories-group",
+    "url": "https://gravity-ui.com/components/components/stories-group#overview",
+    "page_title": "StoriesGroup",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "components",
+      "StoriesGroup",
+      "Overview"
+    ],
+    "content": "StoriesGroup is a component from @gravity-ui/components that renders a group of story preview cards that open the Stories viewer when clicked. Manages open/close state and tracks the active story group. Import: import {StoriesGroup} from '@gravity-ui/components';",
+    "code_examples": [],
+    "keywords": [
+      "stories group",
+      "story previews",
+      "cards",
+      "group",
+      "instagram-like"
+    ]
+  },
+  {
+    "id": "component:components:stories-group:props",
+    "page_id": "component:components:stories-group",
+    "url": "https://gravity-ui.com/components/components/stories-group#props",
+    "page_title": "StoriesGroup",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "components",
+      "StoriesGroup",
+      "Props"
+    ],
+    "content": "StoriesGroup props: items (StoriesGroupItem[], required) array of story groups each containing story items and a preview image; className (string) additional CSS class; initialGroupIndex (number) index of the initially open group; onClose (function) close handler.",
+    "code_examples": [],
+    "keywords": [
+      "items",
+      "initialGroupIndex",
+      "onClose",
+      "StoriesGroupItem",
+      "preview"
+    ]
+  },
+  {
+    "id": "component:components:stories-group:examples",
+    "page_id": "component:components:stories-group",
+    "url": "https://gravity-ui.com/components/components/stories-group#examples",
+    "page_title": "StoriesGroup",
+    "page_type": "component",
+    "library": "components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "components",
+      "StoriesGroup",
+      "Examples"
+    ],
+    "content": "StoriesGroup usage with multiple story groups.",
+    "code_examples": [
+      "<StoriesGroup\n  items={[\n    {\n      preview: {src: '/images/group1-preview.png', alt: 'Features'},\n      title: 'New Features',\n      stories: [\n        {title: 'Dark Mode', description: 'Now available!', media: {url: '/images/dark.png', type: 'image'}},\n      ],\n    },\n  ]}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "stories group",
+      "preview",
+      "cards"
+    ]
+  }
+]

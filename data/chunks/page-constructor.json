@@ -1,0 +1,449 @@
+[
+  {
+    "id": "component:page-constructor:button:overview",
+    "page_id": "component:page-constructor:button",
+    "url": "https://gravity-ui.com/components/page-constructor/button#overview",
+    "page_title": "Button",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "page-constructor",
+      "Button",
+      "Overview"
+    ],
+    "content": "Button is a component from @gravity-ui/page-constructor with support for various themes, sizes, and image/icon attachments. Supports App Store and Google Play platform badges. Import: import {Button} from '@gravity-ui/page-constructor';",
+    "code_examples": [],
+    "keywords": [
+      "button",
+      "page-constructor",
+      "app store",
+      "google play",
+      "themes",
+      "sizes"
+    ]
+  },
+  {
+    "id": "component:page-constructor:button:props",
+    "page_id": "component:page-constructor:button",
+    "url": "https://gravity-ui.com/components/page-constructor/button#props",
+    "page_title": "Button",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "page-constructor",
+      "Button",
+      "Props"
+    ],
+    "content": "Button props: analyticsEvents (AnalyticsEventsBase) analytics events to track; className (string) additional CSS class; id (string) HTML id attribute; img (object | string) button icon as image link or object with url, position, alt; onClick (React.MouseEventHandler) click handler; size ('xs' | 's' | 'ns' | 'n' | 'm' | 'l' | 'head' | 'promo', default 'l') button size; text (string) button text; theme ('action' | 'clear' | 'link' | 'normal' | 'pseudo' | 'raised' | 'github' | 'app-store' | 'google-play' | 'scale' | 'monochrome', default 'normal') button look and feel; url (string) button link URL; urlTitle (string) URL title attribute; width (string) button width.",
+    "code_examples": [],
+    "keywords": [
+      "text",
+      "theme",
+      "size",
+      "url",
+      "img",
+      "onClick",
+      "analyticsEvents",
+      "app-store",
+      "google-play"
+    ]
+  },
+  {
+    "id": "component:page-constructor:button:examples",
+    "page_id": "component:page-constructor:button",
+    "url": "https://gravity-ui.com/components/page-constructor/button#examples",
+    "page_title": "Button",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "page-constructor",
+      "Button",
+      "Examples"
+    ],
+    "content": "Button usage with various themes including app store badges.",
+    "code_examples": [
+      "<Button text=\"Click me\" url=\"https://example.com\" />",
+      "<Button text=\"App Store\" theme=\"app-store\" url=\"https://apps.apple.com/app\" />",
+      "<Button text=\"GitHub\" theme=\"github\" url=\"https://github.com/gravity-ui\" />"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "button",
+      "app store",
+      "github",
+      "themes"
+    ]
+  },
+  {
+    "id": "component:page-constructor:error-wrapper:overview",
+    "page_id": "component:page-constructor:error-wrapper",
+    "url": "https://gravity-ui.com/components/page-constructor/error-wrapper#overview",
+    "page_title": "ErrorWrapper",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "page-constructor",
+      "ErrorWrapper",
+      "Overview"
+    ],
+    "content": "ErrorWrapper is a component from @gravity-ui/page-constructor used to gracefully handle and display local errors in UI sections. When the isError flag is set to true, it shows an error message and an optional retry button. When isError is false, it renders its children content. Import: import {ErrorWrapper} from '@gravity-ui/page-constructor';",
+    "code_examples": [],
+    "keywords": [
+      "error wrapper",
+      "error handling",
+      "retry",
+      "fallback",
+      "page-constructor"
+    ]
+  },
+  {
+    "id": "component:page-constructor:error-wrapper:props",
+    "page_id": "component:page-constructor:error-wrapper",
+    "url": "https://gravity-ui.com/components/page-constructor/error-wrapper#props",
+    "page_title": "ErrorWrapper",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "page-constructor",
+      "ErrorWrapper",
+      "Props"
+    ],
+    "content": "ErrorWrapper props: buttonText (string, required) text for the retry button; children (React.ReactNode, required) content rendered when no error occurs; handler (() => void, required) callback triggered on retry button click; isError (boolean, required) show error state when true, children when false; text (string, required) error message text; className (string) optional CSS class for additional styling.",
+    "code_examples": [],
+    "keywords": [
+      "buttonText",
+      "children",
+      "handler",
+      "isError",
+      "text",
+      "className"
+    ]
+  },
+  {
+    "id": "component:page-constructor:error-wrapper:examples",
+    "page_id": "component:page-constructor:error-wrapper",
+    "url": "https://gravity-ui.com/components/page-constructor/error-wrapper#examples",
+    "page_title": "ErrorWrapper",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "page-constructor",
+      "ErrorWrapper",
+      "Examples"
+    ],
+    "content": "ErrorWrapper usage with error state and retry handler.",
+    "code_examples": [
+      "const [isError, setIsError] = React.useState(true);\n\n<ErrorWrapper\n  text=\"Something went wrong\"\n  buttonText=\"Try again\"\n  isError={isError}\n  handler={() => setIsError(false)}\n>\n  <div>Data loaded successfully!</div>\n</ErrorWrapper>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "error",
+      "retry",
+      "fallback"
+    ]
+  },
+  {
+    "id": "component:page-constructor:link:overview",
+    "page_id": "component:page-constructor:link",
+    "url": "https://gravity-ui.com/components/page-constructor/link#overview",
+    "page_title": "Link",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "page-constructor",
+      "Link",
+      "Overview"
+    ],
+    "content": "Link is a component from @gravity-ui/page-constructor with support for various themes including back, file-link, underline, and normal. Supports arrow decoration, children content override, and analytics events. Import: import {Link} from '@gravity-ui/page-constructor';",
+    "code_examples": [],
+    "keywords": [
+      "link",
+      "page-constructor",
+      "themes",
+      "back",
+      "file-link",
+      "underline",
+      "arrow"
+    ]
+  },
+  {
+    "id": "component:page-constructor:link:props",
+    "page_id": "component:page-constructor:link",
+    "url": "https://gravity-ui.com/components/page-constructor/link#props",
+    "page_title": "Link",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "page-constructor",
+      "Link",
+      "Props"
+    ],
+    "content": "Link props: analyticsEvents (AnalyticsEventsBase) analytics events to track; arrow (boolean) draw an arrow on the right; children (React.ReactNode) link content overriding text; className (string) additional CSS class; colorTheme ('light' | 'dark') color theme; target (string) HTML target attribute; text (string) link text; textSize ('l' | 'm' | 's' | 'sm', default 'm') link size; theme ('back' | 'file-link' | 'underline' | 'normal', default 'file-link') link theme; url (string) link URL; urlTitle (string) title attribute.",
+    "code_examples": [],
+    "keywords": [
+      "text",
+      "url",
+      "theme",
+      "arrow",
+      "textSize",
+      "colorTheme",
+      "target",
+      "analyticsEvents"
+    ]
+  },
+  {
+    "id": "component:page-constructor:link:examples",
+    "page_id": "component:page-constructor:link",
+    "url": "https://gravity-ui.com/components/page-constructor/link#examples",
+    "page_title": "Link",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "page-constructor",
+      "Link",
+      "Examples"
+    ],
+    "content": "Link usage with various themes.",
+    "code_examples": [
+      "<Link text=\"Read more\" url=\"https://example.com\" />",
+      "<Link text=\"Go back\" theme=\"back\" url=\"/previous\" />",
+      "<Link text=\"Learn more\" url=\"https://example.com\" arrow />"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "link",
+      "back",
+      "arrow",
+      "themes"
+    ]
+  },
+  {
+    "id": "component:page-constructor:map:overview",
+    "page_id": "component:page-constructor:map",
+    "url": "https://gravity-ui.com/components/page-constructor/map#overview",
+    "page_title": "Map",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "page-constructor",
+      "Map",
+      "Overview"
+    ],
+    "content": "Map is a component from @gravity-ui/page-constructor that supports both Yandex Maps and Google Maps based on the MapsContext configuration. Renders interactive maps with markers and customizable controls. Import: import {Map} from '@gravity-ui/page-constructor';",
+    "code_examples": [],
+    "keywords": [
+      "map",
+      "yandex maps",
+      "google maps",
+      "markers",
+      "location",
+      "page-constructor"
+    ]
+  },
+  {
+    "id": "component:page-constructor:map:props",
+    "page_id": "component:page-constructor:map",
+    "url": "https://gravity-ui.com/components/page-constructor/map#props",
+    "page_title": "Map",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "page-constructor",
+      "Map",
+      "Props"
+    ],
+    "content": "Map props: address (string) URL-escaped place name or address, required for Google Maps; areaMargin (number | [number, number] | [number, number, number], default 30) offset in pixels for marked area, Yandex Maps only; copyrightPosition ({top?, right?, bottom?, left?}) position of copyright text, Yandex Maps only; disableBalloons (boolean, default false) disables info balloon on marker click, Yandex Maps only; disableControls (boolean, default false) hides map default controls, Yandex Maps only; forceAspectRatio (boolean, default true) forces 16:9 on desktop and 4:3 on mobile; id (string) map id, required for Yandex Maps; markers (object[]) placemarkers, required for Yandex Maps; zoom (number) map zoom level.",
+    "code_examples": [],
+    "keywords": [
+      "address",
+      "markers",
+      "zoom",
+      "id",
+      "forceAspectRatio",
+      "disableControls",
+      "disableBalloons"
+    ]
+  },
+  {
+    "id": "component:page-constructor:map:examples",
+    "page_id": "component:page-constructor:map",
+    "url": "https://gravity-ui.com/components/page-constructor/map#examples",
+    "page_title": "Map",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "page-constructor",
+      "Map",
+      "Examples"
+    ],
+    "content": "Map component requires MapsContext provider with the maps configuration.",
+    "code_examples": [],
+    "keywords": [
+      "example",
+      "usage",
+      "map",
+      "yandex maps",
+      "google maps"
+    ]
+  },
+  {
+    "id": "component:page-constructor:table:overview",
+    "page_id": "component:page-constructor:table",
+    "url": "https://gravity-ui.com/components/page-constructor/table#overview",
+    "page_title": "Table",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "page-constructor",
+      "Table",
+      "Overview"
+    ],
+    "content": "Table is a component from @gravity-ui/page-constructor that renders data tables with optional legend markers. Supports column alignment, legend items, and various marker types. Import: import {Table} from '@gravity-ui/page-constructor';",
+    "code_examples": [],
+    "keywords": [
+      "table",
+      "data table",
+      "legend",
+      "markers",
+      "columns",
+      "page-constructor"
+    ]
+  },
+  {
+    "id": "component:page-constructor:table:props",
+    "page_id": "component:page-constructor:table",
+    "url": "https://gravity-ui.com/components/page-constructor/table#props",
+    "page_title": "Table",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "page-constructor",
+      "Table",
+      "Props"
+    ],
+    "content": "Table props: content (string[][], required) text or markers in the table cells; caption (string) table caption for accessibility; className (string) additional CSS class; hideLegend (boolean) hide the legend; justify ('start' | 'center' | 'end'[]) alignment set as a list for all table columns; legend (string[]) list of legend items; marker (LegendTableMarkerType, default 'disk') legend marker type.",
+    "code_examples": [],
+    "keywords": [
+      "content",
+      "caption",
+      "legend",
+      "hideLegend",
+      "justify",
+      "marker",
+      "LegendTableMarkerType"
+    ]
+  },
+  {
+    "id": "component:page-constructor:table:examples",
+    "page_id": "component:page-constructor:table",
+    "url": "https://gravity-ui.com/components/page-constructor/table#examples",
+    "page_title": "Table",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "page-constructor",
+      "Table",
+      "Examples"
+    ],
+    "content": "Table usage with content cells and legend.",
+    "code_examples": [],
+    "keywords": [
+      "example",
+      "usage",
+      "table",
+      "data",
+      "legend"
+    ]
+  },
+  {
+    "id": "component:page-constructor:title:overview",
+    "page_id": "component:page-constructor:title",
+    "url": "https://gravity-ui.com/components/page-constructor/title#overview",
+    "page_title": "Title",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "page-constructor",
+      "Title",
+      "Overview"
+    ],
+    "content": "Title is a component from @gravity-ui/page-constructor that renders a title with optional subtitle and supports various text sizes. Uses grid column layout for responsive sizing. Import: import {Title} from '@gravity-ui/page-constructor';",
+    "code_examples": [],
+    "keywords": [
+      "title",
+      "subtitle",
+      "typography",
+      "heading",
+      "page-constructor"
+    ]
+  },
+  {
+    "id": "component:page-constructor:title:props",
+    "page_id": "component:page-constructor:title",
+    "url": "https://gravity-ui.com/components/page-constructor/title#props",
+    "page_title": "Title",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "page-constructor",
+      "Title",
+      "Props"
+    ],
+    "content": "Title props: className (string) additional CSS class; colJustifyContent (GridJustifyContent) grid column justify content; colSizes (GridColumnSizesType, default {all: 12, sm: 8}) grid column sizes; id (string) HTML id attribute; subtitle (string) subtitle text with YFM support; title (string | TitleItemProps) title text or title item props object.",
+    "code_examples": [],
+    "keywords": [
+      "title",
+      "subtitle",
+      "colSizes",
+      "colJustifyContent",
+      "TitleItemProps",
+      "id"
+    ]
+  },
+  {
+    "id": "component:page-constructor:title:examples",
+    "page_id": "component:page-constructor:title",
+    "url": "https://gravity-ui.com/components/page-constructor/title#examples",
+    "page_title": "Title",
+    "page_type": "component",
+    "library": "page-constructor",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "page-constructor",
+      "Title",
+      "Examples"
+    ],
+    "content": "Title usage with text size and subtitle.",
+    "code_examples": [
+      "<Title title={{text: 'Main Title', textSize: 'l'}} subtitle=\"Subtitle text\" />",
+      "<Title title=\"Simple Title\" />"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "title",
+      "subtitle",
+      "typography"
+    ]
+  }
+]

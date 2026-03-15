@@ -1,0 +1,397 @@
+[
+  {
+    "name": "Button",
+    "library": "page-constructor",
+    "category": "actions",
+    "import_path": "@gravity-ui/page-constructor",
+    "import_statement": "import {Button} from '@gravity-ui/page-constructor';",
+    "description": "Button component for page-constructor with support for various themes, sizes, and image/icon attachments. Supports App Store and Google Play platform badges.",
+    "source_file": "vendor/page-constructor/src/components/Button/Button.tsx",
+    "props": [
+      {
+        "name": "analyticsEvents",
+        "type": "AnalyticsEventsBase",
+        "required": false,
+        "description": "Analytics events to track"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "description": "HTML id attribute"
+      },
+      {
+        "name": "img",
+        "type": "object | string",
+        "required": false,
+        "description": "Button icon. If string, specify the icon link. If object, specify url, position, alt"
+      },
+      {
+        "name": "onClick",
+        "type": "React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>",
+        "required": false,
+        "description": "Click handler"
+      },
+      {
+        "name": "size",
+        "type": "'xs' | 's' | 'ns' | 'n' | 'm' | 'l' | 'head' | 'promo'",
+        "required": false,
+        "default": "l",
+        "description": "Button size"
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "description": "Button text"
+      },
+      {
+        "name": "theme",
+        "type": "'action' | 'clear' | 'link' | 'normal' | 'pseudo' | 'raised' | 'github' | 'app-store' | 'google-play' | 'scale' | 'monochrome'",
+        "required": false,
+        "default": "normal",
+        "description": "Button look and feel"
+      },
+      {
+        "name": "url",
+        "type": "string",
+        "required": false,
+        "description": "Button link URL"
+      },
+      {
+        "name": "urlTitle",
+        "type": "string",
+        "required": false,
+        "description": "Button URL title attribute"
+      },
+      {
+        "name": "width",
+        "type": "string",
+        "required": false,
+        "description": "Button width"
+      }
+    ],
+    "examples": [
+      "<Button text=\"Click me\" url=\"https://example.com\" />",
+      "<Button text=\"App Store\" theme=\"app-store\" url=\"https://apps.apple.com/app\" />",
+      "<Button text=\"GitHub\" theme=\"github\" url=\"https://github.com/gravity-ui\" />"
+    ]
+  },
+  {
+    "name": "ErrorWrapper",
+    "library": "page-constructor",
+    "category": "feedback",
+    "import_path": "@gravity-ui/page-constructor",
+    "import_statement": "import {ErrorWrapper} from '@gravity-ui/page-constructor';",
+    "description": "The ErrorWrapper component is used to gracefully handle and display local errors in UI sections. When the isError flag is set to true, it shows an error message and an optional retry button. When isError is false, it renders its children content.",
+    "source_file": "vendor/page-constructor/src/components/ErrorWrapper/ErrorWrapper.tsx",
+    "props": [
+      {
+        "name": "buttonText",
+        "type": "string",
+        "required": true,
+        "description": "Text for the retry button"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Content rendered when no error occurs"
+      },
+      {
+        "name": "handler",
+        "type": "() => void",
+        "required": true,
+        "description": "Callback triggered on retry button click"
+      },
+      {
+        "name": "isError",
+        "type": "boolean",
+        "required": true,
+        "description": "Show error (true) or children (false)"
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "description": "Error message text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Optional CSS class for additional styling"
+      }
+    ],
+    "examples": [
+      "const [isError, setIsError] = React.useState(true);\n\n<ErrorWrapper\n  text=\"Something went wrong\"\n  buttonText=\"Try again\"\n  isError={isError}\n  handler={() => setIsError(false)}\n>\n  <div>Data loaded successfully!</div>\n</ErrorWrapper>"
+    ]
+  },
+  {
+    "name": "Link",
+    "library": "page-constructor",
+    "category": "actions",
+    "import_path": "@gravity-ui/page-constructor",
+    "import_statement": "import {Link} from '@gravity-ui/page-constructor';",
+    "description": "Link component for page-constructor with support for various themes including back, file-link, underline, and normal.",
+    "source_file": "vendor/page-constructor/src/components/Link/Link.tsx",
+    "props": [
+      {
+        "name": "analyticsEvents",
+        "type": "AnalyticsEventsBase",
+        "required": false,
+        "description": "Analytics events to track"
+      },
+      {
+        "name": "arrow",
+        "type": "boolean",
+        "required": false,
+        "description": "Draw an arrow on the right"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Link content (overrides text)"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "colorTheme",
+        "type": "'light' | 'dark'",
+        "required": false,
+        "description": "Color theme"
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "required": false,
+        "description": "HTML target attribute"
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "description": "Link text"
+      },
+      {
+        "name": "textSize",
+        "type": "'l' | 'm' | 's' | 'sm'",
+        "required": false,
+        "default": "m",
+        "description": "Link size"
+      },
+      {
+        "name": "theme",
+        "type": "'back' | 'file-link' | 'underline' | 'normal'",
+        "required": false,
+        "default": "file-link",
+        "description": "Link theme"
+      },
+      {
+        "name": "url",
+        "type": "string",
+        "required": false,
+        "description": "Link URL"
+      },
+      {
+        "name": "urlTitle",
+        "type": "string",
+        "required": false,
+        "description": "Link title attribute"
+      }
+    ],
+    "examples": [
+      "<Link text=\"Read more\" url=\"https://example.com\" />",
+      "<Link text=\"Go back\" theme=\"back\" url=\"/previous\" />",
+      "<Link text=\"Learn more\" url=\"https://example.com\" arrow />"
+    ]
+  },
+  {
+    "name": "Map",
+    "library": "page-constructor",
+    "category": "data-display",
+    "import_path": "@gravity-ui/page-constructor",
+    "import_statement": "import {Map} from '@gravity-ui/page-constructor';",
+    "description": "Map component that supports both Yandex Maps and Google Maps based on the MapsContext configuration.",
+    "source_file": "vendor/page-constructor/src/components/Map/Map.tsx",
+    "props": [
+      {
+        "name": "address",
+        "type": "string",
+        "required": false,
+        "description": "URL-escaped place name, address. Required for Google Maps"
+      },
+      {
+        "name": "areaMargin",
+        "type": "number | [number, number] | [number, number, number]",
+        "required": false,
+        "default": "30",
+        "description": "Offset (in pixels) for the marked area of the map. Only for Yandex Maps"
+      },
+      {
+        "name": "copyrightPosition",
+        "type": "{top?: number; right?: number; bottom?: number; left?: number}",
+        "required": false,
+        "description": "Position of the copyright text. Only for Yandex Maps"
+      },
+      {
+        "name": "disableBalloons",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "If true, disables info balloon opening when clicking on a marker. Only for Yandex Maps"
+      },
+      {
+        "name": "disableControls",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "If true, hides map's default controls. Only for Yandex Maps"
+      },
+      {
+        "name": "forceAspectRatio",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Determines whether map's aspect ratio is forced automatically (16:9 for Desktop, 4:3 for Mobile)"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "description": "Map id. Required for Yandex Maps"
+      },
+      {
+        "name": "markers",
+        "type": "object[]",
+        "required": false,
+        "description": "Description for placemarkers. Required for Yandex Maps"
+      },
+      {
+        "name": "zoom",
+        "type": "number",
+        "required": false,
+        "description": "Map zoom level"
+      }
+    ],
+    "examples": []
+  },
+  {
+    "name": "Table",
+    "library": "page-constructor",
+    "category": "data-display",
+    "import_path": "@gravity-ui/page-constructor",
+    "import_statement": "import {Table} from '@gravity-ui/page-constructor';",
+    "description": "Table component for page-constructor that renders data tables with optional legend markers.",
+    "source_file": "vendor/page-constructor/src/components/Table/Table.tsx",
+    "props": [
+      {
+        "name": "content",
+        "type": "string[][]",
+        "required": true,
+        "description": "Text or markers in the table cells"
+      },
+      {
+        "name": "caption",
+        "type": "string",
+        "required": false,
+        "description": "Table caption for accessibility"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "hideLegend",
+        "type": "boolean",
+        "required": false,
+        "description": "Hide the legend"
+      },
+      {
+        "name": "justify",
+        "type": "'start' | 'center' | 'end'[]",
+        "required": false,
+        "description": "Alignment set as a list for all table columns"
+      },
+      {
+        "name": "legend",
+        "type": "string[]",
+        "required": false,
+        "description": "List of legend items"
+      },
+      {
+        "name": "marker",
+        "type": "LegendTableMarkerType",
+        "required": false,
+        "default": "disk",
+        "description": "Legend marker type"
+      }
+    ],
+    "examples": []
+  },
+  {
+    "name": "Title",
+    "library": "page-constructor",
+    "category": "typography",
+    "import_path": "@gravity-ui/page-constructor",
+    "import_statement": "import {Title} from '@gravity-ui/page-constructor';",
+    "description": "Title component for page-constructor that renders a title with optional subtitle and supports various text sizes.",
+    "source_file": "vendor/page-constructor/src/components/Title/Title.tsx",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "colJustifyContent",
+        "type": "GridJustifyContent",
+        "required": false,
+        "description": "Grid column justify content"
+      },
+      {
+        "name": "colSizes",
+        "type": "GridColumnSizesType",
+        "required": false,
+        "default": "{all: 12, sm: 8}",
+        "description": "Grid column sizes"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "description": "HTML id attribute"
+      },
+      {
+        "name": "subtitle",
+        "type": "string",
+        "required": false,
+        "description": "Subtitle text with YFM support"
+      },
+      {
+        "name": "title",
+        "type": "string | TitleItemProps",
+        "required": false,
+        "description": "Title text or title item props object"
+      }
+    ],
+    "examples": [
+      "<Title title={{text: 'Main Title', textSize: 'l'}} subtitle=\"Subtitle text\" />",
+      "<Title title=\"Simple Title\" />"
+    ]
+  }
+]

@@ -90,7 +90,7 @@ export function loadData(): LoadedData {
 
   // Load new extraction data (graceful fallback if not yet extracted)
   const componentDefs: ComponentDef[] = loadJsonArray<ComponentDef>(DATA_DIR, "components");
-  const tokens: TokenSet = loadJsonFile<TokenSet>(join(DATA_DIR, "tokens.json"), { spacing: {}, breakpoints: {}, sizes: {} });
+  const tokens: TokenSet = loadJsonFile<TokenSet>(join(DATA_DIR, "tokens.json"), { colors: {}, spacing: {}, breakpoints: {}, sizes: {} });
   const categoryMap: CategoryMap = loadJsonFile<CategoryMap>(join(DATA_DIR, "categories.json"), { categories: {}, components: {} });
 
   // Build lookup maps

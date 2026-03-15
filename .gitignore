@@ -2,9 +2,3 @@ node_modules/
 dist/
 *.tsbuildinfo
 docs/superpowers
-
-# Generated extraction outputs
-data/components.json
-data/tokens.json
-llms.txt
-llms-full.txt

@@ -1,0 +1,4593 @@
+# Gravity UI — Full Component Reference
+
+> Complete component reference for Gravity UI design system. Includes prop interfaces, import statements, and usage examples.
+
+## ControlGroupOption
+
+**Import:** `import {ControlGroupOption} from '@gravity-ui/uikit';`
+
+## Key
+
+**Import:** `import {Key} from '@gravity-ui/uikit';`
+
+## FocusEventHandlers
+
+**Import:** `import {FocusEventHandlers} from '@gravity-ui/uikit';`
+
+## History
+
+**Import:** `import {History} from '@gravity-ui/uikit';`
+
+## Location
+
+**Import:** `import {Location} from '@gravity-ui/uikit';`
+
+## MobileProvider
+
+**Import:** `import {MobileProvider} from '@gravity-ui/uikit';`
+
+```typescript
+interface MobileProviderProps {
+  mobile?: boolean;
+  platform?: Platform;
+  useHistory?: () => Omit<History, 'goBack'> & { back?: () => void; goBack?: () => void; };
+  useLocation?: () => Location;
+}
+```
+
+## Platform
+
+**Import:** `import {Platform} from '@gravity-ui/uikit';`
+
+## Theme
+
+**Import:** `import {Theme} from '@gravity-ui/uikit';`
+
+## RealTheme
+
+**Import:** `import {RealTheme} from '@gravity-ui/uikit';`
+
+## Direction
+
+**Import:** `import {Direction} from '@gravity-ui/uikit';`
+
+## ThemeProvider
+
+**Import:** `import {ThemeProvider} from '@gravity-ui/uikit';`
+
+```typescript
+interface ThemeProviderProps {
+  direction?: 'ltr' | 'rtl';
+  fallbackLang?: `${T}` | string & {};
+  lang?: `${T}` | string & {};
+  layout?: Omit<PrivateLayoutProviderProps, 'children'>;
+  rootClassName?: string;
+  scoped?: boolean;
+  systemDarkTheme?: RealTheme;
+  systemLightTheme?: RealTheme;
+  theme?: 'system' | string & {} | 'light' | 'light-hc' | 'dark' | 'dark-hc';
+}
+```
+
+## ThemeSettings
+
+**Import:** `import {ThemeSettings} from '@gravity-ui/uikit';`
+
+## Accordion
+
+The Accordion component allows you to create collapsible content panels where…
+
+**Import:** `import {Accordion} from '@gravity-ui/uikit';`
+
+```typescript
+interface AccordionProps {
+  ariaLabel?: string;
+  ariaLevel?: number;
+  arrowPosition?: 'start' | 'end';
+  defaultValue?: AccordionValue<Multiple>;
+  multiple?: Multiple;
+  qa?: string;
+  size?: 'm' | 'l' | 'xl';
+  value?: AccordionValue<Multiple>;
+  view?: 'solid' | 'top-bottom';
+}
+```
+
+**Example:**
+
+```tsx
+<Accordion >
+            <Accordion.Item summary="Accordion header 1" qa={'item1'}>
+                Content of the first accordion item.
+            </Accordion.Item>
+            <Accordion.Item summary="Accordion header 2">
+                Content of the second accordion item.
+            </Accordion.Item>
+            <Accordion.Item summary="Accordion header 3">
+                Content of the third accordion item.
+            </Accordion.Item>
+        </Accordion>
+```
+
+## AccordionValue
+
+The Accordion component allows you to create collapsible content panels where…
+
+**Import:** `import {AccordionValue} from '@gravity-ui/uikit';`
+
+## ActionTooltip
+
+Tooltip for labeling action buttons without descriptive text (e.g. icon…
+
+**Import:** `import {ActionTooltip} from '@gravity-ui/uikit';`
+
+```typescript
+interface ActionTooltipProps {
+  title: string;  // Floating element title
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  closeDelay?: number;  // Delay in ms before close
+  container?: HTMLElement;
+  description?: React.ReactNode;  // Floating element description
+  disabled?: boolean;  // Disabled state
+  disablePortal?: boolean;
+  hotkey?: string;  // Floating element hotkey label
+  offset?: any;  // Floating element offset relative to anchor
+  open?: boolean;  // Controls open state
+  openDelay?: number;  // Delay in ms before open
+  placement?: any;  // Floating element placement
+  qa?: string;
+  strategy?: Strategy;  // Floating UI strategy
+  trigger?: 'focus';  // Event that should trigger opening
+}
+```
+
+**Example:**
+
+```tsx
+(
+            <ActionTooltip {...args
+```
+
+## ActionsPanel
+
+Use an ActionsPanel to render multiple buttons in a row.
+When there is not…
+
+**Import:** `import {ActionsPanel} from '@gravity-ui/uikit';`
+
+```typescript
+interface ActionsPanelProps {
+  actions: ActionsPanelItem[];  // Array of actions ActionsPanelItem[]
+  maxRowActions?: number;  // Maximum number of actions in a row
+  noteClassName?: string;  // ClassName of note
+  qa?: string;
+  renderNote?: () => React.ReactNode;  // Render-prop for displaying the content of a note
+}
+```
+
+**Example:**
+
+```tsx
+<ActionsPanel
+            
+            actions={actionsWithNote}
+            onClose={() => console.log('click close handle')}
+            renderNote={() => '10 items'}
+            maxRowActions={2}
+        />
+```
+
+## Alert
+
+normal: Main theme (used by default).
+
+**Import:** `import {Alert} from '@gravity-ui/uikit';`
+
+```typescript
+interface AlertProps {
+  actions?: any;  // Add you Actions to alert component:
+- by declaration:
+```tsx
+actions: [{text: '...', handler: () => {}}]
+```
+- custom component with predicted way:
+```tsx
+actions: (
+ <Alert.Actions>
+     <Alert.Action onClick={...}>...</Alert.Action>
+ </Alert.Actions>
+)
+```
+- full custom:
+```tsx
+actions: (
+ <Flex>
+     <img src={...} />
+     <Text>...</Text>
+ </Flex>
+)
+```
+  align?: 'center' | 'baseline';  // Center all content in vertical direction,
+useful if for some reason you actions takes more space then text
+or needed icon to be on the middle of the card
+  corners?: 'rounded' | 'square'; // default: - normal
+  icon?: React.ReactNode;  // Override default icons
+  layout?: 'vertical' | 'horizontal';  // Override actions position
+
+variants:
+- `vertical` - bottom (default);
+- `horizontal` - right;
+  message?: React.ReactNode;
+  qa?: string;
+  theme?: 'clear' | 'normal' | 'info' | 'success' | 'warning' | 'danger' | 'utility';
+  title?: React.ReactNode;
+  view?: 'filled' | 'outlined';
+}
+```
+
+**Example:**
+
+```tsx
+{themeCases.map((theme, index) => (
+                
+                    <Alert  theme={theme} />
+                </ShowcaseItem>
+            ))}
+```
+
+## ArrowToggle
+
+ArrowToggle is a component for displaying the chevron icon. It can rotate in…
+
+**Import:** `import {ArrowToggle} from '@gravity-ui/uikit';`
+
+```typescript
+interface ArrowToggleProps {
+  direction?: 'top' | 'left' | 'bottom' | 'right';
+  qa?: string;
+  size?: number;
+}
+```
+
+## AvatarSize
+
+This component is intended for rendering avatars. It has three basic avatar…
+
+**Import:** `import {AvatarSize} from '@gravity-ui/uikit';`
+
+## AvatarTheme
+
+This component is intended for rendering avatars. It has three basic avatar…
+
+**Import:** `import {AvatarTheme} from '@gravity-ui/uikit';`
+
+## AvatarView
+
+This component is intended for rendering avatars. It has three basic avatar…
+
+**Import:** `import {AvatarView} from '@gravity-ui/uikit';`
+
+## Avatar
+
+This component is intended for rendering avatars. It has three basic avatar…
+
+**Import:** `import {Avatar} from '@gravity-ui/uikit';`
+
+```typescript
+interface AvatarProps {
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  backgroundColor?: string;
+  borderColor?: string;
+  qa?: string;
+  shape?: 'square' | 'circle';
+  size?: '3xs' | '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl';
+  theme?: 'normal' | 'brand';
+  title?: string;
+  view?: 'filled' | 'outlined';
+}
+```
+
+**Example:**
+
+```tsx
+(
+            <React.Fragment>
+                
+                    
+                        <Avatar {...imageProps
+```
+
+## AvatarStack
+
+This component is used for a stack of images with overlap over one another and,…
+
+**Import:** `import {AvatarStack} from '@gravity-ui/uikit';`
+
+```typescript
+interface AvatarStackProps {
+  max?: number;  // Amount of avatars to be shown before more button. Default 3.
+  moreVariant?: 'counter' | 'dots';  // Variant of default control displaying extra data
+  overlapSize?: 's' | 'm' | 'l';  // How much each avatar should overlap next one
+| Avatar sizes | Recommended overlap |
+| :----------: | :-----------------: |
+| `xs`-`m`     | `s`                 |
+| `l`          | `m`                 |
+| `xl`         | `l`                 |
+  renderMore?: (options: { count: number; }) => React.ReactElement;  // Custom render for control displaying extra data
+  size?: 's' | 'm' | 'l' | '3xs' | '2xs' | 'xs' | 'xl';  // Size for control displaying count of extra avatars
+  total?: number;  // Total amount of items, used to calculate number of not rendered avatars
+}
+```
+
+**Example:**
+
+```tsx
+<AvatarStack max={AVATAR_STACK_DEFAULT_MAX} overlapSize={'s'} avatarSize={DEFAULT_AVATAR_SIZE} randomAvatar={true} moreVariant={'counter'} />
+```
+
+## AvatarStackOverlapSize
+
+This component is used for a stack of images with overlap over one another and,…
+
+**Import:** `import {AvatarStackOverlapSize} from '@gravity-ui/uikit';`
+
+## Breadcrumbs
+
+Breadcrumbs is a navigation element that shows the current location of a page…
+
+**Import:** `import {Breadcrumbs} from '@gravity-ui/uikit';`
+
+```typescript
+interface BreadcrumbsProps {
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  disabled?: boolean;
+  endContent?: React.ReactNode;
+  id?: string;
+  itemComponent?: React.ElementType;
+  maxItems?: number;
+  popupPlacement?: any;
+  popupStyle?: 'staircase';
+  qa?: string;
+  separator?: React.ReactNode;
+  showRoot?: boolean;
+}
+```
+
+**Example:**
+
+```tsx
+<Breadcrumbs >
+            <Breadcrumbs.Item>Region</Breadcrumbs.Item>
+            <Breadcrumbs.Item>Country</Breadcrumbs.Item>
+            <Breadcrumbs.Item>City</Breadcrumbs.Item>
+            <Breadcrumbs.Item>District</Breadcrumbs.Item>
+            <Breadcrumbs.Item>Street</Breadcrumbs.Item>
+        </Breadcrumbs>
+```
+
+## BreadcrumbsItem
+
+Breadcrumbs is a navigation element that shows the current location of a page…
+
+**Import:** `import {BreadcrumbsItem} from '@gravity-ui/uikit';`
+
+```typescript
+interface BreadcrumbsItemProps {
+  disabled?: boolean;
+}
+```
+
+## ButtonView
+
+Buttons act as a trigger for certain actions. While this is their main purpose,…
+
+**Import:** `import {ButtonView} from '@gravity-ui/uikit';`
+
+## ButtonSize
+
+Buttons act as a trigger for certain actions. While this is their main purpose,…
+
+**Import:** `import {ButtonSize} from '@gravity-ui/uikit';`
+
+## ButtonPin
+
+Buttons act as a trigger for certain actions. While this is their main purpose,…
+
+**Import:** `import {ButtonPin} from '@gravity-ui/uikit';`
+
+## ButtonWidth
+
+Buttons act as a trigger for certain actions. While this is their main purpose,…
+
+**Import:** `import {ButtonWidth} from '@gravity-ui/uikit';`
+
+## Button
+
+Buttons act as a trigger for certain actions. While this is their main purpose,…
+
+**Import:** `import {Button} from '@gravity-ui/uikit';`
+
+**Example:**
+
+```tsx
+<Button  size="xs">
+                Size xs
+            </Button>
+            <Button  size="s">
+                Size s
+            </Button>
+            <Button  size="m">
+                Size m
+            </Button>
+            <Button  size="l">
+                Size l
+            </Button>
+            <Button  size="xl">
+                Size xl
+            </Button>
+```
+
+## ButtonIcon
+
+Buttons act as a trigger for certain actions. While this is their main purpose,…
+
+**Import:** `import {ButtonIcon} from '@gravity-ui/uikit';`
+
+## CardTheme
+
+Card is a reusable React component that basically is a card-like container with…
+
+**Import:** `import {CardTheme} from '@gravity-ui/uikit';`
+
+## CardView
+
+Card is a reusable React component that basically is a card-like container with…
+
+**Import:** `import {CardView} from '@gravity-ui/uikit';`
+
+## CardSize
+
+Card is a reusable React component that basically is a card-like container with…
+
+**Import:** `import {CardSize} from '@gravity-ui/uikit';`
+
+## Card
+
+Card is a reusable React component that basically is a card-like container with…
+
+**Import:** `import {Card} from '@gravity-ui/uikit';`
+
+```typescript
+interface CardProps {
+  disabled?: boolean;  // Disabled card. Available for type: 'selection', 'action'
+  onClick?: (event: HTMLDivElement) => void;  // Card click handler. Available for type: 'selection', 'action'
+  overflow?: 'hidden' | 'x' | 'y' | 'auto';  // Add overflow css properties to container
+  qa?: string;
+  selected?: boolean;  // Selected card. Available for type: 'selection'
+  size?: 'm' | 'l';  // Card's size affects on available properties
+  spacing?: SpacingProps;  // All spacing shortcut properties available here.
+```tsx
+<Box spacing={{mr: 3, pb: 2}}>...<Box>
+// margin-right: 12px
+// padding-bottom: 8px
+```
+  theme?: 'normal' | 'info' | 'success' | 'warning' | 'danger' | 'utility';  // Card's base color. Available for type: 'container'
+  type?: 'selection' | 'action' | 'container';  // Card's type affects on available properties
+  view?: 'outlined' | 'clear' | 'filled' | 'raised';  // Available for type: 'container' and 'selection'
+}
+```
+
+**Example:**
+
+```tsx
+<Card  size="m">
+                Size m
+            </Card>
+            <Card  size="l">
+                Size l
+            </Card>
+```
+
+## CheckboxSize
+
+The Checkbox component allows the user to select or deselect a specific value.
+
+**Import:** `import {CheckboxSize} from '@gravity-ui/uikit';`
+
+## Checkbox
+
+The Checkbox component allows the user to select or deselect a specific value.
+
+**Import:** `import {Checkbox} from '@gravity-ui/uikit';`
+
+```typescript
+interface CheckboxProps {
+  checked: HTMLInputElement;
+  defaultChecked: HTMLInputElement;
+  disabled: HTMLInputElement;
+  id: HTMLInputElement;
+  name: HTMLInputElement;
+  value: HTMLInputElement;
+  content?: React.ReactNode;
+  controlProps?: Omit<HTMLInputElement, 'name' | 'value' | 'id' | 'checked' | 'onChange' | 'onFocus' | 'onBlur' | 'disabled' | 'defaultChecked' | 'type' | 'aria-checked'>;
+  controlRef?: HTMLInputElement;
+  indeterminate?: boolean;
+  qa?: string;
+  size?: 'm' | 'l' | 'xl';
+  title?: string;
+}
+```
+
+**Example:**
+
+```tsx
+<div style={{display: 'flex', alignItems: 'center', gap: '16px'}}>
+                <Checkbox  size="m">
+                    Size m
+                </Checkbox>
+                <Checkbox  size="l">
+                    Size l
+                </Checkbox>
+                <Checkbox  size="xl">
+                    Size xl
+                </Checkbox>
+            </div>
+```
+
+## ClipboardButton
+
+This component puts CopyToClipboard and ClipboardIcon together. CopyToClipboard…
+
+**Import:** `import {ClipboardButton} from '@gravity-ui/uikit';`
+
+```typescript
+interface ClipboardButtonProps {
+  text: string | (() => string);
+  timeout?: number;
+}
+```
+
+**Example:**
+
+```tsx
+<ClipboardButton  size="xs" />
+            </ShowcaseItem>
+            
+                <ClipboardButton  size="s" />
+            </ShowcaseItem>
+            
+                <ClipboardButton  size="m" />
+            </ShowcaseItem>
+            
+                <ClipboardButton  size="l" />
+            </ShowcaseItem>
+            
+                <ClipboardButton  size="xl" />
+            </ShowcaseItem>
+```
+
+## ClipboardIcon
+
+This component is mainly used along with CopyToClipboard as a wrap component.
+
+**Import:** `import {ClipboardIcon} from '@gravity-ui/uikit';`
+
+```typescript
+interface ClipboardIconProps {
+  status: 'pending' | 'success' | 'error';
+  size?: number;
+}
+```
+
+**Example:**
+
+```tsx
+<ClipboardIcon size={20} />
+```
+
+## CopyToClipboardStatus
+
+CopyToClipboard is a wrapper component that copies text to clipboard and can…
+
+**Import:** `import {CopyToClipboardStatus} from '@gravity-ui/uikit';`
+
+## CopyToClipboard
+
+CopyToClipboard is a wrapper component that copies text to clipboard and can…
+
+**Import:** `import {CopyToClipboard} from '@gravity-ui/uikit';`
+
+## DefinitionList
+
+The component to display definition list with term and definition separated by…
+
+**Import:** `import {DefinitionList} from '@gravity-ui/uikit';`
+
+```typescript
+interface DefinitionListProps {
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  contentMaxWidth?: number;
+  direction?: 'vertical' | 'horizontal';
+  groupLabelClassName?: string;
+  nameMaxWidth?: number;
+  qa?: string;
+  responsive?: boolean;
+}
+```
+
+**Example:**
+
+```tsx
+<DefinitionList responsive={false} children={definitionListItems} />
+```
+
+## DefinitionListItem
+
+The component to display definition list with term and definition separated by…
+
+**Import:** `import {DefinitionListItem} from '@gravity-ui/uikit';`
+
+```typescript
+interface DefinitionListItemProps {
+  name: React.ReactNode;
+  copyText?: string;
+  note?: string | HelpMarkProps;
+  qa?: string;
+}
+```
+
+## Dialog
+
+This is a component used for dialogs.
+
+**Import:** `import {Dialog} from '@gravity-ui/uikit';`
+
+```typescript
+interface DialogProps {
+  onClose: (event: KeyboardEvent | MouseEvent, reason: string) => void;
+  open: boolean;
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  container?: HTMLElement;
+  contentOverflow?: 'visible' | 'auto';
+  disableBodyScrollLock?: boolean;
+  disableEscapeKeyDown?: boolean;
+  disableHeightTransition?: boolean;
+  disableOutsideClick?: boolean;
+  hasCloseButton?: boolean;
+  initialFocus?: any;
+  keepMounted?: boolean;
+  modalClassName?: string;
+  onEnterKeyDown?: (event: KeyboardEvent) => void;
+  onEscapeKeyDown?: (event: KeyboardEvent) => void;
+  onOpenChange?: (open: boolean, event?: Event, reason?: OpenChangeReason) => void;
+  onOutsideClick?: (event: MouseEvent) => void;
+  onTransitionIn?: () => void;
+  onTransitionInComplete?: () => void;
+  onTransitionOut?: () => void;
+  onTransitionOutComplete?: () => void;
+  qa?: string;
+  returnFocus?: FloatingFocusManagerProps;
+  size?: 's' | 'm' | 'l';
+}
+```
+
+## DialogBody
+
+This is a component used for dialogs.
+
+**Import:** `import {DialogBody} from '@gravity-ui/uikit';`
+
+```typescript
+interface DialogBodyProps {
+  hasBorders?: boolean;
+}
+```
+
+## DialogDivider
+
+This is a component used for dialogs.
+
+**Import:** `import {DialogDivider} from '@gravity-ui/uikit';`
+
+## DialogHeader
+
+This is a component used for dialogs.
+
+**Import:** `import {DialogHeader} from '@gravity-ui/uikit';`
+
+```typescript
+interface DialogHeaderProps {
+  as?: React.ElementType;
+  caption?: React.ReactNode;
+  id?: string;
+  insertAfter?: React.ReactNode;
+  insertBefore?: React.ReactNode;
+}
+```
+
+## DialogFooter
+
+This is a component used for dialogs.
+
+**Import:** `import {DialogFooter} from '@gravity-ui/uikit';`
+
+```typescript
+interface DialogFooterProps {
+  errorText?: string;
+  loading?: boolean;
+  onClickButtonApply?: (event: any) => void;
+  onClickButtonCancel?: (event: HTMLElement, MouseEvent) => void;
+  preset?: 'default' | 'success' | 'danger';
+  propsButtonApply?: ButtonButtonProps | ButtonLinkProps;
+  propsButtonCancel?: ButtonButtonProps | ButtonLinkProps;
+  renderButtons?: (buttonApply: React.ReactNode, buttonCancel: React.ReactNode) => React.ReactNode;
+  showError?: boolean;
+  textButtonApply?: string;
+  textButtonCancel?: string;
+}
+```
+
+## Disclosure
+
+Disclosure is a collapsible component that allows to display and hide its…
+
+**Import:** `import {Disclosure} from '@gravity-ui/uikit';`
+
+```typescript
+interface DisclosureProps {
+  arrowPosition?: 'left' | 'right' | 'start' | 'end';  // Control position
+  defaultExpanded?: boolean;  // Default opening state
+  disabled?: boolean;  // Disabled state
+  expanded?: boolean;  // Controlled opening state
+  keepMounted?: boolean;  // Keep content in DOM
+  qa?: string;
+  size?: 'm' | 'l' | 'xl';  // Disclosure size
+  summary?: React.ReactNode;  // Content summary
+}
+```
+
+**Example:**
+
+```tsx
+<Disclosure children={'Default content'} summary={'Default summary'} size={'m'} disabled={false} arrowPosition={'start'} qa={'disclosure'} />
+```
+
+## DisclosureSize
+
+Disclosure is a collapsible component that allows to display and hide its…
+
+**Import:** `import {DisclosureSize} from '@gravity-ui/uikit';`
+
+## DisclosureArrowPosition
+
+Disclosure is a collapsible component that allows to display and hide its…
+
+**Import:** `import {DisclosureArrowPosition} from '@gravity-ui/uikit';`
+
+## DisclosureQa
+
+Disclosure is a collapsible component that allows to display and hide its…
+
+**Import:** `import {DisclosureQa} from '@gravity-ui/uikit';`
+
+## DividerOrientation
+
+The Divider component is used as a thin line for delimiting and grouping…
+
+**Import:** `import {DividerOrientation} from '@gravity-ui/uikit';`
+
+## DividerAlign
+
+The Divider component is used as a thin line for delimiting and grouping…
+
+**Import:** `import {DividerAlign} from '@gravity-ui/uikit';`
+
+## Divider
+
+The Divider component is used as a thin line for delimiting and grouping…
+
+**Import:** `import {Divider} from '@gravity-ui/uikit';`
+
+```typescript
+interface DividerProps {
+  align?: 'start' | 'center' | 'end';
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  orientation?: 'vertical' | 'horizontal';
+  qa?: string;
+}
+```
+
+**Example:**
+
+```tsx
+(
+            
+                <Card theme="normal" type="container">
+                    <Flex direction="column">
+                        {listItems.map((value, index) => (
+                            <React.Fragment key={index}>
+                                <div style={itemStyle}>{value}</div>
+                                {index < listItems.length - 1 && <Divider  />}
+                            </React.Fragment>
+                        ))
+```
+
+## DrawerPlacement
+
+The Drawer component is a versatile interface element used in web applications…
+
+**Import:** `import {DrawerPlacement} from '@gravity-ui/uikit';`
+
+## Drawer
+
+The Drawer component is a versatile interface element used in web applications…
+
+**Import:** `import {Drawer} from '@gravity-ui/uikit';`
+
+```typescript
+interface DrawerProps {
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  container?: HTMLElement;
+  contentClassName?: string;
+  disableBodyScrollLock?: boolean;
+  disableEscapeKeyDown?: boolean;  // Do not dismiss on escape key press
+  disableOutsideClick?: boolean;  // Do not dismiss on outside click
+  disablePortal?: boolean;
+  disableVisuallyHiddenDismiss?: boolean;  // Do not add a11y dismiss buttons when managing focus
+  floatingRef?: HTMLDivElement;
+  hideVeil?: boolean;  // Removes the drawer's veil.
+  initialFocus?: FloatingFocusManagerProps;  // FloatingFocusManager `initialFocus` property
+  keepMounted?: boolean;
+  maxSize?: number;  // Max width of the drawer in pixels.
+  minSize?: number;  // Min width of the drawer in pixels.
+  onResize?: OnResizeHandler;  // Callback called when the drawer is being resized.
+  onResizeEnd?: OnResizeHandler;  // Callback called at the end of resizing.
+  onResizeStart?: OnResizeHandler;  // Callback called at the start of resizing.
+  open?: boolean;
+  placement?: 'right' | 'left' | 'top' | 'bottom';  // Specifies the side from which the drawer should slide in, `left` by default.
+  qa?: string;
+  resizable?: boolean;  // Enables resizing of the drawer via pointer.
+  returnFocus?: FloatingFocusManagerProps;  // FloatingFocusManager `returnFocus` property
+  size?: number | 'auto';  // Width or size of the drawer in pixels.
+When the 'auto' option is passed, the Drawer's width or height will adjust to fit its content.
+}
+```
+
+**Example:**
+
+```tsx
+<Drawer children={(
+            <div
+                style={{
+                    boxSizing: 'border-box'} padding={'8px 16px'} height={'100%'} overflowY={'auto'} />
+```
+
+## DropdownMenu
+
+The dropdown menu component provides item grouping, submenus, and a…
+
+**Import:** `import {DropdownMenu} from '@gravity-ui/uikit';`
+
+```typescript
+interface DropdownMenuProps {
+  data?: T;  // A payload passed to the actions called from the menu.
+(Can be useful for context menus.)
+  defaultSwitcherClassName?: string;
+  defaultSwitcherProps?: any;  // Overrides the default switcher button props.
+  disabled?: boolean;  // Setting this prop to `true` disables the switcher button
+and prevents the menu from being opened.
+  hideOnScroll?: boolean;
+  icon?: React.ReactNode;  // Switcher icon.
+  items?: (DropdownMenuItem<T> | DropdownMenuItem<T>[])[];  // Array of items.
+Nested arrays of items represent visually separated groups.
+  menuProps?: Partial<MenuProps>;  // Overrides the default dropdown menu props.
+  onOpenToggle?: (open: boolean) => void;
+  onSwitcherClick?: HTMLElement;
+  open?: boolean;
+  popupProps?: Partial<PopupProps>;  // Overrides the default dropdown popup props.
+  renderSwitcher?: (props: SwitcherProps) => React.ReactNode;  // Menu toggle control.
+  size?: 's' | 'm' | 'l' | 'xl';  // Applied for the switcher and the menu.
+  switcher?: React.ReactNode;  // Menu toggle control.
+  switcherWrapperClassName?: string;
+}
+```
+
+## DropdownMenuItem
+
+The dropdown menu component provides item grouping, submenus, and a…
+
+**Import:** `import {DropdownMenuItem} from '@gravity-ui/uikit';`
+
+## DropdownMenuItemMixed
+
+The dropdown menu component provides item grouping, submenus, and a…
+
+**Import:** `import {DropdownMenuItemMixed} from '@gravity-ui/uikit';`
+
+## DropdownMenuItemAction
+
+The dropdown menu component provides item grouping, submenus, and a…
+
+**Import:** `import {DropdownMenuItemAction} from '@gravity-ui/uikit';`
+
+## FilePreview
+
+**Import:** `import {FilePreview} from '@gravity-ui/uikit';`
+
+```typescript
+interface FilePreviewProps {
+  file: File;
+  actions?: FilePreviewAction[];
+  description?: string;
+  imageSrc?: string;
+  qa?: string;
+  selected?: boolean;
+  view?: 'default' | 'compact';
+}
+```
+
+## FilePreviewAction
+
+**Import:** `import {FilePreviewAction} from '@gravity-ui/uikit';`
+
+## HelpMark
+
+Component to display help icon with popover
+
+**Import:** `import {HelpMark} from '@gravity-ui/uikit';`
+
+```typescript
+interface HelpMarkProps {
+  iconSize?: 's' | 'm' | 'l' | 'xl';
+  popoverProps?: Omit<PopoverProps, 'children'>;
+  qa?: string;
+}
+```
+
+**Example:**
+
+```tsx
+(
+            
+                
+                    <HelpMark {...args
+```
+
+## Hotkey
+
+You can use the Hotkey component to display keyboard shortcuts for both Mac and…
+
+**Import:** `import {Hotkey} from '@gravity-ui/uikit';`
+
+```typescript
+interface HotkeyProps {
+  value: string;
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  platform?: 'pc' | 'mac';
+  qa?: string;
+  view?: 'light' | 'dark'; // default: light
+}
+```
+
+## IconData
+
+The Icon component is a wrapper for SVG icon. SVGs can be loaded in different…
+
+**Import:** `import {IconData} from '@gravity-ui/uikit';`
+
+## Icon
+
+The Icon component is a wrapper for SVG icon. SVGs can be loaded in different…
+
+**Import:** `import {Icon} from '@gravity-ui/uikit';`
+
+```typescript
+interface IconProps {
+  data: string | typeof SVGReactComponent | SVGIconSpriteData | SVGIconSvgrData;
+  color?: 'primary' | 'complementary' | 'secondary' | 'hint' | 'info' | 'info-heavy' | 'positive' | 'positive-heavy' | 'warning' | 'warning-heavy' | 'danger' | 'danger-heavy' | 'utility' | 'utility-heavy' | 'misc' | 'misc-heavy' | 'brand' | 'link' | 'link-hover' | 'link-visited' | 'link-visited-hover' | 'dark-primary' | 'dark-complementary' | 'dark-secondary' | 'light-primary' | 'light-complementary' | 'light-secondary' | 'light-hint' | 'inverted-primary' | 'inverted-complementary' | 'inverted-secondary' | 'inverted-hint';
+  fill?: string;
+  height?: string | number;
+  qa?: string;
+  size?: string | number;
+  stroke?: string;
+  width?: string | number;
+}
+```
+
+**Example:**
+
+```tsx
+<Icon  size={16} />
+            <Icon  size={24} />
+            <Icon  size={36} />
+```
+
+## Label
+
+You can use Labels for highlighting certain information. A Label with the Close…
+
+**Import:** `import {Label} from '@gravity-ui/uikit';`
+
+```typescript
+interface LabelProps {
+  closeButtonLabel?: string;  // `aria-label` of close button
+  copyButtonLabel?: string;  // `aria-label` of copy button
+  copyText?: string;  // Text to copy
+  disabled?: boolean;  // Disabled state
+  icon?: React.ReactNode;  // Label icon (at start)
+  interactive?: boolean;  // Display hover
+  loading?: boolean;
+  onClick?: (event: HTMLElement) => void;  // Handler for click on label itself
+  onCloseClick?: (event: HTMLButtonElement) => void;  // Handler for click on close button
+  onCopy?: (text: string, result: boolean) => void;  // Handler for copy event
+  qa?: string;
+  size?: 'xxs' | 'xs' | 's' | 'm';  // Label size
+  theme?: 'normal' | 'info' | 'danger' | 'warning' | 'success' | 'utility' | 'unknown' | 'clear';  // Label color
+  title?: string;  // Browser title for Label
+  type?: 'info' | 'default' | 'copy' | 'close';  // Label type (plain, with copy text button, with close button, or with info icon)
+  value?: React.ReactNode;  // Label value (shows as "children : value")
+  width?: 'auto';  // Container width behavior
+}
+```
+
+**Example:**
+
+```tsx
+<Label  size="xxs">
+                Size xxs
+            </Label>
+            <Label  size="xs">
+                Size xs
+            </Label>
+            <Label  size="s">
+                Size s
+            </Label>
+            <Label  size="m">
+                Size m
+            </Label>
+```
+
+## LinkView
+
+Link is a part of text that, when clicked, takes the user to another part of…
+
+**Import:** `import {LinkView} from '@gravity-ui/uikit';`
+
+## Link
+
+Link is a part of text that, when clicked, takes the user to another part of…
+
+**Import:** `import {Link} from '@gravity-ui/uikit';`
+
+```typescript
+interface LinkProps {
+  href: string;
+  extraProps?: HTMLAnchorElement;
+  qa?: string;
+  underline?: boolean;
+  view?: 'normal' | 'primary' | 'secondary';
+  visitable?: boolean;
+}
+```
+
+**Example:**
+
+```tsx
+<Link  view="normal">
+                Normal
+            </Link>
+            <Link  view="primary">
+                Primary
+            </Link>
+            <Link  view="secondary">
+                Secondary
+            </Link>
+        </ShowcaseComponent>
+```
+
+## ListQa
+
+Determines the item list height (or a function that returns the height value…
+
+**Import:** `import {ListQa} from '@gravity-ui/uikit';`
+
+## List
+
+Determines the item list height (or a function that returns the height value…
+
+**Import:** `import {List} from '@gravity-ui/uikit';`
+
+**Example:**
+
+```tsx
+<List  />
+```
+
+## ListSortHandleAlign
+
+Determines the item list height (or a function that returns the height value…
+
+**Import:** `import {ListSortHandleAlign} from '@gravity-ui/uikit';`
+
+## ListSortParams
+
+Determines the item list height (or a function that returns the height value…
+
+**Import:** `import {ListSortParams} from '@gravity-ui/uikit';`
+
+## ListItemData
+
+Determines the item list height (or a function that returns the height value…
+
+**Import:** `import {ListItemData} from '@gravity-ui/uikit';`
+
+## ListItem
+
+Determines the item list height (or a function that returns the height value…
+
+**Import:** `import {ListItem} from '@gravity-ui/uikit';`
+
+**Example:**
+
+```tsx
+<ListItem item={'Item Content'} itemIndex={0} active={false} selected={false} sortable={false} sortHandleAlign={'right'} />
+```
+
+## Loader
+
+The Loader component displays the loading progress as flashing bars. Unlike…
+
+**Import:** `import {Loader} from '@gravity-ui/uikit';`
+
+```typescript
+interface LoaderProps {
+  qa?: string;
+  size?: 's' | 'm' | 'l';
+}
+```
+
+**Example:**
+
+```tsx
+<React.Fragment>
+            
+                <Loader  size="s" />
+            </ShowcaseItem>
+            
+                <Loader  size="m" />
+            </ShowcaseItem>
+            
+                <Loader  size="l" />
+            </ShowcaseItem>
+        </React.Fragment>
+```
+
+## LoaderSize
+
+The Loader component displays the loading progress as flashing bars. Unlike…
+
+**Import:** `import {LoaderSize} from '@gravity-ui/uikit';`
+
+## MenuItem
+
+The Menu component enables easily creating views for action lists.
+
+**Import:** `import {MenuItem} from '@gravity-ui/uikit';`
+
+```typescript
+interface MenuItemProps {
+  active?: boolean;
+  contentClassName?: string;
+  disabled?: boolean;
+  extraProps?: any;
+  href?: string;
+  iconEnd?: React.ReactNode;
+  iconStart?: React.ReactNode;
+  qa?: string;
+  rel?: string;
+  selected?: boolean;
+  target?: string;
+  theme?: 'normal' | 'danger';
+  title?: string;
+}
+```
+
+## MenuGroup
+
+The Menu component enables easily creating views for action lists.
+
+**Import:** `import {MenuGroup} from '@gravity-ui/uikit';`
+
+```typescript
+interface MenuGroupProps {
+  label?: string;
+  qa?: string;
+}
+```
+
+## MenuSize
+
+The Menu component enables easily creating views for action lists.
+
+**Import:** `import {MenuSize} from '@gravity-ui/uikit';`
+
+## Menu
+
+The Menu component enables easily creating views for action lists.
+
+**Import:** `import {Menu} from '@gravity-ui/uikit';`
+
+```typescript
+interface MenuProps {
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  qa?: string;
+  size?: 's' | 'm' | 'l' | 'xl';
+}
+```
+
+## Modal
+
+The Modal component serves as base for creating pop-up windows with a backdrop…
+
+**Import:** `import {Modal} from '@gravity-ui/uikit';`
+
+```typescript
+interface ModalProps {
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  container?: HTMLElement;
+  contentClassName?: string;
+  contentOverflow?: 'visible' | 'auto';
+  disableBodyScrollLock?: boolean;
+  disableEscapeKeyDown?: boolean;  // Do not dismiss on escape key press
+  disableHeightTransition?: boolean;
+  disableOutsideClick?: boolean;  // Do not dismiss on outside click
+  disablePortal?: boolean;
+  disableVisuallyHiddenDismiss?: boolean;  // Do not add a11y dismiss buttons when managing focus
+  floatingRef?: HTMLDivElement;
+  initialFocus?: FloatingFocusManagerProps;  // FloatingFocusManager `initialFocus` property
+  keepMounted?: boolean;
+  onClose?: (event: MouseEvent | KeyboardEvent, reason: string) => void;  // This callback will be called when Escape key pressed on keyboard, or click outside was made
+This behaviour could be disabled with `disableEscapeKeyDown`
+and `disableOutsideClick` options
+  onEnterKeyDown?: (event: KeyboardEvent) => void;  // This callback will be called when Enter key is pressed on keyboard
+  onEscapeKeyDown?: (event: KeyboardEvent) => void;  // This callback will be called when Escape key pressed on keyboard
+This behaviour could be disabled with `disableEscapeKeyDown` option
+  onOpenChange?: (open: boolean, event?: Event, reason?: OpenChangeReason) => void;  // Callback for open state changes, when dismiss happens for example
+  onOutsideClick?: (event: MouseEvent) => void;  // This callback will be called when click is outside of elements of "top layer"
+This behaviour could be disabled with `disableOutsideClick` option
+  onTransitionIn?: () => void;  // Callback called when `Modal` is opened and "in" transition is started
+  onTransitionInComplete?: () => void;  // Callback called when `Modal` is opened and "in" transition is completed
+  onTransitionOut?: () => void;  // Callback called when `Modal` is closed and "out" transition is started
+  onTransitionOutComplete?: () => void;  // Callback called when `Popup` is closed and "out" transition is completed
+  open?: boolean;
+  qa?: string;
+  returnFocus?: FloatingFocusManagerProps;  // FloatingFocusManager `returnFocus` property
+}
+```
+
+## ModalCloseReason
+
+The Modal component serves as base for creating pop-up windows with a backdrop…
+
+**Import:** `import {ModalCloseReason} from '@gravity-ui/uikit';`
+
+## NumberInput
+
+NumberInput allow users to enter numbers into a UI.
+
+**Import:** `import {NumberInput} from '@gravity-ui/uikit';`
+
+```typescript
+interface NumberInputProps {
+  allowDecimal?: boolean;  // Enables ability to enter decimal numbers
+  autoComplete?: string | boolean;  // The control's `autocomplete` attribute
+  autoFocus?: boolean;  // The control's `autofocus` attribute
+  controlProps?: Omit<HTMLInputElement, 'onChange' | 'min' | 'max' | 'onInput'>;  // The control's html attributes
+  controlRef?: T;  // React ref provided to the control
+  defaultValue?: number;  // The control's default value. Use when the component is not controlled
+  disabled?: boolean;  // Indicates that the user cannot interact with the control
+  endContent?: React.ReactNode;  // User`s node rendered after input node and clear button
+  errorMessage?: React.ReactNode;  // Determines content of the error message
+  errorPlacement?: 'outside' | 'inside';  // Determines whether the error message will be placed under the input field as text or in the tooltip
+  hasClear?: boolean;  // Shows icon for clearing control's value
+  hiddenControls?: boolean;  // Hides increment/decrement buttons at the end of control
+  id?: string;  // The control's `id` attribute
+  label?: string;  // Help text rendered to the left of the input node
+  max?: number;  // max allowed value. It is used for clamping entered value to allowed range
+  min?: number;  // min allowed value. It is used for clamping entered value to allowed range
+  name?: string;  // The control's `name` attribute. Will be autogenerated if not specified
+  note?: React.ReactNode;  // An optional element displayed under the lower right corner of the control and sharing the place with the error container
+  pin?: 'round-round' | 'brick-brick' | 'clear-clear' | 'round-brick' | 'brick-round' | 'round-clear' | 'clear-round' | 'brick-clear' | 'clear-brick';  // The control's border view. `'round-round'` by default
+  placeholder?: string;  // Text that appears in the control when it has no value set
+  qa?: string;
+  readOnly?: boolean;  // Indicates that the user cannot change control's value
+  shiftMultiplier?: number;  // Step multiplier when shift button is pressed
+  size?: 's' | 'm' | 'l' | 'xl';  // The control's size. `'m'` by default
+  startContent?: React.ReactNode;  // User`s node rendered before label and input node
+  step?: number;  // Delta for incrementing/decrementing entered value with arrow keyboard buttons or component controls
+  tabIndex?: number;  // The control's `tabindex` attribute
+  validationState?: 'invalid';  // Describes the validation state
+  value?: number;  // The control's value
+  view?: 'normal' | 'clear';  // The control's view. `'normal'` by default
+}
+```
+
+**Example:**
+
+```tsx
+<StoryWithState placeholder="controlled"  />
+            <NumberInput placeholder="uncontrolled"  />
+```
+
+## Overlay
+
+The Overlay component renders an overlay over the parent element with the…
+
+**Import:** `import {Overlay} from '@gravity-ui/uikit';`
+
+```typescript
+interface OverlayProps {
+  background?: 'base' | 'float';
+  visible?: boolean;
+}
+```
+
+**Example:**
+
+```tsx
+(
+            
+                <Box position="relative" className={b('content')
+```
+
+## OverlayBackground
+
+The Overlay component renders an overlay over the parent element with the…
+
+**Import:** `import {OverlayBackground} from '@gravity-ui/uikit';`
+
+## Pagination
+
+This component renders pagination.
+
+**Import:** `import {Pagination} from '@gravity-ui/uikit';`
+
+## PaletteOption
+
+The Palette component is used to display a grid of icons, emojis, reactions,…
+
+**Import:** `import {PaletteOption} from '@gravity-ui/uikit';`
+
+## Palette
+
+The Palette component is used to display a grid of icons, emojis, reactions,…
+
+**Import:** `import {Palette} from '@gravity-ui/uikit';`
+
+```typescript
+interface PaletteProps {
+  disabled: any;
+  size: any;
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  columns?: number;  // How many options are there per row.
+  defaultValue?: string[];  // The control's default value. Use when the component is not controlled.
+  multiple?: boolean;  // Allows selecting multiple options.
+  onBlur?: (event: React.FocusEvent) => void;  // Fires when a user blurs from the Palette.
+  onFocus?: (event: React.FocusEvent) => void;  // Fires when a user focuses on the Palette.
+  onUpdate?: (value: string[]) => void;  // Fires when a user (un)selects an option.
+  optionClassName?: string;  // HTML class attribute for a grid option.
+  options?: PaletteOption[];  // List of Palette options (the grid).
+  qa?: string;
+  rowClassName?: string;  // HTML class attribute for a grid row.
+  value?: string[];  // Current value (which options are selected).
+}
+```
+
+**Example:**
+
+```tsx
+<Palette {...Default.args}  disabled={true} />
+            </ShowcaseItem>
+            
+                <Palette
+                    
+                    options={options.map((option, i) =>
+                        i < 5 ? {...option, disabled: true} : option,
+                    )}
+                />
+            </ShowcaseItem>
+```
+
+## PinInputSize
+
+PinInput is a group of inputs to enter sequence of numeric or alphanumeric…
+
+**Import:** `import {PinInputSize} from '@gravity-ui/uikit';`
+
+## PinInputApi
+
+PinInput is a group of inputs to enter sequence of numeric or alphanumeric…
+
+**Import:** `import {PinInputApi} from '@gravity-ui/uikit';`
+
+## PinInput
+
+PinInput is a group of inputs to enter sequence of numeric or alphanumeric…
+
+**Import:** `import {PinInput} from '@gravity-ui/uikit';`
+
+```typescript
+interface PinInputProps {
+  apiRef?: PinInputApi;
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  autoFocus?: boolean;
+  defaultValue?: string[];
+  disabled?: boolean;
+  errorMessage?: React.ReactNode;
+  form?: string;
+  id?: string;
+  length?: number;
+  mask?: boolean;
+  name?: string;
+  note?: React.ReactNode;
+  onUpdate?: (value: string[]) => void;
+  onUpdateComplete?: (value: string[]) => void;
+  otp?: boolean;
+  placeholder?: string;
+  qa?: string;
+  responsive?: boolean;
+  size?: 's' | 'm' | 'l' | 'xl';
+  type?: 'numeric' | 'alphanumeric';
+  validationState?: 'invalid';
+  value?: string[];
+}
+```
+
+**Example:**
+
+```tsx
+<PinInput  size="s" />
+            </ShowcaseItem>
+            
+                <PinInput  size="m" />
+            </ShowcaseItem>
+            
+                <PinInput  size="l" />
+            </ShowcaseItem>
+            
+                <PinInput  size="xl" />
+            </ShowcaseItem>
+```
+
+## PlaceholderContainer
+
+PlaceholderContainer is a component for displaying content with an image, text…
+
+**Import:** `import {PlaceholderContainer} from '@gravity-ui/uikit';`
+
+**Example:**
+
+```tsx
+<React.Fragment>
+            
+                <PlaceholderContainer  direction="row" title={`${args.title}: row`} />
+            
+            
+                <PlaceholderContainer
+                    
+                    direction="column"
+                    title={`${args.title}: column`}
+                />
+            
+        </React.Fragment>
+```
+
+## Popover
+
+The Popover component is technically the Popup with some trigger interactivity…
+
+**Import:** `import {Popover} from '@gravity-ui/uikit';`
+
+```typescript
+interface PopoverProps {
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  closeDelay?: number;
+  container?: HTMLElement;
+  content?: React.ReactNode;
+  disabled?: boolean;
+  disablePortal?: boolean;
+  disableVisuallyHiddenDismiss?: boolean;  // Do not add a11y dismiss buttons when managing focus in modal
+  enableSafePolygon?: boolean;
+  hasArrow?: boolean;  // Render an arrow pointing to the anchor
+  initialFocus?: FloatingFocusManagerProps;  // The initial element to be focused
+  keepMounted?: boolean;  // `Popup` will not be removed from the DOM upon hiding
+  modal?: boolean;  // If true `Popup` act like a modal dialog
+  offset?: any;  // floating element offset relative to anchor
+  open?: boolean;  // Manages `Popup` visibility
+  openDelay?: number;
+  placement?: any;  // floating element placement
+  qa?: string;
+  returnFocus?: FloatingFocusManagerProps;  // Element which focus should be returned to
+  strategy?: Strategy;  // Floating UI strategy
+  trigger?: 'click';
+  zIndex?: number;  // CSS property `z-index`
+}
+```
+
+**Example:**
+
+```tsx
+<Popover >
+            <Button>Anchor</Button>
+        </Popover>
+```
+
+## Popup
+
+You can use a Popup to display floating content above the page. Technically, it…
+
+**Import:** `import {Popup} from '@gravity-ui/uikit';`
+
+```typescript
+interface PopupProps {
+  anchorElement?: any;  // floating element anchor
+  anchorRef?: any;  // floating element anchor ref object
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  container?: HTMLElement;
+  disableEscapeKeyDown?: boolean;  // Do not dismiss on escape key press
+  disableFocusOut?: boolean;  // Do not dismiss on focusout
+  disableLayer?: boolean;  // Do not use as layer
+  disableOutsideClick?: boolean;  // Do not dismiss on outside click
+  disablePortal?: boolean;
+  disableTransition?: boolean;  // Disables animation of popup appearing/disappearing
+  disableVisuallyHiddenDismiss?: boolean;  // Do not add a11y dismiss buttons when managing focus in modal
+  floatingClassName?: string;  // Additional class to apply to the `Floating UI` element
+  floatingContext?: FloatingRootContext<ReferenceType>;  // Floating UI context to provide interactions
+  floatingInteractions?: ElementProps[];  // Additional floating element props to provide interactions
+  floatingMiddlewares?: Middleware[];  // Floating UI middlewares. If set, they will completely overwrite the default middlewares.
+  floatingRef?: HTMLDivElement;  // React ref floating element is attached to
+  floatingStyles?: React.CSSProperties;  // Styles to apply to the `Floating UI` element
+  focusOrder?: FloatingFocusManagerProps;  // The order in which focus circle
+  hasArrow?: boolean;  // Render an arrow pointing to the anchor
+  id?: string;  // HTML `id` attribute
+  initialFocus?: FloatingFocusManagerProps;  // The initial element to be focused
+  keepMounted?: boolean;  // `Popup` will not be removed from the DOM upon hiding
+  modal?: boolean;  // If true `Popup` act like a modal dialog
+  offset?: any;  // floating element offset relative to anchor
+  onClose?: (event: MouseEvent | KeyboardEvent, reason: string) => void;  // This callback will be called when Escape key pressed on keyboard, or click outside was made
+This behaviour could be disabled with `disableEscapeKeyDown`
+and `disableOutsideClick` options
+  onEscapeKeyDown?: (event: KeyboardEvent) => void;  // This callback will be called when Escape key pressed on keyboard
+This behaviour could be disabled with `disableEscapeKeyDown` option
+  onOpenChange?: (open: boolean, event?: Event, reason?: OpenChangeReason) => void;  // Callback for open state changes, when dismiss happens for example
+  onOutsideClick?: (event: MouseEvent) => void;  // This callback will be called when click is outside of elements of "top layer"
+This behaviour could be disabled with `disableOutsideClick` option
+  onTransitionIn?: () => void;  // Callback called when `Popup` is opened and "in" transition is started
+  onTransitionInComplete?: () => void;  // Callback called when `Popup` is opened and "in" transition is completed
+  onTransitionOut?: () => void;  // Callback called when `Popup` is closed and "out" transition is started
+  onTransitionOutComplete?: () => void;  // Callback called when `Popup` is closed and "out" transition is completed
+  open?: boolean;  // Manages `Popup` visibility
+  placement?: any;  // floating element placement
+  qa?: string;
+  returnFocus?: FloatingFocusManagerProps;  // Element which focus should be returned to
+  role?: UseRoleProps;  // ARIA role or special component role (select, combobox)
+  strategy?: Strategy;  // Floating UI strategy
+  zIndex?: number;  // CSS property `z-index`
+}
+```
+
+**Example:**
+
+```tsx
+<Popup disablePortal={true} />
+```
+
+## PopupCloseReason
+
+You can use a Popup to display floating content above the page. Technically, it…
+
+**Import:** `import {PopupCloseReason} from '@gravity-ui/uikit';`
+
+## AutoPlacement
+
+You can use a Popup to display floating content above the page. Technically, it…
+
+**Import:** `import {AutoPlacement} from '@gravity-ui/uikit';`
+
+## PopupPlacement
+
+You can use a Popup to display floating content above the page. Technically, it…
+
+**Import:** `import {PopupPlacement} from '@gravity-ui/uikit';`
+
+## PopupAnchorElement
+
+You can use a Popup to display floating content above the page. Technically, it…
+
+**Import:** `import {PopupAnchorElement} from '@gravity-ui/uikit';`
+
+## PopupAnchorRef
+
+You can use a Popup to display floating content above the page. Technically, it…
+
+**Import:** `import {PopupAnchorRef} from '@gravity-ui/uikit';`
+
+## PopupOffset
+
+You can use a Popup to display floating content above the page. Technically, it…
+
+**Import:** `import {PopupOffset} from '@gravity-ui/uikit';`
+
+## Portal
+
+Portal is a utility component. Basically, it is a simple wrapper around React's…
+
+**Import:** `import {Portal} from '@gravity-ui/uikit';`
+
+```typescript
+interface PortalProps {
+  container?: HTMLElement;
+  disablePortal?: boolean;
+}
+```
+
+## ProgressColorStops
+
+The Progress component shows current operation progress. It can also be divided…
+
+**Import:** `import {ProgressColorStops} from '@gravity-ui/uikit';`
+
+## ProgressSize
+
+The Progress component shows current operation progress. It can also be divided…
+
+**Import:** `import {ProgressSize} from '@gravity-ui/uikit';`
+
+## ProgressTheme
+
+The Progress component shows current operation progress. It can also be divided…
+
+**Import:** `import {ProgressTheme} from '@gravity-ui/uikit';`
+
+## ProgressValue
+
+The Progress component shows current operation progress. It can also be divided…
+
+**Import:** `import {ProgressValue} from '@gravity-ui/uikit';`
+
+## Stack
+
+The Progress component shows current operation progress. It can also be divided…
+
+**Import:** `import {Stack} from '@gravity-ui/uikit';`
+
+## Progress
+
+The Progress component shows current operation progress. It can also be divided…
+
+**Import:** `import {Progress} from '@gravity-ui/uikit';`
+
+## RadioSize
+
+The Radio component allows the users to select a single option from a list of…
+
+**Import:** `import {RadioSize} from '@gravity-ui/uikit';`
+
+## Radio
+
+The Radio component allows the users to select a single option from a list of…
+
+**Import:** `import {Radio} from '@gravity-ui/uikit';`
+
+```typescript
+interface RadioProps {
+  checked: HTMLInputElement;
+  defaultChecked: HTMLInputElement;
+  disabled: HTMLInputElement;
+  id: HTMLInputElement;
+  name: HTMLInputElement;
+  value: string;
+  content?: React.ReactNode;
+  controlProps?: Omit<HTMLInputElement, 'name' | 'value' | 'id' | 'checked' | 'onChange' | 'onFocus' | 'onBlur' | 'disabled' | 'defaultChecked' | 'type' | 'aria-checked'>;
+  controlRef?: HTMLInputElement;
+  indeterminate?: boolean;
+  qa?: string;
+  size?: 'm' | 'l' | 'xl';
+  title?: string;
+}
+```
+
+**Example:**
+
+```tsx
+<div style={{display: 'flex', alignItems: 'center', gap: '16px'}}>
+                <Radio  size="m">
+                    Size m
+                </Radio>
+                <Radio  size="l">
+                    Size l
+                </Radio>
+                <Radio  size="xl">
+                    Size xl
+                </Radio>
+            </div>
+```
+
+## RadioGroupOption
+
+The RadioGroup component is used to create a group where users can select a…
+
+**Import:** `import {RadioGroupOption} from '@gravity-ui/uikit';`
+
+## RadioGroupSize
+
+The RadioGroup component is used to create a group where users can select a…
+
+**Import:** `import {RadioGroupSize} from '@gravity-ui/uikit';`
+
+## RadioGroupDirection
+
+The RadioGroup component is used to create a group where users can select a…
+
+**Import:** `import {RadioGroupDirection} from '@gravity-ui/uikit';`
+
+## RadioGroup
+
+The RadioGroup component is used to create a group where users can select a…
+
+**Import:** `import {RadioGroup} from '@gravity-ui/uikit';`
+
+```typescript
+interface RadioGroupProps {
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  defaultValue?: string;
+  direction?: 'vertical' | 'horizontal';
+  disabled?: boolean;
+  name?: string;
+  optionClassName?: string;
+  options?: ControlGroupOption<string>[];
+  qa?: string;
+  size?: 'm' | 'l' | 'xl';
+  value?: string;
+}
+```
+
+**Example:**
+
+```tsx
+<RadioGroup  size="m" />
+            </ShowcaseItem>
+            
+                <RadioGroup  size="l" />
+            </ShowcaseItem>
+            
+                <RadioGroup  size="xl" />
+            </ShowcaseItem>
+```
+
+## SegmentedRadioGroupOption
+
+The SegmentedRadioGroup component is used to create a group of radio buttons…
+
+**Import:** `import {SegmentedRadioGroupOption} from '@gravity-ui/uikit';`
+
+```typescript
+interface SegmentedRadioGroupOptionProps {
+  checked: HTMLInputElement;
+  defaultChecked: HTMLInputElement;
+  disabled: HTMLInputElement;
+  id: HTMLInputElement;
+  name: HTMLInputElement;
+  value: ValueType;
+  content?: React.ReactNode;
+  controlProps?: Omit<HTMLInputElement, 'name' | 'value' | 'id' | 'checked' | 'onChange' | 'onFocus' | 'onBlur' | 'disabled' | 'defaultChecked' | 'type' | 'aria-checked'>;
+  controlRef?: HTMLInputElement;
+  indeterminate?: boolean;
+  title?: string;
+}
+```
+
+## SegmentedRadioGroupSize
+
+The SegmentedRadioGroup component is used to create a group of radio buttons…
+
+**Import:** `import {SegmentedRadioGroupSize} from '@gravity-ui/uikit';`
+
+## SegmentedRadioGroupWidth
+
+The SegmentedRadioGroup component is used to create a group of radio buttons…
+
+**Import:** `import {SegmentedRadioGroupWidth} from '@gravity-ui/uikit';`
+
+## SegmentedRadioGroup
+
+The SegmentedRadioGroup component is used to create a group of radio buttons…
+
+**Import:** `import {SegmentedRadioGroup} from '@gravity-ui/uikit';`
+
+```typescript
+interface SegmentedRadioGroupProps {
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  defaultValue?: T;
+  disabled?: boolean;
+  name?: string;
+  options?: ControlGroupOption<T>[];
+  qa?: string;
+  size?: 's' | 'm' | 'l' | 'xl';
+  value?: T;
+  width?: 'auto' | 'max';
+}
+```
+
+**Example:**
+
+```tsx
+<SegmentedRadioGroup  size="s" />
+            </ShowcaseItem>
+            
+                <SegmentedRadioGroup  size="m" />
+            </ShowcaseItem>
+            
+                <SegmentedRadioGroup  size="l" />
+            </ShowcaseItem>
+            
+                <SegmentedRadioGroup  size="xl" />
+            </ShowcaseItem>
+```
+
+## SelectQa
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectQa} from '@gravity-ui/uikit';`
+
+## SelectItem
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectItem} from '@gravity-ui/uikit';`
+
+## SelectItemGroup
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectItemGroup} from '@gravity-ui/uikit';`
+
+## Select
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {Select} from '@gravity-ui/uikit';`
+
+**Example:**
+
+```tsx
+<Flex gap={2}>
+            <Select  title="Select sample">
+                <Select.Option value="val1" content="Value1" />
+                <Select.Option value="val2" content="Value2" />
+                <Select.Option value="val3" content="Value3" />
+                <Select.Option value="val4" content="Value4" />
+            </Select>
+        </Flex>
+```
+
+## SelectRenderClearArgs
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectRenderClearArgs} from '@gravity-ui/uikit';`
+
+## SelectRenderControlOptions
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectRenderControlOptions} from '@gravity-ui/uikit';`
+
+## SelectRenderControl
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectRenderControl} from '@gravity-ui/uikit';`
+
+```typescript
+interface SelectRenderControlProps {
+  onClear: () => void;
+  open: boolean;
+  renderClear: (args: SelectRenderClearArgs) => React.ReactNode;
+  renderCounter: () => React.ReactNode;
+  triggerProps: SelectRenderTriggerProps;
+  disabled?: boolean;
+}
+```
+
+## SelectRenderOptionViewParams
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectRenderOptionViewParams} from '@gravity-ui/uikit';`
+
+## SelectRenderOption
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectRenderOption} from '@gravity-ui/uikit';`
+
+## SelectRenderOptionGroup
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectRenderOptionGroup} from '@gravity-ui/uikit';`
+
+## SelectRenderPopup
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectRenderPopup} from '@gravity-ui/uikit';`
+
+## SelectRenderFilter
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectRenderFilter} from '@gravity-ui/uikit';`
+
+## SelectSize
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectSize} from '@gravity-ui/uikit';`
+
+## SelectRenderCounter
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectRenderCounter} from '@gravity-ui/uikit';`
+
+## SelectOption
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectOption} from '@gravity-ui/uikit';`
+
+## SelectOptionGroup
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectOptionGroup} from '@gravity-ui/uikit';`
+
+## SelectOptions
+
+Select is a control that provides a list of options that a user can select.
+
+**Import:** `import {SelectOptions} from '@gravity-ui/uikit';`
+
+## Sheet
+
+Sheet is a component designed for using in the mobile context as an information…
+
+**Import:** `import {Sheet} from '@gravity-ui/uikit';`
+
+```typescript
+interface SheetProps {
+  visible: boolean;  // Show/hide sheet
+  allowHideOnContentScroll?: boolean;  // Enable the behavior in which you can close the sheet window with a swipe down if the content is scrolled to its top (`contentNode.scrollTop === 0`) or has no scroll at all
+  alwaysFullHeight?: boolean;  // `Sheet` height will always have the maximum value
+  container?: HTMLElement;
+  contentClassName?: string;  // Class name for the sheet content
+  disablePortal?: boolean;
+  hideTopBar?: boolean;  // Hide top bar with resize handle
+  id?: string;  // ID of the sheet, used as hash in URL. It's important to specify different `id` values if there can be more than one sheet on the page
+  maxContentHeightCoefficient?: number;  // Coefficient that determines the maximum height of the `Sheet` relative to the height of the viewport (range 0-1)
+  onClose?: () => void;
+  qa?: string;
+  swipeAreaClassName?: string;  // Class name for the swipe area
+  title?: string;  // Title of the sheet window
+}
+```
+
+## Skeleton
+
+The Skeleton component displays a placeholder preview of your content before…
+
+**Import:** `import {Skeleton} from '@gravity-ui/uikit';`
+
+```typescript
+interface SkeletonProps {
+  animation?: 'gradient' | 'pulse' | 'none';  // Animation type to apply to the skeleton
+  qa?: string;
+}
+```
+
+## SliderSize
+
+The slider is a customizable and responsive React component that allows users…
+
+**Import:** `import {SliderSize} from '@gravity-ui/uikit';`
+
+## SliderValue
+
+The slider is a customizable and responsive React component that allows users…
+
+**Import:** `import {SliderValue} from '@gravity-ui/uikit';`
+
+## Slider
+
+The slider is a customizable and responsive React component that allows users…
+
+**Import:** `import {Slider} from '@gravity-ui/uikit';`
+
+**Example:**
+
+```tsx
+<SliderShowcase {...args
+```
+
+## Stepper
+
+Stepper convey progress through numbered steps. It provides a wizard-like…
+
+**Import:** `import {Stepper} from '@gravity-ui/uikit';`
+
+```typescript
+interface StepperProps {
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  onUpdate?: (id?: string | number) => void;
+  qa?: string;
+  separator?: React.ReactNode;
+  size?: 's' | 'm' | 'l';
+  value?: string | number;
+}
+```
+
+**Example:**
+
+```tsx
+(
+            <Stepper {...args
+```
+
+## StepperItemView
+
+Stepper convey progress through numbered steps. It provides a wizard-like…
+
+**Import:** `import {StepperItemView} from '@gravity-ui/uikit';`
+
+## StepperSize
+
+Stepper convey progress through numbered steps. It provides a wizard-like…
+
+**Import:** `import {StepperSize} from '@gravity-ui/uikit';`
+
+## SpinSize
+
+The Spin component displays the loading state (a rotating semicircle) in inline…
+
+**Import:** `import {SpinSize} from '@gravity-ui/uikit';`
+
+## Spin
+
+The Spin component displays the loading state (a rotating semicircle) in inline…
+
+**Import:** `import {Spin} from '@gravity-ui/uikit';`
+
+```typescript
+interface SpinProps {
+  qa?: string;
+  size?: 'xs' | 's' | 'm' | 'l' | 'xl';
+}
+```
+
+**Example:**
+
+```tsx
+<React.Fragment>
+            
+                <Spin  size="xs" />
+            </ShowcaseItem>
+            
+                <Spin  size="s" />
+            </ShowcaseItem>
+            
+                <Spin  size="m" />
+            </ShowcaseItem>
+            
+                <Spin  size="l" />
+            </ShowcaseItem>
+            
+                <Spin  size="xl" />
+            </ShowcaseItem>
+        </React.Fragment>
+```
+
+## SwitchSize
+
+The Switch component is used to toggle between two states: typically, between…
+
+**Import:** `import {SwitchSize} from '@gravity-ui/uikit';`
+
+## Switch
+
+The Switch component is used to toggle between two states: typically, between…
+
+**Import:** `import {Switch} from '@gravity-ui/uikit';`
+
+```typescript
+interface SwitchProps {
+  checked: HTMLInputElement;
+  defaultChecked: HTMLInputElement;
+  disabled: HTMLInputElement;
+  id: HTMLInputElement;
+  name: HTMLInputElement;
+  value: HTMLInputElement;
+  content?: React.ReactNode;
+  controlProps?: Omit<HTMLInputElement, 'name' | 'value' | 'id' | 'checked' | 'onChange' | 'onFocus' | 'onBlur' | 'disabled' | 'defaultChecked' | 'type' | 'aria-checked'>;
+  controlRef?: HTMLInputElement;
+  indeterminate?: boolean;
+  loading?: boolean;
+  qa?: string;
+  size?: 's' | 'm' | 'l';
+  title?: string;
+}
+```
+
+**Example:**
+
+```tsx
+<Switch  size="s">
+                Size s
+            </Switch>
+            <Switch  size="m">
+                Size m
+            </Switch>
+            <Switch  size="l">
+                Size l
+            </Switch>
+```
+
+## TableDataItem
+
+**Import:** `import {TableDataItem} from '@gravity-ui/uikit';`
+
+## TableColumnConfig
+
+**Import:** `import {TableColumnConfig} from '@gravity-ui/uikit';`
+
+## TableWidth
+
+**Import:** `import {TableWidth} from '@gravity-ui/uikit';`
+
+## Table
+
+**Import:** `import {Table} from '@gravity-ui/uikit';`
+
+```typescript
+interface TableProps {
+  columns: TableColumnConfig<I>[];  // Column parameters
+  data: I[];  // Data
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  edgePadding?: boolean;  // Adds horizontal padding for edge cells.
+  emptyMessage?: string;  // Message returned if data is missing. By default: "No data".
+  getRowClassNames?: (item: I, index: number) => string[];
+  getRowDescriptor?: (item: I, index: number) => DescriptorType;
+  getRowId?: string | ((item: I, index: number) => string);
+  isRowDisabled?: (item: I, index: number) => boolean;
+  onRowClick?: (item: I, index: number, event: HTMLTableRowElement) => void;  // Row click handler. When passed row's hover is visible.
+  onRowMouseDown?: (item: I, index: number, event: HTMLTableRowElement) => void;  // Row mousedown handler.
+  onRowMouseEnter?: (item: I, index: number, event: HTMLTableRowElement) => void;  // Row mouseenter handler.
+  onRowMouseLeave?: (item: I, index: number, event: HTMLTableRowElement) => void;  // Row mouseleave handler.
+  qa?: string;
+  stickyHorizontalScroll?: boolean;  // Horizontal sticky scroll.
+Note: table cannot be with fixed height and with sticky scroll at the same time.
+Sticky scroll wont work if table has overflow.
+  stickyHorizontalScrollBreakpoint?: number;  // Threshold when sticky scroll is enabled.
+  verticalAlign?: 'top' | 'middle';  // Vertical alignment of contents
+  width?: 'auto' | 'max';
+  wordWrap?: boolean;  // Break long text to lines instead of cutting with hellip
+}
+```
+
+**Example:**
+
+```tsx
+<Table qa={'test-table'} />
+```
+
+## TableActionConfig
+
+**Import:** `import {TableActionConfig} from '@gravity-ui/uikit';`
+
+## TableAction
+
+**Import:** `import {TableAction} from '@gravity-ui/uikit';`
+
+## TableActionGroup
+
+**Import:** `import {TableActionGroup} from '@gravity-ui/uikit';`
+
+## TableSortIndicator
+
+**Import:** `import {TableSortIndicator} from '@gravity-ui/uikit';`
+
+## TableSortState
+
+**Import:** `import {TableSortState} from '@gravity-ui/uikit';`
+
+## TableColumnSortState
+
+**Import:** `import {TableColumnSortState} from '@gravity-ui/uikit';`
+
+## TableSettingsData
+
+**Import:** `import {TableSettingsData} from '@gravity-ui/uikit';`
+
+## TableColumnSetupItem
+
+The TableColumnSetup component provides a user interface for configuring table…
+
+**Import:** `import {TableColumnSetupItem} from '@gravity-ui/uikit';`
+
+## TableColumnSetup
+
+The TableColumnSetup component provides a user interface for configuring table…
+
+**Import:** `import {TableColumnSetup} from '@gravity-ui/uikit';`
+
+```typescript
+interface TableColumnSetupProps {
+  items: TableColumnSetupItem[];
+  onUpdate: (updated: TableColumnSetupItem[]) => void;
+  disabled?: boolean;
+  getItemTitle?: (item: TableColumnSetupItem) => React.ReactNode;
+  hideApplyButton?: boolean;
+  popupPlacement?: any;
+  popupWidth?: number | 'fit';
+  renderSwitcher?: (props: SwitcherProps) => any;
+  showStatus?: boolean;
+  sortable?: boolean;
+  switcher?: any;
+}
+```
+
+**Example:**
+
+```tsx
+[items, setItems] = React.useState(args.items);
+
+        return (
+            <div>
+                <p>Current selected columns: {items.filter((item) => item.selected).length
+```
+
+## TabProvider
+
+Tabs components is used to explore, organize content and switch between…
+
+**Import:** `import {TabProvider} from '@gravity-ui/uikit';`
+
+```typescript
+interface TabProviderProps {
+  value?: string;
+}
+```
+
+## TabList
+
+Tabs components is used to explore, organize content and switch between…
+
+**Import:** `import {TabList} from '@gravity-ui/uikit';`
+
+```typescript
+interface TabListProps {
+  activateOnFocus?: boolean;
+  qa?: string;
+  size?: 'm' | 'l' | 'xl';
+  value?: string;
+}
+```
+
+**Example:**
+
+```tsx
+<TabList children={getTabsMock({} />
+```
+
+## Tab
+
+Tabs components is used to explore, organize content and switch between…
+
+**Import:** `import {Tab} from '@gravity-ui/uikit';`
+
+## TabPanel
+
+Tabs components is used to explore, organize content and switch between…
+
+**Import:** `import {TabPanel} from '@gravity-ui/uikit';`
+
+```typescript
+interface TabPanelProps {
+  value: string;
+  qa?: string;
+}
+```
+
+## TabSize
+
+Tabs components is used to explore, organize content and switch between…
+
+**Import:** `import {TabSize} from '@gravity-ui/uikit';`
+
+## Text
+
+These are the default fonts that can be overridden in the project. You can see…
+
+**Import:** `import {Text} from '@gravity-ui/uikit';`
+
+```typescript
+interface TextProps {
+  as?: C;  // Ability to override default html tag
+  color?: 'primary' | 'complementary' | 'secondary' | 'hint' | 'info' | 'info-heavy' | 'positive' | 'positive-heavy' | 'warning' | 'warning-heavy' | 'danger' | 'danger-heavy' | 'utility' | 'utility-heavy' | 'misc' | 'misc-heavy' | 'brand' | 'link' | 'link-hover' | 'link-visited' | 'link-visited-hover' | 'dark-primary' | 'dark-complementary' | 'dark-secondary' | 'light-primary' | 'light-complementary' | 'light-secondary' | 'light-hint' | 'inverted-primary' | 'inverted-complementary' | 'inverted-secondary' | 'inverted-hint';
+  ellipsis?: boolean;  // hidden overflow content will be displayed with ellipsis `…`
+
+- white-space: nowrap;
+- overflow: hidden;
+- text-overflow: ellipsis;
+  ellipsisLines?: number;
+  qa?: string;
+  variant?: 'display-4' | 'display-3' | 'display-2' | 'display-1' | 'header-2' | 'header-1' | 'subheader-3' | 'subheader-2' | 'subheader-1' | 'body-3' | 'body-2' | 'body-1' | 'body-short' | 'caption-2' | 'caption-1' | 'code-3' | 'code-inline-3' | 'code-2' | 'code-inline-2' | 'code-1' | 'code-inline-1' | 'inherit';  // Storybook: https://preview.gravity-ui.com/uikit/?path=/story/typography--variants
+**Note:**: below are the default variants that can be overridden in the project
+
+- body (font-family: var(--g-text-body-font-family); font-weight: 400):
+     - 1: font-size: 13px; line-height: 18px; (**Default variant**)
+     - 2: font-size: 15px; line-height: 20px;
+     - 3: font-size: 17px; line-height: 24px;
+     - short: font-size: 13px; line-height: 16px;
+- caption (font-family: var(--g-text-caption-font-family); font-weight: 400):
+     - 1: font-size: 9px; line-height: 12px;
+     - 2: font-size: 11px; line-height: 16px;
+- header (font-family: var(--g-text-header-font-family); font-weight: 600):
+     - 1: font-size: 20px; line-height: 24px;
+     - 2: font-size: 24px; line-height: 28px;
+- subheader (font-family: var(--g-text-subheader-font-family); font-weight: 600):
+     - 1: font-size: 13px; line-height: 18px;
+     - 2: font-size: 15px; line-height: 20px;
+     - 3: font-size: 17px; line-height: 24px;
+- display (font-family: var(--g-text-display-font-family); font-weight: 600):
+     - 1: font-size: 28px; line-height: 36px;
+     - 2: font-size: 32px; line-height: 40px;
+     - 3: font-size: 40px; line-height: 48px;
+     - 4: font-size: 48px; line-height: 52px;
+- code (font-family: var(--g-text-code-font-family); font-weight: 400):
+     - 1: font-size: 12px; line-height: 18px;
+     - 2: font-size: 14px; line-height: 20px;
+     - 3: font-size: 16px; line-height: 14px;
+     - inline=1: font-size: 12px; line-height: 14px;
+     - inline-2: font-size: 14px; line-height: 16px;
+     - inline-3: font-size: 16px; line-height: 20px;
+  whiteSpace?: 'nowrap' | 'break-spaces';  // white-space css property
+  wordBreak?: 'break-all' | 'break-word';  // word-break css property
+}
+```
+
+**Example:**
+
+```tsx
+<div className={text({variant: 'body-2'}, colorText({color: 'secondary'}))}>
+            some custom or existing element with text utilities
+        </div>
+```
+
+## Toaster
+
+This is a component for adjustable notifications also known as toasts.
+
+**Import:** `import {Toaster} from '@gravity-ui/uikit';`
+
+**Example:**
+
+```tsx
+<Toast setTitle={true} showCloseIcon={true} allowAutoHiding={true} />
+```
+
+## Toast
+
+This is a component for adjustable notifications also known as toasts.
+
+**Import:** `import {Toast} from '@gravity-ui/uikit';`
+
+```typescript
+interface ToastProps {
+  name: string;
+  actions?: (() => React.ReactElement) | ToastAction[];
+  autoHiding?: number | false;
+  content?: React.ReactNode;
+  isClosable?: boolean;
+  renderIcon?: (toastProps: ToastProps) => React.ReactNode;  // Function. Use for toast icon customization. By default type-based behavior is used
+  theme?: 'normal' | 'info' | 'success' | 'warning' | 'danger' | 'utility';
+  title?: string;
+}
+```
+
+## ToasterComponent
+
+This is a component for adjustable notifications also known as toasts.
+
+**Import:** `import {ToasterComponent} from '@gravity-ui/uikit';`
+
+## ToasterProvider
+
+This is a component for adjustable notifications also known as toasts.
+
+**Import:** `import {ToasterProvider} from '@gravity-ui/uikit';`
+
+## ToasterArgs
+
+This is a component for adjustable notifications also known as toasts.
+
+**Import:** `import {ToasterArgs} from '@gravity-ui/uikit';`
+
+## ToastTheme
+
+This is a component for adjustable notifications also known as toasts.
+
+**Import:** `import {ToastTheme} from '@gravity-ui/uikit';`
+
+## ToastAction
+
+This is a component for adjustable notifications also known as toasts.
+
+**Import:** `import {ToastAction} from '@gravity-ui/uikit';`
+
+## ToasterContextMethods
+
+This is a component for adjustable notifications also known as toasts.
+
+**Import:** `import {ToasterContextMethods} from '@gravity-ui/uikit';`
+
+## ToasterPublicMethods
+
+This is a component for adjustable notifications also known as toasts.
+
+**Import:** `import {ToasterPublicMethods} from '@gravity-ui/uikit';`
+
+## ToasterImplementation
+
+This is a component for adjustable notifications also known as toasts.
+
+**Import:** `import {ToasterImplementation} from '@gravity-ui/uikit';`
+
+## Toc
+
+The Toc component is designed to display a table of contents of the page,…
+
+**Import:** `import {Toc} from '@gravity-ui/uikit';`
+
+```typescript
+interface TocProps {
+  items: TocItem[];
+  onItemClick?: (event: React.MouseEvent) => void;
+  onUpdate?: (value: string) => void;
+  qa?: string;
+  value?: string;
+}
+```
+
+## TocItem
+
+The Toc component is designed to display a table of contents of the page,…
+
+**Import:** `import {TocItem} from '@gravity-ui/uikit';`
+
+## Tooltip
+
+A simple text tip that uses its child node as an anchor. This component accepts…
+
+**Import:** `import {Tooltip} from '@gravity-ui/uikit';`
+
+```typescript
+interface TooltipProps {
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  closeDelay?: number;  // Delay in ms before close
+  container?: HTMLElement;
+  content?: React.ReactNode;  // Floating element content
+  disabled?: boolean;  // Disabled state
+  disablePortal?: boolean;
+  offset?: any;  // Floating element offset relative to anchor
+  open?: boolean;  // Controls open state
+  openDelay?: number;  // Delay in ms before open
+  placement?: any;  // Floating element placement
+  qa?: string;
+  role?: 'tooltip' | 'label';  // Role applied to the floating element
+  strategy?: Strategy;  // Floating UI strategy
+  trigger?: 'focus';  // Event that should trigger opening
+}
+```
+
+**Example:**
+
+```tsx
+(
+            <Tooltip {...args
+```
+
+## UserSize
+
+This is a general component for displaying a user avatar with an info block. It…
+
+**Import:** `import {UserSize} from '@gravity-ui/uikit';`
+
+## UserQa
+
+This is a general component for displaying a user avatar with an info block. It…
+
+**Import:** `import {UserQa} from '@gravity-ui/uikit';`
+
+## User
+
+This is a general component for displaying a user avatar with an info block. It…
+
+**Import:** `import {User} from '@gravity-ui/uikit';`
+
+```typescript
+interface UserProps {
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  avatar?: any;
+  description?: React.ReactNode;
+  name?: React.ReactNode;
+  qa?: string;
+  size?: '3xs' | '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl';
+}
+```
+
+**Example:**
+
+```tsx
+(
+            
+                
+                    <User {...commonProps
+```
+
+## UserLabelView
+
+The UserLabel component can be used to display users or user-related…
+
+**Import:** `import {UserLabelView} from '@gravity-ui/uikit';`
+
+## UserLabelSize
+
+The UserLabel component can be used to display users or user-related…
+
+**Import:** `import {UserLabelSize} from '@gravity-ui/uikit';`
+
+## UserLabel
+
+The UserLabel component can be used to display users or user-related…
+
+**Import:** `import {UserLabel} from '@gravity-ui/uikit';`
+
+```typescript
+interface UserLabelProps {
+  text: React.ReactNode;
+  avatar?: any;
+  description?: React.ReactNode;
+  qa?: string;
+  size?: '3xs' | '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl';
+  type?: 'person' | 'email' | 'empty';
+  view?: 'outlined' | 'clear';
+}
+```
+
+**Example:**
+
+```tsx
+(
+            <React.Fragment>
+                
+                    
+                        <UserLabel {...personProps
+```
+
+## InputControlPin
+
+**Import:** `import {InputControlPin} from '@gravity-ui/uikit';`
+
+## InputControlSize
+
+**Import:** `import {InputControlSize} from '@gravity-ui/uikit';`
+
+## InputControlState
+
+**Import:** `import {InputControlState} from '@gravity-ui/uikit';`
+
+## InputControlView
+
+**Import:** `import {InputControlView} from '@gravity-ui/uikit';`
+
+## TextArea
+
+TextArea allow users to enter text into a UI.
+
+**Import:** `import {TextArea} from '@gravity-ui/uikit';`
+
+```typescript
+interface TextAreaProps {
+  autoComplete?: string | boolean;  // The control's `autocomplete` attribute
+  autoFocus?: boolean;  // The control's `autofocus` attribute
+  controlProps?: HTMLTextAreaElement;  // The control's html attributes
+  controlRef?: T;  // React ref provided to the control
+  defaultValue?: string;  // The control's default value. Use when the component is not controlled
+  disabled?: boolean;  // Indicates that the user cannot interact with the control
+  error?: string | boolean;  // Shows error state and optional message if property identified as a string
+  errorMessage?: React.ReactNode;  // Determines content of the error message
+  errorPlacement?: 'outside' | 'inside';  // Determines whether the error message will be placed under the input field as text or in the tooltip
+  hasClear?: boolean;  // Shows icon for clearing control's value
+  id?: string;  // The control's `id` attribute
+  maxRows?: number;  // The number of maximum visible text lines for the control. Ignored if `rows` is specified
+  minRows?: number;  // The number of minimum visible text lines for the control. Ignored if `rows` is specified
+  name?: string;  // The control's `name` attribute. Will be autogenerated if not specified
+  note?: React.ReactNode;  // An optional element displayed under the lower right corner of the control and sharing the place with the error container
+  pin?: 'round-round' | 'brick-brick' | 'clear-clear' | 'round-brick' | 'brick-round' | 'round-clear' | 'clear-round' | 'brick-clear' | 'clear-brick';  // The control's border view. `'round-round'` by default
+  placeholder?: string;  // Text that appears in the control when it has no value set
+  qa?: string;
+  readOnly?: boolean;  // Indicates that the user cannot change control's value
+  rows?: number;  // The number of visible text lines for the control. If not specified, the hight will be automatically calculated based on the content
+  size?: 's' | 'm' | 'l' | 'xl';  // The control's size. `'m'` by default
+  tabIndex?: number;  // The control's `tabindex` attribute
+  validationState?: 'invalid';  // Describes the validation state
+  value?: string;  // The control's value
+  view?: 'normal' | 'clear';  // The control's view. `'normal'` by default
+}
+```
+
+**Example:**
+
+```tsx
+<TextArea defaultValue={'first line\nsecond line\nthird line'} />
+```
+
+## TextAreaPin
+
+TextArea allow users to enter text into a UI.
+
+**Import:** `import {TextAreaPin} from '@gravity-ui/uikit';`
+
+## TextAreaSize
+
+TextArea allow users to enter text into a UI.
+
+**Import:** `import {TextAreaSize} from '@gravity-ui/uikit';`
+
+## TextAreaView
+
+TextArea allow users to enter text into a UI.
+
+**Import:** `import {TextAreaView} from '@gravity-ui/uikit';`
+
+## TextInput
+
+TextInput allow users to enter text into a UI.
+
+**Import:** `import {TextInput} from '@gravity-ui/uikit';`
+
+```typescript
+interface TextInputProps {
+  autoComplete?: string | boolean;  // The control's `autocomplete` attribute
+  autoFocus?: boolean;  // The control's `autofocus` attribute
+  controlProps?: HTMLInputElement;  // The control's html attributes
+  controlRef?: T;  // React ref provided to the control
+  defaultValue?: string;  // The control's default value. Use when the component is not controlled
+  disabled?: boolean;  // Indicates that the user cannot interact with the control
+  endContent?: React.ReactNode;  // User`s node rendered after input node, clear button and error icon
+  error?: string | boolean;  // Shows error state and optional message if property identified as a string
+  errorMessage?: React.ReactNode;  // Determines content of the error message
+  errorPlacement?: 'outside' | 'inside';  // Determines whether the error message will be placed under the input field as text or in the tooltip
+  hasClear?: boolean;  // Shows icon for clearing control's value
+  id?: string;  // The control's `id` attribute
+  label?: string;  // Help text rendered to the left of the input node
+  name?: string;  // The control's `name` attribute. Will be autogenerated if not specified
+  note?: React.ReactNode;  // An optional element displayed under the lower right corner of the control and sharing the place with the error container
+  pin?: 'round-round' | 'brick-brick' | 'clear-clear' | 'round-brick' | 'brick-round' | 'round-clear' | 'clear-round' | 'brick-clear' | 'clear-brick';  // The control's border view. `'round-round'` by default
+  placeholder?: string;  // Text that appears in the control when it has no value set
+  qa?: string;
+  readOnly?: boolean;  // Indicates that the user cannot change control's value
+  size?: 's' | 'm' | 'l' | 'xl';  // The control's size. `'m'` by default
+  startContent?: React.ReactNode;  // User`s node rendered before label and input node
+  tabIndex?: number;  // The control's `tabindex` attribute
+  type?: 'number' | 'email' | 'password' | 'search' | 'tel' | 'text' | 'url';  // The control's [type](https://developer.mozilla.org/en-US/docs/Learn/Forms/HTML5_input_types)
+  validationState?: 'invalid';  // Describes the validation state
+  value?: string;  // The control's value
+  view?: 'normal' | 'clear';  // The control's view. `'normal'` by default
+}
+```
+
+## TextInputPin
+
+TextInput allow users to enter text into a UI.
+
+**Import:** `import {TextInputPin} from '@gravity-ui/uikit';`
+
+## TextInputSize
+
+TextInput allow users to enter text into a UI.
+
+**Import:** `import {TextInputSize} from '@gravity-ui/uikit';`
+
+## TextInputView
+
+TextInput allow users to enter text into a UI.
+
+**Import:** `import {TextInputView} from '@gravity-ui/uikit';`
+
+## PasswordInput
+
+**Import:** `import {PasswordInput} from '@gravity-ui/uikit';`
+
+```typescript
+interface PasswordInputProps {
+  autoComplete?: string | boolean;  // The control's `autocomplete` attribute
+  autoFocus?: boolean;  // The control's `autofocus` attribute
+  controlProps?: HTMLInputElement;  // The control's html attributes
+  controlRef?: T;  // React ref provided to the control
+  defaultValue?: string;  // The control's default value. Use when the component is not controlled
+  disabled?: boolean;  // Indicates that the user cannot interact with the control
+  endContent?: React.ReactNode;  // User`s node rendered after input node, clear button and error icon
+  error?: string | boolean;  // Shows error state and optional message if property identified as a string
+  errorMessage?: React.ReactNode;  // Determines content of the error message
+  errorPlacement?: 'outside' | 'inside';  // Determines whether the error message will be placed under the input field as text or in the tooltip
+  hasClear?: boolean;  // Shows icon for clearing control's value
+  hideCopyButton?: boolean;  // Hide copy button
+  hideRevealButton?: boolean;  // Hide reveal button
+  id?: string;  // The control's `id` attribute
+  label?: string;  // Help text rendered to the left of the input node
+  name?: string;  // The control's `name` attribute. Will be autogenerated if not specified
+  note?: React.ReactNode;  // An optional element displayed under the lower right corner of the control and sharing the place with the error container
+  onRevealValueUpdate?: (value: boolean) => void;  // A callback function that is invoked whenever the revealValue state changes
+  pin?: 'round-round' | 'brick-brick' | 'clear-clear' | 'round-brick' | 'brick-round' | 'round-clear' | 'clear-round' | 'brick-clear' | 'clear-brick';  // The control's border view. `'round-round'` by default
+  placeholder?: string;  // Text that appears in the control when it has no value set
+  qa?: string;
+  readOnly?: boolean;  // Indicates that the user cannot change control's value
+  revealValue?: boolean;  // Determines the visibility state of the password input field
+  showCopyTooltip?: boolean;  // Determines whether to display the tooltip for the copy button
+  showRevealTooltip?: boolean;  // Determines whether to display the tooltip for the reveal button
+  size?: 's' | 'm' | 'l' | 'xl';  // The control's size. `'m'` by default
+  startContent?: React.ReactNode;  // User`s node rendered before label and input node
+  tabIndex?: number;  // The control's `tabindex` attribute
+  validationState?: 'invalid';  // Describes the validation state
+  value?: string;  // The control's value
+  view?: 'normal' | 'clear';  // The control's view. `'normal'` by default
+}
+```
+
+**Example:**
+
+```tsx
+<PasswordInput controlProps={{
+            'aria-label': 'Password'} />
+```
+
+## LayoutTheme
+
+**Import:** `import {LayoutTheme} from '@gravity-ui/uikit';`
+
+## Col
+
+**Import:** `import {Col} from '@gravity-ui/uikit';`
+
+```typescript
+interface ColProps {
+  l?: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  m?: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  qa?: string;
+  s?: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  size?: ColSize | Partial<MediaProps<ColSize>> | [ColSize, Partial<MediaProps<ColSize>>];
+  xl?: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  xxl?: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+}
+```
+
+**Example:**
+
+```tsx
+<LayoutPresenter>
+            <Row {...{space, spaceRow}}>
+                {new Array(12).fill('1').map((s, i) => (
+                    <ColPresenter size={s} key={i} />
+                ))}
+                {new Array(6).fill('2').map((s, i) => (
+                    <ColPresenter size={s} key={i} />
+                ))}
+                {new Array(4).fill('3').map((s, i) => (
+                    <ColPresenter size={s} key={i} />
+                ))}
+                {new Array(3).fill('4').map((s, i) => (
+                    <ColPresenter size={s} key={i} />
+                ))}
+                {new Array(2).fill('6').map((s, i) => (
+                    <ColPresenter size={s} key={i} />
+                ))}
+                <ColPresenter size="7" />
+                <ColPresenter size="5" />
+                <ColPresenter size="8" />
+                <ColPresenter size="4" />
+                <ColPresenter size="9" />
+                <ColPresenter size="3" />
+                <ColPresenter size="10" />
+                <ColPresenter size="2" />
+                <ColPresenter size="11" />
+                <ColPresenter size="1" />
+                <ColPresenter size="12" />
+            </Row>
+        </LayoutPresenter>
+```
+
+## Row
+
+**Import:** `import {Row} from '@gravity-ui/uikit';`
+
+```typescript
+interface RowProps {
+  qa?: string;
+  space?: Space | Partial<MediaProps<Space>>;  // Vertical and horizontal `space` between children `<Col />` components.
+  spaceRow?: Space | Partial<MediaProps<Space>>;  // Override default (space) vertical gaps between children if it wrap on next line
+}
+```
+
+**Example:**
+
+```tsx
+<Row >
+            <ColPresenter size={[12, {s: 6, l: 8, xl: 3}]} />
+            <ColPresenter size={[12, {s: 6, l: 4, xl: 3}]} />
+            <ColPresenter size={[6, {m: 12, xl: 3}]} />
+            <ColPresenter size={[6, {m: 12, xl: 3}]} />
+        </Row>
+```
+
+## Flex
+
+**Import:** `import {Flex} from '@gravity-ui/uikit';`
+
+```typescript
+interface FlexProps {
+  alignContent?: any;  // `align-` properties
+  alignItems?: any;
+  alignSelf?: any;
+  as?: T;
+  basis?: React.CSSProperties;  // `flex-basis` property
+  centerContent?: true;  // Shortcut for:
+
+```css
+ justify-content: center;
+ align-items: center;
+```
+  direction?: any;  // `flex-direction` property
+  gap?: Space | Partial<MediaProps<Space>>;
+  gapRow?: Space | Partial<MediaProps<Space>>;
+  grow?: any;  // `flex-grow` property
+  inline?: boolean;  // display: inline-flex;
+  justifyContent?: any;  // `justify-` properties
+  justifyItems?: any;
+  justifySelf?: any;
+  overflow?: 'hidden' | 'x' | 'y' | 'auto';  // Add overflow css properties to container
+  qa?: string;
+  shrink?: React.CSSProperties;  // `flex-shrink` property
+  space?: Space | Partial<MediaProps<Space>>;
+  spacing?: SpacingProps;  // All spacing shortcut properties available here.
+```tsx
+<Box spacing={{mr: 3, pb: 2}}>...<Box>
+// margin-right: 12px
+// padding-bottom: 8px
+```
+  wrap?: any;  // `flex-wrap` property
+
+If value equals `true`, add css property `flex-wrap: wrap`;
+}
+```
+
+**Example:**
+
+```tsx
+<Flex >
+            <Box w={50} h={50}>
+                50x50
+            </Box>
+
+            <Box w={100} h={70}>
+                100x70
+            </Box>
+            <Box w={200} h={150}>
+                200x150
+            </Box>
+            <Box w={100} h={40}>
+                100x40
+            </Box>
+        </Flex>
+```
+
+## Box
+
+**Import:** `import {Box} from '@gravity-ui/uikit';`
+
+```typescript
+interface BoxProps {
+  as?: T;
+  overflow?: 'hidden' | 'x' | 'y' | 'auto';  // Add overflow css properties to container
+  qa?: string;
+  spacing?: SpacingProps;  // All spacing shortcut properties available here.
+```tsx
+<Box spacing={{mr: 3, pb: 2}}>...<Box>
+// margin-right: 12px
+// padding-bottom: 8px
+```
+}
+```
+
+## Container
+
+**Import:** `import {Container} from '@gravity-ui/uikit';`
+
+```typescript
+interface ContainerProps {
+  as?: string | number | symbol;
+  gutters?: false | Space;  // Right and left paddings between content
+
+Take default values during `LayoutContext`
+  maxWidth?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';  // Width of container will never be larger then specified media type width
+  qa?: string;
+  spaceRow?: Space | Partial<MediaProps<Space>>;  // Space between child `Row` components
+
+By default takes props via `LayoutContext`
+}
+```
+
+**Example:**
+
+```tsx
+<LayoutPresenter title="Change screen size to see different row spacing">
+            <Container >
+                <Row space="5">
+                    <Col>
+                        <Box>Row</Box>
+                    </Col>
+                </Row>
+                <Row space="5">
+                    <Col>
+                        <Box>Row</Box>
+                    </Col>
+                </Row>
+            </Container>
+        </LayoutPresenter>
+```
+
+## ElementClass
+
+**Import:** `import {ElementClass} from '@gravity-ui/uikit';`
+
+## EventBroker
+
+**Import:** `import {EventBroker} from '@gravity-ui/uikit';`
+
+## EventBrokerSubscription
+
+**Import:** `import {EventBrokerSubscription} from '@gravity-ui/uikit';`
+
+## EventBrokerData
+
+**Import:** `import {EventBrokerData} from '@gravity-ui/uikit';`
+
+## LayerConfig
+
+**Import:** `import {LayerConfig} from '@gravity-ui/uikit';`
+
+## LayerCloseReason
+
+**Import:** `import {LayerCloseReason} from '@gravity-ui/uikit';`
+
+## ElementClassWithInfo
+
+**Import:** `import {ElementClassWithInfo} from '@gravity-ui/uikit';`
+
+## XpathClassConverter
+
+**Import:** `import {XpathClassConverter} from '@gravity-ui/uikit';`
+
+## XpathIdConverter
+
+**Import:** `import {XpathIdConverter} from '@gravity-ui/uikit';`
+
+## XpathOptions
+
+**Import:** `import {XpathOptions} from '@gravity-ui/uikit';`
+
+## TabItem
+
+**Import:** `import {TabItem} from '@gravity-ui/components';`
+
+## TabsSize
+
+**Import:** `import {TabsSize} from '@gravity-ui/components';`
+
+## AdaptiveTabs
+
+**Import:** `import {AdaptiveTabs} from '@gravity-ui/components';`
+
+```typescript
+interface AdaptiveTabsProps {
+  breakpointsConfig: Record<string, number>;  // Breakpoints config which control the thersholds of tab size
+  items: TabItem<T>[];  // Array of tabs
+  onSelectTab: (tabId: string, event?: React.MouseEvent) => void;  // Select tab handler
+  activeTab?: string;  // Active tab id
+  allowNotSelected?: boolean;  // Allows you not to specify activeTab
+  moreControlProps?: Pick<SelectProps, 'virtualizationThreshold' | 'popupWidth'>;  // Settings to control popup with hidden tabs list
+  size?: 'm' | 'l' | 'xl';  // Tabs size
+  wrapTo?: (item: TabItem<T>, node: React.ReactNode, index: number) => React.ReactNode;  // Allows to wrap TabItem into another component or render custom tab
+}
+```
+
+## CookieConsent
+
+**Import:** `import {CookieConsent} from '@gravity-ui/components';`
+
+```typescript
+interface CookieConsentProps {
+  consentManager: IConsentManager<ConsentType>;
+  manageCookies?: boolean;
+  text?: string;
+}
+```
+
+## Subscriber
+
+**Import:** `import {Subscriber} from '@gravity-ui/components';`
+
+## ConsentMode
+
+**Import:** `import {ConsentMode} from '@gravity-ui/components';`
+
+## AdditionalConsentParams
+
+**Import:** `import {AdditionalConsentParams} from '@gravity-ui/components';`
+
+## Consents
+
+**Import:** `import {Consents} from '@gravity-ui/components';`
+
+## CookieSettings
+
+**Import:** `import {CookieSettings} from '@gravity-ui/components';`
+
+## ConsentManager
+
+**Import:** `import {ConsentManager} from '@gravity-ui/components';`
+
+## ConsentNotificationData
+
+**Import:** `import {ConsentNotificationData} from '@gravity-ui/components';`
+
+## ConsentNotification
+
+**Import:** `import {ConsentNotification} from '@gravity-ui/components';`
+
+## ConsentPopupStep
+
+**Import:** `import {ConsentPopupStep} from '@gravity-ui/components';`
+
+## ConsentPopupCookieListItem
+
+**Import:** `import {ConsentPopupCookieListItem} from '@gravity-ui/components';`
+
+## ConsentPopupData
+
+**Import:** `import {ConsentPopupData} from '@gravity-ui/components';`
+
+## ConsentPopup
+
+**Import:** `import {ConsentPopup} from '@gravity-ui/components';`
+
+## SimpleConsentData
+
+**Import:** `import {SimpleConsentData} from '@gravity-ui/components';`
+
+## SimpleConsent
+
+**Import:** `import {SimpleConsent} from '@gravity-ui/components';`
+
+## ChangelogDialog
+
+**Import:** `import {ChangelogDialog} from '@gravity-ui/components';`
+
+```typescript
+interface ChangelogDialogProps {
+  items: ChangelogItem[];
+  onClose: DialogProps;
+  open: boolean;
+  disableBodyScrollLock?: boolean;
+  disableHeightTransition?: boolean;
+  disableOutsideClick?: boolean;
+  error?: boolean | { title: string; description: string; };
+  fullListLink?: string;
+  loading?: boolean;
+  onLinkClick?: (link: string) => void;
+  onRetryClick?: () => void;
+  onStoryClick?: (storyId: string) => void;
+  title?: React.ReactNode;
+}
+```
+
+## ChangelogItem
+
+**Import:** `import {ChangelogItem} from '@gravity-ui/components';`
+
+## DelayedTextInput
+
+**Import:** `import {DelayedTextInput} from '@gravity-ui/components';`
+
+**Example:**
+
+```tsx
+<DelayedTextInput controlProps={{
+            'aria-label': 'Search'} />
+```
+
+## FormRow
+
+Base component to place form input and label.
+
+**Import:** `import {FormRow} from '@gravity-ui/components';`
+
+```typescript
+interface FormRowProps {
+  direction?: 'row' | 'column';  // Direction in which the elements are placed
+  fieldId?: string;  // Id of field to correctly associate it label
+  label?: React.ReactNode;  // Field label
+  labelHelpPopover?: React.ReactNode;  // Slot for inserting `<HelpPopover/>` next to label text
+  required?: boolean;  // Display star next to required field
+}
+```
+
+**Example:**
+
+```tsx
+<FormRow label={'Enter your name'} children={<TextInput id={fieldId} />
+```
+
+## InfiniteScroll
+
+**Import:** `import {InfiniteScroll} from '@gravity-ui/components';`
+
+```typescript
+interface InfiniteScrollProps {
+  disabled: boolean;  // Turn off activation
+  onActivate: () => Promise<void>;  // When called shows loader and wait till the promise is fulfilled to hide loader
+  loader?: React.ReactNode;  // Custom loader
+}
+```
+
+## ItemSelector
+
+**Import:** `import {ItemSelector} from '@gravity-ui/components';`
+
+```typescript
+interface ItemSelectorProps {
+  getItemId: (item: T) => string;
+  items: T[];
+  onUpdate: (value: string[]) => void;
+  value: string[];
+  filterItem?: ListProps<T>;
+  hideSelectAllButton?: boolean;
+  hideSelected?: boolean;
+  renderItem?: ListProps<T>;
+  renderItemValue?: (item: T) => React.ReactNode;
+  renderValueItem?: ListProps<T>;
+  selectorTitle?: string;
+}
+```
+
+**Example:**
+
+```tsx
+<ItemSelector value={[]} />
+```
+
+## NotificationTheme
+
+**Import:** `import {NotificationTheme} from '@gravity-ui/components';`
+
+## NotificationSourcePlacement
+
+**Import:** `import {NotificationSourcePlacement} from '@gravity-ui/components';`
+
+## Notification
+
+**Import:** `import {Notification} from '@gravity-ui/components';`
+
+## NotificationAction
+
+**Import:** `import {NotificationAction} from '@gravity-ui/components';`
+
+## NotificationSwipeAction
+
+**Import:** `import {NotificationSwipeAction} from '@gravity-ui/components';`
+
+## NotificationWithSwipe
+
+**Import:** `import {NotificationWithSwipe} from '@gravity-ui/components';`
+
+## Notifications
+
+**Import:** `import {Notifications} from '@gravity-ui/components';`
+
+## NotificationsPopupWrapper
+
+**Import:** `import {NotificationsPopupWrapper} from '@gravity-ui/components';`
+
+## OnboardingMenu
+
+**Import:** `import {OnboardingMenu} from '@gravity-ui/components';`
+
+```typescript
+interface OnboardingMenuProps {
+  expanded: boolean;
+  onCompleteClick: (event: React.MouseEvent) => void;
+  progress: number;
+  title: React.ReactNode;
+  collapseButtonText?: string;
+  completeButtonText?: string;
+  icon?: IconData;
+  liningClassName?: string;
+  onCloseClick?: (event: React.MouseEvent) => void;
+  onCollapseClick?: (event: React.MouseEvent) => void;
+  onExpand?: (expanded: boolean) => void;
+  withCloseButton?: boolean;
+}
+```
+
+## PromoSheet
+
+A component for displaying a promo dialog informing the user about a new…
+
+**Import:** `import {PromoSheet} from '@gravity-ui/components';`
+
+```typescript
+interface PromoSheetProps {
+  actionText: string;
+  closeText: string;
+  message: string;
+  title: string;
+  actionHref?: string;
+  contentClassName?: string;
+  imageAlt?: string;
+  imageClassName?: string;
+  imageContainerClassName?: string;
+  imageSrc?: string;
+  onActionClick?: ButtonProps;
+  onClose?: SheetProps;
+}
+```
+
+## ShareOptions
+
+**Import:** `import {ShareOptions} from '@gravity-ui/components';`
+
+## ShareLayoutDirection
+
+**Import:** `import {ShareLayoutDirection} from '@gravity-ui/components';`
+
+## ShareList
+
+**Import:** `import {ShareList} from '@gravity-ui/components';`
+
+```typescript
+interface ShareListProps {
+  url: string;  // sharing link
+  copyIcon?: IconData;  // custom copy link button icon
+  copyTitle?: any;  // custom copy link button title
+  direction?: LayoutDirection;  // elements location direction
+  files?: File[];
+  renderCopy?: ({ url, title, icon, }: { url: string; title: any; icon: IconData; }) => React.ReactElement;  // custom copy button render
+  shareOptions?: ShareOptions[];  // share options list
+  text?: string;
+  title?: string;
+  withCopyLink?: boolean;  // should show copy button
+}
+```
+
+## SharePopover
+
+**Import:** `import {SharePopover} from '@gravity-ui/components';`
+
+```typescript
+interface SharePopoverProps {
+  url: string;  // sharing link
+  autoclosable?: boolean;  // should close popover when cursor is outside
+  buttonAriaLabel?: string;  // aria-label of button
+  buttonTitle?: any;  // icon title
+  closeDelay?: number;  // delay before popover will be hidden when cursor is otside
+  copyIcon?: IconData;  // custom copy link button icon
+  copyTitle?: any;  // custom copy link button title
+  customIcon?: IconData;  // custom icon
+  direction?: LayoutDirection;  // elements location direction
+  files?: File[];
+  iconClass?: string;  // icon control mixin
+  iconSize?: number;  // control-icon size
+  openByHover?: boolean;  // should open popover with hover
+  placement?: PopupPlacement;  // popover opening direction
+  renderCopy?: ({ url, title, icon, }: { url: string; title: any; icon: IconData; }) => React.ReactElement;  // custom copy button render
+  shareOptions?: ShareOptions[];  // share options list
+  switcherClassName?: string;  // sitcher mixin
+  text?: string;
+  title?: string;
+  tooltipClassName?: string;  // tooltip mixin
+  useWebShareApi?: boolean;  // Web Share API setting (share options can be specified for non supported api case)
+  withCopyLink?: boolean;  // should show copy button
+}
+```
+
+**Example:**
+
+```tsx
+<SharePopover buttonAriaLabel={'Share'} />
+```
+
+## StoreBadgePlatform
+
+Store Badge can be used to place links to the Google Play and AppStore app…
+
+**Import:** `import {StoreBadgePlatform} from '@gravity-ui/components';`
+
+## StoreBadge
+
+Store Badge can be used to place links to the Google Play and AppStore app…
+
+**Import:** `import {StoreBadge} from '@gravity-ui/components';`
+
+```typescript
+interface StoreBadgeProps {
+  platform: 'android' | 'ios';  // store platform name
+  lang?: `${Lang}`;
+  onClick?: HTMLElement;
+}
+```
+
+**Example:**
+
+```tsx
+<StoreBadge platform={Platform.ANDROID} />
+```
+
+## Stories
+
+**Import:** `import {Stories} from '@gravity-ui/components';`
+
+```typescript
+interface StoriesProps {
+  items: StoriesItem[];
+  open: boolean;
+  disableOutsideClick?: boolean;
+  initialStoryIndex?: number;
+  onClose?: (event: any, reason: any) => void;
+  onNextClick?: (storyIndex: number) => void;
+  onPreviousClick?: (storyIndex: number) => void;
+  resetStoryIndexOnClose?: boolean;
+  syncInTabsKey?: string;
+}
+```
+
+## StoriesItemMedia
+
+**Import:** `import {StoriesItemMedia} from '@gravity-ui/components';`
+
+## StoriesTextBlockStyle
+
+**Import:** `import {StoriesTextBlockStyle} from '@gravity-ui/components';`
+
+## StoriesMediaBlockStyle
+
+**Import:** `import {StoriesMediaBlockStyle} from '@gravity-ui/components';`
+
+## StoriesItemTextColorStyles
+
+**Import:** `import {StoriesItemTextColorStyles} from '@gravity-ui/components';`
+
+## StoriesItem
+
+**Import:** `import {StoriesItem} from '@gravity-ui/components';`
+
+## StoriesGroup
+
+**Import:** `import {StoriesGroup} from '@gravity-ui/components';`
+
+```typescript
+interface StoriesGroupProps {
+  groups: StoriesGroupItem[];
+  open: boolean;
+  disableOutsideClick?: boolean;
+  initialStoryIndex?: [groupIndex: number, itemIndex: number];
+  maxSliderItemsCount?: number;
+  onClose?: (event: any, reason: any) => void;
+  onItemSelect?: (itemIndexes: [groupIndex: number, itemIndex: number], selectedFromThumbnail: boolean) => void;
+}
+```
+
+## StoriesGroupItem
+
+**Import:** `import {StoriesGroupItem} from '@gravity-ui/components';`
+
+## ConfirmDialog
+
+ConfirmDialog is a utility component, which renders confirmation dialogs
+
+**Import:** `import {ConfirmDialog} from '@gravity-ui/components';`
+
+```typescript
+interface ConfirmDialogProps {
+  propsButtonApply: DialogFooterProps;
+  propsButtonCancel: DialogFooterProps;
+  textButtonApply: DialogFooterProps;
+  textButtonCancel: DialogFooterProps;
+  message?: React.ReactNode;
+  title?: string;
+}
+```
+
+## ReactionsContainer
+
+**Import:** `import {ReactionsContainer} from '@gravity-ui/components';`
+
+```typescript
+interface ReactionsContainerProps {
+  qa?: string;
+}
+```
+
+## Reactions
+
+**Import:** `import {Reactions} from '@gravity-ui/components';`
+
+```typescript
+interface ReactionsProps {
+  reactions: ReactionProps[];  // All available reactions.
+  reactionsState: ReactionState[];  // Users' reactions.
+  size: PaletteProps;
+  addButtonPlacement?: 'start' | 'end';  // Position of the "Add reaction" button.
+  onToggle?: (value: string) => void;  // Callback for clicking on a reaction in the Palette or directly in the reactions' list.
+  paletteProps?: ReactionsPaletteProps;  // Reactions' palette props.
+  popupClassName?: string;  // A class for the reaction container
+  popupPlacement?: PopupPlacement;
+  readOnly?: boolean;  // Reactions' readonly state (when a user is unable to react for some reason).
+  renderAddReaction?: (props: RenderAddProps<AddReactionRef>) => React.ReactNode;
+  renderReaction?: (props: RenderReactionProps) => React.ReactNode;  // Custom render function for the reaction button
+Allows to fully customize the appearance of the button
+  renderReactionsContent?: (props: { reactionList: React.ReactNode; addReactionButton: React.ReactNode; }) => React.ReactNode;  // Callback function to render custom reactions content.
+  renderTooltip?: (state: ReactionState) => React.ReactNode;  // If present, when a user hovers over the reaction, a popover appears with renderTooltip(state) content.
+Can be used to display users who used this reaction.
+}
+```
+
+## Reaction
+
+**Import:** `import {Reaction} from '@gravity-ui/components';`
+
+```typescript
+interface ReactionProps {
+  content: PaletteOption;
+  title: PaletteOption;
+  value: PaletteOption;
+}
+```
+
+## ReactionState
+
+**Import:** `import {ReactionState} from '@gravity-ui/components';`
+
+## GalleryContextValue
+
+**Import:** `import {GalleryContextValue} from '@gravity-ui/components';`
+
+## Gallery
+
+**Import:** `import {Gallery} from '@gravity-ui/components';`
+
+```typescript
+interface GalleryProps {
+  container: ModalProps;
+  open: ModalProps;
+  emptyMessage?: string;
+  initialItemIndex?: number;
+}
+```
+
+**Example:**
+
+```tsx
+(
+                            <CopyToClipboard
+                                onCopy={() =>
+                                    alert(file.type === 'text' ? 'Text copied!' : 'Link copied!')
+```
+
+## GalleryItemAction
+
+**Import:** `import {GalleryItemAction} from '@gravity-ui/components';`
+
+## GalleryItem
+
+**Import:** `import {GalleryItem} from '@gravity-ui/components';`
+
+```typescript
+interface GalleryItemProps {
+  thumbnail: React.ReactNode;
+  view: React.ReactNode;
+  actions?: GalleryItemAction[];
+  interactive?: boolean;
+  name?: React.ReactNode;
+}
+```
+
+## GalleryFallbackText
+
+**Import:** `import {GalleryFallbackText} from '@gravity-ui/components';`
+
+## GalleryItemName
+
+**Import:** `import {GalleryItemName} from '@gravity-ui/components';`
+
+```typescript
+interface GalleryItemNameProps {
+  name: string;
+}
+```
+
+## Keysets
+
+**Import:** `import {Keysets} from '@gravity-ui/components';`
+
+## PartialKeysets
+
+**Import:** `import {PartialKeysets} from '@gravity-ui/components';`
+
+## RangeValue
+
+**Import:** `import {RangeValue} from '@gravity-ui/date-components';`
+
+## Keysets
+
+**Import:** `import {Keysets} from '@gravity-ui/date-components';`
+
+## PartialKeysets
+
+**Import:** `import {PartialKeysets} from '@gravity-ui/date-components';`
+
+## CalendarInstance
+
+Calendar is a flexible, user-friendly calendar component for React…
+
+**Import:** `import {CalendarInstance} from '@gravity-ui/date-components';`
+
+## Calendar
+
+Calendar is a flexible, user-friendly calendar component for React…
+
+**Import:** `import {Calendar} from '@gravity-ui/date-components';`
+
+```typescript
+interface CalendarProps {
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  autoFocus?: boolean;  // Whether to automatically focus the calendar when it mounts.
+  defaultFocusedValue?: DateTime;  // The date that is focused when the calendar first mounts (uncontrolled).
+  defaultMode?: 'days' | 'months' | 'quarters' | 'years';  // Initial mode to show in calendar (days, months or years)
+  defaultValue?: CalendarValueType<M>;  // The default value (uncontrolled).
+  disabled?: boolean;  // Whether the field is disabled.
+  focusedValue?: any;  // Controls the currently focused date within the calendar.
+  id?: string;  // The element's unique identifier.
+  isDateUnavailable?: (date: DateTime) => boolean;  // Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.
+  isWeekend?: (date: DateTime) => boolean;  // Callback that is called for each date of the calendar. If it returns true, then the date is weekend.
+  maxValue?: DateTime;  // The maximum allowed date that a user may select.
+  minValue?: DateTime;  // The minimum allowed date that a user may select.
+  mode?: 'days' | 'months' | 'quarters' | 'years';  // Controls what to show in calendar (days, months or years)
+  modes?: Partial<Record<CalendarLayout, boolean>>;  // Controls which modes to use
+  readOnly?: boolean;  // Whether the calendar value is immutable.
+  selectionMode?: M;
+  size?: 'm' | 'l' | 'xl';  // The size of the element.
+  timeZone?: string;  // Which timezone use to show values. Example: 'default', 'system', 'Europe/Amsterdam'.
+  value?: CalendarValueType<M>;  // The current value (controlled).
+}
+```
+
+**Example:**
+
+```tsx
+<Calendar  />
+```
+
+## RangeCalendar
+
+RangeCalendar is a powerful, flexible, and user-friendly UI component designed…
+
+**Import:** `import {RangeCalendar} from '@gravity-ui/date-components';`
+
+```typescript
+interface RangeCalendarProps {
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  autoFocus?: boolean;  // Whether to automatically focus the calendar when it mounts.
+  defaultFocusedValue?: DateTime;  // The date that is focused when the calendar first mounts (uncontrolled).
+  defaultMode?: 'days' | 'months' | 'quarters' | 'years';  // Initial mode to show in calendar (days, months or years)
+  defaultValue?: RangeValue<DateTime>;  // The default value (uncontrolled).
+  disabled?: boolean;  // Whether the field is disabled.
+  focusedValue?: any;  // Controls the currently focused date within the calendar.
+  id?: string;  // The element's unique identifier.
+  isDateUnavailable?: (date: DateTime) => boolean;  // Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.
+  isWeekend?: (date: DateTime) => boolean;  // Callback that is called for each date of the calendar. If it returns true, then the date is weekend.
+  maxValue?: DateTime;  // The maximum allowed date that a user may select.
+  minValue?: DateTime;  // The minimum allowed date that a user may select.
+  mode?: 'days' | 'months' | 'quarters' | 'years';  // Controls what to show in calendar (days, months or years)
+  modes?: Partial<Record<CalendarLayout, boolean>>;  // Controls which modes to use
+  readOnly?: boolean;  // Whether the calendar value is immutable.
+  size?: 'm' | 'l' | 'xl';  // The size of the element.
+  timeZone?: string;  // Which timezone use to show values. Example: 'default', 'system', 'Europe/Amsterdam'.
+  value?: RangeValue<DateTime>;  // The current value (controlled).
+}
+```
+
+**Example:**
+
+```tsx
+<RangeCalendar  />
+```
+
+## CalendarStateOptions
+
+**Import:** `import {CalendarStateOptions} from '@gravity-ui/date-components';`
+
+## CalendarState
+
+**Import:** `import {CalendarState} from '@gravity-ui/date-components';`
+
+## RangeCalendarStateOptions
+
+**Import:** `import {RangeCalendarStateOptions} from '@gravity-ui/date-components';`
+
+## RangeCalendarState
+
+**Import:** `import {RangeCalendarState} from '@gravity-ui/date-components';`
+
+## DateFieldState
+
+DateField component is a versatile and convenient input field specifically…
+
+**Import:** `import {DateFieldState} from '@gravity-ui/date-components';`
+
+## DateField
+
+DateField component is a versatile and convenient input field specifically…
+
+**Import:** `import {DateField} from '@gravity-ui/date-components';`
+
+**Example:**
+
+```tsx
+<DateField  />
+```
+
+## DateFieldStateOptions
+
+DateField component is a versatile and convenient input field specifically…
+
+**Import:** `import {DateFieldStateOptions} from '@gravity-ui/date-components';`
+
+## RangeDateFieldStateOptions
+
+DateField component is a versatile and convenient input field specifically…
+
+**Import:** `import {RangeDateFieldStateOptions} from '@gravity-ui/date-components';`
+
+## RangeDateFieldState
+
+DateField component is a versatile and convenient input field specifically…
+
+**Import:** `import {RangeDateFieldState} from '@gravity-ui/date-components';`
+
+## DatePicker
+
+DatePicker is a sophisticated, lightweight, and fully customizable component…
+
+**Import:** `import {DatePicker} from '@gravity-ui/date-components';`
+
+```typescript
+interface DatePickerProps {
+  errorMessage: TextInputBaseProps;
+  errorPlacement: TextInputBaseProps;
+  validationState: TextInputBaseProps;
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  autoFocus?: boolean;  // Whether the element should receive focus on render.
+  defaultOpen?: boolean;  // Whether the popup is open by default (uncontrolled).
+  defaultValue?: T;  // The default value (uncontrolled).
+  disabled?: boolean;  // Whether the field is disabled.
+  disableFocusTrap?: boolean;
+  disablePortal?: boolean;
+  form?: string;  // The id of a form element in the same document. If this attribute is not set,
+the input element  is associated with its ancestor form element, if any.
+  format?: string;  // Format of the date when rendered in the input. [Available formats](https://day.js.org/docs/en/display/format)
+  hasClear?: boolean;  // Show clear button
+  id?: string;  // The element's unique identifier.
+  isDateUnavailable?: (date: DateTime) => boolean;  // Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.
+  label?: TextInputBaseProps;  // Inner field label
+  maxValue?: DateTime;  // The maximum allowed date that a user may select.
+  minValue?: DateTime;  // The minimum allowed date that a user may select.
+  name?: string;  // The name of the input element, used when submitting an HTML form.
+  open?: boolean;  // Whether the popup is open (controlled).
+  parseDateFromString?: (dateStr: string, format: string, timeZone?: string) => DateTime;  // Custom parser function for parsing pasted date strings. If not provided, the default parser will be used.
+  pin?: TextInputPin;  // Corner rounding
+  placeholder?: string;  // Text that appears in the field when it has no value set
+  placeholderValue?: DateTime;  // A placeholder date that controls the default values of each segment when the user first interacts with them. Defaults to today's date at midnight.
+  popupClassName?: string;  // Sets the CSS className for the popup element.
+  popupOffset?: PopupOffset;  // Popup offset relative to anchor
+  popupPlacement?: PopupPlacement;  // Popup placement
+  popupStyle?: CSSProperties;  // Sets the CSS style attribute for the popup element.
+  readOnly?: boolean;  // Whether the calendar value is immutable.
+  size?: TextInputSize;  // The size of the element
+  timeZone?: string;  // Which timezone use to show values. Example: 'default', 'system', 'Europe/Amsterdam'.
+  value?: T;  // The current value (controlled).
+  view?: TextInputView;  // Control view
+}
+```
+
+**Example:**
+
+```tsx
+<DatePicker  />
+```
+
+## DatePickerState
+
+DatePicker is a sophisticated, lightweight, and fully customizable component…
+
+**Import:** `import {DatePickerState} from '@gravity-ui/date-components';`
+
+## DatePickerStateOptions
+
+DatePicker is a sophisticated, lightweight, and fully customizable component…
+
+**Import:** `import {DatePickerStateOptions} from '@gravity-ui/date-components';`
+
+## RangeDatePicker
+
+**Import:** `import {RangeDatePicker} from '@gravity-ui/date-components';`
+
+```typescript
+interface RangeDatePickerProps {
+  errorMessage: TextInputBaseProps;
+  errorPlacement: TextInputBaseProps;
+  validationState: TextInputBaseProps;
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  autoFocus?: boolean;  // Whether the element should receive focus on render.
+  defaultOpen?: boolean;  // Whether the popup is open by default (uncontrolled).
+  defaultValue?: RangeValue<DateTime>;  // The default value (uncontrolled).
+  disabled?: boolean;  // Whether the field is disabled.
+  disableFocusTrap?: boolean;
+  disablePortal?: boolean;
+  form?: string;  // The id of a form element in the same document. If this attribute is not set,
+the input element  is associated with its ancestor form element, if any.
+  format?: string;  // Format of the date when rendered in the input. [Available formats](https://day.js.org/docs/en/display/format)
+  hasClear?: boolean;  // Show clear button
+  id?: string;  // The element's unique identifier.
+  isDateUnavailable?: (date: DateTime) => boolean;  // Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.
+  label?: TextInputBaseProps;  // Inner field label
+  maxValue?: DateTime;  // The maximum allowed date that a user may select.
+  minValue?: DateTime;  // The minimum allowed date that a user may select.
+  name?: string;  // The name of the input element, used when submitting an HTML form.
+  open?: boolean;  // Whether the popup is open (controlled).
+  parseDateFromString?: (dateStr: string, format: string, timeZone?: string) => DateTime;  // Custom parser function for parsing pasted date strings. If not provided, the default parser will be used.
+  pin?: TextInputPin;  // Corner rounding
+  placeholder?: string;  // Text that appears in the field when it has no value set
+  placeholderValue?: DateTime;  // A placeholder date that controls the default values of each segment when the user first interacts with them. Defaults to today's date at midnight.
+  popupClassName?: string;  // Sets the CSS className for the popup element.
+  popupOffset?: PopupOffset;  // Popup offset relative to anchor
+  popupPlacement?: PopupPlacement;  // Popup placement
+  popupStyle?: CSSProperties;  // Sets the CSS style attribute for the popup element.
+  readOnly?: boolean;  // Whether the calendar value is immutable.
+  size?: TextInputSize;  // The size of the element
+  timeZone?: string;  // Which timezone use to show values. Example: 'default', 'system', 'Europe/Amsterdam'.
+  value?: RangeValue<DateTime>;  // The current value (controlled).
+  view?: TextInputView;  // Control view
+}
+```
+
+**Example:**
+
+```tsx
+<RangeDatePicker  />
+```
+
+## RangeDatePickerState
+
+**Import:** `import {RangeDatePickerState} from '@gravity-ui/date-components';`
+
+## RangeDatePickerStateOptions
+
+**Import:** `import {RangeDatePickerStateOptions} from '@gravity-ui/date-components';`
+
+## ViewportDimensions
+
+**Import:** `import {ViewportDimensions} from '@gravity-ui/date-components';`
+
+## ViewportInterval
+
+**Import:** `import {ViewportInterval} from '@gravity-ui/date-components';`
+
+## RangeDateSelection
+
+**Import:** `import {RangeDateSelection} from '@gravity-ui/date-components';`
+
+```typescript
+interface RangeDateSelectionProps {
+  align?: number;  // Alignment of the selection in milliseconds. Defaults to 1 second.
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  defaultValue?: RangeValue<DateTime>;  // The default value (uncontrolled).
+  displayNow?: boolean;  // Displays now line
+  draggableRuler?: boolean;  // Enables dragging ruler
+  formatTime?: (time: DateTime) => string;  // Formats time ticks
+  hasScaleButtons?: boolean;  // Displays buttons to scale selection
+  id?: string;  // The element's unique identifier.
+  maxDuration?: number;  // Maximum duration of the selection in milliseconds. Defaults to 15 years.
+  maxValue?: DateTime;  // The maximum allowed date that a user may select.
+  minDuration?: number;  // Minimum duration of the selection in milliseconds. Defaults to 1 second.
+  minValue?: DateTime;  // The minimum allowed date that a user may select.
+  numberOfIntervals?: number;  // The number of selection intervals that fit into the underlying ruler.
+  placeholderValue?: DateTime;  // A placeholder date that controls the default values of each segment when the user first interacts with them. Defaults to today's date at midnight.
+  placeOnRuler?: number;  // Place of the selection on the underlying ruler.
+Value must be between 0 and 1, where 0 is the start of the ruler and 1 is the end.
+  renderAdditionalRulerContent?: (props: { interval: ViewportInterval; dimensions: ViewportDimensions; }) => React.ReactNode;  // Renders additional svg content in the ruler
+  scaleButtonsPosition?: 'start' | 'end';  // Position of scale buttons
+  timeZone?: string;  // Which timezone use to show values. Example: 'default', 'system', 'Europe/Amsterdam'.
+  value?: RangeValue<DateTime>;  // The current value (controlled).
+}
+```
+
+**Example:**
+
+```tsx
+<RangeDateSelection  />
+```
+
+## RangeDateSelectionState
+
+**Import:** `import {RangeDateSelectionState} from '@gravity-ui/date-components';`
+
+## RangeDateSelectionOptions
+
+**Import:** `import {RangeDateSelectionOptions} from '@gravity-ui/date-components';`
+
+## RelativeDateField
+
+RelativeDateField component is used only for entering relative dates. It can't…
+
+**Import:** `import {RelativeDateField} from '@gravity-ui/date-components';`
+
+```typescript
+interface RelativeDateFieldProps {
+  errorMessage: TextInputBaseProps;
+  errorPlacement: TextInputBaseProps;
+  validationState: TextInputBaseProps;
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  autoFocus?: boolean;  // Whether the element should receive focus on render.
+  defaultValue?: string;  // The default value (uncontrolled).
+  disabled?: boolean;  // Whether the field is disabled.
+  endContent?: TextInputBaseProps;  // User`s node rendered after input and clear button
+  form?: string;  // The id of a form element in the same document. If this attribute is not set,
+the input element  is associated with its ancestor form element, if any.
+  hasClear?: boolean;  // Show clear button
+  hasTime?: boolean;  // Show time field in popup
+  id?: string;  // The element's unique identifier.
+  label?: TextInputBaseProps;  // Inner field label
+  name?: string;  // The name of the input element, used when submitting an HTML form.
+  pin?: TextInputPin;  // Corner rounding
+  placeholder?: string;  // Text that appears in the field when it has no value set
+  popupClassName?: string;  // Sets the CSS className for the popup element.
+  popupOffset?: PopupOffset;  // Popup offset relative to anchor
+  popupPlacement?: PopupPlacement;  // Popup placement
+  popupStyle?: CSSProperties;  // Sets the CSS style attribute for the popup element.
+  readOnly?: boolean;  // Whether the calendar value is immutable.
+  roundUp?: boolean;  // Round up parsed date to the nearest granularity.
+  size?: TextInputSize;  // The size of the element
+  startContent?: TextInputBaseProps;  // User`s node rendered before label and input
+  timeZone?: string;
+  value?: string;  // The current value (controlled).
+  view?: TextInputView;  // Control view
+}
+```
+
+**Example:**
+
+```tsx
+<RelativeDateField  />
+```
+
+## RelativeDateFieldState
+
+RelativeDateField component is used only for entering relative dates. It can't…
+
+**Import:** `import {RelativeDateFieldState} from '@gravity-ui/date-components';`
+
+## RelativeDateFieldOptions
+
+RelativeDateField component is used only for entering relative dates. It can't…
+
+**Import:** `import {RelativeDateFieldOptions} from '@gravity-ui/date-components';`
+
+## RelativeDatePicker
+
+RelativeDatePicker is almost the same component as DatePicker but it has…
+
+**Import:** `import {RelativeDatePicker} from '@gravity-ui/date-components';`
+
+```typescript
+interface RelativeDatePickerProps {
+  errorMessage: TextInputBaseProps;
+  errorPlacement: TextInputBaseProps;
+  validationState: TextInputBaseProps;
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  autoFocus?: boolean;  // Whether the element should receive focus on render.
+  defaultValue?: { type: 'absolute'; value: DateTime; } | { type: 'relative'; value: string; };  // The default value (uncontrolled).
+  disabled?: boolean;  // Whether the field is disabled.
+  form?: string;  // The id of a form element in the same document. If this attribute is not set,
+the input element  is associated with its ancestor form element, if any.
+  format?: string;  // Format of the date when rendered in the input. [Available formats](https://day.js.org/docs/en/display/format)
+  hasClear?: boolean;  // Show clear button
+  id?: string;  // The element's unique identifier.
+  isDateUnavailable?: (date: DateTime) => boolean;  // Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.
+  label?: TextInputBaseProps;  // Inner field label
+  maxValue?: DateTime;  // The maximum allowed date that a user may select.
+  minValue?: DateTime;  // The minimum allowed date that a user may select.
+  name?: string;  // The name of the input element, used when submitting an HTML form.
+  onOpenChange?: (open: boolean) => void;  // Handler that is called when the popup's open state changes.
+  parseDateFromString?: (dateStr: string, format: string, timeZone?: string) => DateTime;  // Custom parser function for parsing pasted date strings. If not provided, the default parser will be used.
+  pin?: TextInputPin;  // Corner rounding
+  placeholder?: string;  // Text that appears in the field when it has no value set
+  placeholderValue?: DateTime;  // A placeholder date that controls the default values of each segment when the user first interacts with them. Defaults to today's date at midnight.
+  popupClassName?: string;  // Sets the CSS className for the popup element.
+  popupOffset?: PopupOffset;  // Popup offset relative to anchor
+  popupPlacement?: PopupPlacement;  // Popup placement
+  popupStyle?: CSSProperties;  // Sets the CSS style attribute for the popup element.
+  readOnly?: boolean;  // Whether the calendar value is immutable.
+  roundUp?: boolean;  // Round up parsed date to the nearest granularity.
+  size?: TextInputSize;  // The size of the element
+  timeZone?: string;  // Which timezone use to show values. Example: 'default', 'system', 'Europe/Amsterdam'.
+  value?: { type: 'absolute'; value: DateTime; } | { type: 'relative'; value: string; };  // The current value (controlled).
+  view?: TextInputView;  // Control view
+}
+```
+
+**Example:**
+
+```tsx
+<RelativeDatePicker  />
+```
+
+## Value
+
+RelativeDatePicker is almost the same component as DatePicker but it has…
+
+**Import:** `import {Value} from '@gravity-ui/date-components';`
+
+## RelativeDatePickerMode
+
+RelativeDatePicker is almost the same component as DatePicker but it has…
+
+**Import:** `import {RelativeDatePickerMode} from '@gravity-ui/date-components';`
+
+## RelativeDatePickerStateOptions
+
+RelativeDatePicker is almost the same component as DatePicker but it has…
+
+**Import:** `import {RelativeDatePickerStateOptions} from '@gravity-ui/date-components';`
+
+## RelativeDatePickerState
+
+RelativeDatePicker is almost the same component as DatePicker but it has…
+
+**Import:** `import {RelativeDatePickerState} from '@gravity-ui/date-components';`
+
+## RangeDateField
+
+**Import:** `import {RangeDateField} from '@gravity-ui/date-components';`
+
+```typescript
+interface RangeDateFieldProps {
+  errorMessage: TextInputBaseProps;
+  errorPlacement: TextInputBaseProps;
+  validationState: TextInputBaseProps;
+  aria-describedby?: string;  // Identifies the element (or elements) that describes the object.
+  aria-details?: string;  // Identifies the element (or elements) that provide a detailed, extended description for the object.
+  aria-label?: string;  // Defines a string value that labels the current element.
+  aria-labelledby?: string;  // Identifies the element (or elements) that labels the current element.
+  autoFocus?: boolean;  // Whether the element should receive focus on render.
+  defaultValue?: RangeValue<DateTime>;  // The default value (uncontrolled).
+  delimiter?: string;  // Delimiter separating the start and end parts of the range.
+  disabled?: boolean;  // Whether the field is disabled.
+  endContent?: TextInputBaseProps;  // User`s node rendered after input and clear button
+  form?: string;  // The id of a form element in the same document. If this attribute is not set,
+the input element  is associated with its ancestor form element, if any.
+  format?: string;  // Format of the date when rendered in the input. [Available formats](https://day.js.org/docs/en/display/format)
+  hasClear?: boolean;  // Show clear button
+  id?: string;  // The element's unique identifier.
+  isDateUnavailable?: (date: DateTime) => boolean;  // Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.
+  label?: TextInputBaseProps;  // Inner field label
+  maxValue?: DateTime;  // The maximum allowed date that a user may select.
+  minValue?: DateTime;  // The minimum allowed date that a user may select.
+  name?: string;  // The name of the input element, used when submitting an HTML form.
+  parseDateFromString?: (dateStr: string, format: string, timeZone?: string) => DateTime;  // Custom parser function for parsing pasted date strings. If not provided, the default parser will be used.
+  pin?: TextInputPin;  // Corner rounding
+  placeholder?: string;  // Text that appears in the field when it has no value set
+  placeholderValue?: DateTime;  // A placeholder date that controls the default values of each segment when the user first interacts with them. Defaults to today's date at midnight.
+  readOnly?: boolean;  // Whether the calendar value is immutable.
+  size?: TextInputSize;  // The size of the element
+  startContent?: TextInputBaseProps;  // User`s node rendered before label and input
+  timeZone?: string;  // Which timezone use to show values. Example: 'default', 'system', 'Europe/Amsterdam'.
+  value?: RangeValue<DateTime>;  // The current value (controlled).
+  view?: TextInputView;  // Control view
+}
+```
+
+**Example:**
+
+```tsx
+<RangeDateField  />
+```
+
+## RelativeRangeDatePickerDialog
+
+**Import:** `import {RelativeRangeDatePickerDialog} from '@gravity-ui/date-components';`
+
+```typescript
+interface RelativeRangeDatePickerDialogProps {
+  anchor: HTMLElement;  // Popup anchor
+  open: boolean;  // Manages `Popup` visibility
+  allowNullableValues?: boolean;
+  applyPresetsImmediately?: boolean;  // Apply presets immediately
+  defaultTimeZone?: string;
+  defaultValue?: RelativeRangeDatePickerValue;
+  docs?: Preset[];  // Custom docs for picker, if empty array docs will be hidden
+  format?: string;  // Format of the date when rendered in the input. [Available formats](https://day.js.org/docs/en/display/format)
+  id?: string;  // The element's unique identifier.
+  isDateUnavailable?: (date: DateTime, endpoint: 'start' | 'end') => boolean;  // Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.
+  isMobile?: boolean;  // If true `Sheet` is used instead of `Popup`
+  maxValue?: DateTime;  // The maximum allowed date that a user may select.
+  minValue?: DateTime;  // The minimum allowed date that a user may select.
+  modal?: boolean;  // If true `Popup` act like a modal dialog
+  placeholderValue?: DateTime;  // A placeholder date that controls the default values of each segment when the user first interacts with them. Defaults to today's date at midnight.
+  popupClassName?: string;  // Sets the CSS className for the popup element.
+  popupOffset?: PopupOffset;  // Popup offset relative to anchor
+  popupPlacement?: PopupPlacement;  // Popup placement
+  popupStyle?: CSSProperties;  // Sets the CSS style attribute for the popup element.
+  presetTabs?: PresetTab[];  // Custom preset tabs
+  readOnly?: boolean;  // Whether the values is immutable.
+  returnFocus?: PopupProps;  // Element which focus should be returned to
+  size?: TextInputSize;  // The size of the element
+  timeZone?: string;
+  value?: RelativeRangeDatePickerValue;
+  withApplyButton?: boolean;  // Apply changes with button
+  withHeader?: boolean;  // Show header with docs tooltip
+  withPresets?: boolean;  // Show relative range presets
+  withZonesList?: boolean;  // Show time zone selector
+}
+```
+
+## RelativeRangeDatePickerForm
+
+**Import:** `import {RelativeRangeDatePickerForm} from '@gravity-ui/date-components';`
+
+```typescript
+interface RelativeRangeDatePickerFormProps {
+  allowNullableValues?: boolean;
+  applyPresetsImmediately?: boolean;  // Apply presets immediately
+  defaultTimeZone?: string;
+  defaultValue?: RelativeRangeDatePickerValue;
+  docs?: Preset[];  // Custom docs for picker, if empty array docs will be hidden
+  format?: string;  // Format of the date when rendered in the input. [Available formats](https://day.js.org/docs/en/display/format)
+  id?: string;  // The element's unique identifier.
+  isDateUnavailable?: (date: DateTime, endpoint: 'start' | 'end') => boolean;  // Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.
+  maxValue?: DateTime;  // The maximum allowed date that a user may select.
+  minValue?: DateTime;  // The minimum allowed date that a user may select.
+  placeholderValue?: DateTime;  // A placeholder date that controls the default values of each segment when the user first interacts with them. Defaults to today's date at midnight.
+  presetTabs?: PresetTab[];  // Custom preset tabs
+  readOnly?: boolean;  // Whether the values is immutable.
+  size?: TextInputSize;  // The size of the element
+  timeZone?: string;
+  value?: RelativeRangeDatePickerValue;
+  withApplyButton?: boolean;  // Apply changes with button
+  withHeader?: boolean;  // Show header with docs tooltip
+  withPresets?: boolean;  // Show relative range presets
+  withZonesList?: boolean;  // Show time zone selector
+}
+```
+
+## RelativeRangeDatePickerPreset
+
+**Import:** `import {RelativeRangeDatePickerPreset} from '@gravity-ui/date-components';`
+
+## RelativeRangeDatePickerPresetTab
+
+**Import:** `import {RelativeRangeDatePickerPresetTab} from '@gravity-ui/date-components';`
+
+## RelativeRangeDatePicker
+
+**Import:** `import {RelativeRangeDatePicker} from '@gravity-ui/date-components';`
+
+## RelativeRangeDatePickerValue
+
+**Import:** `import {RelativeRangeDatePickerValue} from '@gravity-ui/date-components';`
+
+## RelativeRangeDatePickerState
+
+**Import:** `import {RelativeRangeDatePickerState} from '@gravity-ui/date-components';`
+
+## RelativeRangeDatePickerStateOptions
+
+**Import:** `import {RelativeRangeDatePickerStateOptions} from '@gravity-ui/date-components';`
+
+## AsideHeader
+
+AsideHeader is provided a flexible and customizable navigation experience…
+
+**Import:** `import {AsideHeader} from '@gravity-ui/navigation';`
+
+```typescript
+interface AsideHeaderProps {
+  pinned: boolean;  // Navigation visual state. When `true`, the navigation is expanded (pinned open). When `false`, it is collapsed.
+  collapseButtonWrapper?: (defaultButton: React.ReactNode, data: { isExpanded: boolean; onChangePinned?: (pinned: boolean) => void; }) => React.ReactNode;
+  collapseTitle?: string;
+  customBackground?: React.ReactNode;
+  customBackgroundClassName?: string;
+  defaultMenuGroups?: MenuGroup[];
+  defaultMenuItems?: AsideHeaderItem[];
+  editMenuProps?: EditMenuProps;
+  expandTitle?: string;
+  headerDecoration?: boolean;
+  hideCollapseButton?: boolean;
+  isCompactMode?: boolean;  // When `true`, menu items use compact height.
+  logo?: LogoProps;
+  menuGroups?: MenuGroup[];
+  menuItems?: AsideHeaderItem[];
+  menuMoreTitle?: string;
+  openModalSubscriber?: (subscriber: OpenModalSubscriber) => void;
+  panelItems?: PanelItemProps[];
+  renderContent?: RenderContentType;
+  renderFooter?: (data: { size: number; isExpanded: boolean; isPinned: boolean; asideRef: HTMLDivElement; isCompactMode?: boolean; }) => any;  // Render function for the footer section.
+
+Return types:
+- `React.ReactNode` - Renders custom content as-is
+- `React.ReactNode[]` - Wraps in FooterBar with horizontal/vertical layout based on isPinned
+  renderFooterAfter?: (options?: { setCollapseBlocker?: SetCollapseBlocker; }) => React.ReactNode;  // Render function for additional content after items (e.g., user profile). Receives options with setCollapseBlocker to block sidebar collapse while a popup is open.
+  subheaderItems?: AsideHeaderItem[];
+  topAlert?: TopAlertBaseProps | { render: (params: { handleClose: () => void; }) => React.ReactElement; };
+}
+```
+
+**Example:**
+
+```tsx
+<Flex
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                gap={4}
+                style={{
+                    position: 'relative',
+                    padding: '8px',
+                    background:
+                        ' linear-gradient(120deg, #191654, #43cea2 40%, #185a9d 70%, #f857a6 100%)',
+                }}
+            >
+                <Text variant="subheader-2" style={{color: 'var(--g-color-text-light-primary)'}}>
+                    We&apos;ve got something new for you to try!
+                </Text>
+                <Button view="normal-contrast" size="m">
+                    Try Now
+                </Button>
+                <Button view="outlined-contrast" size="m">
+                    Learn More
+                </Button>
+                <Button
+                    style={{position: 'absolute', right: '8px'}}
+                    view="flat-contrast"
+                    aria-label="Close"
+                    onClick={handleClose}
+                >
+                    <Icon data={Xmark} size={18} />
+                </Button>
+            </Flex>
+```
+
+## AsideHeaderItem
+
+AsideHeader is provided a flexible and customizable navigation experience…
+
+**Import:** `import {AsideHeaderItem} from '@gravity-ui/navigation';`
+
+## MenuItemsWithGroups
+
+AsideHeader is provided a flexible and customizable navigation experience…
+
+**Import:** `import {MenuItemsWithGroups} from '@gravity-ui/navigation';`
+
+## SetCollapseBlocker
+
+AsideHeader is provided a flexible and customizable navigation experience…
+
+**Import:** `import {SetCollapseBlocker} from '@gravity-ui/navigation';`
+
+## AsideHeaderContextProvider
+
+AsideHeader is provided a flexible and customizable navigation experience…
+
+**Import:** `import {AsideHeaderContextProvider} from '@gravity-ui/navigation';`
+
+## FooterItem
+
+AsideHeader is provided a flexible and customizable navigation experience…
+
+**Import:** `import {FooterItem} from '@gravity-ui/navigation';`
+
+```typescript
+interface FooterItemProps {
+  id: string;
+  title: React.ReactNode;
+  bringForward?: boolean;
+  current?: boolean;
+  enableTooltip?: boolean;
+  groupId?: string;  // The group ID to which the menu item belongs. Used for grouping menu items
+  hidden?: boolean;  // Visibility flag in the side menu
+  href?: string;
+  icon?: IconProps;
+  iconQa?: string;
+  iconSize?: string | number;
+  isExpanded?: boolean;  // When `true`, forces the item to display in expanded form.
+  itemWrapper?: (p: MakeItemParams, makeItem: (p: MakeItemParams) => React.ReactNode, opts: { isExpanded: boolean; item: MenuItem; ref: HTMLElement; setCollapseBlocker: SetCollapseBlocker; }) => React.ReactNode;
+  layout?: 'horizontal' | 'vertical';  // Layout mode: 'horizontal' shows icon only, 'vertical' shows icon and title. Used by FooterBar.
+  popupKeepMounted?: PopupProps;
+  popupOffset?: PopupProps;
+  popupPlacement?: PopupProps;
+  popupRef?: HTMLElement;  // Floating element anchor ref object
+  popupVisible?: PopupProps;
+  preventUserRemoving?: boolean;
+  renderPopupContent?: () => React.ReactNode;
+  rightAdornment?: React.ReactNode;
+  tooltipText?: React.ReactNode;
+  type?: 'regular' | 'action' | 'divider';
+}
+```
+
+## PageLayout
+
+AsideHeader is provided a flexible and customizable navigation experience…
+
+**Import:** `import {PageLayout} from '@gravity-ui/navigation';`
+
+```typescript
+interface PageLayoutProps {
+  isCompactMode?: boolean;  // When `true`, menu items use compact height.
+}
+```
+
+## PageLayoutAside
+
+AsideHeader is provided a flexible and customizable navigation experience…
+
+**Import:** `import {PageLayoutAside} from '@gravity-ui/navigation';`
+
+## AsideFallback
+
+AsideHeader is provided a flexible and customizable navigation experience…
+
+**Import:** `import {AsideFallback} from '@gravity-ui/navigation';`
+
+## FooterLayoutContextValue
+
+AsideHeader is provided a flexible and customizable navigation experience…
+
+**Import:** `import {FooterLayoutContextValue} from '@gravity-ui/navigation';`
+
+## ActionBar
+
+The component is a flexible horizontal bar that provides a standardized layout…
+
+**Import:** `import {ActionBar} from '@gravity-ui/navigation';`
+
+**Example:**
+
+```tsx
+<ActionBar 'aria-label'={'Actions bar'} />
+```
+
+## Title
+
+**Import:** `import {Title} from '@gravity-ui/navigation';`
+
+## HotkeysGroup
+
+**Import:** `import {HotkeysGroup} from '@gravity-ui/navigation';`
+
+## HotkeysItem
+
+**Import:** `import {HotkeysItem} from '@gravity-ui/navigation';`
+
+## HotkeysPanel
+
+**Import:** `import {HotkeysPanel} from '@gravity-ui/navigation';`
+
+```typescript
+interface HotkeysPanelProps {
+  container: DrawerProps;
+  hideVeil: DrawerProps;
+  hotkeys: HotkeysGroup<T>[];
+  open: boolean;
+  drawerItemClassName?: string;
+  emptyState?: ReactNode;
+  filterable?: boolean;
+  filterClassName?: string;
+  filterPlaceholder?: string;
+  itemContentClassName?: string;
+  leftOffset?: string | number;
+  listClassName?: string;
+  onClose?: () => void;
+  platform?: HotkeyProps;
+  title?: ReactNode;
+  titleClassName?: string;
+  togglePanelHotkey?: string;
+  topOffset?: string | number;
+}
+```
+
+## SettingsSelection
+
+**Import:** `import {SettingsSelection} from '@gravity-ui/navigation';`
+
+## Settings
+
+**Import:** `import {Settings} from '@gravity-ui/navigation';`
+
+## MobileHeaderFooterItem
+
+**Import:** `import {MobileHeaderFooterItem} from '@gravity-ui/navigation';`
+
+```typescript
+interface MobileHeaderFooterItemProps {
+  eventBrokerMeta?: Record<string, string>;
+  icon?: IconProps;
+  iconSize?: string | number;
+  modalItem?: ModalItem;
+}
+```
+
+## MobileMenuItem
+
+**Import:** `import {MobileMenuItem} from '@gravity-ui/navigation';`
+
+## ModalItem
+
+**Import:** `import {ModalItem} from '@gravity-ui/navigation';`
+
+## MobileHeaderEvent
+
+**Import:** `import {MobileHeaderEvent} from '@gravity-ui/navigation';`
+
+## MobileHeaderEventOptions
+
+**Import:** `import {MobileHeaderEventOptions} from '@gravity-ui/navigation';`
+
+## MobileHeader
+
+**Import:** `import {MobileHeader} from '@gravity-ui/navigation';`
+
+```typescript
+interface MobileHeaderProps {
+  burgerMenu: BurgerMenuProps;
+  logo: LogoProps;
+  burgerCloseTitle?: string;
+  burgerOpenTitle?: string;
+  contentClassName?: string;
+  onClosePanel?: () => void;
+  onEvent?: (itemName: string, eventName: MobileHeaderEvent) => void;
+  overlapPanel?: OverlapPanelProps;
+  panelItems?: PanelItemProps[];
+  renderContent?: RenderContentType;
+  sideItemRenderContent?: RenderContentType;
+  topAlert?: TopAlertBaseProps | { render: (params: { handleClose: () => void; }) => React.ReactElement; };
+}
+```
+
+## Logo
+
+Logo icon is wrapped in UIKit Button, text is wrapped in HTML tag a or div,…
+
+**Import:** `import {Logo} from '@gravity-ui/navigation';`
+
+**Example:**
+
+```tsx
+<Logo text={'Service'} icon={logoIcon} href={'#'} onClick={() => alert('click on logo')} 'aria-label'={'Service'} />
+```
+
+## MobileLogo
+
+**Import:** `import {MobileLogo} from '@gravity-ui/navigation';`
+
+```typescript
+interface MobileLogoProps {
+  isExpanded: boolean;
+  text: string | (() => React.ReactNode);
+  aria-label?: string;
+  aria-labelledby?: string;
+  href?: string;
+  icon?: IconProps;
+  iconClassName?: string;
+  iconSize?: number;
+  iconSrc?: string;
+  target?: HTMLAttributeAnchorTarget;
+  textSize?: number;
+  wrapper?: (node: React.ReactNode, isExpanded: boolean) => React.ReactNode;  // Wrapper function for the logo. The `isExpanded` parameter indicates if the navigation is expanded.
+}
+```
+
+**Example:**
+
+```tsx
+<MobileLogo text={'Service'} icon={logoIcon} href={'#'} onClick={() => alert('click on logo')} />
+```
+
+## FooterMenuItem
+
+**Import:** `import {FooterMenuItem} from '@gravity-ui/navigation';`
+
+## Footer
+
+**Import:** `import {Footer} from '@gravity-ui/navigation';`
+
+**Example:**
+
+```tsx
+<Footer withDivider={false} menuItems={menuItems} moreButtonTitle={'Show more'} copyright={`@ ${new Date().getFullYear()} />
+```
+
+## MobileFooter
+
+**Import:** `import {MobileFooter} from '@gravity-ui/navigation';`
+
+**Example:**
+
+```tsx
+<MobileFooter withDivider={false} moreButtonTitle={'Show more'} copyright={`@ ${new Date().getFullYear()} />
+```
+
+## OpenModalSubscriber
+
+**Import:** `import {OpenModalSubscriber} from '@gravity-ui/navigation';`
+
+## MakeItemParams
+
+**Import:** `import {MakeItemParams} from '@gravity-ui/navigation';`
+
+## MenuItem
+
+**Import:** `import {MenuItem} from '@gravity-ui/navigation';`
+
+## MenuGroup
+
+**Import:** `import {MenuGroup} from '@gravity-ui/navigation';`
+
+## Design Tokens
+
+### Spacing
+
+- spacing-0: 0px
+- spacing-1: 4px
+- spacing-2: 8px
+- spacing-3: 12px
+- spacing-4: 16px
+- spacing-5: 20px
+- spacing-6: 24px
+- spacing-7: 28px
+- spacing-8: 32px
+- spacing-9: 36px
+- spacing-10: 40px
+- spacing-0.5: 2px
+
+### Breakpoints
+
+- xs: 0px
+- s: 576px
+- m: 768px
+- l: 1080px
+- xl: 1200px
+- xxl: 1400px
+- xxxl: 1920px
+
+### Sizes
+
+- size-xs: 20px
+- size-s: 24px
+- size-m: 28px
+- size-l: 36px
+- size-xl: 44px

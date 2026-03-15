@@ -1,0 +1,954 @@
+[
+  {
+    "id": "component:uikit:number-input:overview",
+    "page_id": "component:uikit:number-input",
+    "chunk_type": "overview",
+    "title": "NumberInput",
+    "content": "NumberInput allow users to enter numbers into a UI.\n\nImport: import {NumberInput} from '@gravity-ui/uikit';\n\nCategory: forms\n\nExamples:\n<NumberInput placeholder=\"Enter a number\" />\n<NumberInput min={-100} max={100} step={1} />\n<NumberInput allowDecimal hiddenControls size=\"l\" onUpdate={(val) => console.log(val)} />",
+    "url": "https://gravity-ui.com/components/uikit/number-input",
+    "page_title": "NumberInput",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "NumberInput"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:number-input:properties",
+    "page_id": "component:uikit:number-input",
+    "chunk_type": "properties",
+    "title": "NumberInput Properties",
+    "content": "Props for NumberInput (from @gravity-ui/uikit):\n\nonUpdate: (value: number | null) => void — Fires when the input's value is changed by the user. Provides new value as a callback's argument.\nallowDecimal: boolean (default: false) — Enables ability to enter decimal numbers.\nautoComplete: boolean | string — The control's autocomplete attribute.\nautoFocus: boolean — The control's autofocus attribute.\nclassName: string — The control's wrapper class name.\ncontrolProps: Omit<React.InputHTMLAttributes<HTMLInputElement>, 'min' | 'max' | 'onChange' | 'onInput'> — The control's html attributes.\ncontrolRef: React.Ref<HTMLInputElement> — React ref provided to the control.\ndefaultValue: number | null — The control's default value, used when the component is not controlled.\ndisabled: boolean (default: false) — Indicates that the user cannot interact with the control.\nendContent: React.ReactNode — User's node rendered after input node and clear button.\nerrorMessage: string — Error text.\nerrorPlacement: 'outside' | 'inside' (default: 'outside') — Error placement.\nhasClear: boolean (default: false) — Shows the icon for clearing control's value.\nhiddenControls: boolean — Hides increment/decrement buttons at the end of control.\nid: string — The control's id attribute.\nlabel: string — Help text rendered to the left of the input node.\nmax: number (default: Number.MAX_SAFE_INTEGER) — Max allowed value. Used for clamping entered value to allowed range.\nmin: number (default: Number.MIN_SAFE_INTEGER) — Min allowed value. Used for clamping entered value to allowed range.\nname: string — The name attribute of the control.\nnote: React.ReactNode — An optional element displayed under the lower right corner of the control.\nonBlur: (e: React.FocusEvent<HTMLInputElement>) => void — Fires when the control lost focus.\nonChange: (e: React.ChangeEvent<HTMLInputElement>) => void — Fires when the input's value is changed by the user.\nonFocus: (e: React.FocusEvent<HTMLInputElement>) => void — Fires when the control gets focus.\nonKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void — Fires when a key is pressed.\nonKeyUp: (e: React.KeyboardEvent<HTMLInputElement>) => void — Fires when a key is released.\npin: string (default: 'round-round') — The control's border view.\nplaceholder: string — Text that appears in the control when it has no value set.\nqa: string — Test ID attribute (data-qa).\nreadOnly: boolean (default: false) — Indicates that the user cannot change control's value.\nshiftMultiplier: number (default: 10) — Step multiplier when shift button is pressed.\nsize: 's' | 'm' | 'l' | 'xl' (default: 'm') — The size of the control.\nstartContent: React.ReactNode — User's node rendered before label and input node.\nstep: number (default: 1) — Delta for incrementing/decrementing entered value with arrow keyboard buttons or component controls.\ntabIndex: string — The tabindex attribute of the control.\nvalidationState: 'invalid' — Validation state.\nvalue: number | null — The value of the control.\nview: 'normal' | 'clear' (default: 'normal') — The view of the control.",
+    "url": "https://gravity-ui.com/components/uikit/number-input",
+    "page_title": "NumberInput Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "NumberInput Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:overlay:overview",
+    "page_id": "component:uikit:overlay",
+    "chunk_type": "overview",
+    "title": "Overlay",
+    "content": "The Overlay component renders an overlay over the parent element with the relative position, i.e., the parent element must have position set to relative.\n\nImport: import {Overlay} from '@gravity-ui/uikit';\n\nCategory: feedback\n\nExamples:\n<Overlay visible={loading}><Loader /></Overlay>\n<Overlay background=\"float\" visible={true} />\n<Box position=\"relative\"><div>Content</div><Overlay visible={isLoading}><Loader /></Overlay></Box>",
+    "url": "https://gravity-ui.com/components/uikit/overlay",
+    "page_title": "Overlay",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Overlay"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:overlay:properties",
+    "page_id": "component:uikit:overlay",
+    "chunk_type": "properties",
+    "title": "Overlay Properties",
+    "content": "Props for Overlay (from @gravity-ui/uikit):\n\nbackground: 'base' | 'float' (default: 'base') — Overlay background style.\nchildren: React.ReactNode — Content (usually, a Loader component).\nclassName: string — CSS class name of the root element.\nvisible: boolean (default: false) — Overlay visibility state.",
+    "url": "https://gravity-ui.com/components/uikit/overlay",
+    "page_title": "Overlay Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Overlay Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:pagination:overview",
+    "page_id": "component:uikit:pagination",
+    "chunk_type": "overview",
+    "title": "Pagination",
+    "content": "This component renders pagination.\n\nImport: import {Pagination} from '@gravity-ui/uikit';\n\nCategory: navigation\n\nExamples:\n<Pagination page={1} pageSize={100} total={1000} onUpdate={(page, pageSize) => setState({page, pageSize})} />\n<Pagination page={3} pageSize={20} total={500} showInput onUpdate={handleUpdate} />\n<Pagination page={1} pageSize={10} total={100} pageSizeOptions={[10, 25, 50]} onUpdate={handleUpdate} />",
+    "url": "https://gravity-ui.com/components/uikit/pagination",
+    "page_title": "Pagination",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Pagination"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:pagination:properties",
+    "page_id": "component:uikit:pagination",
+    "chunk_type": "properties",
+    "title": "Pagination Properties",
+    "content": "Props for Pagination (from @gravity-ui/uikit):\n\nRequired props:\nonUpdate: (page: number, pageSize: number) => void — Called when the page number or pageSize is changed.\npage: number — Current page number.\npageSize: number — Number of data items per page.\n\nOptional props:\nclassName: string — class HTML attribute.\ncompact: boolean (default: true) — Hides the title for the First, Previous, and Next buttons. Always set to true in mobile version.\npageSizeOptions: number[] — Allows you to specify the sizeChanger options.\nqa: string — data-qa HTML attribute, used for testing.\nshowInput: boolean (default: false) — Shows input to navigate to pages directly.\nshowPages: boolean (default: true) — Shows page numbering.\nsize: 's' | 'm' | 'l' | 'xl' — Size of the pagination items.\ntotal: number — Total number of data items.",
+    "url": "https://gravity-ui.com/components/uikit/pagination",
+    "page_title": "Pagination Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Pagination Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:palette:overview",
+    "page_id": "component:uikit:palette",
+    "chunk_type": "overview",
+    "title": "Palette",
+    "content": "The Palette component is used to display a grid of icons, emojis, reactions, and symbols which you can select or deselect.\n\nImport: import {Palette} from '@gravity-ui/uikit';\n\nCategory: forms\n\nExamples:\n<Palette options={[{content: '😎', value: 'cool'}, {content: '🥴', value: 'woozy'}]} />\n<Palette options={[{content: '😎', value: 'cool'}]} multiple={false} size=\"s\" />\n<Palette options={[{content: '👍', value: 'like'}, {content: '❤️', value: 'heart'}]} columns={3} onUpdate={(val) => console.log(val)} />",
+    "url": "https://gravity-ui.com/components/uikit/palette",
+    "page_title": "Palette",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Palette"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:palette:properties",
+    "page_id": "component:uikit:palette",
+    "chunk_type": "properties",
+    "title": "Palette Properties",
+    "content": "Props for Palette (from @gravity-ui/uikit):\n\naria-label: string — aria-label HTML attribute.\naria-labelledby: string — ID of the visible Palette caption element.\nclassName: string — class HTML attribute.\ncolumns: number (default: 6) — Number of elements per row.\ndefaultValue: string[] — Sets the initial value state when the component is mounted.\ndisabled: boolean (default: false) — Disables the options.\nmultiple: boolean (default: true) — Enables selecting multiple options.\nonBlur: (event: React.FocusEvent) => void — onBlur event handler.\nonFocus: (event: React.FocusEvent) => void — onFocus event handler.\nonUpdate: (value: string[]) => void — Fires when the user (un)selects an option.\noptionClassName: string — class HTML attribute for the palette button.\noptions: PaletteOption[] (default: []) — List of options (palette elements).\nqa: string — data-qa HTML attribute, used for testing.\nrowClassName: string — class HTML attribute for a palette row.\nsize: 'xs' | 's' | 'm' | 'l' | 'xl' (default: 'm') — Sets the size of the elements.\nstyle: React.CSSProperties — style HTML attribute.\nvalue: string[] — Current value for the controlled usage of the component.",
+    "url": "https://gravity-ui.com/components/uikit/palette",
+    "page_title": "Palette Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Palette Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:pin-input:overview",
+    "page_id": "component:uikit:pin-input",
+    "chunk_type": "overview",
+    "title": "PinInput",
+    "content": "PinInput is a group of inputs to enter sequence of numeric or alphanumeric values quickly. Its most common use case is entering OTP or confirmation codes received through text messages (SMS), emails, or authenticator apps.\n\nImport: import {PinInput} from '@gravity-ui/uikit';\n\nCategory: forms\n\nExamples:\n<PinInput />\n<PinInput length={6} type=\"alphanumeric\" placeholder=\"-\" />\n<PinInput mask otp validationState=\"invalid\" errorMessage=\"Incorrect PIN\" />",
+    "url": "https://gravity-ui.com/components/uikit/pin-input",
+    "page_title": "PinInput",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "PinInput"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:pin-input:properties",
+    "page_id": "component:uikit:pin-input",
+    "chunk_type": "properties",
+    "title": "PinInput Properties",
+    "content": "Props for PinInput (from @gravity-ui/uikit):\n\napiRef: React.RefObject<PinInputApi | null> — Ref to the API (focus method).\naria-describedby: string — aria-describedby HTML attribute.\naria-label: string — aria-label HTML attribute.\naria-labelledby: string — aria-labelledby HTML attribute.\nautoFocus: boolean — Enables or disables focusing on the first input on the initial render.\nclassName: string — class HTML attribute.\ndefaultValue: string[] — Initial value for an uncontrolled component.\ndisabled: boolean — Toggles the disabled state.\nerrorMessage: React.ReactNode — Error text placed under the bottom-start corner. Only visible when validationState is set to invalid.\nform: string — The associate form of the underlying input element.\nid: string — id HTML attribute prefix for inputs.\nlength: number (default: 4) — Number of input fields.\nmask: boolean — When true, the input values will be masked as the password field.\nname: string — name HTML attribute for input.\nnote: React.ReactNode — An element placed under the bottom-end corner that shares space with the error container.\nonBlur: (event: React.FocusEvent<Element>) => void — Callback fired when the component loses focus.\nonFocus: (event: React.FocusEvent<Element>) => void — Callback fired when the component receives focus.\nonUpdate: (value: string[]) => void — Callback fired when any of inputs changes.\nonUpdateComplete: (value: string[]) => void — Callback fired when any of inputs changes and all of them are filled.\notp: boolean — When true, adds autocomplete=\"one-time-code\" to inputs.\nplaceholder: string — Placeholder for inputs.\nqa: string — data-qa HTML attribute used for testing purposes.\nresponsive: boolean — Parent's width distributed evenly between inputs.\nsize: 's' | 'm' | 'l' | 'xl' (default: 'm') — Input field size.\nstyle: React.CSSProperties — style HTML attribute.\ntype: 'numeric' | 'alphanumeric' (default: 'numeric') — Determines which input value types are allowed.\nvalidationState: 'invalid' — Validation state that affects the component appearance.\nvalue: string[] — Current value for the controlled component.",
+    "url": "https://gravity-ui.com/components/uikit/pin-input",
+    "page_title": "PinInput Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "PinInput Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:placeholder-container:overview",
+    "page_id": "component:uikit:placeholder-container",
+    "chunk_type": "overview",
+    "title": "PlaceholderContainer",
+    "content": "PlaceholderContainer is a component for displaying content with an image, text content, and action controls.\n\nImport: import {PlaceholderContainer} from '@gravity-ui/uikit';\n\nCategory: feedback\n\nExamples:\n<PlaceholderContainer title=\"No data\" description=\"There is nothing here yet\" image={<svg />} />\n<PlaceholderContainer title=\"Empty state\" image={{src: 'https://example.com/img.png', alt: 'empty'}} direction=\"column\" size=\"s\" />\n<PlaceholderContainer title=\"Action needed\" image={<svg />} actions={[{text: 'Add item', view: 'action', onClick: () => {}}]} />",
+    "url": "https://gravity-ui.com/components/uikit/placeholder-container",
+    "page_title": "PlaceholderContainer",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "PlaceholderContainer"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:placeholder-container:properties",
+    "page_id": "component:uikit:placeholder-container",
+    "chunk_type": "properties",
+    "title": "PlaceholderContainer Properties",
+    "content": "Props for PlaceholderContainer (from @gravity-ui/uikit):\n\nRequired props:\nimage: PlaceholderContainerImageNodeProps | PlaceholderContainerImageProps — Used to set an image by src or provide a React node.\n\nOptional props:\nactions: PlaceholderContainerActionProps[] | React.ReactNode — Used to render an array of button controls or a custom node.\nalign: 'left' | 'center' (default: 'center') — Used to set content horizontal alignment.\nclassName: string — class HTML attribute (optional).\ncontent: React.ReactNode — Used to render a node instead of content (title, description, and actions).\ndescription: React.ReactNode — Content description text.\ndirection: 'row' | 'column' (default: 'row') — Used to set the content layout direction.\nmaxWidth: number | string — Used to override the default max-width of the container.\nqa: string — data-qa HTML attribute.\nsize: 's' | 'm' | 'l' | 'promo' (default: 'l') — Component size.\ntitle: string — Content title text.",
+    "url": "https://gravity-ui.com/components/uikit/placeholder-container",
+    "page_title": "PlaceholderContainer Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "PlaceholderContainer Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:popover:overview",
+    "page_id": "component:uikit:popover",
+    "chunk_type": "overview",
+    "title": "Popover",
+    "content": "The Popover component is technically the Popup with some trigger interactivity built-in. The Popover uses passed ReactElement from children property as a trigger, and opens whenever trigger is hovered or clicked.\n\nImport: import {Popover} from '@gravity-ui/uikit';\n\nCategory: overlays\n\nExamples:\n<Popover content=\"Tooltip text\"><Button>Hover me</Button></Popover>\n<Popover content=\"Click to open\" trigger=\"click\" hasArrow><Button>Click me</Button></Popover>\n<Popover content={<div><p>Rich content</p></div>} placement=\"bottom\" openDelay={200}><span>Anchor</span></Popover>",
+    "url": "https://gravity-ui.com/components/uikit/popover",
+    "page_title": "Popover",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Popover"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:popover:properties",
+    "page_id": "component:uikit:popover",
+    "chunk_type": "properties",
+    "title": "Popover Properties",
+    "content": "Props for Popover (from @gravity-ui/uikit):\n\nRequired props:\nchildren: ((props: Record<string, unknown>, ref: React.Ref<HTMLElement>) => React.ReactElement) | React.ReactElement — ReactNode which accepts DOM handlers.\n\nOptional props:\nclassName: string — HTML class attribute for root node.\ncloseDelay: number (default: 250) — Delay in ms before close.\ncontainer: HTMLElement (default: document.body) — DOM element to which component is mounted via Portal.\ncontent: React.ReactNode — Any content to render inside the Popover.\ndisablePortal: boolean (default: false) — Disables using Portal.\ndisabled: boolean (default: false) — Do not open on any event.\nenableSafePolygon: boolean (default: false) — Use dynamic polygon area when moving the pointer from trigger to Popover content to prevent it from closing.\nhasArrow: boolean (default: false) — Render an arrow pointing to the trigger.\nkeepMounted: boolean (default: false) — Popover will not be removed from the DOM upon hiding.\nmodal: boolean (default: false) — Enables focus trapping behaviour.\noffset: number | object (default: 4) — Floating UI offset value.\nonOpenChange: (open: boolean) => void — Function that is called when the open state changes.\nopen: boolean — Manually control the open state.\nopenDelay: number (default: 500) — Delay in ms before open.\nplacement: string | string[] (default: 'top') — Floating UI placement.\nqa: string — Test attribute (data-qa).\nstrategy: 'absolute' | 'fixed' (default: 'absolute') — Floating UI positioning strategy.\ntrigger: 'click' — Which event should open the Popover. By default, click and hover both do.\nzIndex: number — CSS property z-index.",
+    "url": "https://gravity-ui.com/components/uikit/popover",
+    "page_title": "Popover Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Popover Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:popup:overview",
+    "page_id": "component:uikit:popup",
+    "chunk_type": "overview",
+    "title": "Popup",
+    "content": "You can use a Popup to display floating content above the page. Technically, it is a wrapper around Floating UI with some default values. To manage Popup visibility, use the open property.\n\nImport: import {Popup} from '@gravity-ui/uikit';\n\nCategory: overlays\n\nExamples:\n<Popup anchorElement={buttonRef.current} open={isOpen} placement=\"bottom\">Content</Popup>\n<Popup open={open} anchorElement={anchor} hasArrow placement=\"top\"><div>Popup content</div></Popup>\n<Popup open={open} anchorElement={el} modal onOpenChange={setOpen}><form>Modal form</form></Popup>",
+    "url": "https://gravity-ui.com/components/uikit/popup",
+    "page_title": "Popup",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Popup"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:popup:properties",
+    "page_id": "component:uikit:popup",
+    "chunk_type": "properties",
+    "title": "Popup Properties",
+    "content": "Props for Popup (from @gravity-ui/uikit):\n\nanchorElement: PopupAnchorElement | null — Anchor element. Can also be a VirtualElement.\naria-describedby: string — aria-describedby attribute.\naria-label: string — aria-label attribute.\naria-labelledby: string — aria-labelledby attribute.\nchildren: React.ReactNode — Any React content.\nclassName: string — class HTML attribute for the root node.\ncontainer: HTMLElement (default: document.body) — DOM element to which component is mounted via Portal.\ndisableEscapeKeyDown: boolean (default: false) — Disables triggering close on Esc.\ndisableFocusOut: boolean (default: false) — Disables triggering close on focusout.\ndisableLayer: boolean (default: false) — Do not use as layer.\ndisableOutsideClick: boolean (default: false) — Disables triggering close on outside clicks.\ndisablePortal: boolean (default: false) — Disables using Portal.\ndisableTransition: boolean (default: false) — Disables animation of popup appearing/disappearing.\nfloatingMiddlewares: Middleware[] — Floating UI middlewares. If set, completely overwrite default middlewares.\nhasArrow: boolean (default: false) — Renders arrow pointing to the anchor.\nid: string — id HTML attribute.\ninitialFocus: number | React.Ref<HTMLElement> — Initial element to be focused.\nkeepMounted: boolean (default: false) — Popup will not be removed from the DOM upon hiding.\nmodal: boolean (default: false) — Enables focus trapping behaviour.\noffset: PopupOffset (default: 4) — Floating UI offset value.\nonOpenChange: (open: boolean, event?: Event, reason?: string) => void — Handles Popup open change event.\nopen: boolean (default: false) — Manages Popup visibility.\nplacement: string | string[] — Floating UI placement.\nqa: string — Test attribute (data-qa).\nreturnFocus: boolean | React.Ref<HTMLElement> (default: true) — Element to be focused on closing.\nrole: string — Accessibility role for popup.\nstrategy: 'absolute' | 'fixed' (default: 'absolute') — Floating UI positioning strategy.\nstyle: React.CSSProperties — style HTML attribute for root node.\nzIndex: number (default: 1000) — CSS property z-index.",
+    "url": "https://gravity-ui.com/components/uikit/popup",
+    "page_title": "Popup Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Popup Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:portal:overview",
+    "page_id": "component:uikit:portal",
+    "chunk_type": "overview",
+    "title": "Portal",
+    "content": "Portal is a utility component. Basically, it is a simple wrapper around React's createPortal that allows you to render children into a DOM node outside the parent component.\n\nImport: import {Portal} from '@gravity-ui/uikit';\n\nCategory: utility\n\nExamples:\n<Portal>This is rendered inside document.body</Portal>\n<Portal container={document.getElementById('my-root')}>Content in custom container</Portal>\n<Portal disablePortal><span>Rendered inline</span></Portal>",
+    "url": "https://gravity-ui.com/components/uikit/portal",
+    "page_title": "Portal",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Portal"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:portal:properties",
+    "page_id": "component:uikit:portal",
+    "chunk_type": "properties",
+    "title": "Portal Properties",
+    "content": "Props for Portal (from @gravity-ui/uikit):\n\nchildren: React.ReactNode — Any React content.\ncontainer: HTMLElement (default: document.body) — DOM element's children to mount.\ndisablePortal: boolean — If true, renders the children within the normal DOM hierarchy.",
+    "url": "https://gravity-ui.com/components/uikit/portal",
+    "page_title": "Portal Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Portal Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:progress:overview",
+    "page_id": "component:uikit:progress",
+    "chunk_type": "overview",
+    "title": "Progress",
+    "content": "The Progress component shows current operation progress. It can also be divided into sections.\n\nImport: import {Progress} from '@gravity-ui/uikit';\n\nCategory: feedback\n\nExamples:\n<Progress value={50} />\n<Progress value={75} theme=\"success\" text=\"75%\" size=\"m\" />\n<Progress stack={[{theme: 'success', value: 40}, {theme: 'warning', value: 30}, {theme: 'danger', value: 30}]} />",
+    "url": "https://gravity-ui.com/components/uikit/progress",
+    "page_title": "Progress",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Progress"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:progress:properties",
+    "page_id": "component:uikit:progress",
+    "chunk_type": "properties",
+    "title": "Progress Properties",
+    "content": "Props for Progress (from @gravity-ui/uikit):\n\nclassName: string — HTML class attribute.\ncolorStops: Array<{theme: string; stop: number}> — Sets breakpoints with themes.\ncolorStopsValue: number — Sets the value for choosing the current stop. Available range is from 0 to 100.\nloading: boolean (default: false) — Toggles the loading state.\nqa: string — data-qa HTML attribute.\nsize: 'xs' | 's' | 'm' (default: 'm') — Sets the progress bar size. The text can only be displayed in m size.\nstack: Stack[] — Configuration of composite progress bar. Not required if a value is provided.\nstackClassName: string — HTML class attribute of stack.\ntext: React.ReactNode (default: '') — Text inside the progress bar.\ntheme: 'default' | 'success' | 'warning' | 'danger' | 'info' | 'misc' (default: 'default') — Sets progress color.\nvalue: number — Current progress value. Available range is from 0 to 100.",
+    "url": "https://gravity-ui.com/components/uikit/progress",
+    "page_title": "Progress Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Progress Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:radio:overview",
+    "page_id": "component:uikit:radio",
+    "chunk_type": "overview",
+    "title": "Radio",
+    "content": "The Radio component allows the users to select a single option from a list of choices.\n\nImport: import {Radio} from '@gravity-ui/uikit';\n\nCategory: forms\n\nExamples:\n<Radio value=\"option1\" content=\"Option 1\" />\n<Radio value=\"option2\" checked size=\"l\">Option 2</Radio>\n<Radio value=\"opt\" disabled content=\"Disabled option\" />",
+    "url": "https://gravity-ui.com/components/uikit/radio",
+    "page_title": "Radio",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Radio"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:radio:properties",
+    "page_id": "component:uikit:radio",
+    "chunk_type": "properties",
+    "title": "Radio Properties",
+    "content": "Props for Radio (from @gravity-ui/uikit):\n\nRequired props:\nvalue: string — Control value.\n\nOptional props:\nchecked: boolean (default: false) — Toggles the checked state of the radio.\nchildren: React.ReactNode — The content of the radio (usually, a label).\nclassName: string — class HTML attribute.\ncontent: React.ReactNode — The content of the radio (alternative to children).\ncontrolProps: React.InputHTMLAttributes<HTMLInputElement> — Additional properties for the underlying input element.\ncontrolRef: React.Ref<HTMLInputElement> — Ref to the underlying input element.\ndefaultChecked: boolean (default: false) — Sets the initial checked state when the component is mounted.\ndisabled: boolean (default: false) — Toggles the disabled state of the radio.\nid: string — id HTML attribute.\nname: string — name HTML attribute for the input element.\nonBlur: Function — Event handler to use when the radio input element loses focus.\nonChange: Function — Fires when the radio state is changed by the user.\nonFocus: Function — Event handler to use when the radio input element receives focus.\nonUpdate: (checked: boolean) => void — Fires when the radio state is changed and provides the checked value as a callback argument.\nqa: string — data-qa HTML attribute, used for testing.\nsize: 'm' | 'l' | 'xl' (default: 'm') — Sets the size of the radio.\nstyle: React.CSSProperties — style HTML attribute.\ntitle: string — title HTML attribute.",
+    "url": "https://gravity-ui.com/components/uikit/radio",
+    "page_title": "Radio Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Radio Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:radio-group:overview",
+    "page_id": "component:uikit:radio-group",
+    "chunk_type": "overview",
+    "title": "RadioGroup",
+    "content": "The RadioGroup component is used to create a group where users can select a single option from multiple choices.\n\nImport: import {RadioGroup} from '@gravity-ui/uikit';\n\nCategory: forms\n\nExamples:\n<RadioGroup options={[{value: 'a', content: 'A'}, {value: 'b', content: 'B'}]} defaultValue=\"a\" />\n<RadioGroup name=\"size\" direction=\"vertical\" size=\"l\" onUpdate={(v) => console.log(v)} options={[{value: 's', content: 'Small'}, {value: 'l', content: 'Large'}]} />\n<RadioGroup name=\"opt\" defaultValue=\"1\"><RadioGroup.Option value=\"1\">One</RadioGroup.Option><RadioGroup.Option value=\"2\">Two</RadioGroup.Option></RadioGroup>",
+    "url": "https://gravity-ui.com/components/uikit/radio-group",
+    "page_title": "RadioGroup",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "RadioGroup"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:radio-group:properties",
+    "page_id": "component:uikit:radio-group",
+    "chunk_type": "properties",
+    "title": "RadioGroup Properties",
+    "content": "Props for RadioGroup (from @gravity-ui/uikit):\n\nchildren: React.ReactElement<RadioProps> | React.ReactElement<RadioProps>[] — The content of the radio group.\nclassName: string — class HTML attribute.\ndefaultValue: string — Sets the initial value state when the component is mounted.\ndirection: 'horizontal' | 'vertical' (default: 'horizontal') — Determines the direction of the radio group.\ndisabled: boolean (default: false) — Toggles the disabled state of the radio group.\nonChange: Function — Fires when the user changes the radio state.\nonUpdate: (value: string) => void — Fires when the user changes the radio state and provides the new value as a callback argument.\noptionClassName: string — class HTML attribute for the radio children.\noptions: RadioGroupOption[] — Options for radio group.\nqa: string — data-qa HTML attribute, used for testing.\nsize: 'm' | 'l' | 'xl' (default: 'm') — Determines the size of the radio group.\nstyle: React.CSSProperties — style HTML attribute.\nvalue: string — Current value for the controlled component.",
+    "url": "https://gravity-ui.com/components/uikit/radio-group",
+    "page_title": "RadioGroup Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "RadioGroup Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:segmented-radio-group:overview",
+    "page_id": "component:uikit:segmented-radio-group",
+    "chunk_type": "overview",
+    "title": "SegmentedRadioGroup",
+    "content": "The SegmentedRadioGroup component is used to create a group of radio buttons where users can select a single option from multiple choices.\n\nImport: import {SegmentedRadioGroup} from '@gravity-ui/uikit';\n\nCategory: forms\n\nExamples:\n<SegmentedRadioGroup defaultValue=\"b\"><SegmentedRadioGroup.Option value=\"a\">A</SegmentedRadioGroup.Option><SegmentedRadioGroup.Option value=\"b\">B</SegmentedRadioGroup.Option></SegmentedRadioGroup>\n<SegmentedRadioGroup size=\"l\" width=\"max\" options={[{value: 'list', content: 'List'}, {value: 'grid', content: 'Grid'}]} onUpdate={setView} />\n<SegmentedRadioGroup disabled defaultValue=\"on\"><SegmentedRadioGroup.Option value=\"on\">On</SegmentedRadioGroup.Option><SegmentedRadioGroup.Option value=\"off\">Off</SegmentedRadioGroup.Option></SegmentedRadioGroup>",
+    "url": "https://gravity-ui.com/components/uikit/segmented-radio-group",
+    "page_title": "SegmentedRadioGroup",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "SegmentedRadioGroup"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:segmented-radio-group:properties",
+    "page_id": "component:uikit:segmented-radio-group",
+    "chunk_type": "properties",
+    "title": "SegmentedRadioGroup Properties",
+    "content": "Props for SegmentedRadioGroup (from @gravity-ui/uikit):\n\nchildren: React.ReactElement | React.ReactElement[] — Content of the radio button.\nclassName: string — class HTML attribute.\ndefaultValue: string — Sets the initial value state when the component is mounted.\ndisabled: boolean (default: false) — Toggles the disabled state of the radio button.\nname: string — name HTML attribute for the input element.\nonBlur: Function — Event handler to use when the radio input element loses focus.\nonChange: Function — Fires when the user changes the radio button state.\nonFocus: Function — Event handler to use when the radio input element receives focus.\nonUpdate: (value: string) => void — Fires when the user changes the radio button state and provides the new value as a callback argument.\noptions: SegmentedRadioGroupOptionProps[] — Options for radio button.\nqa: string — data-qa HTML attribute, used for testing.\nsize: 's' | 'm' | 'l' | 'xl' (default: 'm') — Sets the size of the radio button.\nstyle: React.CSSProperties — style HTML attribute.\nvalue: string — Current value for the controlled component.\nwidth: 'auto' | 'max' — Sets the width of the radio button.",
+    "url": "https://gravity-ui.com/components/uikit/segmented-radio-group",
+    "page_title": "SegmentedRadioGroup Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "SegmentedRadioGroup Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:select:overview",
+    "page_id": "component:uikit:select",
+    "chunk_type": "overview",
+    "title": "Select",
+    "content": "Select is a control that provides a list of options that a user can select.\n\nImport: import {Select} from '@gravity-ui/uikit';\n\nCategory: forms\n\nExamples:\n<Select options={[{value: 'val_1', content: 'Value 1'}, {value: 'val_2', content: 'Value 2'}]} placeholder=\"Select value\" />\n<Select multiple filterable options={[{value: 'a', content: 'Alpha'}, {value: 'b', content: 'Beta'}]} onUpdate={setSelected} />\n<Select><Select.Option value=\"opt1\">Option 1</Select.Option><Select.Option value=\"opt2\">Option 2</Select.Option></Select>",
+    "url": "https://gravity-ui.com/components/uikit/select",
+    "page_title": "Select",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Select"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:select:properties",
+    "page_id": "component:uikit:select",
+    "chunk_type": "properties",
+    "title": "Select Properties",
+    "content": "Props for Select (from @gravity-ui/uikit):\n\nclassName: string — class HTML attribute.\ncontrolClassName: string — class HTML attribute for the control element.\ndefaultValue: string[] — Default value for uncontrolled component.\ndisabled: boolean — Disables the select.\nerrorMessage: React.ReactNode — Determines content of the error message.\nerrorPlacement: 'outside' | 'inside' — Determines whether the error message will be placed under the input field or in a tooltip.\nfilter: string — Controlled filter value.\nfilterable: boolean — Enables filtering/search in the options list.\nfilterPlaceholder: string — Placeholder for the filter input.\nform: string — The associate form.\nhasClear: boolean — Shows a clear button.\nhasCounter: boolean — Shows selected options count if multiple selection is available.\nid: string — id HTML attribute.\nlabel: string — Label text for the control.\nloading: boolean — Indicates loading state.\nmultiple: boolean — Allows selecting multiple options.\nname: string — name HTML attribute.\nonBlur: (e: React.FocusEvent) => void — Fires when the control lost focus.\nonFilterChange: (filter: string) => void — Callback when filter changes.\nonFocus: (e: React.FocusEvent) => void — Fires when the control gets focus.\nonLoadMore: () => void — Callback to load more options.\nonUpdate: (value: string[]) => void — Fires when the selected value changes.\noptions: (SelectOption | SelectOptionGroup)[] — Options to select.\npin: string — Border view pin.\nplaceholder: React.ReactNode — Placeholder text.\npopupClassName: string — class HTML attribute for the popup.\npopupPlacement: PopupPlacement — Popup placement.\npopupWidth: 'fit' | number — Width of the popup.\nqa: string — data-qa HTML attribute, used for testing.\nsize: 's' | 'm' | 'l' | 'xl' — Size of the control.\ntitle: string — title HTML attribute.\nvalidationState: 'invalid' — Describes the validation state.\nvalue: string[] — Current value for the controlled component.\nview: string — View of the control.\nwidth: 'auto' | 'max' | number — Width of the control.",
+    "url": "https://gravity-ui.com/components/uikit/select",
+    "page_title": "Select Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Select Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:sheet:overview",
+    "page_id": "component:uikit:sheet",
+    "chunk_type": "overview",
+    "title": "Sheet",
+    "content": "Sheet is a component designed for using in the mobile context as an information or interactive element. You can place content of any size in it, since the internal scrolling and dynamic resizing are supported.\n\nImport: import {Sheet} from '@gravity-ui/uikit';\n\nCategory: overlays\n\nExamples:\n<Sheet visible={isOpen} onClose={() => setOpen(false)} title=\"My Sheet\">Content</Sheet>\n<Sheet visible={show} hideTopBar alwaysFullHeight onClose={handleClose}><form>Form content</form></Sheet>\n<Sheet visible={open} id=\"settings-sheet\" onClose={close} title=\"Settings\"><p>Settings content</p></Sheet>",
+    "url": "https://gravity-ui.com/components/uikit/sheet",
+    "page_title": "Sheet",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Sheet"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:sheet:properties",
+    "page_id": "component:uikit:sheet",
+    "chunk_type": "properties",
+    "title": "Sheet Properties",
+    "content": "Props for Sheet (from @gravity-ui/uikit):\n\nRequired props:\nvisible: boolean — Show/hide sheet.\n\nOptional props:\nallowHideOnContentScroll: boolean (default: true) — Enables closing the sheet by swiping down when content is scrolled to top or has no scroll.\nalwaysFullHeight: boolean — Sheet height will always have the maximum value.\nchildren: React.ReactNode — Sheet content.\nclassName: string — class HTML attribute.\ncontainer: HTMLElement (default: document.body) — DOM element to which component is mounted via Portal.\ncontentClassName: string — class HTML attribute for the sheet content.\ndisablePortal: boolean (default: false) — Disables using Portal.\nhideTopBar: boolean — Hides the top bar with the resize handle.\nid: string (default: 'modal') — Sheet ID used as hash in a URL. Specify multiple IDs if more than one sheet can be on a page.\nmaxContentHeightCoefficient: number (default: 0.9) — Coefficient that determines the maximum height of the Sheet relative to the height of the viewport (range 0-1).\nonClose: () => void — Handler for close event.\nqa: string — data-qa HTML attribute.\nswipeAreaClassName: string — class HTML attribute for the swipe area.\ntitle: string — Sheet window title.",
+    "url": "https://gravity-ui.com/components/uikit/sheet",
+    "page_title": "Sheet Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Sheet Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:skeleton:overview",
+    "page_id": "component:uikit:skeleton",
+    "chunk_type": "overview",
+    "title": "Skeleton",
+    "content": "The Skeleton component displays a placeholder preview of your content before the data gets loaded. This preview is shown in order to reduce the loading time frustration.\n\nImport: import {Skeleton} from '@gravity-ui/uikit';\n\nCategory: feedback\n\nExamples:\n<Skeleton style={{height: 20, width: 200}} />\n<Skeleton animation=\"pulse\" style={{height: 40, width: '100%'}} />\n<Skeleton animation=\"none\" className=\"my-skeleton\" />",
+    "url": "https://gravity-ui.com/components/uikit/skeleton",
+    "page_title": "Skeleton",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Skeleton"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:skeleton:properties",
+    "page_id": "component:uikit:skeleton",
+    "chunk_type": "properties",
+    "title": "Skeleton Properties",
+    "content": "Props for Skeleton (from @gravity-ui/uikit):\n\nanimation: 'gradient' | 'pulse' | 'none' (default: 'gradient') — Animation type to apply to the skeleton.\nclassName: string — Custom CSS class for the root element.\nqa: string — data-qa HTML attribute, used for testing.\nstyle: React.CSSProperties — Custom CSS properties for root element.",
+    "url": "https://gravity-ui.com/components/uikit/skeleton",
+    "page_title": "Skeleton Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Skeleton Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:slider:overview",
+    "page_id": "component:uikit:slider",
+    "chunk_type": "overview",
+    "title": "Slider",
+    "content": "The slider is a customizable and responsive React component that allows users to select a single value or a range of values from a specified data set.\n\nImport: import {Slider} from '@gravity-ui/uikit';\n\nCategory: forms\n\nExamples:\n<Slider defaultValue={50} />\n<Slider defaultValue={[20, 60]} min={0} max={100} />\n<Slider value={value} min={0} max={200} step={5} tooltipDisplay=\"always\" onUpdate={setValue} />",
+    "url": "https://gravity-ui.com/components/uikit/slider",
+    "page_title": "Slider",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Slider"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:slider:properties",
+    "page_id": "component:uikit:slider",
+    "chunk_type": "properties",
+    "title": "Slider Properties",
+    "content": "Props for Slider (from @gravity-ui/uikit):\n\napiRef: React.Ref<BaseSliderRefType> — Ref to Slider's component props of focus and blur.\naria-label: string | [string, string] — aria-label for the slider handle(s).\naria-labelledby: string | [string, string] — aria-labelledby for the slider handle(s).\nautoFocus: boolean — The control's autoFocus attribute.\nclassName: string — CSS class name.\ndefaultValue: number | [number, number] — The control's default value, used when the component is not controlled.\ndisabled: boolean — Indicates that the user cannot interact with the control.\nerrorMessage: string — Text of an error to show.\nform: string — The associate form of the hidden input element.\nid: string — id HTML attribute.\ninverted: boolean — Inverted view of the slider's track.\nmarkFormat: (value: number) => string — Formatter for marks text.\nmarks: number | number[] — Marks on the slider. It can be either the number of marks or a list of them.\nmax: number — Max value of the component.\nmin: number — Min value of the component.\nname: string — Name attribute of the hidden input element.\nonBlur: (e: React.FocusEvent<HTMLDivElement>) => void — Fires when the control lost focus.\nonFocus: (e: React.FocusEvent<HTMLDivElement>) => void — Fires when the control gets focus.\nonUpdate: (value: number | [number, number]) => void — Fires when the slider's value is updated by the user.\nonUpdateComplete: (value: number | [number, number]) => void — Fires when ontouchend or onmouseup is triggered.\nqa: string — data-qa HTML attribute.\nsize: 's' | 'm' | 'l' | 'xl' — The size of the control.\nstartPoint: number — Start point of the track. Ignored for range slider.\nstep: number | null — Value to be added or subtracted on each step.\nstyle: React.CSSProperties — style HTML attribute.\ntabIndex: number | [number, number] — The control's tabIndex attribute.\ntooltipDisplay: 'off' | 'on' | 'auto' — Specifies the tooltip behaviour.\ntooltipFormat: (value: number) => string — Format of the slider's value in the tooltip.\nvalidationState: 'invalid' — Describes the validation state.\nvalue: number | [number, number] — The value of the control.",
+    "url": "https://gravity-ui.com/components/uikit/slider",
+    "page_title": "Slider Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Slider Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:spin:overview",
+    "page_id": "component:uikit:spin",
+    "chunk_type": "overview",
+    "title": "Spin",
+    "content": "The Spin component displays the loading state (a rotating semicircle) in inline scenarios. Unlike Loader, this component is used to display the loading state in inline scenarios, e.g., in a Button or Label.\n\nImport: import {Spin} from '@gravity-ui/uikit';\n\nCategory: feedback\n\nExamples:\n<Spin />\n<Spin size=\"s\" />\n<Spin size=\"xl\" style={{color: 'blue'}} />",
+    "url": "https://gravity-ui.com/components/uikit/spin",
+    "page_title": "Spin",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Spin"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:spin:properties",
+    "page_id": "component:uikit:spin",
+    "chunk_type": "properties",
+    "title": "Spin Properties",
+    "content": "Props for Spin (from @gravity-ui/uikit):\n\nclassName: string — Custom CSS class for the root element.\nqa: string — Test attribute (data-qa).\nsize: 'xs' | 's' | 'm' | 'l' | 'xl' (default: 'm') — Spin size.\nstyle: React.CSSProperties — Custom CSS styles for root element.",
+    "url": "https://gravity-ui.com/components/uikit/spin",
+    "page_title": "Spin Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Spin Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:stepper:overview",
+    "page_id": "component:uikit:stepper",
+    "chunk_type": "overview",
+    "title": "Stepper",
+    "content": "Stepper conveys progress through numbered steps. It provides a wizard-like workflow. Steppers display progress through a sequence of logical and numbered steps.\n\nImport: import {Stepper} from '@gravity-ui/uikit';\n\nCategory: navigation\n\nExamples:\n<Stepper><Stepper.Item>Step 1</Stepper.Item><Stepper.Item>Step 2</Stepper.Item><Stepper.Item>Step 3</Stepper.Item></Stepper>\n<Stepper value={activeStep} onUpdate={setActiveStep} size=\"m\"><Stepper.Item>Step 1</Stepper.Item><Stepper.Item>Step 2</Stepper.Item></Stepper>\n<Stepper><Stepper.Item view=\"success\">Done</Stepper.Item><Stepper.Item view=\"error\">Error</Stepper.Item><Stepper.Item>Pending</Stepper.Item></Stepper>",
+    "url": "https://gravity-ui.com/components/uikit/stepper",
+    "page_title": "Stepper",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Stepper"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:stepper:properties",
+    "page_id": "component:uikit:stepper",
+    "chunk_type": "properties",
+    "title": "Stepper Properties",
+    "content": "Props for Stepper (from @gravity-ui/uikit):\n\nRequired props:\nchildren: React.ReactElement | React.ReactElement[] — Stepper items.\n\nOptional props:\naria-describedby: string — Identifies the element(s) that describe the object.\naria-label: string — Defines a string value that labels the current element.\naria-labelledby: string — Identifies the element(s) that label the current element.\nclassName: string — CSS class name for the Steps container.\nonUpdate: (id?: number | string) => void — Function for changing the current step.\nqa: string — data-qa HTML attribute, used for testing.\nseparator: React.ReactNode — Custom separator node.\nsize: 's' | 'm' | 'l' (default: 's') — Set the step size.\nstyle: React.CSSProperties — Sets the inline style for the Steps container.\nvalue: number | string — Current selected step id.",
+    "url": "https://gravity-ui.com/components/uikit/stepper",
+    "page_title": "Stepper Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Stepper Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:switch:overview",
+    "page_id": "component:uikit:switch",
+    "chunk_type": "overview",
+    "title": "Switch",
+    "content": "The Switch component is used to toggle between two states: typically, between on and off, or enabled and disabled.\n\nImport: import {Switch} from '@gravity-ui/uikit';\n\nCategory: forms\n\nExamples:\n<Switch>Enable notifications</Switch>\n<Switch checked={isEnabled} onUpdate={setEnabled} size=\"l\" />\n<Switch defaultChecked disabled>Read-only toggle</Switch>",
+    "url": "https://gravity-ui.com/components/uikit/switch",
+    "page_title": "Switch",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Switch"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:switch:properties",
+    "page_id": "component:uikit:switch",
+    "chunk_type": "properties",
+    "title": "Switch Properties",
+    "content": "Props for Switch (from @gravity-ui/uikit):\n\nchecked: boolean (default: false) — Toggles the checked state of the switch.\nchildren: React.ReactNode — The content of the switch (usually, a label).\nclassName: string — class HTML attribute.\ncontent: React.ReactNode — The content of the switch (alternative to children).\ncontrolProps: React.InputHTMLAttributes<HTMLInputElement> — Additional properties for the underlying input element.\ncontrolRef: React.Ref<HTMLInputElement> — Ref to the underlying input element.\ndefaultChecked: boolean (default: false) — Sets the initial checked state when the component is mounted.\ndisabled: boolean (default: false) — Toggles the disabled state of the switch.\nid: string — id HTML attribute.\nindeterminate: boolean (default: false) — Toggles the indeterminate state of the switch.\nloading: boolean (default: false) — Toggles the loading state of the switch.\nname: string — name HTML attribute for the input element.\nonBlur: Function — Event handler when the switch input element loses focus.\nonChange: Function — Fires when the switch state is changed by the user.\nonFocus: Function — Event handler when the switch input element receives focus.\nonUpdate: (checked: boolean) => void — Fires when the switch state is changed by the user and provides the checked value.\nqa: string — data-qa HTML attribute, used for testing.\nsize: 's' | 'm' | 'l' (default: 'm') — Sets the size of the switch.\nstyle: React.CSSProperties — style HTML attribute.\ntitle: string — title HTML attribute.\nvalue: string — value HTML attribute for the input element.",
+    "url": "https://gravity-ui.com/components/uikit/switch",
+    "page_title": "Switch Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Switch Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:table:overview",
+    "page_id": "component:uikit:table",
+    "chunk_type": "overview",
+    "title": "Table",
+    "content": "A Table allows selecting and sorting rows, as well as performing actions on a row.\n\nImport: import {Table} from '@gravity-ui/uikit';\n\nCategory: data-display\n\nExamples:\n<Table data={[{id: 1, name: 'Alice'}]} columns={[{id: 'id', name: 'ID'}, {id: 'name', name: 'Name'}]} />\n<Table data={items} columns={columns} onRowClick={(item) => console.log(item)} edgePadding />\n<Table data={rows} columns={cols} emptyMessage=\"No records found\" stickyHorizontalScroll />",
+    "url": "https://gravity-ui.com/components/uikit/table",
+    "page_title": "Table",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Table"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:table:properties",
+    "page_id": "component:uikit:table",
+    "chunk_type": "properties",
+    "title": "Table Properties",
+    "content": "Props for Table (from @gravity-ui/uikit):\n\nRequired props:\ncolumns: TableColumnConfig[] — Column settings.\ndata: any[] — Data.\n\nOptional props:\nclassName: string — Table CSS class.\nedgePadding: boolean — Adds horizontal padding for edge cells.\nemptyMessage: string (default: 'No data') — Returning a message if the data is missing.\ngetRowClassNames: (item: any, index: number) => string[] — Row CSS classes.\ngetRowDescriptor: (item: any, index: number) => DescriptorType — Handler to get the row descriptor.\ngetRowId: string | ((item: any, index: number) => string) — Row ID used when selecting and sorting rows.\nisRowDisabled: (item: any, index: number) => boolean — Condition for disabling columns.\nonRowClick: (item: any, index: number, event: React.MouseEvent<HTMLTableRowElement>) => void — Row click handler.\nonRowMouseEnter: (item: any, index: number, event: React.MouseEvent<HTMLTableRowElement>) => void — Row mouseenter handler.\nonRowMouseLeave: (item: any, index: number, event: React.MouseEvent<HTMLTableRowElement>) => void — Row mouseleave handler.\nstickyHorizontalScroll: boolean (default: false) — Adds a horizontal sticky scroll in a table.\nstickyHorizontalScrollBreakpoint: number (default: 0) — Threshold the parent block should reach before making a scroll sticky.\nverticalAlign: 'top' | 'middle' — Vertical alignment of content.",
+    "url": "https://gravity-ui.com/components/uikit/table",
+    "page_title": "Table Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Table Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:table-column-setup:overview",
+    "page_id": "component:uikit:table-column-setup",
+    "chunk_type": "overview",
+    "title": "TableColumnSetup",
+    "content": "The TableColumnSetup component provides a user interface for configuring table column visibility and order. It displays a button that opens a popup with a list of available columns, allowing users to show/hide columns and optionally reorder them via drag and drop.\n\nImport: import {TableColumnSetup} from '@gravity-ui/uikit';\n\nCategory: data-display\n\nExamples:\n<TableColumnSetup items={[{id: 'name', title: 'Name', selected: true, required: true}, {id: 'email', title: 'Email', selected: true}]} onUpdate={handleUpdate} />\n<TableColumnSetup items={items} sortable showStatus onUpdate={setColumns} />\n<TableColumnSetup items={items} hideApplyButton onUpdate={setColumns} renderSwitcher={({onClick}) => <Button onClick={onClick}>Configure</Button>} />",
+    "url": "https://gravity-ui.com/components/uikit/table-column-setup",
+    "page_title": "TableColumnSetup",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "TableColumnSetup"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:table-column-setup:properties",
+    "page_id": "component:uikit:table-column-setup",
+    "chunk_type": "properties",
+    "title": "TableColumnSetup Properties",
+    "content": "Props for TableColumnSetup (from @gravity-ui/uikit):\n\nRequired props:\nitems: TableColumnSetupItem[] — Array of column configuration items.\nonUpdate: (items: TableColumnSetupItem[]) => void — Callback fired when column configuration changes.\n\nOptional props:\nclassName: string — Custom CSS class for the root element.\ndisabled: boolean (default: false) — Disables the switcher button.\ngetItemTitle: (item: TableColumnSetupItem) => React.ReactNode — Function to get item title.\nhideApplyButton: boolean (default: false) — When true, changes are applied immediately; when false, changes require clicking Apply button.\npopupPlacement: PopupPlacement — Popup placement relative to trigger.\npopupWidth: number | 'fit' — Width of the popup.\nrenderSwitcher: (props: SwitcherProps) => React.ReactElement | undefined — Custom render function for the switcher button.\nshowStatus: boolean (default: false) — Shows selected/total columns count in switcher button.\nsortable: boolean (default: true) — Enables drag and drop sorting of columns.",
+    "url": "https://gravity-ui.com/components/uikit/table-column-setup",
+    "page_title": "TableColumnSetup Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "TableColumnSetup Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:text:overview",
+    "page_id": "component:uikit:text",
+    "chunk_type": "overview",
+    "title": "Text",
+    "content": "A component for working with typography. Provides a convenient API for working with mixins of typography and text colors.\n\nImport: import {Text} from '@gravity-ui/uikit';\n\nCategory: typography\n\nExamples:\n<Text variant=\"body-1\">Regular body text</Text>\n<Text variant=\"display-1\" color=\"primary\">Large heading</Text>\n<Text variant=\"caption-1\" ellipsis color=\"secondary\">Truncated secondary text</Text>",
+    "url": "https://gravity-ui.com/components/uikit/text",
+    "page_title": "Text",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Text"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:text:properties",
+    "page_id": "component:uikit:text",
+    "chunk_type": "properties",
+    "title": "Text Properties",
+    "content": "Props for Text (from @gravity-ui/uikit):\n\nas: React.ElementType (default: 'span') — Ability to override default html tag.\nchildren: React.ReactNode — Text content.\nclassName: string — CSS class name.\ncolor: 'primary' | 'complementary' | 'secondary' | 'hint' | 'info' | 'positive' | 'warning' | 'danger' | 'utility' | 'misc' | 'brand' | 'link' | string — Text color.\nellipsis: boolean — Hidden overflow content will be displayed with ellipsis.\nellipsisLines: number — Number of lines after which text is cropped with ellipsis (-webkit-line-clamp).\nqa: string — data-qa HTML attribute.\nstyle: React.CSSProperties — style HTML attribute.\nvariant: 'display-4' | 'display-3' | 'display-2' | 'display-1' | 'header-2' | 'header-1' | 'subheader-3' | 'subheader-2' | 'subheader-1' | 'body-3' | 'body-2' | 'body-1' | 'body-short' | 'caption-2' | 'caption-1' | 'code-3' | 'code-2' | 'code-1' | 'code-inline-3' | 'code-inline-2' | 'code-inline-1' | 'inherit' (default: 'body-1') — Typography variant.\nwhiteSpace: 'nowrap' | 'break-spaces' — white-space CSS property.\nwordBreak: 'break-all' | 'break-word' — word-break CSS property.",
+    "url": "https://gravity-ui.com/components/uikit/text",
+    "page_title": "Text Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Text Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:toaster:overview",
+    "page_id": "component:uikit:toaster",
+    "chunk_type": "overview",
+    "title": "Toaster",
+    "content": "This is a component for adjustable notifications also known as toasts.\n\nImport: import {Toaster, ToasterProvider, useToaster} from '@gravity-ui/uikit';\n\nCategory: feedback\n\nExamples:\nconst {add} = useToaster(); add({name: 'my-toast', title: 'Success', theme: 'success'});\nconst {add} = useToaster(); add({name: 'error', title: 'Error occurred', theme: 'danger', content: 'Please try again.', isClosable: true});\n<ToasterProvider><App /><ToasterComponent /></ToasterProvider>",
+    "url": "https://gravity-ui.com/components/uikit/toaster",
+    "page_title": "Toaster",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Toaster"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:toaster:properties",
+    "page_id": "component:uikit:toaster",
+    "chunk_type": "properties",
+    "title": "Toaster Properties",
+    "content": "Props for Toaster toast (from @gravity-ui/uikit):\n\nRequired props:\nname: string — Unique toast identifier.\n\nOptional props:\nactions: (() => React.ReactElement) | ToastAction[] — Action buttons or custom render function.\nautoHiding: number | false — Duration in ms before the toast auto-hides. Set to false to disable.\nclassName: string — class HTML attribute.\ncontent: React.ReactNode — Toast content.\nisClosable: boolean — Shows a close button.\nonClose: () => void — Callback when toast is closed.\nrenderIcon: (toastProps: ToastProps) => React.ReactNode — Function for toast icon customization.\ntheme: 'normal' | 'info' | 'success' | 'warning' | 'danger' | 'utility' — Toast theme.\ntitle: string — Toast title.",
+    "url": "https://gravity-ui.com/components/uikit/toaster",
+    "page_title": "Toaster Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Toaster Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:toc:overview",
+    "page_id": "component:uikit:toc",
+    "chunk_type": "overview",
+    "title": "Toc",
+    "content": "The Toc component is designed to display a table of contents of the page, namely showing a set items with two levels of hierarchy.\n\nImport: import {Toc} from '@gravity-ui/uikit';\n\nCategory: navigation\n\nExamples:\n<Toc items={[{value: 'intro', content: 'Introduction'}, {value: 'usage', content: 'Usage'}]} value={activeSection} onUpdate={setActive} />\n<Toc items={[{value: 'sec1', content: 'Section 1', href: '#sec1', items: [{value: 'sub1', content: 'Subsection', href: '#sub1'}]}]} />\n<Toc items={tocItems} value={current} onUpdate={(v) => scrollTo(v)} className=\"sidebar-toc\" />",
+    "url": "https://gravity-ui.com/components/uikit/toc",
+    "page_title": "Toc",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Toc"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:toc:properties",
+    "page_id": "component:uikit:toc",
+    "chunk_type": "properties",
+    "title": "Toc Properties",
+    "content": "Props for Toc (from @gravity-ui/uikit):\n\nclassName: string — CSS class.\nitems: TocItem[] — TOC elements.\nonUpdate: (value: string) => void — Item click handler.\nqa: string — The value to provide to the data-qa attribute of the Toc container.\nvalue: string — Current active item.",
+    "url": "https://gravity-ui.com/components/uikit/toc",
+    "page_title": "Toc Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Toc Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:tooltip:overview",
+    "page_id": "component:uikit:tooltip",
+    "chunk_type": "overview",
+    "title": "Tooltip",
+    "content": "A simple text tip that uses its child node as an anchor. This component accepts only text content and may be an excellent alternative to the browser's title attribute with its small size and long appearance delay.\n\nImport: import {Tooltip} from '@gravity-ui/uikit';\n\nCategory: overlays\n\nExamples:\n<Tooltip content=\"Helpful text\"><Button>Hover me</Button></Tooltip>\n<Tooltip content=\"Click to copy\" placement=\"top\" openDelay={200}><Icon data={Copy} /></Tooltip>\n<Tooltip content=\"Tooltip\" trigger=\"focus\" role=\"label\"><input placeholder=\"Focus me\" /></Tooltip>",
+    "url": "https://gravity-ui.com/components/uikit/tooltip",
+    "page_title": "Tooltip",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "Tooltip"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:tooltip:properties",
+    "page_id": "component:uikit:tooltip",
+    "chunk_type": "properties",
+    "title": "Tooltip Properties",
+    "content": "Props for Tooltip (from @gravity-ui/uikit):\n\nRequired props:\nchildren: React.ReactElement | ((props: Record<string, unknown>, ref: React.Ref<HTMLElement>) => React.ReactElement) — Anchor element for the Tooltip.\n\nOptional props:\nclassName: string — class HTML attribute.\ncloseDelay: number (default: 0) — Number of ms to delay hiding the Tooltip after the hover ends.\ncontainer: HTMLElement (default: document.body) — DOM element to which component is mounted via Portal.\ncontent: React.ReactNode — Content that will be shown in the Tooltip.\ndisabled: boolean — Prevent the Tooltip from opening.\ndisablePortal: boolean (default: false) — Disables using Portal.\noffset: number (default: 4) — Tooltip offset from its anchor.\nonOpenChange: (open: boolean, event?: Event, reason?: string) => void — Callback to handle open state change.\nopen: boolean — Controlled open state.\nopenDelay: number (default: 1000) — Number of ms to delay showing the Tooltip after the hover begins.\nplacement: string | string[] (default: 'bottom') — Tooltip position relative to its anchor.\nqa: string — data-qa HTML attribute, used for testing.\nrole: 'tooltip' | 'label' (default: 'tooltip') — The role Tooltip is used for.\nstrategy: 'absolute' | 'fixed' (default: 'absolute') — The type of CSS position property to use.\nstyle: React.CSSProperties — style HTML attribute.\ntrigger: 'focus' — Event type that should trigger opening. By default both hover and focus do.",
+    "url": "https://gravity-ui.com/components/uikit/tooltip",
+    "page_title": "Tooltip Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "Tooltip Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:user:overview",
+    "page_id": "component:uikit:user",
+    "chunk_type": "overview",
+    "title": "User",
+    "content": "This is a general component for displaying a user avatar with an info block. It uses the Avatar component to render the avatar. It can also accept a custom React node as an avatar.\n\nImport: import {User} from '@gravity-ui/uikit';\n\nCategory: data-display\n\nExamples:\n<User name=\"Charles Darwin\" description=\"charles@example.com\" avatar={{text: 'CD', theme: 'brand'}} />\n<User name=\"Alice\" avatar=\"https://example.com/avatar.jpg\" size=\"l\" />\n<User name=\"Bob\" size=\"xl\" description=\"Engineering\" avatar={{text: 'B', theme: 'info'}} />",
+    "url": "https://gravity-ui.com/components/uikit/user",
+    "page_title": "User",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "User"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:user:properties",
+    "page_id": "component:uikit:user",
+    "chunk_type": "properties",
+    "title": "User Properties",
+    "content": "Props for User (from @gravity-ui/uikit):\n\naria-describedby: string — aria-describedby for the user section.\naria-details: string — aria-details for the user section.\naria-label: string — aria-label for the user section.\naria-labelledby: string — aria-labelledby for the user section.\navatar: AvatarProps | string | React.ReactElement — User avatar.\nclassName: string — Custom CSS class for the root element.\ndescription: React.ReactNode — User description.\nname: React.ReactNode — User name.\nqa: string — data-qa HTML attribute, used for testing.\nsize: '3xs' | '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl' (default: 'm') — User section size.\nstyle: React.CSSProperties — HTML style attribute.",
+    "url": "https://gravity-ui.com/components/uikit/user",
+    "page_title": "User Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "User Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:user-label:overview",
+    "page_id": "component:uikit:user-label",
+    "chunk_type": "overview",
+    "title": "UserLabel",
+    "content": "The UserLabel component can be used to display users or user-related information.\n\nImport: import {UserLabel} from '@gravity-ui/uikit';\n\nCategory: data-display\n\nExamples:\n<UserLabel text=\"Charles Darwin\" />\n<UserLabel type=\"email\" text=\"user@example.com\" />\n<UserLabel text=\"Alice\" view=\"outlined\" onCloseClick={() => remove('alice')} onClick={() => select('alice')} />",
+    "url": "https://gravity-ui.com/components/uikit/user-label",
+    "page_title": "UserLabel",
+    "page_type": "component",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "uikit",
+      "UserLabel"
+    ],
+    "code_examples": [],
+    "keywords": []
+  },
+  {
+    "id": "component:uikit:user-label:properties",
+    "page_id": "component:uikit:user-label",
+    "chunk_type": "properties",
+    "title": "UserLabel Properties",
+    "content": "Props for UserLabel (from @gravity-ui/uikit):\n\nRequired props:\ntext: React.ReactNode — Visible text.\n\nOptional props:\navatar: AvatarProps | string | React.ReactElement — User avatar. Only works with type: 'person'.\nclassName: string — Custom CSS class for the root element.\ndescription: React.ReactNode — User description.\nonClick: React.MouseEventHandler<HTMLElement> — click event handler for the component.\nonCloseClick: React.MouseEventHandler<HTMLButtonElement> — click event handler for the cross-icon button.\nqa: string — data-qa HTML attribute, used for testing.\nsize: '3xs' | '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl' (default: 's') — Avatar size.\nstyle: React.CSSProperties — HTML style attribute.\ntype: 'person' | 'email' | 'empty' (default: 'person') — Avatar appearance.\nview: 'outlined' | 'clear' (default: 'outlined') — UserLabel view.",
+    "url": "https://gravity-ui.com/components/uikit/user-label",
+    "page_title": "UserLabel Properties",
+    "page_type": "component",
+    "section_title": "Properties",
+    "breadcrumbs": [
+      "uikit",
+      "UserLabel Properties"
+    ],
+    "code_examples": [],
+    "keywords": []
+  }
+]

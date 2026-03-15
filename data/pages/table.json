@@ -1,0 +1,19 @@
+[
+  {
+    "id": "component:table:base-table",
+    "title": "BaseTable",
+    "page_type": "component",
+    "library": "table",
+    "url": "https://gravity-ui.com/components/table/base-table",
+    "breadcrumbs": [
+      "table",
+      "BaseTable"
+    ],
+    "description": "BaseTable is a low-level, headless table component built on top of TanStack Table. It provides full control over rendering and behavior through a tanstack table instance. Supports sticky header/footer, row grouping, virtualization, custom row content, resize handles, and sort indicators.",
+    "section_ids": [
+      "component:table:base-table:overview",
+      "component:table:base-table:props",
+      "component:table:base-table:examples"
+    ]
+  }
+]

@@ -1,0 +1,1258 @@
+[
+  {
+    "name": "AdaptiveTabs",
+    "library": "components",
+    "category": "navigation",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {AdaptiveTabs} from '@gravity-ui/components';",
+    "description": "If there is not enough container width to fit all the tabs, the tabs that do not fit will be hidden and accessible via the select with the caption 'More'. If only one tab fits, the select is displayed instead of the tabs.",
+    "source_file": "vendor/components/src/components/AdaptiveTabs/AdaptiveTabs.tsx",
+    "props": [
+      {
+        "name": "items",
+        "type": "TabItem[]",
+        "required": true,
+        "description": "Array of tabs"
+      },
+      {
+        "name": "onSelectTab",
+        "type": "(tabId: string, event?: React.MouseEvent) => void",
+        "required": true,
+        "description": "Select tab handler"
+      },
+      {
+        "name": "activeTab",
+        "type": "string",
+        "required": false,
+        "description": "Active tab id"
+      },
+      {
+        "name": "allowNotSelected",
+        "type": "boolean",
+        "required": false,
+        "description": "Allows you not to specify activeTab"
+      },
+      {
+        "name": "breakpointsConfig",
+        "type": "Record<string, number>",
+        "required": false,
+        "description": "Breakpoints config which control the thresholds of tab size"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Class name for the tabs container"
+      },
+      {
+        "name": "moreControlProps",
+        "type": "Pick<SelectProps, 'virtualizationThreshold' | 'popupWidth'>",
+        "required": false,
+        "description": "Settings to control popup with hidden tabs list"
+      },
+      {
+        "name": "size",
+        "type": "'m' | 'l' | 'xl'",
+        "required": false,
+        "default": "m",
+        "description": "Tabs size"
+      },
+      {
+        "name": "wrapTo",
+        "type": "(item: TabItem<T> | undefined, node: React.ReactNode, index: number | undefined) => React.ReactNode",
+        "required": false,
+        "description": "Allows to wrap TabItem into another component or render custom tab"
+      }
+    ],
+    "examples": [
+      "const items = [\n  {id: 'firstTab'},\n  {id: 'secondTab', title: 'Second Tab'},\n  {id: 'thirdTab', title: 'Third Tab'},\n  {id: 'disabledTab', title: 'This tab is disabled', disabled: true},\n];\nconst [activeTab, setActiveTab] = useState('secondTab');\n<AdaptiveTabs items={items} activeTab={activeTab} onSelectTab={(tabId) => setActiveTab(tabId)} />"
+    ]
+  },
+  {
+    "name": "ChangelogDialog",
+    "library": "components",
+    "category": "overlays",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {ChangelogDialog} from '@gravity-ui/components';",
+    "description": "Component for displaying the changelog. It looks like a list of versions in a modal. It can display regular versions and versions associated with stories.",
+    "source_file": "vendor/components/src/components/ChangelogDialog/ChangelogDialog.tsx",
+    "props": [
+      {
+        "name": "items",
+        "type": "ChangelogItem[]",
+        "required": true,
+        "description": "List of versions to display"
+      },
+      {
+        "name": "onClose",
+        "type": "DialogProps['onClose']",
+        "required": true,
+        "description": "Action on close"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Visibility flag"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "disableBodyScrollLock",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "If true, window scrolling is disabled when the dialog is open"
+      },
+      {
+        "name": "disableHeightTransition",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Disable height transition animation"
+      },
+      {
+        "name": "disableOutsideClick",
+        "type": "boolean",
+        "required": false,
+        "description": "If true, do not close dialog on click outside"
+      },
+      {
+        "name": "error",
+        "type": "boolean | {title: string; description: string}",
+        "required": false,
+        "description": "Error state"
+      },
+      {
+        "name": "fullListLink",
+        "type": "string",
+        "required": false,
+        "description": "Link to documentation with full changelog"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "description": "Loading state"
+      },
+      {
+        "name": "onLinkClick",
+        "type": "(link: string) => void",
+        "required": false,
+        "description": "Action on link click"
+      },
+      {
+        "name": "onRetryClick",
+        "type": "() => void",
+        "required": false,
+        "description": "Action on retry click"
+      },
+      {
+        "name": "onStoryClick",
+        "type": "(storyId: string) => void",
+        "required": false,
+        "description": "Action on click to 'View story'"
+      },
+      {
+        "name": "title",
+        "type": "React.ReactNode",
+        "required": false,
+        "default": "Changelog",
+        "description": "Dialog title"
+      }
+    ],
+    "examples": [
+      "<ChangelogDialog\n  open\n  items={[\n    {\n      date: '03 Jul 2022',\n      isNew: true,\n      title: 'New navigation',\n      image: {\n        src: 'https://storage.yandexcloud.net/uikit-storybook-assets/changelog-dialog-picture-1.png',\n        alt: 'New navigation',\n        ratio: 240 / 516,\n      },\n      description: 'At the top of the panel is the service navigation.',\n      storyId: 'someStoryId1',\n    },\n  ]}\n  onClose={() => {}}\n/>"
+    ]
+  },
+  {
+    "name": "ConfirmDialog",
+    "library": "components",
+    "category": "overlays",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {ConfirmDialog} from '@gravity-ui/components';",
+    "description": "ConfirmDialog is a utility component, which renders confirmation dialogs",
+    "source_file": "vendor/components/src/components/ConfirmDialog/ConfirmDialog.tsx",
+    "props": [
+      {
+        "name": "onClickButtonApply",
+        "type": "(event: React.MouseEvent<HTMLElement, MouseEvent>) => void",
+        "required": true,
+        "description": "The ok button click handler"
+      },
+      {
+        "name": "onClickButtonCancel",
+        "type": "(event: React.MouseEvent<HTMLElement, MouseEvent>) => void",
+        "required": true,
+        "description": "The cancel button click handler"
+      },
+      {
+        "name": "onClose",
+        "type": "(event: MouseEvent | KeyboardEvent, reason: ModalCloseReason | 'closeButtonClick') => void",
+        "required": true,
+        "description": "The dialog close handler"
+      },
+      {
+        "name": "textButtonApply",
+        "type": "string",
+        "required": true,
+        "description": "The ok button text"
+      },
+      {
+        "name": "textButtonCancel",
+        "type": "string",
+        "required": true,
+        "description": "The cancel button text"
+      },
+      {
+        "name": "message",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "The confirmation message"
+      },
+      {
+        "name": "propsButtonApply",
+        "type": "ButtonProps",
+        "required": false,
+        "description": "The ok button props"
+      },
+      {
+        "name": "propsButtonCancel",
+        "type": "ButtonProps",
+        "required": false,
+        "description": "The cancel button props"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "The confirm dialog title"
+      }
+    ],
+    "examples": [
+      "const [open, setOpen] = React.useState(false);\n\n<Button view=\"normal\" onClick={() => setOpen(true)}>Show confirm</Button>\n<ConfirmDialog\n  title=\"Do you want to confirm?\"\n  onClickButtonApply={() => { alert('Confirmed'); setOpen(false); }}\n  onClickButtonCancel={() => { alert('Cancelled'); setOpen(false); }}\n  onClose={() => setOpen(false)}\n  textButtonCancel=\"No\"\n  textButtonApply=\"Yes\"\n  open={open}\n/>"
+    ]
+  },
+  {
+    "name": "CookieConsent",
+    "library": "components",
+    "category": "overlays",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {CookieConsent} from '@gravity-ui/components';",
+    "description": "CookieConsent is a component for managing cookie consent notifications. It supports three modes: notification, base, and manage, rendered based on the consent manager mode.",
+    "source_file": "vendor/components/src/components/CookieConsent/CookieConsent.tsx",
+    "props": [
+      {
+        "name": "consentManager",
+        "type": "IConsentManager",
+        "required": true,
+        "description": "The consent manager instance that controls cookie consent state"
+      },
+      {
+        "name": "manageCookies",
+        "type": "boolean",
+        "required": false,
+        "description": "To open popup for managing cookies settings"
+      },
+      {
+        "name": "onConsentPopupClose",
+        "type": "() => void",
+        "required": false,
+        "description": "Callback called when the consent popup is closed"
+      }
+    ],
+    "examples": [
+      "const consentManager = new ConsentManager('base');\n\n<CookieConsent consentManager={consentManager} />",
+      "const consentManager = new ConsentManager('manage');\n\n<CookieConsent\n  consentManager={consentManager}\n  cookieList={cookieList}\n  onConsentPopupClose={onClose}\n/>"
+    ]
+  },
+  {
+    "name": "DelayedTextInput",
+    "library": "components",
+    "category": "forms",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {DelayedTextInput} from '@gravity-ui/components';",
+    "description": "Component for delaying user input synchronization with external state.",
+    "source_file": "vendor/components/src/components/DelayedTextInput/DelayedTextInput.tsx",
+    "props": [
+      {
+        "name": "onUpdate",
+        "type": "(value: string) => void",
+        "required": true,
+        "description": "Value update callback (required, unlike base TextInput)"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Current value (required, unlike base TextInput)"
+      },
+      {
+        "name": "delay",
+        "type": "number",
+        "required": false,
+        "default": "200",
+        "description": "Delay in milliseconds before user input synchronization"
+      }
+    ],
+    "examples": [
+      "function SearchComponent() {\n  const [searchTerm, setSearchTerm] = React.useState('');\n  return <DelayedTextInput value={searchTerm} onUpdate={setSearchTerm} delay={300} hasClear />;\n}"
+    ]
+  },
+  {
+    "name": "FormRow",
+    "library": "components",
+    "category": "forms",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {FormRow} from '@gravity-ui/components';",
+    "description": "Base component to place form input and label.",
+    "source_file": "vendor/components/src/components/FormRow/FormRow.tsx",
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Field component itself. FormRow.FieldDescription can be used here next to field component"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "direction",
+        "type": "'row' | 'column'",
+        "required": false,
+        "default": "row",
+        "description": "Direction in which the elements are placed"
+      },
+      {
+        "name": "fieldId",
+        "type": "string",
+        "required": false,
+        "description": "Id of field to correctly associate it with label"
+      },
+      {
+        "name": "label",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Field label"
+      },
+      {
+        "name": "labelHelpPopover",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Slot for inserting HelpPopover next to label text"
+      },
+      {
+        "name": "required",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Display star next to required field"
+      }
+    ],
+    "examples": [
+      "const nameFieldId = 'form-field-name';\n\n<FormRow label={'Name'} fieldId={nameFieldId}>\n  <TextInput id={nameFieldId} name={'name'} />\n</FormRow>"
+    ]
+  },
+  {
+    "name": "Gallery",
+    "library": "components",
+    "category": "overlays",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {Gallery, GalleryItem} from '@gravity-ui/components';",
+    "description": "The base component for rendering galleries of any type of data. The component is responsible for the gallery navigation (keyboard arrows, body side click and header arrow click). The children of the Gallery should be an array of GalleryItem with the required properties for rendering the gallery item view.",
+    "source_file": "vendor/components/src/components/Gallery/Gallery.tsx",
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactElement<GalleryItemProps>[] | React.ReactElement<GalleryItemProps>",
+        "required": false,
+        "description": "Gallery items as GalleryItem components"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "The modal class"
+      },
+      {
+        "name": "container",
+        "type": "HTMLElement",
+        "required": false,
+        "description": "The modal container"
+      },
+      {
+        "name": "emptyMessage",
+        "type": "string",
+        "required": false,
+        "description": "No data message"
+      },
+      {
+        "name": "initialItemIndex",
+        "type": "number",
+        "required": false,
+        "default": "0",
+        "description": "The initial active item index"
+      },
+      {
+        "name": "onOpenChange",
+        "type": "(open: boolean) => void",
+        "required": false,
+        "description": "The modal toggle handler"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "description": "The modal opened state"
+      }
+    ],
+    "examples": [
+      "const [open, setOpen] = React.useState(false);\nconst images = [\n  'https://i.pinimg.com/originals/d8/bd/b4/d8bdb45a931b4265bec8e8d3f15021bf.jpg',\n  'https://i.pinimg.com/originals/c2/31/a0/c231a069c5e24099723564dae736f438.jpg',\n];\n\n<Button onClick={() => setOpen(true)}>Open gallery</Button>\n<Gallery open={open} onOpenChange={setOpen}>\n  {images.map((image, index) => (\n    <GalleryItem key={index} {...getGalleryItemImage({src: image, name: image})} />\n  ))}\n</Gallery>"
+    ]
+  },
+  {
+    "name": "InfiniteScroll",
+    "library": "components",
+    "category": "utility",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {InfiniteScroll} from '@gravity-ui/components';",
+    "description": "The component is useful for creating infinite lists like Social Network Feed, or events history. It renders its children. If you scroll it to the bottom, it will show a loader and call an onActivate callback. When all the data is loaded and there is no need to load more, pass the disabled={true} property.",
+    "source_file": "vendor/components/src/components/InfiniteScroll/InfiniteScroll.tsx",
+    "props": [
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": true,
+        "description": "Turn off activation"
+      },
+      {
+        "name": "onActivate",
+        "type": "() => Promise<void>",
+        "required": true,
+        "description": "When called shows loader and waits till the promise is fulfilled to hide loader"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content to display before the loader"
+      },
+      {
+        "name": "loader",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom loader component"
+      }
+    ],
+    "examples": [
+      "const {data, fetchNextPage} = useFeedQuery();\nconst isAllPostsShown = data.posts.length === data.total;\n\n<InfiniteScroll onActivate={fetchNextPage} disabled={isAllPostsShown}>\n  {data.posts.map((post) => (\n    <Post key={post.id} post={post} />\n  ))}\n</InfiniteScroll>"
+    ]
+  },
+  {
+    "name": "ItemSelector",
+    "library": "components",
+    "category": "forms",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {ItemSelector} from '@gravity-ui/components';",
+    "description": "A component that allows you to form a subset of a list (e.g., a subset of columns).",
+    "source_file": "vendor/components/src/components/ItemSelector/ItemSelector.tsx",
+    "props": [
+      {
+        "name": "items",
+        "type": "T[]",
+        "required": true,
+        "description": "Item list"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(value: string[]) => void",
+        "required": true,
+        "description": "Filter change handler"
+      },
+      {
+        "name": "value",
+        "type": "string[]",
+        "required": true,
+        "description": "A subset of the id list of items"
+      },
+      {
+        "name": "filterItem",
+        "type": "ListProps<T>['filterItem']",
+        "required": false,
+        "description": "Filtering items in lists"
+      },
+      {
+        "name": "getItemId",
+        "type": "(item: T) => string",
+        "required": false,
+        "description": "A callback that returns the id of an item if the item is complex"
+      },
+      {
+        "name": "hideSelectAllButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Hide the select all button"
+      },
+      {
+        "name": "hideSelected",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "When true, hides already selected items from the main list"
+      },
+      {
+        "name": "renderItem",
+        "type": "ListProps<T>['renderItem']",
+        "required": false,
+        "description": "Render element in the main list"
+      },
+      {
+        "name": "renderItemValue",
+        "type": "(item: T) => React.ReactNode",
+        "required": false,
+        "description": "Render element view in lists"
+      },
+      {
+        "name": "renderValueItem",
+        "type": "ListProps<T>['renderItem']",
+        "required": false,
+        "description": "Render element in the selected list"
+      },
+      {
+        "name": "selectorTitle",
+        "type": "string",
+        "required": false,
+        "default": "''",
+        "description": "Component title"
+      }
+    ],
+    "examples": [
+      "<ItemSelector\n  selectorTitle=\"Columns\"\n  onUpdate={(value) => setState({value})}\n  items={[\n    {name: 'id', type: 'Uint32'},\n    {name: 'series', type: 'Utf8'},\n  ]}\n  value={value}\n  getItemId={(item) => item.name}\n/>"
+    ]
+  },
+  {
+    "name": "Notifications",
+    "library": "components",
+    "category": "feedback",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {Notifications} from '@gravity-ui/components';",
+    "description": "Components for displaying notifications. Can be used on desktop and touch devices.",
+    "source_file": "vendor/components/src/components/Notifications/Notifications.tsx",
+    "props": [
+      {
+        "name": "notifications",
+        "type": "NotificationProps[]",
+        "required": true,
+        "description": "List of Notifications to display"
+      },
+      {
+        "name": "actions",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Notifications actions (e.g. create new, mark all as read)"
+      },
+      {
+        "name": "areAllNotificationsLoaded",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "When true renders a Loader instead of the notifications"
+      },
+      {
+        "name": "emptyContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Same as errorContent, but for the Empty state"
+      },
+      {
+        "name": "emptyImage",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom image for the Empty state"
+      },
+      {
+        "name": "emptyTitle",
+        "type": "React.ReactNode",
+        "required": false,
+        "default": "No notifications",
+        "description": "Notifications empty state title"
+      },
+      {
+        "name": "errorContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Used for the Error state (the message under the Error)"
+      },
+      {
+        "name": "errorImage",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom image for the Error state"
+      },
+      {
+        "name": "errorTitle",
+        "type": "React.ReactNode",
+        "required": false,
+        "default": "Error",
+        "description": "Notifications error state title"
+      },
+      {
+        "name": "isLoading",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "When true renders a Loader instead of the notifications"
+      },
+      {
+        "name": "onLoadMoreNotifications",
+        "type": "() => Promise<void>",
+        "required": false,
+        "description": "Callback called when the user scrolls to the end"
+      },
+      {
+        "name": "renderCustomHeader",
+        "type": "(params: {title: React.ReactNode}) => JSX.Element",
+        "required": false,
+        "description": "Custom header render function"
+      },
+      {
+        "name": "swipeThreshold",
+        "type": "number",
+        "required": false,
+        "default": "0.4",
+        "description": "A value from 0 to 1 — the more the harder it is to swipe"
+      },
+      {
+        "name": "title",
+        "type": "React.ReactNode",
+        "required": false,
+        "default": "Notifications",
+        "description": "Notifications title"
+      }
+    ],
+    "examples": [
+      "const notifications = [\n  {\n    id: 'minimum',\n    content: <i>Bare minimum</i>,\n    formattedDate: '13 seconds ago',\n  },\n];\n\n<NotificationsPopupWrapper>\n  <Notifications\n    title=\"Notifications\"\n    notifications={notifications}\n    emptyMessage={'No notifications'}\n  />\n</NotificationsPopupWrapper>"
+    ]
+  },
+  {
+    "name": "OnboardingMenu",
+    "library": "components",
+    "category": "navigation",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {OnboardingMenu} from '@gravity-ui/components';",
+    "description": "A component for managing onboarding presets.",
+    "source_file": "vendor/components/src/components/OnboardingMenu/OnboardingMenu.tsx",
+    "props": [
+      {
+        "name": "expanded",
+        "type": "boolean",
+        "required": true,
+        "description": "Whether the menu is expanded or collapsed"
+      },
+      {
+        "name": "onCompleteClick",
+        "type": "(event: React.MouseEvent) => void",
+        "required": true,
+        "description": "Complete button click handler"
+      },
+      {
+        "name": "progress",
+        "type": "number",
+        "required": true,
+        "description": "Number of presets passed. Changes the progress bar"
+      },
+      {
+        "name": "title",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Title of onboarding menu"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Menu items"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "collapseButtonText",
+        "type": "string",
+        "required": false,
+        "description": "Collapse button text"
+      },
+      {
+        "name": "completeButtonText",
+        "type": "string",
+        "required": false,
+        "description": "Complete button text"
+      },
+      {
+        "name": "icon",
+        "type": "IconData",
+        "required": false,
+        "description": "Icon of onboarding menu"
+      },
+      {
+        "name": "liningClassName",
+        "type": "string",
+        "required": false,
+        "description": "Lining CSS class"
+      },
+      {
+        "name": "onCloseClick",
+        "type": "(event: React.MouseEvent) => void",
+        "required": false,
+        "description": "Close button click handler"
+      },
+      {
+        "name": "onCollapseClick",
+        "type": "(event: React.MouseEvent) => void",
+        "required": false,
+        "description": "Collapse button click handler"
+      },
+      {
+        "name": "onExpand",
+        "type": "(expanded: boolean) => void",
+        "required": false,
+        "description": "Expand state change handler"
+      },
+      {
+        "name": "withCloseButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Show close button"
+      }
+    ],
+    "examples": []
+  },
+  {
+    "name": "PromoSheet",
+    "library": "components",
+    "category": "overlays",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {PromoSheet} from '@gravity-ui/components';",
+    "description": "A component for displaying a promo dialog informing the user about a new feature in the service's mobile application.",
+    "source_file": "vendor/components/src/components/PromoSheet/PromoSheet.tsx",
+    "props": [
+      {
+        "name": "actionText",
+        "type": "string",
+        "required": true,
+        "description": "Action button text"
+      },
+      {
+        "name": "closeText",
+        "type": "string",
+        "required": true,
+        "description": "Close button aria-label text"
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "required": true,
+        "description": "Message text"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": "Sheet title"
+      },
+      {
+        "name": "actionHref",
+        "type": "string",
+        "required": false,
+        "description": "Action button href"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "Content CSS class"
+      },
+      {
+        "name": "imageAlt",
+        "type": "string",
+        "required": false,
+        "description": "Image alt text"
+      },
+      {
+        "name": "imageClassName",
+        "type": "string",
+        "required": false,
+        "description": "Image CSS class"
+      },
+      {
+        "name": "imageContainerClassName",
+        "type": "string",
+        "required": false,
+        "description": "Image container CSS class"
+      },
+      {
+        "name": "imageSrc",
+        "type": "string",
+        "required": false,
+        "description": "Image source URL"
+      },
+      {
+        "name": "onActionClick",
+        "type": "ButtonProps['onClick']",
+        "required": false,
+        "description": "Action button click handler"
+      },
+      {
+        "name": "onClose",
+        "type": "SheetProps['onClose']",
+        "required": false,
+        "description": "Close handler"
+      }
+    ],
+    "examples": [
+      "<PromoSheet\n  title=\"New Feature\"\n  message=\"We have a new feature for you!\"\n  actionText=\"Learn more\"\n  closeText=\"Close\"\n  imageSrc=\"https://example.com/promo.png\"\n  actionHref=\"https://example.com/feature\"\n/>"
+    ]
+  },
+  {
+    "name": "Reactions",
+    "library": "components",
+    "category": "feedback",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {Reactions} from '@gravity-ui/components';",
+    "description": "Component for user reactions (e.g. thumbs up, emoji etc) as in GitHub comments for example.",
+    "source_file": "vendor/components/src/components/Reactions/Reactions.tsx",
+    "props": [
+      {
+        "name": "reactions",
+        "type": "ReactionProps[]",
+        "required": true,
+        "description": "All available reactions"
+      },
+      {
+        "name": "reactionsState",
+        "type": "ReactionState[]",
+        "required": true,
+        "description": "Users reactions"
+      },
+      {
+        "name": "addButtonPlacement",
+        "type": "'start' | 'end'",
+        "required": false,
+        "default": "end",
+        "description": "Position of the Add reaction button"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "HTML class attribute"
+      },
+      {
+        "name": "onToggle",
+        "type": "(value: string) => void",
+        "required": false,
+        "description": "Fires when a user clicks on a Reaction"
+      },
+      {
+        "name": "paletteProps",
+        "type": "ReactionsPaletteProps",
+        "required": false,
+        "description": "Reactions palette props"
+      },
+      {
+        "name": "popupClassName",
+        "type": "string",
+        "required": false,
+        "description": "A class for the reaction container"
+      },
+      {
+        "name": "popupPlacement",
+        "type": "PopupPlacement",
+        "required": false,
+        "description": "Placement of the reaction popup"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "qa attribute for testing"
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Readonly state"
+      },
+      {
+        "name": "renderAddReaction",
+        "type": "(props: RenderAddProps<AddReactionRef>) => React.ReactNode",
+        "required": false,
+        "description": "Custom render function for the add reaction button"
+      },
+      {
+        "name": "renderReaction",
+        "type": "Function",
+        "required": false,
+        "description": "Custom render function for the reaction button"
+      },
+      {
+        "name": "renderReactionsContent",
+        "type": "(props: {reactionList: React.ReactNode; addReactionButton: React.ReactNode}) => React.ReactNode",
+        "required": false,
+        "description": "Callback function to render custom reactions content"
+      },
+      {
+        "name": "renderTooltip",
+        "type": "(state: ReactionState) => React.ReactNode",
+        "required": false,
+        "description": "Reaction tooltip with the list of reacted users"
+      },
+      {
+        "name": "size",
+        "type": "ButtonSize",
+        "required": false,
+        "default": "m",
+        "description": "Buttons size"
+      },
+      {
+        "name": "style",
+        "type": "React.CSSProperties",
+        "required": false,
+        "description": "HTML style attribute"
+      }
+    ],
+    "examples": [
+      "const options: ReactionProps[] = [\n  {content: '👍', value: 'thumbs-up'},\n  {content: '😎', value: 'cool'},\n];\nconst [usersReacted, setUsersReacted] = React.useState({'cool': [currentUser]});\nconst reactionsState = Object.entries(usersReacted).map(([value, users]) => ({\n  value, counter: users.length, selected: users.some(u => u.name === currentUser.name),\n}));\n\n<Reactions reactions={options} reactionsState={reactionsState} onToggle={onToggle} />"
+    ]
+  },
+  {
+    "name": "SharePopover",
+    "library": "components",
+    "category": "utility",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {SharePopover} from '@gravity-ui/components';",
+    "description": "Sharing component with support for social networks and copy link functionality.",
+    "source_file": "vendor/components/src/components/SharePopover/SharePopover.tsx",
+    "props": [
+      {
+        "name": "autoclosable",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Should close popover when cursor is outside"
+      },
+      {
+        "name": "buttonTitle",
+        "type": "string | React.ReactNode",
+        "required": false,
+        "description": "Icon title"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for control"
+      },
+      {
+        "name": "closeDelay",
+        "type": "number",
+        "required": false,
+        "default": "300",
+        "description": "Delay before popover will be hidden when cursor is outside"
+      },
+      {
+        "name": "customIcon",
+        "type": "IconData",
+        "required": false,
+        "description": "Custom icon"
+      },
+      {
+        "name": "direction",
+        "type": "LayoutDirection",
+        "required": false,
+        "description": "Elements location direction"
+      },
+      {
+        "name": "iconClass",
+        "type": "string",
+        "required": false,
+        "description": "Icon control mixin"
+      },
+      {
+        "name": "iconSize",
+        "type": "number",
+        "required": false,
+        "description": "Icon control size"
+      },
+      {
+        "name": "openByHover",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Should open popover with hover"
+      },
+      {
+        "name": "placement",
+        "type": "PopupPlacement",
+        "required": false,
+        "default": "['bottom-end']",
+        "description": "Popover opening direction"
+      },
+      {
+        "name": "shareOptions",
+        "type": "Array<ShareOptions>",
+        "required": false,
+        "default": "[]",
+        "description": "Share options list"
+      },
+      {
+        "name": "switcherClassName",
+        "type": "string",
+        "required": false,
+        "description": "Switcher mixin"
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "description": "Link text"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Link title"
+      },
+      {
+        "name": "tooltipClassName",
+        "type": "string",
+        "required": false,
+        "description": "Tooltip mixin"
+      },
+      {
+        "name": "url",
+        "type": "string",
+        "required": false,
+        "description": "Share link"
+      },
+      {
+        "name": "useWebShareApi",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Web Share API usage setting"
+      },
+      {
+        "name": "withCopyLink",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Display copy button"
+      }
+    ],
+    "examples": [
+      "<SharePopover url={url} title={title} text={text} />",
+      "<SharePopover\n  url={url}\n  title={title}\n  text={text}\n  withCopyLink={false}\n  shareOptions={[ShareOptions.Telegram, ShareOptions.Twitter]}\n/>"
+    ]
+  },
+  {
+    "name": "StoreBadge",
+    "library": "components",
+    "category": "utility",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {StoreBadge} from '@gravity-ui/components';",
+    "description": "Store Badge can be used to place links to the Google Play and AppStore app stores.",
+    "source_file": "vendor/components/src/components/StoreBadge/StoreBadge.tsx",
+    "props": [
+      {
+        "name": "platform",
+        "type": "'android' | 'ios'",
+        "required": true,
+        "description": "App store platform name"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "The URL to the app store listing"
+      },
+      {
+        "name": "lang",
+        "type": "'en' | 'ru'",
+        "required": false,
+        "default": "en",
+        "description": "Badge language"
+      },
+      {
+        "name": "onClick",
+        "type": "React.MouseEventHandler<HTMLElement>",
+        "required": false,
+        "description": "Click handler"
+      }
+    ],
+    "examples": [
+      "<StoreBadge platform=\"android\" />",
+      "<StoreBadge platform=\"ios\" href=\"https://apps.apple.com/app/myapp/id123456\" />"
+    ]
+  },
+  {
+    "name": "Stories",
+    "library": "components",
+    "category": "overlays",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {Stories} from '@gravity-ui/components';",
+    "description": "Component for displaying stories. It looks like a carousel in a modal with given places to display text and media.",
+    "source_file": "vendor/components/src/components/Stories/Stories.tsx",
+    "props": [
+      {
+        "name": "items",
+        "type": "StoriesItem[]",
+        "required": true,
+        "description": "List of stories to display"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Visibility flag"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Stories modal class"
+      },
+      {
+        "name": "disableOutsideClick",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "If true, do not close stories on click outside"
+      },
+      {
+        "name": "initialStoryIndex",
+        "type": "number",
+        "required": false,
+        "default": "0",
+        "description": "Index of the first story to be displayed"
+      },
+      {
+        "name": "onClose",
+        "type": "(event: MouseEvent | KeyboardEvent | React.MouseEvent, reason: ModalCloseReason | 'closeButtonClick') => void",
+        "required": false,
+        "description": "Action on close"
+      },
+      {
+        "name": "onNextClick",
+        "type": "(storyIndex: number) => void",
+        "required": false,
+        "description": "Action when switching to next story"
+      },
+      {
+        "name": "onPreviousClick",
+        "type": "(storyIndex: number) => void",
+        "required": false,
+        "description": "Action when switching to previous story"
+      },
+      {
+        "name": "resetStoryIndexOnClose",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "If true, reset story index to initialStoryIndex on close"
+      },
+      {
+        "name": "syncInTabsKey",
+        "type": "string",
+        "required": false,
+        "description": "Key for syncing story state across tabs"
+      }
+    ],
+    "examples": [
+      "<Stories\n  open\n  items={[\n    {\n      title: 'Story title',\n      description: 'Story text',\n      media: {\n        type: 'image',\n        url: 'https://storage.yandexcloud.net/uikit-storybook-assets/story-picture-2.png',\n      },\n    },\n  ]}\n  onClose={() => {}}\n/>"
+    ]
+  },
+  {
+    "name": "StoriesGroup",
+    "library": "components",
+    "category": "overlays",
+    "import_path": "@gravity-ui/components",
+    "import_statement": "import {StoriesGroup} from '@gravity-ui/components';",
+    "description": "Component for displaying group of stories. It looks like a carousel in a modal with given places to display text and media.",
+    "source_file": "vendor/components/src/components/StoriesGroup/StoriesGroup.tsx",
+    "props": [
+      {
+        "name": "groups",
+        "type": "StoriesGroupItem[]",
+        "required": true,
+        "description": "List of groups of stories to display"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Visibility flag"
+      },
+      {
+        "name": "disableOutsideClick",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "If true, do not close stories on click outside"
+      },
+      {
+        "name": "initialStoryIndex",
+        "type": "[groupIndex: number, itemIndex: number]",
+        "required": false,
+        "default": "[0, 0]",
+        "description": "Index of the first story to be displayed"
+      },
+      {
+        "name": "maxSliderItemsCount",
+        "type": "number",
+        "required": false,
+        "default": "12",
+        "description": "Maximum number of slider thumbnails on the screen"
+      },
+      {
+        "name": "onClose",
+        "type": "(event: MouseEvent | KeyboardEvent | React.MouseEvent, reason: ModalCloseReason | 'closeButtonClick') => void",
+        "required": false,
+        "description": "Action on close"
+      },
+      {
+        "name": "onItemSelect",
+        "type": "(itemIndexes: [groupIndex: number, itemIndex: number], selectedFromThumbnail: boolean) => void",
+        "required": false,
+        "description": "Action when switching to story"
+      }
+    ],
+    "examples": [
+      "<StoriesGroup\n  open\n  groups={[\n    {\n      items: [\n        {\n          title: 'New navigation',\n          media: {type: 'image', url: 'https://storage.yandexcloud.net/story-picture-2.png'},\n        },\n      ],\n    },\n  ]}\n  onClose={() => {}}\n/>"
+    ]
+  }
+]

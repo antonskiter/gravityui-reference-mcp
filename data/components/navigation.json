@@ -1,0 +1,651 @@
+[
+  {
+    "name": "ActionBar",
+    "library": "navigation",
+    "category": "navigation",
+    "import_path": "@gravity-ui/navigation",
+    "import_statement": "import {ActionBar} from '@gravity-ui/navigation';",
+    "description": "ActionBar is a flexible horizontal bar that provides a standardized layout for arranging navigation elements, actions, and informational content within an application. It serves as a container for organizing UI elements like breadcrumbs, buttons, and dropdown menus into defined sections and groups.",
+    "source_file": "vendor/navigation/src/components/ActionBar/ActionBar.tsx",
+    "props": [
+      {
+        "name": "aria-label",
+        "type": "string",
+        "required": false,
+        "description": "HTML aria-label attribute"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "HTML class attribute"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "data-qa HTML attribute, used for testing"
+      },
+      {
+        "name": "style",
+        "type": "React.CSSProperties",
+        "required": false,
+        "description": "HTML style attribute"
+      }
+    ],
+    "examples": [
+      "import {ActionBar} from '@gravity-ui/navigation';\n\n<ActionBar aria-label=\"Actions bar\">\n  <ActionBar.Section>\n    <ActionBar.Group>\n      <ActionBar.Item>\n        <LegacyBreadcrumbs items={[{text: 'Root Item', action() {}}]} />\n      </ActionBar.Item>\n    </ActionBar.Group>\n    <ActionBar.Group pull=\"right\">\n      <ActionBar.Item>\n        <Button>Do something</Button>\n      </ActionBar.Item>\n    </ActionBar.Group>\n  </ActionBar.Section>\n</ActionBar>"
+    ]
+  },
+  {
+    "name": "AsideHeader",
+    "library": "navigation",
+    "category": "navigation",
+    "import_path": "@gravity-ui/navigation",
+    "import_statement": "import {AsideHeader} from '@gravity-ui/navigation';",
+    "description": "AsideHeader provides a flexible and customizable navigation experience within your application. Users can easily customize the appearance of the sidebar to match their branding colors and add personalized links and icons.",
+    "source_file": "vendor/navigation/src/components/AsideHeader/AsideHeader.tsx",
+    "props": [
+      {
+        "name": "pinned",
+        "type": "boolean",
+        "required": true,
+        "description": "Navigation visual state. When true, the navigation is expanded (pinned open). When false, it is collapsed"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "collapseButtonWrapper",
+        "type": "(defaultButton: React.ReactNode, data: {isExpanded: boolean; onChangePinned?: (pinned: boolean) => void}) => React.ReactNode",
+        "required": false,
+        "description": "Custom wrapper for collapse button"
+      },
+      {
+        "name": "collapseTitle",
+        "type": "string",
+        "required": false,
+        "description": "Collapse button tooltip title"
+      },
+      {
+        "name": "customBackground",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom background content"
+      },
+      {
+        "name": "customBackgroundClassName",
+        "type": "string",
+        "required": false,
+        "description": "Custom background CSS class"
+      },
+      {
+        "name": "defaultMenuGroups",
+        "type": "MenuGroup[]",
+        "required": false,
+        "description": "Default menu groups"
+      },
+      {
+        "name": "defaultMenuItems",
+        "type": "AsideHeaderItem[]",
+        "required": false,
+        "description": "Default menu items"
+      },
+      {
+        "name": "editMenuProps",
+        "type": "EditMenuProps",
+        "required": false,
+        "description": "Edit menu configuration props"
+      },
+      {
+        "name": "expandTitle",
+        "type": "string",
+        "required": false,
+        "description": "Expand button tooltip title"
+      },
+      {
+        "name": "headerDecoration",
+        "type": "boolean",
+        "required": false,
+        "description": "Navigation highlights top section with Logo and Subheader items"
+      },
+      {
+        "name": "hideCollapseButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Hide collapse button"
+      },
+      {
+        "name": "isCompactMode",
+        "type": "boolean",
+        "required": false,
+        "description": "When true, menu items use compact height"
+      },
+      {
+        "name": "logo",
+        "type": "LogoProps",
+        "required": false,
+        "description": "Logo configuration"
+      },
+      {
+        "name": "menuGroups",
+        "type": "MenuGroup[]",
+        "required": false,
+        "description": "Menu groups"
+      },
+      {
+        "name": "menuItems",
+        "type": "AsideHeaderItem[]",
+        "required": false,
+        "description": "Main menu items"
+      },
+      {
+        "name": "menuMoreTitle",
+        "type": "string",
+        "required": false,
+        "description": "More menu items tooltip title"
+      },
+      {
+        "name": "onChangePinned",
+        "type": "(pinned: boolean) => void",
+        "required": false,
+        "description": "Pinned state change handler"
+      },
+      {
+        "name": "onMenuItemsChanged",
+        "type": "(items: AsideHeaderItem[]) => void",
+        "required": false,
+        "description": "Menu items changed callback"
+      },
+      {
+        "name": "panelItems",
+        "type": "PanelItemProps[]",
+        "required": false,
+        "description": "Panel items configuration"
+      },
+      {
+        "name": "renderContent",
+        "type": "RenderContentType",
+        "required": false,
+        "description": "Render function for main content area"
+      },
+      {
+        "name": "renderFooter",
+        "type": "(data: {size: number; isExpanded: boolean; isPinned: boolean; asideRef: React.RefObject<HTMLDivElement>}) => React.ReactNode | React.ReactNode[]",
+        "required": false,
+        "description": "Render function for the footer section"
+      },
+      {
+        "name": "subheaderItems",
+        "type": "AsideHeaderItem[]",
+        "required": false,
+        "description": "Subheader items placed below the logo"
+      },
+      {
+        "name": "topAlert",
+        "type": "TopAlertProps",
+        "required": false,
+        "description": "Top alert configuration"
+      }
+    ],
+    "examples": []
+  },
+  {
+    "name": "Footer",
+    "library": "navigation",
+    "category": "navigation",
+    "import_path": "@gravity-ui/navigation",
+    "import_statement": "import {Footer} from '@gravity-ui/navigation';",
+    "description": "The page footer component for desktop. Use Footer for the desktop version and MobileFooter for the mobile version.",
+    "source_file": "vendor/navigation/src/components/Footer/desktop/Footer.tsx",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Footer class name"
+      },
+      {
+        "name": "copyright",
+        "type": "string",
+        "required": false,
+        "description": "The copyright text"
+      },
+      {
+        "name": "logo",
+        "type": "LogoProps",
+        "required": false,
+        "description": "The service logo properties"
+      },
+      {
+        "name": "logoWrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "The logo wrapper class name"
+      },
+      {
+        "name": "menuItems",
+        "type": "FooterMenuItem[]",
+        "required": false,
+        "description": "List of footer menu items"
+      },
+      {
+        "name": "moreButtonTitle",
+        "type": "string",
+        "required": false,
+        "description": "The more items button title"
+      },
+      {
+        "name": "onMoreButtonClick",
+        "type": "MouseEventHandler<HTMLElement>",
+        "required": false,
+        "description": "The more button click handler"
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'clear'",
+        "required": false,
+        "description": "The footer view"
+      },
+      {
+        "name": "withDivider",
+        "type": "boolean",
+        "required": false,
+        "description": "Show top border on the footer"
+      }
+    ],
+    "examples": [
+      "<Footer\n  className=\"page-footer\"\n  copyright={`@ ${new Date().getFullYear()} My Service`}\n  logo={{icon: logoIcon, iconSize: 24, text: 'My Service'}}\n  menuItems={[\n    {text: 'About', href: 'https://gravity-ui.com/', target: 'blank'},\n    {text: 'Docs', href: 'https://gravity-ui.com/', target: 'blank'},\n  ]}\n/>"
+    ]
+  },
+  {
+    "name": "HotkeysPanel",
+    "library": "navigation",
+    "category": "navigation",
+    "import_path": "@gravity-ui/navigation",
+    "import_statement": "import {HotkeysPanel} from '@gravity-ui/navigation';",
+    "description": "A navigation panel for hotkeys documentation. The panel displays a set of hotkeys for your application with a description of their purpose.",
+    "source_file": "vendor/navigation/src/components/HotkeysPanel/HotkeysPanel.tsx",
+    "props": [
+      {
+        "name": "hotkeys",
+        "type": "Array",
+        "required": true,
+        "description": "List of hotkey groups"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Whether drawer open or not"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Drawer class name"
+      },
+      {
+        "name": "container",
+        "type": "HTMLElement",
+        "required": false,
+        "description": "DOM element to render the drawer into"
+      },
+      {
+        "name": "drawerItemClassName",
+        "type": "string",
+        "required": false,
+        "description": "Drawer item class name"
+      },
+      {
+        "name": "emptyState",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "No search results placeholder"
+      },
+      {
+        "name": "filterClassName",
+        "type": "string",
+        "required": false,
+        "description": "Search input class name"
+      },
+      {
+        "name": "filterPlaceholder",
+        "type": "string",
+        "required": false,
+        "description": "Search input placeholder"
+      },
+      {
+        "name": "filterable",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Whether show search input or not"
+      },
+      {
+        "name": "hideVeil",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether to hide the drawer overlay (veil)"
+      },
+      {
+        "name": "itemContentClassName",
+        "type": "string",
+        "required": false,
+        "description": "List item content class name"
+      },
+      {
+        "name": "leftOffset",
+        "type": "number | string",
+        "required": false,
+        "default": "0",
+        "description": "Drawer left offset"
+      },
+      {
+        "name": "listClassName",
+        "type": "string",
+        "required": false,
+        "description": "List class name"
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "description": "Close drawer handler"
+      },
+      {
+        "name": "platform",
+        "type": "'pc' | 'mac'",
+        "required": false,
+        "description": "Platform for hotkey display format"
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Custom styles for the drawer"
+      },
+      {
+        "name": "title",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "The panel title"
+      },
+      {
+        "name": "titleClassName",
+        "type": "string",
+        "required": false,
+        "description": "Title class name"
+      },
+      {
+        "name": "togglePanelHotkey",
+        "type": "string",
+        "required": false,
+        "description": "The panel open hotkey"
+      },
+      {
+        "name": "topOffset",
+        "type": "number | string",
+        "required": false,
+        "default": "0",
+        "description": "Drawer top offset"
+      }
+    ],
+    "examples": []
+  },
+  {
+    "name": "Logo",
+    "library": "navigation",
+    "category": "navigation",
+    "import_path": "@gravity-ui/navigation",
+    "import_statement": "import {Logo} from '@gravity-ui/navigation';",
+    "description": "Logo icon is wrapped in UIKit Button, text is wrapped in HTML tag a or div, when passing hasWrapper prop.",
+    "source_file": "vendor/navigation/src/components/Logo/Logo.tsx",
+    "props": [
+      {
+        "name": "aria-label",
+        "type": "string",
+        "required": false,
+        "description": "HTML aria-label attribute passed to tag a"
+      },
+      {
+        "name": "aria-labelledby",
+        "type": "string",
+        "required": false,
+        "description": "HTML aria-labelledby attribute passed to tag a"
+      },
+      {
+        "name": "buttonClassName",
+        "type": "string",
+        "required": false,
+        "description": "HTML class for UIKit Button"
+      },
+      {
+        "name": "buttonWrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "HTML class attribute for UIKit Button wrapper"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "HTML class attribute"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "HTML href attribute"
+      },
+      {
+        "name": "icon",
+        "type": "IconProps['data']",
+        "required": false,
+        "description": "Logo icon data"
+      },
+      {
+        "name": "iconClassName",
+        "type": "string",
+        "required": false,
+        "description": "HTML class attribute of the icon container"
+      },
+      {
+        "name": "iconSize",
+        "type": "number",
+        "required": false,
+        "default": "24",
+        "description": "Width and height attribute"
+      },
+      {
+        "name": "iconSrc",
+        "type": "string",
+        "required": false,
+        "description": "HTML src attribute of the tag img"
+      },
+      {
+        "name": "onClick",
+        "type": "(event: React.MouseEvent<HTMLElement, MouseEvent>) => void",
+        "required": false,
+        "description": "Callback function called when the user clicks the Logo"
+      },
+      {
+        "name": "pinned",
+        "type": "boolean",
+        "required": false,
+        "description": "Logo view state: true (pinned) shows icon and text, false — icon only"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "default": "_self",
+        "description": "HTML target attribute of the tag a"
+      },
+      {
+        "name": "text",
+        "type": "(() => React.ReactNode) | string",
+        "required": false,
+        "description": "Text displays only when pinned prop is true"
+      },
+      {
+        "name": "textSize",
+        "type": "number",
+        "required": false,
+        "default": "15",
+        "description": "Text font size"
+      },
+      {
+        "name": "wrapper",
+        "type": "(node: React.ReactNode, isExpanded: boolean) => React.ReactNode",
+        "required": false,
+        "description": "Wrapper function. Wrapping icon and text in two separated containers"
+      }
+    ],
+    "examples": []
+  },
+  {
+    "name": "MobileHeader",
+    "library": "navigation",
+    "category": "navigation",
+    "import_path": "@gravity-ui/navigation",
+    "import_statement": "import {MobileHeader} from '@gravity-ui/navigation';",
+    "description": "Header for Mobile navigation. MobileHeader provides maintaining Panels except for Modals.",
+    "source_file": "vendor/navigation/src/components/MobileHeader/MobileHeader.tsx",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "logo",
+        "type": "LogoProps",
+        "required": false,
+        "description": "Logo configuration"
+      },
+      {
+        "name": "menuItems",
+        "type": "MobileMenuItem[]",
+        "required": false,
+        "description": "Menu items in burger menu"
+      },
+      {
+        "name": "panelItems",
+        "type": "ModalItem[]",
+        "required": false,
+        "description": "Panel items"
+      }
+    ],
+    "examples": []
+  },
+  {
+    "name": "Settings",
+    "library": "navigation",
+    "category": "navigation",
+    "import_path": "@gravity-ui/navigation",
+    "import_statement": "import {Settings} from '@gravity-ui/navigation';",
+    "description": "The Settings component provides layouting functionality of settings panel with features including single-level and two-level grouping of items, filtering of the panel's content by headers of items, and displaying of loading status and content.",
+    "source_file": "vendor/navigation/src/components/Settings/Settings.tsx",
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Settings pages and groups"
+      },
+      {
+        "name": "emptyPlaceholder",
+        "type": "string",
+        "required": false,
+        "description": "Empty search results placeholder text"
+      },
+      {
+        "name": "filterPlaceholder",
+        "type": "string",
+        "required": false,
+        "description": "Search input placeholder"
+      },
+      {
+        "name": "initialPage",
+        "type": "string",
+        "required": false,
+        "description": "Initially selected page ID"
+      },
+      {
+        "name": "initialSearch",
+        "type": "string",
+        "required": false,
+        "description": "Initial search query"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "description": "Flag of loading status"
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "description": "Close handler"
+      },
+      {
+        "name": "onPageChange",
+        "type": "(page: string | undefined) => void",
+        "required": false,
+        "description": "Page change handler"
+      },
+      {
+        "name": "renderLoading",
+        "type": "() => React.ReactNode",
+        "required": false,
+        "description": "Custom loading render function"
+      },
+      {
+        "name": "renderNotFound",
+        "type": "() => React.ReactNode",
+        "required": false,
+        "description": "Custom not found render function"
+      },
+      {
+        "name": "renderRightAdornment",
+        "type": "(item: SettingsItemProps) => React.ReactNode",
+        "required": false,
+        "description": "Render function for right adornment per item"
+      },
+      {
+        "name": "selection",
+        "type": "SettingsSelection",
+        "required": false,
+        "description": "Selection configuration"
+      },
+      {
+        "name": "showRightAdornmentOnHover",
+        "type": "boolean",
+        "required": false,
+        "description": "Show right adornment only on hover"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Settings panel title"
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'mobile'",
+        "required": false,
+        "description": "Settings view mode"
+      }
+    ],
+    "examples": [
+      "<Settings>\n  <Settings.Page title=\"Appearance\">...</Settings.Page>\n  <Settings.Page title=\"Notifications\">...</Settings.Page>\n</Settings>",
+      "<Settings>\n  <Settings.Group groupTitle=\"My service\">\n    <Settings.Page title=\"Appearance\">...</Settings.Page>\n  </Settings.Group>\n</Settings>"
+    ]
+  }
+]

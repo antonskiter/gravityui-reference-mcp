@@ -6,7 +6,7 @@ export const PropDefSchema = z.object({
   name: z.string(),
   type: z.string(),
   required: z.boolean(),
-  default: z.string().optional(),
+  default: z.union([z.string(), z.boolean().transform(String), z.null()]).optional(),
   description: z.string().optional(),
   deprecated: z.boolean().optional(),
 });

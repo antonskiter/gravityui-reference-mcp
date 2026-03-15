@@ -1,0 +1,542 @@
+[
+  {
+    "id": "component:uikit:accordion",
+    "title": "Accordion",
+    "library": "uikit",
+    "description": "A vertically stacked set of interactive headings that reveal or hide associated sections of content. Supports controlled and uncontrolled modes.",
+    "category": "layout",
+    "component_id": "uikit:Accordion",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/accordion",
+    "breadcrumbs": [
+      "uikit",
+      "Accordion"
+    ],
+    "section_ids": [
+      "component:uikit:accordion:overview",
+      "component:uikit:accordion:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:actions-panel",
+    "title": "ActionsPanel",
+    "library": "uikit",
+    "description": "A floating panel that displays a set of actions, typically used for bulk operations on selected items. Renders at the bottom of a container.",
+    "category": "actions",
+    "component_id": "uikit:ActionsPanel",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/actions-panel",
+    "breadcrumbs": [
+      "uikit",
+      "ActionsPanel"
+    ],
+    "section_ids": [
+      "component:uikit:actions-panel:overview",
+      "component:uikit:actions-panel:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:action-tooltip",
+    "title": "ActionTooltip",
+    "library": "uikit",
+    "description": "A tooltip designed for action triggers such as icon buttons. Displays a title, optional description, and optional keyboard shortcut hotkey.",
+    "category": "overlays",
+    "component_id": "uikit:ActionTooltip",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/action-tooltip",
+    "breadcrumbs": [
+      "uikit",
+      "ActionTooltip"
+    ],
+    "section_ids": [
+      "component:uikit:action-tooltip:overview",
+      "component:uikit:action-tooltip:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:alert",
+    "title": "Alert",
+    "library": "uikit",
+    "description": "Displays an inline notification or feedback message with optional icon, title, message body, and action buttons. Supports multiple themes and visual variants.",
+    "category": "feedback",
+    "component_id": "uikit:Alert",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/alert",
+    "breadcrumbs": [
+      "uikit",
+      "Alert"
+    ],
+    "section_ids": [
+      "component:uikit:alert:overview",
+      "component:uikit:alert:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:arrow-toggle",
+    "title": "ArrowToggle",
+    "library": "uikit",
+    "description": "A simple animated arrow icon that rotates to indicate an open or closed state, commonly used in dropdowns and expandable sections.",
+    "category": "utility",
+    "component_id": "uikit:ArrowToggle",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/arrow-toggle",
+    "breadcrumbs": [
+      "uikit",
+      "ArrowToggle"
+    ],
+    "section_ids": [
+      "component:uikit:arrow-toggle:overview",
+      "component:uikit:arrow-toggle:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:avatar",
+    "title": "Avatar",
+    "library": "uikit",
+    "description": "Displays a user avatar using an image, icon, or initials. Supports multiple sizes, themes, shapes, and can be rendered as a button or link.",
+    "category": "data-display",
+    "component_id": "uikit:Avatar",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/avatar",
+    "breadcrumbs": [
+      "uikit",
+      "Avatar"
+    ],
+    "section_ids": [
+      "component:uikit:avatar:overview",
+      "component:uikit:avatar:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:avatar-stack",
+    "title": "AvatarStack",
+    "library": "uikit",
+    "description": "Renders a horizontal stack of overlapping Avatar components. Automatically collapses excess avatars into a count indicator or dots.",
+    "category": "data-display",
+    "component_id": "uikit:AvatarStack",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/avatar-stack",
+    "breadcrumbs": [
+      "uikit",
+      "AvatarStack"
+    ],
+    "section_ids": [
+      "component:uikit:avatar-stack:overview",
+      "component:uikit:avatar-stack:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:breadcrumbs",
+    "title": "Breadcrumbs",
+    "library": "uikit",
+    "description": "Displays a navigation trail showing the user's current location within a hierarchy. Automatically collapses middle items into a popup when there are too many to display.",
+    "category": "navigation",
+    "component_id": "uikit:Breadcrumbs",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/breadcrumbs",
+    "breadcrumbs": [
+      "uikit",
+      "Breadcrumbs"
+    ],
+    "section_ids": [
+      "component:uikit:breadcrumbs:overview",
+      "component:uikit:breadcrumbs:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:button",
+    "title": "Button",
+    "library": "uikit",
+    "description": "A versatile interactive button component. Supports multiple visual styles, sizes, pin shapes, loading state, and can render as a link.",
+    "category": "actions",
+    "component_id": "uikit:Button",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/button",
+    "breadcrumbs": [
+      "uikit",
+      "Button"
+    ],
+    "section_ids": [
+      "component:uikit:button:overview",
+      "component:uikit:button:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:card",
+    "title": "Card",
+    "library": "uikit",
+    "description": "A container component that groups related content with a visual boundary. Supports selection, action, and container types with various visual styles.",
+    "category": "layout",
+    "component_id": "uikit:Card",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/card",
+    "breadcrumbs": [
+      "uikit",
+      "Card"
+    ],
+    "section_ids": [
+      "component:uikit:card:overview",
+      "component:uikit:card:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:checkbox",
+    "title": "Checkbox",
+    "library": "uikit",
+    "description": "A form checkbox input that supports controlled and uncontrolled modes, an indeterminate state, and optional label content.",
+    "category": "forms",
+    "component_id": "uikit:Checkbox",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/checkbox",
+    "breadcrumbs": [
+      "uikit",
+      "Checkbox"
+    ],
+    "section_ids": [
+      "component:uikit:checkbox:overview",
+      "component:uikit:checkbox:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:clipboard-button",
+    "title": "ClipboardButton",
+    "library": "uikit",
+    "description": "A button that copies a specified text to the clipboard and provides visual feedback via a tooltip that changes on success.",
+    "category": "actions",
+    "component_id": "uikit:ClipboardButton",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/clipboard-button",
+    "breadcrumbs": [
+      "uikit",
+      "ClipboardButton"
+    ],
+    "section_ids": [
+      "component:uikit:clipboard-button:overview",
+      "component:uikit:clipboard-button:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:clipboard-icon",
+    "title": "ClipboardIcon",
+    "library": "uikit",
+    "description": "An icon that animates between clipboard and checkmark states to represent the clipboard copy operation status.",
+    "category": "utility",
+    "component_id": "uikit:ClipboardIcon",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/clipboard-icon",
+    "breadcrumbs": [
+      "uikit",
+      "ClipboardIcon"
+    ],
+    "section_ids": [
+      "component:uikit:clipboard-icon:overview",
+      "component:uikit:clipboard-icon:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:copy-to-clipboard",
+    "title": "CopyToClipboard",
+    "library": "uikit",
+    "description": "A headless component that provides clipboard copy functionality via a render prop pattern. Manages copy status and exposes it to the children function.",
+    "category": "utility",
+    "component_id": "uikit:CopyToClipboard",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/copy-to-clipboard",
+    "breadcrumbs": [
+      "uikit",
+      "CopyToClipboard"
+    ],
+    "section_ids": [
+      "component:uikit:copy-to-clipboard:overview",
+      "component:uikit:copy-to-clipboard:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:definition-list",
+    "title": "DefinitionList",
+    "library": "uikit",
+    "description": "Displays a structured list of term-definition pairs. Supports vertical and horizontal layouts, responsive mode, and optional copy-to-clipboard per item.",
+    "category": "data-display",
+    "component_id": "uikit:DefinitionList",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/definition-list",
+    "breadcrumbs": [
+      "uikit",
+      "DefinitionList"
+    ],
+    "section_ids": [
+      "component:uikit:definition-list:overview",
+      "component:uikit:definition-list:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:dialog",
+    "title": "Dialog",
+    "library": "uikit",
+    "description": "A modal dialog with a structured layout of header, body, and footer sections. Built on top of Modal with a close button and standard slot components.",
+    "category": "overlays",
+    "component_id": "uikit:Dialog",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/dialog",
+    "breadcrumbs": [
+      "uikit",
+      "Dialog"
+    ],
+    "section_ids": [
+      "component:uikit:dialog:overview",
+      "component:uikit:dialog:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:disclosure",
+    "title": "Disclosure",
+    "library": "uikit",
+    "description": "A collapsible section with a summary trigger and expandable content area. Supports controlled and uncontrolled modes.",
+    "category": "layout",
+    "component_id": "uikit:Disclosure",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/disclosure",
+    "breadcrumbs": [
+      "uikit",
+      "Disclosure"
+    ],
+    "section_ids": [
+      "component:uikit:disclosure:overview",
+      "component:uikit:disclosure:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:divider",
+    "title": "Divider",
+    "library": "uikit",
+    "description": "A thin horizontal or vertical line used to separate sections of content. Supports an optional label and alignment.",
+    "category": "layout",
+    "component_id": "uikit:Divider",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/divider",
+    "breadcrumbs": [
+      "uikit",
+      "Divider"
+    ],
+    "section_ids": [
+      "component:uikit:divider:overview",
+      "component:uikit:divider:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:drawer",
+    "title": "Drawer",
+    "library": "uikit",
+    "description": "A sliding panel that appears from the edge of the screen. Supports left, right, top, and bottom placement, optional resizing, and backdrop dismissal.",
+    "category": "overlays",
+    "component_id": "uikit:Drawer",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/drawer",
+    "breadcrumbs": [
+      "uikit",
+      "Drawer"
+    ],
+    "section_ids": [
+      "component:uikit:drawer:overview",
+      "component:uikit:drawer:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:dropdown-menu",
+    "title": "DropdownMenu",
+    "library": "uikit",
+    "description": "A button that opens a dropdown menu with a list of actions. Supports nested submenus, icons, disabled items, and a custom switcher trigger.",
+    "category": "navigation",
+    "component_id": "uikit:DropdownMenu",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/dropdown-menu",
+    "breadcrumbs": [
+      "uikit",
+      "DropdownMenu"
+    ],
+    "section_ids": [
+      "component:uikit:dropdown-menu:overview",
+      "component:uikit:dropdown-menu:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:file-preview",
+    "title": "FilePreview",
+    "library": "uikit",
+    "description": "Displays a preview tile for a file with its name, type icon or image thumbnail, and optional action buttons. Used in file upload UIs.",
+    "category": "data-display",
+    "component_id": "uikit:FilePreview",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/file-preview",
+    "breadcrumbs": [
+      "uikit",
+      "FilePreview"
+    ],
+    "section_ids": [
+      "component:uikit:file-preview:overview",
+      "component:uikit:file-preview:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:help-mark",
+    "title": "HelpMark",
+    "library": "uikit",
+    "description": "A small question mark button that shows a popover with help content when clicked or hovered. Used for inline contextual help.",
+    "category": "feedback",
+    "component_id": "uikit:HelpMark",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/help-mark",
+    "breadcrumbs": [
+      "uikit",
+      "HelpMark"
+    ],
+    "section_ids": [
+      "component:uikit:help-mark:overview",
+      "component:uikit:help-mark:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:hotkey",
+    "title": "Hotkey",
+    "library": "uikit",
+    "description": "Renders a keyboard shortcut visually as individual key badges. Handles platform-specific key symbols for Mac and PC.",
+    "category": "data-display",
+    "component_id": "uikit:Hotkey",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/hotkey",
+    "breadcrumbs": [
+      "uikit",
+      "Hotkey"
+    ],
+    "section_ids": [
+      "component:uikit:hotkey:overview",
+      "component:uikit:hotkey:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:icon",
+    "title": "Icon",
+    "library": "uikit",
+    "description": "Renders an SVG icon from the Gravity UI icon set. Accepts icon data and supports size, color, and fill/stroke overrides.",
+    "category": "utility",
+    "component_id": "uikit:Icon",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/icon",
+    "breadcrumbs": [
+      "uikit",
+      "Icon"
+    ],
+    "section_ids": [
+      "component:uikit:icon:overview",
+      "component:uikit:icon:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:label",
+    "title": "Label",
+    "library": "uikit",
+    "description": "A small tag or badge component used to display metadata, statuses, or categories. Supports copy, close, and info interaction types.",
+    "category": "data-display",
+    "component_id": "uikit:Label",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/label",
+    "breadcrumbs": [
+      "uikit",
+      "Label"
+    ],
+    "section_ids": [
+      "component:uikit:label:overview",
+      "component:uikit:label:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:link",
+    "title": "Link",
+    "library": "uikit",
+    "description": "A styled anchor element for navigation. Supports multiple visual variants and optional visited state styling.",
+    "category": "navigation",
+    "component_id": "uikit:Link",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/link",
+    "breadcrumbs": [
+      "uikit",
+      "Link"
+    ],
+    "section_ids": [
+      "component:uikit:link:overview",
+      "component:uikit:link:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:list",
+    "title": "List",
+    "library": "uikit",
+    "description": "A performant list component supporting virtual scrolling, filtering, sorting, and custom item rendering. Used for long lists and select-like interfaces.",
+    "category": "data-display",
+    "component_id": "uikit:List",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/list",
+    "breadcrumbs": [
+      "uikit",
+      "List"
+    ],
+    "section_ids": [
+      "component:uikit:list:overview",
+      "component:uikit:list:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:loader",
+    "title": "Loader",
+    "library": "uikit",
+    "description": "An animated spinner used to indicate a loading state. Comes in three sizes.",
+    "category": "feedback",
+    "component_id": "uikit:Loader",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/loader",
+    "breadcrumbs": [
+      "uikit",
+      "Loader"
+    ],
+    "section_ids": [
+      "component:uikit:loader:overview",
+      "component:uikit:loader:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:menu",
+    "title": "Menu",
+    "library": "uikit",
+    "description": "A vertical list of menu items with optional grouping. Provides Menu.Item for individual actions and Menu.Group for labeled sections.",
+    "category": "navigation",
+    "component_id": "uikit:Menu",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/menu",
+    "breadcrumbs": [
+      "uikit",
+      "Menu"
+    ],
+    "section_ids": [
+      "component:uikit:menu:overview",
+      "component:uikit:menu:properties"
+    ]
+  },
+  {
+    "id": "component:uikit:modal",
+    "title": "Modal",
+    "library": "uikit",
+    "description": "A base modal overlay component that renders content above the page with a backdrop. Manages focus trapping, scroll locking, and dismiss interactions.",
+    "category": "overlays",
+    "component_id": "uikit:Modal",
+    "page_type": "component",
+    "url": "https://gravity-ui.com/components/uikit/modal",
+    "breadcrumbs": [
+      "uikit",
+      "Modal"
+    ],
+    "section_ids": [
+      "component:uikit:modal:overview",
+      "component:uikit:modal:properties"
+    ]
+  }
+]

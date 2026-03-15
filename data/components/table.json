@@ -1,0 +1,279 @@
+[
+  {
+    "name": "BaseTable",
+    "library": "table",
+    "category": "data-display",
+    "import_path": "@gravity-ui/table",
+    "import_statement": "import {BaseTable} from '@gravity-ui/table';",
+    "description": "BaseTable is a low-level, headless table component built on top of TanStack Table. It provides full control over rendering and behavior through a tanstack table instance. Supports sticky header/footer, row grouping, virtualization, custom row content, resize handles, and sort indicators.",
+    "source_file": "vendor/table/src/components/BaseTable/BaseTable.tsx",
+    "props": [
+      {
+        "name": "table",
+        "type": "Table<TData>",
+        "required": true,
+        "description": "TanStack Table instance"
+      },
+      {
+        "name": "attributes",
+        "type": "React.TableHTMLAttributes<HTMLTableElement>",
+        "required": false,
+        "description": "HTML attributes for the table element"
+      },
+      {
+        "name": "bodyAttributes",
+        "type": "React.HTMLAttributes<HTMLTableSectionElement>",
+        "required": false,
+        "description": "HTML attributes for the tbody element"
+      },
+      {
+        "name": "bodyClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the tbody element"
+      },
+      {
+        "name": "bodyRef",
+        "type": "React.Ref<HTMLTableSectionElement>",
+        "required": false,
+        "description": "Ref for the tbody element"
+      },
+      {
+        "name": "cellAttributes",
+        "type": "React.TdHTMLAttributes<HTMLTableCellElement> | ((cell: Cell<TData, unknown>, row: Row<TData>) => React.TdHTMLAttributes<HTMLTableCellElement>)",
+        "required": false,
+        "description": "HTML attributes for body cells"
+      },
+      {
+        "name": "cellClassName",
+        "type": "string | ((cell: Cell<TData, unknown>, row: Row<TData>) => string | undefined)",
+        "required": false,
+        "description": "CSS class for body cells"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the table element"
+      },
+      {
+        "name": "customFooterRowCount",
+        "type": "number",
+        "required": false,
+        "description": "Number of custom footer rows"
+      },
+      {
+        "name": "emptyContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content rendered when the table has no rows"
+      },
+      {
+        "name": "footerAttributes",
+        "type": "React.HTMLAttributes<HTMLTableSectionElement>",
+        "required": false,
+        "description": "HTML attributes for the tfoot element"
+      },
+      {
+        "name": "footerCellAttributes",
+        "type": "React.ThHTMLAttributes<HTMLTableCellElement> | ((cell: Header<TData, unknown>) => React.ThHTMLAttributes<HTMLTableCellElement>)",
+        "required": false,
+        "description": "HTML attributes for footer cells"
+      },
+      {
+        "name": "footerCellClassName",
+        "type": "string | ((cell: Header<TData, unknown>) => string | undefined)",
+        "required": false,
+        "description": "CSS class for footer cells"
+      },
+      {
+        "name": "footerClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the tfoot element"
+      },
+      {
+        "name": "footerRowAttributes",
+        "type": "React.HTMLAttributes<HTMLTableRowElement> | ((headerGroup: HeaderGroup<TData>) => React.HTMLAttributes<HTMLTableRowElement>)",
+        "required": false,
+        "description": "HTML attributes for footer rows"
+      },
+      {
+        "name": "footerRowClassName",
+        "type": "string | ((headerGroup: HeaderGroup<TData>) => string | undefined)",
+        "required": false,
+        "description": "CSS class for footer rows"
+      },
+      {
+        "name": "getGroupTitle",
+        "type": "(row: Row<TData>) => React.ReactNode",
+        "required": false,
+        "description": "Returns the title for a group header row"
+      },
+      {
+        "name": "getIsCustomRow",
+        "type": "(row: Row<TData>) => boolean",
+        "required": false,
+        "description": "Determines if a row is a custom row"
+      },
+      {
+        "name": "getIsGroupHeaderRow",
+        "type": "(row: Row<TData>) => boolean",
+        "required": false,
+        "description": "Determines if a row is a group header row"
+      },
+      {
+        "name": "groupHeaderClassName",
+        "type": "string | ((row: Row<TData>) => string | undefined)",
+        "required": false,
+        "description": "CSS class for group header rows"
+      },
+      {
+        "name": "headerAttributes",
+        "type": "React.HTMLAttributes<HTMLTableSectionElement>",
+        "required": false,
+        "description": "HTML attributes for the thead element"
+      },
+      {
+        "name": "headerCellAttributes",
+        "type": "React.ThHTMLAttributes<HTMLTableCellElement> | ((header: Header<TData, unknown>) => React.ThHTMLAttributes<HTMLTableCellElement>)",
+        "required": false,
+        "description": "HTML attributes for header cells"
+      },
+      {
+        "name": "headerCellClassName",
+        "type": "string | ((header: Header<TData, unknown>) => string | undefined)",
+        "required": false,
+        "description": "CSS class for header cells"
+      },
+      {
+        "name": "headerClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the thead element"
+      },
+      {
+        "name": "headerRowAttributes",
+        "type": "React.HTMLAttributes<HTMLTableRowElement> | ((headerGroup: HeaderGroup<TData>) => React.HTMLAttributes<HTMLTableRowElement>)",
+        "required": false,
+        "description": "HTML attributes for header rows"
+      },
+      {
+        "name": "headerRowClassName",
+        "type": "string | ((headerGroup: HeaderGroup<TData>) => string | undefined)",
+        "required": false,
+        "description": "CSS class for header rows"
+      },
+      {
+        "name": "onRowClick",
+        "type": "(row: Row<TData>, event: React.MouseEvent<HTMLTableRowElement>) => void",
+        "required": false,
+        "description": "Callback when a body row is clicked"
+      },
+      {
+        "name": "renderCustomFooterContent",
+        "type": "(params: {rows: Row<TData>[]}) => React.ReactNode",
+        "required": false,
+        "description": "Renders custom footer content rows"
+      },
+      {
+        "name": "renderCustomRowContent",
+        "type": "(params: {row: Row<TData>}) => React.ReactNode",
+        "required": false,
+        "description": "Renders custom row content"
+      },
+      {
+        "name": "renderGroupHeader",
+        "type": "(params: {row: Row<TData>}) => React.ReactNode",
+        "required": false,
+        "description": "Renders group header row content"
+      },
+      {
+        "name": "renderGroupHeaderRowContent",
+        "type": "(params: {row: Row<TData>}) => React.ReactNode",
+        "required": false,
+        "description": "Renders group header row content (alternative)"
+      },
+      {
+        "name": "renderHeaderCellContent",
+        "type": "(params: {header: Header<TData, unknown>}) => React.ReactNode",
+        "required": false,
+        "description": "Renders header cell content"
+      },
+      {
+        "name": "renderResizeHandle",
+        "type": "(params: {header: Header<TData, unknown>}) => React.ReactNode",
+        "required": false,
+        "description": "Renders column resize handle"
+      },
+      {
+        "name": "renderSortIndicator",
+        "type": "(params: {header: Header<TData, unknown>}) => React.ReactNode",
+        "required": false,
+        "description": "Renders sort indicator in header cells"
+      },
+      {
+        "name": "resizeHandleClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for resize handles"
+      },
+      {
+        "name": "rowAttributes",
+        "type": "React.HTMLAttributes<HTMLTableRowElement> | ((row: Row<TData>) => React.HTMLAttributes<HTMLTableRowElement>)",
+        "required": false,
+        "description": "HTML attributes for body rows"
+      },
+      {
+        "name": "rowClassName",
+        "type": "string | ((row: Row<TData>) => string | undefined)",
+        "required": false,
+        "description": "CSS class for body rows"
+      },
+      {
+        "name": "rowVirtualizer",
+        "type": "Virtualizer<TScrollElement, HTMLTableRowElement>",
+        "required": false,
+        "description": "TanStack Virtualizer instance for row virtualization"
+      },
+      {
+        "name": "sortIndicatorClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for sort indicators"
+      },
+      {
+        "name": "stickyFooter",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Makes the footer sticky at the bottom of the scroll container"
+      },
+      {
+        "name": "stickyHeader",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Makes the header sticky at the top of the scroll container"
+      },
+      {
+        "name": "withFooter",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Renders the tfoot element"
+      },
+      {
+        "name": "withHeader",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Renders the thead element"
+      }
+    ],
+    "examples": [
+      "import {useReactTable, getCoreRowModel, createColumnHelper} from '@tanstack/react-table';\nimport {BaseTable} from '@gravity-ui/table';\n\nconst columnHelper = createColumnHelper<{name: string; age: number}>();\nconst columns = [\n  columnHelper.accessor('name', {header: 'Name'}),\n  columnHelper.accessor('age', {header: 'Age'}),\n];\n\nfunction MyTable({data}) {\n  const table = useReactTable({\n    data,\n    columns,\n    getCoreRowModel: getCoreRowModel(),\n  });\n  return <BaseTable table={table} />;\n}",
+      "<BaseTable table={table} stickyHeader emptyContent={<div>No data</div>} onRowClick={(row) => console.log(row.original)} />"
+    ]
+  }
+]

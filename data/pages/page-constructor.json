@@ -1,0 +1,104 @@
+[
+  {
+    "id": "component:page-constructor:button",
+    "title": "Button",
+    "page_type": "component",
+    "library": "page-constructor",
+    "url": "https://gravity-ui.com/components/page-constructor/button",
+    "breadcrumbs": [
+      "page-constructor",
+      "Button"
+    ],
+    "description": "Button component for page-constructor with support for various themes, sizes, and image/icon attachments. Supports App Store and Google Play platform badges.",
+    "section_ids": [
+      "component:page-constructor:button:overview",
+      "component:page-constructor:button:props",
+      "component:page-constructor:button:examples"
+    ]
+  },
+  {
+    "id": "component:page-constructor:error-wrapper",
+    "title": "ErrorWrapper",
+    "page_type": "component",
+    "library": "page-constructor",
+    "url": "https://gravity-ui.com/components/page-constructor/error-wrapper",
+    "breadcrumbs": [
+      "page-constructor",
+      "ErrorWrapper"
+    ],
+    "description": "The ErrorWrapper component is used to gracefully handle and display local errors in UI sections. When the isError flag is set to true, it shows an error message and an optional retry button. When isError is false, it renders its children content.",
+    "section_ids": [
+      "component:page-constructor:error-wrapper:overview",
+      "component:page-constructor:error-wrapper:props",
+      "component:page-constructor:error-wrapper:examples"
+    ]
+  },
+  {
+    "id": "component:page-constructor:link",
+    "title": "Link",
+    "page_type": "component",
+    "library": "page-constructor",
+    "url": "https://gravity-ui.com/components/page-constructor/link",
+    "breadcrumbs": [
+      "page-constructor",
+      "Link"
+    ],
+    "description": "Link component for page-constructor with support for various themes including back, file-link, underline, and normal.",
+    "section_ids": [
+      "component:page-constructor:link:overview",
+      "component:page-constructor:link:props",
+      "component:page-constructor:link:examples"
+    ]
+  },
+  {
+    "id": "component:page-constructor:map",
+    "title": "Map",
+    "page_type": "component",
+    "library": "page-constructor",
+    "url": "https://gravity-ui.com/components/page-constructor/map",
+    "breadcrumbs": [
+      "page-constructor",
+      "Map"
+    ],
+    "description": "Map component that supports both Yandex Maps and Google Maps based on the MapsContext configuration.",
+    "section_ids": [
+      "component:page-constructor:map:overview",
+      "component:page-constructor:map:props",
+      "component:page-constructor:map:examples"
+    ]
+  },
+  {
+    "id": "component:page-constructor:table",
+    "title": "Table",
+    "page_type": "component",
+    "library": "page-constructor",
+    "url": "https://gravity-ui.com/components/page-constructor/table",
+    "breadcrumbs": [
+      "page-constructor",
+      "Table"
+    ],
+    "description": "Table component for page-constructor that renders data tables with optional legend markers.",
+    "section_ids": [
+      "component:page-constructor:table:overview",
+      "component:page-constructor:table:props",
+      "component:page-constructor:table:examples"
+    ]
+  },
+  {
+    "id": "component:page-constructor:title",
+    "title": "Title",
+    "page_type": "component",
+    "library": "page-constructor",
+    "url": "https://gravity-ui.com/components/page-constructor/title",
+    "breadcrumbs": [
+      "page-constructor",
+      "Title"
+    ],
+    "description": "Title component for page-constructor that renders a title with optional subtitle and supports various text sizes.",
+    "section_ids": [
+      "component:page-constructor:title:overview",
+      "component:page-constructor:title:props",
+      "component:page-constructor:title:examples"
+    ]
+  }
+]

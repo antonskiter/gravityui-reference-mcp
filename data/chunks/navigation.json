@@ -1,0 +1,512 @@
+[
+  {
+    "id": "component:navigation:action-bar:overview",
+    "page_id": "component:navigation:action-bar",
+    "url": "https://gravity-ui.com/components/navigation/action-bar#overview",
+    "page_title": "ActionBar",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "navigation",
+      "ActionBar",
+      "Overview"
+    ],
+    "content": "ActionBar is a horizontal toolbar component from @gravity-ui/navigation with grouped action items. Each group can contain buttons, selects, or custom content. Supports responsive collapsing of items into a dropdown menu. Import: import {ActionBar} from '@gravity-ui/navigation';",
+    "code_examples": [],
+    "keywords": [
+      "action bar",
+      "toolbar",
+      "actions",
+      "groups",
+      "responsive",
+      "navigation"
+    ]
+  },
+  {
+    "id": "component:navigation:action-bar:props",
+    "page_id": "component:navigation:action-bar",
+    "url": "https://gravity-ui.com/components/navigation/action-bar#props",
+    "page_title": "ActionBar",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "navigation",
+      "ActionBar",
+      "Props"
+    ],
+    "content": "ActionBar props: className (string) additional CSS class. ActionBar.Group subcomponent: items (ActionBarItem[]) items in the group; pull ('left' | 'right') alignment direction. ActionBarItem types include button, select, and custom renderers.",
+    "code_examples": [],
+    "keywords": [
+      "className",
+      "ActionBar.Group",
+      "items",
+      "pull",
+      "ActionBarItem"
+    ]
+  },
+  {
+    "id": "component:navigation:action-bar:examples",
+    "page_id": "component:navigation:action-bar",
+    "url": "https://gravity-ui.com/components/navigation/action-bar#examples",
+    "page_title": "ActionBar",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "navigation",
+      "ActionBar",
+      "Examples"
+    ],
+    "content": "ActionBar usage with left and right aligned groups.",
+    "code_examples": [
+      "<ActionBar>\n  <ActionBar.Group pull=\"left\">\n    <ActionBar.Item>\n      <Button view=\"flat\" onClick={handleBack}>Back</Button>\n    </ActionBar.Item>\n  </ActionBar.Group>\n  <ActionBar.Group pull=\"right\">\n    <ActionBar.Item>\n      <Button view=\"action\" onClick={handleSave}>Save</Button>\n    </ActionBar.Item>\n  </ActionBar.Group>\n</ActionBar>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "action bar",
+      "toolbar",
+      "groups"
+    ]
+  },
+  {
+    "id": "component:navigation:aside-header:overview",
+    "page_id": "component:navigation:aside-header",
+    "url": "https://gravity-ui.com/components/navigation/aside-header#overview",
+    "page_title": "AsideHeader",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "navigation",
+      "AsideHeader",
+      "Overview"
+    ],
+    "content": "AsideHeader is a collapsible sidebar navigation component from @gravity-ui/navigation. It renders a logo, menu items with icons and nested items, a panel toggle, and a footer section. Supports compact and expanded modes with smooth animations. Import: import {AsideHeader} from '@gravity-ui/navigation';",
+    "code_examples": [],
+    "keywords": [
+      "aside header",
+      "sidebar",
+      "navigation",
+      "collapsible",
+      "menu",
+      "compact"
+    ]
+  },
+  {
+    "id": "component:navigation:aside-header:props",
+    "page_id": "component:navigation:aside-header",
+    "url": "https://gravity-ui.com/components/navigation/aside-header#props",
+    "page_title": "AsideHeader",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "navigation",
+      "AsideHeader",
+      "Props"
+    ],
+    "content": "AsideHeader props: menuItems (MenuItem[], required) navigation menu items; logo (LogoProps, required) logo configuration; className (string) additional CSS class; compact (boolean) controlled compact mode; defaultCompact (boolean) uncontrolled initial compact state; headerDecoration (boolean) enables header decoration; hideCollapseButton (boolean) hides the collapse toggle; onChangeCompact (function) compact state change callback; panelItems (PanelItem[]) additional panel items; renderContent (function) renders main content area; renderFooter (function) renders footer section; topAlert (TopAlertProps) top alert configuration.",
+    "code_examples": [],
+    "keywords": [
+      "menuItems",
+      "logo",
+      "compact",
+      "defaultCompact",
+      "onChangeCompact",
+      "panelItems",
+      "renderContent",
+      "renderFooter"
+    ]
+  },
+  {
+    "id": "component:navigation:aside-header:examples",
+    "page_id": "component:navigation:aside-header",
+    "url": "https://gravity-ui.com/components/navigation/aside-header#examples",
+    "page_title": "AsideHeader",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "navigation",
+      "AsideHeader",
+      "Examples"
+    ],
+    "content": "AsideHeader usage with menu items and logo.",
+    "code_examples": [
+      "<AsideHeader\n  logo={{text: 'My App', href: '/'}}\n  menuItems={[\n    {id: 'home', title: 'Home', icon: HomeIcon, link: '/'},\n    {id: 'settings', title: 'Settings', icon: GearIcon, link: '/settings'},\n  ]}\n  renderContent={() => <MainContent />}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "aside header",
+      "sidebar",
+      "menu"
+    ]
+  },
+  {
+    "id": "component:navigation:footer:overview",
+    "page_id": "component:navigation:footer",
+    "url": "https://gravity-ui.com/components/navigation/footer#overview",
+    "page_title": "Footer",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "navigation",
+      "Footer",
+      "Overview"
+    ],
+    "content": "Footer is a page footer component from @gravity-ui/navigation with logo, navigation links organized in columns, social links, and copyright text. Supports light and dark color themes. Import: import {Footer} from '@gravity-ui/navigation';",
+    "code_examples": [],
+    "keywords": [
+      "footer",
+      "navigation",
+      "links",
+      "social",
+      "copyright",
+      "columns"
+    ]
+  },
+  {
+    "id": "component:navigation:footer:props",
+    "page_id": "component:navigation:footer",
+    "url": "https://gravity-ui.com/components/navigation/footer#props",
+    "page_title": "Footer",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "navigation",
+      "Footer",
+      "Props"
+    ],
+    "content": "Footer props: className (string) additional CSS class; copyright (string) copyright text; logo (FooterLogoProps) logo configuration; links (FooterColumn[]) navigation link columns; socialLinks (FooterSocialLink[]) social network links; theme ('light' | 'dark') color theme.",
+    "code_examples": [],
+    "keywords": [
+      "copyright",
+      "logo",
+      "links",
+      "socialLinks",
+      "theme",
+      "FooterColumn",
+      "FooterSocialLink"
+    ]
+  },
+  {
+    "id": "component:navigation:footer:examples",
+    "page_id": "component:navigation:footer",
+    "url": "https://gravity-ui.com/components/navigation/footer#examples",
+    "page_title": "Footer",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "navigation",
+      "Footer",
+      "Examples"
+    ],
+    "content": "Footer usage with logo, links, and copyright.",
+    "code_examples": [
+      "<Footer\n  logo={{src: '/logo.svg', alt: 'My App', href: '/'}}\n  copyright=\"© 2024 My Company\"\n  links={[\n    {\n      title: 'Product',\n      links: [\n        {text: 'Features', url: '/features'},\n        {text: 'Pricing', url: '/pricing'},\n      ],\n    },\n  ]}\n  socialLinks={[\n    {icon: GithubIcon, url: 'https://github.com/example'},\n  ]}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "footer",
+      "navigation",
+      "links"
+    ]
+  },
+  {
+    "id": "component:navigation:hotkeys-panel:overview",
+    "page_id": "component:navigation:hotkeys-panel",
+    "url": "https://gravity-ui.com/components/navigation/hotkeys-panel#overview",
+    "page_title": "HotkeysPanel",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "navigation",
+      "HotkeysPanel",
+      "Overview"
+    ],
+    "content": "HotkeysPanel is a component from @gravity-ui/navigation that renders a side panel listing available keyboard shortcuts grouped by category. Displays each shortcut with its key combination and description. Import: import {HotkeysPanel} from '@gravity-ui/navigation';",
+    "code_examples": [],
+    "keywords": [
+      "hotkeys",
+      "keyboard shortcuts",
+      "panel",
+      "keybindings",
+      "shortcuts"
+    ]
+  },
+  {
+    "id": "component:navigation:hotkeys-panel:props",
+    "page_id": "component:navigation:hotkeys-panel",
+    "url": "https://gravity-ui.com/components/navigation/hotkeys-panel#props",
+    "page_title": "HotkeysPanel",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "navigation",
+      "HotkeysPanel",
+      "Props"
+    ],
+    "content": "HotkeysPanel props: groups (HotkeyGroup[], required) array of hotkey groups; onClose (function, required) close handler; visible (boolean, required) controls panel visibility; className (string) additional CSS class; title (string) panel title.",
+    "code_examples": [],
+    "keywords": [
+      "groups",
+      "onClose",
+      "visible",
+      "title",
+      "HotkeyGroup"
+    ]
+  },
+  {
+    "id": "component:navigation:hotkeys-panel:examples",
+    "page_id": "component:navigation:hotkeys-panel",
+    "url": "https://gravity-ui.com/components/navigation/hotkeys-panel#examples",
+    "page_title": "HotkeysPanel",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "navigation",
+      "HotkeysPanel",
+      "Examples"
+    ],
+    "content": "HotkeysPanel usage with grouped keyboard shortcuts.",
+    "code_examples": [
+      "<HotkeysPanel\n  visible={showHotkeys}\n  onClose={() => setShowHotkeys(false)}\n  title=\"Keyboard shortcuts\"\n  groups={[\n    {\n      title: 'Navigation',\n      items: [\n        {keys: ['g', 'h'], description: 'Go to home'},\n        {keys: ['g', 's'], description: 'Go to settings'},\n      ],\n    },\n  ]}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "hotkeys",
+      "keyboard shortcuts",
+      "panel"
+    ]
+  },
+  {
+    "id": "component:navigation:logo:overview",
+    "page_id": "component:navigation:logo",
+    "url": "https://gravity-ui.com/components/navigation/logo#overview",
+    "page_title": "Logo",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "navigation",
+      "Logo",
+      "Overview"
+    ],
+    "content": "Logo is a component from @gravity-ui/navigation that renders a product or company logo with optional text label. Used as the header element in AsideHeader and MobileHeader navigation components. Import: import {Logo} from '@gravity-ui/navigation';",
+    "code_examples": [],
+    "keywords": [
+      "logo",
+      "brand",
+      "navigation",
+      "header",
+      "icon"
+    ]
+  },
+  {
+    "id": "component:navigation:logo:props",
+    "page_id": "component:navigation:logo",
+    "url": "https://gravity-ui.com/components/navigation/logo#props",
+    "page_title": "Logo",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "navigation",
+      "Logo",
+      "Props"
+    ],
+    "content": "Logo props: icon (React.FC, required) logo icon component; className (string) additional CSS class; compact (boolean) compact display mode (icon only); href (string) logo link URL; iconSize (number) icon size in pixels; onClick (function) click handler; text (string) logo text label.",
+    "code_examples": [],
+    "keywords": [
+      "icon",
+      "compact",
+      "href",
+      "iconSize",
+      "onClick",
+      "text"
+    ]
+  },
+  {
+    "id": "component:navigation:logo:examples",
+    "page_id": "component:navigation:logo",
+    "url": "https://gravity-ui.com/components/navigation/logo#examples",
+    "page_title": "Logo",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "navigation",
+      "Logo",
+      "Examples"
+    ],
+    "content": "Logo usage with icon and text.",
+    "code_examples": [
+      "<Logo\n  icon={MyAppIcon}\n  text=\"My App\"\n  href=\"/\"\n  iconSize={32}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "logo",
+      "icon",
+      "brand"
+    ]
+  },
+  {
+    "id": "component:navigation:mobile-header:overview",
+    "page_id": "component:navigation:mobile-header",
+    "url": "https://gravity-ui.com/components/navigation/mobile-header#overview",
+    "page_title": "MobileHeader",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "navigation",
+      "MobileHeader",
+      "Overview"
+    ],
+    "content": "MobileHeader is a mobile navigation component from @gravity-ui/navigation with a hamburger menu that opens a full-screen drawer. Supports logo, navigation items, and custom content areas for sidepanel. Import: import {MobileHeader} from '@gravity-ui/navigation';",
+    "code_examples": [],
+    "keywords": [
+      "mobile header",
+      "hamburger",
+      "drawer",
+      "mobile navigation",
+      "responsive"
+    ]
+  },
+  {
+    "id": "component:navigation:mobile-header:props",
+    "page_id": "component:navigation:mobile-header",
+    "url": "https://gravity-ui.com/components/navigation/mobile-header#props",
+    "page_title": "MobileHeader",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "navigation",
+      "MobileHeader",
+      "Props"
+    ],
+    "content": "MobileHeader props: logo (LogoProps, required) logo configuration; burgerMenu (MobileMenuItem[]) hamburger menu items; className (string) additional CSS class; contentClassName (string) content area CSS class; onClosePanel (function) panel close callback; onOpenPanel (function) panel open callback; renderContent (function) renders main content; renderFooter (function) renders footer in drawer; sideItemRenderContent (function) renders side panel content.",
+    "code_examples": [],
+    "keywords": [
+      "logo",
+      "burgerMenu",
+      "onClosePanel",
+      "onOpenPanel",
+      "renderContent",
+      "renderFooter",
+      "MobileMenuItem"
+    ]
+  },
+  {
+    "id": "component:navigation:mobile-header:examples",
+    "page_id": "component:navigation:mobile-header",
+    "url": "https://gravity-ui.com/components/navigation/mobile-header#examples",
+    "page_title": "MobileHeader",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "navigation",
+      "MobileHeader",
+      "Examples"
+    ],
+    "content": "MobileHeader usage for a mobile app layout.",
+    "code_examples": [
+      "<MobileHeader\n  logo={{icon: AppIcon, text: 'My App', href: '/'}}\n  burgerMenu={[\n    {id: 'home', title: 'Home', icon: HomeIcon, link: '/'},\n    {id: 'profile', title: 'Profile', icon: UserIcon, link: '/profile'},\n  ]}\n  renderContent={() => <MainContent />}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "mobile header",
+      "navigation",
+      "drawer"
+    ]
+  },
+  {
+    "id": "component:navigation:settings:overview",
+    "page_id": "component:navigation:settings",
+    "url": "https://gravity-ui.com/components/navigation/settings#overview",
+    "page_title": "Settings",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "navigation",
+      "Settings",
+      "Overview"
+    ],
+    "content": "Settings is a panel component from @gravity-ui/navigation that renders settings with sections and individual setting items. Supports search filtering, custom renderers for setting values, and loading state. Import: import {Settings} from '@gravity-ui/navigation';",
+    "code_examples": [],
+    "keywords": [
+      "settings",
+      "panel",
+      "sections",
+      "preferences",
+      "configuration",
+      "search"
+    ]
+  },
+  {
+    "id": "component:navigation:settings:props",
+    "page_id": "component:navigation:settings",
+    "url": "https://gravity-ui.com/components/navigation/settings#props",
+    "page_title": "Settings",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "navigation",
+      "Settings",
+      "Props"
+    ],
+    "content": "Settings props: className (string) additional CSS class; initialPage (string) initially active settings page id; loading (boolean) shows loading state; onPageChange (function) callback on page navigation; renderRightAdornment (function) renders right side adornment. Settings.Section subcomponent: header (string) section title; items (SettingItem[]) settings items. SettingItem has title, renderValue, and optional description.",
+    "code_examples": [],
+    "keywords": [
+      "initialPage",
+      "loading",
+      "onPageChange",
+      "Settings.Section",
+      "SettingItem",
+      "renderValue"
+    ]
+  },
+  {
+    "id": "component:navigation:settings:examples",
+    "page_id": "component:navigation:settings",
+    "url": "https://gravity-ui.com/components/navigation/settings#examples",
+    "page_title": "Settings",
+    "page_type": "component",
+    "library": "navigation",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "navigation",
+      "Settings",
+      "Examples"
+    ],
+    "content": "Settings usage with sections and items.",
+    "code_examples": [
+      "<Settings initialPage=\"appearance\">\n  <Settings.Page id=\"appearance\" title=\"Appearance\" icon={PaletteIcon}>\n    <Settings.Section header=\"Theme\">\n      <Settings.Item title=\"Color theme\" renderValue={() => <Select options={themes} />} />\n      <Settings.Item title=\"Font size\" renderValue={() => <Select options={fontSizes} />} />\n    </Settings.Section>\n  </Settings.Page>\n</Settings>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "settings",
+      "sections",
+      "preferences"
+    ]
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "id": "component:table:base-table:overview",
+    "page_id": "component:table:base-table",
+    "url": "https://gravity-ui.com/components/table/base-table#overview",
+    "page_title": "BaseTable",
+    "page_type": "component",
+    "library": "table",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "table",
+      "BaseTable",
+      "Overview"
+    ],
+    "content": "BaseTable is a low-level headless table component from @gravity-ui/table built on top of TanStack Table. It provides full rendering control through a TanStack table instance. Supports sticky header and footer, row grouping, row virtualization via TanStack Virtualizer, custom row and cell rendering, resize handles, and sort indicators. Import: import {BaseTable} from '@gravity-ui/table';",
+    "code_examples": [],
+    "keywords": [
+      "base table",
+      "tanstack table",
+      "headless",
+      "table",
+      "sticky header",
+      "virtualization",
+      "row grouping",
+      "sort"
+    ]
+  },
+  {
+    "id": "component:table:base-table:props",
+    "page_id": "component:table:base-table",
+    "url": "https://gravity-ui.com/components/table/base-table#props",
+    "page_title": "BaseTable",
+    "page_type": "component",
+    "library": "table",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "table",
+      "BaseTable",
+      "Props"
+    ],
+    "content": "BaseTable props: table (Table<TData>, required) TanStack Table instance; attributes (React.TableHTMLAttributes) HTML attributes for the table element; bodyAttributes, bodyClassName, bodyRef attributes for tbody; cellAttributes, cellClassName for body cells; className (string) CSS class for table; customFooterRowCount (number) number of custom footer rows; emptyContent (React.ReactNode) content when no rows; footerAttributes, footerCellAttributes, footerCellClassName, footerClassName, footerRowAttributes, footerRowClassName for footer; getGroupTitle (function) returns group header row title; getIsCustomRow (function) identifies custom rows; getIsGroupHeaderRow (function) identifies group header rows; groupHeaderClassName for group headers; headerAttributes, headerCellAttributes, headerCellClassName, headerClassName, headerRowAttributes, headerRowClassName for header; onRowClick (function) row click handler; renderCustomFooterContent, renderCustomRowContent, renderGroupHeader, renderGroupHeaderRowContent, renderHeaderCellContent, renderResizeHandle, renderSortIndicator custom renderers; resizeHandleClassName, rowAttributes, rowClassName, rowVirtualizer (Virtualizer instance), sortIndicatorClassName; stickyFooter (boolean, default false); stickyHeader (boolean, default false); withFooter (boolean, default false); withHeader (boolean, default true).",
+    "code_examples": [],
+    "keywords": [
+      "table",
+      "stickyHeader",
+      "stickyFooter",
+      "withHeader",
+      "withFooter",
+      "emptyContent",
+      "onRowClick",
+      "rowVirtualizer",
+      "renderSortIndicator",
+      "renderResizeHandle"
+    ]
+  },
+  {
+    "id": "component:table:base-table:examples",
+    "page_id": "component:table:base-table",
+    "url": "https://gravity-ui.com/components/table/base-table#examples",
+    "page_title": "BaseTable",
+    "page_type": "component",
+    "library": "table",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "table",
+      "BaseTable",
+      "Examples"
+    ],
+    "content": "BaseTable requires a TanStack Table instance created with useReactTable. Define columns with createColumnHelper or manually, then pass the table instance to BaseTable.",
+    "code_examples": [
+      "import {useReactTable, getCoreRowModel, createColumnHelper} from '@tanstack/react-table';\nimport {BaseTable} from '@gravity-ui/table';\n\nconst columnHelper = createColumnHelper<{name: string; age: number}>();\nconst columns = [\n  columnHelper.accessor('name', {header: 'Name'}),\n  columnHelper.accessor('age', {header: 'Age'}),\n];\n\nfunction MyTable({data}) {\n  const table = useReactTable({\n    data,\n    columns,\n    getCoreRowModel: getCoreRowModel(),\n  });\n  return <BaseTable table={table} />;\n}",
+      "<BaseTable table={table} stickyHeader emptyContent={<div>No data</div>} onRowClick={(row) => console.log(row.original)} />"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "base table",
+      "tanstack table",
+      "useReactTable",
+      "createColumnHelper"
+    ]
+  }
+]

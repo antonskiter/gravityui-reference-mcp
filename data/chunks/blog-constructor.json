@@ -1,0 +1,79 @@
+[
+  {
+    "id": "component:blog-constructor:prompt-sign-in:overview",
+    "page_id": "component:blog-constructor:prompt-sign-in",
+    "url": "https://gravity-ui.com/components/blog-constructor/prompt-sign-in#overview",
+    "page_title": "PromptSignIn",
+    "page_type": "component",
+    "library": "blog-constructor",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "blog-constructor",
+      "PromptSignIn",
+      "Overview"
+    ],
+    "content": "PromptSignIn is a component from @gravity-ui/blog-constructor that displays a prompt encouraging unauthenticated users to sign in. It extends the uikit Prompt component with a dedicated sign-in action button. Used in blog contexts to gate interactions like comments or reactions behind authentication. Import: import {PromptSignIn} from '@gravity-ui/blog-constructor';",
+    "code_examples": [],
+    "keywords": [
+      "prompt sign in",
+      "authentication",
+      "sign in",
+      "blog",
+      "gate",
+      "unauthenticated",
+      "comments"
+    ]
+  },
+  {
+    "id": "component:blog-constructor:prompt-sign-in:props",
+    "page_id": "component:blog-constructor:prompt-sign-in",
+    "url": "https://gravity-ui.com/components/blog-constructor/prompt-sign-in#props",
+    "page_title": "PromptSignIn",
+    "page_type": "component",
+    "library": "blog-constructor",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "blog-constructor",
+      "PromptSignIn",
+      "Props"
+    ],
+    "content": "PromptSignIn props: onClickSignIn (React.EventHandler<React.SyntheticEvent>) callback when the sign-in button is clicked; actions (PromptAction[]) custom action buttons, defaults to a single sign-in button; className (string) additional CSS class; message (string) prompt message text, defaults to a localized sign-in prompt; title (string) prompt title text. Extends Partial<PromptProps> from uikit.",
+    "code_examples": [],
+    "keywords": [
+      "onClickSignIn",
+      "actions",
+      "className",
+      "message",
+      "title",
+      "PromptAction",
+      "PromptProps"
+    ]
+  },
+  {
+    "id": "component:blog-constructor:prompt-sign-in:examples",
+    "page_id": "component:blog-constructor:prompt-sign-in",
+    "url": "https://gravity-ui.com/components/blog-constructor/prompt-sign-in#examples",
+    "page_title": "PromptSignIn",
+    "page_type": "component",
+    "library": "blog-constructor",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "blog-constructor",
+      "PromptSignIn",
+      "Examples"
+    ],
+    "content": "PromptSignIn usage to gate blog interactions behind authentication.",
+    "code_examples": [
+      "<PromptSignIn onClickSignIn={() => router.push('/login')} />",
+      "<PromptSignIn\n  title=\"Members only\"\n  message=\"Sign in to leave a comment\"\n  onClickSignIn={handleSignIn}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "sign in",
+      "prompt",
+      "authentication",
+      "blog"
+    ]
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "component:blog-constructor:prompt-sign-in",
+    "title": "PromptSignIn",
+    "page_type": "component",
+    "library": "blog-constructor",
+    "url": "https://gravity-ui.com/components/blog-constructor/prompt-sign-in",
+    "breadcrumbs": [
+      "blog-constructor",
+      "PromptSignIn"
+    ],
+    "description": "PromptSignIn displays a prompt encouraging unauthenticated users to sign in. It extends the uikit Prompt component with a dedicated sign-in action button. Used in blog contexts to gate interactions like comments or reactions behind authentication.",
+    "section_ids": [
+      "component:blog-constructor:prompt-sign-in:overview",
+      "component:blog-constructor:prompt-sign-in:props",
+      "component:blog-constructor:prompt-sign-in:examples"
+    ]
+  }
+]

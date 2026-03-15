@@ -1,0 +1,458 @@
+[
+  {
+    "id": "component:date-components:calendar:overview",
+    "page_id": "component:date-components:calendar",
+    "url": "https://gravity-ui.com/components/date-components/calendar#overview",
+    "page_title": "Calendar",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "date-components",
+      "Calendar",
+      "Overview"
+    ],
+    "content": "Calendar is a component from @gravity-ui/date-components for selecting a single date. Supports controlled and uncontrolled modes, min/max date constraints, disabled dates, and multiple view modes: days, months, quarters, and years. Built on top of @internationalized/date. Import: import {Calendar} from '@gravity-ui/date-components';",
+    "code_examples": [],
+    "keywords": [
+      "calendar",
+      "date picker",
+      "date selection",
+      "date",
+      "month",
+      "year",
+      "quarter"
+    ]
+  },
+  {
+    "id": "component:date-components:calendar:props",
+    "page_id": "component:date-components:calendar",
+    "url": "https://gravity-ui.com/components/date-components/calendar#props",
+    "page_title": "Calendar",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "date-components",
+      "Calendar",
+      "Props"
+    ],
+    "content": "Calendar props: defaultValue (DateTime) uncontrolled initial value; disabled (boolean) disables the calendar; focusedValue (DateTime) controlled focused date; isDateUnavailable (function) marks dates as unavailable; maxValue (DateTime) maximum selectable date; minValue (DateTime) minimum selectable date; mode ('days' | 'months' | 'quarters' | 'years') calendar view mode; onFocusUpdate (function) callback on focus change; onUpdate (function) callback when date is selected; readOnly (boolean) makes calendar read-only; size ('s' | 'm' | 'l' | 'xl') calendar size; timeZone (string) IANA timezone identifier; value (DateTime) controlled selected date.",
+    "code_examples": [],
+    "keywords": [
+      "defaultValue",
+      "disabled",
+      "isDateUnavailable",
+      "maxValue",
+      "minValue",
+      "mode",
+      "onUpdate",
+      "value",
+      "size",
+      "timeZone"
+    ]
+  },
+  {
+    "id": "component:date-components:calendar:examples",
+    "page_id": "component:date-components:calendar",
+    "url": "https://gravity-ui.com/components/date-components/calendar#examples",
+    "page_title": "Calendar",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "date-components",
+      "Calendar",
+      "Examples"
+    ],
+    "content": "Basic Calendar usage for date selection.",
+    "code_examples": [
+      "import {Calendar} from '@gravity-ui/date-components';\nimport {dateTimeParse} from '@gravity-ui/date-utils';\n\n<Calendar\n  value={selectedDate}\n  onUpdate={(date) => setSelectedDate(date)}\n  minValue={dateTimeParse('2024-01-01')}\n  maxValue={dateTimeParse('2024-12-31')}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "calendar",
+      "date selection"
+    ]
+  },
+  {
+    "id": "component:date-components:date-field:overview",
+    "page_id": "component:date-components:date-field",
+    "url": "https://gravity-ui.com/components/date-components/date-field#overview",
+    "page_title": "DateField",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "date-components",
+      "DateField",
+      "Overview"
+    ],
+    "content": "DateField is a text input from @gravity-ui/date-components for entering a date and/or time value following a specified format. Each date segment (year, month, day, hour, minute, second) is independently editable via keyboard. Import: import {DateField} from '@gravity-ui/date-components';",
+    "code_examples": [],
+    "keywords": [
+      "date field",
+      "date input",
+      "time input",
+      "date format",
+      "segments",
+      "keyboard"
+    ]
+  },
+  {
+    "id": "component:date-components:date-field:props",
+    "page_id": "component:date-components:date-field",
+    "url": "https://gravity-ui.com/components/date-components/date-field#props",
+    "page_title": "DateField",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "date-components",
+      "DateField",
+      "Props"
+    ],
+    "content": "DateField props: defaultValue (DateTime) uncontrolled initial value; disabled (boolean) disables the field; errorMessage (string) validation error message; format (string) date format string; hasClear (boolean) shows clear button; label (string) field label; maxValue (DateTime) maximum date; minValue (DateTime) minimum date; onUpdate (function) callback on value change; placeholder (string) placeholder text; readOnly (boolean) makes field read-only; size ('s' | 'm' | 'l' | 'xl') field size; timeZone (string) IANA timezone; validationState ('invalid') validation state; value (DateTime) controlled value.",
+    "code_examples": [],
+    "keywords": [
+      "defaultValue",
+      "format",
+      "hasClear",
+      "label",
+      "maxValue",
+      "minValue",
+      "onUpdate",
+      "value",
+      "size",
+      "timeZone",
+      "validationState"
+    ]
+  },
+  {
+    "id": "component:date-components:date-field:examples",
+    "page_id": "component:date-components:date-field",
+    "url": "https://gravity-ui.com/components/date-components/date-field#examples",
+    "page_title": "DateField",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "date-components",
+      "DateField",
+      "Examples"
+    ],
+    "content": "DateField usage for a date input with clear button.",
+    "code_examples": [
+      "import {DateField} from '@gravity-ui/date-components';\n\n<DateField\n  label=\"Birth date\"\n  format=\"DD.MM.YYYY\"\n  hasClear\n  value={date}\n  onUpdate={(date) => setDate(date)}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "date field",
+      "format",
+      "input"
+    ]
+  },
+  {
+    "id": "component:date-components:date-picker:overview",
+    "page_id": "component:date-components:date-picker",
+    "url": "https://gravity-ui.com/components/date-components/date-picker#overview",
+    "page_title": "DatePicker",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "date-components",
+      "DatePicker",
+      "Overview"
+    ],
+    "content": "DatePicker is a component from @gravity-ui/date-components that combines a DateField input with a Calendar popup for selecting a single date. Supports controlled and uncontrolled modes, min/max constraints, disabled dates, and various sizes. Import: import {DatePicker} from '@gravity-ui/date-components';",
+    "code_examples": [],
+    "keywords": [
+      "date picker",
+      "calendar",
+      "popup",
+      "date input",
+      "date selection",
+      "datepicker"
+    ]
+  },
+  {
+    "id": "component:date-components:date-picker:props",
+    "page_id": "component:date-components:date-picker",
+    "url": "https://gravity-ui.com/components/date-components/date-picker#props",
+    "page_title": "DatePicker",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "date-components",
+      "DatePicker",
+      "Props"
+    ],
+    "content": "DatePicker props: defaultValue (DateTime) uncontrolled initial value; disabled (boolean) disables the picker; errorMessage (string) validation error message; format (string) date format string; hasClear (boolean) shows clear button; isDateUnavailable (function) marks dates unavailable; label (string) field label; maxValue (DateTime) maximum date; minValue (DateTime) minimum date; onUpdate (function) callback on value change; placeholder (string) placeholder text; readOnly (boolean) makes read-only; size ('s' | 'm' | 'l' | 'xl') size; timeZone (string) IANA timezone; validationState ('invalid') validation state; value (DateTime) controlled value.",
+    "code_examples": [],
+    "keywords": [
+      "defaultValue",
+      "format",
+      "hasClear",
+      "isDateUnavailable",
+      "maxValue",
+      "minValue",
+      "onUpdate",
+      "value",
+      "size"
+    ]
+  },
+  {
+    "id": "component:date-components:date-picker:examples",
+    "page_id": "component:date-components:date-picker",
+    "url": "https://gravity-ui.com/components/date-components/date-picker#examples",
+    "page_title": "DatePicker",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "date-components",
+      "DatePicker",
+      "Examples"
+    ],
+    "content": "DatePicker usage for selecting a date with a calendar popup.",
+    "code_examples": [
+      "import {DatePicker} from '@gravity-ui/date-components';\n\n<DatePicker\n  label=\"Event date\"\n  format=\"MMMM D, YYYY\"\n  hasClear\n  value={date}\n  onUpdate={(date) => setDate(date)}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "date picker",
+      "calendar",
+      "popup"
+    ]
+  },
+  {
+    "id": "component:date-components:range-calendar:overview",
+    "page_id": "component:date-components:range-calendar",
+    "url": "https://gravity-ui.com/components/date-components/range-calendar#overview",
+    "page_title": "RangeCalendar",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "date-components",
+      "RangeCalendar",
+      "Overview"
+    ],
+    "content": "RangeCalendar is a component from @gravity-ui/date-components for selecting a date range with start and end dates. Extends the Calendar component with range selection support including hover highlighting. Import: import {RangeCalendar} from '@gravity-ui/date-components';",
+    "code_examples": [],
+    "keywords": [
+      "range calendar",
+      "date range",
+      "start date",
+      "end date",
+      "range selection",
+      "calendar"
+    ]
+  },
+  {
+    "id": "component:date-components:range-calendar:props",
+    "page_id": "component:date-components:range-calendar",
+    "url": "https://gravity-ui.com/components/date-components/range-calendar#props",
+    "page_title": "RangeCalendar",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "date-components",
+      "RangeCalendar",
+      "Props"
+    ],
+    "content": "RangeCalendar shares all Calendar props but operates on a RangeValue<DateTime> instead of a single DateTime. Key props: value (RangeValue<DateTime>) controlled range value with start and end; defaultValue (RangeValue<DateTime>) uncontrolled initial range; onUpdate (function) callback receiving RangeValue<DateTime>; minValue (DateTime) minimum selectable date; maxValue (DateTime) maximum selectable date; isDateUnavailable (function) marks dates unavailable.",
+    "code_examples": [],
+    "keywords": [
+      "value",
+      "defaultValue",
+      "onUpdate",
+      "RangeValue",
+      "start",
+      "end",
+      "minValue",
+      "maxValue"
+    ]
+  },
+  {
+    "id": "component:date-components:range-calendar:examples",
+    "page_id": "component:date-components:range-calendar",
+    "url": "https://gravity-ui.com/components/date-components/range-calendar#examples",
+    "page_title": "RangeCalendar",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "date-components",
+      "RangeCalendar",
+      "Examples"
+    ],
+    "content": "RangeCalendar usage for selecting a date range.",
+    "code_examples": [
+      "import {RangeCalendar} from '@gravity-ui/date-components';\n\n<RangeCalendar\n  value={dateRange}\n  onUpdate={(range) => setDateRange(range)}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "range calendar",
+      "date range",
+      "start",
+      "end"
+    ]
+  },
+  {
+    "id": "component:date-components:relative-date-field:overview",
+    "page_id": "component:date-components:relative-date-field",
+    "url": "https://gravity-ui.com/components/date-components/relative-date-field#overview",
+    "page_title": "RelativeDateField",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "date-components",
+      "RelativeDateField",
+      "Overview"
+    ],
+    "content": "RelativeDateField is a component from @gravity-ui/date-components for entering relative date expressions such as 'now-7d', 'now/d', or absolute dates. Parses relative syntax and resolves to actual DateTime values. Import: import {RelativeDateField} from '@gravity-ui/date-components';",
+    "code_examples": [],
+    "keywords": [
+      "relative date",
+      "relative date field",
+      "now-7d",
+      "date expression",
+      "relative syntax",
+      "time range"
+    ]
+  },
+  {
+    "id": "component:date-components:relative-date-field:props",
+    "page_id": "component:date-components:relative-date-field",
+    "url": "https://gravity-ui.com/components/date-components/relative-date-field#props",
+    "page_title": "RelativeDateField",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "date-components",
+      "RelativeDateField",
+      "Props"
+    ],
+    "content": "RelativeDateField props: defaultValue (RelativeDateFieldValue) uncontrolled initial value; disabled (boolean) disables the field; errorMessage (string) validation error message; hasClear (boolean) shows clear button; label (string) field label; onUpdate (function) callback on value change; placeholder (string) placeholder text; readOnly (boolean) makes field read-only; size ('s' | 'm' | 'l' | 'xl') field size; timeZone (string) IANA timezone; validationState ('invalid') validation state; value (RelativeDateFieldValue) controlled value.",
+    "code_examples": [],
+    "keywords": [
+      "defaultValue",
+      "hasClear",
+      "label",
+      "onUpdate",
+      "value",
+      "size",
+      "RelativeDateFieldValue"
+    ]
+  },
+  {
+    "id": "component:date-components:relative-date-field:examples",
+    "page_id": "component:date-components:relative-date-field",
+    "url": "https://gravity-ui.com/components/date-components/relative-date-field#examples",
+    "page_title": "RelativeDateField",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "date-components",
+      "RelativeDateField",
+      "Examples"
+    ],
+    "content": "RelativeDateField usage for a time range filter input.",
+    "code_examples": [
+      "import {RelativeDateField} from '@gravity-ui/date-components';\n\n<RelativeDateField\n  label=\"From\"\n  placeholder=\"now-7d\"\n  hasClear\n  value={fromDate}\n  onUpdate={(value) => setFromDate(value)}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "relative date",
+      "time range",
+      "filter"
+    ]
+  },
+  {
+    "id": "component:date-components:relative-date-picker:overview",
+    "page_id": "component:date-components:relative-date-picker",
+    "url": "https://gravity-ui.com/components/date-components/relative-date-picker#overview",
+    "page_title": "RelativeDatePicker",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Overview",
+    "breadcrumbs": [
+      "date-components",
+      "RelativeDatePicker",
+      "Overview"
+    ],
+    "content": "RelativeDatePicker is a component from @gravity-ui/date-components that combines a RelativeDateField input with a Calendar popup. Allows selecting both absolute dates via calendar and entering relative date expressions like 'now-7d'. Import: import {RelativeDatePicker} from '@gravity-ui/date-components';",
+    "code_examples": [],
+    "keywords": [
+      "relative date picker",
+      "calendar",
+      "popup",
+      "relative syntax",
+      "now-7d",
+      "date picker"
+    ]
+  },
+  {
+    "id": "component:date-components:relative-date-picker:props",
+    "page_id": "component:date-components:relative-date-picker",
+    "url": "https://gravity-ui.com/components/date-components/relative-date-picker#props",
+    "page_title": "RelativeDatePicker",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Props",
+    "breadcrumbs": [
+      "date-components",
+      "RelativeDatePicker",
+      "Props"
+    ],
+    "content": "RelativeDatePicker props: defaultValue (RelativeDatePickerValue) uncontrolled initial value; disabled (boolean) disables the picker; errorMessage (string) validation error; hasClear (boolean) shows clear button; isDateUnavailable (function) marks dates unavailable; label (string) field label; maxValue (DateTime) maximum date; minValue (DateTime) minimum date; onUpdate (function) callback on value change; placeholder (string) placeholder; readOnly (boolean) makes read-only; size ('s' | 'm' | 'l' | 'xl') size; timeZone (string) IANA timezone; validationState ('invalid') validation state; value (RelativeDatePickerValue) controlled value.",
+    "code_examples": [],
+    "keywords": [
+      "defaultValue",
+      "hasClear",
+      "isDateUnavailable",
+      "maxValue",
+      "minValue",
+      "onUpdate",
+      "value",
+      "timeZone"
+    ]
+  },
+  {
+    "id": "component:date-components:relative-date-picker:examples",
+    "page_id": "component:date-components:relative-date-picker",
+    "url": "https://gravity-ui.com/components/date-components/relative-date-picker#examples",
+    "page_title": "RelativeDatePicker",
+    "page_type": "component",
+    "library": "date-components",
+    "section_title": "Examples",
+    "breadcrumbs": [
+      "date-components",
+      "RelativeDatePicker",
+      "Examples"
+    ],
+    "content": "RelativeDatePicker usage combining calendar and relative date input.",
+    "code_examples": [
+      "import {RelativeDatePicker} from '@gravity-ui/date-components';\n\n<RelativeDatePicker\n  label=\"Start date\"\n  hasClear\n  value={startDate}\n  onUpdate={(value) => setStartDate(value)}\n/>"
+    ],
+    "keywords": [
+      "example",
+      "usage",
+      "relative date picker",
+      "calendar",
+      "popup"
+    ]
+  }
+]

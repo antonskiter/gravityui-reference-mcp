@@ -1,0 +1,47 @@
+[
+  {
+    "name": "PromptSignIn",
+    "library": "blog-constructor",
+    "category": "feedback",
+    "import_path": "@gravity-ui/blog-constructor",
+    "import_statement": "import {PromptSignIn} from '@gravity-ui/blog-constructor';",
+    "description": "PromptSignIn displays a prompt encouraging unauthenticated users to sign in. It extends the uikit Prompt component with a dedicated sign-in action button. Used in blog contexts to gate interactions like comments or reactions behind authentication.",
+    "source_file": "vendor/blog-constructor/src/components/PromptSignIn/PromptSignIn.tsx",
+    "props": [
+      {
+        "name": "onClickSignIn",
+        "type": "React.EventHandler<React.SyntheticEvent>",
+        "required": false,
+        "description": "Callback when the sign-in button is clicked"
+      },
+      {
+        "name": "actions",
+        "type": "PromptAction[]",
+        "required": false,
+        "description": "Custom action buttons. Defaults to a single sign-in button"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "required": false,
+        "description": "Prompt message text. Defaults to a localized sign-in prompt"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Prompt title text"
+      }
+    ],
+    "examples": [
+      "<PromptSignIn onClickSignIn={() => router.push('/login')} />",
+      "<PromptSignIn\n  title=\"Members only\"\n  message=\"Sign in to leave a comment\"\n  onClickSignIn={handleSignIn}\n/>"
+    ]
+  }
+]

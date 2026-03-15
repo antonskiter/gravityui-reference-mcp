@@ -1,0 +1,284 @@
+# Gravity UI Design System Reference
+
+## Overview
+
+Gravity UI is an open-source design system by Yandex Cloud for building modern React applications. It provides a comprehensive set of components, design tokens, and utilities organized across multiple packages, with @gravity-ui/uikit as the core foundation.
+
+Theming: Supports four built-in themes via CSS custom properties: light, dark, light-hc (high contrast), and dark-hc (high contrast). Uses a two-layer color system with private palette values and semantic token aliases. Theme is applied via ThemeProvider and toggled with the useTheme hook.
+
+Spacing: Based on a 4px modular grid (--g-spacing-base: 4px). All spacing values are multiples of the base unit.
+
+Typography: Uses Inter as the primary sans-serif font with system font stack fallback. Monospace uses Menlo, Monaco, Consolas. Provides display, header, subheader, body, caption, code, and code-inline variants.
+
+Corner radius: Components support a pin prop for controlling corner rounding (round-round, brick-round, clear-clear).
+
+## Libraries
+
+- @gravity-ui/blog-constructor: Blog page construction components. 1 component. Depends on: @gravity-ui/page-constructor, @gravity-ui/uikit.
+- @gravity-ui/components: Extended component library. 18 components. Depends on: @gravity-ui/uikit.
+- @gravity-ui/date-components: Date and time picking components. 6 components. Depends on: @gravity-ui/date-utils, @gravity-ui/uikit.
+- @gravity-ui/navigation: Application navigation components. 7 components. Depends on: @gravity-ui/icons, @gravity-ui/uikit.
+- @gravity-ui/page-constructor: Landing page construction components. 6 components. Depends on: @gravity-ui/uikit.
+- @gravity-ui/table: Advanced data table built on TanStack Table. 1 component. Depends on: @gravity-ui/i18n, @gravity-ui/icons, @gravity-ui/uikit.
+- @gravity-ui/uikit: Core component library providing foundational UI primitives. 57 components. No dependencies on other Gravity UI libraries. All other libraries depend on uikit.
+
+## Components by Category
+
+### Actions & Buttons
+
+- ActionsPanel (uikit): A floating panel for displaying batch actions on selected items. Import: import {ActionsPanel} from '@gravity-ui/uikit';
+- Button (page-constructor): Button for page-constructor with support for various themes, sizes, and platform badges. Import: import {Button} from '@gravity-ui/page-constructor';
+- Button (uikit): Core interactive button with multiple views, sizes, and states. Import: import {Button} from '@gravity-ui/uikit';
+- ClipboardButton (uikit): A button that copies text to the clipboard with visual feedback. Import: import {ClipboardButton} from '@gravity-ui/uikit';
+
+### Data Display
+
+- Avatar (uikit): Displays a user avatar with image, icon, or initials. Import: import {Avatar} from '@gravity-ui/uikit';
+- AvatarStack (uikit): Displays a stack of overlapping avatars with overflow indicator. Import: import {AvatarStack} from '@gravity-ui/uikit';
+- BaseTable (table): Low-level headless table built on TanStack Table with virtualization and sorting. Import: import {BaseTable} from '@gravity-ui/table';
+- DefinitionList (uikit): Displays a list of term-definition pairs. Import: import {DefinitionList} from '@gravity-ui/uikit';
+- FilePreview (uikit): Displays a file preview with thumbnail, description, and actions. Import: import {FilePreview} from '@gravity-ui/uikit';
+- Hotkey (uikit): Renders keyboard shortcut combinations. Import: import {Hotkey} from '@gravity-ui/uikit';
+- Label (uikit): A small status indicator or tag with optional icon and close button. Import: import {Label} from '@gravity-ui/uikit';
+- List (uikit): A virtualized, filterable, sortable list of items. Import: import {List} from '@gravity-ui/uikit';
+- Map (page-constructor): Map component supporting Yandex Maps and Google Maps. Import: import {Map} from '@gravity-ui/page-constructor';
+- Table (page-constructor): Data table with optional legend markers. Import: import {Table} from '@gravity-ui/page-constructor';
+- Table (uikit): A table with row selection, sorting, and sticky scroll. Import: import {Table} from '@gravity-ui/uikit';
+- TableColumnSetup (uikit): UI for configuring table column visibility and order. Import: import {TableColumnSetup} from '@gravity-ui/uikit';
+- User (uikit): Displays a user avatar with name and description. Import: import {User} from '@gravity-ui/uikit';
+- UserLabel (uikit): Compact user chip/label with avatar and optional close button. Import: import {UserLabel} from '@gravity-ui/uikit';
+
+### Feedback & Status
+
+- Alert (uikit): Inline alert message with theme, icon, title, and actions. Import: import {Alert} from '@gravity-ui/uikit';
+- ErrorWrapper (page-constructor): Gracefully handles and displays local errors with retry. Import: import {ErrorWrapper} from '@gravity-ui/page-constructor';
+- HelpMark (uikit): A question mark icon that shows a help popover on click. Import: import {HelpMark} from '@gravity-ui/uikit';
+- Loader (uikit): A loading spinner indicator. Import: import {Loader} from '@gravity-ui/uikit';
+- Notifications (components): Notification feed with loading, empty, and error states. Import: import {Notifications} from '@gravity-ui/components';
+- Overlay (uikit): A backdrop overlay for dimming content during loading. Import: import {Overlay} from '@gravity-ui/uikit';
+- PlaceholderContainer (uikit): Empty state placeholder with illustration and actions. Import: import {PlaceholderContainer} from '@gravity-ui/uikit';
+- Progress (uikit): A horizontal progress bar. Import: import {Progress} from '@gravity-ui/uikit';
+- PromptSignIn (blog-constructor): Prompts unauthenticated users to sign in. Import: import {PromptSignIn} from '@gravity-ui/blog-constructor';
+- Reactions (components): Emoji reaction buttons with palette picker. Import: import {Reactions} from '@gravity-ui/components';
+- Skeleton (uikit): Placeholder preview with gradient or pulse animation. Import: import {Skeleton} from '@gravity-ui/uikit';
+- Spin (uikit): Inline loading spinner (rotating semicircle). Import: import {Spin} from '@gravity-ui/uikit';
+- Toaster (uikit): Toast notification system with themes and auto-hiding. Import: import {Toaster, ToasterProvider, useToaster} from '@gravity-ui/uikit';
+
+### Form Controls
+
+- Calendar (date-components): Flexible calendar for selecting single or multiple dates. Import: import {Calendar} from '@gravity-ui/date-components';
+- Checkbox (uikit): Standard checkbox with label, indeterminate state. Import: import {Checkbox} from '@gravity-ui/uikit';
+- DateField (date-components): Text input specifically designed for date entry. Import: import {DateField} from '@gravity-ui/date-components';
+- DatePicker (date-components): Date input with popup calendar. Import: import {DatePicker} from '@gravity-ui/date-components';
+- DelayedTextInput (components): Text input with debounced value updates. Import: import {DelayedTextInput} from '@gravity-ui/components';
+- FormRow (components): Layout helper for form fields with label and help text. Import: import {FormRow} from '@gravity-ui/components';
+- ItemSelector (components): Multi-select item picker with search and filtering. Import: import {ItemSelector} from '@gravity-ui/components';
+- NumberInput (uikit): Numeric input with increment/decrement controls. Import: import {NumberInput} from '@gravity-ui/uikit';
+- Palette (uikit): Grid of selectable option tiles. Import: import {Palette} from '@gravity-ui/uikit';
+- PinInput (uikit): One-time password / verification code input. Import: import {PinInput} from '@gravity-ui/uikit';
+- Radio (uikit): Single radio button for exclusive selection. Import: import {Radio} from '@gravity-ui/uikit';
+- RadioGroup (uikit): Group of radio buttons for exclusive selection. Import: import {RadioGroup} from '@gravity-ui/uikit';
+- RangeCalendar (date-components): Calendar for selecting a date range. Import: import {RangeCalendar} from '@gravity-ui/date-components';
+- RelativeDateField (date-components): Input for Grafana-style relative dates (e.g., now-1d). Import: import {RelativeDateField} from '@gravity-ui/date-components';
+- RelativeDatePicker (date-components): DatePicker with relative date mode toggle. Import: import {RelativeDatePicker} from '@gravity-ui/date-components';
+- SegmentedRadioGroup (uikit): Segmented control for mutually exclusive options. Import: import {SegmentedRadioGroup} from '@gravity-ui/uikit';
+- Select (uikit): Dropdown select with filtering, multiple selection, and grouping. Import: import {Select} from '@gravity-ui/uikit';
+- Slider (uikit): Range slider for selecting a value or range. Import: import {Slider} from '@gravity-ui/uikit';
+- Switch (uikit): Toggle switch for on/off states. Import: import {Switch} from '@gravity-ui/uikit';
+
+### Layout & Spacing
+
+- Accordion (uikit): Vertically stacked collapsible sections. Import: import {Accordion} from '@gravity-ui/uikit';
+- Card (uikit): Container surface with selection, themes, and click handling. Import: import {Card} from '@gravity-ui/uikit';
+- Disclosure (uikit): A single collapsible content section with summary. Import: import {Disclosure} from '@gravity-ui/uikit';
+- Divider (uikit): Horizontal or vertical line separator. Import: import {Divider} from '@gravity-ui/uikit';
+
+### Navigation
+
+- ActionBar (navigation): Flexible horizontal bar for arranging breadcrumbs, buttons, and actions. Import: import {ActionBar} from '@gravity-ui/navigation';
+- AdaptiveTabs (components): Tabs that collapse overflow items into a "More" dropdown. Import: import {AdaptiveTabs} from '@gravity-ui/components';
+- AsideHeader (navigation): Collapsible sidebar navigation with logo, menu items, and panels. Import: import {AsideHeader} from '@gravity-ui/navigation';
+- Breadcrumbs (uikit): Navigation breadcrumb trail with overflow handling. Import: import {Breadcrumbs} from '@gravity-ui/uikit';
+- DropdownMenu (uikit): Button-triggered dropdown menu with nested items. Import: import {DropdownMenu} from '@gravity-ui/uikit';
+- Footer (navigation): Page footer with logo, copyright, and menu links. Import: import {Footer} from '@gravity-ui/navigation';
+- HotkeysPanel (navigation): Drawer panel displaying keyboard shortcut documentation. Import: import {HotkeysPanel} from '@gravity-ui/navigation';
+- Link (uikit): Styled anchor element with view variants. Import: import {Link} from '@gravity-ui/uikit';
+- Logo (navigation): Application logo with icon and text. Import: import {Logo} from '@gravity-ui/navigation';
+- Menu (uikit): Vertical list of menu items with optional grouping. Import: import {Menu} from '@gravity-ui/uikit';
+- MobileHeader (navigation): Mobile navigation header with burger menu. Import: import {MobileHeader} from '@gravity-ui/navigation';
+- OnboardingMenu (components): Expandable onboarding checklist with progress tracking. Import: import {OnboardingMenu} from '@gravity-ui/components';
+- Pagination (uikit): Page navigation control. Import: import {Pagination} from '@gravity-ui/uikit';
+- Settings (navigation): Settings panel with page navigation and search filtering. Import: import {Settings} from '@gravity-ui/navigation';
+- Stepper (uikit): Numbered step progress indicator for wizard workflows. Import: import {Stepper} from '@gravity-ui/uikit';
+- Toc (uikit): Table of contents with two-level hierarchy. Import: import {Toc} from '@gravity-ui/uikit';
+
+### Overlays & Popups
+
+- ActionTooltip (uikit): Tooltip with title, description, and hotkey display. Import: import {ActionTooltip} from '@gravity-ui/uikit';
+- ChangelogDialog (components): Modal dialog for displaying release changelogs. Import: import {ChangelogDialog} from '@gravity-ui/components';
+- ConfirmDialog (components): Confirmation dialog with approve/cancel actions. Import: import {ConfirmDialog} from '@gravity-ui/components';
+- CookieConsent (components): Cookie consent banner with management options. Import: import {CookieConsent} from '@gravity-ui/components';
+- Dialog (uikit): Full-featured dialog window with close button and size options. Import: import {Dialog} from '@gravity-ui/uikit';
+- Drawer (uikit): Slide-out panel overlay with resizable option. Import: import {Drawer} from '@gravity-ui/uikit';
+- Gallery (components): Fullscreen image gallery/lightbox viewer. Import: import {Gallery} from '@gravity-ui/components';
+- Modal (uikit): Base modal overlay with focus trapping and scroll locking. Import: import {Modal} from '@gravity-ui/uikit';
+- Popover (uikit): Rich content popover with configurable trigger and placement. Import: import {Popover} from '@gravity-ui/uikit';
+- Popup (uikit): Low-level positioned floating element. Import: import {Popup} from '@gravity-ui/uikit';
+- PromoSheet (components): Promotional bottom sheet with image and CTA. Import: import {PromoSheet} from '@gravity-ui/components';
+- Sheet (uikit): Mobile-friendly bottom sheet overlay. Import: import {Sheet} from '@gravity-ui/uikit';
+- Stories (components): Fullscreen stories/slides viewer with navigation. Import: import {Stories} from '@gravity-ui/components';
+- StoriesGroup (components): Grouped stories viewer with slider. Import: import {StoriesGroup} from '@gravity-ui/components';
+- Tooltip (uikit): Simple text tooltip on hover or focus. Import: import {Tooltip} from '@gravity-ui/uikit';
+
+### Typography & Text
+
+- Text (uikit): Typography component with variants (display, header, body, caption, code) and color options. Import: import {Text} from '@gravity-ui/uikit';
+- Title (page-constructor): Title with optional subtitle for page sections. Import: import {Title} from '@gravity-ui/page-constructor';
+
+### Utility
+
+- ArrowToggle (uikit): Animated directional arrow indicator. Import: import {ArrowToggle} from '@gravity-ui/uikit';
+- ClipboardIcon (uikit): Clipboard status icon (pending/success). Import: import {ClipboardIcon} from '@gravity-ui/uikit';
+- CopyToClipboard (uikit): Wrapper that copies text to clipboard on child click. Import: import {CopyToClipboard} from '@gravity-ui/uikit';
+- Icon (uikit): Renders SVG icons with configurable size and color. Import: import {Icon} from '@gravity-ui/uikit';
+- InfiniteScroll (components): Triggers a callback when scrolled to the bottom. Import: import {InfiniteScroll} from '@gravity-ui/components';
+- Portal (uikit): Renders children into a different DOM node. Import: import {Portal} from '@gravity-ui/uikit';
+- SharePopover (components): Social sharing popover with copy-link option. Import: import {SharePopover} from '@gravity-ui/components';
+- StoreBadge (components): App Store / Google Play download badge. Import: import {StoreBadge} from '@gravity-ui/components';
+
+## Design Tokens
+
+### Spacing
+
+CSS custom properties based on 4px base unit (--g-spacing-base: 4px):
+- --g-spacing-0: 0px
+- --g-spacing-half: 2px
+- --g-spacing-1: 4px
+- --g-spacing-2: 8px
+- --g-spacing-3: 12px
+- --g-spacing-4: 16px
+- --g-spacing-5: 20px
+- --g-spacing-6: 24px
+- --g-spacing-7: 28px
+- --g-spacing-8: 32px
+- --g-spacing-9: 36px
+- --g-spacing-10: 40px
+
+### Breakpoints
+
+- xs: 0px
+- s: 576px
+- m: 768px
+- l: 992px (commonly used)
+- xl: 1200px
+- xxl: 1400px
+
+### Component Sizes
+
+Most components support a size prop with these standard values:
+- xs: 20px
+- s: 24px
+- m: 28px (default for most components)
+- l: 32px
+- xl: 36px
+
+### Typography
+
+Font families:
+- Sans: Inter, Helvetica Neue, Helvetica, Arial, sans-serif
+- Monospace: Menlo, Monaco, Consolas, Liberation Mono, Ubuntu Mono, DejaVu Sans Mono, Courier New, Courier, monospace
+
+Variants (font-size/line-height):
+- display-4: 48px/52px (weight 600)
+- display-3: 40px/48px (weight 600)
+- display-2: 32px/40px (weight 600)
+- display-1: 28px/36px (weight 600)
+- header-2: 24px/28px (weight 600)
+- header-1: 20px/24px (weight 600)
+- subheader-3: 17px/24px (weight 600)
+- subheader-2: 15px/20px (weight 600)
+- subheader-1: 13px/18px (weight 600)
+- body-3: 17px/24px (weight 400)
+- body-2: 15px/20px (weight 400)
+- body-1: 13px/18px (weight 400)
+- body-short: 13px/16px (weight 400)
+- caption-2: 11px/16px (weight 400)
+- caption-1: 9px/12px (weight 400)
+- code-3: 16px/24px (monospace, weight 400)
+- code-2: 14px/20px (monospace, weight 400)
+- code-1: 12px/18px (monospace, weight 400)
+
+### Colors
+
+Semantic CSS custom properties (adapt to current theme):
+
+Text colors:
+- --g-color-text-primary: Primary body text
+- --g-color-text-complementary: Complementary body text
+- --g-color-text-secondary: Secondary/muted text
+- --g-color-text-hint: Hint/placeholder text
+- --g-color-text-brand: Brand-colored text
+- --g-color-text-link: Hyperlink text
+- --g-color-text-link-hover: Hyperlink hover
+- --g-color-text-link-visited: Visited link
+- --g-color-text-info: Informational text
+- --g-color-text-positive: Success text
+- --g-color-text-warning: Warning text
+- --g-color-text-danger: Error/danger text
+- --g-color-text-utility: Utility text
+- --g-color-text-misc: Miscellaneous text
+
+Background colors:
+- --g-color-base-background: Page background
+- --g-color-base-brand: Brand/accent (yellow)
+- --g-color-base-selection: Selection highlight
+- --g-color-base-generic: Generic neutral fill
+- --g-color-base-float: Floating surface (cards, dropdowns)
+- --g-color-base-modal: Modal background
+- --g-color-base-info-light/medium/heavy: Info state fills
+- --g-color-base-positive-light/medium/heavy: Success state fills
+- --g-color-base-warning-light/medium/heavy: Warning state fills
+- --g-color-base-danger-light/medium/heavy: Danger state fills
+- --g-color-base-utility-light/medium/heavy: Utility state fills
+
+Border colors:
+- --g-color-line-generic: Default border
+- --g-color-line-generic-hover: Hover border
+- --g-color-line-generic-active: Active border
+- --g-color-line-focus: Focus ring
+- --g-color-line-brand: Brand border
+- --g-color-line-info: Info border
+- --g-color-line-positive: Success border
+- --g-color-line-warning: Warning border
+- --g-color-line-danger: Danger border
+
+## Common Patterns
+
+### Layout pattern
+Use ThemeProvider at the app root, AsideHeader for navigation, and Card/Divider for content sections:
+import {ThemeProvider} from '@gravity-ui/uikit';
+import {AsideHeader} from '@gravity-ui/navigation';
+
+### Form pattern
+Combine TextInput/Select/Checkbox with FormRow for labeled fields, validate with validationState="invalid" and errorMessage props:
+<FormRow label="Email" fieldId="email">
+  <TextInput id="email" validationState={error ? 'invalid' : undefined} errorMessage={error} />
+</FormRow>
+
+### Dialog pattern
+Use Dialog for structured modal content, Modal for custom overlays, Sheet for mobile bottom sheets:
+<Dialog open={open} onClose={handleClose} size="m">
+  <Dialog.Header caption="Title" />
+  <Dialog.Body>Content</Dialog.Body>
+  <Dialog.Footer onClickButtonApply={handleSubmit} textButtonApply="Save" />
+</Dialog>
+
+### Notification pattern
+Wrap app with ToasterProvider, use useToaster() hook to show toast messages:
+const {add} = useToaster();
+add({name: 'success', title: 'Saved', theme: 'success', autoHiding: 5000});
+
+### Data table pattern
+For simple tables use uikit Table, for advanced features use @gravity-ui/table BaseTable with TanStack Table:
+const table = useReactTable({data, columns, getCoreRowModel: getCoreRowModel()});
+<BaseTable table={table} stickyHeader />

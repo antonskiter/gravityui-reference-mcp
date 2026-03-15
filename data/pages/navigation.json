@@ -1,0 +1,121 @@
+[
+  {
+    "id": "component:navigation:action-bar",
+    "title": "ActionBar",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/action-bar",
+    "breadcrumbs": [
+      "navigation",
+      "ActionBar"
+    ],
+    "description": "ActionBar renders a horizontal toolbar with grouped action items. Each group can contain buttons, selects, or custom content. Supports responsive collapsing of items into a dropdown menu.",
+    "section_ids": [
+      "component:navigation:action-bar:overview",
+      "component:navigation:action-bar:props",
+      "component:navigation:action-bar:examples"
+    ]
+  },
+  {
+    "id": "component:navigation:aside-header",
+    "title": "AsideHeader",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/aside-header",
+    "breadcrumbs": [
+      "navigation",
+      "AsideHeader"
+    ],
+    "description": "AsideHeader is a collapsible sidebar navigation component. It renders a logo, menu items with icons and nested items, a panel toggle, and a footer section. Supports compact and expanded modes.",
+    "section_ids": [
+      "component:navigation:aside-header:overview",
+      "component:navigation:aside-header:props",
+      "component:navigation:aside-header:examples"
+    ]
+  },
+  {
+    "id": "component:navigation:footer",
+    "title": "Footer",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/footer",
+    "breadcrumbs": [
+      "navigation",
+      "Footer"
+    ],
+    "description": "Footer renders a page footer with logo, navigation links organized in columns, social links, and copyright text. Supports light and dark color themes.",
+    "section_ids": [
+      "component:navigation:footer:overview",
+      "component:navigation:footer:props",
+      "component:navigation:footer:examples"
+    ]
+  },
+  {
+    "id": "component:navigation:hotkeys-panel",
+    "title": "HotkeysPanel",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/hotkeys-panel",
+    "breadcrumbs": [
+      "navigation",
+      "HotkeysPanel"
+    ],
+    "description": "HotkeysPanel renders a side panel listing available keyboard shortcuts grouped by category. Displays each shortcut with its key combination and description.",
+    "section_ids": [
+      "component:navigation:hotkeys-panel:overview",
+      "component:navigation:hotkeys-panel:props",
+      "component:navigation:hotkeys-panel:examples"
+    ]
+  },
+  {
+    "id": "component:navigation:logo",
+    "title": "Logo",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/logo",
+    "breadcrumbs": [
+      "navigation",
+      "Logo"
+    ],
+    "description": "Logo renders a product or company logo with optional text label. Used as the header element in AsideHeader and MobileHeader navigation components.",
+    "section_ids": [
+      "component:navigation:logo:overview",
+      "component:navigation:logo:props",
+      "component:navigation:logo:examples"
+    ]
+  },
+  {
+    "id": "component:navigation:mobile-header",
+    "title": "MobileHeader",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/mobile-header",
+    "breadcrumbs": [
+      "navigation",
+      "MobileHeader"
+    ],
+    "description": "MobileHeader renders a mobile navigation header with a hamburger menu that opens a full-screen drawer. Supports logo, navigation items, and custom content areas.",
+    "section_ids": [
+      "component:navigation:mobile-header:overview",
+      "component:navigation:mobile-header:props",
+      "component:navigation:mobile-header:examples"
+    ]
+  },
+  {
+    "id": "component:navigation:settings",
+    "title": "Settings",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/settings",
+    "breadcrumbs": [
+      "navigation",
+      "Settings"
+    ],
+    "description": "Settings renders a settings panel with sections and individual setting items. Supports search filtering, custom renderers for setting values, and loading state.",
+    "section_ids": [
+      "component:navigation:settings:overview",
+      "component:navigation:settings:props",
+      "component:navigation:settings:examples"
+    ]
+  }
+]

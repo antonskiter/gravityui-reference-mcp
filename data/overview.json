@@ -1,300 +1,68 @@
 {
-  "system": {
-    "description": "Gravity-UI is a collection of libraries and components for building functional user interfaces. The design system supports multiple themes: light, dark, and high-contrast variations of each.",
-    "theming": "Two-layer color system\n\nThere are two types of color schemes used in the library: private and semantic. These two color schemes, or palettes, vary in structure and purpose.",
-    "spacing": "The module is the fundamental unit of measurement in the design system. The spatial module is the foundation for building the grid and determining component and spacing sizes.",
-    "typography": "Typography is based on the use of two fonts and a set of styles that include font, weight, font size, and leading.\n\nTwo fonts are used by default: Inter for standard typesetting and headings, and Menlo as a monospace font.",
-    "corner_radius": "The corner radius of controls can be overridden. To do this, use the following variables:\n\n--g-border-radius-xs: 3px;\n\n--g-border-radius-s: 5px;\n\n--g-border-radius-m: 6px;\n\n--g-border-radius-l: 8px;\n\n--g-border-radius-xl: 10px;\n\n--g-border-radius-2xl: 16px;\n\nYou can override the values in…",
-    "branding": "Quick theme creation\n\nQuick branding allows you to switch between themes quickly and see an immediate result that you can use or optimize further. Simply choose a few colors, and all of the controls will be adjusted accordingly. Repeat for all supported themes, and you are all set."
-  },
   "libraries": [
     {
-      "id": "aikit",
-      "package": "@gravity-ui/aikit",
-      "purpose": "UI component library for AI chats built with Atomic Design principles.",
-      "component_count": 38,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "app-layout",
-      "package": "@gravity-ui/app-layout",
-      "purpose": "With express:",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "axios-wrapper",
-      "package": "@gravity-ui/axios-wrapper",
-      "purpose": "This library provides a convenient wrapper around Axios adding automatic…",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "babel-preset",
-      "package": "@gravity-ui/babel-preset",
-      "purpose": "Babel preset for Gravity UI projects",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
+      "component_count": 1,
+      "depends_on": ["@gravity-ui/page-constructor", "@gravity-ui/uikit"],
       "id": "blog-constructor",
+      "is_peer_dependency_of": [],
       "package": "@gravity-ui/blog-constructor",
-      "purpose": "Blog-constructor is a library based on the Page-constructor library for…",
-      "component_count": 1,
-      "depends_on": [],
-      "is_peer_dependency_of": []
+      "purpose": "Blog page construction components. Provides PromptSignIn for gating blog interactions behind authentication."
     },
     {
-      "id": "browserslist-config",
-      "package": "@gravity-ui/browserslist-config",
-      "purpose": "You can check compatible browsers on browsersl.ist.",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "chartkit",
-      "package": "@gravity-ui/chartkit",
-      "purpose": "React component used to render charts based on any sources you need",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "charts",
-      "package": "@gravity-ui/charts",
-      "purpose": "A flexible JavaScript library for data visualization and chart rendering using…",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
+      "component_count": 18,
+      "depends_on": ["@gravity-ui/uikit"],
       "id": "components",
+      "is_peer_dependency_of": [],
       "package": "@gravity-ui/components",
-      "purpose": "A set of complex React components",
-      "component_count": 20,
-      "depends_on": [],
-      "is_peer_dependency_of": [
-        "navigation"
-      ]
+      "purpose": "Extended component library built on top of uikit. Includes adaptive tabs, changelog dialogs, confirm dialogs, cookie consent, form helpers, galleries, infinite scroll, item selectors, notifications, onboarding, promo sheets, reactions, share popovers, store badges, and stories."
     },
     {
-      "id": "dashkit",
-      "package": "@gravity-ui/dashkit",
-      "purpose": "A dashboard grid rendering library.",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "data-source",
-      "package": "@gravity-ui/data-source",
-      "purpose": "Data Source is a simple wrapper around data fetching. It is a kind of \"port\" in…",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
+      "component_count": 6,
+      "depends_on": ["@gravity-ui/date-utils", "@gravity-ui/uikit"],
       "id": "date-components",
+      "is_peer_dependency_of": [],
       "package": "@gravity-ui/date-components",
-      "purpose": "If the app supports language switching, preload all supported locales when the…",
-      "component_count": 6,
-      "depends_on": [
-        "uikit",
-        "date-utils"
-      ],
-      "is_peer_dependency_of": []
+      "purpose": "Date and time picking components. Provides Calendar, DateField, DatePicker, RangeCalendar, RelativeDateField, and RelativeDatePicker with support for absolute and Grafana-style relative dates."
     },
     {
-      "id": "date-utils",
-      "package": "@gravity-ui/date-utils",
-      "purpose": "Helpers for managing Date and Time.",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": [
-        "date-components"
-      ]
-    },
-    {
-      "id": "dialog-fields",
-      "package": "@gravity-ui/dialog-fields",
-      "purpose": "dialog-fields",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "dynamic-forms",
-      "package": "@gravity-ui/dynamic-forms",
-      "purpose": "The JSON Schema-based library for rendering forms and form values.",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "eslint-config",
-      "package": "@gravity-ui/eslint-config",
-      "purpose": "Add eslint.config.js file in your project with the following content:",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "expresskit",
-      "package": "@gravity-ui/expresskit",
-      "purpose": "ExpressKit is a lightweight express.js wrapper that integrates with NodeKit and…",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "graph",
-      "package": "@gravity-ui/graph",
-      "purpose": "A graph visualization library that combines the best of both worlds:",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "i18n",
-      "package": "@gravity-ui/i18n",
-      "purpose": "This repository contains common utilities, libraries, and plugins used for i18n…",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "icons",
-      "package": "@gravity-ui/icons",
-      "purpose": "A pack of Gravity UI icons. Icons have two sources, SVG and React. Have a look…",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": [
-        "navigation"
-      ]
-    },
-    {
-      "id": "illustrations",
-      "package": "@gravity-ui/illustrations",
-      "purpose": "Setup illustrations theme. Execute any of the following steps:",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "markdown-editor",
-      "package": "@gravity-ui/markdown-editor",
-      "purpose": "MarkdownEditor is a powerful tool for working with Markdown, which combines…",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "navigation",
-      "package": "@gravity-ui/navigation",
-      "purpose": "Ensure that peer dependencies are installed in your project",
       "component_count": 7,
-      "depends_on": [
-        "uikit",
-        "icons",
-        "components"
-      ],
-      "is_peer_dependency_of": []
+      "depends_on": ["@gravity-ui/icons", "@gravity-ui/uikit"],
+      "id": "navigation",
+      "is_peer_dependency_of": [],
+      "package": "@gravity-ui/navigation",
+      "purpose": "Application navigation components. Provides ActionBar, AsideHeader (sidebar), Footer, HotkeysPanel, Logo, MobileHeader, and Settings panel for building complete application shells."
     },
     {
-      "id": "nodekit",
-      "package": "@gravity-ui/nodekit",
-      "purpose": "NodeKit is a simple toolkit for your Node.js apps, scripts and libraries. It…",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "page-constructor",
-      "package": "@gravity-ui/page-constructor",
-      "purpose": "Page-constructor is a library for rendering web pages or their parts based on…",
       "component_count": 6,
-      "depends_on": [],
-      "is_peer_dependency_of": []
+      "depends_on": ["@gravity-ui/uikit"],
+      "id": "page-constructor",
+      "is_peer_dependency_of": ["blog-constructor"],
+      "package": "@gravity-ui/page-constructor",
+      "purpose": "Landing page and content page construction components. Provides Button, ErrorWrapper, Link, Map, Table, and Title for building marketing and documentation pages."
     },
     {
-      "id": "page-constructor-builder",
-      "package": "@gravity-ui/page-constructor-builder",
-      "purpose": "A powerful command-line utility for building static pages from YAML…",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "prettier-config",
-      "package": "@gravity-ui/prettier-config",
-      "purpose": "Add .prettierrc.js file in the project root with the following content:",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "stylelint-config",
-      "package": "@gravity-ui/stylelint-config",
-      "purpose": "Stylelint configuration for Gravity UI projects.",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "table",
-      "package": "@gravity-ui/table",
-      "purpose": "There are two Table components that you can use:",
       "component_count": 1,
-      "depends_on": [],
-      "is_peer_dependency_of": []
+      "depends_on": ["@gravity-ui/i18n", "@gravity-ui/icons", "@gravity-ui/uikit"],
+      "id": "table",
+      "is_peer_dependency_of": [],
+      "package": "@gravity-ui/table",
+      "purpose": "Advanced data table built on TanStack Table. Provides BaseTable with support for sticky headers/footers, row virtualization, column resizing, grouping, sorting, and custom row rendering."
     },
     {
-      "id": "timeline",
-      "package": "@gravity-ui/timeline",
-      "purpose": "A React-based library for building interactive timeline visualizations with…",
-      "component_count": 0,
+      "component_count": 57,
       "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "tsconfig",
-      "package": "@gravity-ui/tsconfig",
-      "purpose": "Add tsconfig.json file in the project root with the following content:",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
       "id": "uikit",
+      "is_peer_dependency_of": ["blog-constructor", "components", "date-components", "navigation", "page-constructor", "table"],
       "package": "@gravity-ui/uikit",
-      "purpose": "A set of flexible, highly practical, and efficient React components for…",
-      "component_count": 68,
-      "depends_on": [],
-      "is_peer_dependency_of": [
-        "date-components",
-        "navigation"
-      ]
-    },
-    {
-      "id": "webpack-i18n-assets-plugin",
-      "package": "@gravity-ui/webpack-i18n-assets-plugin",
-      "purpose": "A plugin for Webpack that replaces calls to localization functions (i18n) with…",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
-    },
-    {
-      "id": "yagr",
-      "package": "@gravity-ui/yagr",
-      "purpose": "Yagr is a high-performance HTML5 canvas chart renderer based on uPlot. It…",
-      "component_count": 0,
-      "depends_on": [],
-      "is_peer_dependency_of": []
+      "purpose": "Core component library providing foundational UI primitives. Includes buttons, form controls, overlays, navigation elements, data display components, typography, layout helpers, and feedback indicators. All other Gravity UI libraries depend on uikit."
     }
-  ]
+  ],
+  "system": {
+    "branding": "Gravity UI is the design language of Yandex Cloud. It emphasizes functional, accessible interfaces with a focus on information density and developer productivity.",
+    "corner_radius": "Uses size-based border-radius tokens. Components support a pin prop for controlling corner rounding with values like round-round, brick-round, clear-clear, allowing fine-grained control over individual corners.",
+    "description": "Gravity UI is an open-source design system by Yandex Cloud for building modern React applications. It provides a comprehensive set of components, design tokens, and utilities organized across multiple packages, with @gravity-ui/uikit as the core foundation.",
+    "spacing": "Based on a 4px modular grid (--g-spacing-base: 4px). Spacing tokens range from --g-spacing-0 (0px) through --g-spacing-10 (40px), with a half-step at 2px. All spacing values are multiples of the 4px base unit.",
+    "theming": "Supports four built-in themes via CSS custom properties: light, dark, light-hc (high contrast), and dark-hc (high contrast). Uses a two-layer color system with private palette values and semantic token aliases. Theme is applied via ThemeProvider and toggled with useTheme hook. Supports system theme detection.",
+    "typography": "Uses Inter as the primary sans-serif font with a system font stack fallback (Helvetica Neue, Helvetica, Arial). Monospace uses Menlo, Monaco, Consolas. Provides typography variants: display (4 sizes), header (2 sizes), subheader (3 sizes), body (3 sizes + short), caption (2 sizes), code (3 sizes), and code-inline (3 sizes)."
+  }
 }

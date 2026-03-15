@@ -1,0 +1,291 @@
+[
+  {
+    "id": "component:components:adaptive-tabs",
+    "title": "AdaptiveTabs",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/adaptive-tabs",
+    "breadcrumbs": [
+      "components",
+      "AdaptiveTabs"
+    ],
+    "description": "If there is not enough container width to fit all the tabs, the tabs that do not fit will be hidden and accessible via the select with the caption 'More'. If only one tab fits, the select is displayed instead of the tabs.",
+    "section_ids": [
+      "component:components:adaptive-tabs:overview",
+      "component:components:adaptive-tabs:props",
+      "component:components:adaptive-tabs:examples"
+    ]
+  },
+  {
+    "id": "component:components:changelog-dialog",
+    "title": "ChangelogDialog",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/changelog-dialog",
+    "breadcrumbs": [
+      "components",
+      "ChangelogDialog"
+    ],
+    "description": "ChangelogDialog displays a modal dialog showing a list of changelog entries. Each entry has a date, title, image, description, and optional link. Supports loading states and custom empty content.",
+    "section_ids": [
+      "component:components:changelog-dialog:overview",
+      "component:components:changelog-dialog:props",
+      "component:components:changelog-dialog:examples"
+    ]
+  },
+  {
+    "id": "component:components:confirm-dialog",
+    "title": "ConfirmDialog",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/confirm-dialog",
+    "breadcrumbs": [
+      "components",
+      "ConfirmDialog"
+    ],
+    "description": "ConfirmDialog renders a modal dialog for user confirmation actions. It provides a title, message body, and two buttons for confirming or cancelling. Wraps the uikit Dialog component.",
+    "section_ids": [
+      "component:components:confirm-dialog:overview",
+      "component:components:confirm-dialog:props",
+      "component:components:confirm-dialog:examples"
+    ]
+  },
+  {
+    "id": "component:components:cookie-consent",
+    "title": "CookieConsent",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/cookie-consent",
+    "breadcrumbs": [
+      "components",
+      "CookieConsent"
+    ],
+    "description": "CookieConsent renders a cookie consent banner with a title, description, and action buttons. Supports floating and inline layout modes with configurable button actions.",
+    "section_ids": [
+      "component:components:cookie-consent:overview",
+      "component:components:cookie-consent:props",
+      "component:components:cookie-consent:examples"
+    ]
+  },
+  {
+    "id": "component:components:delayed-text-input",
+    "title": "DelayedTextInput",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/delayed-text-input",
+    "breadcrumbs": [
+      "components",
+      "DelayedTextInput"
+    ],
+    "description": "DelayedTextInput is a text input that debounces the onChange callback. The actual change event fires only after the user stops typing for the specified delay period.",
+    "section_ids": [
+      "component:components:delayed-text-input:overview",
+      "component:components:delayed-text-input:props",
+      "component:components:delayed-text-input:examples"
+    ]
+  },
+  {
+    "id": "component:components:form-row",
+    "title": "FormRow",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/form-row",
+    "breadcrumbs": [
+      "components",
+      "FormRow"
+    ],
+    "description": "FormRow is a layout component for form fields. It renders a label, the field content, and an optional hint or error message in a consistent row layout.",
+    "section_ids": [
+      "component:components:form-row:overview",
+      "component:components:form-row:props",
+      "component:components:form-row:examples"
+    ]
+  },
+  {
+    "id": "component:components:gallery",
+    "title": "Gallery",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/gallery",
+    "breadcrumbs": [
+      "components",
+      "Gallery"
+    ],
+    "description": "Gallery renders a fullscreen lightbox overlay for images or custom content. Supports navigation between items, keyboard controls, and custom rendering via render props.",
+    "section_ids": [
+      "component:components:gallery:overview",
+      "component:components:gallery:props",
+      "component:components:gallery:examples"
+    ]
+  },
+  {
+    "id": "component:components:infinite-scroll",
+    "title": "InfiniteScroll",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/infinite-scroll",
+    "breadcrumbs": [
+      "components",
+      "InfiniteScroll"
+    ],
+    "description": "InfiniteScroll triggers a callback to load more data when the user scrolls near the bottom of a container. Supports error state, loading indicator, and customizable threshold.",
+    "section_ids": [
+      "component:components:infinite-scroll:overview",
+      "component:components:infinite-scroll:props",
+      "component:components:infinite-scroll:examples"
+    ]
+  },
+  {
+    "id": "component:components:item-selector",
+    "title": "ItemSelector",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/item-selector",
+    "breadcrumbs": [
+      "components",
+      "ItemSelector"
+    ],
+    "description": "ItemSelector provides a dual-panel UI for moving items between available and selected lists. Supports search filtering, custom item rendering, and controlled or uncontrolled selection state.",
+    "section_ids": [
+      "component:components:item-selector:overview",
+      "component:components:item-selector:props",
+      "component:components:item-selector:examples"
+    ]
+  },
+  {
+    "id": "component:components:notifications",
+    "title": "Notifications",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/notifications",
+    "breadcrumbs": [
+      "components",
+      "Notifications"
+    ],
+    "description": "Notifications renders a list of notification items with title, formatted date, content, and action buttons. Supports loading and empty states with customizable empty content.",
+    "section_ids": [
+      "component:components:notifications:overview",
+      "component:components:notifications:props",
+      "component:components:notifications:examples"
+    ]
+  },
+  {
+    "id": "component:components:onboarding-menu",
+    "title": "OnboardingMenu",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/onboarding-menu",
+    "breadcrumbs": [
+      "components",
+      "OnboardingMenu"
+    ],
+    "description": "OnboardingMenu renders a guided onboarding checklist in a popover. Displays tasks with completion status, progress indicator, and supports custom rendering of task items.",
+    "section_ids": [
+      "component:components:onboarding-menu:overview",
+      "component:components:onboarding-menu:props",
+      "component:components:onboarding-menu:examples"
+    ]
+  },
+  {
+    "id": "component:components:promo-sheet",
+    "title": "PromoSheet",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/promo-sheet",
+    "breadcrumbs": [
+      "components",
+      "PromoSheet"
+    ],
+    "description": "PromoSheet renders a bottom sheet overlay for promotional content with an image, title, description, and action buttons. Designed for mobile-first promotional flows.",
+    "section_ids": [
+      "component:components:promo-sheet:overview",
+      "component:components:promo-sheet:props",
+      "component:components:promo-sheet:examples"
+    ]
+  },
+  {
+    "id": "component:components:reactions",
+    "title": "Reactions",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/reactions",
+    "breadcrumbs": [
+      "components",
+      "Reactions"
+    ],
+    "description": "Reactions renders a set of emoji reaction buttons with counts. Supports toggling reactions on/off, adding new reactions via a palette, and read-only display mode.",
+    "section_ids": [
+      "component:components:reactions:overview",
+      "component:components:reactions:props",
+      "component:components:reactions:examples"
+    ]
+  },
+  {
+    "id": "component:components:share-popover",
+    "title": "SharePopover",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/share-popover",
+    "breadcrumbs": [
+      "components",
+      "SharePopover"
+    ],
+    "description": "SharePopover renders a popover with social sharing options including copy link, Telegram, VK, Twitter/X, and LinkedIn. Supports custom social items and configurable URL.",
+    "section_ids": [
+      "component:components:share-popover:overview",
+      "component:components:share-popover:props",
+      "component:components:share-popover:examples"
+    ]
+  },
+  {
+    "id": "component:components:store-badge",
+    "title": "StoreBadge",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/store-badge",
+    "breadcrumbs": [
+      "components",
+      "StoreBadge"
+    ],
+    "description": "StoreBadge renders an App Store or Google Play download badge as a link. Supports custom theme, size override, and additional HTML anchor attributes.",
+    "section_ids": [
+      "component:components:store-badge:overview",
+      "component:components:store-badge:props",
+      "component:components:store-badge:examples"
+    ]
+  },
+  {
+    "id": "component:components:stories",
+    "title": "Stories",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/stories",
+    "breadcrumbs": [
+      "components",
+      "Stories"
+    ],
+    "description": "Stories renders an Instagram-like stories viewer in a modal dialog. Displays story items with media, title, description, and navigation controls. Supports autoplay and custom rendering.",
+    "section_ids": [
+      "component:components:stories:overview",
+      "component:components:stories:props",
+      "component:components:stories:examples"
+    ]
+  },
+  {
+    "id": "component:components:stories-group",
+    "title": "StoriesGroup",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/stories-group",
+    "breadcrumbs": [
+      "components",
+      "StoriesGroup"
+    ],
+    "description": "StoriesGroup renders a group of story preview cards that open the Stories viewer when clicked. Manages open/close state and tracks the active story group.",
+    "section_ids": [
+      "component:components:stories-group:overview",
+      "component:components:stories-group:props",
+      "component:components:stories-group:examples"
+    ]
+  }
+]
