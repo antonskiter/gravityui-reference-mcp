@@ -1,90 +1,81 @@
-import type { LoadedData } from "../loader.js";
+import type { LoadedData } from '../loader.js';
 
 export interface ListComponentsInput {
   library?: string;
+  category?: string;
 }
 
-export interface ComponentEntry {
+interface ComponentSummary {
   name: string;
-  page_id: string;
-  description: string;
-  has_design_guide: boolean;
+  library: string;
+  description?: string;
 }
 
-export interface LibraryGroup {
-  id: string;
-  title: string;
-  components: ComponentEntry[];
+interface CategoryGroup {
+  category: string;
+  displayName: string;
+  components: ComponentSummary[];
 }
 
 export interface ListComponentsOutput {
-  libraries: LibraryGroup[];
+  groups: CategoryGroup[];
+  totalCount: number;
 }
 
 export function handleListComponents(
   data: LoadedData,
   input: ListComponentsInput,
 ): ListComponentsOutput {
-  const { library } = input;
+  let comps = data.componentDefs;
 
-  // Filter component pages, optionally by library
-  const componentPages = data.pages.filter(p => {
-    if (p.page_type !== "component") return false;
-    if (library && p.library !== library) return false;
-    return true;
-  });
-
-  // Build a set of guide page names (lowercased) for lookup
-  const guideNames = new Set<string>();
-  for (const p of data.pages) {
-    if (p.page_type === "guide") {
-      guideNames.add(p.title.toLowerCase());
-    }
+  if (input.library) {
+    comps = data.componentsByLibrary.get(input.library) || [];
   }
 
-  // Group by library
-  const groupMap = new Map<string, ComponentEntry[]>();
+  const grouped = new Map<string, ComponentSummary[]>();
+  for (const comp of comps) {
+    const catSlug = data.categoryMap.components[comp.name] || 'other';
+    if (input.category && catSlug !== input.category) continue;
 
-  for (const page of componentPages) {
-    const lib = page.library ?? "unknown";
-    if (!groupMap.has(lib)) {
-      groupMap.set(lib, []);
-    }
-
-    const has_design_guide = guideNames.has(page.title.toLowerCase());
-
-    groupMap.get(lib)!.push({
-      name: page.title,
-      page_id: page.id,
-      description: page.description,
-      has_design_guide,
+    if (!grouped.has(catSlug)) grouped.set(catSlug, []);
+    grouped.get(catSlug)!.push({
+      name: comp.name,
+      library: comp.library,
+      description: comp.description,
     });
   }
 
-  // Sort components by name within each library, build output
-  const libraries: LibraryGroup[] = [];
-  for (const [lib, components] of groupMap) {
-    components.sort((a, b) => a.name.localeCompare(b.name));
-    libraries.push({
-      id: lib,
-      title: lib,
-      components,
-    });
+  const groups: CategoryGroup[] = [];
+  for (const [slug, components] of grouped) {
+    const displayName = data.categoryMap.categories[slug] || slug;
+    groups.push({ category: slug, displayName, components });
   }
 
-  // Sort libraries by id
-  libraries.sort((a, b) => a.id.localeCompare(b.id));
+  groups.sort((a, b) => a.displayName.localeCompare(b.displayName));
 
-  return { libraries };
+  const totalCount = groups.reduce((sum, g) => sum + g.components.length, 0);
+  return { groups, totalCount };
 }
 
-export function formatListComponents(result: ListComponentsOutput): string {
+export function formatListComponents(output: ListComponentsOutput): string {
   const lines: string[] = [];
-  for (const lib of result.libraries) {
-    lines.push(`${lib.title} (${lib.components.length} components)`);
-    for (const c of lib.components) {
-      lines.push(`- ${c.name} (${c.page_id})`);
+  const isFiltered = output.groups.length === 1;
+
+  lines.push(`${output.totalCount} components`);
+  lines.push('');
+
+  for (const group of output.groups) {
+    lines.push(`${group.displayName} (${group.components.length})`);
+
+    for (const comp of group.components) {
+      if (isFiltered && comp.description) {
+        lines.push(`  ${comp.name} — ${comp.description}`);
+      } else {
+        lines.push(`  ${comp.name}`);
+      }
     }
+    lines.push('');
   }
-  return lines.join("\n");
+
+  return lines.join('\n').trim();
 }
