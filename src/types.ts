@@ -72,3 +72,31 @@ export interface DesignSystemOverview {
   system: SystemOverview;
   libraries: LibraryOverviewEntry[];
 }
+
+export interface PropDef {
+  name: string;
+  type: string;           // e.g. "'s' | 'm' | 'l' | 'xl'"
+  required: boolean;
+  default?: string;       // e.g. "'m'"
+  description?: string;   // from JSDoc
+  deprecated?: boolean;
+}
+
+export interface ComponentDef {
+  name: string;           // e.g. "Button"
+  library: string;        // e.g. "uikit"
+  category?: string;      // e.g. "layout", "forms", "feedback"
+  import_path: string;    // e.g. "@gravity-ui/uikit"
+  import_statement: string; // e.g. "import {Button} from '@gravity-ui/uikit';"
+  props: PropDef[];
+  examples: string[];     // code snippets from stories
+  description?: string;   // from README first paragraph, if exists
+  source_file: string;    // relative path in vendor/
+}
+
+export interface TokenSet {
+  spacing: Record<string, string>;     // e.g. {"0": "0px", "1": "4px", ...}
+  breakpoints: Record<string, number>; // e.g. {"xs": 0, "s": 576, ...}
+  sizes: Record<string, string>;       // e.g. {"xs": "20px", "s": "24px", ...}
+  colors?: Record<string, string>;     // semantic color tokens if extractable
+}

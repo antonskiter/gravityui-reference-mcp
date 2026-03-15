@@ -1,0 +1,106 @@
+[submodule "vendor/uikit"]
+	path = vendor/uikit
+	url = https://github.com/gravity-ui/uikit.git
+[submodule "vendor/components"]
+	path = vendor/components
+	url = https://github.com/gravity-ui/components.git
+[submodule "vendor/date-components"]
+	path = vendor/date-components
+	url = https://github.com/gravity-ui/date-components.git
+[submodule "vendor/navigation"]
+	path = vendor/navigation
+	url = https://github.com/gravity-ui/navigation.git
+[submodule "vendor/markdown-editor"]
+	path = vendor/markdown-editor
+	url = https://github.com/gravity-ui/markdown-editor.git
+[submodule "vendor/aikit"]
+	path = vendor/aikit
+	url = https://github.com/gravity-ui/aikit.git
+[submodule "vendor/graph"]
+	path = vendor/graph
+	url = https://github.com/gravity-ui/graph.git
+[submodule "vendor/chartkit"]
+	path = vendor/chartkit
+	url = https://github.com/gravity-ui/chartkit.git
+[submodule "vendor/charts"]
+	path = vendor/charts
+	url = https://github.com/gravity-ui/charts.git
+[submodule "vendor/table"]
+	path = vendor/table
+	url = https://github.com/gravity-ui/table.git
+[submodule "vendor/dashkit"]
+	path = vendor/dashkit
+	url = https://github.com/gravity-ui/dashkit.git
+[submodule "vendor/yagr"]
+	path = vendor/yagr
+	url = https://github.com/gravity-ui/yagr.git
+[submodule "vendor/timeline"]
+	path = vendor/timeline
+	url = https://github.com/gravity-ui/timeline.git
+[submodule "vendor/icons"]
+	path = vendor/icons
+	url = https://github.com/gravity-ui/icons.git
+[submodule "vendor/illustrations"]
+	path = vendor/illustrations
+	url = https://github.com/gravity-ui/illustrations.git
+[submodule "vendor/dynamic-forms"]
+	path = vendor/dynamic-forms
+	url = https://github.com/gravity-ui/dynamic-forms.git
+[submodule "vendor/page-constructor"]
+	path = vendor/page-constructor
+	url = https://github.com/gravity-ui/page-constructor.git
+[submodule "vendor/blog-constructor"]
+	path = vendor/blog-constructor
+	url = https://github.com/gravity-ui/blog-constructor.git
+[submodule "vendor/page-constructor-builder"]
+	path = vendor/page-constructor-builder
+	url = https://github.com/gravity-ui/page-constructor-builder.git
+[submodule "vendor/dialog-fields"]
+	path = vendor/dialog-fields
+	url = https://github.com/gravity-ui/dialog-fields.git
+[submodule "vendor/nodekit"]
+	path = vendor/nodekit
+	url = https://github.com/gravity-ui/nodekit.git
+[submodule "vendor/expresskit"]
+	path = vendor/expresskit
+	url = https://github.com/gravity-ui/expresskit.git
+[submodule "vendor/app-layout"]
+	path = vendor/app-layout
+	url = https://github.com/gravity-ui/app-layout.git
+[submodule "vendor/date-utils"]
+	path = vendor/date-utils
+	url = https://github.com/gravity-ui/date-utils.git
+[submodule "vendor/axios-wrapper"]
+	path = vendor/axios-wrapper
+	url = https://github.com/gravity-ui/axios-wrapper.git
+[submodule "vendor/i18n"]
+	path = vendor/i18n
+	url = https://github.com/gravity-ui/i18n.git
+[submodule "vendor/data-source"]
+	path = vendor/data-source
+	url = https://github.com/gravity-ui/data-source.git
+[submodule "vendor/eslint-config"]
+	path = vendor/eslint-config
+	url = https://github.com/gravity-ui/eslint-config.git
+[submodule "vendor/tsconfig"]
+	path = vendor/tsconfig
+	url = https://github.com/gravity-ui/tsconfig.git
+[submodule "vendor/prettier-config"]
+	path = vendor/prettier-config
+	url = https://github.com/gravity-ui/prettier-config.git
+[submodule "vendor/stylelint-config"]
+	path = vendor/stylelint-config
+	url = https://github.com/gravity-ui/stylelint-config.git
+[submodule "vendor/babel-preset"]
+	path = vendor/babel-preset
+	url = https://github.com/gravity-ui/babel-preset.git
+[submodule "vendor/browserslist-config"]
+	path = vendor/browserslist-config
+	url = https://github.com/gravity-ui/browserslist-config.git
+	branch = master
+[submodule "vendor/webpack-i18n-assets-plugin"]
+	path = vendor/webpack-i18n-assets-plugin
+	url = https://github.com/gravity-ui/webpack-i18n-assets-plugin.git
+[submodule "vendor/landing"]
+	path = vendor/landing
+	url = https://github.com/gravity-ui/landing.git
