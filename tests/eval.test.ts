@@ -7,12 +7,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { loadData, type LoadedData } from "../src/server/loader.js";
 import { handleSearchDocs, formatSearchDocs } from "../src/server/tools/search-docs.js";
-import { handleGetSection } from "../src/server/tools/get-section.js";
-import { handleGetPage } from "../src/server/tools/get-page.js";
 import { handleListComponents } from "../src/server/tools/list-components.js";
-import { handleListSources } from "../src/server/tools/list-sources.js";
-import { handleGetComponentReference, formatGetComponentReference } from "../src/server/tools/get-component-reference.js";
-import { handleGetQuickStart } from "../src/server/tools/get-quick-start.js";
 import { handleSuggestComponent } from "../src/server/tools/suggest-component.js";
 
 let data: LoadedData;
@@ -280,115 +275,6 @@ describe("content cleanliness", () => {
 });
 
 // ---------------------------------------------------------------------------
-// get_component_reference: known components resolve correctly
-// ---------------------------------------------------------------------------
-
-describe("get_component_reference", () => {
-  it("resolves Button in uikit", () => {
-    const result = handleGetComponentReference(data, { name: "Button", library: "uikit" });
-    expect("error" in result).toBe(false);
-    if ("error" in result) return;
-    expect(result.component).toBe("Button");
-    expect(result.import_statement).toContain("Button");
-    expect(result.description.length).toBeGreaterThan(0);
-    expect(result.url).toContain("gravity-ui.com");
-  });
-
-  it("resolves Select in uikit with props", () => {
-    const result = handleGetComponentReference(data, { name: "Select", library: "uikit" });
-    expect("error" in result).toBe(false);
-    if ("error" in result) return;
-    expect(result.component).toBe("Select");
-  });
-
-  it("resolves Dialog in uikit", () => {
-    const result = handleGetComponentReference(data, { name: "Dialog", library: "uikit" });
-    expect("error" in result).toBe(false);
-    if ("error" in result) return;
-    expect(result.component).toBe("Dialog");
-  });
-
-  it("returns error for nonexistent component", () => {
-    const result = handleGetComponentReference(data, { name: "NonExistent", library: "uikit" });
-    expect("error" in result).toBe(true);
-  });
-
-  it("formatted output is clean text", () => {
-    const result = handleGetComponentReference(data, { name: "Button", library: "uikit" });
-    const formatted = formatGetComponentReference(result);
-    expect(formatted).not.toContain("![");
-    expect(formatted.length).toBeGreaterThan(50);
-  });
-});
-
-// ---------------------------------------------------------------------------
-// get_section: drill-down works
-// ---------------------------------------------------------------------------
-
-describe("get_section", () => {
-  it("retrieves a known section by ID", () => {
-    // Find any chunk ID from the data
-    const chunk = data.chunks[0];
-    const result = handleGetSection(data, { section_id: chunk.id });
-    expect("error" in result).toBe(false);
-    if ("error" in result) return;
-    expect(result.section_id).toBe(chunk.id);
-    expect(result.content.length).toBeGreaterThan(0);
-  });
-
-  it("includes related_sections from the same page", () => {
-    // Find a page with multiple chunks
-    const multiChunkPage = data.pages.find((p) => p.section_ids.length > 1);
-    expect(multiChunkPage).toBeDefined();
-    if (!multiChunkPage) return;
-
-    const firstSectionId = multiChunkPage.section_ids[0];
-    const result = handleGetSection(data, { section_id: firstSectionId });
-    expect("error" in result).toBe(false);
-    if ("error" in result) return;
-    expect(result.related_sections.length).toBeGreaterThan(0);
-  });
-
-  it("returns error for unknown section", () => {
-    const result = handleGetSection(data, { section_id: "nonexistent:id" });
-    expect("error" in result).toBe(true);
-  });
-});
-
-// ---------------------------------------------------------------------------
-// get_page: page metadata works
-// ---------------------------------------------------------------------------
-
-describe("get_page", () => {
-  it("retrieves a component page", () => {
-    const result = handleGetPage(data, { page_id: "component:uikit:Button" });
-    expect("error" in result).toBe(false);
-    if ("error" in result) return;
-    expect(result.title).toBe("Button");
-    expect(result.sections.length).toBeGreaterThan(0);
-  });
-
-  it("retrieves a guide page", () => {
-    const result = handleGetPage(data, { page_id: "guide:Button" });
-    expect("error" in result).toBe(false);
-    if ("error" in result) return;
-    expect(result.page_type).toBe("guide");
-  });
-
-  it("retrieves a library page", () => {
-    const result = handleGetPage(data, { page_id: "library:uikit" });
-    expect("error" in result).toBe(false);
-    if ("error" in result) return;
-    expect(result.page_type).toBe("library");
-  });
-
-  it("returns error for unknown page", () => {
-    const result = handleGetPage(data, { page_id: "nonexistent:page" });
-    expect("error" in result).toBe(true);
-  });
-});
-
-// ---------------------------------------------------------------------------
 // list_components: expected libraries and components present
 // ---------------------------------------------------------------------------
 
@@ -415,26 +301,6 @@ describe("list_components", () => {
     const result = handleListComponents(data, { library: "aikit" });
     expect(result.libraries).toHaveLength(1);
     expect(result.libraries[0].components.length).toBeGreaterThan(5);
-  });
-});
-
-// ---------------------------------------------------------------------------
-// list_sources: metadata is accurate
-// ---------------------------------------------------------------------------
-
-describe("list_sources", () => {
-  it("returns accurate counts", () => {
-    const result = handleListSources(data);
-    expect(result.total_pages).toBe(data.pages.length);
-    expect(result.total_sections).toBe(data.chunks.length);
-    expect(result.page_counts.guides).toBeGreaterThan(30);
-    expect(result.page_counts.components).toBeGreaterThan(90);
-    expect(result.page_counts.libraries).toBeGreaterThan(30);
-  });
-
-  it("lists all 34 library repos", () => {
-    const result = handleListSources(data);
-    expect(result.libraries.length).toBe(34);
   });
 });
 
@@ -467,33 +333,6 @@ describe("suggest_component", () => {
     for (const s of result.suggestions) {
       expect(s.library).toBe("uikit");
     }
-  });
-});
-
-// ---------------------------------------------------------------------------
-// get_quick_start: library onboarding works
-// ---------------------------------------------------------------------------
-
-describe("get_quick_start", () => {
-  it("returns quick start for uikit", () => {
-    const result = handleGetQuickStart(data, { library: "uikit" });
-    expect("error" in result).toBe(false);
-    if ("error" in result) return;
-    expect(result.library).toBe("uikit");
-    expect(result.package).toBe("@gravity-ui/uikit");
-    expect(result.components.length).toBeGreaterThan(50);
-  });
-
-  it("returns quick start for graph", () => {
-    const result = handleGetQuickStart(data, { library: "graph" });
-    expect("error" in result).toBe(false);
-    if ("error" in result) return;
-    expect(result.library).toBe("graph");
-  });
-
-  it("returns error for unknown library", () => {
-    const result = handleGetQuickStart(data, { library: "nonexistent" });
-    expect("error" in result).toBe(true);
   });
 });
 

@@ -1864,6 +1864,26 @@
     ]
   },
   {
+    "id": "component:uikit:tabs",
+    "title": "Tabs components",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/tabs",
+    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/tabs",
+    "breadcrumbs": [
+      "Tabs components"
+    ],
+    "description": "Tabs components is used to explore, organize content and switch between…",
+    "section_ids": [
+      "component:uikit:tabs:tabs-components",
+      "component:uikit:tabs:tabprovider",
+      "component:uikit:tabs:tablist",
+      "component:uikit:tabs:tab",
+      "component:uikit:tabs:tabpanel",
+      "component:uikit:tabs:css-api"
+    ]
+  },
+  {
     "id": "component:uikit:controls/PasswordInput",
     "title": "controls/PasswordInput",
     "page_type": "component",
@@ -2038,609 +2058,6 @@
     ]
   },
   {
-    "id": "component:uikit:tabs",
-    "title": "Tabs components",
-    "page_type": "component",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/components/uikit/tabs",
-    "github_url": "https://github.com/gravity-ui/uikit/tree/main/src/components/tabs",
-    "breadcrumbs": [
-      "Tabs components"
-    ],
-    "description": "Tabs components is used to explore, organize content and switch between…",
-    "section_ids": [
-      "component:uikit:tabs:tabs-components",
-      "component:uikit:tabs:tabprovider",
-      "component:uikit:tabs:tablist",
-      "component:uikit:tabs:tab",
-      "component:uikit:tabs:tabpanel",
-      "component:uikit:tabs:css-api"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/contribute/README",
-    "title": "Contribute to @gravity-ui/uikit",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/contribute/README.md",
-    "breadcrumbs": [
-      "Contribute to @gravity-ui/uikit"
-    ],
-    "description": "Thank you for your interest in @gravity-ui/uikit! We welcome contributions from…",
-    "section_ids": [
-      "library:uikit:uikit/contribute/README:contribute-to-gravity-uiuikit",
-      "library:uikit:uikit/contribute/README:how-to-contribute",
-      "library:uikit:uikit/contribute/README:getting-started",
-      "library:uikit:uikit/contribute/README:need-help"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/playwright/README",
-    "title": "Playwright Test Component",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/playwright/README.md",
-    "breadcrumbs": [
-      "Playwright Test Component",
-      "How to write a test"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:uikit:uikit/playwright/README:how-to-write-a-test",
-      "library:uikit:uikit/playwright/README:npm-scripts"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/lab/useDropZone/README",
-    "title": "useDropZone",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/lab/useDropZone/README.md",
-    "breadcrumbs": [
-      "useDropZone"
-    ],
-    "description": "The useDropZone hook provides props for an element to act as a drop zone and…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/lab/useDropZone/README:usedropzone",
-      "library:uikit:uikit/src/hooks/lab/useDropZone/README:properties",
-      "library:uikit:uikit/src/hooks/lab/useDropZone/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/private/useAnimateHeight/README",
-    "title": "useAnimateHeight",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/private/useAnimateHeight/README.md",
-    "breadcrumbs": [
-      "useAnimateHeight"
-    ],
-    "description": "The useAnimateHeight hook handles dynamic height change transition",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/private/useAnimateHeight/README:useanimateheight",
-      "library:uikit:uikit/src/hooks/private/useAnimateHeight/README:properties",
-      "library:uikit:uikit/src/hooks/private/useAnimateHeight/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/private/useBoolean/README",
-    "title": "useBoolean",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/private/useBoolean/README.md",
-    "breadcrumbs": [
-      "useBoolean"
-    ],
-    "description": "The useBoolean hook makes typical handlers for boolean state",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/private/useBoolean/README:useboolean",
-      "library:uikit:uikit/src/hooks/private/useBoolean/README:properties",
-      "library:uikit:uikit/src/hooks/private/useBoolean/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/private/useCheckbox/README",
-    "title": "useCheckbox",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/private/useCheckbox/README.md",
-    "breadcrumbs": [
-      "useCheckbox"
-    ],
-    "description": "The useCheckbox hook need to generate props for checkbox control",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/private/useCheckbox/README:usecheckbox",
-      "library:uikit:uikit/src/hooks/private/useCheckbox/README:properties",
-      "library:uikit:uikit/src/hooks/private/useCheckbox/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/private/useCloseOnTimeout/README",
-    "title": "useCloseOnTimeout",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/private/useCloseOnTimeout/README.md",
-    "breadcrumbs": [
-      "useCloseOnTimeout"
-    ],
-    "description": "The useCloseOnTimeout hook invokes callback after given amount of time unless…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/private/useCloseOnTimeout/README:usecloseontimeout",
-      "library:uikit:uikit/src/hooks/private/useCloseOnTimeout/README:properties",
-      "library:uikit:uikit/src/hooks/private/useCloseOnTimeout/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/private/useConditionallyControlledState/README",
-    "title": "useConditionallyControlledState",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/private/useConditionallyControlledState/README.md",
-    "breadcrumbs": [
-      "useConditionallyControlledState"
-    ],
-    "description": "React hook used to create a conditionally controlled state, such state can…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/private/useConditionallyControlledState/README:useconditionallycontrolledstate",
-      "library:uikit:uikit/src/hooks/private/useConditionallyControlledState/README:properties",
-      "library:uikit:uikit/src/hooks/private/useConditionallyControlledState/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/private/useElementSize/README",
-    "title": "useElementSize",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/private/useElementSize/README.md",
-    "breadcrumbs": [
-      "useElementSize"
-    ],
-    "description": "The useElementSize hook is needed to get target element size",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/private/useElementSize/README:useelementsize",
-      "library:uikit:uikit/src/hooks/private/useElementSize/README:properties",
-      "library:uikit:uikit/src/hooks/private/useElementSize/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/private/useFloatingTransition/README",
-    "title": "useFloatingTransition",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/private/useFloatingTransition/README.md",
-    "breadcrumbs": [
-      "useFloatingTransition"
-    ],
-    "description": "The useFloatingTransition hook consolidates logic for transition in Floating UI.",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/private/useFloatingTransition/README:usefloatingtransition",
-      "library:uikit:uikit/src/hooks/private/useFloatingTransition/README:properties",
-      "library:uikit:uikit/src/hooks/private/useFloatingTransition/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/private/useHover/README",
-    "title": "useHover",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/private/useHover/README.md",
-    "breadcrumbs": [
-      "useHover"
-    ],
-    "description": "The useHover hook makes hover state with callbacks for change it",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/private/useHover/README:usehover",
-      "library:uikit:uikit/src/hooks/private/useHover/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/private/useMatchMedia/README",
-    "title": "useMatchMedia",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/private/useMatchMedia/README.md",
-    "breadcrumbs": [
-      "useMatchMedia"
-    ],
-    "description": "The useMatchMedia hook listens for a passed media query and returns whether it…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/private/useMatchMedia/README:usematchmedia",
-      "library:uikit:uikit/src/hooks/private/useMatchMedia/README:properties"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/private/usePrevious/README",
-    "title": "usePrevious",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/private/usePrevious/README.md",
-    "breadcrumbs": [
-      "usePrevious"
-    ],
-    "description": "The usePrevious hook stores the previous value during renders",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/private/usePrevious/README:useprevious",
-      "library:uikit:uikit/src/hooks/private/usePrevious/README:properties"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/private/useRadio/README",
-    "title": "useRadio",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/private/useRadio/README.md",
-    "breadcrumbs": [
-      "useRadio"
-    ],
-    "description": "The useRadio hook need to generate props for radio group control",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/private/useRadio/README:useradio",
-      "library:uikit:uikit/src/hooks/private/useRadio/README:properties",
-      "library:uikit:uikit/src/hooks/private/useRadio/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/private/useRadioGroup/README",
-    "title": "useRadioGroup",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/private/useRadioGroup/README.md",
-    "breadcrumbs": [
-      "useRadioGroup"
-    ],
-    "description": "The useRadioGroup hook need to generate props for radio group control",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/private/useRadioGroup/README:useradiogroup",
-      "library:uikit:uikit/src/hooks/private/useRadioGroup/README:properties",
-      "library:uikit:uikit/src/hooks/private/useRadioGroup/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/private/useStateWithCallback/README",
-    "title": "useStateWithCallback",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/private/useStateWithCallback/README.md",
-    "breadcrumbs": [
-      "useStateWithCallback"
-    ],
-    "description": "The useStateWithCallback hook a wrapper that adds a callback call when the…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/private/useStateWithCallback/README:usestatewithcallback",
-      "library:uikit:uikit/src/hooks/private/useStateWithCallback/README:properties",
-      "library:uikit:uikit/src/hooks/private/useStateWithCallback/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/private/useUpdateEffect/README",
-    "title": "useUpdateEffect",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/private/useUpdateEffect/README.md",
-    "breadcrumbs": [
-      "useUpdateEffect"
-    ],
-    "description": "The useUpdateEffect hook that ignores the first invocation (e.g. on mount). The…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/private/useUpdateEffect/README:useupdateeffect"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useActionHandlers/README",
-    "title": "useActionHandlers",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useActionHandlers/README.md",
-    "breadcrumbs": [
-      "useActionHandlers"
-    ],
-    "description": "The useActionHandlers hook emulates behaviour of system controls, that respond…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useActionHandlers/README:useactionhandlers",
-      "library:uikit:uikit/src/hooks/useActionHandlers/README:properties",
-      "library:uikit:uikit/src/hooks/useActionHandlers/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useAsyncActionHandler/README",
-    "title": "useAsyncActionHandler",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useAsyncActionHandler/README.md",
-    "breadcrumbs": [
-      "useAsyncActionHandler"
-    ],
-    "description": "The useAsyncActionHandler hook wraps an asynchronous action handler to add a…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useAsyncActionHandler/README:useasyncactionhandler",
-      "library:uikit:uikit/src/hooks/useAsyncActionHandler/README:properties",
-      "library:uikit:uikit/src/hooks/useAsyncActionHandler/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useCollapseChildren/README",
-    "title": "useCollapseChildren",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useCollapseChildren/README.md",
-    "breadcrumbs": [
-      "useCollapseChildren"
-    ],
-    "description": "The useCollapseChildren hook calculates visible children count for a specified…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useCollapseChildren/README:usecollapsechildren",
-      "library:uikit:uikit/src/hooks/useCollapseChildren/README:properties",
-      "library:uikit:uikit/src/hooks/useCollapseChildren/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useColorGenerator/README",
-    "title": "useColorGenerator",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useColorGenerator/README.md",
-    "breadcrumbs": [
-      "useColorGenerator"
-    ],
-    "description": "The useColorGenerator hook generates a unique (but consistent) background color…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useColorGenerator/README:usecolorgenerator",
-      "library:uikit:uikit/src/hooks/useColorGenerator/README:properties",
-      "library:uikit:uikit/src/hooks/useColorGenerator/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useControlledState/README",
-    "title": "useControlledState",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useControlledState/README.md",
-    "breadcrumbs": [
-      "useControlledState"
-    ],
-    "description": "The useControlledState hook that simplify work with controlled/uncontrolled…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useControlledState/README:usecontrolledstate",
-      "library:uikit:uikit/src/hooks/useControlledState/README:properties",
-      "library:uikit:uikit/src/hooks/useControlledState/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useFileInput/README",
-    "title": "useFileInput",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useFileInput/README.md",
-    "breadcrumbs": [
-      "useFileInput"
-    ],
-    "description": "The useFileInput hook used to shape props for input with type \"file\"",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useFileInput/README:usefileinput",
-      "library:uikit:uikit/src/hooks/useFileInput/README:properties",
-      "library:uikit:uikit/src/hooks/useFileInput/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useFocusWithin/README",
-    "title": "useFocusWithin",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useFocusWithin/README.md",
-    "breadcrumbs": [
-      "useFocusWithin"
-    ],
-    "description": "The useFocusWithin hook that handles focus events for the target and its…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useFocusWithin/README:usefocuswithin",
-      "library:uikit:uikit/src/hooks/useFocusWithin/README:properties",
-      "library:uikit:uikit/src/hooks/useFocusWithin/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useForkRef/README",
-    "title": "useForkRef",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useForkRef/README.md",
-    "breadcrumbs": [
-      "useForkRef"
-    ],
-    "description": "The useForkRef hook that can combine refs into a single ref",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useForkRef/README:useforkref",
-      "library:uikit:uikit/src/hooks/useForkRef/README:properties",
-      "library:uikit:uikit/src/hooks/useForkRef/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useIntersection/README",
-    "title": "useIntersection",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useIntersection/README.md",
-    "breadcrumbs": [
-      "useIntersection"
-    ],
-    "description": "The useIntersection hook works with the Intersection Observer API and calls a…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useIntersection/README:useintersection",
-      "library:uikit:uikit/src/hooks/useIntersection/README:properties"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useListNavigation/README",
-    "title": "useListNavigation",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useListNavigation/README.md",
-    "breadcrumbs": [
-      "useListNavigation"
-    ],
-    "description": "The useListNavigation hook used to navigate through the items in a list",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useListNavigation/README:uselistnavigation",
-      "library:uikit:uikit/src/hooks/useListNavigation/README:examples",
-      "library:uikit:uikit/src/hooks/useListNavigation/README:properties",
-      "library:uikit:uikit/src/hooks/useListNavigation/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useOutsideClick/README",
-    "title": "useOutsideClick",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useOutsideClick/README.md",
-    "breadcrumbs": [
-      "useOutsideClick"
-    ],
-    "description": "The useOutsideClick hook helps to track the click outside of the tracked…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useOutsideClick/README:useoutsideclick",
-      "library:uikit:uikit/src/hooks/useOutsideClick/README:properties"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/usePortalContainer/README",
-    "title": "usePortalContainer",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/usePortalContainer/README.md",
-    "breadcrumbs": [
-      "usePortalContainer"
-    ],
-    "description": "The usePortalContainer hook returns portal container element in the current…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/usePortalContainer/README:useportalcontainer",
-      "library:uikit:uikit/src/hooks/usePortalContainer/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useResizeObserver/README",
-    "title": "useResizeObserver",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useResizeObserver/README.md",
-    "breadcrumbs": [
-      "useResizeObserver"
-    ],
-    "description": "Custom hook that observes the change of the size of an element using the…",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useResizeObserver/README:useresizeobserver",
-      "library:uikit:uikit/src/hooks/useResizeObserver/README:properties"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useSelect/README",
-    "title": "useSelect",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useSelect/README.md",
-    "breadcrumbs": [
-      "useSelect"
-    ],
-    "description": "The useSelect hook used to handle items selection in list",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useSelect/README:useselect",
-      "library:uikit:uikit/src/hooks/useSelect/README:properties",
-      "library:uikit:uikit/src/hooks/useSelect/README:result"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useTimeout/README",
-    "title": "useTimeout",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useTimeout/README.md",
-    "breadcrumbs": [
-      "useTimeout"
-    ],
-    "description": "The useTimeout hook executes callback after timeout",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useTimeout/README:usetimeout",
-      "library:uikit:uikit/src/hooks/useTimeout/README:properties"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useUniqId/README",
-    "title": "useUniqId",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useUniqId/README.md",
-    "breadcrumbs": [
-      "useUniqId"
-    ],
-    "description": "The useUniqId hook creates unique ID.",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useUniqId/README:useuniqid"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useViewportSize/README",
-    "title": "useViewportSize",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useViewportSize/README.md",
-    "breadcrumbs": [
-      "useViewportSize"
-    ],
-    "description": "The useViewportSize hook calculates the size of the viewport at the resize event",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useViewportSize/README:useviewportsize"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/src/hooks/useVirtualElementRef/README",
-    "title": "useVirtualElementRef",
-    "page_type": "library",
-    "library": "uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "github_url": "https://github.com/gravity-ui/uikit/blob/main/src/hooks/useVirtualElementRef/README.md",
-    "breadcrumbs": [
-      "useVirtualElementRef"
-    ],
-    "description": "The useVirtualElementRef hook helps to create virtual element for popup",
-    "section_ids": [
-      "library:uikit:uikit/src/hooks/useVirtualElementRef/README:usevirtualelementref",
-      "library:uikit:uikit/src/hooks/useVirtualElementRef/README:properties",
-      "library:uikit:uikit/src/hooks/useVirtualElementRef/README:result"
-    ]
-  },
-  {
     "id": "library:components",
     "title": "@gravity-ui/components",
     "page_type": "library",
@@ -2779,45 +2196,6 @@
       "component:components:Gallery:gallery-context",
       "component:components:Gallery:default-gallery-item-props",
       "component:components:Gallery:examples"
-    ]
-  },
-  {
-    "id": "component:components:Gallery/contexts/GalleryContext",
-    "title": "GalleryContext",
-    "page_type": "component",
-    "library": "components",
-    "url": "https://gravity-ui.com/components/components/gallerycontextsgallerycontext",
-    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/Gallery/contexts/GalleryContext",
-    "breadcrumbs": [
-      "GalleryContext"
-    ],
-    "description": "React context for communication between Gallery and its child views (like…",
-    "section_ids": [
-      "component:components:Gallery/contexts/GalleryContext:gallerycontext",
-      "component:components:Gallery/contexts/GalleryContext:usage",
-      "component:components:Gallery/contexts/GalleryContext:context-value",
-      "component:components:Gallery/contexts/GalleryContext:example",
-      "component:components:Gallery/contexts/GalleryContext:integration"
-    ]
-  },
-  {
-    "id": "component:components:Gallery/hooks/useImageZoom",
-    "title": "useImageZoom",
-    "page_type": "component",
-    "library": "components",
-    "url": "https://gravity-ui.com/components/components/galleryhooksuseimagezoom",
-    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/Gallery/hooks/useImageZoom",
-    "breadcrumbs": [
-      "useImageZoom"
-    ],
-    "description": "Hook for managing image zoom and pan functionality in Gallery. Automatically…",
-    "section_ids": [
-      "component:components:Gallery/hooks/useImageZoom:useimagezoom",
-      "component:components:Gallery/hooks/useImageZoom:usage",
-      "component:components:Gallery/hooks/useImageZoom:props",
-      "component:components:Gallery/hooks/useImageZoom:return-value",
-      "component:components:Gallery/hooks/useImageZoom:behavior",
-      "component:components:Gallery/hooks/useImageZoom:example"
     ]
   },
   {
@@ -2968,22 +2346,6 @@
     ]
   },
   {
-    "id": "component:components:Stories/hooks/useSyncWithLS",
-    "title": "useSyncWithLS",
-    "page_type": "component",
-    "library": "components",
-    "url": "https://gravity-ui.com/components/components/storieshooksusesyncwithls",
-    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/Stories/hooks/useSyncWithLS",
-    "breadcrumbs": [
-      "useSyncWithLS"
-    ],
-    "description": "The useSyncWithLS hook executes callback when value changed in Local Storage",
-    "section_ids": [
-      "component:components:Stories/hooks/useSyncWithLS:usesyncwithls",
-      "component:components:Stories/hooks/useSyncWithLS:properties"
-    ]
-  },
-  {
     "id": "component:components:StoriesGroup",
     "title": "StoriesGroup",
     "page_type": "component",
@@ -3001,19 +2363,58 @@
     ]
   },
   {
-    "id": "library:components:components/src/hooks/useGallery/README",
-    "title": "components/src/hooks/useGallery/README",
-    "page_type": "library",
+    "id": "component:components:contexts/GalleryContext",
+    "title": "GalleryContext",
+    "page_type": "component",
     "library": "components",
-    "url": "https://gravity-ui.com/libraries/components",
-    "github_url": "https://github.com/gravity-ui/components/blob/main/src/hooks/useGallery/README.md",
+    "url": "https://gravity-ui.com/components/components/contextsgallerycontext",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/contexts/GalleryContext",
     "breadcrumbs": [
-      "components/src/hooks/useGallery/README",
-      "useGallery"
+      "GalleryContext"
     ],
-    "description": "",
+    "description": "React context for communication between Gallery and its child views (like…",
     "section_ids": [
-      "library:components:components/src/hooks/useGallery/README:usegallery"
+      "component:components:contexts/GalleryContext:gallerycontext",
+      "component:components:contexts/GalleryContext:usage",
+      "component:components:contexts/GalleryContext:context-value",
+      "component:components:contexts/GalleryContext:example",
+      "component:components:contexts/GalleryContext:integration"
+    ]
+  },
+  {
+    "id": "component:components:hooks/useImageZoom",
+    "title": "useImageZoom",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/hooksuseimagezoom",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/hooks/useImageZoom",
+    "breadcrumbs": [
+      "useImageZoom"
+    ],
+    "description": "Hook for managing image zoom and pan functionality in Gallery. Automatically…",
+    "section_ids": [
+      "component:components:hooks/useImageZoom:useimagezoom",
+      "component:components:hooks/useImageZoom:usage",
+      "component:components:hooks/useImageZoom:props",
+      "component:components:hooks/useImageZoom:return-value",
+      "component:components:hooks/useImageZoom:behavior",
+      "component:components:hooks/useImageZoom:example"
+    ]
+  },
+  {
+    "id": "component:components:hooks/useSyncWithLS",
+    "title": "useSyncWithLS",
+    "page_type": "component",
+    "library": "components",
+    "url": "https://gravity-ui.com/components/components/hooksusesyncwithls",
+    "github_url": "https://github.com/gravity-ui/components/tree/main/src/components/hooks/useSyncWithLS",
+    "breadcrumbs": [
+      "useSyncWithLS"
+    ],
+    "description": "The useSyncWithLS hook executes callback when value changed in Local Storage",
+    "section_ids": [
+      "component:components:hooks/useSyncWithLS:usesyncwithls",
+      "component:components:hooks/useSyncWithLS:properties"
     ]
   },
   {
@@ -3224,23 +2625,6 @@
     ]
   },
   {
-    "id": "component:navigation:AsideHeader/components/AllPagesPanel",
-    "title": "AllPagesPanel",
-    "page_type": "component",
-    "library": "navigation",
-    "url": "https://gravity-ui.com/components/navigation/asideheadercomponentsallpagespanel",
-    "github_url": "https://github.com/gravity-ui/navigation/tree/main/src/components/AsideHeader/components/AllPagesPanel",
-    "breadcrumbs": [
-      "AllPagesPanel"
-    ],
-    "description": "A navigation panel for managing and organizing application pages in the middle…",
-    "section_ids": [
-      "component:navigation:AsideHeader/components/AllPagesPanel:allpagespanel",
-      "component:navigation:AsideHeader/components/AllPagesPanel:usage",
-      "component:navigation:AsideHeader/components/AllPagesPanel:properties-of-asideheader"
-    ]
-  },
-  {
     "id": "component:navigation:Footer",
     "title": "Footer",
     "page_type": "component",
@@ -3314,36 +2698,20 @@
     ]
   },
   {
-    "id": "library:navigation:navigation/playwright/README",
-    "title": "Playwright Test Component",
-    "page_type": "library",
+    "id": "component:navigation:components/AllPagesPanel",
+    "title": "AllPagesPanel",
+    "page_type": "component",
     "library": "navigation",
-    "url": "https://gravity-ui.com/libraries/navigation",
-    "github_url": "https://github.com/gravity-ui/navigation/blob/main/playwright/README.md",
+    "url": "https://gravity-ui.com/components/navigation/componentsallpagespanel",
+    "github_url": "https://github.com/gravity-ui/navigation/tree/main/src/components/components/AllPagesPanel",
     "breadcrumbs": [
-      "Playwright Test Component",
-      "How to write a test"
+      "AllPagesPanel"
     ],
-    "description": "",
+    "description": "A navigation panel for managing and organizing application pages in the middle…",
     "section_ids": [
-      "library:navigation:navigation/playwright/README:how-to-write-a-test",
-      "library:navigation:navigation/playwright/README:npm-scripts"
-    ]
-  },
-  {
-    "id": "library:navigation:navigation/src/hooks/useOverflowingHorizontalListItems/README",
-    "title": "navigation/src/hooks/useOverflowingHorizontalListItems/README",
-    "page_type": "library",
-    "library": "navigation",
-    "url": "https://gravity-ui.com/libraries/navigation",
-    "github_url": "https://github.com/gravity-ui/navigation/blob/main/src/hooks/useOverflowingHorizontalListItems/README.md",
-    "breadcrumbs": [
-      "navigation/src/hooks/useOverflowingHorizontalListItems/README",
-      "useOverflowingContainerListItems"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:navigation:navigation/src/hooks/useOverflowingHorizontalListItems/README:useoverflowingcontainerlistitems"
+      "component:navigation:components/AllPagesPanel:allpagespanel",
+      "component:navigation:components/AllPagesPanel:usage",
+      "component:navigation:components/AllPagesPanel:properties-of-asideheader"
     ]
   },
   {
@@ -3607,39 +2975,6 @@
       "library:markdown-editor:markdown-editor/docs/how-to-customize-toolbars:example-configuration",
       "library:markdown-editor:markdown-editor/docs/how-to-customize-toolbars:customizing-the-toolbar",
       "library:markdown-editor:markdown-editor/docs/how-to-customize-toolbars:conditional-toolbar-items"
-    ]
-  },
-  {
-    "id": "library:markdown-editor:markdown-editor/packages/editor/src/view/README",
-    "title": "@doc-tools/yfm-editor/view sub-module",
-    "page_type": "library",
-    "library": "markdown-editor",
-    "url": "https://gravity-ui.com/libraries/markdown-editor",
-    "github_url": "https://github.com/gravity-ui/markdown-editor/blob/main/packages/editor/src/view/README.md",
-    "breadcrumbs": [
-      "@doc-tools/yfm-editor/view sub-module"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:markdown-editor:markdown-editor/packages/editor/src/view/README:doc-toolsyfm-editorview-sub-module"
-    ]
-  },
-  {
-    "id": "library:markdown-editor:markdown-editor/packages/editor/src/view/hooks/useFilesGallery/README",
-    "title": "markdown-editor/packages/editor/src/view/hooks/useFilesGallery/README",
-    "page_type": "library",
-    "library": "markdown-editor",
-    "url": "https://gravity-ui.com/libraries/markdown-editor",
-    "github_url": "https://github.com/gravity-ui/markdown-editor/blob/main/packages/editor/src/view/hooks/useFilesGallery/README.md",
-    "breadcrumbs": [
-      "markdown-editor/packages/editor/src/view/hooks/useFilesGallery/README",
-      "useFilesGallery"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:markdown-editor:markdown-editor/packages/editor/src/view/hooks/useFilesGallery/README:usefilesgallery",
-      "library:markdown-editor:markdown-editor/packages/editor/src/view/hooks/useFilesGallery/README:proptypes",
-      "library:markdown-editor:markdown-editor/packages/editor/src/view/hooks/useFilesGallery/README:usage"
     ]
   },
   {
@@ -4566,42 +3901,6 @@
     ]
   },
   {
-    "id": "library:aikit:aikit/playwright/README",
-    "title": "Playwright Test Component",
-    "page_type": "library",
-    "library": "aikit",
-    "url": "https://gravity-ui.com/libraries/aikit",
-    "github_url": "https://github.com/gravity-ui/aikit/blob/main/playwright/README.md",
-    "breadcrumbs": [
-      "Playwright Test Component",
-      "How to write a test"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:aikit:aikit/playwright/README:how-to-write-a-test",
-      "library:aikit:aikit/playwright/README:npm-scripts"
-    ]
-  },
-  {
-    "id": "library:aikit:aikit/src/adapters/openai/README",
-    "title": "OpenAI Adapters",
-    "page_type": "library",
-    "library": "aikit",
-    "url": "https://gravity-ui.com/libraries/aikit",
-    "github_url": "https://github.com/gravity-ui/aikit/blob/main/src/adapters/openai/README.md",
-    "breadcrumbs": [
-      "OpenAI Adapters"
-    ],
-    "description": "React hooks to adapt OpenAI Responses API and conversations list to the library…",
-    "section_ids": [
-      "library:aikit:aikit/src/adapters/openai/README:openai-adapters",
-      "library:aikit:aikit/src/adapters/openai/README:hooks",
-      "library:aikit:aikit/src/adapters/openai/README:examples",
-      "library:aikit:aikit/src/adapters/openai/README:supported-stream-content",
-      "library:aikit:aikit/src/adapters/openai/README:types"
-    ]
-  },
-  {
     "id": "library:graph",
     "title": "@gravity-ui/graph",
     "page_type": "library",
@@ -5303,6 +4602,22 @@
     ]
   },
   {
+    "id": "library:charts:charts/docs/diplodoc/pages/overview",
+    "title": "Overview",
+    "page_type": "library",
+    "library": "charts",
+    "url": "https://gravity-ui.com/libraries/charts",
+    "github_url": "https://github.com/gravity-ui/charts/blob/main/docs/diplodoc/pages/overview.md",
+    "breadcrumbs": [
+      "Overview",
+      "About Gravity UI Charts"
+    ],
+    "description": "Gravity UI Charts is a charting library built with D3 and React. It's designed…",
+    "section_ids": [
+      "library:charts:charts/docs/diplodoc/pages/overview:about-gravity-ui-charts"
+    ]
+  },
+  {
     "id": "library:charts:charts/docs/diplodoc/pages/guides/axis-types",
     "title": "Axis Types",
     "page_type": "library",
@@ -5388,22 +4703,6 @@
       "library:charts:charts/docs/diplodoc/pages/guides/tooltip:totals",
       "library:charts:charts/docs/diplodoc/pages/guides/tooltip:hiding-specific-series-from-the-tooltip",
       "library:charts:charts/docs/diplodoc/pages/guides/tooltip:value-formatting"
-    ]
-  },
-  {
-    "id": "library:charts:charts/docs/diplodoc/pages/overview",
-    "title": "Overview",
-    "page_type": "library",
-    "library": "charts",
-    "url": "https://gravity-ui.com/libraries/charts",
-    "github_url": "https://github.com/gravity-ui/charts/blob/main/docs/diplodoc/pages/overview.md",
-    "breadcrumbs": [
-      "Overview",
-      "About Gravity UI Charts"
-    ],
-    "description": "Gravity UI Charts is a charting library built with D3 and React. It's designed…",
-    "section_ids": [
-      "library:charts:charts/docs/diplodoc/pages/overview:about-gravity-ui-charts"
     ]
   },
   {
@@ -5554,27 +4853,6 @@
     ]
   },
   {
-    "id": "library:table:table/src/hooks/useColumnsAutoSize/README",
-    "title": "experimentalUseColumnsAutoSize",
-    "page_type": "library",
-    "library": "table",
-    "url": "https://gravity-ui.com/libraries/table",
-    "github_url": "https://github.com/gravity-ui/table/blob/main/src/hooks/useColumnsAutoSize/README.md",
-    "breadcrumbs": [
-      "experimentalUseColumnsAutoSize"
-    ],
-    "description": "A React hook for automatically calculating column widths based on content,…",
-    "section_ids": [
-      "library:table:table/src/hooks/useColumnsAutoSize/README:experimentalusecolumnsautosize",
-      "library:table:table/src/hooks/useColumnsAutoSize/README:features",
-      "library:table:table/src/hooks/useColumnsAutoSize/README:usage",
-      "library:table:table/src/hooks/useColumnsAutoSize/README:experimentalusecolumnsautosize-2",
-      "library:table:table/src/hooks/useColumnsAutoSize/README:usage-example",
-      "library:table:table/src/hooks/useColumnsAutoSize/README:how-it-works",
-      "library:table:table/src/hooks/useColumnsAutoSize/README:troubleshooting"
-    ]
-  },
-  {
     "id": "library:dashkit",
     "title": "@gravity-ui/dashkit",
     "page_type": "library",
@@ -5615,6 +4893,60 @@
       "library:yagr:agr-img-srchttpsrawgithubusercontentcomgravity-uiyagrmaindocsassetsyagrsvg-width24px-height24px",
       "library:yagr:features",
       "library:yagr:quick-start"
+    ]
+  },
+  {
+    "id": "library:yagr:yagr/docs/en/contribution",
+    "title": "Notice to external contributors",
+    "page_type": "library",
+    "library": "yagr",
+    "url": "https://gravity-ui.com/libraries/yagr",
+    "github_url": "https://github.com/gravity-ui/yagr/blob/main/docs/en/contribution.md",
+    "breadcrumbs": [
+      "Notice to external contributors"
+    ],
+    "description": "Hello! In order for us (YANDEX LLC) to accept patches and other contributions…",
+    "section_ids": [
+      "library:yagr:yagr/docs/en/contribution:notice-to-external-contributors",
+      "library:yagr:yagr/docs/en/contribution:general-info",
+      "library:yagr:yagr/docs/en/contribution:provide-contributions",
+      "library:yagr:yagr/docs/en/contribution:other-questions"
+    ]
+  },
+  {
+    "id": "library:yagr:yagr/docs/en/index",
+    "title": "About",
+    "page_type": "library",
+    "library": "yagr",
+    "url": "https://gravity-ui.com/libraries/yagr",
+    "github_url": "https://github.com/gravity-ui/yagr/blob/main/docs/en/index.md",
+    "breadcrumbs": [
+      "About"
+    ],
+    "description": "Yagr is a high-level library used to render HTML5 Canvas charts based on the…",
+    "section_ids": [
+      "library:yagr:yagr/docs/en/index:about",
+      "library:yagr:yagr/docs/en/index:why-yagr",
+      "library:yagr:yagr/docs/en/index:why-not-yagr",
+      "library:yagr:yagr/docs/en/index:features"
+    ]
+  },
+  {
+    "id": "library:yagr:yagr/docs/en/quickstart",
+    "title": "Quick start",
+    "page_type": "library",
+    "library": "yagr",
+    "url": "https://gravity-ui.com/libraries/yagr",
+    "github_url": "https://github.com/gravity-ui/yagr/blob/main/docs/en/quickstart.md",
+    "breadcrumbs": [
+      "Quick start",
+      "Install"
+    ],
+    "description": "By default, Yagr exposes the ES2019 module for TypeScript, though you can…",
+    "section_ids": [
+      "library:yagr:yagr/docs/en/quickstart:install",
+      "library:yagr:yagr/docs/en/quickstart:integration",
+      "library:yagr:yagr/docs/en/quickstart:run"
     ]
   },
   {
@@ -5896,42 +5228,6 @@
     ]
   },
   {
-    "id": "library:yagr:yagr/docs/en/contribution",
-    "title": "Notice to external contributors",
-    "page_type": "library",
-    "library": "yagr",
-    "url": "https://gravity-ui.com/libraries/yagr",
-    "github_url": "https://github.com/gravity-ui/yagr/blob/main/docs/en/contribution.md",
-    "breadcrumbs": [
-      "Notice to external contributors"
-    ],
-    "description": "Hello! In order for us (YANDEX LLC) to accept patches and other contributions…",
-    "section_ids": [
-      "library:yagr:yagr/docs/en/contribution:notice-to-external-contributors",
-      "library:yagr:yagr/docs/en/contribution:general-info",
-      "library:yagr:yagr/docs/en/contribution:provide-contributions",
-      "library:yagr:yagr/docs/en/contribution:other-questions"
-    ]
-  },
-  {
-    "id": "library:yagr:yagr/docs/en/index",
-    "title": "About",
-    "page_type": "library",
-    "library": "yagr",
-    "url": "https://gravity-ui.com/libraries/yagr",
-    "github_url": "https://github.com/gravity-ui/yagr/blob/main/docs/en/index.md",
-    "breadcrumbs": [
-      "About"
-    ],
-    "description": "Yagr is a high-level library used to render HTML5 Canvas charts based on the…",
-    "section_ids": [
-      "library:yagr:yagr/docs/en/index:about",
-      "library:yagr:yagr/docs/en/index:why-yagr",
-      "library:yagr:yagr/docs/en/index:why-not-yagr",
-      "library:yagr:yagr/docs/en/index:features"
-    ]
-  },
-  {
     "id": "library:yagr:yagr/docs/en/plugins/aggregates",
     "title": "yagr/docs/en/plugins/aggregates",
     "page_type": "library",
@@ -6034,24 +5330,6 @@
       "library:yagr:yagr/docs/en/plugins/tooltip:render",
       "library:yagr:yagr/docs/en/plugins/tooltip:events",
       "library:yagr:yagr/docs/en/plugins/tooltip:using-external-non-string-to-html-rendering-system-react-vue-etc"
-    ]
-  },
-  {
-    "id": "library:yagr:yagr/docs/en/quickstart",
-    "title": "Quick start",
-    "page_type": "library",
-    "library": "yagr",
-    "url": "https://gravity-ui.com/libraries/yagr",
-    "github_url": "https://github.com/gravity-ui/yagr/blob/main/docs/en/quickstart.md",
-    "breadcrumbs": [
-      "Quick start",
-      "Install"
-    ],
-    "description": "By default, Yagr exposes the ES2019 module for TypeScript, though you can…",
-    "section_ids": [
-      "library:yagr:yagr/docs/en/quickstart:install",
-      "library:yagr:yagr/docs/en/quickstart:integration",
-      "library:yagr:yagr/docs/en/quickstart:run"
     ]
   },
   {
@@ -6544,23 +5822,6 @@
     ]
   },
   {
-    "id": "library:dynamic-forms:dynamic-forms/playwright/README",
-    "title": "Playwright Test Component",
-    "page_type": "library",
-    "library": "dynamic-forms",
-    "url": "https://gravity-ui.com/libraries/dynamic-forms",
-    "github_url": "https://github.com/gravity-ui/dynamic-forms/blob/main/playwright/README.md",
-    "breadcrumbs": [
-      "Playwright Test Component",
-      "How to write a test"
-    ],
-    "description": "If you are using system other than Linux, then you need to run tests via docker…",
-    "section_ids": [
-      "library:dynamic-forms:dynamic-forms/playwright/README:how-to-write-a-test",
-      "library:dynamic-forms:dynamic-forms/playwright/README:npm-scripts"
-    ]
-  },
-  {
     "id": "library:page-constructor",
     "title": "@gravity-ui/page-constructor",
     "page_type": "library",
@@ -6733,181 +5994,6 @@
     ]
   },
   {
-    "id": "library:page-constructor:page-constructor/playwright/README",
-    "title": "Playwright Test Component",
-    "page_type": "library",
-    "library": "page-constructor",
-    "url": "https://gravity-ui.com/libraries/page-constructor",
-    "github_url": "https://github.com/gravity-ui/page-constructor/blob/main/playwright/README.md",
-    "breadcrumbs": [
-      "Playwright Test Component",
-      "How to write a test"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:page-constructor:page-constructor/playwright/README:how-to-write-a-test",
-      "library:page-constructor:page-constructor/playwright/README:npm-scripts"
-    ]
-  },
-  {
-    "id": "library:page-constructor:page-constructor/src/containers/PageConstructor/README",
-    "title": "page-constructor/src/containers/PageConstructor/README",
-    "page_type": "library",
-    "library": "page-constructor",
-    "url": "https://gravity-ui.com/libraries/page-constructor",
-    "github_url": "https://github.com/gravity-ui/page-constructor/blob/main/src/containers/PageConstructor/README.md",
-    "breadcrumbs": [
-      "page-constructor/src/containers/PageConstructor/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:page-constructor:page-constructor/src/containers/PageConstructor/README:page-constructorsrccontainerspageconstructorreadme"
-    ]
-  },
-  {
-    "id": "library:page-constructor:page-constructor/src/sub-blocks/BackgroundCard/README",
-    "title": "page-constructor/src/sub-blocks/BackgroundCard/README",
-    "page_type": "library",
-    "library": "page-constructor",
-    "url": "https://gravity-ui.com/libraries/page-constructor",
-    "github_url": "https://github.com/gravity-ui/page-constructor/blob/main/src/sub-blocks/BackgroundCard/README.md",
-    "breadcrumbs": [
-      "page-constructor/src/sub-blocks/BackgroundCard/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:page-constructor:page-constructor/src/sub-blocks/BackgroundCard/README:page-constructorsrcsub-blocksbackgroundcardreadme"
-    ]
-  },
-  {
-    "id": "library:page-constructor:page-constructor/src/sub-blocks/BasicCard/README",
-    "title": "page-constructor/src/sub-blocks/BasicCard/README",
-    "page_type": "library",
-    "library": "page-constructor",
-    "url": "https://gravity-ui.com/libraries/page-constructor",
-    "github_url": "https://github.com/gravity-ui/page-constructor/blob/main/src/sub-blocks/BasicCard/README.md",
-    "breadcrumbs": [
-      "page-constructor/src/sub-blocks/BasicCard/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:page-constructor:page-constructor/src/sub-blocks/BasicCard/README:page-constructorsrcsub-blocksbasiccardreadme"
-    ]
-  },
-  {
-    "id": "library:page-constructor:page-constructor/src/sub-blocks/Content/README",
-    "title": "page-constructor/src/sub-blocks/Content/README",
-    "page_type": "library",
-    "library": "page-constructor",
-    "url": "https://gravity-ui.com/libraries/page-constructor",
-    "github_url": "https://github.com/gravity-ui/page-constructor/blob/main/src/sub-blocks/Content/README.md",
-    "breadcrumbs": [
-      "page-constructor/src/sub-blocks/Content/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:page-constructor:page-constructor/src/sub-blocks/Content/README:page-constructorsrcsub-blockscontentreadme"
-    ]
-  },
-  {
-    "id": "library:page-constructor:page-constructor/src/sub-blocks/Divider/README",
-    "title": "page-constructor/src/sub-blocks/Divider/README",
-    "page_type": "library",
-    "library": "page-constructor",
-    "url": "https://gravity-ui.com/libraries/page-constructor",
-    "github_url": "https://github.com/gravity-ui/page-constructor/blob/main/src/sub-blocks/Divider/README.md",
-    "breadcrumbs": [
-      "page-constructor/src/sub-blocks/Divider/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:page-constructor:page-constructor/src/sub-blocks/Divider/README:page-constructorsrcsub-blocksdividerreadme"
-    ]
-  },
-  {
-    "id": "library:page-constructor:page-constructor/src/sub-blocks/HubspotForm/README",
-    "title": "page-constructor/src/sub-blocks/HubspotForm/README",
-    "page_type": "library",
-    "library": "page-constructor",
-    "url": "https://gravity-ui.com/libraries/page-constructor",
-    "github_url": "https://github.com/gravity-ui/page-constructor/blob/main/src/sub-blocks/HubspotForm/README.md",
-    "breadcrumbs": [
-      "page-constructor/src/sub-blocks/HubspotForm/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:page-constructor:page-constructor/src/sub-blocks/HubspotForm/README:page-constructorsrcsub-blockshubspotformreadme"
-    ]
-  },
-  {
-    "id": "library:page-constructor:page-constructor/src/sub-blocks/LayoutItem/README",
-    "title": "page-constructor/src/sub-blocks/LayoutItem/README",
-    "page_type": "library",
-    "library": "page-constructor",
-    "url": "https://gravity-ui.com/libraries/page-constructor",
-    "github_url": "https://github.com/gravity-ui/page-constructor/blob/main/src/sub-blocks/LayoutItem/README.md",
-    "breadcrumbs": [
-      "page-constructor/src/sub-blocks/LayoutItem/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:page-constructor:page-constructor/src/sub-blocks/LayoutItem/README:page-constructorsrcsub-blockslayoutitemreadme"
-    ]
-  },
-  {
-    "id": "library:page-constructor:page-constructor/src/sub-blocks/PriceDetailed/README",
-    "title": "page-constructor/src/sub-blocks/PriceDetailed/README",
-    "page_type": "library",
-    "library": "page-constructor",
-    "url": "https://gravity-ui.com/libraries/page-constructor",
-    "github_url": "https://github.com/gravity-ui/page-constructor/blob/main/src/sub-blocks/PriceDetailed/README.md",
-    "breadcrumbs": [
-      "page-constructor/src/sub-blocks/PriceDetailed/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:page-constructor:page-constructor/src/sub-blocks/PriceDetailed/README:page-constructorsrcsub-blockspricedetailedreadme",
-      "library:page-constructor:page-constructor/src/sub-blocks/PriceDetailed/README:a-namepricedetailslistpropspricedetailslistpropsa",
-      "library:page-constructor:page-constructor/src/sub-blocks/PriceDetailed/README:a-namepricedescriptionpropspricedescriptionpropsa",
-      "library:page-constructor:page-constructor/src/sub-blocks/PriceDetailed/README:a-namepricedetailspropspricedetailspropsa"
-    ]
-  },
-  {
-    "id": "library:page-constructor:page-constructor/src/sub-blocks/Quote/README",
-    "title": "page-constructor/src/sub-blocks/Quote/README",
-    "page_type": "library",
-    "library": "page-constructor",
-    "url": "https://gravity-ui.com/libraries/page-constructor",
-    "github_url": "https://github.com/gravity-ui/page-constructor/blob/main/src/sub-blocks/Quote/README.md",
-    "breadcrumbs": [
-      "page-constructor/src/sub-blocks/Quote/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:page-constructor:page-constructor/src/sub-blocks/Quote/README:page-constructorsrcsub-blocksquotereadme"
-    ]
-  },
-  {
-    "id": "library:page-constructor:page-constructor/test-utils/docs/README",
-    "title": "page-constructor/test-utils/docs/README",
-    "page_type": "library",
-    "library": "page-constructor",
-    "url": "https://gravity-ui.com/libraries/page-constructor",
-    "github_url": "https://github.com/gravity-ui/page-constructor/blob/main/test-utils/docs/README.md",
-    "breadcrumbs": [
-      "page-constructor/test-utils/docs/README",
-      "Run Tests"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:page-constructor:page-constructor/test-utils/docs/README:run-tests",
-      "library:page-constructor:page-constructor/test-utils/docs/README:utils",
-      "library:page-constructor:page-constructor/test-utils/docs/README:component-test",
-      "library:page-constructor:page-constructor/test-utils/docs/README:rules",
-      "library:page-constructor:page-constructor/test-utils/docs/README:tests-development"
-    ]
-  },
-  {
     "id": "library:blog-constructor",
     "title": "@gravity-ui/blog-constructor",
     "page_type": "library",
@@ -6938,305 +6024,6 @@
     "description": "",
     "section_ids": [
       "component:blog-constructor:PromptSignIn:promptsignin"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/playwright/README",
-    "title": "Playwright Test Component",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/playwright/README.md",
-    "breadcrumbs": [
-      "Playwright Test Component",
-      "How to write a test"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/playwright/README:how-to-write-a-test",
-      "library:blog-constructor:blog-constructor/playwright/README:npm-scripts"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/Author/README",
-    "title": "blog-constructor/src/blocks/Author/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/Author/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/Author/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/Author/README:blog-constructorsrcblocksauthorreadme"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/Banner/README",
-    "title": "blog-constructor/src/blocks/Banner/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/Banner/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/Banner/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/Banner/README:blog-constructorsrcblocksbannerreadme"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/CTA/README",
-    "title": "blog-constructor/src/blocks/CTA/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/CTA/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/CTA/README",
-      "Block \"Call to action\""
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/CTA/README:block-call-to-action"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/ColoredText/README",
-    "title": "blog-constructor/src/blocks/ColoredText/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/ColoredText/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/ColoredText/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/ColoredText/README:blog-constructorsrcblockscoloredtextreadme"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/CompactMedia/README",
-    "title": "blog-constructor/src/blocks/CompactMedia/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/CompactMedia/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/CompactMedia/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/CompactMedia/README:blog-constructorsrcblockscompactmediareadme"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/Feed/README",
-    "title": "blog-constructor/src/blocks/Feed/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/Feed/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/Feed/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/Feed/README:blog-constructorsrcblocksfeedreadme"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/Form/README",
-    "title": "blog-constructor/src/blocks/Form/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/Form/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/Form/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/Form/README:blog-constructorsrcblocksformreadme"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/Header/README",
-    "title": "blog-constructor/src/blocks/Header/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/Header/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/Header/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/Header/README:blog-constructorsrcblocksheaderreadme"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/Layout/README",
-    "title": "blog-constructor/src/blocks/Layout/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/Layout/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/Layout/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/Layout/README:blog-constructorsrcblockslayoutreadme"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/Media/README",
-    "title": "blog-constructor/src/blocks/Media/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/Media/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/Media/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/Media/README:blog-constructorsrcblocksmediareadme"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/Meta/README",
-    "title": "blog-constructor/src/blocks/Meta/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/Meta/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/Meta/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/Meta/README:blog-constructorsrcblocksmetareadme"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/SideCardList/README",
-    "title": "blog-constructor/src/blocks/SideCardList/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/SideCardList/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/SideCardList/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/SideCardList/README:blog-constructorsrcblockssidecardlistreadme",
-      "library:blog-constructor:blog-constructor/src/blocks/SideCardList/README:props",
-      "library:blog-constructor:blog-constructor/src/blocks/SideCardList/README:sidecard",
-      "library:blog-constructor:blog-constructor/src/blocks/SideCardList/README:usage"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/Suggest/README",
-    "title": "blog-constructor/src/blocks/Suggest/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/Suggest/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/Suggest/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/Suggest/README:blog-constructorsrcblockssuggestreadme"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/Take/README",
-    "title": "blog-constructor/src/blocks/Take/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/Take/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/Take/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/Take/README:blog-constructorsrcblockstakereadme"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/blocks/YFM/README",
-    "title": "blog-constructor/src/blocks/YFM/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/blocks/YFM/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/blocks/YFM/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/blocks/YFM/README:blog-constructorsrcblocksyfmreadme"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/constructor/README",
-    "title": "Blog Constructor Provider",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/constructor/README.md",
-    "breadcrumbs": [
-      "Blog Constructor Provider"
-    ],
-    "description": "It combines contexts that are used to push data into lower-level components.…",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/constructor/README:blog-constructor-provider"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/containers/BlogPage/README",
-    "title": "blog-constructor/src/containers/BlogPage/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/containers/BlogPage/README.md",
-    "breadcrumbs": [],
-    "description": "",
-    "section_ids": []
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/containers/BlogPostPage/README",
-    "title": "blog-constructor/src/containers/BlogPostPage/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/containers/BlogPostPage/README.md",
-    "breadcrumbs": [],
-    "description": "",
-    "section_ids": []
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/src/schema/README",
-    "title": "blog-constructor/src/schema/README",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "github_url": "https://github.com/gravity-ui/blog-constructor/blob/main/src/schema/README.md",
-    "breadcrumbs": [
-      "blog-constructor/src/schema/README",
-      "Shemas and validators"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:blog-constructor:blog-constructor/src/schema/README:shemas-and-validators"
     ]
   },
   {
@@ -7280,21 +6067,6 @@
       "library:dialog-fields:short-description",
       "library:dialog-fields:install",
       "library:dialog-fields:usage"
-    ]
-  },
-  {
-    "id": "library:dialog-fields:dialog-fields/playwright/core/README",
-    "title": "dialog-fields/playwright/core/README",
-    "page_type": "library",
-    "library": "dialog-fields",
-    "url": "https://gravity-ui.com/libraries/dialog-fields",
-    "github_url": "https://github.com/gravity-ui/dialog-fields/blob/main/playwright/core/README.md",
-    "breadcrumbs": [
-      "dialog-fields/playwright/core/README"
-    ],
-    "description": "",
-    "section_ids": [
-      "library:dialog-fields:dialog-fields/playwright/core/README:dialog-fieldsplaywrightcorereadme"
     ]
   },
   {
@@ -7600,253 +6372,6 @@
       "library:i18n:gravity-ui-i18n-tools",
       "library:i18n:libraries",
       "library:i18n:development"
-    ]
-  },
-  {
-    "id": "library:i18n:i18n/packages/eslint-config/README",
-    "title": "i18n-eslint-config",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/eslint-config/README.md",
-    "breadcrumbs": [],
-    "description": "",
-    "section_ids": []
-  },
-  {
-    "id": "library:i18n:i18n/packages/eslint-plugin-i18n/README",
-    "title": "@gravity-ui/eslint-plugin-i18n",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/eslint-plugin-i18n/README.md",
-    "breadcrumbs": [
-      "@gravity-ui/eslint-plugin-i18n"
-    ],
-    "description": "Rules for i18n linting.",
-    "section_ids": [
-      "library:i18n:i18n/packages/eslint-plugin-i18n/README:gravity-uieslint-plugin-i18n",
-      "library:i18n:i18n/packages/eslint-plugin-i18n/README:how-to-connect-to-a-project",
-      "library:i18n:i18n/packages/eslint-plugin-i18n/README:rules"
-    ]
-  },
-  {
-    "id": "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/auto-generate-translation-message-id",
-    "title": "auto-generate-translation-message-id",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/eslint-plugin-i18n/docs/rules/auto-generate-translation-message-id.md",
-    "breadcrumbs": [
-      "auto-generate-translation-message-id",
-      "Подключение"
-    ],
-    "description": "Проверяет наличие идентификатора в объекте перевода и добавляет его при…",
-    "section_ids": [
-      "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/auto-generate-translation-message-id:",
-      "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/auto-generate-translation-message-id:-3"
-    ]
-  },
-  {
-    "id": "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/detect-incorrect-calls",
-    "title": "detect-incorrect-calls",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/eslint-plugin-i18n/docs/rules/detect-incorrect-calls.md",
-    "breadcrumbs": [
-      "detect-incorrect-calls"
-    ],
-    "description": "Правило делает следующее:",
-    "section_ids": [
-      "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/detect-incorrect-calls:detect-incorrect-calls"
-    ]
-  },
-  {
-    "id": "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/restrict-i18n-imports",
-    "title": "restrict-i18n-imports",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/eslint-plugin-i18n/docs/rules/restrict-i18n-imports.md",
-    "breadcrumbs": [
-      "restrict-i18n-imports",
-      "Подключение"
-    ],
-    "description": "Запрещает импорт файлов с текстами (i18n.ts) из директорий других уровней.",
-    "section_ids": [
-      "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/restrict-i18n-imports:",
-      "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/restrict-i18n-imports:-3"
-    ]
-  },
-  {
-    "id": "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/string-literal-keys",
-    "title": "string-literal-keys",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/eslint-plugin-i18n/docs/rules/string-literal-keys.md",
-    "breadcrumbs": [
-      "string-literal-keys"
-    ],
-    "description": "Запрещает использовать в качестве ключей все кроме inline строк.",
-    "section_ids": [
-      "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/string-literal-keys:string-literal-keys",
-      "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/string-literal-keys:",
-      "library:i18n:i18n/packages/eslint-plugin-i18n/docs/rules/string-literal-keys:-2"
-    ]
-  },
-  {
-    "id": "library:i18n:i18n/packages/i18n-babel-plugin/README",
-    "title": "@gravity-ui/i18n-babel-plugin",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/i18n-babel-plugin/README.md",
-    "breadcrumbs": [
-      "@gravity-ui/i18n-babel-plugin"
-    ],
-    "description": "Babel plugin for optimizing translation file delivery.",
-    "section_ids": [
-      "library:i18n:i18n/packages/i18n-babel-plugin/README:gravity-uii18n-babel-plugin",
-      "library:i18n:i18n/packages/i18n-babel-plugin/README:usage",
-      "library:i18n:i18n/packages/i18n-babel-plugin/README:settings"
-    ]
-  },
-  {
-    "id": "library:i18n:i18n/packages/i18n-cli/README",
-    "title": "@gravity-ui/i18n-cli",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/i18n-cli/README.md",
-    "breadcrumbs": [
-      "@gravity-ui/i18n-cli"
-    ],
-    "description": "Checks the provided file/directory for calls to missing keys and adds them to…",
-    "section_ids": [
-      "library:i18n:i18n/packages/i18n-cli/README:gravity-uii18n-cli",
-      "library:i18n:i18n/packages/i18n-cli/README:project-setup",
-      "library:i18n:i18n/packages/i18n-cli/README:commands",
-      "library:i18n:i18n/packages/i18n-cli/README:configuration-options"
-    ]
-  },
-  {
-    "id": "library:i18n:i18n/packages/i18n-core/README",
-    "title": "i18n-core",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/i18n-core/README.md",
-    "breadcrumbs": [
-      "i18n-core"
-    ],
-    "description": "The i18n-core library is the foundation for internationalization (i18n)…",
-    "section_ids": [
-      "library:i18n:i18n/packages/i18n-core/README:i18n-core",
-      "library:i18n:i18n/packages/i18n-core/README:key-features",
-      "library:i18n:i18n/packages/i18n-core/README:usage-examples",
-      "library:i18n:i18n/packages/i18n-core/README:usage"
-    ]
-  },
-  {
-    "id": "library:i18n:i18n/packages/i18n-node/README",
-    "title": "i18n-node",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/i18n-node/README.md",
-    "breadcrumbs": [
-      "i18n-node",
-      "Использование"
-    ],
-    "description": "Библиотека i18n-node - это решение для интернационализации (i18n),…",
-    "section_ids": [
-      "library:i18n:i18n/packages/i18n-node/README:"
-    ]
-  },
-  {
-    "id": "library:i18n:i18n/packages/i18n-optimize-plugin/README",
-    "title": "@gravity-ui/i18n-optimize-plugin",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/i18n-optimize-plugin/README.md",
-    "breadcrumbs": [
-      "@gravity-ui/i18n-optimize-plugin"
-    ],
-    "description": "Plugin for optimizing translation file delivery. Can be used with webpack,…",
-    "section_ids": [
-      "library:i18n:i18n/packages/i18n-optimize-plugin/README:gravity-uii18n-optimize-plugin",
-      "library:i18n:i18n/packages/i18n-optimize-plugin/README:usage",
-      "library:i18n:i18n/packages/i18n-optimize-plugin/README:typograf",
-      "library:i18n:i18n/packages/i18n-optimize-plugin/README:optimizelocalechunks"
-    ]
-  },
-  {
-    "id": "library:i18n:i18n/packages/i18n-react/README",
-    "title": "i18n-react",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/i18n-react/README.md",
-    "breadcrumbs": [
-      "i18n-react",
-      "Использование"
-    ],
-    "description": "Библиотека i18n-react - это решение для интернационализации (i18n),…",
-    "section_ids": [
-      "library:i18n:i18n/packages/i18n-react/README:"
-    ]
-  },
-  {
-    "id": "library:i18n:i18n/packages/i18n-types/README",
-    "title": "Common i18n Types",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/i18n-types/README.md",
-    "breadcrumbs": [],
-    "description": "",
-    "section_ids": []
-  },
-  {
-    "id": "library:i18n:i18n/packages/i18n/README",
-    "title": "@gravity-ui/i18n",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/i18n/README.md",
-    "breadcrumbs": [
-      "@gravity-ui/i18n",
-      "I18N utilities"
-    ],
-    "description": "Utilities in the I18N package are designed for internationalization of Gravity…",
-    "section_ids": [
-      "library:i18n:i18n/packages/i18n/README:i18n-utilities",
-      "library:i18n:i18n/packages/i18n/README:install",
-      "library:i18n:i18n/packages/i18n/README:api",
-      "library:i18n:i18n/packages/i18n/README:use-examples",
-      "library:i18n:i18n/packages/i18n/README:templating",
-      "library:i18n:i18n/packages/i18n/README:pluralization",
-      "library:i18n:i18n/packages/i18n/README:nesting",
-      "library:i18n:i18n/packages/i18n/README:typing"
-    ]
-  },
-  {
-    "id": "library:i18n:i18n/packages/vscode-extension/README",
-    "title": "i18n VS Code Extension",
-    "page_type": "library",
-    "library": "i18n",
-    "url": "https://gravity-ui.com/libraries/i18n",
-    "github_url": "https://github.com/gravity-ui/i18n/blob/main/packages/vscode-extension/README.md",
-    "breadcrumbs": [
-      "i18n VS Code Extension"
-    ],
-    "description": "Simplifies creating i18n.ts localization files. Adds new keys to existing…",
-    "section_ids": [
-      "library:i18n:i18n/packages/vscode-extension/README:i18n-vs-code-extension",
-      "library:i18n:i18n/packages/vscode-extension/README:installation"
     ]
   },
   {

@@ -78,7 +78,9 @@
       "purpose": "A set of complex React components",
       "component_count": 20,
       "depends_on": [],
-      "is_peer_dependency_of": []
+      "is_peer_dependency_of": [
+        "navigation"
+      ]
     },
     {
       "id": "dashkit",
@@ -171,7 +173,9 @@
       "purpose": "A pack of Gravity UI icons. Icons have two sources, SVG and React. Have a look…",
       "component_count": 0,
       "depends_on": [],
-      "is_peer_dependency_of": []
+      "is_peer_dependency_of": [
+        "navigation"
+      ]
     },
     {
       "id": "illustrations",
@@ -194,7 +198,11 @@
       "package": "@gravity-ui/navigation",
       "purpose": "Ensure that peer dependencies are installed in your project",
       "component_count": 7,
-      "depends_on": [],
+      "depends_on": [
+        "uikit",
+        "icons",
+        "components"
+      ],
       "is_peer_dependency_of": []
     },
     {
@@ -268,7 +276,8 @@
       "component_count": 68,
       "depends_on": [],
       "is_peer_dependency_of": [
-        "date-components"
+        "date-components",
+        "navigation"
       ]
     },
     {

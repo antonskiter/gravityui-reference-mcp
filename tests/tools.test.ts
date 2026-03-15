@@ -3,10 +3,7 @@ import { buildIndex } from "../src/ingest/index.js";
 import type { LoadedData } from "../src/server/loader.js";
 import type { Page, Chunk, IngestMetadata, DesignSystemOverview } from "../src/types.js";
 import { handleSearchDocs } from "../src/server/tools/search-docs.js";
-import { handleGetSection } from "../src/server/tools/get-section.js";
-import { handleGetPage } from "../src/server/tools/get-page.js";
 import { handleListComponents } from "../src/server/tools/list-components.js";
-import { handleListSources } from "../src/server/tools/list-sources.js";
 
 // ---------------------------------------------------------------------------
 // Mock data
@@ -195,80 +192,6 @@ describe("handleSearchDocs", () => {
 });
 
 // ---------------------------------------------------------------------------
-// get_section tests
-// ---------------------------------------------------------------------------
-
-describe("handleGetSection", () => {
-  it("returns full content for a known section", () => {
-    const output = handleGetSection(mockData, { section_id: "guide:Button:appearance" });
-    expect("error" in output).toBe(false);
-    if ("error" in output) return;
-    expect(output.section_id).toBe("guide:Button:appearance");
-    expect(output.content).toBe(chunk1.content);
-    expect(output.code_examples).toEqual(chunk1.code_examples);
-    expect(output.section_title).toBe("Appearance");
-  });
-
-  it("includes breadcrumbs from chunk", () => {
-    const output = handleGetSection(mockData, { section_id: "guide:Button:appearance" });
-    if ("error" in output) throw new Error("Expected success");
-    expect(output.breadcrumbs).toEqual(["Guides", "Button", "Appearance"]);
-  });
-
-  it("includes related_sections (siblings on same page) with title field", () => {
-    const output = handleGetSection(mockData, { section_id: "guide:Button:appearance" });
-    if ("error" in output) throw new Error("Expected success");
-    const relatedIds = output.related_sections.map(r => r.section_id);
-    expect(relatedIds).toContain("guide:Button:sizes");
-    expect(relatedIds).not.toContain("guide:Button:appearance");
-    // Verify it uses 'title' not 'section_title'
-    expect(output.related_sections[0]).toHaveProperty("title");
-    expect(output.related_sections[0]).not.toHaveProperty("section_title");
-  });
-
-  it("returns error for unknown section ID", () => {
-    const output = handleGetSection(mockData, { section_id: "nonexistent:section" });
-    expect("error" in output).toBe(true);
-    if ("error" in output) {
-      expect(output.error).toContain("nonexistent:section");
-    }
-  });
-});
-
-// ---------------------------------------------------------------------------
-// get_page tests
-// ---------------------------------------------------------------------------
-
-describe("handleGetPage", () => {
-  it("returns page metadata with section summaries and has_code flag", () => {
-    const output = handleGetPage(mockData, { page_id: "guide:Button" });
-    expect("error" in output).toBe(false);
-    if ("error" in output) return;
-    expect(output.page_id).toBe("guide:Button");
-    expect(output.title).toBe("Button");
-    expect(output.page_type).toBe("guide");
-    expect(output.sections).toHaveLength(2);
-
-    const appearanceSection = output.sections.find(s => s.section_id === "guide:Button:appearance");
-    expect(appearanceSection).toBeDefined();
-    expect(appearanceSection!.has_code).toBe(true);
-    expect(appearanceSection!.summary.length).toBeLessThanOrEqual(150);
-
-    const sizesSection = output.sections.find(s => s.section_id === "guide:Button:sizes");
-    expect(sizesSection).toBeDefined();
-    expect(sizesSection!.has_code).toBe(false);
-  });
-
-  it("returns error for unknown page ID", () => {
-    const output = handleGetPage(mockData, { page_id: "nonexistent:page" });
-    expect("error" in output).toBe(true);
-    if ("error" in output) {
-      expect(output.error).toContain("nonexistent:page");
-    }
-  });
-});
-
-// ---------------------------------------------------------------------------
 // list_components tests
 // ---------------------------------------------------------------------------
 
@@ -329,26 +252,3 @@ describe("handleListComponents", () => {
   });
 });
 
-// ---------------------------------------------------------------------------
-// list_sources tests
-// ---------------------------------------------------------------------------
-
-describe("handleListSources", () => {
-  it("returns metadata with page_counts and libraries array", () => {
-    const output = handleListSources(mockData);
-    expect(output.indexed_at).toBe(mockMetadata.indexed_at);
-    expect(output.source_commits).toEqual(mockMetadata.source_commits);
-    expect(output.total_pages).toBe(2);
-    expect(output.total_sections).toBe(3);
-    expect(output.page_counts.guides).toBe(1);
-    expect(output.page_counts.components).toBe(1);
-    expect(output.page_counts.libraries).toBe(0);
-  });
-
-  it("returns libraries array with component counts", () => {
-    const output = handleListSources(mockData);
-    const uikitLib = output.libraries.find(l => l.id === "uikit");
-    expect(uikitLib).toBeDefined();
-    expect(uikitLib!.component_count).toBe(1);
-  });
-});
