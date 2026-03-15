@@ -8,38 +8,6 @@ import type MiniSearch from "minisearch";
 export type { DesignSystemOverview } from "../types.js";
 
 /**
- * Load an array from a per-library directory (dataDir/{collectionName}/*.json),
- * concatenating and sorting results. Falls back to dataDir/{collectionName}.json.
- * Returns an empty array when neither exists.
- */
-export function loadJsonArray<T extends Record<string, unknown>>(dataDir: string, collectionName: string): T[] {
-  const dirPath = join(dataDir, collectionName);
-  if (existsSync(dirPath)) {
-    const files = readdirSync(dirPath).filter(f => f.endsWith('.json'));
-    const items: T[] = [];
-    for (const file of files) {
-      const parsed: T[] = JSON.parse(readFileSync(join(dirPath, file), "utf-8"));
-      items.push(...parsed);
-    }
-    return items.sort((a, b) => {
-      const keyA = (a.name ?? a.id ?? '') as string;
-      const keyB = (b.name ?? b.id ?? '') as string;
-      return keyA.localeCompare(keyB);
-    });
-  }
-  const filePath = join(dataDir, `${collectionName}.json`);
-  if (existsSync(filePath)) {
-    const items: T[] = JSON.parse(readFileSync(filePath, "utf-8"));
-    return items.sort((a, b) => {
-      const keyA = (a.name ?? a.id ?? '') as string;
-      const keyB = (b.name ?? b.id ?? '') as string;
-      return keyA.localeCompare(keyB);
-    });
-  }
-  return [];
-}
-
-/**
  * Load and parse a JSON file. Returns fallback on any error (missing file, bad JSON).
  */
 export function loadJsonFile<T>(filePath: string, fallback: T): T {
@@ -49,6 +17,34 @@ export function loadJsonFile<T>(filePath: string, fallback: T): T {
   } catch {
     return fallback;
   }
+}
+
+function sortByNameOrId<T extends Record<string, unknown>>(items: T[]): T[] {
+  return items.sort((a, b) => {
+    const keyA = (a.name ?? a.id ?? '') as string;
+    const keyB = (b.name ?? b.id ?? '') as string;
+    return keyA.localeCompare(keyB);
+  });
+}
+
+/**
+ * Load an array from a per-library directory (dataDir/{collectionName}/*.json),
+ * concatenating and sorting results. Falls back to dataDir/{collectionName}.json.
+ * Returns an empty array when neither exists.
+ */
+export function loadJsonArray<T extends Record<string, unknown>>(dataDir: string, collectionName: string): T[] {
+  const dirPath = join(dataDir, collectionName);
+  if (existsSync(dirPath)) {
+    const files = readdirSync(dirPath).filter(f => f.endsWith('.json')).sort();
+    const items: T[] = [];
+    for (const file of files) {
+      const parsed: T[] = loadJsonFile<T[]>(join(dirPath, file), []);
+      items.push(...parsed);
+    }
+    return sortByNameOrId(items);
+  }
+  const filePath = join(dataDir, `${collectionName}.json`);
+  return sortByNameOrId(loadJsonFile<T[]>(filePath, []));
 }
 
 const __filename = fileURLToPath(import.meta.url);
@@ -73,8 +69,8 @@ export interface LoadedData {
 }
 
 export function loadData(): LoadedData {
-  const pages: Page[] = JSON.parse(readFileSync(join(DATA_DIR, "pages.json"), "utf-8"));
-  const chunks: Chunk[] = JSON.parse(readFileSync(join(DATA_DIR, "chunks.json"), "utf-8"));
+  const pages: Page[] = loadJsonArray<Page>(DATA_DIR, "pages");
+  const chunks: Chunk[] = loadJsonArray<Chunk>(DATA_DIR, "chunks");
   const metadata: IngestMetadata = JSON.parse(readFileSync(join(DATA_DIR, "metadata.json"), "utf-8"));
   const indexJson = readFileSync(join(DATA_DIR, "search-index.json"), "utf-8");
   const index = deserializeIndex(indexJson);
