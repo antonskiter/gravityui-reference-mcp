@@ -1,7 +1,6 @@
 import { writeFileSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
-import { discover } from "./discover.js";
-import { fetchAllPages } from "./fetch.js";
+import { discoverLocal } from "./discover-local.js";
 import { parsePage } from "./parse.js";
 import { chunkPage } from "./chunk.js";
 import { buildIndex, serializeIndex } from "./index.js";
@@ -11,14 +10,13 @@ import type { Page, Chunk, IngestMetadata } from "../types.js";
 
 const DATA_DIR = join(process.cwd(), "data");
 
-async function run() {
+function run() {
   console.log("=== Gravity UI Docs Ingest Pipeline ===\n");
   mkdirSync(DATA_DIR, { recursive: true });
 
-  // Stage 1: Discover → Fetch
-  console.log("Stage 1: Discovering and fetching pages...");
-  const { manifest, commits } = await discover();
-  const rawPages = await fetchAllPages(manifest);
+  // Stage 1: Discover local vendor submodules
+  console.log("Stage 1: Discovering pages from local vendor submodules...");
+  const { pages: rawPages, commits } = discoverLocal("vendor");
   writeFileSync(
     join(DATA_DIR, "raw-pages.json"),
     JSON.stringify({ commits, pages: rawPages }, null, 2),
@@ -79,7 +77,9 @@ async function run() {
   console.log(`  Pages: ${pages.length}, Chunks: ${allChunks.length}`);
 }
 
-run().catch((err) => {
+try {
+  run();
+} catch (err) {
   console.error("Ingest failed:", err);
   process.exit(1);
-});
+}

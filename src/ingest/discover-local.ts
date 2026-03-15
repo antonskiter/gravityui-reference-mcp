@@ -162,10 +162,15 @@ export function discoverLocal(vendorDir: string): {
         } catch {
           continue;
         }
-        // componentName is the parent directory name of README.md
+        // componentName is the parent directory name of README.md.
+        // For nested paths like lab/Menu/README.md, include the category prefix
+        // to avoid ID collisions with same-named stable components.
         const parts = normalized.split('/');
         // parts: ['ComponentName', 'README.md'] or ['Category', 'ComponentName', 'README.md']
-        const componentName = parts[parts.length - 2];
+        const directName = parts[parts.length - 2];
+        const componentName = parts.length > 2
+          ? `${parts[parts.length - 3]}/${directName}`
+          : directName;
         const repoRelPath = `src/components/${normalized}`;
         pages.push({
           url: `${GITHUB_RAW}/${repo}/main/${repoRelPath}`,
