@@ -100,3 +100,8 @@ export interface TokenSet {
   sizes: Record<string, string>;       // e.g. {"xs": "20px", "s": "24px", ...}
   colors?: Record<string, string>;     // semantic color tokens if extractable
 }
+
+export interface CategoryMap {
+  categories: Record<string, string>; // slug → display name
+  components: Record<string, string>; // ComponentName → category slug
+}

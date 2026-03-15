@@ -1,8 +1,8 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { deserializeIndex } from "../ingest/index.js";
-import type { Page, Chunk, IngestMetadata, ComponentTags, DesignSystemOverview } from "../types.js";
+import type { Page, Chunk, IngestMetadata, ComponentTags, DesignSystemOverview, ComponentDef, TokenSet, CategoryMap } from "../types.js";
 import type MiniSearch from "minisearch";
 
 export type { DesignSystemOverview } from "../types.js";
@@ -21,6 +21,11 @@ export interface LoadedData {
   chunksByPageId: Map<string, Chunk[]>;
   tagsByPageId: Map<string, string[]>;
   overview: DesignSystemOverview;
+  componentDefs: ComponentDef[];
+  componentByName: Map<string, ComponentDef[]>;
+  componentsByLibrary: Map<string, ComponentDef[]>;
+  tokens: TokenSet;
+  categoryMap: CategoryMap;
 }
 
 export function loadData(): LoadedData {
@@ -43,5 +48,33 @@ export function loadData(): LoadedData {
 
   const tagsByPageId = new Map(Object.entries(tagsRaw));
 
-  return { pages, chunks, metadata, index, pageById, chunkById, chunksByPageId, tagsByPageId, overview };
+  // Load new extraction data (graceful fallback if not yet extracted)
+  const componentsPath = join(DATA_DIR, "components.json");
+  const componentDefs: ComponentDef[] = existsSync(componentsPath)
+    ? JSON.parse(readFileSync(componentsPath, "utf-8"))
+    : [];
+  const tokensPath = join(DATA_DIR, "tokens.json");
+  const tokens: TokenSet = existsSync(tokensPath)
+    ? JSON.parse(readFileSync(tokensPath, "utf-8"))
+    : { spacing: {}, breakpoints: {}, sizes: {} };
+  const categoriesPath = join(DATA_DIR, "categories.json");
+  const categoryMap: CategoryMap = existsSync(categoriesPath)
+    ? JSON.parse(readFileSync(categoriesPath, "utf-8"))
+    : { categories: {}, components: {} };
+
+  // Build lookup maps
+  const componentByName = new Map<string, ComponentDef[]>();
+  for (const comp of componentDefs) {
+    const list = componentByName.get(comp.name) || [];
+    list.push(comp);
+    componentByName.set(comp.name, list);
+  }
+  const componentsByLibrary = new Map<string, ComponentDef[]>();
+  for (const comp of componentDefs) {
+    const list = componentsByLibrary.get(comp.library) || [];
+    list.push(comp);
+    componentsByLibrary.set(comp.library, list);
+  }
+
+  return { pages, chunks, metadata, index, pageById, chunkById, chunksByPageId, tagsByPageId, overview, componentDefs, componentByName, componentsByLibrary, tokens, categoryMap };
 }
