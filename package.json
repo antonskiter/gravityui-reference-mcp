@@ -15,7 +15,8 @@
     "test:watch": "vitest",
     "test-queries": "tsx scripts/test-queries.ts",
     "extract": "tsx src/extract/run-extract.ts",
-    "update-submodules": "git submodule update --remote --depth 1"
+    "update-submodules": "git submodule update --remote --depth 1",
+    "generate-llms-txt": "tsx src/generate/run-generate-llms.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0",
