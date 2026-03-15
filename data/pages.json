@@ -405,7 +405,6 @@
     "description": "",
     "section_ids": [
       "guide:Popover:popover",
-      "guide:Popover:types-of-popover",
       "guide:Popover:parameters",
       "guide:Popover:special-cases"
     ]
@@ -755,7 +754,6 @@
     "description": "A set of flexible, highly practical, and efficient React components for…",
     "section_ids": [
       "library:uikit:uikit",
-      "library:uikit:resources",
       "library:uikit:install",
       "library:uikit:usage",
       "library:uikit:development"
@@ -875,8 +873,6 @@
       "component:uikit:Avatar:appearance",
       "component:uikit:Avatar:common",
       "component:uikit:Avatar:image-specific",
-      "component:uikit:Avatar:icon-specific",
-      "component:uikit:Avatar:text-specific",
       "component:uikit:Avatar:css-api"
     ]
   },
@@ -956,8 +952,7 @@
       "component:uikit:Card:theme",
       "component:uikit:Card:type",
       "component:uikit:Card:view",
-      "component:uikit:Card:properties",
-      "component:uikit:Card:css-api"
+      "component:uikit:Card:properties"
     ]
   },
   {
@@ -1796,8 +1791,7 @@
       "component:uikit:Toaster:using-toaster-as-a-hoc",
       "component:uikit:Toaster:constructor-arguments",
       "component:uikit:Toaster:methods",
-      "component:uikit:Toaster:more-on-add",
-      "component:uikit:Toaster:css-api"
+      "component:uikit:Toaster:more-on-add"
     ]
   },
   {
@@ -2095,7 +2089,6 @@
     "description": "",
     "section_ids": [
       "library:uikit:uikit/playwright/README:how-to-write-a-test",
-      "library:uikit:uikit/playwright/README:description-of-possible-commands",
       "library:uikit:uikit/playwright/README:npm-scripts"
     ]
   },
@@ -2627,8 +2620,7 @@
     ],
     "description": "The useViewportSize hook calculates the size of the viewport at the resize event",
     "section_ids": [
-      "library:uikit:uikit/src/hooks/useViewportSize/README:useviewportsize",
-      "library:uikit:uikit/src/hooks/useViewportSize/README:result"
+      "library:uikit:uikit/src/hooks/useViewportSize/README:useviewportsize"
     ]
   },
   {
@@ -2679,8 +2671,7 @@
       "component:components:AdaptiveTabs:adaptivetabs",
       "component:components:AdaptiveTabs:tabitem-proptypes",
       "component:components:AdaptiveTabs:adaptivetabs-proptypes",
-      "component:components:AdaptiveTabs:breakpointsconfig",
-      "component:components:AdaptiveTabs:example"
+      "component:components:AdaptiveTabs:breakpointsconfig"
     ]
   },
   {
@@ -3148,7 +3139,6 @@
     "section_ids": [
       "component:date-components:RelativeDateField:relativedatefield",
       "component:date-components:RelativeDateField:relative-input",
-      "component:date-components:RelativeDateField:valid-input-rules",
       "component:date-components:RelativeDateField:properties"
     ]
   },
@@ -3185,7 +3175,6 @@
       "library:navigation:install",
       "library:navigation:sandboxes",
       "library:navigation:roadmap-2025",
-      "library:navigation:components",
       "library:navigation:css-api"
     ]
   },
@@ -3338,7 +3327,6 @@
     "description": "",
     "section_ids": [
       "library:navigation:navigation/playwright/README:how-to-write-a-test",
-      "library:navigation:navigation/playwright/README:description-of-possible-commands",
       "library:navigation:navigation/playwright/README:npm-scripts"
     ]
   },
@@ -3391,7 +3379,6 @@
     "section_ids": [
       "library:markdown-editor:markdown-editor/docs/guidelines-contributions:important-information-for-contributors",
       "library:markdown-editor:markdown-editor/docs/guidelines-contributions:thank-you-for-your-contribution",
-      "library:markdown-editor:markdown-editor/docs/guidelines-contributions:core-contributors",
       "library:markdown-editor:markdown-editor/docs/guidelines-contributions:commit-and-pr-standards",
       "library:markdown-editor:markdown-editor/docs/guidelines-contributions:pr-titles-descriptions-linking-to-issues",
       "library:markdown-editor:markdown-editor/docs/guidelines-contributions:organizing-prs-for-reviews",
@@ -3487,8 +3474,7 @@
       "library:markdown-editor:markdown-editor/docs/how-to-add-visual-test:writing-tests",
       "library:markdown-editor:markdown-editor/docs/how-to-add-visual-test:writing-complex-tests",
       "library:markdown-editor:markdown-editor/docs/how-to-add-visual-test:clipboard-specifics",
-      "library:markdown-editor:markdown-editor/docs/how-to-add-visual-test:click-testing",
-      "library:markdown-editor:markdown-editor/docs/how-to-add-visual-test:useful-links"
+      "library:markdown-editor:markdown-editor/docs/how-to-add-visual-test:click-testing"
     ]
   },
   {
@@ -3669,13 +3655,11 @@
     "description": "UI component library for AI chats built with Atomic Design principles.",
     "section_ids": [
       "library:aikit:aikit",
-      "library:aikit:resources",
       "library:aikit:description",
       "library:aikit:project-structure",
       "library:aikit:installation",
       "library:aikit:quick-start",
       "library:aikit:architecture",
-      "library:aikit:documentation",
       "library:aikit:testing",
       "library:aikit:development"
     ]
@@ -3714,8 +3698,7 @@
     "description": "An alert message with an indicator of alert's type opportunity to pass a button",
     "section_ids": [
       "component:aikit:atoms/Alert:alert",
-      "component:aikit:atoms/Alert:features",
-      "component:aikit:atoms/Alert:usage"
+      "component:aikit:atoms/Alert:features"
     ]
   },
   {
@@ -3816,7 +3799,6 @@
       "component:aikit:atoms/Disclaimer:features",
       "component:aikit:atoms/Disclaimer:usage",
       "component:aikit:atoms/Disclaimer:props",
-      "component:aikit:atoms/Disclaimer:text-variants",
       "component:aikit:atoms/Disclaimer:styling"
     ]
   },
@@ -3979,7 +3961,6 @@
     "description": "Wrapper for buttons group",
     "section_ids": [
       "component:aikit:molecules/ButtonGroup:buttongroup",
-      "component:aikit:molecules/ButtonGroup:features",
       "component:aikit:molecules/ButtonGroup:usage",
       "component:aikit:molecules/ButtonGroup:props",
       "component:aikit:molecules/ButtonGroup:styling"
@@ -4021,7 +4002,6 @@
       "component:aikit:molecules/PromptInputFooter:usage",
       "component:aikit:molecules/PromptInputFooter:props",
       "component:aikit:molecules/PromptInputFooter:action-tooltips",
-      "component:aikit:molecules/PromptInputFooter:submitbutton-states",
       "component:aikit:molecules/PromptInputFooter:styling"
     ]
   },
@@ -4099,8 +4079,7 @@
     "description": "A star rating component for displaying and collecting user ratings from 1 to 5…",
     "section_ids": [
       "component:aikit:molecules/StarRating:starrating",
-      "component:aikit:molecules/StarRating:features",
-      "component:aikit:molecules/StarRating:usage"
+      "component:aikit:molecules/StarRating:features"
     ]
   },
   {
@@ -4177,8 +4156,7 @@
       "component:aikit:molecules/ToolHeader:features",
       "component:aikit:molecules/ToolHeader:usage",
       "component:aikit:molecules/ToolHeader:props",
-      "component:aikit:molecules/ToolHeader:action",
-      "component:aikit:molecules/ToolHeader:toolstatus"
+      "component:aikit:molecules/ToolHeader:action"
     ]
   },
   {
@@ -4232,7 +4210,6 @@
     "description": "Header component for displaying chat header with navigation and actions.",
     "section_ids": [
       "component:aikit:organisms/Header:header",
-      "component:aikit:organisms/Header:features",
       "component:aikit:organisms/Header:basic-usage",
       "component:aikit:organisms/Header:with-icon-and-preview",
       "component:aikit:organisms/Header:with-additional-actions",
@@ -4347,7 +4324,6 @@
     "description": "Component for rendering user message",
     "section_ids": [
       "component:aikit:organisms/UserMessage:usermessage",
-      "component:aikit:organisms/UserMessage:features",
       "component:aikit:organisms/UserMessage:usage",
       "component:aikit:organisms/UserMessage:props",
       "component:aikit:organisms/UserMessage:styling"
@@ -4462,7 +4438,6 @@
       "component:aikit:templates/History:examples",
       "component:aikit:templates/History:styling",
       "component:aikit:templates/History:accessibility",
-      "component:aikit:templates/History:internationalization",
       "component:aikit:templates/History:components-structure",
       "component:aikit:templates/History:utilities",
       "component:aikit:templates/History:types",
@@ -4479,20 +4454,17 @@
     "github_url": "https://github.com/gravity-ui/aikit/blob/main/docs/ARCHITECTURE.md",
     "breadcrumbs": [
       "Aikit Library Architecture",
-      "Atomic Design Principles"
+      "Component Levels"
     ],
     "description": "The library is built on Atomic Design principles, which ensure:",
     "section_ids": [
-      "library:aikit:aikit/docs/ARCHITECTURE:atomic-design-principles",
       "library:aikit:aikit/docs/ARCHITECTURE:component-levels",
       "library:aikit:aikit/docs/ARCHITECTURE:two-level-approach",
       "library:aikit:aikit/docs/ARCHITECTURE:state-management",
       "library:aikit:aikit/docs/ARCHITECTURE:type-system",
       "library:aikit:aikit/docs/ARCHITECTURE:extensibility",
       "library:aikit:aikit/docs/ARCHITECTURE:theming",
-      "library:aikit:aikit/docs/ARCHITECTURE:performance",
-      "library:aikit:aikit/docs/ARCHITECTURE:accessibility",
-      "library:aikit:aikit/docs/ARCHITECTURE:testing"
+      "library:aikit:aikit/docs/ARCHITECTURE:performance"
     ]
   },
   {
@@ -4513,8 +4485,7 @@
       "library:aikit:aikit/docs/GETTING_STARTED:working-with-message-types",
       "library:aikit:aikit/docs/GETTING_STARTED:theming",
       "library:aikit:aikit/docs/GETTING_STARTED:streaming",
-      "library:aikit:aikit/docs/GETTING_STARTED:server",
-      "library:aikit:aikit/docs/GETTING_STARTED:next-steps"
+      "library:aikit:aikit/docs/GETTING_STARTED:server"
     ]
   },
   {
@@ -4553,8 +4524,7 @@
       "library:aikit:aikit/docs/PROJECT_STRUCTURE:file-tree",
       "library:aikit:aikit/docs/PROJECT_STRUCTURE:directory-description",
       "library:aikit:aikit/docs/PROJECT_STRUCTURE:organization-principles",
-      "library:aikit:aikit/docs/PROJECT_STRUCTURE:next-steps",
-      "library:aikit:aikit/docs/PROJECT_STRUCTURE:useful-links"
+      "library:aikit:aikit/docs/PROJECT_STRUCTURE:next-steps"
     ]
   },
   {
@@ -4570,8 +4540,7 @@
     "description": "This directory contains all project documentation.",
     "section_ids": [
       "library:aikit:aikit/docs/README:documentation",
-      "library:aikit:aikit/docs/README:available-documentation",
-      "library:aikit:aikit/docs/README:quick-links"
+      "library:aikit:aikit/docs/README:available-documentation"
     ]
   },
   {
@@ -4610,7 +4579,6 @@
     "description": "",
     "section_ids": [
       "library:aikit:aikit/playwright/README:how-to-write-a-test",
-      "library:aikit:aikit/playwright/README:description-of-possible-commands",
       "library:aikit:aikit/playwright/README:npm-scripts"
     ]
   },
@@ -4650,9 +4618,7 @@
       "library:graph:how-it-works",
       "library:graph:install",
       "library:graph:react-example",
-      "library:graph:vanilla-javascript-example",
-      "library:graph:live-examples",
-      "library:graph:documentation"
+      "library:graph:vanilla-javascript-example"
     ]
   },
   {
@@ -5315,7 +5281,6 @@
     "description": "A flexible JavaScript library for data visualization and chart rendering using…",
     "section_ids": [
       "library:charts:gravity-ui-charts",
-      "library:charts:documentation",
       "library:charts:get-started",
       "library:charts:contributing"
     ]
@@ -5438,8 +5403,7 @@
     ],
     "description": "Gravity UI Charts is a charting library built with D3 and React. It's designed…",
     "section_ids": [
-      "library:charts:charts/docs/diplodoc/pages/overview:about-gravity-ui-charts",
-      "library:charts:charts/docs/diplodoc/pages/overview:what-you-can-already-do-with-gravity-ui-charts"
+      "library:charts:charts/docs/diplodoc/pages/overview:about-gravity-ui-charts"
     ]
   },
   {
@@ -6390,7 +6354,6 @@
       "library:timeline:timeline/docs/docs:examples",
       "library:timeline:timeline/docs/docs:live-examples",
       "library:timeline:timeline/docs/docs:best-practices",
-      "library:timeline:timeline/docs/docs:api-reference",
       "library:timeline:timeline/docs/docs:contributing",
       "library:timeline:timeline/docs/docs:license"
     ]
@@ -6594,8 +6557,6 @@
     "description": "If you are using system other than Linux, then you need to run tests via docker…",
     "section_ids": [
       "library:dynamic-forms:dynamic-forms/playwright/README:how-to-write-a-test",
-      "library:dynamic-forms:dynamic-forms/playwright/README:description-of-possible-commands",
-      "library:dynamic-forms:dynamic-forms/playwright/README:test-examples",
       "library:dynamic-forms:dynamic-forms/playwright/README:npm-scripts"
     ]
   },
@@ -6785,7 +6746,6 @@
     "description": "",
     "section_ids": [
       "library:page-constructor:page-constructor/playwright/README:how-to-write-a-test",
-      "library:page-constructor:page-constructor/playwright/README:description-of-possible-commands",
       "library:page-constructor:page-constructor/playwright/README:npm-scripts"
     ]
   },
@@ -6907,7 +6867,6 @@
     "description": "",
     "section_ids": [
       "library:page-constructor:page-constructor/src/sub-blocks/PriceDetailed/README:page-constructorsrcsub-blockspricedetailedreadme",
-      "library:page-constructor:page-constructor/src/sub-blocks/PriceDetailed/README:a-namepricedetailssettingspropspricedetailssettingspropsa",
       "library:page-constructor:page-constructor/src/sub-blocks/PriceDetailed/README:a-namepricedetailslistpropspricedetailslistpropsa",
       "library:page-constructor:page-constructor/src/sub-blocks/PriceDetailed/README:a-namepricedescriptionpropspricedescriptionpropsa",
       "library:page-constructor:page-constructor/src/sub-blocks/PriceDetailed/README:a-namepricedetailspropspricedetailspropsa"
@@ -6995,7 +6954,6 @@
     "description": "",
     "section_ids": [
       "library:blog-constructor:blog-constructor/playwright/README:how-to-write-a-test",
-      "library:blog-constructor:blog-constructor/playwright/README:description-of-possible-commands",
       "library:blog-constructor:blog-constructor/playwright/README:npm-scripts"
     ]
   },
@@ -7506,7 +7464,6 @@
     "description": "Provides request validation (body, params, query, headers) and response…",
     "section_ids": [
       "library:expresskit:expresskit/docs/VALIDATOR:expresskit-validator",
-      "library:expresskit:expresskit/docs/VALIDATOR:table-of-contents",
       "library:expresskit:expresskit/docs/VALIDATOR:quick-start-automatic-validation",
       "library:expresskit:expresskit/docs/VALIDATOR:core-concepts",
       "library:expresskit:expresskit/docs/VALIDATOR:withcontractconfig-settingshandler",

@@ -107,8 +107,6 @@
     "appearance",
     "common",
     "image-specific",
-    "icon-specific",
-    "text-specific",
     "css",
     "api",
     "profile",
@@ -116,8 +114,7 @@
     "user",
     "icon",
     "photo",
-    "specific",
-    "text"
+    "specific"
   ],
   "component:uikit:AvatarStack": [
     "avatarstack",
@@ -194,8 +191,6 @@
     "type",
     "view",
     "properties",
-    "css",
-    "api",
     "like"
   ],
   "component:uikit:Checkbox": [
@@ -943,9 +938,7 @@
     "arguments",
     "methods",
     "more",
-    "`add`",
-    "css",
-    "api"
+    "`add`"
   ],
   "component:uikit:Toc": [
     "toc",
@@ -1217,8 +1210,7 @@
     "components",
     "tabitem",
     "proptypes",
-    "breakpointsconfig",
-    "example"
+    "breakpointsconfig"
   ],
   "component:components:ChangelogDialog": [
     "changelogdialog",
@@ -1513,8 +1505,6 @@
     "dates",
     "can't…",
     "input",
-    "valid",
-    "rules",
     "properties",
     "date",
     "components"
@@ -1663,8 +1653,7 @@
     "trigger",
     "cta",
     "click",
-    "features",
-    "usage"
+    "features"
   ],
   "component:aikit:atoms/ChatDate": [
     "chatdate",
@@ -1750,8 +1739,6 @@
     "features",
     "usage",
     "props",
-    "text",
-    "variants",
     "styling"
   ],
   "component:aikit:atoms/IntersectionContainer": [
@@ -1871,7 +1858,6 @@
     "wrapper",
     "buttons",
     "group",
-    "features",
     "usage",
     "props",
     "styling"
@@ -1916,8 +1902,6 @@
     "usage",
     "props",
     "tooltips",
-    "submitbutton",
-    "states",
     "styling",
     "bottom",
     "bar",
@@ -1997,8 +1981,7 @@
     "account",
     "ratings",
     "5…",
-    "features",
-    "usage"
+    "features"
   ],
   "component:aikit:molecules/Suggestions": [
     "suggestions",
@@ -2070,7 +2053,6 @@
     "usage",
     "props",
     "action",
-    "toolstatus",
     "app",
     "bar",
     "top"
@@ -2119,7 +2101,6 @@
     "sidebar",
     "aside",
     "actions",
-    "features",
     "basic",
     "usage",
     "icon",
@@ -2244,7 +2225,6 @@
     "identity",
     "account",
     "message",
-    "features",
     "usage",
     "props",
     "styling"
@@ -2365,7 +2345,6 @@
     "examples",
     "styling",
     "accessibility",
-    "internationalization",
     "structure",
     "utilities",
     "types",

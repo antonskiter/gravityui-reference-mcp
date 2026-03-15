@@ -1878,24 +1878,6 @@
     ]
   },
   {
-    "id": "guide:Popover:types-of-popover",
-    "page_id": "guide:Popover",
-    "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=popover",
-    "page_title": "Popover",
-    "page_type": "guide",
-    "section_title": "Types of popover",
-    "breadcrumbs": [
-      "Popover",
-      "Types of popover"
-    ],
-    "content": "Types of popover\n\nInfo\n\nFor use in regular interfaces\n\nSpecial\n\nFor use in promos\n\nAnnouncement\n\nUse for moderate highlight in announcements and notifications",
-    "code_examples": [],
-    "keywords": [
-      "types",
-      "popover"
-    ]
-  },
-  {
     "id": "guide:Popover:parameters",
     "page_id": "guide:Popover",
     "url": "https://gravity-ui.com/design/guides?sectionId=guides&articleId=popover",
@@ -3144,25 +3126,6 @@
     ]
   },
   {
-    "id": "library:uikit:resources",
-    "page_id": "library:uikit",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "page_title": "UIKit",
-    "page_type": "library",
-    "library": "uikit",
-    "section_title": "Resources",
-    "breadcrumbs": [
-      "UIKit",
-      "Resources"
-    ],
-    "content": "Resources\n\nWebsite\n\nDocumentation\n\nFigma\n\nThemer\n\nStorybook\n\nCommunity",
-    "code_examples": [],
-    "keywords": [
-      "uikit",
-      "resources"
-    ]
-  },
-  {
     "id": "library:uikit:install",
     "page_id": "library:uikit",
     "url": "https://gravity-ui.com/libraries/uikit",
@@ -3888,46 +3851,6 @@
     ]
   },
   {
-    "id": "component:uikit:Avatar:icon-specific",
-    "page_id": "component:uikit:Avatar",
-    "url": "https://gravity-ui.com/components/uikit/avatar",
-    "page_title": "Avatar",
-    "page_type": "component",
-    "library": "uikit",
-    "section_title": "Icon-specific",
-    "breadcrumbs": [
-      "Avatar",
-      "Icon-specific"
-    ],
-    "content": "Icon-specific\n\nicon: IconData — Source of SVG icon\ncolor: string — Custom icon color",
-    "code_examples": [],
-    "keywords": [
-      "uikit",
-      "icon",
-      "specific"
-    ]
-  },
-  {
-    "id": "component:uikit:Avatar:text-specific",
-    "page_id": "component:uikit:Avatar",
-    "url": "https://gravity-ui.com/components/uikit/avatar",
-    "page_title": "Avatar",
-    "page_type": "component",
-    "library": "uikit",
-    "section_title": "Text-specific",
-    "breadcrumbs": [
-      "Avatar",
-      "Text-specific"
-    ],
-    "content": "Text-specific\n\ntext: string — Avatar text\ncolor: string — Custom text color",
-    "code_examples": [],
-    "keywords": [
-      "uikit",
-      "text",
-      "specific"
-    ]
-  },
-  {
     "id": "component:uikit:Avatar:css-api",
     "page_id": "component:uikit:Avatar",
     "url": "https://gravity-ui.com/components/uikit/avatar",
@@ -4397,26 +4320,6 @@
     "keywords": [
       "uikit",
       "properties"
-    ]
-  },
-  {
-    "id": "component:uikit:Card:css-api",
-    "page_id": "component:uikit:Card",
-    "url": "https://gravity-ui.com/components/uikit/card",
-    "page_title": "Card",
-    "page_type": "component",
-    "library": "uikit",
-    "section_title": "CSS API",
-    "breadcrumbs": [
-      "Card",
-      "CSS API"
-    ],
-    "content": "CSS API\n\n--g-card-background-color — Background color\n--g-card-border-width — Border width\n--g-card-border-color — Border color\n--g-card-border-radius — Border radius\n--g-card-box-shadow — Shadow",
-    "code_examples": [],
-    "keywords": [
-      "uikit",
-      "css",
-      "api"
     ]
   },
   {
@@ -8990,26 +8893,6 @@
     ]
   },
   {
-    "id": "component:uikit:Toaster:css-api",
-    "page_id": "component:uikit:Toaster",
-    "url": "https://gravity-ui.com/components/uikit/toaster",
-    "page_title": "Toaster",
-    "page_type": "component",
-    "library": "uikit",
-    "section_title": "CSS API",
-    "breadcrumbs": [
-      "Toaster",
-      "CSS API"
-    ],
-    "content": "CSS API\n\n--g-toaster-width — Container width\n--g-toaster-item-padding — Item padding\n--g-toaster-item-gap — Item gap",
-    "code_examples": [],
-    "keywords": [
-      "uikit",
-      "css",
-      "api"
-    ]
-  },
-  {
     "id": "component:uikit:Toc:toc",
     "page_id": "component:uikit:Toc",
     "url": "https://gravity-ui.com/components/uikit/toc",
@@ -10464,27 +10347,6 @@
       "uikit",
       "write",
       "test"
-    ]
-  },
-  {
-    "id": "library:uikit:uikit/playwright/README:description-of-possible-commands",
-    "page_id": "library:uikit:uikit/playwright/README",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "page_title": "Playwright Test Component",
-    "page_type": "library",
-    "library": "uikit",
-    "section_title": "Description of possible commands:",
-    "breadcrumbs": [
-      "Playwright Test Component",
-      "Description of possible commands:"
-    ],
-    "content": "Description of possible commands:\n\nplaywright-test-components\n\nplaywright-docs\n\nplaywright-writing-tests",
-    "code_examples": [],
-    "keywords": [
-      "uikit",
-      "description",
-      "possible",
-      "commands:"
     ]
   },
   {
@@ -12107,25 +11969,6 @@
     ]
   },
   {
-    "id": "library:uikit:uikit/src/hooks/useViewportSize/README:result",
-    "page_id": "library:uikit:uikit/src/hooks/useViewportSize/README",
-    "url": "https://gravity-ui.com/libraries/uikit",
-    "page_title": "useViewportSize",
-    "page_type": "library",
-    "library": "uikit",
-    "section_title": "Result",
-    "breadcrumbs": [
-      "useViewportSize",
-      "Result"
-    ],
-    "content": "Result\n\nwidth: number — Viewport width\nheight: number — Viewport height",
-    "code_examples": [],
-    "keywords": [
-      "uikit",
-      "result"
-    ]
-  },
-  {
     "id": "library:uikit:uikit/src/hooks/useVirtualElementRef/README:usevirtualelementref",
     "page_id": "library:uikit:uikit/src/hooks/useVirtualElementRef/README",
     "url": "https://gravity-ui.com/libraries/uikit",
@@ -12300,25 +12143,6 @@
     "keywords": [
       "components",
       "breakpointsconfig"
-    ]
-  },
-  {
-    "id": "component:components:AdaptiveTabs:example",
-    "page_id": "component:components:AdaptiveTabs",
-    "url": "https://gravity-ui.com/components/components/adaptivetabs",
-    "page_title": "AdaptiveTabs",
-    "page_type": "component",
-    "library": "components",
-    "section_title": "Example",
-    "breadcrumbs": [
-      "AdaptiveTabs",
-      "Example"
-    ],
-    "content": "Example\n\n```js\nconst items = [\n  {\n    id: 'firstTab',\n  },\n  {\n    id: 'secondTab',\n    title: 'Second Tab',\n  },\n  {\n    id: 'thirdTab',\n    title: 'Third Tab',\n  },\n  {\n    id: 'disabledTab',\n    title: 'This tab is disabled',\n    disabled: true,\n  },\n];\n\nconst [activeTab, setActiveTab] = useState('secondTab');\n```",
-    "code_examples": [],
-    "keywords": [
-      "components",
-      "example"
     ]
   },
   {
@@ -14345,27 +14169,6 @@
     ]
   },
   {
-    "id": "component:date-components:RelativeDateField:valid-input-rules",
-    "page_id": "component:date-components:RelativeDateField",
-    "url": "https://gravity-ui.com/components/date-components/relativedatefield",
-    "page_title": "RelativeDateField",
-    "page_type": "component",
-    "library": "date-components",
-    "section_title": "Valid input rules",
-    "breadcrumbs": [
-      "RelativeDateField",
-      "Valid input rules"
-    ],
-    "content": "Valid input rules\n\na value should starts from keyword now\n\nrelative date expression in common looks like: now${operand}${count}${unit}\n\navailable values for operand:\n\n- - subtraction\n\n+ - addition\n\n/ - bringing to the start of the unit\n\nvalid values of count - any natural number\n\nvalid values of unit:\n\nd - day\n\nw - week\n\nM - month\n\nQ - quarter\n\ny - year\n\nh - hour\n\nm - minute\n\nExamples of usage\n\nnow-1d\n\nnow/w\n\nnow+10d-5d/M",
-    "code_examples": [],
-    "keywords": [
-      "date-components",
-      "valid",
-      "input",
-      "rules"
-    ]
-  },
-  {
     "id": "component:date-components:RelativeDateField:properties",
     "page_id": "component:date-components:RelativeDateField",
     "url": "https://gravity-ui.com/components/date-components/relativedatefield",
@@ -14521,25 +14324,6 @@
       "navigation",
       "roadmap",
       "2025"
-    ]
-  },
-  {
-    "id": "library:navigation:components",
-    "page_id": "library:navigation",
-    "url": "https://gravity-ui.com/libraries/navigation",
-    "page_title": "@gravity-ui/navigation",
-    "page_type": "library",
-    "library": "navigation",
-    "section_title": "Components",
-    "breadcrumbs": [
-      "@gravity-ui/navigation",
-      "Components"
-    ],
-    "content": "Components\n\nAsideHeader\n\nAllPagesPanel\n\nPageLayout\n\nPageLayoutAside\n\nAsideFallback\n\nFooterItem\n\nLogo\n\nDrawer\n\nDrawerItem\n\nMobileHeader\n\nMobileHeaderFooterItem\n\nMobileLogo\n\nHotkeysPanel\n\nFooter\n\nMobileFooter\n\nActionBar\n\nSettings",
-    "code_examples": [],
-    "keywords": [
-      "navigation",
-      "components"
     ]
   },
   {
@@ -15302,27 +15086,6 @@
     ]
   },
   {
-    "id": "library:navigation:navigation/playwright/README:description-of-possible-commands",
-    "page_id": "library:navigation:navigation/playwright/README",
-    "url": "https://gravity-ui.com/libraries/navigation",
-    "page_title": "Playwright Test Component",
-    "page_type": "library",
-    "library": "navigation",
-    "section_title": "Description of possible commands:",
-    "breadcrumbs": [
-      "Playwright Test Component",
-      "Description of possible commands:"
-    ],
-    "content": "Description of possible commands:\n\nplaywright-test-components\n\nplaywright-docs\n\nplaywright-writing-tests",
-    "code_examples": [],
-    "keywords": [
-      "navigation",
-      "description",
-      "possible",
-      "commands:"
-    ]
-  },
-  {
     "id": "library:navigation:navigation/playwright/README:npm-scripts",
     "page_id": "library:navigation:navigation/playwright/README",
     "url": "https://gravity-ui.com/libraries/navigation",
@@ -15469,26 +15232,6 @@
       "your",
       "contribution!",
       "🙌"
-    ]
-  },
-  {
-    "id": "library:markdown-editor:markdown-editor/docs/guidelines-contributions:core-contributors",
-    "page_id": "library:markdown-editor:markdown-editor/docs/guidelines-contributions",
-    "url": "https://gravity-ui.com/libraries/markdown-editor",
-    "page_title": "markdown-editor/docs/guidelines-contributions",
-    "page_type": "library",
-    "library": "markdown-editor",
-    "section_title": "Core Contributors",
-    "breadcrumbs": [
-      "markdown-editor/docs/guidelines-contributions",
-      "Core Contributors"
-    ],
-    "content": "Core Contributors\n\n@d3m1d0v\n\n@makhnatkin",
-    "code_examples": [],
-    "keywords": [
-      "markdown-editor",
-      "core",
-      "contributors"
     ]
   },
   {
@@ -16040,26 +15783,6 @@
       "markdown-editor",
       "click",
       "testing"
-    ]
-  },
-  {
-    "id": "library:markdown-editor:markdown-editor/docs/how-to-add-visual-test:useful-links",
-    "page_id": "library:markdown-editor:markdown-editor/docs/how-to-add-visual-test",
-    "url": "https://gravity-ui.com/libraries/markdown-editor",
-    "page_title": "Visual Testing with Playwright",
-    "page_type": "library",
-    "library": "markdown-editor",
-    "section_title": "Useful Links",
-    "breadcrumbs": [
-      "Visual Testing with Playwright",
-      "Useful Links"
-    ],
-    "content": "Useful Links\n\nPlaywright API\n\nWriting Playwright Tests",
-    "code_examples": [],
-    "keywords": [
-      "markdown-editor",
-      "useful",
-      "links"
     ]
   },
   {
@@ -16865,25 +16588,6 @@
     ]
   },
   {
-    "id": "library:aikit:resources",
-    "page_id": "library:aikit",
-    "url": "https://gravity-ui.com/libraries/aikit",
-    "page_title": "AIKit",
-    "page_type": "library",
-    "library": "aikit",
-    "section_title": "Resources",
-    "breadcrumbs": [
-      "AIKit",
-      "Resources"
-    ],
-    "content": "Resources\n\nWebsite\n\nStorybook\n\nCommunity",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "resources"
-    ]
-  },
-  {
     "id": "library:aikit:description",
     "page_id": "library:aikit",
     "url": "https://gravity-ui.com/libraries/aikit",
@@ -16984,25 +16688,6 @@
     "keywords": [
       "aikit",
       "architecture"
-    ]
-  },
-  {
-    "id": "library:aikit:documentation",
-    "page_id": "library:aikit",
-    "url": "https://gravity-ui.com/libraries/aikit",
-    "page_title": "AIKit",
-    "page_type": "library",
-    "library": "aikit",
-    "section_title": "Documentation",
-    "breadcrumbs": [
-      "AIKit",
-      "Documentation"
-    ],
-    "content": "Documentation\n\nQuick Start Guide\n\nArchitecture\n\nProject Structure\n\nTesting Guide\n\nPlaywright Guide",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "documentation"
     ]
   },
   {
@@ -17219,25 +16904,6 @@
     "keywords": [
       "aikit",
       "features"
-    ]
-  },
-  {
-    "id": "component:aikit:atoms/Alert:usage",
-    "page_id": "component:aikit:atoms/Alert",
-    "url": "https://gravity-ui.com/components/aikit/atomsalert",
-    "page_title": "Alert",
-    "page_type": "component",
-    "library": "aikit",
-    "section_title": "Usage",
-    "breadcrumbs": [
-      "Alert",
-      "Usage"
-    ],
-    "content": "Usage\n\n```tsx\n\n// Different variant\n\n// Action\n```",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "usage"
     ]
   },
   {
@@ -17836,26 +17502,6 @@
     "keywords": [
       "aikit",
       "props"
-    ]
-  },
-  {
-    "id": "component:aikit:atoms/Disclaimer:text-variants",
-    "page_id": "component:aikit:atoms/Disclaimer",
-    "url": "https://gravity-ui.com/components/aikit/atomsdisclaimer",
-    "page_title": "Disclaimer",
-    "page_type": "component",
-    "library": "aikit",
-    "section_title": "Text Variants",
-    "breadcrumbs": [
-      "Disclaimer",
-      "Text Variants"
-    ],
-    "content": "Text Variants\n\nThe variant prop accepts values from Gravity UI Text component:\n\nBody (font-weight: 400):\n\nbody-1 (13px/18px) - Default\n\nbody-2 (15px/20px)\n\nbody-3 (17px/24px)\n\nbody-short (13px/16px)\n\nCaption (font-weight: 400):\n\ncaption-1 (9px/12px)\n\ncaption-2 (11px/16px)\n\nSubheader (font-weight: 600):\n\nsubheader-1 (13px/18px)\n\nsubheader-2 (15px/20px)\n\nsubheader-3 (17px/24px)\n\nHeader (font-weight: 600):\n\nheader-1 (20px/24px)\n\nheader-2 (24px/28px)\n\nDisplay (font-weight: 600):\n\ndisplay-1 (28px/36px)\n\ndisplay-2 (32px/40px)\n\ndisplay-3 (40px/48px)\n\ndisplay-4 (48px/52px)\n\nCode (font-weight: 400):\n\ncode-1 (12px/18px)\n\ncode-2 (14px/20px)\n\ncode-3 (16px/14px)\n\ncode-inline-1 (12px/14px)\n\ncode-inline-2 (14px/16px)\n\ncode-inline-3 (16px/20px)\n\nOther:\n\ninherit - Inherits from parent",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "text",
-      "variants"
     ]
   },
   {
@@ -18564,25 +18210,6 @@
     ]
   },
   {
-    "id": "component:aikit:molecules/ButtonGroup:features",
-    "page_id": "component:aikit:molecules/ButtonGroup",
-    "url": "https://gravity-ui.com/components/aikit/moleculesbuttongroup",
-    "page_title": "ButtonGroup",
-    "page_type": "component",
-    "library": "aikit",
-    "section_title": "Features",
-    "breadcrumbs": [
-      "ButtonGroup",
-      "Features"
-    ],
-    "content": "Features\n\nTwo Orientation Modes:\n\nhorizontal\n\nvertical",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "features"
-    ]
-  },
-  {
     "id": "component:aikit:molecules/ButtonGroup:usage",
     "page_id": "component:aikit:molecules/ButtonGroup",
     "url": "https://gravity-ui.com/components/aikit/moleculesbuttongroup",
@@ -18834,26 +18461,6 @@
       "aikit",
       "action",
       "tooltips"
-    ]
-  },
-  {
-    "id": "component:aikit:molecules/PromptInputFooter:submitbutton-states",
-    "page_id": "component:aikit:molecules/PromptInputFooter",
-    "url": "https://gravity-ui.com/components/aikit/moleculespromptinputfooter",
-    "page_title": "PromptInputFooter",
-    "page_type": "component",
-    "library": "aikit",
-    "section_title": "SubmitButton States",
-    "breadcrumbs": [
-      "PromptInputFooter",
-      "SubmitButton States"
-    ],
-    "content": "SubmitButton States\n\nThe submit button supports four states:\n\nenabled: Active and ready to submit\n\ndisabled: Inactive state\n\nloading: Showing loading spinner\n\ncancelable: Showing stop icon (for canceling streaming)",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "submitbutton",
-      "states"
     ]
   },
   {
@@ -19285,25 +18892,6 @@
     ]
   },
   {
-    "id": "component:aikit:molecules/StarRating:usage",
-    "page_id": "component:aikit:molecules/StarRating",
-    "url": "https://gravity-ui.com/components/aikit/moleculesstarrating",
-    "page_title": "StarRating",
-    "page_type": "component",
-    "library": "aikit",
-    "section_title": "Usage",
-    "breadcrumbs": [
-      "StarRating",
-      "Usage"
-    ],
-    "content": "Usage\n\n```tsx\n\n// Basic usage\n```",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "usage"
-    ]
-  },
-  {
     "id": "component:aikit:molecules/Suggestions:suggestions",
     "page_id": "component:aikit:molecules/Suggestions",
     "url": "https://gravity-ui.com/components/aikit/moleculessuggestions",
@@ -19714,25 +19302,6 @@
     ]
   },
   {
-    "id": "component:aikit:molecules/ToolHeader:toolstatus",
-    "page_id": "component:aikit:molecules/ToolHeader",
-    "url": "https://gravity-ui.com/components/aikit/moleculestoolheader",
-    "page_title": "ToolHeader",
-    "page_type": "component",
-    "library": "aikit",
-    "section_title": "ToolStatus",
-    "breadcrumbs": [
-      "ToolHeader",
-      "ToolStatus"
-    ],
-    "content": "ToolStatus\n\nType: 'success' | 'error' | 'loading'\n\nsuccess: Success status indicator\nerror: Error status indicator\nloading: Loading status indicator",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "toolstatus"
-    ]
-  },
-  {
     "id": "component:aikit:molecules/ToolStatus:toolstatus",
     "page_id": "component:aikit:molecules/ToolStatus",
     "url": "https://gravity-ui.com/components/aikit/moleculestoolstatus",
@@ -19952,25 +19521,6 @@
     "keywords": [
       "aikit",
       "header"
-    ]
-  },
-  {
-    "id": "component:aikit:organisms/Header:features",
-    "page_id": "component:aikit:organisms/Header",
-    "url": "https://gravity-ui.com/components/aikit/organismsheader",
-    "page_title": "Header",
-    "page_type": "component",
-    "library": "aikit",
-    "section_title": "Features",
-    "breadcrumbs": [
-      "Header",
-      "Features"
-    ],
-    "content": "Features\n\nDisplay chat title\n\nNavigation (history, new chat, close)\n\nAdditional actions\n\nTitle positioning (left, center)\n\nInternationalized tooltips for action buttons",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "features"
     ]
   },
   {
@@ -20873,25 +20423,6 @@
     "keywords": [
       "aikit",
       "usermessage"
-    ]
-  },
-  {
-    "id": "component:aikit:organisms/UserMessage:features",
-    "page_id": "component:aikit:organisms/UserMessage",
-    "url": "https://gravity-ui.com/components/aikit/organismsusermessage",
-    "page_title": "UserMessage",
-    "page_type": "component",
-    "library": "aikit",
-    "section_title": "Features",
-    "breadcrumbs": [
-      "UserMessage",
-      "Features"
-    ],
-    "content": "Features\n\nSupport render avatar of user\n\nSupport rendering markdown\n\nSupport different type of actions\n\nSupport rendering timestamp",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "features"
     ]
   },
   {
@@ -22106,25 +21637,6 @@
     ]
   },
   {
-    "id": "component:aikit:templates/History:internationalization",
-    "page_id": "component:aikit:templates/History",
-    "url": "https://gravity-ui.com/components/aikit/templateshistory",
-    "page_title": "History",
-    "page_type": "component",
-    "library": "aikit",
-    "section_title": "Internationalization",
-    "breadcrumbs": [
-      "History",
-      "Internationalization"
-    ],
-    "content": "Internationalization\n\nThe component includes translations for:\n\nEnglish (en)\n\nRussian (ru)\n\nTranslations cover:\n\nSearch placeholder\n\nEmpty state message\n\nLoad more button text",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "internationalization"
-    ]
-  },
-  {
     "id": "component:aikit:templates/History:components-structure",
     "page_id": "component:aikit:templates/History",
     "url": "https://gravity-ui.com/components/aikit/templateshistory",
@@ -22219,27 +21731,6 @@
       "aikit",
       "related",
       "components"
-    ]
-  },
-  {
-    "id": "library:aikit:aikit/docs/ARCHITECTURE:atomic-design-principles",
-    "page_id": "library:aikit:aikit/docs/ARCHITECTURE",
-    "url": "https://gravity-ui.com/libraries/aikit",
-    "page_title": "Aikit Library Architecture",
-    "page_type": "library",
-    "library": "aikit",
-    "section_title": "Atomic Design Principles",
-    "breadcrumbs": [
-      "Aikit Library Architecture",
-      "Atomic Design Principles"
-    ],
-    "content": "Atomic Design Principles\n\nThe library is built on Atomic Design principles, which ensure:\n\nClear component hierarchy\n\nElement reusability\n\nEasy maintenance\n\nFlexible customization",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "atomic",
-      "design",
-      "principles"
     ]
   },
   {
@@ -22395,44 +21886,6 @@
     ]
   },
   {
-    "id": "library:aikit:aikit/docs/ARCHITECTURE:accessibility",
-    "page_id": "library:aikit:aikit/docs/ARCHITECTURE",
-    "url": "https://gravity-ui.com/libraries/aikit",
-    "page_title": "Aikit Library Architecture",
-    "page_type": "library",
-    "library": "aikit",
-    "section_title": "Accessibility",
-    "breadcrumbs": [
-      "Aikit Library Architecture",
-      "Accessibility"
-    ],
-    "content": "Accessibility\n\nARIA Attributes\n\nAll interactive elements have:\n\naria-label for screen readers\n\nrole for semantics\n\naria-live for dynamic changes\n\nKeyboard Navigation\n\nEnter — send message\n\nEscape — cancel\n\nTab — navigation\n\n↑/↓ — prompt history",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "accessibility"
-    ]
-  },
-  {
-    "id": "library:aikit:aikit/docs/ARCHITECTURE:testing",
-    "page_id": "library:aikit:aikit/docs/ARCHITECTURE",
-    "url": "https://gravity-ui.com/libraries/aikit",
-    "page_title": "Aikit Library Architecture",
-    "page_type": "library",
-    "library": "aikit",
-    "section_title": "Testing",
-    "breadcrumbs": [
-      "Aikit Library Architecture",
-      "Testing"
-    ],
-    "content": "Testing\n\nUnit Tests\n\nTests for each atom and molecule\n\nMock data for isolation\n\nIntegration Tests\n\nComponent interaction tests\n\nUser scenario verification",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "testing"
-    ]
-  },
-  {
     "id": "library:aikit:aikit/docs/GETTING_STARTED:quick-start",
     "page_id": "library:aikit:aikit/docs/GETTING_STARTED",
     "url": "https://gravity-ui.com/libraries/aikit",
@@ -22583,26 +22036,6 @@
     "keywords": [
       "aikit",
       "server"
-    ]
-  },
-  {
-    "id": "library:aikit:aikit/docs/GETTING_STARTED:next-steps",
-    "page_id": "library:aikit:aikit/docs/GETTING_STARTED",
-    "url": "https://gravity-ui.com/libraries/aikit",
-    "page_title": "Quick Start",
-    "page_type": "library",
-    "library": "aikit",
-    "section_title": "Next Steps",
-    "breadcrumbs": [
-      "Quick Start",
-      "Next Steps"
-    ],
-    "content": "Next Steps\n\nStudy the full architecture\n\nReview the project structure",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "next",
-      "steps"
     ]
   },
   {
@@ -22819,26 +22252,6 @@
     ]
   },
   {
-    "id": "library:aikit:aikit/docs/PROJECT_STRUCTURE:useful-links",
-    "page_id": "library:aikit:aikit/docs/PROJECT_STRUCTURE",
-    "url": "https://gravity-ui.com/libraries/aikit",
-    "page_title": "Aikit Project Structure",
-    "page_type": "library",
-    "library": "aikit",
-    "section_title": "Useful Links",
-    "breadcrumbs": [
-      "Aikit Project Structure",
-      "Useful Links"
-    ],
-    "content": "Useful Links\n\nFull Specification\n\nArchitecture\n\nQuick Start\n\nTesting Guide\n\nPlaywright Commands\n\nContributing",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "useful",
-      "links"
-    ]
-  },
-  {
     "id": "library:aikit:aikit/docs/README:documentation",
     "page_id": "library:aikit:aikit/docs/README",
     "url": "https://gravity-ui.com/libraries/aikit",
@@ -22874,26 +22287,6 @@
       "aikit",
       "available",
       "documentation"
-    ]
-  },
-  {
-    "id": "library:aikit:aikit/docs/README:quick-links",
-    "page_id": "library:aikit:aikit/docs/README",
-    "url": "https://gravity-ui.com/libraries/aikit",
-    "page_title": "Documentation",
-    "page_type": "library",
-    "library": "aikit",
-    "section_title": "Quick Links",
-    "breadcrumbs": [
-      "Documentation",
-      "Quick Links"
-    ],
-    "content": "Quick Links\n\nMain README\n\nContributing Guide\n\nLicense",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "quick",
-      "links"
     ]
   },
   {
@@ -23092,27 +22485,6 @@
       "aikit",
       "write",
       "test"
-    ]
-  },
-  {
-    "id": "library:aikit:aikit/playwright/README:description-of-possible-commands",
-    "page_id": "library:aikit:aikit/playwright/README",
-    "url": "https://gravity-ui.com/libraries/aikit",
-    "page_title": "Playwright Test Component",
-    "page_type": "library",
-    "library": "aikit",
-    "section_title": "Description of possible commands:",
-    "breadcrumbs": [
-      "Playwright Test Component",
-      "Description of possible commands:"
-    ],
-    "content": "Description of possible commands:\n\nplaywright-test-components\n\nplaywright-docs\n\nplaywright-writing-tests",
-    "code_examples": [],
-    "keywords": [
-      "aikit",
-      "description",
-      "possible",
-      "commands:"
     ]
   },
   {
@@ -23360,45 +22732,6 @@
       "vanilla",
       "javascript",
       "example"
-    ]
-  },
-  {
-    "id": "library:graph:live-examples",
-    "page_id": "library:graph",
-    "url": "https://gravity-ui.com/libraries/graph",
-    "page_title": "@gravity-ui/graph",
-    "page_type": "library",
-    "library": "graph",
-    "section_title": "Live Examples",
-    "breadcrumbs": [
-      "@gravity-ui/graph",
-      "Live Examples"
-    ],
-    "content": "Live Examples\n\nBasic example\n\nLarge scale example\n\nCustom blocks view\n\nBezier connection\n\nConnection customization",
-    "code_examples": [],
-    "keywords": [
-      "graph",
-      "live",
-      "examples"
-    ]
-  },
-  {
-    "id": "library:graph:documentation",
-    "page_id": "library:graph",
-    "url": "https://gravity-ui.com/libraries/graph",
-    "page_title": "@gravity-ui/graph",
-    "page_type": "library",
-    "library": "graph",
-    "section_title": "Documentation",
-    "breadcrumbs": [
-      "@gravity-ui/graph",
-      "Documentation"
-    ],
-    "content": "Documentation\n\nTable of Contents\n\nSystem\n\nComponent Lifecycle\n\nEvents\n\nGraph Settings\n\nPublic API\n\nScheduler System\n\nComponents\n\nCanvas Graph Component\n\nBlock Component\n\nAnchors\n\nRendering\n\nRendering Mechanism\n\nLayers\n\nBlocks and Connections\n\nBlock Groups\n\nCanvas Connection System",
-    "code_examples": [],
-    "keywords": [
-      "graph",
-      "documentation"
     ]
   },
   {
@@ -29497,25 +28830,6 @@
     ]
   },
   {
-    "id": "library:charts:documentation",
-    "page_id": "library:charts",
-    "url": "https://gravity-ui.com/libraries/charts",
-    "page_title": "Gravity UI Charts",
-    "page_type": "library",
-    "library": "charts",
-    "section_title": "Documentation",
-    "breadcrumbs": [
-      "Gravity UI Charts",
-      "Documentation"
-    ],
-    "content": "Documentation\n\nOverview\n\nAPI\n\nGuides",
-    "code_examples": [],
-    "keywords": [
-      "charts",
-      "documentation"
-    ]
-  },
-  {
     "id": "library:charts:get-started",
     "page_id": "library:charts",
     "url": "https://gravity-ui.com/libraries/charts",
@@ -29913,31 +29227,6 @@
     "keywords": [
       "charts",
       "about",
-      "gravity",
-      "ui"
-    ]
-  },
-  {
-    "id": "library:charts:charts/docs/diplodoc/pages/overview:what-you-can-already-do-with-gravity-ui-charts",
-    "page_id": "library:charts:charts/docs/diplodoc/pages/overview",
-    "url": "https://gravity-ui.com/libraries/charts",
-    "page_title": "Overview",
-    "page_type": "library",
-    "library": "charts",
-    "section_title": "What you can already do with Gravity UI Charts",
-    "breadcrumbs": [
-      "Overview",
-      "What you can already do with Gravity UI Charts"
-    ],
-    "content": "What you can already do with Gravity UI Charts\n\nWe have already implemented support for the main chart types:\n\nArea\n\nBar-X\n\nBar-Y\n\nLine\n\nPie\n\nScatter\n\nTreemap\n\nWaterfall\n\nFunnel\n\nHeatmap\n\nRadar\n\n{% cut \"Examples from Storybook\" %}\n\n{% endcut %}",
-    "code_examples": [],
-    "keywords": [
-      "charts",
-      "what",
-      "you",
-      "can",
-      "already",
-      "do",
       "gravity",
       "ui"
     ]
@@ -36946,26 +36235,6 @@
     ]
   },
   {
-    "id": "library:timeline:timeline/docs/docs:api-reference",
-    "page_id": "library:timeline:timeline/docs/docs",
-    "url": "https://gravity-ui.com/libraries/timeline",
-    "page_title": "@gravity-ui/timeline Documentation",
-    "page_type": "library",
-    "library": "timeline",
-    "section_title": "API Reference",
-    "breadcrumbs": [
-      "@gravity-ui/timeline Documentation",
-      "API Reference"
-    ],
-    "content": "API Reference\n\nTimeline API\n\nEvents API\n\nRuler API\n\nMarkers API\n\nSections API\n\nCanvasApi API",
-    "code_examples": [],
-    "keywords": [
-      "timeline",
-      "api",
-      "reference"
-    ]
-  },
-  {
     "id": "library:timeline:timeline/docs/docs:contributing",
     "page_id": "library:timeline:timeline/docs/docs",
     "url": "https://gravity-ui.com/libraries/timeline",
@@ -38421,47 +37690,6 @@
     ]
   },
   {
-    "id": "library:dynamic-forms:dynamic-forms/playwright/README:description-of-possible-commands",
-    "page_id": "library:dynamic-forms:dynamic-forms/playwright/README",
-    "url": "https://gravity-ui.com/libraries/dynamic-forms",
-    "page_title": "Playwright Test Component",
-    "page_type": "library",
-    "library": "dynamic-forms",
-    "section_title": "Description of possible commands:",
-    "breadcrumbs": [
-      "Playwright Test Component",
-      "Description of possible commands:"
-    ],
-    "content": "Description of possible commands:\n\nplaywright-test-components\n\nplaywright-docs\n\nplaywright-writing-tests",
-    "code_examples": [],
-    "keywords": [
-      "dynamic-forms",
-      "description",
-      "possible",
-      "commands:"
-    ]
-  },
-  {
-    "id": "library:dynamic-forms:dynamic-forms/playwright/README:test-examples",
-    "page_id": "library:dynamic-forms:dynamic-forms/playwright/README",
-    "url": "https://gravity-ui.com/libraries/dynamic-forms",
-    "page_title": "Playwright Test Component",
-    "page_type": "library",
-    "library": "dynamic-forms",
-    "section_title": "Test examples",
-    "breadcrumbs": [
-      "Playwright Test Component",
-      "Test examples"
-    ],
-    "content": "Test examples\n\nArrayBase\n\nText\n\nTextContent\n\nTextArea",
-    "code_examples": [],
-    "keywords": [
-      "dynamic-forms",
-      "test",
-      "examples"
-    ]
-  },
-  {
     "id": "library:dynamic-forms:dynamic-forms/playwright/README:npm-scripts",
     "page_id": "library:dynamic-forms:dynamic-forms/playwright/README",
     "url": "https://gravity-ui.com/libraries/dynamic-forms",
@@ -39508,27 +38736,6 @@
     ]
   },
   {
-    "id": "library:page-constructor:page-constructor/playwright/README:description-of-possible-commands",
-    "page_id": "library:page-constructor:page-constructor/playwright/README",
-    "url": "https://gravity-ui.com/libraries/page-constructor",
-    "page_title": "Playwright Test Component",
-    "page_type": "library",
-    "library": "page-constructor",
-    "section_title": "Description of possible commands:",
-    "breadcrumbs": [
-      "Playwright Test Component",
-      "Description of possible commands:"
-    ],
-    "content": "Description of possible commands:\n\nplaywright-test-components\n\nplaywright-docs\n\nplaywright-writing-tests",
-    "code_examples": [],
-    "keywords": [
-      "page-constructor",
-      "description",
-      "possible",
-      "commands:"
-    ]
-  },
-  {
     "id": "library:page-constructor:page-constructor/playwright/README:npm-scripts",
     "page_id": "library:page-constructor:page-constructor/playwright/README",
     "url": "https://gravity-ui.com/libraries/page-constructor",
@@ -39737,27 +38944,6 @@
       "blocks",
       "pricedetailed",
       "readme"
-    ]
-  },
-  {
-    "id": "library:page-constructor:page-constructor/src/sub-blocks/PriceDetailed/README:a-namepricedetailssettingspropspricedetailssettingspropsa",
-    "page_id": "library:page-constructor:page-constructor/src/sub-blocks/PriceDetailed/README",
-    "url": "https://gravity-ui.com/libraries/page-constructor",
-    "page_title": "page-constructor/src/sub-blocks/PriceDetailed/README",
-    "page_type": "library",
-    "library": "page-constructor",
-    "section_title": "<a name=\"PriceDetailsSettingsProps\">PriceDetailsSettingsProps</a>",
-    "breadcrumbs": [
-      "page-constructor/src/sub-blocks/PriceDetailed/README",
-      "<a name=\"PriceDetailsSettingsProps\">PriceDetailsSettingsProps</a>"
-    ],
-    "content": "PriceDetailsSettingsProps\n\ntitle: string\n\ndescription: string",
-    "code_examples": [],
-    "keywords": [
-      "page-constructor",
-      "<a",
-      "name=\"pricedetailssettingsprops\">pricedetailssettingsprops<",
-      "a>"
     ]
   },
   {
@@ -40094,27 +39280,6 @@
       "blog-constructor",
       "write",
       "test"
-    ]
-  },
-  {
-    "id": "library:blog-constructor:blog-constructor/playwright/README:description-of-possible-commands",
-    "page_id": "library:blog-constructor:blog-constructor/playwright/README",
-    "url": "https://gravity-ui.com/libraries/blog-constructor",
-    "page_title": "Playwright Test Component",
-    "page_type": "library",
-    "library": "blog-constructor",
-    "section_title": "Description of possible commands:",
-    "breadcrumbs": [
-      "Playwright Test Component",
-      "Description of possible commands:"
-    ],
-    "content": "Description of possible commands:\n\nplaywright-test-components\n\nplaywright-docs\n\nplaywright-writing-tests",
-    "code_examples": [],
-    "keywords": [
-      "blog-constructor",
-      "description",
-      "possible",
-      "commands:"
     ]
   },
   {
@@ -41799,26 +40964,6 @@
     "keywords": [
       "expresskit",
       "validator"
-    ]
-  },
-  {
-    "id": "library:expresskit:expresskit/docs/VALIDATOR:table-of-contents",
-    "page_id": "library:expresskit:expresskit/docs/VALIDATOR",
-    "url": "https://gravity-ui.com/libraries/expresskit",
-    "page_title": "ExpressKit Validator",
-    "page_type": "library",
-    "library": "expresskit",
-    "section_title": "Table of Contents",
-    "breadcrumbs": [
-      "ExpressKit Validator",
-      "Table of Contents"
-    ],
-    "content": "Table of Contents\n\nQuick Start: Automatic Validation\n\nCore Concepts\n\nwithContract Configuration\n\nEnhanced Request\n\nEnhanced Response\n\nError Handling Customization",
-    "code_examples": [],
-    "keywords": [
-      "expresskit",
-      "table",
-      "contents"
     ]
   },
   {

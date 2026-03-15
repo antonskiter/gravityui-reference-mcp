@@ -215,12 +215,24 @@ function isNonLatin(text: string): boolean {
   return latinChars / alphaChars.length < 0.5;
 }
 
+/** Check if content is just a list of short items (ToC, navigation, etc.) */
+function isLinkList(text: string): boolean {
+  const lines = text.split("\n").filter(l => l.trim().length > 0);
+  if (lines.length < 3) return false;
+  // If most lines are short (< 40 chars) and there are no sentences (no periods),
+  // it's likely a ToC or navigation list
+  const shortLines = lines.filter(l => l.trim().length < 40);
+  const hasSentences = /[.!?]/.test(text);
+  return shortLines.length / lines.length > 0.8 && !hasSentences;
+}
+
 /** Check if a chunk has enough value to keep */
 function isJunkChunk(content: string, codeExamples: string[]): boolean {
   const hasCode = codeExamples.some(e => e.trim().length > 0);
   if (hasCode) return false;
   if (content.trim().length < 30) return true;
   if (isNonLatin(content)) return true;
+  if (isLinkList(content)) return true;
   return false;
 }
 
