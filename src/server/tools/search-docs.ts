@@ -18,13 +18,11 @@ export interface SearchDocsInput {
 
 export interface SearchDocsResult {
   section_id: string;
-  score: number;
   page_title: string;
   page_type: string;
   library?: string;
   section_title: string;
   snippet: string;
-  url: string;
 }
 
 export interface SearchDocsOutput {
@@ -56,13 +54,11 @@ export function handleSearchDocs(
 
     filtered.push({
       section_id: chunk.id,
-      score: result.score,
       page_title: chunk.page_title,
       page_type: chunk.page_type,
       library: chunk.library,
       section_title: chunk.section_title,
-      snippet: truncateAtWord(chunk.content, 200),
-      url: chunk.url,
+      snippet: truncateAtWord(chunk.content, 500),
     });
   }
 
@@ -81,9 +77,9 @@ export function formatSearchDocs(result: SearchDocsOutput): string {
     lines.push("");
     results.forEach((r, i) => {
       const lib = r.library ? `, ${r.library}` : "";
-      lines.push(`${i + 1}. ${r.page_title} (${r.page_type}${lib}) score: ${Math.min(100, Math.round(r.score))}`);
+      lines.push(`${i + 1}. ${r.page_title} (${r.page_type}${lib})`);
+      lines.push(`   Section: ${r.section_title}`);
       lines.push(indent(r.snippet));
-      lines.push(`   Section: ${r.section_id} | ${r.url}`);
       if (i < results.length - 1) lines.push("");
     });
   }
