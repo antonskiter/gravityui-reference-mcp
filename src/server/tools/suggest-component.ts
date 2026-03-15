@@ -1,6 +1,7 @@
 import { searchIndex } from "../../ingest/index.js";
 import { levenshtein, tokenizeAndClean } from "../../ingest/tags.js";
 import type { LoadedData } from "../loader.js";
+import type { ComponentDef } from "../../types.js";
 import { indent } from "../format.js";
 
 export interface SuggestComponentInput {
@@ -16,6 +17,7 @@ interface ComponentSuggestion {
   description: string;
   matching_tags: string[];
   score: number;
+  import_statement?: string;
 }
 
 export interface SuggestComponentOutput {
@@ -23,6 +25,37 @@ export interface SuggestComponentOutput {
 }
 
 const FUZZY_THRESHOLD = 2; // max Levenshtein distance for fuzzy match
+
+function computeDefScore(queryTokens: string[], def: ComponentDef): number {
+  if (queryTokens.length === 0) return 0;
+
+  // Build a token bag from description + prop names
+  const defTokens: string[] = [];
+  if (def.description) {
+    defTokens.push(...tokenizeAndClean(def.description));
+  }
+  for (const prop of def.props) {
+    defTokens.push(...tokenizeAndClean(prop.name));
+  }
+
+  if (defTokens.length === 0) return 0;
+
+  let matchCount = 0;
+  for (const token of queryTokens) {
+    for (const defToken of defTokens) {
+      if (defToken === token) {
+        matchCount++;
+        break;
+      }
+      if (token.length >= 4 && defToken.length >= 4 && levenshtein(token, defToken) <= FUZZY_THRESHOLD) {
+        matchCount += 0.5;
+        break;
+      }
+    }
+  }
+
+  return matchCount / queryTokens.length;
+}
 
 function computeTagScore(
   queryTokens: string[],
@@ -96,8 +129,41 @@ export function handleSuggestComponent(
     }
   }
 
+  // --- ComponentDef-based scoring ---
+  // Build a map from (name+library) key -> best def score + import_statement
+  const defScores = new Map<string, { score: number; import_statement: string }>();
+  for (const def of data.componentDefs) {
+    if (library && def.library !== library) continue;
+    const score = computeDefScore(queryTokens, def);
+    if (score <= 0) continue;
+    const key = `${def.name}::${def.library}`;
+    const existing = defScores.get(key);
+    if (!existing || score > existing.score) {
+      defScores.set(key, { score, import_statement: def.import_statement });
+    }
+  }
+
+  // Map def scores to page IDs via componentByName
+  const defScoresByPageId = new Map<string, { score: number; import_statement: string }>();
+  for (const [key, defResult] of defScores) {
+    const [compName, compLib] = key.split("::");
+    // Find pages that match this component name + library
+    for (const [pageId, page] of data.pageById) {
+      if (page.library !== compLib) continue;
+      if (page.title !== compName) continue;
+      const existing = defScoresByPageId.get(pageId);
+      if (!existing || defResult.score > existing.score) {
+        defScoresByPageId.set(pageId, defResult);
+      }
+    }
+  }
+
   // --- Merge scores ---
-  const allPageIds = new Set([...tagScores.keys(), ...searchScores.keys()]);
+  const allPageIds = new Set([
+    ...tagScores.keys(),
+    ...searchScores.keys(),
+    ...defScoresByPageId.keys(),
+  ]);
   const combined: { pageId: string; score: number; matchingTags: string[] }[] = [];
 
   for (const pageId of allPageIds) {
@@ -105,8 +171,11 @@ export function handleSuggestComponent(
     const normalizedTagScore = tagResult?.score ?? 0;
     const rawSearchScore = searchScores.get(pageId) ?? 0;
     const normalizedSearchScore = maxSearchScore > 0 ? rawSearchScore / maxSearchScore : 0;
+    const defResult = defScoresByPageId.get(pageId);
+    const normalizedDefScore = defResult?.score ?? 0;
 
-    const finalScore = 0.4 * normalizedTagScore + 0.6 * normalizedSearchScore;
+    // Weights: 30% tag + 50% search + 20% def
+    const finalScore = 0.3 * normalizedTagScore + 0.5 * normalizedSearchScore + 0.2 * normalizedDefScore;
 
     if (finalScore > 0) {
       combined.push({
@@ -126,6 +195,8 @@ export function handleSuggestComponent(
     const page = data.pageById.get(entry.pageId);
     if (!page) continue;
 
+    const defResult = defScoresByPageId.get(entry.pageId);
+
     suggestions.push({
       component: page.title,
       library: page.library ?? "",
@@ -133,6 +204,7 @@ export function handleSuggestComponent(
       description: page.description,
       matching_tags: entry.matchingTags,
       score: entry.score,
+      import_statement: defResult?.import_statement,
     });
   }
 
@@ -145,8 +217,9 @@ export function formatSuggestComponent(result: SuggestComponentOutput): string {
   const lines: string[] = [];
   suggestions.forEach((s, i) => {
     const tags = s.matching_tags.length > 0 ? `\n   Tags: ${s.matching_tags.join(", ")}` : "";
+    const importLine = s.import_statement ? `\n   Import: ${s.import_statement}` : "";
     lines.push(`${i + 1}. ${s.component} (${s.library}) ${Math.round(s.score * 100)}`);
-    lines.push(`${indent(s.description)}${tags}`);
+    lines.push(`${indent(s.description)}${tags}${importLine}`);
   });
   return lines.join("\n");
 }
