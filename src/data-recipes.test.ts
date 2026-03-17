@@ -28,7 +28,7 @@ const EXPECTED_IDS = [
 
 const EXPECTED_LEVELS: Record<string, string> = {
   "advanced-data-grid": "organism",
-  "app-shell": "foundation",
+  "app-shell": "organism",
   "confirmation-dialog": "molecule",
   "dashboard-layout": "organism",
   "data-table": "organism",
