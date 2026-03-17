@@ -29,7 +29,7 @@ export function handleGet(data: LoadedData, input: GetInput): GetOutput {
   if (TOKEN_TOPICS.has(nameLower)) {
     return {
       type: 'tokens',
-      data: { [nameLower]: (data.tokens as Record<string, unknown>)[nameLower] },
+      data: { [nameLower]: (data.tokens as unknown as Record<string, unknown>)[nameLower] },
     };
   }
 

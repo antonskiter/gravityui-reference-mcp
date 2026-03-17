@@ -50,10 +50,10 @@ describe("data/recipes.json conformance", () => {
       for (const section of recipe.sections) {
         if (section.type === "components") {
           for (const item of section.items) {
-            expect(item.library).not.toMatch(
-              /^@/,
+            expect(
+              item.library,
               `Recipe "${recipe.id}" component "${item.name}" has @-prefixed library: "${item.library}"`,
-            );
+            ).not.toMatch(/^@/);
           }
         }
       }

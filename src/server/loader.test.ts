@@ -3,6 +3,7 @@ import { mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { loadJsonArray, loadJsonFile } from './loader.js';
+import type { RecipeDef } from '../types.js';
 
 let tmpDir: string;
 
@@ -121,14 +122,14 @@ describe('loadJsonFile', () => {
     const filePath = join(tmpDir, 'recipes.json');
     writeFileSync(filePath, JSON.stringify(recipes));
 
-    const result = loadJsonFile(filePath, []);
+    const result = loadJsonFile<RecipeDef[]>(filePath, []);
     expect(result).toHaveLength(1);
     expect(result[0].id).toBe('confirmation-dialog');
   });
 
   it('returns empty array when recipes.json does not exist', () => {
     const filePath = join(tmpDir, 'recipes.json');
-    const result = loadJsonFile(filePath, []);
+    const result = loadJsonFile<RecipeDef[]>(filePath, []);
     expect(result).toEqual([]);
   });
 });
