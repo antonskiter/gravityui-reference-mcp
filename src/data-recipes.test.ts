@@ -9,19 +9,39 @@ const raw = JSON.parse(readFileSync(recipesPath, "utf-8"));
 const parsed = z.array(RecipeDefSchema).parse(raw);
 
 const EXPECTED_IDS = [
+  "advanced-data-grid",
+  "app-shell",
   "confirmation-dialog",
+  "dashboard-layout",
   "data-table",
+  "date-range-filter",
   "file-upload",
+  "form-with-validation",
+  "landing-page",
+  "multi-step-wizard",
   "page-states",
+  "search-with-suggestions",
+  "settings-page",
   "theming-dark-mode",
+  "user-feedback",
 ];
 
 const EXPECTED_LEVELS: Record<string, string> = {
+  "advanced-data-grid": "organism",
+  "app-shell": "foundation",
   "confirmation-dialog": "molecule",
+  "dashboard-layout": "organism",
   "data-table": "organism",
+  "date-range-filter": "molecule",
   "file-upload": "organism",
+  "form-with-validation": "organism",
+  "landing-page": "organism",
+  "multi-step-wizard": "organism",
   "page-states": "molecule",
+  "search-with-suggestions": "molecule",
+  "settings-page": "organism",
   "theming-dark-mode": "foundation",
+  "user-feedback": "molecule",
 };
 
 describe("data/recipes.json conformance", () => {
@@ -30,8 +50,8 @@ describe("data/recipes.json conformance", () => {
     expect(parsed).toBeDefined();
   });
 
-  it("contains exactly 5 recipes", () => {
-    expect(parsed).toHaveLength(5);
+  it("contains exactly 15 recipes", () => {
+    expect(parsed).toHaveLength(15);
   });
 
   it("has the expected IDs in alphabetical order", () => {

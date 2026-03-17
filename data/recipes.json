@@ -1,5 +1,369 @@
 [
   {
+    "id": "advanced-data-grid",
+    "title": "Advanced Data Grid with TanStack Table",
+    "description": "A feature-rich data grid built on BaseTable from @gravity-ui/table with TanStack Table integration. Supports sortable columns, column visibility toggling via TableColumnSetup, row selection with Checkbox, pagination, and a bulk actions toolbar. Ideal for complex admin interfaces that need headless table control with Gravity UI styling.",
+    "level": "organism",
+    "use_cases": [
+      "build a data grid with sortable columns and custom cell renderers",
+      "let users show/hide and reorder columns via a column setup popup",
+      "select rows with checkboxes and perform bulk operations via ActionsPanel",
+      "paginate large server-side datasets with configurable page sizes",
+      "integrate TanStack Table features (grouping, virtualization, resize) with Gravity UI components"
+    ],
+    "packages": [
+      "@gravity-ui/table",
+      "@gravity-ui/uikit"
+    ],
+    "tags": [
+      "table",
+      "data-grid",
+      "tanstack",
+      "sorting",
+      "column-setup",
+      "column-visibility",
+      "row-selection",
+      "checkbox",
+      "pagination",
+      "bulk-actions",
+      "actions-panel",
+      "headless",
+      "admin",
+      "grid"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "You need a highly customizable data grid with TanStack Table features (sorting, column visibility, row selection, grouping, virtualization) rendered with Gravity UI styling. BaseTable provides the headless rendering bridge while you control all behavior through TanStack Table APIs.",
+        "not_for": "Simple read-only tables with static columns (use Table from uikit). Key-value pairs (use DefinitionList). Card-based list layouts (use Card with Flex). Spreadsheet-like inline editing (use a dedicated spreadsheet component).",
+        "matrix": [
+          {
+            "situation": "Need full control over sorting, filtering, column visibility, and row models",
+            "component": "BaseTable",
+            "why": "BaseTable accepts a TanStack Table instance, giving you access to all TanStack features while rendering with Gravity UI styles."
+          },
+          {
+            "situation": "Simple paginated table with built-in column config and no TanStack dependency",
+            "component": "Table (uikit)",
+            "why": "The uikit Table component handles basic column rendering and sorting without requiring TanStack Table setup."
+          }
+        ]
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/table @gravity-ui/uikit @tanstack/react-table",
+          "Import table styles: import '@gravity-ui/table/styles/styles.css'",
+          "Wrap your app in ThemeProvider from @gravity-ui/uikit if not already done"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          {
+            "name": "BaseTable",
+            "library": "table",
+            "usage": "required",
+            "role": "Low-level headless table component that accepts a TanStack Table instance via the table prop. Renders thead, tbody, tfoot with Gravity UI styling. Props: table (Table<TData>), stickyHeader, emptyContent, onRowClick, renderSortIndicator, renderResizeHandle, rowClassName, cellClassName."
+          },
+          {
+            "name": "TableColumnSetup",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Column visibility and reordering popup. Renders a gear button that opens a popup with toggleable column list. Props: items (TableColumnSetupItem[] with id, title, selected, required), onUpdate, sortable (enables drag reorder), showStatus (shows N/M count on button)."
+          },
+          {
+            "name": "Pagination",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Page navigation below the table. Props: page, pageSize, total, onUpdate, pageSizeOptions, showInput, compact, size."
+          },
+          {
+            "name": "Checkbox",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Row selection checkboxes in the first column and a select-all checkbox in the header. Props: checked, indeterminate, onUpdate, size."
+          },
+          {
+            "name": "Button",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Action buttons in the toolbar and bulk actions panel. Props: view, size, onClick, loading, disabled."
+          },
+          {
+            "name": "ActionsPanel",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Floating panel that appears when rows are selected. Displays bulk action buttons. Props: actions (ActionsPanelAction[] with id, text, handler, theme), onClose, renderNote."
+          }
+        ]
+      },
+      {
+        "type": "custom_parts",
+        "items": [
+          {
+            "name": "TanStack Table instance setup",
+            "description": "Configure useReactTable with column definitions, row models, sorting state, row selection state, and column visibility state.",
+            "approach": "Call useReactTable with getCoreRowModel, getSortedRowModel, data, columns (via createColumnHelper), state: {sorting, rowSelection, columnVisibility}, and their onStateChange handlers. Pass the resulting table instance to BaseTable."
+          },
+          {
+            "name": "Column setup synchronization",
+            "description": "Bridge between TableColumnSetup items and TanStack Table columnVisibility state.",
+            "approach": "Derive TableColumnSetupItem[] from the TanStack column definitions and columnVisibility state. On TableColumnSetup onUpdate, map the updated items back to a columnVisibility record and call setColumnVisibility."
+          },
+          {
+            "name": "Server-side pagination",
+            "description": "Coordinate Pagination component with API calls for paginated data fetching.",
+            "approach": "Store page and pageSize in React state. Pass them to your data fetching hook (e.g., React Query). The API returns {data, total}. Pass total to Pagination and sliced data to useReactTable."
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "tree": [
+          "AdvancedDataGrid  (organism root)",
+          "  div.toolbar  (flex row, justify-content: space-between, margin-bottom)",
+          "    div.toolbar-left",
+          "      Text  (variant='subheader-2', page title or result count)",
+          "    div.toolbar-right  (flex row, gap)",
+          "      TableColumnSetup  (items, onUpdate, sortable, showStatus)",
+          "      Button  (refresh / export actions)",
+          "  BaseTable  (table={tanstackTable}, stickyHeader, emptyContent, onRowClick)",
+          "    column[0]: Checkbox header (select-all) + Checkbox cells (per-row)",
+          "    column[1..N]: data columns with optional sort indicators",
+          "    column[actions]: per-row action buttons",
+          "  Pagination  (page, pageSize, total, onUpdate, pageSizeOptions)",
+          "  {Object.keys(rowSelection).length > 0 && ActionsPanel}",
+          "    ActionsPanel  (actions, onClose, renderNote)"
+        ],
+        "flow": [
+          "1. Define columns with createColumnHelper: first column is a Checkbox selection column, middle columns are data fields, last column has row actions",
+          "2. Initialize useReactTable with getCoreRowModel, getSortedRowModel, state: {sorting, rowSelection, columnVisibility}, and corresponding onStateChange callbacks",
+          "3. Derive TableColumnSetupItem[] from table.getAllLeafColumns() and columnVisibility state",
+          "4. Render BaseTable with table instance, stickyHeader=true for fixed headers during scroll",
+          "5. User clicks a column header -> TanStack sorting state updates -> getSortedRowModel re-sorts -> BaseTable re-renders with sort indicators",
+          "6. User opens TableColumnSetup popup -> toggles column visibility -> onUpdate maps back to setColumnVisibility -> hidden columns disappear from BaseTable",
+          "7. User clicks row Checkbox -> rowSelection state updates -> when any rows selected, ActionsPanel appears at bottom",
+          "8. User clicks bulk action in ActionsPanel -> handler receives selected row IDs -> execute action -> clear rowSelection on success",
+          "9. User changes page or pageSize in Pagination -> onUpdate fires -> fetch new page of data or slice local data"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Advanced data grid with sorting, column setup, row selection, bulk actions, and pagination",
+        "code": "import React from 'react';\nimport {useReactTable, getCoreRowModel, getSortedRowModel, createColumnHelper} from '@tanstack/react-table';\nimport type {SortingState, RowSelectionState, ColumnDef, VisibilityState} from '@tanstack/react-table';\nimport {BaseTable} from '@gravity-ui/table';\nimport {TableColumnSetup, Pagination, Checkbox, Button, ActionsPanel, Text} from '@gravity-ui/uikit';\n\ninterface User {\n  id: string;\n  name: string;\n  email: string;\n  role: string;\n  createdAt: string;\n}\n\nconst columnHelper = createColumnHelper<User>();\n\nfunction makeColumns(\n  rowSelection: RowSelectionState,\n  onToggleRow: (id: string) => void,\n  onToggleAll: (checked: boolean) => void,\n  allSelected: boolean,\n  someSelected: boolean,\n) {\n  return [\n    columnHelper.display({\n      id: '_selection',\n      header: () => (\n        <Checkbox\n          checked={allSelected}\n          indeterminate={!allSelected && someSelected}\n          onUpdate={onToggleAll}\n        />\n      ),\n      cell: ({row}) => (\n        <Checkbox\n          checked={row.getIsSelected()}\n          onUpdate={() => onToggleRow(row.id)}\n        />\n      ),\n      size: 40,\n      enableSorting: false,\n    }),\n    columnHelper.accessor('name', {\n      header: 'Name',\n      enableSorting: true,\n    }),\n    columnHelper.accessor('email', {\n      header: 'Email',\n      enableSorting: true,\n    }),\n    columnHelper.accessor('role', {\n      header: 'Role',\n      enableSorting: true,\n    }),\n    columnHelper.accessor('createdAt', {\n      header: 'Created',\n      enableSorting: true,\n    }),\n  ];\n}\n\nexport function AdvancedDataGrid({data, onDelete, onExport}: {\n  data: User[];\n  onDelete: (ids: string[]) => void;\n  onExport: (ids: string[]) => void;\n}) {\n  const [sorting, setSorting] = React.useState<SortingState>([]);\n  const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});\n  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});\n  const [page, setPage] = React.useState(1);\n  const [pageSize, setPageSize] = React.useState(20);\n\n  const paginatedData = React.useMemo(() => {\n    const start = (page - 1) * pageSize;\n    return data.slice(start, start + pageSize);\n  }, [data, page, pageSize]);\n\n  const selectedIds = Object.keys(rowSelection).filter((k) => rowSelection[k]);\n  const allSelected = paginatedData.length > 0 && paginatedData.every((_, i) => rowSelection[String(i)]);\n  const someSelected = paginatedData.some((_, i) => rowSelection[String(i)]);\n\n  const toggleRow = (id: string) => {\n    setRowSelection((prev) => ({...prev, [id]: !prev[id]}));\n  };\n\n  const toggleAll = (checked: boolean) => {\n    if (checked) {\n      const next: RowSelectionState = {};\n      paginatedData.forEach((_, i) => { next[String(i)] = true; });\n      setRowSelection(next);\n    } else {\n      setRowSelection({});\n    }\n  };\n\n  const columns = React.useMemo(\n    () => makeColumns(rowSelection, toggleRow, toggleAll, allSelected, someSelected),\n    [rowSelection, allSelected, someSelected],\n  );\n\n  const table = useReactTable({\n    data: paginatedData,\n    columns,\n    state: {sorting, rowSelection, columnVisibility},\n    onSortingChange: setSorting,\n    onRowSelectionChange: setRowSelection,\n    onColumnVisibilityChange: setColumnVisibility,\n    getCoreRowModel: getCoreRowModel(),\n    getSortedRowModel: getSortedRowModel(),\n    getRowId: (row) => row.id,\n  });\n\n  const columnSetupItems = table.getAllLeafColumns()\n    .filter((col) => col.id !== '_selection')\n    .map((col) => ({\n      id: col.id,\n      title: typeof col.columnDef.header === 'string' ? col.columnDef.header : col.id,\n      selected: col.getIsVisible(),\n      required: col.id === 'name',\n    }));\n\n  const handleColumnSetupUpdate = (items: typeof columnSetupItems) => {\n    const next: VisibilityState = {};\n    items.forEach((item) => { next[item.id] = item.selected; });\n    setColumnVisibility(next);\n  };\n\n  const handlePageUpdate = (nextPage: number, nextPageSize: number) => {\n    if (nextPageSize !== pageSize) {\n      setPageSize(nextPageSize);\n      setPage(1);\n    } else {\n      setPage(nextPage);\n    }\n  };\n\n  return (\n    <div>\n      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16}}>\n        <Text variant=\"subheader-2\">{data.length} users</Text>\n        <div style={{display: 'flex', gap: 8}}>\n          <TableColumnSetup\n            items={columnSetupItems}\n            onUpdate={handleColumnSetupUpdate}\n            sortable\n            showStatus\n          />\n        </div>\n      </div>\n\n      <BaseTable\n        table={table}\n        stickyHeader\n        emptyContent={<Text color=\"secondary\">No data available</Text>}\n      />\n\n      <div style={{marginTop: 16}}>\n        <Pagination\n          page={page}\n          pageSize={pageSize}\n          total={data.length}\n          pageSizeOptions={[10, 20, 50, 100]}\n          onUpdate={handlePageUpdate}\n        />\n      </div>\n\n      {selectedIds.length > 0 && (\n        <ActionsPanel\n          actions={[\n            {id: 'delete', text: 'Delete selected', handler: () => onDelete(selectedIds), theme: 'danger'},\n            {id: 'export', text: 'Export selected', handler: () => onExport(selectedIds)},\n          ]}\n          onClose={() => setRowSelection({})}\n          renderNote={() => `${selectedIds.length} item${selectedIds.length > 1 ? 's' : ''} selected`}\n        />\n      )}\n    </div>\n  );\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Using the uikit Table component when you need TanStack Table features like column grouping, virtualization, or headless row models -- BaseTable is the Gravity UI bridge for TanStack Table",
+          "Managing sorting state manually instead of using TanStack's getSortedRowModel -- TanStack handles multi-column sorting, sort direction toggling, and stable sort out of the box",
+          "Building a custom column visibility UI when TableColumnSetup already provides a toggle popup with drag-and-drop reorder and required column pinning",
+          "Passing raw data to BaseTable instead of the TanStack table instance -- BaseTable requires a Table<TData> instance created by useReactTable, not a raw data array",
+          "Forgetting to import @gravity-ui/table styles -- BaseTable will render without proper cell padding, borders, and hover styles",
+          "Mixing TanStack Table's built-in selection with manual Checkbox state -- use TanStack's rowSelection state and row.getIsSelected() to keep selection consistent with sorting and pagination",
+          "Resetting row selection on every page change when cross-page selection is desired -- store selection by row ID (getRowId) rather than by row index"
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          {
+            "id": "data-table",
+            "note": "For simpler tables without TanStack Table, use the data-table recipe with the uikit Table component."
+          },
+          {
+            "id": "confirmation-dialog",
+            "note": "Confirm destructive bulk actions (delete selected) with a ConfirmDialog before executing."
+          },
+          {
+            "id": "page-states",
+            "note": "Show Skeleton rows in the BaseTable's emptyContent slot while data is loading from the server."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "app-shell",
+    "title": "App Shell with Navigation",
+    "description": "Foundation recipe for building a full application shell with sidebar navigation using AsideHeader, logo branding, collapsible compact mode, footer links, and a responsive MobileHeader for small screens.",
+    "level": "foundation",
+    "use_cases": [
+      "set up the main navigation layout for a new Gravity UI application",
+      "build a collapsible sidebar with menu items highlighting the active route",
+      "add a branded logo and footer links to the navigation shell",
+      "provide a responsive mobile navigation header for small viewports",
+      "integrate React Router or Next.js routing with sidebar menu items"
+    ],
+    "packages": [
+      "@gravity-ui/navigation",
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons"
+    ],
+    "tags": [
+      "navigation",
+      "sidebar",
+      "aside",
+      "header",
+      "app-shell",
+      "layout",
+      "menu",
+      "routing",
+      "responsive",
+      "mobile",
+      "logo",
+      "footer",
+      "compact",
+      "collapse",
+      "foundation"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "You are building a single-page application that needs a persistent sidebar navigation with logo, menu items, and optional footer. AsideHeader provides the desktop shell while MobileHeader covers mobile viewports.",
+        "not_for": "Simple landing pages without navigation (use plain layout). Apps that only need a top horizontal navbar (use a custom header). Embedded widgets or micro-frontends that inherit navigation from a parent shell."
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/navigation @gravity-ui/uikit @gravity-ui/icons",
+          "Wrap your app in ThemeProvider from @gravity-ui/uikit if not already done",
+          "Import navigation CSS: import '@gravity-ui/navigation/styles/styles.css'",
+          "Import uikit CSS at the entry point: import '@gravity-ui/uikit/styles/fonts.css'; import '@gravity-ui/uikit/styles/styles.css'"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          {
+            "name": "AsideHeader",
+            "library": "navigation",
+            "usage": "required",
+            "role": "Main desktop sidebar navigation shell. Accepts logo, menuItems, renderContent for the page body, renderFooter for bottom content, pinned/onChangePinned for collapse state, and isCompactMode for compact menu item height."
+          },
+          {
+            "name": "Logo",
+            "library": "navigation",
+            "usage": "required",
+            "role": "Branded logo displayed at the top of the sidebar. Accepts icon (SVG data), text (app name shown when expanded), href for home navigation, and pinned to control expanded/collapsed display."
+          },
+          {
+            "name": "Footer",
+            "library": "navigation",
+            "usage": "optional",
+            "role": "Desktop page footer with copyright text, logo, and menu links. Rendered via AsideHeader's renderFooter prop or placed below the main content area. Accepts copyright, menuItems, and withDivider props."
+          },
+          {
+            "name": "MobileHeader",
+            "library": "navigation",
+            "usage": "required",
+            "role": "Responsive mobile navigation header with burger menu. Renders at small viewports as a replacement for AsideHeader. Accepts logo and menuItems props."
+          },
+          {
+            "name": "Button",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Used for action buttons within the sidebar footer or content area. Can serve as a compact mode toggle trigger."
+          },
+          {
+            "name": "Icon",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Renders SVG icons from @gravity-ui/icons for menu item icons, logo icon, and action buttons throughout the navigation shell."
+          }
+        ]
+      },
+      {
+        "type": "custom_parts",
+        "items": [
+          {
+            "name": "Route-aware menu items",
+            "description": "Menu items that highlight based on the current route, integrating with React Router or Next.js.",
+            "approach": "Build menuItems array where each item has an id, title, icon, and onItemClick that calls navigate(). Derive the current property by comparing item paths against the current location.pathname. Wrap the logic in a useNavigationItems() hook."
+          },
+          {
+            "name": "Responsive shell switcher",
+            "description": "Automatically switch between AsideHeader (desktop) and MobileHeader (mobile) based on viewport width.",
+            "approach": "Use a useMediaQuery hook or CSS media query to detect viewport width. Render AsideHeader when width >= breakpoint (e.g. 768px) and MobileHeader otherwise. Share the same menuItems array between both components."
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "tree": [
+          "AppShell  (responsive shell root)",
+          "  useMediaQuery('(min-width: 768px)')  -> isMobile",
+          "",
+          "  {!isMobile && AsideHeader}",
+          "    logo  (LogoProps: icon, text, href)",
+          "    menuItems  (AsideHeaderItem[]: id, title, icon, current, onItemClick)",
+          "    subheaderItems?  (secondary navigation items below logo)",
+          "    renderContent  ({size}) => <main>{children}</main>",
+          "    renderFooter  ({size, isExpanded}) => Footer or custom links",
+          "    pinned / onChangePinned  (collapse state, persisted to localStorage)",
+          "    isCompactMode  (compact menu item height toggle)",
+          "",
+          "  {isMobile && MobileHeader}",
+          "    logo  (LogoProps)",
+          "    menuItems  (MobileMenuItem[])",
+          "",
+          "  Footer?  (below main content area)",
+          "    copyright  ('2024 My App')",
+          "    menuItems  ([{text, href, target}])"
+        ],
+        "flow": [
+          "1. App mounts -> read pinned state from localStorage (default: true)",
+          "2. AsideHeader renders with logo, menuItems derived from route config",
+          "3. Each menuItem has current=true when its path matches location.pathname",
+          "4. User clicks a menu item -> onItemClick calls router.navigate(path)",
+          "5. User clicks collapse button -> onChangePinned toggles sidebar, persist to localStorage",
+          "6. On mobile viewport -> MobileHeader renders instead with burger menu",
+          "7. User opens burger -> slides out menu panel with same items",
+          "8. Footer renders at bottom with copyright and help/docs links"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Full app shell with AsideHeader, route-aware menu, and responsive MobileHeader",
+        "code": "import React from 'react';\nimport {AsideHeader, Footer, MobileHeader} from '@gravity-ui/navigation';\nimport {Icon} from '@gravity-ui/uikit';\nimport {House, Persons, Gear, ChartColumn} from '@gravity-ui/icons';\nimport {useLocation, useNavigate} from 'react-router-dom';\n\nconst PINNED_KEY = 'aside-pinned';\n\nconst logoIcon = House;\n\nfunction useIsMobile() {\n  const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);\n  React.useEffect(() => {\n    const mql = window.matchMedia('(max-width: 767px)');\n    const handler = (e) => setIsMobile(e.matches);\n    mql.addEventListener('change', handler);\n    return () => mql.removeEventListener('change', handler);\n  }, []);\n  return isMobile;\n}\n\nfunction useMenuItems() {\n  const location = useLocation();\n  const navigate = useNavigate();\n\n  return React.useMemo(() => [\n    {\n      id: 'home',\n      title: 'Home',\n      icon: House,\n      current: location.pathname === '/',\n      onItemClick: () => navigate('/'),\n    },\n    {\n      id: 'dashboard',\n      title: 'Dashboard',\n      icon: ChartColumn,\n      current: location.pathname.startsWith('/dashboard'),\n      onItemClick: () => navigate('/dashboard'),\n    },\n    {\n      id: 'users',\n      title: 'Users',\n      icon: Persons,\n      current: location.pathname.startsWith('/users'),\n      onItemClick: () => navigate('/users'),\n    },\n    {\n      id: 'settings',\n      title: 'Settings',\n      icon: Gear,\n      current: location.pathname.startsWith('/settings'),\n      onItemClick: () => navigate('/settings'),\n    },\n  ], [location.pathname, navigate]);\n}\n\nexport function AppShell({children}) {\n  const isMobile = useIsMobile();\n  const menuItems = useMenuItems();\n  const [pinned, setPinned] = React.useState(() => {\n    const saved = localStorage.getItem(PINNED_KEY);\n    return saved !== null ? saved === 'true' : true;\n  });\n\n  const handleChangePinned = (next) => {\n    setPinned(next);\n    localStorage.setItem(PINNED_KEY, String(next));\n  };\n\n  const logo = {\n    icon: logoIcon,\n    text: 'My App',\n    href: '/',\n  };\n\n  const footerMenuItems = [\n    {text: 'Documentation', href: '/docs', target: '_blank'},\n    {text: 'Support', href: '/support', target: '_blank'},\n  ];\n\n  if (isMobile) {\n    return (\n      <>\n        <MobileHeader\n          logo={logo}\n          menuItems={menuItems.map((item) => ({\n            id: item.id,\n            title: item.title,\n            icon: item.icon,\n            current: item.current,\n            onItemClick: item.onItemClick,\n          }))}\n        />\n        <main style={{padding: 16}}>{children}</main>\n      </>\n    );\n  }\n\n  return (\n    <AsideHeader\n      logo={logo}\n      menuItems={menuItems}\n      pinned={pinned}\n      onChangePinned={handleChangePinned}\n      isCompactMode={false}\n      renderContent={({size}) => (\n        <main style={{paddingLeft: size, transition: 'padding-left 0.2s'}}>\n          <div style={{padding: 24, maxWidth: 1200, margin: '0 auto'}}>\n            {children}\n          </div>\n          <Footer\n            copyright={`\\u00A9 ${new Date().getFullYear()} My App`}\n            menuItems={footerMenuItems}\n            withDivider\n          />\n        </main>\n      )}\n    />\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Minimal AsideHeader with compact mode toggle and custom footer",
+        "code": "import React from 'react';\nimport {AsideHeader} from '@gravity-ui/navigation';\nimport {Button, Icon} from '@gravity-ui/uikit';\nimport {House, Gear, Moon} from '@gravity-ui/icons';\n\nexport function MinimalShell({children}) {\n  const [pinned, setPinned] = React.useState(true);\n  const [compact, setCompact] = React.useState(false);\n\n  return (\n    <AsideHeader\n      logo={{\n        icon: House,\n        text: 'My App',\n        href: '/',\n      }}\n      menuItems={[\n        {id: 'home', title: 'Home', icon: House, current: true},\n        {id: 'settings', title: 'Settings', icon: Gear},\n      ]}\n      pinned={pinned}\n      onChangePinned={setPinned}\n      isCompactMode={compact}\n      renderFooter={({isExpanded}) => (\n        <div style={{padding: 8}}>\n          {isExpanded && (\n            <Button\n              view=\"flat\"\n              size=\"s\"\n              width=\"max\"\n              onClick={() => setCompact((prev) => !prev)}\n            >\n              <Icon data={Moon} size={16} />\n              {compact ? 'Normal mode' : 'Compact mode'}\n            </Button>\n          )}\n        </div>\n      )}\n      renderContent={() => (\n        <main style={{padding: 24}}>{children}</main>\n      )}\n    />\n  );\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Building a custom sidebar from scratch with divs and CSS -- AsideHeader handles collapse animation, focus management, keyboard navigation, and responsive behavior out of the box",
+          "Hardcoding the pinned state without persistence -- users expect their collapse preference to survive page reloads; save to localStorage",
+          "Using separate menu item arrays for desktop and mobile that drift out of sync -- derive both from a single route configuration",
+          "Rendering MobileHeader and AsideHeader simultaneously and hiding one with CSS -- mount only the appropriate component based on viewport to avoid unnecessary DOM and event listeners",
+          "Placing Logo as a standalone component outside AsideHeader -- pass logo configuration via the logo prop to ensure correct positioning and collapse behavior",
+          "Forgetting to import @gravity-ui/navigation/styles/styles.css -- navigation components will render without proper styling"
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          {
+            "id": "theming-dark-mode",
+            "note": "Add a theme toggle (light/dark/system) in the sidebar footer using the renderFooter prop."
+          },
+          {
+            "id": "user-feedback",
+            "note": "Use Toaster for transient feedback messages triggered from navigation actions (e.g. settings saved)."
+          },
+          {
+            "id": "search-with-suggestions",
+            "note": "Add a global search bar in the sidebar subheader area using TextInput with autocomplete."
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "confirmation-dialog",
     "title": "Confirmation Dialog",
     "description": "Modal dialog asking the user to confirm or cancel a single action before it proceeds.",
@@ -10,10 +374,20 @@
       "warn before discarding unsaved changes",
       "confirm a bulk action on multiple selected items"
     ],
-    "packages": ["@gravity-ui/uikit", "@gravity-ui/components"],
+    "packages": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/components"
+    ],
     "tags": [
-      "confirmation", "dialog", "modal", "confirm", "cancel",
-      "delete", "destructive", "approve", "warning"
+      "confirmation",
+      "dialog",
+      "modal",
+      "confirm",
+      "cancel",
+      "delete",
+      "destructive",
+      "approve",
+      "warning"
     ],
     "sections": [
       {
@@ -101,8 +475,200 @@
       {
         "type": "related",
         "items": [
-          { "id": "user-feedback", "note": "After the confirmed action completes, use Toaster to show success or error feedback." },
-          { "id": "page-states", "note": "If the dialog triggers an async operation, handle loading/error states within the dialog using Button loading prop." }
+          {
+            "id": "user-feedback",
+            "note": "After the confirmed action completes, use Toaster to show success or error feedback."
+          },
+          {
+            "id": "page-states",
+            "note": "If the dialog triggers an async operation, handle loading/error states within the dialog using Button loading prop."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dashboard-layout",
+    "title": "Dashboard Layout with Sidebar Navigation",
+    "description": "Full dashboard layout with a collapsible sidebar (AsideHeader), page-level action bar, date range filter in a popup, and metric cards. Combines navigation, date-components, and uikit libraries for a complete admin dashboard shell.",
+    "level": "organism",
+    "use_cases": [
+      "build an admin dashboard with sidebar navigation and collapsible menu",
+      "display metric cards with a date range filter for analytics pages",
+      "create a page layout with breadcrumbs, page-level actions, and structured content",
+      "provide a consistent app shell with logo, navigation items, and user footer"
+    ],
+    "packages": [
+      "@gravity-ui/navigation",
+      "@gravity-ui/uikit",
+      "@gravity-ui/date-components"
+    ],
+    "tags": [
+      "dashboard",
+      "layout",
+      "sidebar",
+      "navigation",
+      "aside-header",
+      "action-bar",
+      "date-range",
+      "calendar",
+      "metric",
+      "card",
+      "admin",
+      "shell",
+      "collapsible",
+      "menu"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "You need a full application shell with sidebar navigation, page-level actions (breadcrumbs, buttons), and content areas with metric cards and date filtering. The sidebar should be collapsible and support multiple navigation items with icons.",
+        "not_for": "Simple single-page layouts without navigation (use Flex/Container). Mobile-first apps (use MobileHeader from navigation). Landing or marketing pages (use page-constructor blocks). Settings panels with grouped options (use Settings from navigation)."
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/navigation @gravity-ui/uikit @gravity-ui/date-components @gravity-ui/icons",
+          "Wrap your app in ThemeProvider from @gravity-ui/uikit if not already done",
+          "Import navigation styles: import '@gravity-ui/navigation/styles/styles.css'",
+          "Import date-components styles: import '@gravity-ui/date-components/styles/styles.css'"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          {
+            "name": "AsideHeader",
+            "library": "navigation",
+            "usage": "required",
+            "role": "Collapsible sidebar providing the main navigation shell. Props: pinned (boolean for expanded/collapsed state), onChangePinned, logo (LogoProps with icon, text, href), menuItems (AsideHeaderItem[] with id, title, icon, onItemClick), renderContent (renders the main page area), renderFooter (user profile or settings links), headerDecoration (highlights the top section)."
+          },
+          {
+            "name": "ActionBar",
+            "library": "navigation",
+            "usage": "required",
+            "role": "Horizontal bar at the top of the page content for breadcrumbs and page-level actions. Uses sub-components: ActionBar.Section, ActionBar.Group (with pull='right' for right-aligned items), and ActionBar.Item to wrap individual elements like Breadcrumbs or Buttons."
+          },
+          {
+            "name": "RangeCalendar",
+            "library": "date-components",
+            "usage": "required",
+            "role": "Date range picker rendered inside a Popup. Props: value (RangeValue<DateTime>), onUpdate, minValue, maxValue, size. Use with dateTimeParse from @gravity-ui/date-utils for value handling."
+          },
+          {
+            "name": "Card",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Container for metric cards. Use view='filled' or view='outlined' with theme for color-coded metrics. Props: view, theme, size, children."
+          },
+          {
+            "name": "Text",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Typography for metric values, labels, and page titles. Use variant='header-1' for metric values, variant='body-1' or 'caption-1' for labels."
+          },
+          {
+            "name": "Button",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Trigger for the date range popup and page-level action buttons in the ActionBar. Props: view, size, onClick."
+          },
+          {
+            "name": "Popup",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Floating container for the RangeCalendar date picker. Props: open, anchorElement, placement, onClose. Provides controlled visibility for the calendar dropdown."
+          },
+          {
+            "name": "Select",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Additional filter dropdowns in the toolbar (e.g., filter by project, environment). Props: value, onUpdate, options, placeholder, filterable."
+          }
+        ]
+      },
+      {
+        "type": "custom_parts",
+        "items": [
+          {
+            "name": "MetricCard",
+            "description": "A composed Card displaying a single KPI metric with title, value, and optional trend indicator.",
+            "approach": "Wrap Card (view='outlined') with Text children: variant='caption-1' for the metric label, variant='header-1' for the value, and variant='body-short' with color='positive' or 'danger' for the trend delta."
+          },
+          {
+            "name": "DateRangeFilter",
+            "description": "A Button that opens a Popup containing a RangeCalendar for selecting a date range.",
+            "approach": "Use a Button ref as the Popup anchorElement. Store open state and RangeValue<DateTime> in React state. Format the selected range for the Button label using dateTimeParse/dateTime from @gravity-ui/date-utils."
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "tree": [
+          "AsideHeader  (pinned, onChangePinned, logo, menuItems, renderContent, renderFooter)",
+          "  logo: {icon: LogoIcon, text: 'My App', href: '/'}",
+          "  menuItems: [{id: 'dashboard', title: 'Dashboard', icon: LayoutHeader}, ...]",
+          "  renderContent:",
+          "    ActionBar  (aria-label='Page actions')",
+          "      ActionBar.Section",
+          "        ActionBar.Group",
+          "          ActionBar.Item  ->  Breadcrumbs",
+          "        ActionBar.Group  (pull='right')",
+          "          ActionBar.Item  ->  DateRangeFilter (Button + Popup + RangeCalendar)",
+          "          ActionBar.Item  ->  Button (Export / Settings)",
+          "    div.dashboard-content  (padding, gap)",
+          "      div.metrics-grid  (CSS grid, 4 columns)",
+          "        MetricCard  (title='Revenue', value='$12,340', trend='+8.2%')",
+          "        MetricCard  (title='Users', value='1,245', trend='+3.1%')",
+          "        MetricCard  (title='Orders', value='342', trend='-1.4%')",
+          "        MetricCard  (title='Conversion', value='4.2%', trend='+0.5%')",
+          "      div.charts-section  (placeholder for chart widgets)",
+          "  renderFooter:",
+          "    User avatar / settings link"
+        ],
+        "flow": [
+          "App renders AsideHeader with pinned=true by default -> sidebar is expanded showing icons and labels",
+          "User clicks collapse button -> onChangePinned(false) -> sidebar collapses to icon-only mode, content area expands",
+          "User clicks a menuItem -> onItemClick navigates to the corresponding route, active item is highlighted",
+          "ActionBar renders at the top of renderContent with breadcrumbs on the left and actions on the right",
+          "User clicks the date range Button -> Popup opens with RangeCalendar below the button",
+          "User selects a start and end date in RangeCalendar -> onUpdate fires with RangeValue<DateTime> -> close Popup, update filter state",
+          "MetricCards re-render with data filtered to the selected date range",
+          "User clicks Export button in ActionBar -> triggers export for current filtered data"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Full dashboard layout with sidebar, action bar, date range filter, and metric cards",
+        "code": "import React from 'react';\nimport {AsideHeader} from '@gravity-ui/navigation';\nimport {ActionBar} from '@gravity-ui/navigation';\nimport {RangeCalendar} from '@gravity-ui/date-components';\nimport {Button, Card, Text, Popup, Icon, Breadcrumbs} from '@gravity-ui/uikit';\nimport {LayoutHeader, ChartColumn, Persons, Calendar as CalendarIcon, ArrowDownToLine} from '@gravity-ui/icons';\nimport {dateTimeParse} from '@gravity-ui/date-utils';\nimport type {RangeValue, DateTime} from '@gravity-ui/date-components';\n\nconst MENU_ITEMS = [\n  {id: 'dashboard', title: 'Dashboard', icon: LayoutHeader, onItemClick: () => {}},\n  {id: 'analytics', title: 'Analytics', icon: ChartColumn, onItemClick: () => {}},\n  {id: 'users', title: 'Users', icon: Persons, onItemClick: () => {}},\n];\n\nfunction MetricCard({title, value, trend, trendDirection}) {\n  return (\n    <Card view=\"outlined\" size=\"l\" style={{padding: 20}}>\n      <Text variant=\"caption-1\" color=\"secondary\">{title}</Text>\n      <div style={{marginTop: 4}}>\n        <Text variant=\"header-1\">{value}</Text>\n      </div>\n      <div style={{marginTop: 8}}>\n        <Text\n          variant=\"body-short\"\n          color={trendDirection === 'up' ? 'positive' : 'danger'}\n        >\n          {trend}\n        </Text>\n      </div>\n    </Card>\n  );\n}\n\nfunction DateRangeFilter({value, onUpdate}) {\n  const [open, setOpen] = React.useState(false);\n  const buttonRef = React.useRef(null);\n\n  const formatRange = (range) => {\n    if (!range) return 'Select dates';\n    const start = range.start.format('MMM D');\n    const end = range.end.format('MMM D, YYYY');\n    return `${start} — ${end}`;\n  };\n\n  return (\n    <>\n      <Button\n        ref={buttonRef}\n        view=\"outlined\"\n        onClick={() => setOpen((prev) => !prev)}\n      >\n        <Icon data={CalendarIcon} size={16} />\n        {formatRange(value)}\n      </Button>\n      <Popup\n        anchorElement={buttonRef.current}\n        open={open}\n        placement=\"bottom-end\"\n        onClose={() => setOpen(false)}\n      >\n        <div style={{padding: 16}}>\n          <RangeCalendar\n            size=\"m\"\n            value={value}\n            onUpdate={(newValue) => {\n              onUpdate(newValue);\n              setOpen(false);\n            }}\n          />\n        </div>\n      </Popup>\n    </>\n  );\n}\n\nexport function DashboardLayout() {\n  const [pinned, setPinned] = React.useState(true);\n  const [dateRange, setDateRange] = React.useState(null);\n\n  const metrics = [\n    {title: 'Revenue', value: '$12,340', trend: '+8.2%', trendDirection: 'up'},\n    {title: 'Users', value: '1,245', trend: '+3.1%', trendDirection: 'up'},\n    {title: 'Orders', value: '342', trend: '-1.4%', trendDirection: 'down'},\n    {title: 'Conversion', value: '4.2%', trend: '+0.5%', trendDirection: 'up'},\n  ];\n\n  return (\n    <AsideHeader\n      pinned={pinned}\n      onChangePinned={setPinned}\n      headerDecoration\n      logo={{\n        icon: LayoutHeader,\n        text: 'My Dashboard',\n        href: '/',\n      }}\n      menuItems={MENU_ITEMS}\n      renderContent={() => (\n        <div style={{width: '100%'}}>\n          <ActionBar aria-label=\"Page actions\">\n            <ActionBar.Section>\n              <ActionBar.Group>\n                <ActionBar.Item>\n                  <Breadcrumbs\n                    items={[\n                      {text: 'Home', href: '/'},\n                      {text: 'Dashboard'},\n                    ]}\n                  />\n                </ActionBar.Item>\n              </ActionBar.Group>\n              <ActionBar.Group pull=\"right\">\n                <ActionBar.Item>\n                  <DateRangeFilter\n                    value={dateRange}\n                    onUpdate={setDateRange}\n                  />\n                </ActionBar.Item>\n                <ActionBar.Item>\n                  <Button view=\"outlined\">\n                    <Icon data={ArrowDownToLine} size={16} />\n                    Export\n                  </Button>\n                </ActionBar.Item>\n              </ActionBar.Group>\n            </ActionBar.Section>\n          </ActionBar>\n\n          <div style={{padding: 24}}>\n            <div style={{\n              display: 'grid',\n              gridTemplateColumns: 'repeat(4, 1fr)',\n              gap: 16,\n              marginBottom: 24,\n            }}>\n              {metrics.map((metric) => (\n                <MetricCard key={metric.title} {...metric} />\n              ))}\n            </div>\n\n            <Card view=\"outlined\" size=\"l\" style={{padding: 24, minHeight: 300}}>\n              <Text variant=\"subheader-2\">Charts and content go here</Text>\n              <Text variant=\"body-1\" color=\"secondary\" style={{marginTop: 8}}>\n                Replace this placeholder with your chart library or data visualization widgets.\n              </Text>\n            </Card>\n          </div>\n        </div>\n      )}\n    />\n  );\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Building a custom sidebar with CSS position: fixed and manual width toggling -- AsideHeader handles collapse animation, pinned state, and responsive behavior automatically",
+          "Placing the ActionBar inside AsideHeader's menuItems -- ActionBar belongs in renderContent as a page-level element, not inside the navigation menu",
+          "Using an uncontrolled date input instead of RangeCalendar in a Popup -- RangeCalendar provides a visual calendar with range highlighting; a text input requires manual date parsing and validation",
+          "Hardcoding metric values without memoization -- derive filtered metrics from the date range state using useMemo to avoid recalculation on unrelated re-renders",
+          "Forgetting to import navigation and date-components CSS files -- components will render without proper styling",
+          "Nesting ThemeProvider inside AsideHeader's renderContent -- AsideHeader already inherits the theme; an extra provider causes unnecessary re-renders",
+          "Using Popover instead of Popup for the calendar dropdown -- Popup gives controlled open/close state, which is needed to close after date selection"
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          {
+            "id": "theming-dark-mode",
+            "note": "Wrap the entire app in ThemeProvider before AsideHeader. The sidebar and all content inherit theme automatically."
+          },
+          {
+            "id": "data-table",
+            "note": "Metric cards often lead to detail tables. Use the data-table recipe for drill-down views."
+          },
+          {
+            "id": "page-states",
+            "note": "Show Skeleton placeholders inside metric cards and chart areas while dashboard data is loading."
+          }
         ]
       }
     ]
@@ -119,11 +685,23 @@
       "performing per-row actions via a context menu (edit, copy, delete)"
     ],
     "level": "organism",
-    "packages": ["@gravity-ui/uikit"],
+    "packages": [
+      "@gravity-ui/uikit"
+    ],
     "tags": [
-      "table", "data-table", "filter", "search", "pagination",
-      "bulk-actions", "actions-panel", "dropdown-menu", "sorting",
-      "admin", "dashboard", "list", "crud"
+      "table",
+      "data-table",
+      "filter",
+      "search",
+      "pagination",
+      "bulk-actions",
+      "actions-panel",
+      "dropdown-menu",
+      "sorting",
+      "admin",
+      "dashboard",
+      "list",
+      "crud"
     ],
     "sections": [
       {
@@ -240,9 +818,179 @@
       {
         "type": "related",
         "items": [
-          {"id": "confirmation-dialog", "note": "Use ConfirmDialog before executing destructive bulk actions like delete."},
-          {"id": "user-feedback", "note": "After bulk actions complete, show a Toaster notification with success or error status."},
-          {"id": "empty-state", "note": "When filteredData is empty, consider showing an EmptyState illustration instead of just the emptyMessage string."}
+          {
+            "id": "confirmation-dialog",
+            "note": "Use ConfirmDialog before executing destructive bulk actions like delete."
+          },
+          {
+            "id": "user-feedback",
+            "note": "After bulk actions complete, show a Toaster notification with success or error status."
+          },
+          {
+            "id": "empty-state",
+            "note": "When filteredData is empty, consider showing an EmptyState illustration instead of just the emptyMessage string."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "date-range-filter",
+    "title": "Date Range Filter",
+    "description": "A date range picker molecule combining RangeCalendar with preset buttons (last 7 days, last 30 days, custom) inside a Popover. The trigger button displays the formatted date range, and DateField inputs allow manual date entry.",
+    "level": "molecule",
+    "use_cases": [
+      "filter dashboard data by a date range (last 7 days, last 30 days, custom)",
+      "select start and end dates for a report or analytics query",
+      "provide quick preset date ranges alongside a custom calendar picker",
+      "display the selected date range as a formatted label on the trigger button"
+    ],
+    "packages": [
+      "@gravity-ui/date-components",
+      "@gravity-ui/uikit",
+      "@gravity-ui/date-utils"
+    ],
+    "tags": [
+      "date",
+      "range",
+      "calendar",
+      "filter",
+      "date-picker",
+      "date-range",
+      "popover",
+      "preset",
+      "analytics",
+      "dashboard",
+      "report",
+      "period"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "Users need to select a start and end date to filter data, with quick preset options (last 7 days, last 30 days, this month) and a full calendar for custom ranges.",
+        "not_for": "Selecting a single date (use DatePicker). Selecting a single time without a date (use TimeInput). Always-visible calendar without a popover trigger (use RangeCalendar directly). Date input without a calendar dropdown (use DateField alone)."
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/date-components @gravity-ui/uikit @gravity-ui/date-utils",
+          "Wrap your app in ThemeProvider from @gravity-ui/uikit if not already done",
+          "Import date-components CSS if required by your bundler setup"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          {
+            "name": "RangeCalendar",
+            "library": "date-components",
+            "usage": "required",
+            "role": "Visual calendar grid for selecting a date range by clicking start and end dates. Accepts value (RangeValue<DateTime>), onUpdate callback, minValue, maxValue, and size ('m'|'l'|'xl')."
+          },
+          {
+            "name": "DateField",
+            "library": "date-components",
+            "usage": "required",
+            "role": "Typed date input field for manual date entry. Used in pairs (start/end) alongside the calendar. Accepts value (DateTime), onUpdate, format, hasClear, label, size, and validationState."
+          },
+          {
+            "name": "Popup",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Floating container anchored to the trigger button that holds the calendar, date fields, and preset buttons. Use open, anchorElement, placement, and onOpenChange props for controlled visibility."
+          },
+          {
+            "name": "Button",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Used for the popover trigger (displays formatted range), preset buttons (Last 7 days, Last 30 days, etc.), and Apply/Cancel actions. Use view='outlined' for presets and view='action' for Apply."
+          },
+          {
+            "name": "Label",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Displays the currently active preset name as a badge on the trigger or inside the popover. Use theme='info' for the active preset."
+          }
+        ]
+      },
+      {
+        "type": "custom_parts",
+        "items": [
+          {
+            "name": "Preset date ranges",
+            "description": "Predefined date range options (last 7 days, last 30 days, this month, this quarter) that set the calendar value with one click.",
+            "approach": "Define an array of preset objects with {label, getRange: () => RangeValue<DateTime>}. Each preset's getRange uses dateTimeParse and dateTime from @gravity-ui/date-utils to compute start/end relative to today. Render as a vertical stack of Buttons."
+          },
+          {
+            "name": "Date range formatting",
+            "description": "Formats the selected RangeValue<DateTime> into a human-readable string for the trigger button.",
+            "approach": "Use DateTime.format() from @gravity-ui/date-utils to format start and end dates. Display as 'MMM D, YYYY - MMM D, YYYY'. If a preset is active, show the preset label instead (e.g. 'Last 7 days')."
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "tree": [
+          "DateRangeFilter  (molecule root, manages range state and popover visibility)",
+          "  Button  (trigger, displays formatted date range or preset label)",
+          "  Popup  (open, anchorElement=triggerRef, placement='bottom-start')",
+          "    div.date-range-popover  (flex row)",
+          "      div.presets  (flex column, gap=1)",
+          "        Button  ('Last 7 days', view='flat', selected if active preset)",
+          "        Button  ('Last 30 days')",
+          "        Button  ('This month')",
+          "        Button  ('This quarter')",
+          "      div.calendar-section  (flex column, gap=3)",
+          "        div.date-fields  (flex row, gap=2)",
+          "          DateField  (label='From', value=start, onUpdate)",
+          "          DateField  (label='To', value=end, onUpdate)",
+          "        RangeCalendar  (value={start, end}, onUpdate, size='m')",
+          "        div.actions  (flex row, justify=end, gap=2)",
+          "          Button  ('Cancel', view='flat', closes popover)",
+          "          Button  ('Apply', view='action', applies range and closes)"
+        ],
+        "flow": [
+          "1. User clicks trigger Button -> open Popup with current range pre-selected",
+          "2. User clicks a preset Button -> immediately set draft range to preset dates, highlight preset as active",
+          "3. User clicks dates on RangeCalendar -> update draft start/end, clear active preset label",
+          "4. User types directly into DateField -> parse and validate, update draft range if valid",
+          "5. User clicks Apply -> commit draft range to parent state, close Popup, update trigger label",
+          "6. User clicks Cancel or clicks outside -> discard draft, close Popup",
+          "7. Trigger Button shows formatted range: 'Mar 1 - Mar 17, 2026' or preset label 'Last 7 days'"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Date range filter with presets, calendar, and manual date fields",
+        "code": "import React from 'react';\nimport {RangeCalendar, DateField} from '@gravity-ui/date-components';\nimport {Button, Popup, Label} from '@gravity-ui/uikit';\nimport {dateTime, dateTimeParse} from '@gravity-ui/date-utils';\n\nconst PRESETS = [\n  {\n    label: 'Last 7 days',\n    getRange: () => ({\n      start: dateTime().subtract(7, 'days'),\n      end: dateTime(),\n    }),\n  },\n  {\n    label: 'Last 30 days',\n    getRange: () => ({\n      start: dateTime().subtract(30, 'days'),\n      end: dateTime(),\n    }),\n  },\n  {\n    label: 'This month',\n    getRange: () => ({\n      start: dateTime().startOf('month'),\n      end: dateTime(),\n    }),\n  },\n  {\n    label: 'This quarter',\n    getRange: () => ({\n      start: dateTime().startOf('quarter'),\n      end: dateTime(),\n    }),\n  },\n];\n\nfunction formatDate(dt) {\n  return dt ? dt.format('MMM D, YYYY') : '';\n}\n\nexport function DateRangeFilter({value, onUpdate}) {\n  const triggerRef = React.useRef(null);\n  const [open, setOpen] = React.useState(false);\n  const [draft, setDraft] = React.useState(value);\n  const [activePreset, setActivePreset] = React.useState(null);\n\n  React.useEffect(() => {\n    if (open) {\n      setDraft(value);\n    }\n  }, [open, value]);\n\n  const handlePresetClick = (preset) => {\n    const range = preset.getRange();\n    setDraft(range);\n    setActivePreset(preset.label);\n  };\n\n  const handleCalendarUpdate = (range) => {\n    setDraft(range);\n    setActivePreset(null);\n  };\n\n  const handleStartUpdate = (start) => {\n    if (start) {\n      setDraft((prev) => ({...prev, start}));\n      setActivePreset(null);\n    }\n  };\n\n  const handleEndUpdate = (end) => {\n    if (end) {\n      setDraft((prev) => ({...prev, end}));\n      setActivePreset(null);\n    }\n  };\n\n  const handleApply = () => {\n    onUpdate(draft);\n    setOpen(false);\n  };\n\n  const handleCancel = () => {\n    setDraft(value);\n    setActivePreset(null);\n    setOpen(false);\n  };\n\n  const triggerLabel = activePreset\n    ? activePreset\n    : value\n      ? `${formatDate(value.start)} \\u2013 ${formatDate(value.end)}`\n      : 'Select date range';\n\n  return (\n    <>\n      <Button ref={triggerRef} view=\"outlined\" onClick={() => setOpen(true)}>\n        {triggerLabel}\n      </Button>\n      <Popup\n        anchorElement={triggerRef.current}\n        open={open}\n        placement=\"bottom-start\"\n        onOpenChange={(nextOpen) => {\n          if (!nextOpen) handleCancel();\n        }}\n      >\n        <div style={{display: 'flex', padding: 16, gap: 16}}>\n          <div style={{display: 'flex', flexDirection: 'column', gap: 4, minWidth: 140}}>\n            {PRESETS.map((preset) => (\n              <Button\n                key={preset.label}\n                view=\"flat\"\n                size=\"m\"\n                selected={activePreset === preset.label}\n                onClick={() => handlePresetClick(preset)}\n                width=\"max\"\n              >\n                {preset.label}\n              </Button>\n            ))}\n          </div>\n          <div style={{display: 'flex', flexDirection: 'column', gap: 12}}>\n            <div style={{display: 'flex', gap: 8}}>\n              <DateField\n                label=\"From\"\n                value={draft?.start ?? null}\n                onUpdate={handleStartUpdate}\n                size=\"m\"\n                format=\"MM/DD/YYYY\"\n                hasClear\n              />\n              <DateField\n                label=\"To\"\n                value={draft?.end ?? null}\n                onUpdate={handleEndUpdate}\n                size=\"m\"\n                format=\"MM/DD/YYYY\"\n                hasClear\n              />\n            </div>\n            <RangeCalendar\n              value={draft ?? undefined}\n              onUpdate={handleCalendarUpdate}\n              size=\"m\"\n            />\n            <div style={{display: 'flex', justifyContent: 'flex-end', gap: 8}}>\n              <Button view=\"flat\" size=\"m\" onClick={handleCancel}>\n                Cancel\n              </Button>\n              <Button view=\"action\" size=\"m\" onClick={handleApply}>\n                Apply\n              </Button>\n            </div>\n          </div>\n        </div>\n      </Popup>\n    </>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Minimal date range trigger with RangeCalendar in a Popup",
+        "code": "import React from 'react';\nimport {RangeCalendar} from '@gravity-ui/date-components';\nimport {Button, Popup} from '@gravity-ui/uikit';\nimport {dateTime} from '@gravity-ui/date-utils';\n\nexport function SimpleDateRange({value, onUpdate}) {\n  const triggerRef = React.useRef(null);\n  const [open, setOpen] = React.useState(false);\n\n  const handleUpdate = (range) => {\n    onUpdate(range);\n    setOpen(false);\n  };\n\n  const label = value\n    ? `${value.start.format('MMM D')} \\u2013 ${value.end.format('MMM D, YYYY')}`\n    : 'Pick dates';\n\n  return (\n    <>\n      <Button ref={triggerRef} view=\"outlined\" onClick={() => setOpen(!open)}>\n        {label}\n      </Button>\n      <Popup\n        anchorElement={triggerRef.current}\n        open={open}\n        placement=\"bottom-start\"\n        onOpenChange={setOpen}\n      >\n        <div style={{padding: 12}}>\n          <RangeCalendar\n            value={value ?? undefined}\n            onUpdate={handleUpdate}\n            size=\"m\"\n          />\n        </div>\n      </Popup>\n    </>\n  );\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Building a custom calendar grid from scratch -- RangeCalendar handles date math, range highlighting, keyboard navigation, and locale formatting",
+          "Using native <input type='date'> for range selection -- no range support, inconsistent cross-browser styling, cannot integrate presets",
+          "Applying the date range immediately on calendar click without an Apply button -- users expect to preview the range before committing, especially with preset comparisons",
+          "Storing dates as raw strings instead of DateTime objects -- use @gravity-ui/date-utils DateTime for reliable parsing, formatting, and arithmetic",
+          "Forgetting to sync the draft state when the Popover opens -- always reset draft from the committed value on open to avoid stale selections",
+          "Placing DateField outside the Popover as standalone inputs -- keep them inside the popover alongside the calendar for a cohesive interaction"
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          {
+            "id": "data-table",
+            "note": "Use the date range filter above a data table to filter rows by creation date or timestamp."
+          },
+          {
+            "id": "page-states",
+            "note": "Show loading skeleton in the data area while refetching after a date range change."
+          }
         ]
       }
     ]
@@ -258,10 +1006,21 @@
       "display per-file upload progress with cancel/retry actions",
       "attach files to a form (e.g. support ticket, profile avatar, document submission)"
     ],
-    "packages": ["@gravity-ui/uikit", "@gravity-ui/icons"],
+    "packages": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons"
+    ],
     "tags": [
-      "file", "upload", "drag", "drop", "dropzone", "preview",
-      "progress", "attachment", "image", "thumbnail"
+      "file",
+      "upload",
+      "drag",
+      "drop",
+      "dropzone",
+      "preview",
+      "progress",
+      "attachment",
+      "image",
+      "thumbnail"
     ],
     "sections": [
       {
@@ -280,15 +1039,60 @@
       {
         "type": "components",
         "items": [
-          { "name": "FilePreview", "library": "uikit", "usage": "required", "role": "Renders a preview tile for each file showing name, type icon or image thumbnail, and optional action buttons (e.g. remove)." },
-          { "name": "Progress", "library": "uikit", "usage": "required", "role": "Shows per-file upload progress as a horizontal bar. Use value (0-100), theme for status coloring, and text to display percentage." },
-          { "name": "Button", "library": "uikit", "usage": "required", "role": "Fallback 'Browse files' trigger for users who prefer clicking over drag-and-drop. Also used for retry/cancel actions on individual files." },
-          { "name": "Icon", "library": "uikit", "usage": "required", "role": "Renders SVG icons from @gravity-ui/icons inside the dropzone area and on action buttons (TrashBin, ArrowUpFromLine, Xmark, ArrowRotateLeft)." },
-          { "name": "Text", "library": "uikit", "usage": "required", "role": "Typography for dropzone instructions, file size labels, and error messages. Use variant and color props for visual hierarchy." },
-          { "name": "Card", "library": "uikit", "usage": "optional", "role": "Container wrapper around the dropzone area. Use view='outlined' with a dashed border override for the idle state." },
-          { "name": "Label", "library": "uikit", "usage": "optional", "role": "Status badge on each file item (e.g. 'Uploading', 'Done', 'Error'). Use theme='success' for completed, theme='danger' for failed." },
-          { "name": "Alert", "library": "uikit", "usage": "optional", "role": "Inline error message when a file exceeds the size limit or has an unsupported type." },
-          { "name": "Toaster", "library": "uikit", "usage": "optional", "role": "Toast notification after all files finish uploading or when an upload fails." }
+          {
+            "name": "FilePreview",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Renders a preview tile for each file showing name, type icon or image thumbnail, and optional action buttons (e.g. remove)."
+          },
+          {
+            "name": "Progress",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Shows per-file upload progress as a horizontal bar. Use value (0-100), theme for status coloring, and text to display percentage."
+          },
+          {
+            "name": "Button",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Fallback 'Browse files' trigger for users who prefer clicking over drag-and-drop. Also used for retry/cancel actions on individual files."
+          },
+          {
+            "name": "Icon",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Renders SVG icons from @gravity-ui/icons inside the dropzone area and on action buttons (TrashBin, ArrowUpFromLine, Xmark, ArrowRotateLeft)."
+          },
+          {
+            "name": "Text",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Typography for dropzone instructions, file size labels, and error messages. Use variant and color props for visual hierarchy."
+          },
+          {
+            "name": "Card",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Container wrapper around the dropzone area. Use view='outlined' with a dashed border override for the idle state."
+          },
+          {
+            "name": "Label",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Status badge on each file item (e.g. 'Uploading', 'Done', 'Error'). Use theme='success' for completed, theme='danger' for failed."
+          },
+          {
+            "name": "Alert",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Inline error message when a file exceeds the size limit or has an unsupported type."
+          },
+          {
+            "name": "Toaster",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Toast notification after all files finish uploading or when an upload fails."
+          }
         ]
       },
       {
@@ -368,8 +1172,519 @@
       {
         "type": "related",
         "items": [
-          { "id": "confirmation-dialog", "note": "Use a confirmation dialog before removing a file that has already finished uploading." },
-          { "id": "user-feedback", "note": "Show a Toaster notification when all uploads complete or when an upload fails." }
+          {
+            "id": "confirmation-dialog",
+            "note": "Use a confirmation dialog before removing a file that has already finished uploading."
+          },
+          {
+            "id": "user-feedback",
+            "note": "Show a Toaster notification when all uploads complete or when an upload fails."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "form-with-validation",
+    "title": "Form with Validation",
+    "description": "Multi-field form with per-field validation, error messages, and disabled submit until all fields are valid. Uses FormRow for label-field layout and Gravity UI form controls for consistent styling.",
+    "level": "organism",
+    "use_cases": [
+      "user registration or sign-up form with name, email, and password fields",
+      "profile editing form with required and optional fields",
+      "contact or support form with email validation and message length requirements",
+      "settings form with mixed input types: text, dropdown, and checkbox"
+    ],
+    "packages": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/components"
+    ],
+    "tags": [
+      "form",
+      "validation",
+      "input",
+      "error",
+      "required",
+      "email",
+      "submit",
+      "formrow",
+      "text-input",
+      "select",
+      "checkbox",
+      "form-field",
+      "form-layout"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "You need a multi-field form where each field has its own validation rules (required, format, min length) and error messages must appear inline next to the invalid field. The submit button should be disabled until all fields pass validation.",
+        "not_for": "Single-input inline actions (use TextInput with a Button). Multi-step forms with per-step validation (use the multi-step-wizard recipe). Server-only validation without client-side feedback (still add client-side checks for UX)."
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/uikit @gravity-ui/components",
+          "Wrap your app in ThemeProvider from @gravity-ui/uikit if not already done"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          {
+            "name": "FormRow",
+            "library": "components",
+            "usage": "required",
+            "role": "Wraps each form field with a label and optional required star indicator. Props: label, fieldId, required, direction ('row' or 'column'). Use FormRow.FieldDescription for hint text below the field."
+          },
+          {
+            "name": "TextInput",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Text field for name, email, password, and other string inputs. Key props: value, onUpdate, validationState ('invalid' to show error border), errorMessage (inline error text), errorPlacement ('outside' for below-field errors), hasClear, type ('email', 'password')."
+          },
+          {
+            "name": "Select",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Dropdown for selecting from predefined options (e.g. country, role, category). Props: options, value, onUpdate, validationState ('invalid'), errorMessage, placeholder, filterable for long lists."
+          },
+          {
+            "name": "Checkbox",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Boolean toggle for terms acceptance or opt-in fields. Props: checked, onUpdate, content (label text), size."
+          },
+          {
+            "name": "Button",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Submit button. Use view='action' for primary submit, disabled=true when form is invalid, loading=true during async submission. Props: view, size, disabled, loading, type='submit', onClick."
+          },
+          {
+            "name": "Text",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Typography for form title, section headings, and inline error messages when a component lacks built-in errorMessage support. Props: variant, color ('danger' for errors)."
+          }
+        ]
+      },
+      {
+        "type": "custom_parts",
+        "items": [
+          {
+            "name": "useFormValidation hook",
+            "description": "Manages per-field validation state, tracks touched fields, and computes whether the entire form is valid.",
+            "approach": "Custom hook that stores field values, errors (Record<string, string | undefined>), and touched state (Record<string, boolean>). Exposes validate(fieldName) to run a single field's rules, validateAll() to check every field, and isValid boolean. Validation rules are passed as a config object mapping field names to arrays of validator functions."
+          },
+          {
+            "name": "Validator functions",
+            "description": "Reusable validation rule functions: required, email format, minLength, pattern match.",
+            "approach": "Each validator is a function (value: string) => string | undefined that returns an error message or undefined. Compose validators per field: e.g. [required('Name is required'), minLength(2, 'Name must be at least 2 characters')]."
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "tree": [
+          "form  (onSubmit, noValidate to disable browser validation)",
+          "  Text  (variant='header-1', form title)",
+          "  FormRow  (label='Name', fieldId='name', required)",
+          "    TextInput  (id='name', value, onUpdate, validationState, errorMessage, errorPlacement='outside')",
+          "  FormRow  (label='Email', fieldId='email', required)",
+          "    TextInput  (id='email', type='email', value, onUpdate, validationState, errorMessage, errorPlacement='outside')",
+          "  FormRow  (label='Role', fieldId='role', required)",
+          "    Select  (value, onUpdate, options, placeholder='Select a role', validationState, errorMessage)",
+          "  FormRow  (label='Password', fieldId='password', required)",
+          "    TextInput  (id='password', type='password', value, onUpdate, validationState, errorMessage, errorPlacement='outside')",
+          "  Checkbox  (checked=agreed, onUpdate, content='I agree to the terms')",
+          "  Text?  (variant='caption-1', color='danger', checkbox error if not checked)",
+          "  Button  (view='action', type='submit', disabled=!isValid, loading=submitting)"
+        ],
+        "flow": [
+          "User fills in fields -> each onUpdate stores value and runs validation for that field if it has been touched",
+          "User blurs a field -> mark field as touched, run its validators, show error if invalid",
+          "validationState is set to 'invalid' on touched fields with errors -> red border and errorMessage appear",
+          "isValid is recomputed on every change: true only when all required fields pass all validators and checkbox is checked",
+          "User clicks Submit (disabled until isValid) -> set submitting=true, run validateAll() as a safety check",
+          "Async submit (API call) -> on success: show Toaster feedback, reset form; on failure: show server errors inline"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Registration form with per-field validation and disabled submit",
+        "code": "import React from 'react';\nimport {TextInput, Select, Checkbox, Button, Text} from '@gravity-ui/uikit';\nimport {FormRow} from '@gravity-ui/components';\n\nconst ROLE_OPTIONS = [\n  {value: 'developer', content: 'Developer'},\n  {value: 'designer', content: 'Designer'},\n  {value: 'manager', content: 'Manager'},\n];\n\nfunction validateEmail(value: string): string | undefined {\n  if (!value) return 'Email is required';\n  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(value)) return 'Enter a valid email address';\n  return undefined;\n}\n\nfunction validateRequired(label: string) {\n  return (value: string): string | undefined => {\n    if (!value.trim()) return `${label} is required`;\n    return undefined;\n  };\n}\n\nfunction validateMinLength(min: number, label: string) {\n  return (value: string): string | undefined => {\n    if (value.length < min) return `${label} must be at least ${min} characters`;\n    return undefined;\n  };\n}\n\nexport function RegistrationForm({onSubmit}: {onSubmit: (data: Record<string, string>) => Promise<void>}) {\n  const [values, setValues] = React.useState({name: '', email: '', role: '', password: ''});\n  const [agreed, setAgreed] = React.useState(false);\n  const [touched, setTouched] = React.useState<Record<string, boolean>>({});\n  const [submitting, setSubmitting] = React.useState(false);\n\n  const validators: Record<string, Array<(v: string) => string | undefined>> = {\n    name: [validateRequired('Name'), validateMinLength(2, 'Name')],\n    email: [validateEmail],\n    role: [validateRequired('Role')],\n    password: [validateRequired('Password'), validateMinLength(8, 'Password')],\n  };\n\n  const getError = (field: string): string | undefined => {\n    const fieldValidators = validators[field] || [];\n    for (const validate of fieldValidators) {\n      const error = validate(values[field as keyof typeof values]);\n      if (error) return error;\n    }\n    return undefined;\n  };\n\n  const errors = {\n    name: getError('name'),\n    email: getError('email'),\n    role: getError('role'),\n    password: getError('password'),\n  };\n\n  const isValid = !errors.name && !errors.email && !errors.role && !errors.password && agreed;\n\n  const handleUpdate = (field: string) => (value: string | string[]) => {\n    const val = Array.isArray(value) ? value[0] || '' : value;\n    setValues((prev) => ({...prev, [field]: val}));\n  };\n\n  const handleBlur = (field: string) => () => {\n    setTouched((prev) => ({...prev, [field]: true}));\n  };\n\n  const handleSubmit = async (e: React.FormEvent) => {\n    e.preventDefault();\n    setTouched({name: true, email: true, role: true, password: true});\n    if (!isValid) return;\n    setSubmitting(true);\n    try {\n      await onSubmit(values);\n    } finally {\n      setSubmitting(false);\n    }\n  };\n\n  return (\n    <form onSubmit={handleSubmit} noValidate style={{maxWidth: 480, display: 'flex', flexDirection: 'column', gap: 16}}>\n      <Text variant=\"header-1\">Create Account</Text>\n\n      <FormRow label=\"Name\" fieldId=\"reg-name\" required>\n        <TextInput\n          id=\"reg-name\"\n          value={values.name}\n          onUpdate={handleUpdate('name')}\n          onBlur={handleBlur('name')}\n          validationState={touched.name && errors.name ? 'invalid' : undefined}\n          errorMessage={touched.name ? errors.name : undefined}\n          errorPlacement=\"outside\"\n          placeholder=\"Your full name\"\n        />\n      </FormRow>\n\n      <FormRow label=\"Email\" fieldId=\"reg-email\" required>\n        <TextInput\n          id=\"reg-email\"\n          type=\"email\"\n          value={values.email}\n          onUpdate={handleUpdate('email')}\n          onBlur={handleBlur('email')}\n          validationState={touched.email && errors.email ? 'invalid' : undefined}\n          errorMessage={touched.email ? errors.email : undefined}\n          errorPlacement=\"outside\"\n          placeholder=\"you@example.com\"\n        />\n      </FormRow>\n\n      <FormRow label=\"Role\" fieldId=\"reg-role\" required>\n        <Select\n          value={values.role ? [values.role] : []}\n          onUpdate={handleUpdate('role')}\n          onBlur={handleBlur('role')}\n          options={ROLE_OPTIONS}\n          placeholder=\"Select a role\"\n          validationState={touched.role && errors.role ? 'invalid' : undefined}\n          errorMessage={touched.role ? errors.role : undefined}\n          width=\"max\"\n        />\n      </FormRow>\n\n      <FormRow label=\"Password\" fieldId=\"reg-password\" required>\n        <TextInput\n          id=\"reg-password\"\n          type=\"password\"\n          value={values.password}\n          onUpdate={handleUpdate('password')}\n          onBlur={handleBlur('password')}\n          validationState={touched.password && errors.password ? 'invalid' : undefined}\n          errorMessage={touched.password ? errors.password : undefined}\n          errorPlacement=\"outside\"\n          placeholder=\"At least 8 characters\"\n        />\n      </FormRow>\n\n      <div>\n        <Checkbox checked={agreed} onUpdate={setAgreed} size=\"m\">\n          I agree to the Terms of Service\n        </Checkbox>\n        {touched.name && !agreed && (\n          <Text variant=\"caption-1\" color=\"danger\" style={{marginTop: 4}}>\n            You must agree to the terms\n          </Text>\n        )}\n      </div>\n\n      <Button view=\"action\" type=\"submit\" size=\"l\" disabled={!isValid} loading={submitting} width=\"max\">\n        Create Account\n      </Button>\n    </form>\n  );\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Relying on native HTML5 form validation (required, pattern attributes) alone -- it produces browser-styled tooltips that cannot be customized and differ across browsers. Use noValidate on the form and handle validation in React state.",
+          "Showing all errors immediately on page load before the user has interacted -- track 'touched' state per field and only show errors after the field has been blurred or the form submitted.",
+          "Disabling the submit button without explaining why -- ensure each invalid field shows its error so users know what to fix.",
+          "Using a single error banner at the top of the form instead of inline errors -- users must scroll and guess which field is wrong. Use validationState and errorMessage on each control.",
+          "Validating only on submit -- validate on blur for immediate feedback, and re-validate on every keystroke for fields already showing an error so the error clears as soon as the input becomes valid.",
+          "Storing validation errors in a separate component from the form state -- co-locate values, touched flags, and derived errors in one hook or reducer to avoid sync bugs.",
+          "Building custom labeled input wrappers when FormRow already provides label association, required indicator, and consistent layout."
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          {
+            "id": "multi-step-wizard",
+            "note": "For long forms, split into steps using the multi-step-wizard recipe with per-step validation."
+          },
+          {
+            "id": "confirmation-dialog",
+            "note": "Use a confirmation dialog before submitting destructive form actions (e.g. account deletion)."
+          },
+          {
+            "id": "user-feedback",
+            "note": "After successful form submission, show a Toaster notification confirming the action."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "landing-page",
+    "title": "Landing Page with Page Constructor",
+    "description": "A marketing or landing page built with @gravity-ui/page-constructor blocks for structured content, @gravity-ui/uikit for cards and typography, and @gravity-ui/blog-constructor for an authentication gate. Includes a hero section with a title and CTA, a features grid with cards, and a sign-in prompt for gated content.",
+    "level": "organism",
+    "use_cases": [
+      "build a product landing page with a hero section, feature grid, and call-to-action buttons",
+      "create a marketing page using page-constructor's structured block system",
+      "gate certain page sections behind authentication with PromptSignIn",
+      "combine page-constructor typography (Title, Button, Link) with uikit Card components for feature showcases"
+    ],
+    "packages": [
+      "@gravity-ui/page-constructor",
+      "@gravity-ui/uikit",
+      "@gravity-ui/blog-constructor"
+    ],
+    "tags": [
+      "landing",
+      "marketing",
+      "page-constructor",
+      "hero",
+      "features",
+      "cta",
+      "card",
+      "grid",
+      "title",
+      "auth",
+      "sign-in",
+      "prompt",
+      "blog-constructor",
+      "landing-page",
+      "product-page"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "You are building a marketing, product, or informational landing page with structured sections (hero, features, CTA). Page-constructor provides themed blocks with built-in responsive grid layout, while uikit Card and Text components handle feature cards. Use PromptSignIn from blog-constructor to gate sections behind authentication.",
+        "not_for": "Application dashboards with dynamic data (use AsideHeader + ActionBar from navigation). Blog post pages with markdown content (use blog-constructor's full blog rendering). Single-component demos or documentation pages (use plain uikit layout)."
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/page-constructor @gravity-ui/uikit @gravity-ui/blog-constructor",
+          "Import page-constructor styles: import '@gravity-ui/page-constructor/styles/styles.css'",
+          "Import blog-constructor styles: import '@gravity-ui/blog-constructor/styles/styles.css'",
+          "Wrap your app in ThemeProvider from @gravity-ui/uikit if not already done"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          {
+            "name": "Title",
+            "library": "page-constructor",
+            "usage": "required",
+            "role": "Page-constructor title block with optional subtitle. Renders a title with responsive grid column sizing. Props: title (string or TitleItemProps with text and textSize 's'|'m'|'l'), subtitle (string with YFM support), colSizes."
+          },
+          {
+            "name": "Button",
+            "library": "page-constructor",
+            "usage": "required",
+            "role": "Page-constructor button for CTAs and navigation links. Supports themed styles including 'action', 'normal', 'raised', and platform badges. Props: text, url, theme ('action'|'normal'|'raised'|'github'|'app-store'|'google-play'), size ('s'|'m'|'l'|'xl'|'head'|'promo'), onClick."
+          },
+          {
+            "name": "Link",
+            "library": "page-constructor",
+            "usage": "optional",
+            "role": "Page-constructor link with arrow indicator and theme options. Props: text, url, theme ('back'|'file-link'|'underline'|'normal'), arrow (boolean to show right arrow), textSize ('s'|'m'|'l')."
+          },
+          {
+            "name": "Card",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Container for feature cards in the grid section. Use view='raised' for elevated cards or view='outlined' for bordered cards. Props: view, size, theme, children, type."
+          },
+          {
+            "name": "Text",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Typography for feature card titles, descriptions, and section labels. Use variant='subheader-2' for card titles, variant='body-1' for descriptions, variant='caption-1' for labels."
+          },
+          {
+            "name": "PromptSignIn",
+            "library": "blog-constructor",
+            "usage": "optional",
+            "role": "Authentication gate that displays a sign-in prompt for unauthenticated users. Renders a message with a sign-in action button. Props: onClickSignIn, title, message, actions (custom PromptAction[])."
+          }
+        ]
+      },
+      {
+        "type": "custom_parts",
+        "items": [
+          {
+            "name": "HeroSection",
+            "description": "Full-width hero area with a large Title, subtitle, and CTA Buttons arranged in a row.",
+            "approach": "Use page-constructor Title with title={{text: 'Headline', textSize: 'l'}} and subtitle. Below it, render one or more page-constructor Buttons in a flex row for primary and secondary CTAs."
+          },
+          {
+            "name": "FeaturesGrid",
+            "description": "A responsive CSS grid of uikit Cards, each with an icon, title, and description.",
+            "approach": "Use CSS grid with repeat(auto-fill, minmax(280px, 1fr)) for responsive columns. Each cell is a Card (view='raised') containing an icon element, a Text (variant='subheader-2') for the feature name, and a Text (variant='body-1', color='secondary') for the description."
+          },
+          {
+            "name": "AuthGatedSection",
+            "description": "A section that shows content to authenticated users and PromptSignIn to guests.",
+            "approach": "Check an isAuthenticated flag. If false, render PromptSignIn with onClickSignIn routing to login. If true, render the gated content (e.g., premium resources, community features)."
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "tree": [
+          "LandingPage  (organism root)",
+          "  HeroSection  (full-width, centered, background color or image)",
+          "    Title  (title={{text: 'Build faster with Gravity UI', textSize: 'l'}}, subtitle='...')",
+          "    div.cta-row  (flex row, gap, centered)",
+          "      Button  (text='Get Started', theme='action', size='promo', url='/signup')",
+          "      Button  (text='Documentation', theme='normal', size='promo', url='/docs')",
+          "  section.features",
+          "    Title  (title={{text: 'Features', textSize: 'm'}})",
+          "    div.features-grid  (CSS grid, auto-fill columns)",
+          "      Card  (view='raised', size='l')",
+          "        Icon  (feature icon)",
+          "        Text  (variant='subheader-2', feature title)",
+          "        Text  (variant='body-1', color='secondary', feature description)",
+          "      Card  (repeated for each feature)",
+          "  section.links",
+          "    Link  (text='View on GitHub', url='...', arrow=true)",
+          "    Link  (text='Read the blog', url='...', theme='underline')",
+          "  section.auth-gated",
+          "    {isAuthenticated ? GatedContent : PromptSignIn}",
+          "      PromptSignIn  (title='Join the community', message='Sign in to access resources', onClickSignIn)"
+        ],
+        "flow": [
+          "Page renders with HeroSection at the top: Title with large textSize and subtitle, followed by CTA Buttons",
+          "User scrolls to features section: CSS grid of Cards fills available width responsively",
+          "User clicks primary CTA Button -> navigates to signup URL",
+          "User clicks secondary CTA Button -> navigates to documentation URL",
+          "User scrolls to auth-gated section -> if not authenticated, PromptSignIn renders with sign-in button",
+          "User clicks sign-in button on PromptSignIn -> onClickSignIn fires -> redirect to login page",
+          "After authentication, page re-renders with gated content visible instead of PromptSignIn"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Landing page with hero, features grid, links, and authentication gate",
+        "code": "import React from 'react';\nimport {Title, Button as PCButton, Link as PCLink} from '@gravity-ui/page-constructor';\nimport {Card, Text, Flex, Icon} from '@gravity-ui/uikit';\nimport {PromptSignIn} from '@gravity-ui/blog-constructor';\nimport {Rocket, Code, Shield, Palette} from '@gravity-ui/icons';\n\nconst FEATURES = [\n  {\n    icon: Rocket,\n    title: 'Fast Development',\n    description: 'Pre-built components and patterns accelerate your development workflow.',\n  },\n  {\n    icon: Code,\n    title: 'TypeScript First',\n    description: 'Full TypeScript support with strict type definitions for every component.',\n  },\n  {\n    icon: Shield,\n    title: 'Accessible',\n    description: 'WCAG-compliant components with built-in keyboard navigation and ARIA attributes.',\n  },\n  {\n    icon: Palette,\n    title: 'Themeable',\n    description: 'Light and dark themes out of the box with CSS custom property-based theming.',\n  },\n];\n\nfunction HeroSection() {\n  return (\n    <section style={{\n      textAlign: 'center',\n      padding: '80px 24px',\n      background: 'var(--g-color-base-brand-hover)',\n    }}>\n      <Title\n        title={{text: 'Build faster with Gravity UI', textSize: 'l'}}\n        subtitle=\"A comprehensive design system and component library for building modern web applications.\"\n      />\n      <Flex justifyContent=\"center\" gap={4} style={{marginTop: 32}}>\n        <PCButton\n          text=\"Get Started\"\n          theme=\"action\"\n          size=\"promo\"\n          url=\"/signup\"\n        />\n        <PCButton\n          text=\"Documentation\"\n          theme=\"normal\"\n          size=\"promo\"\n          url=\"/docs\"\n        />\n      </Flex>\n    </section>\n  );\n}\n\nfunction FeaturesGrid() {\n  return (\n    <section style={{padding: '64px 24px', maxWidth: 1200, margin: '0 auto'}}>\n      <Title title={{text: 'Features', textSize: 'm'}} />\n      <div style={{\n        display: 'grid',\n        gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',\n        gap: 20,\n        marginTop: 32,\n      }}>\n        {FEATURES.map((feature) => (\n          <Card key={feature.title} view=\"raised\" size=\"l\" style={{padding: 24}}>\n            <Icon data={feature.icon} size={32} />\n            <div style={{marginTop: 16}}>\n              <Text variant=\"subheader-2\">{feature.title}</Text>\n            </div>\n            <div style={{marginTop: 8}}>\n              <Text variant=\"body-1\" color=\"secondary\">\n                {feature.description}\n              </Text>\n            </div>\n          </Card>\n        ))}\n      </div>\n    </section>\n  );\n}\n\nfunction LinksSection() {\n  return (\n    <section style={{padding: '40px 24px', maxWidth: 1200, margin: '0 auto'}}>\n      <Flex gap={6}>\n        <PCLink text=\"View on GitHub\" url=\"https://github.com/gravity-ui\" arrow />\n        <PCLink text=\"Read the blog\" url=\"/blog\" theme=\"underline\" />\n      </Flex>\n    </section>\n  );\n}\n\nfunction AuthGatedSection({isAuthenticated, onClickSignIn}: {\n  isAuthenticated: boolean;\n  onClickSignIn: () => void;\n}) {\n  return (\n    <section style={{padding: '64px 24px', maxWidth: 800, margin: '0 auto'}}>\n      <Title title={{text: 'Community Resources', textSize: 'm'}} />\n      <div style={{marginTop: 24}}>\n        {isAuthenticated ? (\n          <Card view=\"outlined\" size=\"l\" style={{padding: 24}}>\n            <Text variant=\"body-1\">\n              Welcome back! Access exclusive tutorials, code samples, and community discussions.\n            </Text>\n          </Card>\n        ) : (\n          <PromptSignIn\n            title=\"Join the community\"\n            message=\"Sign in to access exclusive tutorials, code samples, and community discussions.\"\n            onClickSignIn={onClickSignIn}\n          />\n        )}\n      </div>\n    </section>\n  );\n}\n\nexport function LandingPage({isAuthenticated = false, onSignIn}: {\n  isAuthenticated?: boolean;\n  onSignIn: () => void;\n}) {\n  return (\n    <div>\n      <HeroSection />\n      <FeaturesGrid />\n      <LinksSection />\n      <AuthGatedSection\n        isAuthenticated={isAuthenticated}\n        onClickSignIn={onSignIn}\n      />\n    </div>\n  );\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Using uikit Button instead of page-constructor Button in the hero section -- page-constructor Button supports themed sizes like 'promo' and 'head' designed for landing pages, plus platform badges",
+          "Building a custom title component when page-constructor Title already handles responsive grid sizing, text scales, and subtitle rendering with YFM support",
+          "Mixing page-constructor Link and uikit Link in the same section -- use page-constructor Link for landing page navigation (supports arrow and textSize) and uikit Link for in-app navigation",
+          "Forgetting to import page-constructor and blog-constructor CSS files -- components will render without proper typography scales and layout",
+          "Rendering PromptSignIn unconditionally without checking authentication state -- always gate it behind an isAuthenticated check to avoid showing sign-in prompts to logged-in users",
+          "Using fixed pixel widths for the features grid instead of CSS grid auto-fill -- auto-fill with minmax ensures responsive column count without media queries",
+          "Hardcoding color values in hero section background -- use CSS custom properties (--g-color-base-brand-hover, --g-color-base-background) so the hero adapts to theme changes"
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          {
+            "id": "theming-dark-mode",
+            "note": "Landing pages benefit from theme support. Wrap in ThemeProvider so all page-constructor and uikit components respond to light/dark mode."
+          },
+          {
+            "id": "page-states",
+            "note": "If feature data is loaded dynamically, use Skeleton placeholders in the feature cards while loading."
+          },
+          {
+            "id": "dashboard-layout",
+            "note": "After sign-in from the landing page, route users to a dashboard built with the dashboard-layout recipe."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "multi-step-wizard",
+    "title": "Multi-Step Wizard",
+    "description": "A Stepper-driven multi-step flow where each step has its own content and validation. Users advance through steps sequentially with Back/Next buttons, and a final Submit action. Optionally wrapped in a Dialog for modal use cases.",
+    "level": "organism",
+    "use_cases": [
+      "onboarding wizard that collects user profile info across multiple steps",
+      "multi-step checkout or order placement flow",
+      "resource creation wizard (e.g. create a project, cluster, or deployment) with configuration stages",
+      "guided setup flow for complex configuration (notifications, integrations, permissions)"
+    ],
+    "packages": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/components"
+    ],
+    "tags": [
+      "stepper",
+      "wizard",
+      "multi-step",
+      "steps",
+      "form",
+      "dialog",
+      "back",
+      "next",
+      "submit",
+      "onboarding",
+      "checkout",
+      "flow",
+      "sequential",
+      "validation"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "A task requires the user to complete multiple stages in sequence, where each stage has distinct fields or choices and must be validated before proceeding. A progress indicator (Stepper) shows the user where they are in the flow.",
+        "not_for": "Single-page forms with many fields (use the form-with-validation recipe). Tab-based navigation where users can jump freely between sections (use Tabs). Non-linear flows where steps can be completed in any order (use a checklist pattern)."
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/uikit @gravity-ui/components",
+          "Wrap your app in ThemeProvider from @gravity-ui/uikit if not already done"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          {
+            "name": "Stepper",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Displays the numbered step progress indicator at the top of the wizard. Each step is a Stepper.Item child. Props: value (current step id), onUpdate (step change handler), size ('s'|'m'|'l'). Stepper.Item supports view ('success'|'error') to mark completed or failed steps."
+          },
+          {
+            "name": "Button",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Back, Next, and Submit action buttons at the bottom of each step. Use view='action' for Next/Submit, view='outlined' for Back. Props: view, size, disabled, loading, onClick."
+          },
+          {
+            "name": "Dialog",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Optional modal wrapper for the entire wizard when it should overlay the current page. Props: open, onClose, size ('m' or 'l' for multi-step content), hasCloseButton, disableOutsideClick (prevent accidental close during the flow). Uses Dialog.Header, Dialog.Body, Dialog.Footer sub-components."
+          },
+          {
+            "name": "Text",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Step titles, descriptions, and inline validation error messages. Props: variant ('header-1' for step title, 'body-1' for descriptions, 'caption-1' for errors), color ('danger' for errors)."
+          },
+          {
+            "name": "FormRow",
+            "library": "components",
+            "usage": "required",
+            "role": "Wraps each field within a step with a label and optional required indicator. Props: label, fieldId, required, direction."
+          }
+        ]
+      },
+      {
+        "type": "custom_parts",
+        "items": [
+          {
+            "name": "useWizard hook",
+            "description": "Manages current step index, per-step validation, and navigation logic (canGoBack, canGoNext, goBack, goNext, submit).",
+            "approach": "Custom hook that takes a steps config array. Each step config has an id, label, and validate function returning errors or null. The hook tracks currentStep index, calls validate before advancing, collects all step data into a single result object on submit."
+          },
+          {
+            "name": "Step content components",
+            "description": "Each wizard step is a separate component that renders its own fields and receives step data and an onChange callback.",
+            "approach": "Define each step as a React component: e.g. StepAccountInfo, StepPreferences, StepReview. Each receives its slice of form state and an onUpdate callback. The wizard parent switches between steps based on currentStep index."
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "tree": [
+          "Dialog?  (open, onClose, size='l', disableOutsideClick)",
+          "  Dialog.Header?  (caption='Create Project')",
+          "  Dialog.Body?",
+          "    div.wizard",
+          "      Stepper  (value={steps[currentStep].id}, size='m')",
+          "        Stepper.Item  (for each step, view='success' if completed)",
+          "      div.step-content  (switches based on currentStep)",
+          "        StepAccountInfo | StepPreferences | StepReview",
+          "          FormRow  (label, fieldId, required)",
+          "            TextInput | Select | Checkbox | RadioGroup",
+          "          Text?  (variant='caption-1', color='danger', validation error)",
+          "      div.step-actions  (flex row, justify-content: space-between)",
+          "        Button  (view='outlined', 'Back', disabled on first step)",
+          "        Button  (view='action', 'Next' or 'Submit' on last step, disabled if step invalid, loading on submit)"
+        ],
+        "flow": [
+          "Wizard initializes at step 0. Stepper shows all steps with step 0 highlighted.",
+          "User fills in step fields -> per-field validation runs on blur (same as form-with-validation pattern)",
+          "User clicks Next -> step-level validateStep() runs all field validators for current step",
+          "If step is valid -> Stepper.Item gets view='success', currentStep increments, next step content renders",
+          "If step is invalid -> errors shown inline on invalid fields, Next button remains active but step does not advance",
+          "User clicks Back -> currentStep decrements, previous step content renders with preserved values",
+          "On last step, Next button becomes Submit -> runs validateStep() then calls onSubmit with all collected data",
+          "During submit: Submit button shows loading=true, Back button disabled",
+          "On success: close dialog or navigate away. On failure: show error, user can retry."
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Three-step project creation wizard with Stepper and per-step validation",
+        "code": "import React from 'react';\nimport {Stepper, Button, Text, TextInput, Select, Checkbox} from '@gravity-ui/uikit';\nimport {FormRow} from '@gravity-ui/components';\n\ninterface WizardData {\n  projectName: string;\n  region: string;\n  description: string;\n  enableNotifications: boolean;\n}\n\nconst STEPS = [\n  {id: 'basics', label: 'Project Basics'},\n  {id: 'config', label: 'Configuration'},\n  {id: 'review', label: 'Review & Create'},\n];\n\nconst REGION_OPTIONS = [\n  {value: 'us-east', content: 'US East'},\n  {value: 'us-west', content: 'US West'},\n  {value: 'eu-west', content: 'EU West'},\n  {value: 'ap-south', content: 'Asia Pacific'},\n];\n\nfunction StepBasics({\n  data,\n  onUpdate,\n  errors,\n  touched,\n  onBlur,\n}: {\n  data: WizardData;\n  onUpdate: (patch: Partial<WizardData>) => void;\n  errors: Record<string, string | undefined>;\n  touched: Record<string, boolean>;\n  onBlur: (field: string) => void;\n}) {\n  return (\n    <div style={{display: 'flex', flexDirection: 'column', gap: 16}}>\n      <FormRow label=\"Project Name\" fieldId=\"wiz-name\" required>\n        <TextInput\n          id=\"wiz-name\"\n          value={data.projectName}\n          onUpdate={(v) => onUpdate({projectName: v})}\n          onBlur={() => onBlur('projectName')}\n          validationState={touched.projectName && errors.projectName ? 'invalid' : undefined}\n          errorMessage={touched.projectName ? errors.projectName : undefined}\n          errorPlacement=\"outside\"\n          placeholder=\"my-project\"\n        />\n      </FormRow>\n      <FormRow label=\"Description\" fieldId=\"wiz-desc\">\n        <TextInput\n          id=\"wiz-desc\"\n          value={data.description}\n          onUpdate={(v) => onUpdate({description: v})}\n          placeholder=\"Optional project description\"\n        />\n      </FormRow>\n    </div>\n  );\n}\n\nfunction StepConfig({\n  data,\n  onUpdate,\n  errors,\n  touched,\n  onBlur,\n}: {\n  data: WizardData;\n  onUpdate: (patch: Partial<WizardData>) => void;\n  errors: Record<string, string | undefined>;\n  touched: Record<string, boolean>;\n  onBlur: (field: string) => void;\n}) {\n  return (\n    <div style={{display: 'flex', flexDirection: 'column', gap: 16}}>\n      <FormRow label=\"Region\" fieldId=\"wiz-region\" required>\n        <Select\n          value={data.region ? [data.region] : []}\n          onUpdate={(v) => onUpdate({region: v[0] || ''})}\n          onBlur={() => onBlur('region')}\n          options={REGION_OPTIONS}\n          placeholder=\"Select a region\"\n          validationState={touched.region && errors.region ? 'invalid' : undefined}\n          errorMessage={touched.region ? errors.region : undefined}\n          width=\"max\"\n        />\n      </FormRow>\n      <Checkbox\n        checked={data.enableNotifications}\n        onUpdate={(v) => onUpdate({enableNotifications: v})}\n      >\n        Enable email notifications\n      </Checkbox>\n    </div>\n  );\n}\n\nfunction StepReview({data}: {data: WizardData}) {\n  return (\n    <div style={{display: 'flex', flexDirection: 'column', gap: 8}}>\n      <Text variant=\"subheader-2\">Review your project settings</Text>\n      <Text variant=\"body-1\"><strong>Name:</strong> {data.projectName}</Text>\n      <Text variant=\"body-1\"><strong>Description:</strong> {data.description || '(none)'}</Text>\n      <Text variant=\"body-1\"><strong>Region:</strong> {data.region}</Text>\n      <Text variant=\"body-1\"><strong>Notifications:</strong> {data.enableNotifications ? 'Enabled' : 'Disabled'}</Text>\n    </div>\n  );\n}\n\nexport function ProjectWizard({onSubmit, onCancel}: {onSubmit: (data: WizardData) => Promise<void>; onCancel: () => void}) {\n  const [currentStep, setCurrentStep] = React.useState(0);\n  const [completedSteps, setCompletedSteps] = React.useState<Set<number>>(new Set());\n  const [submitting, setSubmitting] = React.useState(false);\n  const [touched, setTouched] = React.useState<Record<string, boolean>>({});\n  const [data, setData] = React.useState<WizardData>({\n    projectName: '',\n    region: '',\n    description: '',\n    enableNotifications: true,\n  });\n\n  const handleUpdate = (patch: Partial<WizardData>) => {\n    setData((prev) => ({...prev, ...patch}));\n  };\n\n  const handleBlur = (field: string) => {\n    setTouched((prev) => ({...prev, [field]: true}));\n  };\n\n  const getStepErrors = (step: number): Record<string, string | undefined> => {\n    switch (step) {\n      case 0:\n        return {\n          projectName: !data.projectName.trim() ? 'Project name is required' : undefined,\n        };\n      case 1:\n        return {\n          region: !data.region ? 'Region is required' : undefined,\n        };\n      default:\n        return {};\n    }\n  };\n\n  const stepErrors = getStepErrors(currentStep);\n  const isStepValid = Object.values(stepErrors).every((e) => !e);\n\n  const handleNext = () => {\n    // Touch all fields in current step to show errors\n    const fieldsToTouch = currentStep === 0 ? ['projectName'] : currentStep === 1 ? ['region'] : [];\n    setTouched((prev) => {\n      const next = {...prev};\n      fieldsToTouch.forEach((f) => { next[f] = true; });\n      return next;\n    });\n\n    if (!isStepValid) return;\n\n    setCompletedSteps((prev) => new Set([...prev, currentStep]));\n    setCurrentStep((prev) => Math.min(prev + 1, STEPS.length - 1));\n  };\n\n  const handleBack = () => {\n    setCurrentStep((prev) => Math.max(prev - 1, 0));\n  };\n\n  const handleSubmit = async () => {\n    if (!isStepValid) return;\n    setSubmitting(true);\n    try {\n      await onSubmit(data);\n    } finally {\n      setSubmitting(false);\n    }\n  };\n\n  const isLastStep = currentStep === STEPS.length - 1;\n\n  return (\n    <div style={{maxWidth: 560, display: 'flex', flexDirection: 'column', gap: 24}}>\n      <Stepper value={STEPS[currentStep].id} size=\"m\">\n        {STEPS.map((step, i) => (\n          <Stepper.Item\n            key={step.id}\n            id={step.id}\n            view={completedSteps.has(i) ? 'success' : undefined}\n          >\n            {step.label}\n          </Stepper.Item>\n        ))}\n      </Stepper>\n\n      <div style={{minHeight: 200}}>\n        {currentStep === 0 && (\n          <StepBasics\n            data={data}\n            onUpdate={handleUpdate}\n            errors={stepErrors}\n            touched={touched}\n            onBlur={handleBlur}\n          />\n        )}\n        {currentStep === 1 && (\n          <StepConfig\n            data={data}\n            onUpdate={handleUpdate}\n            errors={stepErrors}\n            touched={touched}\n            onBlur={handleBlur}\n          />\n        )}\n        {currentStep === 2 && <StepReview data={data} />}\n      </div>\n\n      <div style={{display: 'flex', justifyContent: 'space-between'}}>\n        <Button\n          view=\"outlined\"\n          size=\"l\"\n          onClick={currentStep === 0 ? onCancel : handleBack}\n          disabled={submitting}\n        >\n          {currentStep === 0 ? 'Cancel' : 'Back'}\n        </Button>\n        <Button\n          view=\"action\"\n          size=\"l\"\n          onClick={isLastStep ? handleSubmit : handleNext}\n          loading={submitting}\n        >\n          {isLastStep ? 'Create Project' : 'Next'}\n        </Button>\n      </div>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Wizard wrapped in a Dialog modal",
+        "code": "import React from 'react';\nimport {Dialog, Button} from '@gravity-ui/uikit';\n\n// Assumes ProjectWizard from previous example\nimport {ProjectWizard} from './ProjectWizard';\n\nexport function CreateProjectButton({onCreate}: {onCreate: (data: any) => Promise<void>}) {\n  const [open, setOpen] = React.useState(false);\n\n  return (\n    <>\n      <Button view=\"action\" onClick={() => setOpen(true)}>\n        New Project\n      </Button>\n      <Dialog\n        open={open}\n        onClose={() => setOpen(false)}\n        size=\"l\"\n        disableOutsideClick\n        hasCloseButton\n      >\n        <Dialog.Header caption=\"Create New Project\" />\n        <Dialog.Body>\n          <ProjectWizard\n            onSubmit={async (data) => {\n              await onCreate(data);\n              setOpen(false);\n            }}\n            onCancel={() => setOpen(false)}\n          />\n        </Dialog.Body>\n      </Dialog>\n    </>\n  );\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Allowing users to skip steps without validation -- each step must pass its validators before the user can advance. Otherwise the final submission may contain incomplete data.",
+          "Losing step data when navigating back -- preserve all field values in a shared state object so returning to a previous step shows the user's earlier inputs.",
+          "Using Tabs or free-form navigation instead of Stepper for sequential flows -- Tabs imply random access. Stepper communicates that steps must be completed in order.",
+          "Putting all step content in the DOM and toggling visibility -- render only the active step to avoid form field conflicts (duplicate IDs, focus issues) and unnecessary re-renders.",
+          "Showing a single monolithic form without step progress indication -- users lose context on how much is left. Stepper provides clear progress feedback.",
+          "Submitting on every step instead of collecting data and submitting once at the end -- causes partial server state and makes rollback harder. Submit all data on the final step.",
+          "Forgetting to disable the Back button during async submission -- prevents race conditions where the user navigates away while a request is in-flight."
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          {
+            "id": "form-with-validation",
+            "note": "Each wizard step internally uses the same per-field validation pattern as the form-with-validation recipe."
+          },
+          {
+            "id": "confirmation-dialog",
+            "note": "Use a confirmation dialog if the user tries to close the wizard with unsaved progress."
+          },
+          {
+            "id": "page-states",
+            "note": "Show Skeleton or Loader inside a step if it needs to fetch data (e.g. loading available regions) before rendering."
+          }
         ]
       }
     ]
@@ -386,11 +1701,23 @@
       "render an error message with a retry action after a failed request",
       "gate content rendering behind a loading/error/empty check"
     ],
-    "packages": ["@gravity-ui/uikit"],
+    "packages": [
+      "@gravity-ui/uikit"
+    ],
     "tags": [
-      "loading", "empty", "error", "skeleton", "spinner",
-      "placeholder", "page-state", "loader", "spin", "fallback",
-      "empty-state", "error-state", "loading-state"
+      "loading",
+      "empty",
+      "error",
+      "skeleton",
+      "spinner",
+      "placeholder",
+      "page-state",
+      "loader",
+      "spin",
+      "fallback",
+      "empty-state",
+      "error-state",
+      "loading-state"
     ],
     "sections": [
       {
@@ -495,8 +1822,375 @@
       {
         "type": "related",
         "items": [
-          {"id": "user-feedback", "note": "After a retry succeeds, use Toaster to confirm the data loaded successfully."},
-          {"id": "confirmation-dialog", "note": "If the error state offers a destructive fallback action, confirm it with a ConfirmDialog first."}
+          {
+            "id": "user-feedback",
+            "note": "After a retry succeeds, use Toaster to confirm the data loaded successfully."
+          },
+          {
+            "id": "confirmation-dialog",
+            "note": "If the error state offers a destructive fallback action, confirm it with a ConfirmDialog first."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "search-with-suggestions",
+    "title": "Search with Suggestions",
+    "description": "A molecule recipe for building a search input with an autocomplete dropdown. TextInput captures user input with debouncing, a Popup displays suggestion results using List with keyboard navigation, and Hotkey renders the keyboard shortcut hint to focus the search.",
+    "level": "molecule",
+    "use_cases": [
+      "global search bar with autocomplete suggestions in a header or sidebar",
+      "entity search (users, products, documents) with instant filtered results",
+      "command palette or quick-find input with keyboard shortcut activation",
+      "search field with recent searches and trending suggestions"
+    ],
+    "packages": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons"
+    ],
+    "tags": [
+      "search",
+      "autocomplete",
+      "suggestions",
+      "typeahead",
+      "debounce",
+      "keyboard",
+      "dropdown",
+      "list",
+      "filter",
+      "quick-find",
+      "command-palette",
+      "hotkey",
+      "input"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "Users need a search input that shows suggestion results as they type, with keyboard navigation (ArrowUp/Down to select, Enter to confirm, Escape to close). The suggestions are fetched from an API or filtered from a local dataset.",
+        "not_for": "Selecting from a predefined list of options (use Select with filterable prop). Multi-value tag input (use TextInput with labels or a custom tagger). Full-text search results displayed as a page (use a search results page with TextInput at the top, no dropdown)."
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/uikit @gravity-ui/icons",
+          "Wrap your app in ThemeProvider from @gravity-ui/uikit if not already done"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          {
+            "name": "TextInput",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Search input field. Use value/onUpdate for controlled input, hasClear for the clear button, leftContent for a magnifier icon, and placeholder for hint text. Handles focus, blur, and keydown events for keyboard navigation."
+          },
+          {
+            "name": "Popup",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Floating dropdown anchored to the TextInput that contains the suggestions list. Use open, anchorElement, placement='bottom-start', and onOpenChange. Set disableEscapeKeyDown=true to handle Escape manually for closing both the popup and clearing input."
+          },
+          {
+            "name": "List",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Renders suggestion items with virtual scrolling support, active item highlighting, and click selection. Use items, renderItem, activeItemIndex, onItemClick, onChangeActive, and virtualized props. Set itemHeight for consistent virtual scroll performance."
+          },
+          {
+            "name": "Loader",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Displayed inside the dropdown while search results are being fetched. Use size='s' centered in the dropdown area."
+          },
+          {
+            "name": "Hotkey",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Renders a keyboard shortcut badge (e.g. Cmd+K) inside or beside the search input as a visual hint. Use value='mod+k' and the platform prop auto-detects Mac vs PC key symbols."
+          }
+        ]
+      },
+      {
+        "type": "custom_parts",
+        "items": [
+          {
+            "name": "Debounced search",
+            "description": "Delays the search API call until the user stops typing for a specified duration to avoid excessive requests.",
+            "approach": "Use a useDebounce(value, delay) hook that returns the debounced value. Trigger the fetch/filter in a useEffect keyed on the debounced value. Typical delay is 300ms. Alternatively, use a ref-based timer with clearTimeout on each keystroke."
+          },
+          {
+            "name": "Keyboard navigation handler",
+            "description": "Handles ArrowUp, ArrowDown, Enter, and Escape keydown events on the TextInput to navigate and select suggestions.",
+            "approach": "Attach an onKeyDown handler to TextInput. ArrowDown increments activeIndex (clamped to items length), ArrowUp decrements. Enter selects the active item and closes the popup. Escape closes the popup. Prevent default on arrow keys to avoid cursor movement in the input."
+          },
+          {
+            "name": "Global hotkey listener",
+            "description": "Registers a keyboard shortcut (e.g. Cmd+K) to focus the search input from anywhere on the page.",
+            "approach": "Use a useEffect that adds a keydown listener on document. Check for metaKey (Mac) or ctrlKey (PC) combined with 'k'. Call event.preventDefault() and inputRef.current.focus(). Clean up the listener on unmount."
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "tree": [
+          "SearchWithSuggestions  (molecule root)",
+          "  div.search-wrapper  (position: relative, for anchor measurement)",
+          "    TextInput  (value, onUpdate, hasClear, placeholder, leftContent=Icon:Magnifier)",
+          "      rightContent?  (Hotkey value='mod+k', shown when input is empty)",
+          "      onKeyDown  (ArrowUp, ArrowDown, Enter, Escape handling)",
+          "      onFocus  (open popup if query has results)",
+          "      ref  (used for Popup anchor and global hotkey focus)",
+          "  Popup  (open=showSuggestions, anchorElement=wrapperRef, placement='bottom-start')",
+          "    {isLoading && Loader}  (centered spinner while fetching)",
+          "    {!isLoading && suggestions.length > 0 && List}",
+          "      List  (items=suggestions, renderItem, activeItemIndex, onItemClick, onChangeActive)",
+          "        renderItem  (highlight matched text, show icon/category)",
+          "    {!isLoading && suggestions.length === 0 && query && EmptyMessage}",
+          "      Text  ('No results for \"query\"')"
+        ],
+        "flow": [
+          "1. User focuses TextInput (or presses Cmd+K) -> input gets focus",
+          "2. User types query -> onUpdate sets value, debounce timer starts",
+          "3. After debounce delay (300ms) -> fetch suggestions from API or filter local data",
+          "4. While fetching -> Loader shown inside Popup, popup opens",
+          "5. Results arrive -> List renders suggestion items, first item is active (activeItemIndex=0)",
+          "6. User presses ArrowDown -> activeItemIndex increments, List highlights next item",
+          "7. User presses ArrowUp -> activeItemIndex decrements, List highlights previous item",
+          "8. User presses Enter -> select active suggestion, call onSelect(item), close popup, optionally navigate",
+          "9. User presses Escape -> close popup, optionally clear input",
+          "10. User clicks a suggestion item -> onItemClick fires, same as Enter behavior",
+          "11. User clicks outside or blurs input -> popup closes (onOpenChange)"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Search input with debounced API fetch, keyboard navigation, and global hotkey",
+        "code": "import React from 'react';\nimport {TextInput, Popup, List, Loader, Hotkey, Icon, Text} from '@gravity-ui/uikit';\nimport {Magnifier} from '@gravity-ui/icons';\n\nfunction useDebounce(value, delay) {\n  const [debounced, setDebounced] = React.useState(value);\n  React.useEffect(() => {\n    const timer = setTimeout(() => setDebounced(value), delay);\n    return () => clearTimeout(timer);\n  }, [value, delay]);\n  return debounced;\n}\n\nexport function SearchWithSuggestions({onSelect, fetchSuggestions}) {\n  const inputRef = React.useRef(null);\n  const wrapperRef = React.useRef(null);\n  const [query, setQuery] = React.useState('');\n  const [suggestions, setSuggestions] = React.useState([]);\n  const [isLoading, setIsLoading] = React.useState(false);\n  const [showPopup, setShowPopup] = React.useState(false);\n  const [activeIndex, setActiveIndex] = React.useState(0);\n\n  const debouncedQuery = useDebounce(query, 300);\n\n  // Fetch suggestions when debounced query changes\n  React.useEffect(() => {\n    if (!debouncedQuery.trim()) {\n      setSuggestions([]);\n      setShowPopup(false);\n      return;\n    }\n\n    let cancelled = false;\n    setIsLoading(true);\n    setShowPopup(true);\n\n    fetchSuggestions(debouncedQuery)\n      .then((results) => {\n        if (!cancelled) {\n          setSuggestions(results);\n          setActiveIndex(0);\n          setIsLoading(false);\n        }\n      })\n      .catch(() => {\n        if (!cancelled) {\n          setSuggestions([]);\n          setIsLoading(false);\n        }\n      });\n\n    return () => { cancelled = true; };\n  }, [debouncedQuery, fetchSuggestions]);\n\n  // Global Cmd+K / Ctrl+K hotkey\n  React.useEffect(() => {\n    const handler = (e) => {\n      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {\n        e.preventDefault();\n        inputRef.current?.focus();\n      }\n    };\n    document.addEventListener('keydown', handler);\n    return () => document.removeEventListener('keydown', handler);\n  }, []);\n\n  const handleSelect = (item) => {\n    onSelect(item);\n    setQuery(item.title || item.name || '');\n    setShowPopup(false);\n  };\n\n  const handleKeyDown = (e) => {\n    if (!showPopup || suggestions.length === 0) return;\n\n    switch (e.key) {\n      case 'ArrowDown':\n        e.preventDefault();\n        setActiveIndex((prev) => Math.min(prev + 1, suggestions.length - 1));\n        break;\n      case 'ArrowUp':\n        e.preventDefault();\n        setActiveIndex((prev) => Math.max(prev - 1, 0));\n        break;\n      case 'Enter':\n        e.preventDefault();\n        if (suggestions[activeIndex]) {\n          handleSelect(suggestions[activeIndex]);\n        }\n        break;\n      case 'Escape':\n        e.preventDefault();\n        setShowPopup(false);\n        break;\n    }\n  };\n\n  const handleUpdate = (value) => {\n    setQuery(value);\n    if (!value.trim()) {\n      setShowPopup(false);\n      setSuggestions([]);\n    }\n  };\n\n  return (\n    <div ref={wrapperRef} style={{position: 'relative', maxWidth: 480}}>\n      <TextInput\n        controlRef={inputRef}\n        value={query}\n        onUpdate={handleUpdate}\n        onKeyDown={handleKeyDown}\n        onFocus={() => {\n          if (suggestions.length > 0) setShowPopup(true);\n        }}\n        placeholder=\"Search...\"\n        hasClear\n        size=\"l\"\n        leftContent={<Icon data={Magnifier} size={16} />}\n        rightContent={\n          !query ? <Hotkey value=\"mod+k\" view=\"light\" /> : undefined\n        }\n      />\n      <Popup\n        anchorElement={wrapperRef.current}\n        open={showPopup}\n        placement=\"bottom-start\"\n        onOpenChange={(open) => {\n          if (!open) setShowPopup(false);\n        }}\n        disableEscapeKeyDown\n      >\n        <div style={{width: wrapperRef.current?.offsetWidth || 480, maxHeight: 320, overflow: 'auto', padding: '4px 0'}}>\n          {isLoading ? (\n            <div style={{display: 'flex', justifyContent: 'center', padding: 24}}>\n              <Loader size=\"s\" />\n            </div>\n          ) : suggestions.length > 0 ? (\n            <List\n              items={suggestions}\n              itemHeight={40}\n              activeItemIndex={activeIndex}\n              onChangeActive={setActiveIndex}\n              onItemClick={handleSelect}\n              renderItem={(item, isActive) => (\n                <div style={{\n                  padding: '8px 12px',\n                  display: 'flex',\n                  alignItems: 'center',\n                  gap: 8,\n                  background: isActive ? 'var(--g-color-base-simple-hover)' : undefined,\n                  cursor: 'pointer',\n                }}>\n                  <Text variant=\"body-1\">{item.title || item.name}</Text>\n                  {item.category && (\n                    <Text variant=\"caption-1\" color=\"secondary\">{item.category}</Text>\n                  )}\n                </div>\n              )}\n            />\n          ) : query.trim() ? (\n            <div style={{padding: '16px 12px', textAlign: 'center'}}>\n              <Text variant=\"body-1\" color=\"secondary\">\n                No results for \"{query}\"\n              </Text>\n            </div>\n          ) : null}\n        </div>\n      </Popup>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Minimal local-filter search with List suggestions",
+        "code": "import React from 'react';\nimport {TextInput, Popup, List, Icon, Text} from '@gravity-ui/uikit';\nimport {Magnifier} from '@gravity-ui/icons';\n\nconst ALL_ITEMS = [\n  {id: '1', name: 'Dashboard', category: 'Pages'},\n  {id: '2', name: 'User Management', category: 'Pages'},\n  {id: '3', name: 'API Settings', category: 'Settings'},\n  {id: '4', name: 'Billing', category: 'Settings'},\n  {id: '5', name: 'Notifications', category: 'Settings'},\n];\n\nexport function QuickSearch({onNavigate}) {\n  const wrapperRef = React.useRef(null);\n  const [query, setQuery] = React.useState('');\n  const [open, setOpen] = React.useState(false);\n\n  const filtered = React.useMemo(() => {\n    if (!query.trim()) return [];\n    const lc = query.toLowerCase();\n    return ALL_ITEMS.filter(\n      (item) => item.name.toLowerCase().includes(lc) || item.category.toLowerCase().includes(lc),\n    );\n  }, [query]);\n\n  const handleUpdate = (value) => {\n    setQuery(value);\n    setOpen(value.trim().length > 0);\n  };\n\n  const handleSelect = (item) => {\n    onNavigate(item);\n    setQuery('');\n    setOpen(false);\n  };\n\n  return (\n    <div ref={wrapperRef} style={{maxWidth: 360}}>\n      <TextInput\n        value={query}\n        onUpdate={handleUpdate}\n        placeholder=\"Quick find...\"\n        hasClear\n        leftContent={<Icon data={Magnifier} size={16} />}\n      />\n      <Popup\n        anchorElement={wrapperRef.current}\n        open={open && filtered.length > 0}\n        placement=\"bottom-start\"\n        onOpenChange={(next) => { if (!next) setOpen(false); }}\n      >\n        <div style={{width: wrapperRef.current?.offsetWidth || 360}}>\n          <List\n            items={filtered}\n            itemHeight={36}\n            onItemClick={handleSelect}\n            renderItem={(item) => (\n              <div style={{padding: '6px 12px', display: 'flex', justifyContent: 'space-between'}}>\n                <Text variant=\"body-1\">{item.name}</Text>\n                <Text variant=\"caption-1\" color=\"secondary\">{item.category}</Text>\n              </div>\n            )}\n          />\n        </div>\n      </Popup>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Calling the search API on every keystroke without debouncing -- causes excessive requests and UI jank; always debounce with 200-300ms delay",
+          "Using Popover instead of Popup for the suggestions dropdown -- Popover adds hover/click trigger behavior that conflicts with manual open state management; use Popup with controlled open prop",
+          "Building a custom dropdown list from scratch with divs -- List provides virtualization, active item tracking, keyboard-compatible onItemClick, and consistent styling",
+          "Forgetting to handle the empty state inside the dropdown -- always show a 'No results' message when suggestions are empty and the query is non-empty",
+          "Not preventing default on ArrowDown/ArrowUp keydown events -- without preventDefault, the cursor moves to the start/end of the input text",
+          "Opening the popup on mount or when the input is empty -- only show suggestions when there is a non-empty query and results are available",
+          "Using autoFocus on TextInput without a global hotkey alternative -- provide Cmd+K or Ctrl+K so users can focus search from anywhere without forced autofocus"
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          {
+            "id": "app-shell",
+            "note": "Place the search input in the app shell sidebar or header for global search access."
+          },
+          {
+            "id": "page-states",
+            "note": "Show Loader inside the dropdown while fetching, and an empty state when no results match."
+          },
+          {
+            "id": "data-table",
+            "note": "Use search-with-suggestions as the filter input above a data table for entity filtering."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "settings-page",
+    "title": "Settings Page",
+    "description": "A categorized settings panel using the Navigation Settings component with grouped sections. Each section contains controls like Switch for toggles, Select for choices, and RadioGroup for exclusive options. Includes Save/Cancel buttons and an unsaved changes warning.",
+    "level": "organism",
+    "use_cases": [
+      "application-wide settings page with grouped preferences (appearance, notifications, privacy)",
+      "user account settings with profile, security, and notification sections",
+      "project or workspace configuration panel with categorized options",
+      "admin panel settings with multiple pages of options organized by category"
+    ],
+    "packages": [
+      "@gravity-ui/navigation",
+      "@gravity-ui/uikit"
+    ],
+    "tags": [
+      "settings",
+      "preferences",
+      "configuration",
+      "switch",
+      "toggle",
+      "select",
+      "radio-group",
+      "navigation",
+      "categories",
+      "sections",
+      "save",
+      "cancel",
+      "unsaved-changes",
+      "admin",
+      "panel"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "You need a full settings page with multiple categories/pages of options, where each category contains labeled settings with different control types (toggles, dropdowns, radio buttons). The Navigation Settings component provides built-in page navigation, filtering, and layout.",
+        "not_for": "A single form with a few fields (use the form-with-validation recipe). Feature flags managed by a backend system with no user-facing UI. Quick toggles in a toolbar or header (use Switch or DropdownMenu directly). A wizard-like guided setup (use the multi-step-wizard recipe)."
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/navigation @gravity-ui/uikit",
+          "Wrap your app in ThemeProvider from @gravity-ui/uikit if not already done"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          {
+            "name": "Settings",
+            "library": "navigation",
+            "usage": "required",
+            "role": "Root settings layout component with built-in page navigation sidebar, search/filter bar, and content area. Uses Settings.Group for category grouping, Settings.Page for individual pages, and Settings.Section with Settings.Item for individual settings within a page. Props: title, initialPage, onPageChange, filterPlaceholder, loading, onClose."
+          },
+          {
+            "name": "Switch",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Toggle control for boolean on/off settings (e.g. enable notifications, dark mode). Props: checked, onUpdate, size, disabled, content (label text)."
+          },
+          {
+            "name": "Select",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Dropdown for choosing from predefined options (e.g. language, timezone, default view). Props: value, onUpdate, options, placeholder, width, filterable for long lists."
+          },
+          {
+            "name": "RadioGroup",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Exclusive choice selector for settings with 2-5 mutually exclusive options (e.g. theme: light/dark/system, date format). Props: value, onUpdate, options, direction ('horizontal' or 'vertical'), size."
+          },
+          {
+            "name": "Button",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Save and Cancel action buttons in the settings footer. Use view='action' for Save, view='outlined' for Cancel. Props: view, size, disabled (when no changes), loading (during save), onClick."
+          },
+          {
+            "name": "Divider",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Visual separator between settings sections within a page. Use orientation='horizontal' between groups of related settings."
+          },
+          {
+            "name": "Text",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Section headings, setting labels, and description text. Use variant='subheader-2' for section titles, variant='body-1' for labels, variant='caption-1' with color='secondary' for helper text."
+          }
+        ]
+      },
+      {
+        "type": "custom_parts",
+        "items": [
+          {
+            "name": "useSettingsState hook",
+            "description": "Manages settings values, tracks changes against the saved state, and provides save/reset functionality.",
+            "approach": "Custom hook that takes initial settings as the saved baseline. Stores current values in state. Exposes hasChanges (deep comparison of current vs. saved), update(key, value), save() to persist and update baseline, and reset() to revert current to saved values."
+          },
+          {
+            "name": "Unsaved changes guard",
+            "description": "Warns the user when navigating away or closing the settings panel with unsaved changes.",
+            "approach": "Use a beforeunload event listener and optionally a ConfirmDialog when the user clicks the close button or navigates away while hasChanges is true. Prompt with 'You have unsaved changes. Discard them?' with Discard and Stay buttons."
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "tree": [
+          "Settings  (title='Settings', onClose, initialPage='appearance')",
+          "  Settings.Group  (groupTitle='General')",
+          "    Settings.Page  (id='appearance', title='Appearance')",
+          "      Settings.Section  (header='Theme')",
+          "        Settings.Item  (title='Color theme', renderValue=RadioGroup)",
+          "          RadioGroup  (value, onUpdate, options=[light, dark, system], direction='horizontal')",
+          "        Settings.Item  (title='Compact mode', renderValue=Switch)",
+          "          Switch  (checked, onUpdate, content='Reduce spacing')",
+          "      Settings.Section  (header='Language & Region')",
+          "        Settings.Item  (title='Language', renderValue=Select)",
+          "          Select  (value, onUpdate, options=[English, Russian, ...], width=200)",
+          "        Settings.Item  (title='Date format', renderValue=Select)",
+          "          Select  (value, onUpdate, options=[DD/MM/YYYY, MM/DD/YYYY, YYYY-MM-DD])",
+          "    Settings.Page  (id='notifications', title='Notifications')",
+          "      Settings.Section  (header='Email Notifications')",
+          "        Settings.Item  (title='Product updates', renderValue=Switch)",
+          "          Switch  (checked, onUpdate)",
+          "        Settings.Item  (title='Security alerts', renderValue=Switch)",
+          "          Switch  (checked, onUpdate)",
+          "      Settings.Section  (header='Notification Frequency')",
+          "        Settings.Item  (title='Digest frequency', renderValue=RadioGroup)",
+          "          RadioGroup  (value, onUpdate, options=[immediate, daily, weekly], direction='vertical')",
+          "  Settings.Group  (groupTitle='Advanced')",
+          "    Settings.Page  (id='privacy', title='Privacy')",
+          "      Settings.Section  (header='Data Sharing')",
+          "        Settings.Item  (title='Usage analytics', renderValue=Switch)",
+          "          Switch  (checked, onUpdate)",
+          "        Settings.Item  (title='Crash reports', renderValue=Switch)",
+          "          Switch  (checked, onUpdate)",
+          "  div.settings-footer  (sticky bottom bar, flex row, gap=8)",
+          "    Button  (view='action', 'Save', disabled=!hasChanges, loading=saving)",
+          "    Button  (view='outlined', 'Cancel', disabled=!hasChanges, onClick=reset)"
+        ],
+        "flow": [
+          "Settings renders with initialPage selected in the sidebar. Search bar filters pages by title.",
+          "User navigates between pages via the sidebar -> onPageChange fires, active page content renders",
+          "User toggles a Switch, selects a Select option, or changes a RadioGroup -> update(key, value) in settings state",
+          "hasChanges becomes true -> Save button enables, Cancel button enables",
+          "User clicks Save -> save() sends settings to API (loading state on button), on success baseline updates, hasChanges resets to false",
+          "User clicks Cancel -> reset() reverts all values to saved baseline, hasChanges becomes false",
+          "User clicks close (onClose) or navigates away while hasChanges is true -> ConfirmDialog warns about unsaved changes",
+          "User confirms discard -> close/navigate. User cancels -> stay on settings page."
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Settings page with appearance, notifications, and privacy sections",
+        "code": "import React from 'react';\nimport {Settings} from '@gravity-ui/navigation';\nimport {Switch, Select, RadioGroup, Button, Text, Divider} from '@gravity-ui/uikit';\n\ninterface SettingsValues {\n  theme: string;\n  compactMode: boolean;\n  language: string;\n  dateFormat: string;\n  productUpdates: boolean;\n  securityAlerts: boolean;\n  digestFrequency: string;\n  usageAnalytics: boolean;\n  crashReports: boolean;\n}\n\nconst DEFAULT_SETTINGS: SettingsValues = {\n  theme: 'system',\n  compactMode: false,\n  language: 'en',\n  dateFormat: 'YYYY-MM-DD',\n  productUpdates: true,\n  securityAlerts: true,\n  digestFrequency: 'daily',\n  usageAnalytics: true,\n  crashReports: true,\n};\n\nconst THEME_OPTIONS = [\n  {value: 'light', content: 'Light'},\n  {value: 'dark', content: 'Dark'},\n  {value: 'system', content: 'System'},\n];\n\nconst LANGUAGE_OPTIONS = [\n  {value: 'en', content: 'English'},\n  {value: 'ru', content: 'Russian'},\n  {value: 'es', content: 'Spanish'},\n  {value: 'de', content: 'German'},\n];\n\nconst DATE_FORMAT_OPTIONS = [\n  {value: 'YYYY-MM-DD', content: 'YYYY-MM-DD'},\n  {value: 'DD/MM/YYYY', content: 'DD/MM/YYYY'},\n  {value: 'MM/DD/YYYY', content: 'MM/DD/YYYY'},\n];\n\nconst FREQUENCY_OPTIONS = [\n  {value: 'immediate', content: 'Immediately'},\n  {value: 'daily', content: 'Daily digest'},\n  {value: 'weekly', content: 'Weekly digest'},\n];\n\nfunction useSettingsState(initial: SettingsValues) {\n  const [saved, setSaved] = React.useState(initial);\n  const [current, setCurrent] = React.useState(initial);\n\n  const hasChanges = JSON.stringify(current) !== JSON.stringify(saved);\n\n  const update = <K extends keyof SettingsValues>(key: K, value: SettingsValues[K]) => {\n    setCurrent((prev) => ({...prev, [key]: value}));\n  };\n\n  const save = () => {\n    setSaved(current);\n  };\n\n  const reset = () => {\n    setCurrent(saved);\n  };\n\n  return {values: current, hasChanges, update, save, reset};\n}\n\nexport function SettingsPage({\n  initialSettings,\n  onSave,\n  onClose,\n}: {\n  initialSettings?: SettingsValues;\n  onSave: (settings: SettingsValues) => Promise<void>;\n  onClose: () => void;\n}) {\n  const {values, hasChanges, update, save, reset} = useSettingsState(\n    initialSettings || DEFAULT_SETTINGS,\n  );\n  const [saving, setSaving] = React.useState(false);\n\n  const handleSave = async () => {\n    setSaving(true);\n    try {\n      await onSave(values);\n      save();\n    } finally {\n      setSaving(false);\n    }\n  };\n\n  const handleClose = () => {\n    if (hasChanges) {\n      const confirmed = window.confirm('You have unsaved changes. Discard them?');\n      if (!confirmed) return;\n    }\n    onClose();\n  };\n\n  return (\n    <div style={{display: 'flex', flexDirection: 'column', height: '100%'}}>\n      <Settings\n        title=\"Settings\"\n        initialPage=\"appearance\"\n        filterPlaceholder=\"Search settings...\"\n        onClose={handleClose}\n      >\n        <Settings.Group groupTitle=\"General\">\n          <Settings.Page id=\"appearance\" title=\"Appearance\">\n            <Settings.Section header=\"Theme\">\n              <Settings.Item title=\"Color theme\">\n                <RadioGroup\n                  value={values.theme}\n                  onUpdate={(v) => update('theme', v)}\n                  options={THEME_OPTIONS}\n                  direction=\"horizontal\"\n                />\n              </Settings.Item>\n              <Settings.Item title=\"Compact mode\" description=\"Reduce spacing and padding throughout the interface\">\n                <Switch\n                  checked={values.compactMode}\n                  onUpdate={(v) => update('compactMode', v)}\n                />\n              </Settings.Item>\n            </Settings.Section>\n            <Settings.Section header=\"Language & Region\">\n              <Settings.Item title=\"Language\">\n                <Select\n                  value={[values.language]}\n                  onUpdate={(v) => update('language', v[0])}\n                  options={LANGUAGE_OPTIONS}\n                  width={200}\n                />\n              </Settings.Item>\n              <Settings.Item title=\"Date format\">\n                <Select\n                  value={[values.dateFormat]}\n                  onUpdate={(v) => update('dateFormat', v[0])}\n                  options={DATE_FORMAT_OPTIONS}\n                  width={200}\n                />\n              </Settings.Item>\n            </Settings.Section>\n          </Settings.Page>\n\n          <Settings.Page id=\"notifications\" title=\"Notifications\">\n            <Settings.Section header=\"Email Notifications\">\n              <Settings.Item title=\"Product updates\" description=\"News about features and improvements\">\n                <Switch\n                  checked={values.productUpdates}\n                  onUpdate={(v) => update('productUpdates', v)}\n                />\n              </Settings.Item>\n              <Settings.Item title=\"Security alerts\" description=\"Important security-related notifications\">\n                <Switch\n                  checked={values.securityAlerts}\n                  onUpdate={(v) => update('securityAlerts', v)}\n                />\n              </Settings.Item>\n            </Settings.Section>\n            <Settings.Section header=\"Notification Frequency\">\n              <Settings.Item title=\"Digest frequency\">\n                <RadioGroup\n                  value={values.digestFrequency}\n                  onUpdate={(v) => update('digestFrequency', v)}\n                  options={FREQUENCY_OPTIONS}\n                  direction=\"vertical\"\n                />\n              </Settings.Item>\n            </Settings.Section>\n          </Settings.Page>\n        </Settings.Group>\n\n        <Settings.Group groupTitle=\"Advanced\">\n          <Settings.Page id=\"privacy\" title=\"Privacy\">\n            <Settings.Section header=\"Data Sharing\">\n              <Settings.Item title=\"Usage analytics\" description=\"Help us improve by sharing anonymous usage data\">\n                <Switch\n                  checked={values.usageAnalytics}\n                  onUpdate={(v) => update('usageAnalytics', v)}\n                />\n              </Settings.Item>\n              <Settings.Item title=\"Crash reports\" description=\"Automatically send crash reports to help fix issues\">\n                <Switch\n                  checked={values.crashReports}\n                  onUpdate={(v) => update('crashReports', v)}\n                />\n              </Settings.Item>\n            </Settings.Section>\n          </Settings.Page>\n        </Settings.Group>\n      </Settings>\n\n      <Divider />\n\n      <div style={{display: 'flex', gap: 8, justifyContent: 'flex-end', padding: 16}}>\n        <Button view=\"outlined\" size=\"l\" disabled={!hasChanges} onClick={reset}>\n          Cancel\n        </Button>\n        <Button view=\"action\" size=\"l\" disabled={!hasChanges} loading={saving} onClick={handleSave}>\n          Save Changes\n        </Button>\n      </div>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Building a custom sidebar navigation for settings pages when Settings from @gravity-ui/navigation provides page navigation, search filtering, and grouping out of the box.",
+          "Saving each setting immediately on change without a Save button -- this makes it impossible to discard changes and can cause unexpected side effects. Batch changes and save explicitly.",
+          "Using Checkbox instead of Switch for boolean toggles -- Switch is the standard control for on/off settings; Checkbox implies multi-select or form agreement.",
+          "Nesting settings too deeply (more than Group > Page > Section) -- keep the hierarchy flat for discoverability. Two levels of grouping is sufficient.",
+          "Forgetting the unsaved changes warning when the user navigates away -- always check hasChanges before closing or leaving the settings panel.",
+          "Placing Save/Cancel buttons inside each section instead of a single footer -- creates confusion about what gets saved. Use one pair of action buttons for the entire settings form.",
+          "Using RadioGroup for settings with more than 5 options -- switch to Select for longer lists to save vertical space and improve scannability."
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          {
+            "id": "confirmation-dialog",
+            "note": "Use a ConfirmDialog for the unsaved changes warning instead of window.confirm for a polished experience."
+          },
+          {
+            "id": "form-with-validation",
+            "note": "If individual settings require validation (e.g. custom domain, API key format), apply the per-field validation pattern from form-with-validation."
+          },
+          {
+            "id": "page-states",
+            "note": "Show a loading state via the Settings loading prop while initial settings data is being fetched from the API."
+          }
         ]
       }
     ]
@@ -512,11 +2206,22 @@
       "respect the user's OS-level color scheme preference",
       "scope a different theme to a specific section of the page"
     ],
-    "packages": ["@gravity-ui/uikit"],
+    "packages": [
+      "@gravity-ui/uikit"
+    ],
     "tags": [
-      "theme", "dark-mode", "light-mode", "theming", "ThemeProvider",
-      "useTheme", "CSS-variables", "design-tokens", "system-preference",
-      "color-scheme", "setup", "foundation"
+      "theme",
+      "dark-mode",
+      "light-mode",
+      "theming",
+      "ThemeProvider",
+      "useTheme",
+      "CSS-variables",
+      "design-tokens",
+      "system-preference",
+      "color-scheme",
+      "setup",
+      "foundation"
     ],
     "sections": [
       {
@@ -537,10 +2242,30 @@
       {
         "type": "components",
         "items": [
-          { "name": "ThemeProvider", "library": "uikit", "usage": "required", "role": "Root provider that injects CSS custom properties (--g-color-base-background, --g-color-text-primary, etc.) onto a wrapper element. Accepts theme prop: 'light' | 'dark' | 'system'. Can be nested for scoped theming." },
-          { "name": "useTheme", "library": "uikit", "usage": "required", "role": "Hook returning [theme, setTheme]. theme is the resolved value ('light' | 'dark'). setTheme accepts 'light' | 'dark' | 'system'." },
-          { "name": "Switch", "library": "uikit", "usage": "optional", "role": "Simple two-state toggle, suitable for a light/dark toggle when system mode is not offered. Props: checked, onUpdate, size ('s' | 'm' | 'l')." },
-          { "name": "RadioGroup", "library": "uikit", "usage": "optional", "role": "Three-option selector for light / dark / system. Props: options (RadioGroupOption[]), value, onUpdate, direction ('horizontal' | 'vertical'), size ('m' | 'l' | 'xl')." }
+          {
+            "name": "ThemeProvider",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Root provider that injects CSS custom properties (--g-color-base-background, --g-color-text-primary, etc.) onto a wrapper element. Accepts theme prop: 'light' | 'dark' | 'system'. Can be nested for scoped theming."
+          },
+          {
+            "name": "useTheme",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Hook returning [theme, setTheme]. theme is the resolved value ('light' | 'dark'). setTheme accepts 'light' | 'dark' | 'system'."
+          },
+          {
+            "name": "Switch",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Simple two-state toggle, suitable for a light/dark toggle when system mode is not offered. Props: checked, onUpdate, size ('s' | 'm' | 'l')."
+          },
+          {
+            "name": "RadioGroup",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Three-option selector for light / dark / system. Props: options (RadioGroupOption[]), value, onUpdate, direction ('horizontal' | 'vertical'), size ('m' | 'l' | 'xl')."
+          }
         ]
       },
       {
@@ -606,8 +2331,186 @@
       {
         "type": "related",
         "items": [
-          { "id": "confirmation-dialog", "note": "Dialogs inherit the current theme from ThemeProvider automatically." },
-          { "id": "user-feedback", "note": "Toaster inherits theme context; no extra setup needed for themed notifications." }
+          {
+            "id": "confirmation-dialog",
+            "note": "Dialogs inherit the current theme from ThemeProvider automatically."
+          },
+          {
+            "id": "user-feedback",
+            "note": "Toaster inherits theme context; no extra setup needed for themed notifications."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "user-feedback",
+    "title": "User Feedback: Toasts, Alerts, and Notifications",
+    "description": "A molecule recipe for providing user feedback through three complementary channels: Toaster for transient success/error messages after actions, Alert for persistent inline warnings and info, and Notifications for a notification center with history.",
+    "level": "molecule",
+    "use_cases": [
+      "show a success toast after saving, deleting, or submitting data",
+      "display an error toast when an API call fails with a retry action",
+      "render persistent inline alerts for warnings, deprecation notices, or required actions",
+      "build a notification center (bell icon) showing recent activity and unread items",
+      "provide non-blocking feedback after bulk operations complete"
+    ],
+    "packages": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/components"
+    ],
+    "tags": [
+      "toast",
+      "toaster",
+      "alert",
+      "notification",
+      "feedback",
+      "success",
+      "error",
+      "warning",
+      "info",
+      "snackbar",
+      "notification-center",
+      "bell",
+      "inline",
+      "transient"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "Your application needs to communicate outcomes of user actions (success, error), display persistent warnings or information, or maintain a notification history that users can review later.",
+        "not_for": "Form field validation errors (use TextInput validationState and errorMessage). Confirmation before an action (use ConfirmDialog). Loading states (use Loader or Skeleton). Tooltips for UI explanation (use Popover or HelpMark).",
+        "matrix": [
+          {
+            "situation": "Action completed successfully or failed (transient, auto-dismissing)",
+            "component": "Toaster",
+            "why": "Toaster shows a brief non-blocking message that auto-hides after a timeout. Ideal for fire-and-forget feedback like 'Saved successfully' or 'Delete failed'."
+          },
+          {
+            "situation": "Persistent warning or info that requires user attention until dismissed",
+            "component": "Alert",
+            "why": "Alert renders inline and stays visible until the user closes it or the condition resolves. Suitable for deprecation notices, permission warnings, or required configuration steps."
+          },
+          {
+            "situation": "Notification history with timestamps, read/unread state, and a bell icon trigger",
+            "component": "Notifications",
+            "why": "Notifications from @gravity-ui/components provides a full notification center with list rendering, empty/error/loading states, and infinite scroll."
+          }
+        ]
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/uikit @gravity-ui/components",
+          "Wrap your app in ThemeProvider from @gravity-ui/uikit if not already done",
+          "Add ToasterProvider at the app root (wraps children and renders the toast container): import {ToasterProvider, ToasterComponent} from '@gravity-ui/uikit'",
+          "Render <ToasterComponent /> inside the provider (typically at the end of the provider children)"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          {
+            "name": "Toaster",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Transient toast notifications. Use the useToaster() hook to call add() with name (unique ID), title, content, theme ('success'|'danger'|'warning'|'info'), autoHiding (ms or false), isClosable, and actions (buttons inside the toast). Requires ToasterProvider and ToasterComponent in the app root."
+          },
+          {
+            "name": "Alert",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Persistent inline notification. Accepts theme ('info'|'success'|'warning'|'danger'), title, message, view ('filled'|'outlined'), onClose for dismissibility, and actions for action buttons. Renders in-place within the page layout."
+          },
+          {
+            "name": "Notifications",
+            "library": "components",
+            "usage": "optional",
+            "role": "Full notification center component displaying a list of NotificationProps items with id, content, formattedDate, and optional actions. Supports isLoading, emptyTitle, emptyContent, errorTitle, and onLoadMoreNotifications for infinite scroll."
+          }
+        ]
+      },
+      {
+        "type": "custom_parts",
+        "items": [
+          {
+            "name": "Notification bell trigger",
+            "description": "A button with a bell icon and unread count badge that opens the Notifications panel in a Popup.",
+            "approach": "Render a Button with Icon data={Bell} and a Badge or Label showing the unread count. On click, toggle a Popup anchored to the button containing the Notifications component. Track unread count from your notification state/API."
+          },
+          {
+            "name": "Toast helper functions",
+            "description": "Convenience wrappers around useToaster().add() for common feedback patterns.",
+            "approach": "Create a useFeedback() hook that returns showSuccess(title, content?), showError(title, content?), and showWarning(title, content?) functions. Each calls add() with appropriate theme, autoHiding (e.g. 5000ms for success, false for errors), and isClosable settings."
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "tree": [
+          "App root",
+          "  ToasterProvider",
+          "    ToasterComponent  (renders toast container, positioned fixed)",
+          "    AppContent",
+          "      Alert?  (inline, persistent warning/info banner at top of page)",
+          "        theme, title, message, onClose, actions",
+          "      PageContent",
+          "        ... components that call useToaster().add() on actions ...",
+          "      NotificationBell  (fixed position or in header)",
+          "        Button  (Icon data={Bell}, onClick toggles popup)",
+          "        Badge/Label  (unread count)",
+          "        Popup  (anchored to bell button)",
+          "          Notifications  (notifications=[], isLoading, onLoadMoreNotifications)"
+        ],
+        "flow": [
+          "1. App mounts -> ToasterProvider wraps app, ToasterComponent renders toast container",
+          "2. User performs action (save, delete, submit) -> handler calls useToaster().add({name, title, theme})",
+          "3. Toast appears in corner, auto-hides after autoHiding ms (default 5000) or stays if autoHiding=false",
+          "4. User clicks toast close button (isClosable) or action button -> toast dismissed, callback fired",
+          "5. For persistent feedback: Alert renders inline with theme='warning', message, and optional onClose",
+          "6. User dismisses Alert via close button -> onClose callback hides alert from state",
+          "7. Notification bell shows unread count badge -> user clicks -> Popup opens with Notifications list",
+          "8. Notifications renders items with formattedDate, content, and per-notification actions",
+          "9. User scrolls to bottom -> onLoadMoreNotifications fetches older notifications"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Toast feedback after save/delete actions with helper hook",
+        "code": "import React from 'react';\nimport {useToaster, Button, ToasterProvider, ToasterComponent} from '@gravity-ui/uikit';\n\nfunction useFeedback() {\n  const {add} = useToaster();\n\n  return React.useMemo(() => ({\n    showSuccess: (title, content) =>\n      add({\n        name: `success-${Date.now()}`,\n        title,\n        content,\n        theme: 'success',\n        autoHiding: 5000,\n        isClosable: true,\n      }),\n    showError: (title, content) =>\n      add({\n        name: `error-${Date.now()}`,\n        title,\n        content,\n        theme: 'danger',\n        autoHiding: false,\n        isClosable: true,\n      }),\n    showWarning: (title, content) =>\n      add({\n        name: `warning-${Date.now()}`,\n        title,\n        content,\n        theme: 'warning',\n        autoHiding: 8000,\n        isClosable: true,\n      }),\n  }), [add]);\n}\n\nfunction UserActions({userId}) {\n  const feedback = useFeedback();\n\n  const handleSave = async () => {\n    try {\n      await fetch(`/api/users/${userId}`, {method: 'PUT'});\n      feedback.showSuccess('Saved', 'User profile updated successfully.');\n    } catch (err) {\n      feedback.showError('Save failed', err.message);\n    }\n  };\n\n  const handleDelete = async () => {\n    try {\n      await fetch(`/api/users/${userId}`, {method: 'DELETE'});\n      feedback.showSuccess('Deleted', 'User has been removed.');\n    } catch (err) {\n      feedback.showError('Delete failed', err.message);\n    }\n  };\n\n  return (\n    <div style={{display: 'flex', gap: 8}}>\n      <Button view=\"action\" onClick={handleSave}>Save</Button>\n      <Button view=\"outlined-danger\" onClick={handleDelete}>Delete</Button>\n    </div>\n  );\n}\n\nexport function App() {\n  return (\n    <ToasterProvider>\n      <UserActions userId=\"123\" />\n      <ToasterComponent />\n    </ToasterProvider>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Inline Alert for persistent warnings and a notification bell with Popup",
+        "code": "import React from 'react';\nimport {Alert, Button, Popup, Icon} from '@gravity-ui/uikit';\nimport {Notifications} from '@gravity-ui/components';\nimport {Bell} from '@gravity-ui/icons';\n\nfunction InlineWarning({onDismiss}) {\n  return (\n    <Alert\n      theme=\"warning\"\n      title=\"API key expiring soon\"\n      message=\"Your API key expires in 3 days. Rotate it to avoid service disruption.\"\n      view=\"outlined\"\n      onClose={onDismiss}\n      actions={[\n        {text: 'Rotate key', handler: () => console.log('rotate')},\n      ]}\n    />\n  );\n}\n\nfunction NotificationBell({notifications, isLoading, onLoadMore}) {\n  const bellRef = React.useRef(null);\n  const [open, setOpen] = React.useState(false);\n  const unreadCount = notifications.filter((n) => !n.read).length;\n\n  return (\n    <div style={{position: 'relative', display: 'inline-block'}}>\n      <Button ref={bellRef} view=\"flat\" size=\"m\" onClick={() => setOpen(!open)}>\n        <Icon data={Bell} size={18} />\n        {unreadCount > 0 && (\n          <span style={{\n            position: 'absolute',\n            top: 2,\n            right: 2,\n            background: 'var(--g-color-base-danger)',\n            color: 'var(--g-color-text-light-primary)',\n            borderRadius: '50%',\n            width: 16,\n            height: 16,\n            fontSize: 10,\n            display: 'flex',\n            alignItems: 'center',\n            justifyContent: 'center',\n          }}>\n            {unreadCount}\n          </span>\n        )}\n      </Button>\n      <Popup\n        anchorElement={bellRef.current}\n        open={open}\n        placement=\"bottom-end\"\n        onOpenChange={setOpen}\n      >\n        <div style={{width: 360, maxHeight: 480}}>\n          <Notifications\n            title=\"Notifications\"\n            notifications={notifications}\n            isLoading={isLoading}\n            emptyTitle=\"All caught up\"\n            emptyContent=\"No new notifications.\"\n            onLoadMoreNotifications={onLoadMore}\n          />\n        </div>\n      </Popup>\n    </div>\n  );\n}\n\nexport function FeedbackExample() {\n  const [showWarning, setShowWarning] = React.useState(true);\n\n  const notifications = [\n    {\n      id: '1',\n      content: <span>Deployment <strong>v2.4.1</strong> completed successfully.</span>,\n      formattedDate: '5 minutes ago',\n      read: false,\n    },\n    {\n      id: '2',\n      content: <span>User <strong>john@example.com</strong> was invited to the team.</span>,\n      formattedDate: '1 hour ago',\n      read: true,\n    },\n  ];\n\n  return (\n    <div style={{display: 'flex', flexDirection: 'column', gap: 16, padding: 24}}>\n      {showWarning && <InlineWarning onDismiss={() => setShowWarning(false)} />}\n      <div style={{display: 'flex', justifyContent: 'flex-end'}}>\n        <NotificationBell\n          notifications={notifications}\n          isLoading={false}\n          onLoadMore={() => Promise.resolve()}\n        />\n      </div>\n    </div>\n  );\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Using Toaster for persistent messages that require user action -- toasts auto-hide and are easy to miss; use Alert for persistent inline feedback",
+          "Using Alert for transient success messages -- Alert stays in the layout until dismissed; use Toaster for fire-and-forget success notifications",
+          "Showing multiple toasts for the same event by using the same name -- Toaster deduplicates by name, so use unique names (e.g. append timestamp) for repeated events",
+          "Forgetting to add ToasterProvider and ToasterComponent at the app root -- useToaster() will throw without the provider context",
+          "Building a custom notification dropdown from scratch -- Notifications from @gravity-ui/components handles list rendering, empty/error states, loading, and infinite scroll",
+          "Displaying raw error stack traces in toasts -- show a user-friendly title and message, log the full error to the console or monitoring service",
+          "Using window.alert() for any feedback -- it blocks the main thread, cannot be styled, and provides a poor user experience"
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          {
+            "id": "confirmation-dialog",
+            "note": "Use a confirmation dialog before destructive actions, then show a toast after the action completes."
+          },
+          {
+            "id": "page-states",
+            "note": "Combine Alert with page error states -- show an inline Alert for recoverable errors and PlaceholderContainer for full-page failures."
+          },
+          {
+            "id": "app-shell",
+            "note": "Place the notification bell in the app shell header and render inline Alerts at the top of the content area."
+          }
         ]
       }
     ]
