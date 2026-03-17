@@ -2,87 +2,53 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { loadData } from "./loader.js";
-import { handleSearchDocs, formatSearchDocs } from "./tools/search-docs.js";
-import { handleListComponents, formatListComponents } from "./tools/list-components.js";
-import { handleSuggestComponent, formatSuggestComponent } from "./tools/suggest-component.js";
-import { handleGetComponent, formatGetComponent } from "./tools/get-component.js";
-import { handleGetDesignTokens, formatGetDesignTokens } from "./tools/get-design-tokens.js";
+import { handleFind, formatFind } from "./tools/find.js";
+import { handleGet, formatGet } from "./tools/get.js";
+import { handleList, formatList } from "./tools/list.js";
 
 const data = loadData();
-console.error(`Loaded ${data.pages.length} pages, ${data.chunks.length} chunks, ${data.componentDefs.length} components`);
+console.error(`Loaded: ${data.pages.length} pages, ${data.chunks.length} chunks, ${data.componentDefs.length} components, ${data.recipes.length} recipes`);
 
-const server = new McpServer({ name: "gravityui-docs", version: "0.2.0" });
+const server = new McpServer({ name: "gravityui-docs", version: "1.0.0" });
 
-// Tool 1: list_components
+// Tool 1: find
 server.tool(
-  "list_components",
-  "Browse available Gravity UI components grouped by category. Use when you need to discover what components exist. Filter by library or category for focused results.",
+  "find",
+  "Find the right Gravity UI components, patterns, or recipes for your use case. Describe what you need in plain language. Returns compact cards you can expand with get().",
   {
-    library: z.string().optional().describe("Filter to a specific library (e.g. 'uikit', 'components')"),
-    category: z.string().optional().describe("Filter to a category (e.g. 'layout', 'forms', 'actions', 'feedback', 'navigation', 'overlays', 'data-display', 'typography', 'utility')"),
+    query: z.string().describe("Describe what you need, e.g. 'confirmation dialog before delete' or 'table with sorting and pagination'"),
   },
   (args) => {
-    const result = handleListComponents(data, args);
-    return { content: [{ type: "text", text: formatListComponents(result) }] };
+    const result = handleFind(data, args);
+    return { content: [{ type: "text", text: formatFind(result) }] };
   },
 );
 
-// Tool 2: suggest_component
+// Tool 2: get
 server.tool(
-  "suggest_component",
-  "Find the right Gravity UI component for a use case. Describe what you need in plain language. Use this when you know WHAT you want to build but not WHICH component to use.",
+  "get",
+  "Get full details for a component, recipe, token topic, or library by name. Use component names like 'Button', recipe IDs like 'confirmation-dialog', token topics like 'spacing', or 'overview' for the design system summary.",
   {
-    use_case: z.string().describe("Describe what you need, e.g. 'dropdown with search' or 'sidebar navigation'"),
-    library: z.string().optional().describe("Filter suggestions to a specific library"),
-    limit: z.number().int().min(1).max(5).optional().describe("Maximum number of suggestions (1-5, default 3)"),
+    name: z.string().describe("Component name (e.g. 'Button'), recipe ID (e.g. 'confirmation-dialog'), token topic (e.g. 'spacing'), library ID (e.g. 'uikit'), or 'overview'"),
+    detail: z.enum(["compact", "full"]).optional().describe("'compact' (default): summary. 'full': all sections, examples, and props"),
   },
   (args) => {
-    const result = handleSuggestComponent(data, args);
-    return { content: [{ type: "text", text: formatSuggestComponent(result) }] };
+    const result = handleGet(data, args);
+    return { content: [{ type: "text", text: formatGet(result, args.detail) }] };
   },
 );
 
-// Tool 3: get_component
+// Tool 3: list
 server.tool(
-  "get_component",
-  "Get the complete API reference for a Gravity UI component: import statement, TypeScript props interface, and code example. Use this when you know WHICH component you need and want to write code with it.",
+  "list",
+  "Browse what Gravity UI offers. No arguments returns a table of contents. Filter by type: 'components', 'recipes', 'libraries', 'tokens'. Add a second argument to narrow: list('components', 'forms') or list('recipes', 'organism').",
   {
-    name: z.string().describe("Component name, e.g. 'Button', 'Select', 'Flex'"),
-    library: z.string().optional().describe("Library name if component exists in multiple libraries"),
-    detail: z.enum(["compact", "full"]).optional().describe("'compact' (default): top 20 props. 'full': all props and examples"),
+    what: z.enum(["components", "recipes", "libraries", "tokens"]).optional().describe("What to list. Omit for table of contents."),
+    filter: z.string().optional().describe("Narrow results: category slug for components, library ID for components, level for recipes"),
   },
   (args) => {
-    const result = handleGetComponent(data, args);
-    return { content: [{ type: "text", text: formatGetComponent(result, args.detail) }] };
-  },
-);
-
-// Tool 4: search_docs
-server.tool(
-  "search_docs",
-  "Search Gravity UI documentation for behavioral questions, guides, and usage patterns. Use when you need to understand HOW something works, not WHAT component to use.",
-  {
-    query: z.string().describe("The search query or question"),
-    limit: z.number().int().min(1).max(10).optional().describe("Maximum number of results to return (1-10)"),
-    page_type: z.enum(["component", "guide", "library"]).optional().describe("Filter results by page type"),
-    library: z.string().optional().describe("Filter results by library name"),
-  },
-  (args) => {
-    const result = handleSearchDocs(data, args);
-    return { content: [{ type: "text", text: formatSearchDocs(result) }] };
-  },
-);
-
-// Tool 5: get_design_tokens
-server.tool(
-  "get_design_tokens",
-  "Get Gravity UI design tokens: spacing scale, breakpoints, component size heights. Use when you need exact values for gap, padding, media queries, or component sizing.",
-  {
-    topic: z.enum(["spacing", "breakpoints", "sizes", "colors"]).optional().describe("Get only a specific token category"),
-  },
-  (args) => {
-    const result = handleGetDesignTokens(data, args);
-    return { content: [{ type: "text", text: formatGetDesignTokens(result) }] };
+    const result = handleList(data, args);
+    return { content: [{ type: "text", text: formatList(result) }] };
   },
 );
 

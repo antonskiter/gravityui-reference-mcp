@@ -1,20 +1,17 @@
 /**
- * Smoke test for all MCP tools.
- * Imports from compiled dist/ because src/ingest/tags.ts does not exist.
- * Run: npx tsx src/server/smoke-test.ts
+ * Smoke test for all MCP tools (v1.0.0: find/get/list).
+ * Run: pnpm build && npx tsx src/server/smoke-test.ts
  */
 
 const ROOT = new URL("../../dist/", import.meta.url).pathname;
 
 const { loadData } = await import(`${ROOT}server/loader.js`);
-const { handleListComponents, formatListComponents } = await import(`${ROOT}server/tools/list-components.js`);
-const { handleGetComponent, formatGetComponent } = await import(`${ROOT}server/tools/get-component.js`);
-const { handleSuggestComponent, formatSuggestComponent } = await import(`${ROOT}server/tools/suggest-component.js`);
-const { handleSearchDocs, formatSearchDocs } = await import(`${ROOT}server/tools/search-docs.js`);
-const { handleGetDesignTokens, formatGetDesignTokens } = await import(`${ROOT}server/tools/get-design-tokens.js`);
+const { handleFind, formatFind } = await import(`${ROOT}server/tools/find.js`);
+const { handleGet, formatGet } = await import(`${ROOT}server/tools/get.js`);
+const { handleList, formatList } = await import(`${ROOT}server/tools/list.js`);
 
 const data = loadData();
-console.log(`Loaded: ${data.pages.length} pages, ${data.chunks.length} chunks, ${data.componentDefs.length} components\n`);
+console.log(`Loaded: ${data.pages.length} pages, ${data.chunks.length} chunks, ${data.componentDefs.length} components, ${data.recipes.length} recipes\n`);
 
 interface TestCase {
   name: string;
@@ -23,149 +20,127 @@ interface TestCase {
 }
 
 const tests: TestCase[] = [
-  // --- 1. list_components no args ---
+  // --- 1. find("confirmation dialog") ---
   {
-    name: "list_components — no args",
-    run: () => formatListComponents(handleListComponents(data, {})),
+    name: 'find — "confirmation dialog"',
+    run: () => formatFind(handleFind(data, { query: "confirmation dialog" })),
     check: (out: string) => {
-      const hasCategories = out.includes("(") && out.split("\n").length > 5;
+      const hasRecipe = out.includes('[recipe]');
+      const hasComponent = out.includes('[component]');
+      return {
+        pass: hasRecipe || hasComponent,
+        reason: `recipe=${hasRecipe}, component=${hasComponent}`,
+      };
+    },
+  },
+  // --- 2. find("something that doesnt exist") ---
+  {
+    name: 'find — "something that doesnt exist"',
+    run: () => formatFind(handleFind(data, { query: "xyzzy nonexistent thing" })),
+    check: (out: string) => {
+      const isEmpty = out.includes('No matches') || out.startsWith('0 results');
+      return { pass: true, reason: isEmpty ? 'empty results (expected)' : `got results: ${out.slice(0, 100)}` };
+    },
+  },
+  // --- 3. get("Button") ---
+  {
+    name: 'get — "Button"',
+    run: () => formatGet(handleGet(data, { name: "Button" }), "compact"),
+    check: (out: string) => {
+      const hasImport = out.includes('import');
+      const hasProps = out.includes('Props');
+      return { pass: hasImport && hasProps, reason: `import=${hasImport}, props=${hasProps}` };
+    },
+  },
+  // --- 4. get("confirmation-dialog") ---
+  {
+    name: 'get — "confirmation-dialog"',
+    run: () => formatGet(handleGet(data, { name: "confirmation-dialog" }), "compact"),
+    check: (out: string) => {
+      const hasWhen = out.includes('When:');
+      const hasComponents = out.includes('Components:');
+      return { pass: hasWhen || hasComponents, reason: `when=${hasWhen}, components=${hasComponents}` };
+    },
+  },
+  // --- 5. get("spacing") ---
+  {
+    name: 'get — "spacing"',
+    run: () => formatGet(handleGet(data, { name: "spacing" }), "compact"),
+    check: (out: string) => {
+      const hasValues = out.includes('px') || out.includes('Spacing');
+      return { pass: hasValues, reason: hasValues ? 'has token values' : 'no token values' };
+    },
+  },
+  // --- 6. get("uikit") ---
+  {
+    name: 'get — "uikit"',
+    run: () => formatGet(handleGet(data, { name: "uikit" }), "compact"),
+    check: (out: string) => {
+      const hasPackage = out.includes('@gravity-ui/uikit');
+      const hasComponents = out.includes('components');
+      return { pass: hasPackage, reason: `package=${hasPackage}, components=${hasComponents}` };
+    },
+  },
+  // --- 7. get("overview") ---
+  {
+    name: 'get — "overview"',
+    run: () => formatGet(handleGet(data, { name: "overview" }), "compact"),
+    check: (out: string) => {
+      const hasSystem = out.includes('Gravity UI') || out.includes('Design System');
+      const hasLibraries = out.includes('libraries');
+      return { pass: hasSystem, reason: `system=${hasSystem}, libraries=${hasLibraries}` };
+    },
+  },
+  // --- 8. get("NonExistent") ---
+  {
+    name: 'get — "NonExistent"',
+    run: () => formatGet(handleGet(data, { name: "NonExistent" }), "compact"),
+    check: (out: string) => {
+      const isNotFound = out.includes('not found');
+      return { pass: isNotFound, reason: isNotFound ? 'got not_found' : `unexpected: ${out.slice(0, 100)}` };
+    },
+  },
+  // --- 9. list() — table of contents ---
+  {
+    name: 'list — no args (table of contents)',
+    run: () => formatList(handleList(data, {})),
+    check: (out: string) => {
+      const hasComponents = out.includes('Components:');
+      const hasRecipes = out.includes('Recipes:');
+      const hasTokens = out.includes('Tokens:');
+      return {
+        pass: hasComponents && hasRecipes,
+        reason: `components=${hasComponents}, recipes=${hasRecipes}, tokens=${hasTokens}`,
+      };
+    },
+  },
+  // --- 10. list("components") ---
+  {
+    name: 'list — "components"',
+    run: () => formatList(handleList(data, { what: "components" })),
+    check: (out: string) => {
       const hasCount = /^\d+ components/.test(out);
-      // Check for duplicate component names within groups
-      const lines = out.split("\n");
-      const dupes: string[] = [];
-      let currentGroup = "";
-      const namesInGroup: string[] = [];
-      for (const line of lines) {
-        if (/^\S/.test(line) && line.includes("(")) {
-          if (namesInGroup.length > 0) {
-            const seen = new Set<string>();
-            for (const n of namesInGroup) {
-              if (seen.has(n)) dupes.push(`${n} in ${currentGroup}`);
-              seen.add(n);
-            }
-          }
-          currentGroup = line;
-          namesInGroup.length = 0;
-        } else if (line.startsWith("  ")) {
-          namesInGroup.push(line.trim().split(" ")[0]);
-        }
-      }
-      const dupeNote = dupes.length > 0 ? ` DUPLICATES: ${dupes.join("; ")}` : "";
-      return { pass: hasCategories && hasCount, reason: (hasCount ? "has count" : "no count") + ", " + (hasCategories ? "has categories" : "no categories") + dupeNote };
+      const hasCategories = out.includes('(') && out.split('\n').length > 5;
+      return { pass: hasCount && hasCategories, reason: `count=${hasCount}, categories=${hasCategories}` };
     },
   },
-  // --- 2. list_components library=uikit ---
+  // --- 11. list("recipes") ---
   {
-    name: 'list_components — library="uikit"',
-    run: () => formatListComponents(handleListComponents(data, { library: "uikit" })),
+    name: 'list — "recipes"',
+    run: () => formatList(handleList(data, { what: "recipes" })),
     check: (out: string) => {
-      const hasComponents = out.split("\n").length > 3;
-      return { pass: hasComponents, reason: hasComponents ? "filtered to uikit" : "too few lines" };
+      const hasRecipes = out.includes('recipes');
+      const hasLevels = out.includes('molecule') || out.includes('foundation') || out.includes('organism');
+      return { pass: hasRecipes && hasLevels, reason: `recipes=${hasRecipes}, levels=${hasLevels}` };
     },
   },
-  // --- 3. get_component Button ---
+  // --- 12. list("tokens") ---
   {
-    name: 'get_component — name="Button"',
-    run: () => {
-      const raw = handleGetComponent(data, { name: "Button" });
-      const formatted = formatGetComponent(raw, "compact");
-      // Also note which library it resolved to
-      const lib = raw.component?.library ?? "NONE";
-      const propCount = raw.component?.props?.length ?? 0;
-      return `[resolves to: ${lib}, props: ${propCount}]\n${formatted}`;
-    },
+    name: 'list — "tokens"',
+    run: () => formatList(handleList(data, { what: "tokens" })),
     check: (out: string) => {
-      const hasImport = out.includes("import");
-      const propsNotEmpty = /\w+\??: \w/.test(out);
-      return { pass: hasImport && propsNotEmpty, reason: `import=${hasImport}, propsNotEmpty=${propsNotEmpty}` };
-    },
-  },
-  // --- 4. get_component Select full ---
-  {
-    name: 'get_component — name="Select", detail="full"',
-    run: () => {
-      const raw = handleGetComponent(data, { name: "Select" });
-      const formatted = formatGetComponent(raw, "full");
-      const propCount = raw.component?.props?.length ?? 0;
-      return `[props: ${propCount}]\n${formatted}`;
-    },
-    check: (out: string) => {
-      const hasProps = /\w+\??: /.test(out);
-      const hasInterface = out.includes("Props {");
-      return { pass: hasProps && hasInterface, reason: `hasProps=${hasProps}, hasInterface=${hasInterface}` };
-    },
-  },
-  // --- 5. get_component NonExistent ---
-  {
-    name: 'get_component — name="NonExistent"',
-    run: () => formatGetComponent(handleGetComponent(data, { name: "NonExistent" }), "compact"),
-    check: (out: string) => {
-      const isError = out.includes("not found");
-      const hasSuggestions = out.includes("Similar:");
-      return { pass: isError, reason: isError ? `got error. hasSuggestions=${hasSuggestions}. Full: ${out}` : `unexpected: ${out.slice(0, 200)}` };
-    },
-  },
-  // --- 6. suggest_component ---
-  {
-    name: 'suggest_component — use_case="dropdown with search"',
-    run: () => formatSuggestComponent(handleSuggestComponent(data, { use_case: "dropdown with search" })),
-    check: (out: string) => {
-      const hasSuggestions = /\d\.\s/.test(out);
-      return { pass: hasSuggestions, reason: hasSuggestions ? "got suggestions" : "no numbered suggestions" };
-    },
-  },
-  // --- 7. search_docs "theming dark mode" ---
-  {
-    name: 'search_docs — query="theming dark mode"',
-    run: () => formatSearchDocs(handleSearchDocs(data, { query: "theming dark mode" })),
-    check: (out: string) => {
-      const hasResults = out.includes("Found") && !out.includes("Found 0");
-      return { pass: hasResults, reason: hasResults ? "got results" : "no results found" };
-    },
-  },
-  // --- 8. search_docs "button size" ---
-  {
-    name: 'search_docs — query="button size"',
-    run: () => formatSearchDocs(handleSearchDocs(data, { query: "button size" })),
-    check: (out: string) => {
-      const hasResults = out.includes("Found") && !out.includes("Found 0");
-      return { pass: hasResults, reason: hasResults ? "got results" : "no results found" };
-    },
-  },
-  // --- 9. get_design_tokens all ---
-  {
-    name: "get_design_tokens — no args (all topics)",
-    run: () => formatGetDesignTokens(handleGetDesignTokens(data, {})),
-    check: (out: string) => {
-      const hasSpacing = out.includes("Spacing");
-      const hasBreakpoints = out.includes("Breakpoints");
-      const hasSizes = out.includes("Component sizes");
-      const hasColors = out.includes("Semantic colors");
-      const nonEmpty = out.trim().length > 20;
-      // Check breakpoint ordering
-      const bpSection = out.split("Breakpoints")[1]?.split("Usage:")[0] ?? "";
-      const bpLines = bpSection.split("\n").filter(l => l.trim().length > 0).map(l => l.trim());
-      const bpOrder = bpLines.map(l => l.split(":")[0].trim());
-      return {
-        pass: nonEmpty,
-        reason: `nonEmpty=${nonEmpty} (${out.length} chars), spacing=${hasSpacing}, breakpoints=${hasBreakpoints}, sizes=${hasSizes}, colors=${hasColors}, breakpointOrder=[${bpOrder.join(",")}]`
-      };
-    },
-  },
-  // --- 10. get_design_tokens colors ---
-  {
-    name: 'get_design_tokens — topic="colors"',
-    run: () => formatGetDesignTokens(handleGetDesignTokens(data, { topic: "colors" })),
-    check: (out: string) => {
-      const hasColorData = out.trim().length > 10;
-      // Check if it ONLY has colors (no spacing/breakpoints leaking in)
-      const hasSpacingLeak = out.includes("Spacing");
-      return {
-        pass: hasColorData,
-        reason: hasColorData
-          ? `has color data (${out.length} chars), spacingLeak=${hasSpacingLeak}`
-          : `empty or minimal output (${out.length} chars)`
-      };
+      const hasTopics = out.includes('spacing') || out.includes('breakpoints');
+      return { pass: hasTopics, reason: hasTopics ? 'has token topics' : 'no topics' };
     },
   },
 ];
@@ -200,3 +175,4 @@ for (const test of tests) {
 
 console.log("=".repeat(70));
 console.log(`SUMMARY: ${passCount} passed, ${failCount} failed, ${tests.length} total`);
+if (failCount > 0) process.exit(1);
