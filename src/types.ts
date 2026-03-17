@@ -82,9 +82,85 @@ export interface TokenSet {
   breakpoints: Record<string, number>; // e.g. {"xs": 0, "s": 576, ...}
   sizes: Record<string, string>;       // e.g. {"xs": "20px", "s": "24px", ...}
   colors?: Record<string, string>;     // semantic color tokens if extractable
+  typography?: Record<string, string>; // named type scales
 }
 
 export interface CategoryMap {
   categories: Record<string, string>; // slug → display name
   components: Record<string, string>; // ComponentName → category slug
+}
+
+export type RecipeLevel = 'foundation' | 'molecule' | 'organism';
+
+export interface RecipeComponentItem {
+  name: string;
+  library: string;
+  usage: 'required' | 'optional' | 'alternative';
+  role: string;
+}
+
+export interface RecipeDecisionSection {
+  type: 'decision';
+  when: string;
+  not_for: string;
+  matrix?: { situation: string; component: string; why: string }[];
+}
+
+export interface RecipeSetupSection {
+  type: 'setup';
+  steps: string[];
+  packages?: string[];
+}
+
+export interface RecipeComponentsSection {
+  type: 'components';
+  items: RecipeComponentItem[];
+}
+
+export interface RecipeCustomPartsSection {
+  type: 'custom_parts';
+  items: { name: string; description: string; approach: string }[];
+}
+
+export interface RecipeStructureSection {
+  type: 'structure';
+  tree?: string[];
+  flow?: string[];
+}
+
+export interface RecipeExampleSection {
+  type: 'example';
+  title: string;
+  code: string;
+}
+
+export interface RecipeAvoidSection {
+  type: 'avoid';
+  items: string[];
+}
+
+export interface RecipeRelatedSection {
+  type: 'related';
+  items: { id: string; note: string }[];
+}
+
+export type RecipeSection =
+  | RecipeDecisionSection
+  | RecipeSetupSection
+  | RecipeComponentsSection
+  | RecipeCustomPartsSection
+  | RecipeStructureSection
+  | RecipeExampleSection
+  | RecipeAvoidSection
+  | RecipeRelatedSection;
+
+export interface RecipeDef {
+  id: string;
+  title: string;
+  description: string;
+  level: RecipeLevel;
+  use_cases: string[];
+  packages: string[];
+  tags: string[];
+  sections: RecipeSection[];
 }

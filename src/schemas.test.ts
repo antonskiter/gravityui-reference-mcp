@@ -11,6 +11,9 @@ import {
   LibraryOverviewEntrySchema,
   DesignSystemOverviewSchema,
   ComponentTagsSchema,
+  RecipeLevelSchema,
+  RecipeDefSchema,
+  RecipeSectionSchema,
 } from "./schemas.js";
 
 describe("PageTypeSchema", () => {
@@ -128,6 +131,15 @@ describe("TokenSetSchema", () => {
     };
     const result = TokenSetSchema.parse(withColors);
     expect(result.colors?.["primary"]).toBe("#0070f3");
+  });
+
+  it("accepts a TokenSet with typography", () => {
+    const withTypo = {
+      ...valid,
+      typography: { body1: "14px/20px Inter", heading1: "28px/36px Inter" },
+    };
+    const result = TokenSetSchema.parse(withTypo);
+    expect(result.typography?.["body1"]).toBe("14px/20px Inter");
   });
 
   it("rejects a TokenSet with wrong breakpoint type", () => {
@@ -275,5 +287,184 @@ describe("ComponentTagsSchema", () => {
   it("accepts an empty ComponentTags record", () => {
     const result = ComponentTagsSchema.parse({});
     expect(result).toEqual({});
+  });
+});
+
+describe("RecipeLevelSchema", () => {
+  it("accepts valid levels", () => {
+    expect(RecipeLevelSchema.parse("foundation")).toBe("foundation");
+    expect(RecipeLevelSchema.parse("molecule")).toBe("molecule");
+    expect(RecipeLevelSchema.parse("organism")).toBe("organism");
+  });
+
+  it("rejects invalid levels", () => {
+    expect(() => RecipeLevelSchema.parse("atom")).toThrow();
+    expect(() => RecipeLevelSchema.parse("")).toThrow();
+  });
+});
+
+describe("RecipeSectionSchema", () => {
+  it("accepts a valid decision section", () => {
+    const result = RecipeSectionSchema.parse({
+      type: "decision",
+      when: "User needs to confirm an action",
+      not_for: "Multi-step wizards",
+    });
+    expect(result.type).toBe("decision");
+  });
+
+  it("accepts a decision section with matrix", () => {
+    const result = RecipeSectionSchema.parse({
+      type: "decision",
+      when: "Showing feedback",
+      not_for: "Persistent messages",
+      matrix: [
+        { situation: "success", component: "Toaster", why: "Non-blocking" },
+      ],
+    });
+    expect(result.type).toBe("decision");
+    if (result.type === "decision") {
+      expect(result.matrix).toHaveLength(1);
+    }
+  });
+
+  it("accepts a valid components section", () => {
+    const result = RecipeSectionSchema.parse({
+      type: "components",
+      items: [
+        { name: "Dialog", library: "uikit", usage: "required", role: "overlay" },
+      ],
+    });
+    expect(result.type).toBe("components");
+  });
+
+  it("accepts a valid example section", () => {
+    const result = RecipeSectionSchema.parse({
+      type: "example",
+      title: "Basic usage",
+      code: "<Button>Click</Button>",
+    });
+    expect(result.type).toBe("example");
+  });
+
+  it("accepts a valid structure section with tree and flow", () => {
+    const result = RecipeSectionSchema.parse({
+      type: "structure",
+      tree: ["Button", "  Dialog"],
+      flow: ["User clicks -> open dialog"],
+    });
+    expect(result.type).toBe("structure");
+  });
+
+  it("accepts a valid avoid section", () => {
+    const result = RecipeSectionSchema.parse({
+      type: "avoid",
+      items: ["Custom modal -- ConfirmDialog handles it"],
+    });
+    expect(result.type).toBe("avoid");
+  });
+
+  it("accepts a valid related section", () => {
+    const result = RecipeSectionSchema.parse({
+      type: "related",
+      items: [{ id: "user-feedback", note: "Use Toaster after action" }],
+    });
+    expect(result.type).toBe("related");
+  });
+
+  it("rejects an unknown section type", () => {
+    expect(() => RecipeSectionSchema.parse({
+      type: "unknown",
+      data: "test",
+    })).toThrow();
+  });
+
+  it("rejects a components section with invalid usage value", () => {
+    expect(() => RecipeSectionSchema.parse({
+      type: "components",
+      items: [
+        { name: "Dialog", library: "uikit", usage: "mandatory", role: "overlay" },
+      ],
+    })).toThrow();
+  });
+});
+
+describe("RecipeDefSchema", () => {
+  const minimal = {
+    id: "confirmation-dialog",
+    title: "Confirmation Dialog",
+    description: "A confirmation dialog pattern",
+    level: "molecule",
+    use_cases: ["confirm deletion"],
+    packages: ["@gravity-ui/uikit"],
+    tags: ["confirm", "dialog"],
+    sections: [
+      {
+        type: "decision",
+        when: "User must confirm an action",
+        not_for: "Multi-step wizards",
+      },
+      {
+        type: "example",
+        title: "Basic",
+        code: "<ConfirmDialog />",
+      },
+    ],
+  };
+
+  it("accepts a valid minimal RecipeDef", () => {
+    const result = RecipeDefSchema.parse(minimal);
+    expect(result.id).toBe("confirmation-dialog");
+    expect(result.level).toBe("molecule");
+    expect(result.sections).toHaveLength(2);
+  });
+
+  it("accepts a RecipeDef with all section types", () => {
+    const full = {
+      ...minimal,
+      sections: [
+        { type: "decision", when: "when", not_for: "not_for" },
+        { type: "setup", steps: ["npm install"] },
+        { type: "components", items: [{ name: "Dialog", library: "uikit", usage: "required", role: "overlay" }] },
+        { type: "custom_parts", items: [{ name: "Dropzone", description: "drag area", approach: "use DS tokens" }] },
+        { type: "structure", tree: ["Dialog"], flow: ["open -> close"] },
+        { type: "example", title: "Basic", code: "<Dialog />" },
+        { type: "avoid", items: ["Custom modal"] },
+        { type: "related", items: [{ id: "theming", note: "setup theme first" }] },
+      ],
+    };
+    const result = RecipeDefSchema.parse(full);
+    expect(result.sections).toHaveLength(8);
+  });
+
+  it("rejects a RecipeDef missing required fields", () => {
+    expect(() => RecipeDefSchema.parse({ id: "test" })).toThrow();
+  });
+
+  it("rejects a RecipeDef with invalid level", () => {
+    expect(() => RecipeDefSchema.parse({
+      ...minimal,
+      level: "atom",
+    })).toThrow();
+  });
+
+  it("accepts extra fields in sections (passthrough)", () => {
+    const withExtra = {
+      ...minimal,
+      sections: [
+        {
+          type: "decision",
+          when: "when",
+          not_for: "not for",
+        },
+        {
+          type: "example",
+          title: "Basic",
+          code: "<X />",
+        },
+      ],
+    };
+    const result = RecipeDefSchema.parse(withExtra);
+    expect(result.sections).toHaveLength(2);
   });
 });
