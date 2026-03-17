@@ -1,0 +1,615 @@
+[
+  {
+    "id": "confirmation-dialog",
+    "title": "Confirmation Dialog",
+    "description": "Modal dialog asking the user to confirm or cancel a single action before it proceeds.",
+    "level": "molecule",
+    "use_cases": [
+      "confirm deletion of an item or record",
+      "approve an irreversible operation (publish, send, deploy)",
+      "warn before discarding unsaved changes",
+      "confirm a bulk action on multiple selected items"
+    ],
+    "packages": ["@gravity-ui/uikit", "@gravity-ui/components"],
+    "tags": [
+      "confirmation", "dialog", "modal", "confirm", "cancel",
+      "delete", "destructive", "approve", "warning"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "User must explicitly approve or reject a single action. The dialog blocks interaction until resolved.",
+        "not_for": "Multi-step wizards (use Stepper), forms requiring user input beyond a checkbox (use Dialog directly), or non-blocking notifications (use Toaster)."
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/uikit @gravity-ui/components",
+          "Wrap your app in ThemeProvider from @gravity-ui/uikit if not already done"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          {
+            "name": "ConfirmDialog",
+            "library": "components",
+            "usage": "required",
+            "role": "Ready-made confirm/cancel modal with layout, focus trap, backdrop, and built-in apply/cancel buttons. Props: open, onClose, title, message, textButtonApply, textButtonCancel, onClickButtonApply, onClickButtonCancel, propsButtonApply, propsButtonCancel."
+          },
+          {
+            "name": "Dialog",
+            "library": "uikit",
+            "usage": "alternative",
+            "role": "Lower-level modal for cases where the dialog body needs custom content (inputs, checkboxes, lists). Props: open, onClose, size ('s'|'m'|'l'), hasCloseButton, disableEscapeKeyDown, disableOutsideClick. Use sub-components Dialog.Header, Dialog.Body, Dialog.Footer."
+          },
+          {
+            "name": "Button",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Trigger element that opens the dialog. Use view='outlined-danger' for destructive actions, view='action' for primary actions. Props: view, size, loading, disabled, onClick."
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "tree": [
+          "Button  (trigger, onClick opens dialog)",
+          "ConfirmDialog  (open, onClose, title, message)",
+          "  textButtonApply   -- label for the confirm button",
+          "  textButtonCancel  -- label for the cancel button",
+          "  propsButtonApply  -- ButtonProps (view, loading, disabled)",
+          "  propsButtonCancel -- ButtonProps (disabled)",
+          "  onClickButtonApply  -- confirm handler",
+          "  onClickButtonCancel -- cancel handler",
+          "",
+          "-- alternative (custom body) --",
+          "",
+          "Button  (trigger)",
+          "Dialog  (open, onClose, size='s')",
+          "  Dialog.Header  (caption)",
+          "  Dialog.Body  (custom content: text, Checkbox, etc.)",
+          "  Dialog.Footer  (textButtonApply, textButtonCancel, handlers)"
+        ],
+        "flow": [
+          "User clicks trigger Button -> setState open=true",
+          "ConfirmDialog renders with title, message, and action buttons",
+          "User clicks Cancel -> onClickButtonCancel -> setState open=false",
+          "User clicks Apply -> onClickButtonApply -> run async action (set loading on apply button) -> on success close dialog -> show Toaster feedback",
+          "User clicks backdrop or presses Escape -> onClose -> setState open=false"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Simple delete confirmation with loading state",
+        "code": "import React from 'react';\nimport {Button} from '@gravity-ui/uikit';\nimport {ConfirmDialog} from '@gravity-ui/components';\n\nexport function DeleteConfirmation({onDelete}) {\n  const [open, setOpen] = React.useState(false);\n  const [loading, setLoading] = React.useState(false);\n\n  const handleConfirm = async () => {\n    setLoading(true);\n    try {\n      await onDelete();\n      setOpen(false);\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  return (\n    <>\n      <Button view=\"outlined-danger\" onClick={() => setOpen(true)}>\n        Delete\n      </Button>\n      <ConfirmDialog\n        open={open}\n        onClose={() => setOpen(false)}\n        title=\"Delete this item?\"\n        message=\"This action cannot be undone. The item and all associated data will be permanently removed.\"\n        textButtonApply=\"Delete\"\n        textButtonCancel=\"Cancel\"\n        propsButtonApply={{view: 'outlined-danger', loading}}\n        propsButtonCancel={{disabled: loading}}\n        onClickButtonApply={handleConfirm}\n        onClickButtonCancel={() => setOpen(false)}\n      />\n    </>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Custom body with Dialog (checkbox inside confirmation)",
+        "code": "import React from 'react';\nimport {Dialog, Button, Checkbox} from '@gravity-ui/uikit';\n\nexport function PublishConfirmation({onPublish}) {\n  const [open, setOpen] = React.useState(false);\n  const [notifySubscribers, setNotifySubscribers] = React.useState(true);\n\n  return (\n    <>\n      <Button view=\"action\" onClick={() => setOpen(true)}>\n        Publish\n      </Button>\n      <Dialog open={open} onClose={() => setOpen(false)} size=\"s\">\n        <Dialog.Header caption=\"Publish changes?\" />\n        <Dialog.Body>\n          Publishing will make your draft visible to all users.\n          <Checkbox\n            checked={notifySubscribers}\n            onUpdate={setNotifySubscribers}\n            style={{marginTop: 12}}\n          >\n            Notify subscribers\n          </Checkbox>\n        </Dialog.Body>\n        <Dialog.Footer\n          textButtonApply=\"Publish\"\n          textButtonCancel=\"Cancel\"\n          propsButtonApply={{view: 'action'}}\n          onClickButtonApply={() => {\n            onPublish({notifySubscribers});\n            setOpen(false);\n          }}\n          onClickButtonCancel={() => setOpen(false)}\n        />\n      </Dialog>\n    </>\n  );\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Custom modal overlay with manual backdrop and focus trapping -- ConfirmDialog handles backdrop, focus trap, and Escape key automatically",
+          "Hand-rolled confirm/cancel button pair inside a custom div -- use built-in textButtonApply/textButtonCancel props",
+          "window.confirm() -- cannot be styled, blocks the main thread, no loading states",
+          "Inline expand/collapse confirmation instead of a modal -- breaks user expectation for destructive actions, easy to miss"
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          { "id": "user-feedback", "note": "After the confirmed action completes, use Toaster to show success or error feedback." },
+          { "id": "page-states", "note": "If the dialog triggers an async operation, handle loading/error states within the dialog using Button loading prop." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "data-table",
+    "title": "Data Table with Filters and Actions",
+    "description": "A full-featured data table with search filtering, column sorting, row selection, bulk actions via a floating panel, per-row context menus, and pagination. Designed for admin panels, dashboards, and list views where users browse, filter, and act on tabular data.",
+    "use_cases": [
+      "browsing and managing a list of entities (users, orders, deployments, resources)",
+      "filtering table rows by keyword or status",
+      "selecting multiple rows and applying bulk actions (delete, export, assign)",
+      "navigating large datasets with pagination",
+      "performing per-row actions via a context menu (edit, copy, delete)"
+    ],
+    "level": "organism",
+    "packages": ["@gravity-ui/uikit"],
+    "tags": [
+      "table", "data-table", "filter", "search", "pagination",
+      "bulk-actions", "actions-panel", "dropdown-menu", "sorting",
+      "admin", "dashboard", "list", "crud"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "You need a paginated table where users search/filter rows, select items for bulk operations, and trigger per-row actions. Data is loaded from an API or local state and may span many pages.",
+        "not_for": "Simple read-only key-value display (use DefinitionList). Tree/hierarchical data (use TreeSelect). Fewer than 5 items with card-like layout (use Card list). Editable inline cells (use a spreadsheet-like component or custom solution)."
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/uikit",
+          "Wrap your app in ThemeProvider from @gravity-ui/uikit if not already done"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          {
+            "name": "Table",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Core data table with column configuration, row click handling, sorting support, and optional sticky horizontal scroll. Accepts columns (TableColumnConfig[]) and data (any[]) props."
+          },
+          {
+            "name": "TextInput",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Search/filter input above the table. Use with hasClear prop and a magnifying glass left icon for search UX. Binds to filter state that controls which rows are displayed."
+          },
+          {
+            "name": "Select",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Status or category filter dropdown placed alongside the search input. Use filterable prop for long option lists. Allows narrowing data by a specific column value."
+          },
+          {
+            "name": "Pagination",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Pagination control below the table. Requires page, pageSize, total, and onUpdate props. Supports pageSizeOptions for user-adjustable page sizes and showInput for direct page navigation."
+          },
+          {
+            "name": "DropdownMenu",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Per-row context menu rendered in the last column. Provides actions like Edit, Duplicate, Delete. Accepts items array with text, action, and optional theme ('danger' for destructive)."
+          },
+          {
+            "name": "ActionsPanel",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Floating panel that appears at the bottom when one or more rows are selected. Displays bulk action buttons (Delete selected, Export, Assign). Supports onClose to deselect all and renderNote to show selection count."
+          },
+          {
+            "name": "Checkbox",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Row selection checkboxes rendered in the first column. Header checkbox toggles select-all for the current page. Controlled via selectedIds state."
+          },
+          {
+            "name": "Label",
+            "library": "uikit",
+            "usage": "optional",
+            "role": "Status badges inside table cells (e.g. Active, Inactive, Pending). Use theme prop for color coding: 'success' for active, 'danger' for errors, 'warning' for pending, 'normal' for default."
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "tree": [
+          "div.data-table-page",
+          "  div.toolbar  (flex row, gap=3, align=center, margin-bottom)",
+          "    TextInput  (value=filter, onUpdate, hasClear, placeholder='Search...', leftContent=Icon:Magnifier)",
+          "    Select  (value=statusFilter, onUpdate, options, placeholder='All statuses', width=200)",
+          "  Table  (data=paginatedRows, columns, getRowId, onRowClick?)",
+          "    column[0]: Checkbox  (header: select-all, cell: per-row toggle)",
+          "    column[1..N]: data columns  (name, template for custom rendering)",
+          "    column[status]: Label  (theme based on row.status)",
+          "    column[actions]: DropdownMenu  (items=[Edit, Duplicate, Delete])",
+          "  Pagination  (page, pageSize, total=filteredData.length, onUpdate, pageSizeOptions)",
+          "  {selectedIds.length > 0 && ActionsPanel}",
+          "    ActionsPanel  (actions=[Delete, Export], onClose=clearSelection, renderNote='N items selected')"
+        ],
+        "flow": [
+          "1. Raw data loaded from API or props into state: allData[]",
+          "2. Filter stage: allData filtered by search text (TextInput) and status (Select) -> filteredData[]",
+          "3. Sort stage: filteredData sorted by active sort column and direction -> sortedData[]",
+          "4. Pagination stage: sortedData sliced by (page-1)*pageSize to page*pageSize -> paginatedRows[]",
+          "5. Table renders paginatedRows with columns config",
+          "6. Checkbox column manages selectedIds: Set<string> state",
+          "7. Select-all checkbox toggles all paginatedRows IDs into or out of selectedIds",
+          "8. When selectedIds.size > 0, ActionsPanel appears with bulk actions",
+          "9. Per-row DropdownMenu dispatches actions for a single row",
+          "10. Pagination onUpdate resets page when pageSize changes, preserves selectedIds across pages"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Full data table with search filter, status filter, row selection, bulk actions, and pagination",
+        "code": "import React from 'react';\nimport {Table, Pagination, DropdownMenu, ActionsPanel, Label, Checkbox, Select, TextInput, Icon} from '@gravity-ui/uikit';\nimport {Magnifier} from '@gravity-ui/icons';\n\nconst STATUS_OPTIONS = [\n  {value: 'all', content: 'All statuses'},\n  {value: 'active', content: 'Active'},\n  {value: 'inactive', content: 'Inactive'},\n  {value: 'pending', content: 'Pending'},\n];\n\nconst STATUS_THEME = {\n  active: 'success',\n  inactive: 'normal',\n  pending: 'warning',\n};\n\nexport function DataTableWithFilters({data, onEdit, onDelete, onExport}) {\n  const [filter, setFilter] = React.useState('');\n  const [statusFilter, setStatusFilter] = React.useState(['all']);\n  const [page, setPage] = React.useState(1);\n  const [pageSize, setPageSize] = React.useState(20);\n  const [selectedIds, setSelectedIds] = React.useState(new Set());\n  const [sortColumn, setSortColumn] = React.useState(null);\n  const [sortOrder, setSortOrder] = React.useState('asc');\n\n  // 1. Filter\n  const filteredData = React.useMemo(() => {\n    let result = data;\n    if (filter) {\n      const lc = filter.toLowerCase();\n      result = result.filter((row) =>\n        row.name.toLowerCase().includes(lc) ||\n        row.email.toLowerCase().includes(lc)\n      );\n    }\n    if (statusFilter[0] !== 'all') {\n      result = result.filter((row) => row.status === statusFilter[0]);\n    }\n    return result;\n  }, [data, filter, statusFilter]);\n\n  // 2. Sort\n  const sortedData = React.useMemo(() => {\n    if (!sortColumn) return filteredData;\n    return [...filteredData].sort((a, b) => {\n      const valA = a[sortColumn] ?? '';\n      const valB = b[sortColumn] ?? '';\n      const cmp = String(valA).localeCompare(String(valB));\n      return sortOrder === 'asc' ? cmp : -cmp;\n    });\n  }, [filteredData, sortColumn, sortOrder]);\n\n  // 3. Paginate\n  const paginatedRows = React.useMemo(() => {\n    const start = (page - 1) * pageSize;\n    return sortedData.slice(start, start + pageSize);\n  }, [sortedData, page, pageSize]);\n\n  const pageIds = new Set(paginatedRows.map((row) => row.id));\n  const allPageSelected = paginatedRows.length > 0 && paginatedRows.every((row) => selectedIds.has(row.id));\n\n  const toggleRow = (id) => {\n    setSelectedIds((prev) => {\n      const next = new Set(prev);\n      if (next.has(id)) next.delete(id);\n      else next.add(id);\n      return next;\n    });\n  };\n\n  const toggleAll = () => {\n    setSelectedIds((prev) => {\n      const next = new Set(prev);\n      if (allPageSelected) {\n        pageIds.forEach((id) => next.delete(id));\n      } else {\n        pageIds.forEach((id) => next.add(id));\n      }\n      return next;\n    });\n  };\n\n  const clearSelection = () => setSelectedIds(new Set());\n\n  const handlePageUpdate = (nextPage, nextPageSize) => {\n    if (nextPageSize !== pageSize) {\n      setPageSize(nextPageSize);\n      setPage(1);\n    } else {\n      setPage(nextPage);\n    }\n  };\n\n  const columns = [\n    {\n      id: '_selection',\n      name: () => (\n        <Checkbox\n          checked={allPageSelected}\n          indeterminate={!allPageSelected && paginatedRows.some((r) => selectedIds.has(r.id))}\n          onUpdate={toggleAll}\n        />\n      ),\n      template: (row) => (\n        <Checkbox\n          checked={selectedIds.has(row.id)}\n          onUpdate={() => toggleRow(row.id)}\n        />\n      ),\n      width: 40,\n      sticky: 'start',\n    },\n    {id: 'name', name: 'Name'},\n    {id: 'email', name: 'Email'},\n    {\n      id: 'status',\n      name: 'Status',\n      template: (row) => (\n        <Label theme={STATUS_THEME[row.status] || 'normal'}>\n          {row.status.charAt(0).toUpperCase() + row.status.slice(1)}\n        </Label>\n      ),\n    },\n    {id: 'createdAt', name: 'Created'},\n    {\n      id: '_actions',\n      name: '',\n      template: (row) => (\n        <DropdownMenu\n          items={[\n            {text: 'Edit', action: () => onEdit(row)},\n            {text: 'Duplicate', action: () => onEdit({...row, id: undefined})},\n            {text: 'Delete', action: () => onDelete([row.id]), theme: 'danger'},\n          ]}\n          size=\"s\"\n        />\n      ),\n      width: 60,\n      sticky: 'end',\n    },\n  ];\n\n  return (\n    <div>\n      <div style={{display: 'flex', gap: 12, alignItems: 'center', marginBottom: 16}}>\n        <TextInput\n          value={filter}\n          onUpdate={setFilter}\n          placeholder=\"Search by name or email...\"\n          hasClear\n          leftContent={<Icon data={Magnifier} size={16} />}\n          style={{maxWidth: 360}}\n        />\n        <Select\n          value={statusFilter}\n          onUpdate={setStatusFilter}\n          options={STATUS_OPTIONS}\n          placeholder=\"All statuses\"\n          width={180}\n        />\n      </div>\n\n      <Table\n        data={paginatedRows}\n        columns={columns}\n        getRowId={(row) => row.id}\n        emptyMessage=\"No results match your filters\"\n        edgePadding\n        stickyHorizontalScroll\n      />\n\n      <div style={{marginTop: 16}}>\n        <Pagination\n          page={page}\n          pageSize={pageSize}\n          total={filteredData.length}\n          pageSizeOptions={[10, 20, 50, 100]}\n          onUpdate={handlePageUpdate}\n        />\n      </div>\n\n      {selectedIds.size > 0 && (\n        <ActionsPanel\n          actions={[\n            {id: 'delete', text: 'Delete selected', handler: () => onDelete([...selectedIds]), theme: 'danger'},\n            {id: 'export', text: 'Export selected', handler: () => onExport([...selectedIds])},\n          ]}\n          onClose={clearSelection}\n          renderNote={() => `${selectedIds.size} item${selectedIds.size > 1 ? 's' : ''} selected`}\n        />\n      )}\n    </div>\n  );\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Filtering data inside the render path without useMemo -- causes unnecessary re-computation on every render. Always memoize filter, sort, and pagination stages separately.",
+          "Storing filtered/sorted data in state instead of deriving it -- creates stale-data bugs when the source data or filters change. Derive from allData + filter + sort params.",
+          "Building a custom pagination component -- Pagination from @gravity-ui/uikit handles page numbers, page size selector, and edge cases. Use pageSizeOptions and showInput props.",
+          "Using window.confirm() for bulk delete -- use ConfirmDialog or Dialog for confirmation with proper loading states and async handling.",
+          "Putting DropdownMenu outside the column template -- the menu must be scoped to the row. Render it inside the column's template function so it receives the correct row context.",
+          "Resetting selectedIds on every page change -- users expect cross-page selection. Only clear selection explicitly via ActionsPanel onClose or after a bulk action completes.",
+          "Hardcoding page size without pageSizeOptions -- let users choose between 10, 20, 50, 100 items per page to accommodate different screen sizes and workflows."
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          {"id": "confirmation-dialog", "note": "Use ConfirmDialog before executing destructive bulk actions like delete."},
+          {"id": "user-feedback", "note": "After bulk actions complete, show a Toaster notification with success or error status."},
+          {"id": "empty-state", "note": "When filteredData is empty, consider showing an EmptyState illustration instead of just the emptyMessage string."}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "file-upload",
+    "title": "File Upload with Preview",
+    "description": "Drag-and-drop file upload area with image/file previews, upload progress indicators, and remove actions. Gravity UI provides FilePreview and Progress atoms but has no built-in dropzone component, so the drop area and upload logic are custom.",
+    "level": "organism",
+    "use_cases": [
+      "upload one or more files via drag-and-drop or file picker",
+      "show thumbnail previews for images and type icons for other files",
+      "display per-file upload progress with cancel/retry actions",
+      "attach files to a form (e.g. support ticket, profile avatar, document submission)"
+    ],
+    "packages": ["@gravity-ui/uikit", "@gravity-ui/icons"],
+    "tags": [
+      "file", "upload", "drag", "drop", "dropzone", "preview",
+      "progress", "attachment", "image", "thumbnail"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "Users need to upload files with visual feedback: thumbnails, progress bars, and the ability to remove files before or during upload.",
+        "not_for": "Single-click download links (use Button with href). Pasting rich content into a text editor (use the editor's built-in paste handler). Server-side file import from another system (no UI needed)."
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/uikit @gravity-ui/icons",
+          "Wrap your app in ThemeProvider from @gravity-ui/uikit if not already done",
+          "Optional: install a dedicated library like react-dropzone for robust drag-and-drop handling"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          { "name": "FilePreview", "library": "uikit", "usage": "required", "role": "Renders a preview tile for each file showing name, type icon or image thumbnail, and optional action buttons (e.g. remove)." },
+          { "name": "Progress", "library": "uikit", "usage": "required", "role": "Shows per-file upload progress as a horizontal bar. Use value (0-100), theme for status coloring, and text to display percentage." },
+          { "name": "Button", "library": "uikit", "usage": "required", "role": "Fallback 'Browse files' trigger for users who prefer clicking over drag-and-drop. Also used for retry/cancel actions on individual files." },
+          { "name": "Icon", "library": "uikit", "usage": "required", "role": "Renders SVG icons from @gravity-ui/icons inside the dropzone area and on action buttons (TrashBin, ArrowUpFromLine, Xmark, ArrowRotateLeft)." },
+          { "name": "Text", "library": "uikit", "usage": "required", "role": "Typography for dropzone instructions, file size labels, and error messages. Use variant and color props for visual hierarchy." },
+          { "name": "Card", "library": "uikit", "usage": "optional", "role": "Container wrapper around the dropzone area. Use view='outlined' with a dashed border override for the idle state." },
+          { "name": "Label", "library": "uikit", "usage": "optional", "role": "Status badge on each file item (e.g. 'Uploading', 'Done', 'Error'). Use theme='success' for completed, theme='danger' for failed." },
+          { "name": "Alert", "library": "uikit", "usage": "optional", "role": "Inline error message when a file exceeds the size limit or has an unsupported type." },
+          { "name": "Toaster", "library": "uikit", "usage": "optional", "role": "Toast notification after all files finish uploading or when an upload fails." }
+        ]
+      },
+      {
+        "type": "custom_parts",
+        "items": [
+          {
+            "name": "DropZone",
+            "description": "A div that handles onDragEnter, onDragOver, onDragLeave, onDrop events and visually highlights when files are dragged over it.",
+            "approach": "Custom <div> with drag event handlers and a hidden <input type='file'> for the click-to-browse fallback. Toggle a CSS class on drag-over to show a highlight border. Alternatively, use react-dropzone's useDropzone hook for cross-browser robustness."
+          },
+          {
+            "name": "Upload logic (useFileUpload hook)",
+            "description": "State management for the file queue: per-file status (pending, uploading, done, error), progress percentage, abort controllers, and retry capability.",
+            "approach": "Custom React hook that wraps XMLHttpRequest or fetch with ReadableStream to track upload progress. Stores an array of file entries with {id, file, status, progress, error, abortController}."
+          },
+          {
+            "name": "File validation",
+            "description": "Client-side checks for allowed MIME types, max file size, and max file count before uploading.",
+            "approach": "A validate function run on each file in the drop/select handler. Returns an error string or null. Rejected files are shown with Alert or inline error text."
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "tree": [
+          "FileUploadWithPreview  (organism root, manages file list state)",
+          "  DropZone  (custom div, drag-and-drop events)",
+          "    Icon  (data={ArrowUpFromLine}, size=32, upload icon)",
+          "    Text  (variant='body-2', 'Drag files here or')",
+          "    Button  (view='outlined', triggers hidden input click)",
+          "    input[type=file]  (hidden, multiple, accept)",
+          "  Alert?  (validation errors: wrong type, too large)",
+          "  FileList  (custom wrapper, maps over file entries)",
+          "    FileItem  (one per file)",
+          "      FilePreview  (file={entry.file}, imageSrc={thumbnail}, actions=[remove])",
+          "      Progress?  (value={entry.progress}, theme by status, size='s')",
+          "      Label?  (status badge: 'Uploading' | 'Done' | 'Error')",
+          "      Button?  (flat-danger, Icon data={Xmark}, cancel upload)",
+          "      Button?  (flat, Icon data={ArrowRotateLeft}, retry on error)"
+        ],
+        "flow": [
+          "User drags files over DropZone -> onDragEnter sets highlight state, zone border changes to dashed primary color",
+          "User drops files (or clicks Browse and selects via file picker) -> onDrop/onChange fires",
+          "Validate each file (type, size, count) -> rejected files trigger Alert with reason, accepted files added to state",
+          "For image files, call URL.createObjectURL(file) to generate imageSrc for FilePreview thumbnail",
+          "Start upload for each accepted file -> set status='uploading', create AbortController",
+          "XHR onprogress / fetch ReadableStream updates entry.progress (0-100) -> Progress re-renders",
+          "Upload success -> set status='done', Progress theme='success', show Label theme='success'",
+          "Upload failure -> set status='error', Progress theme='danger', show retry Button",
+          "User clicks remove (TrashBin action on FilePreview) -> abort if uploading, remove entry from state, revoke object URL",
+          "User clicks retry -> reset status='uploading', progress=0, re-initiate upload",
+          "All files done -> optional Toaster notification with success summary"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Complete file upload with drag-and-drop, previews, and progress",
+        "code": "import React from 'react';\nimport {FilePreview, Progress, Button, Icon, Text, Card, Alert} from '@gravity-ui/uikit';\nimport {ArrowUpFromLine, TrashBin, Xmark, ArrowRotateLeft} from '@gravity-ui/icons';\n\nconst MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB\nconst ALLOWED_TYPES = ['image/png', 'image/jpeg', 'application/pdf'];\n\nfunction validateFile(file) {\n  if (!ALLOWED_TYPES.includes(file.type)) {\n    return `Unsupported file type: ${file.type}`;\n  }\n  if (file.size > MAX_FILE_SIZE) {\n    return `File too large: ${(file.size / 1024 / 1024).toFixed(1)} MB (max 10 MB)`;\n  }\n  return null;\n}\n\nfunction uploadFile(file, onProgress) {\n  const controller = new AbortController();\n  const promise = new Promise((resolve, reject) => {\n    const xhr = new XMLHttpRequest();\n    xhr.open('POST', '/api/upload');\n\n    controller.signal.addEventListener('abort', () => xhr.abort());\n\n    xhr.upload.addEventListener('progress', (e) => {\n      if (e.lengthComputable) {\n        onProgress(Math.round((e.loaded / e.total) * 100));\n      }\n    });\n\n    xhr.addEventListener('load', () => {\n      if (xhr.status >= 200 && xhr.status < 300) {\n        resolve(JSON.parse(xhr.responseText));\n      } else {\n        reject(new Error(`Upload failed: ${xhr.status}`));\n      }\n    });\n\n    xhr.addEventListener('error', () => reject(new Error('Network error')));\n    xhr.addEventListener('abort', () => reject(new Error('Upload cancelled')));\n\n    const formData = new FormData();\n    formData.append('file', file);\n    xhr.send(formData);\n  });\n\n  return {promise, controller};\n}\n\nexport function FileUploadWithPreview({onUploadComplete, maxFiles = 5}) {\n  const [entries, setEntries] = React.useState([]);\n  const [errors, setErrors] = React.useState([]);\n  const [dragOver, setDragOver] = React.useState(false);\n  const inputRef = React.useRef(null);\n  const controllersRef = React.useRef({});\n\n  const handleFiles = React.useCallback((fileList) => {\n    const files = Array.from(fileList);\n    const newErrors = [];\n    const newEntries = [];\n\n    files.forEach((file) => {\n      const error = validateFile(file);\n      if (error) {\n        newErrors.push(error);\n        return;\n      }\n      const id = `${file.name}-${Date.now()}-${Math.random()}`;\n      const imageSrc = file.type.startsWith('image/') ? URL.createObjectURL(file) : undefined;\n      newEntries.push({id, file, imageSrc, status: 'pending', progress: 0, error: null});\n    });\n\n    setErrors(newErrors);\n    setEntries((prev) => {\n      const combined = [...prev, ...newEntries].slice(0, maxFiles);\n      return combined;\n    });\n\n    // Start uploads\n    newEntries.forEach((entry) => startUpload(entry.id, entry.file));\n  }, [maxFiles]);\n\n  const startUpload = (id, file) => {\n    setEntries((prev) =>\n      prev.map((e) => (e.id === id ? {...e, status: 'uploading', progress: 0, error: null} : e)),\n    );\n\n    const {promise, controller} = uploadFile(file, (progress) => {\n      setEntries((prev) => prev.map((e) => (e.id === id ? {...e, progress} : e)));\n    });\n\n    controllersRef.current[id] = controller;\n\n    promise\n      .then(() => {\n        setEntries((prev) => prev.map((e) => (e.id === id ? {...e, status: 'done', progress: 100} : e)));\n      })\n      .catch((err) => {\n        if (err.message !== 'Upload cancelled') {\n          setEntries((prev) =>\n            prev.map((e) => (e.id === id ? {...e, status: 'error', error: err.message} : e)),\n          );\n        }\n      })\n      .finally(() => {\n        delete controllersRef.current[id];\n      });\n  };\n\n  const removeEntry = (id) => {\n    controllersRef.current[id]?.abort();\n    setEntries((prev) => {\n      const entry = prev.find((e) => e.id === id);\n      if (entry?.imageSrc) URL.revokeObjectURL(entry.imageSrc);\n      return prev.filter((e) => e.id !== id);\n    });\n  };\n\n  const retryEntry = (id) => {\n    const entry = entries.find((e) => e.id === id);\n    if (entry) startUpload(id, entry.file);\n  };\n\n  const handleDrop = (e) => {\n    e.preventDefault();\n    setDragOver(false);\n    if (e.dataTransfer.files.length) handleFiles(e.dataTransfer.files);\n  };\n\n  const progressTheme = (status) => {\n    if (status === 'done') return 'success';\n    if (status === 'error') return 'danger';\n    return 'default';\n  };\n\n  return (\n    <div>\n      <Card\n        view=\"outlined\"\n        style={{\n          border: dragOver ? '2px dashed var(--g-color-line-brand)' : '2px dashed var(--g-color-line-generic)',\n          padding: 32,\n          textAlign: 'center',\n          cursor: 'pointer',\n          transition: 'border-color 0.15s',\n          background: dragOver ? 'var(--g-color-base-brand-hover)' : undefined,\n        }}\n        onDragEnter={(e) => { e.preventDefault(); setDragOver(true); }}\n        onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}\n        onDragLeave={() => setDragOver(false)}\n        onDrop={handleDrop}\n        onClick={() => inputRef.current?.click()}\n      >\n        <Icon data={ArrowUpFromLine} size={32} />\n        <div style={{marginTop: 8}}>\n          <Text variant=\"body-2\">Drag files here or</Text>\n        </div>\n        <Button view=\"outlined\" size=\"m\" style={{marginTop: 8}} onClick={(e) => { e.stopPropagation(); inputRef.current?.click(); }}>\n          Browse files\n        </Button>\n        <input\n          ref={inputRef}\n          type=\"file\"\n          multiple\n          accept={ALLOWED_TYPES.join(',')}\n          style={{display: 'none'}}\n          onChange={(e) => { if (e.target.files.length) handleFiles(e.target.files); e.target.value = ''; }}\n        />\n        <div style={{marginTop: 8}}>\n          <Text variant=\"caption-1\" color=\"secondary\">PNG, JPEG, PDF up to 10 MB</Text>\n        </div>\n      </Card>\n\n      {errors.length > 0 && (\n        <div style={{marginTop: 12}}>\n          {errors.map((err, i) => (\n            <Alert key={i} theme=\"danger\" message={err} onClose={() => setErrors((prev) => prev.filter((_, j) => j !== i))} style={{marginBottom: 4}} />\n          ))}\n        </div>\n      )}\n\n      {entries.length > 0 && (\n        <div style={{marginTop: 16, display: 'flex', flexWrap: 'wrap', gap: 12}}>\n          {entries.map((entry) => (\n            <div key={entry.id} style={{width: 120}}>\n              <FilePreview\n                file={entry.file}\n                imageSrc={entry.imageSrc}\n                actions={[\n                  {\n                    icon: <Icon data={entry.status === 'uploading' ? Xmark : TrashBin} size={14} />,\n                    title: entry.status === 'uploading' ? 'Cancel' : 'Remove',\n                    onClick: () => removeEntry(entry.id),\n                  },\n                  ...(entry.status === 'error'\n                    ? [{\n                        icon: <Icon data={ArrowRotateLeft} size={14} />,\n                        title: 'Retry',\n                        onClick: () => retryEntry(entry.id),\n                      }]\n                    : []),\n                ]}\n              />\n              {entry.status !== 'done' && (\n                <Progress\n                  value={entry.progress}\n                  theme={progressTheme(entry.status)}\n                  size=\"s\"\n                />\n              )}\n              {entry.status === 'done' && (\n                <Progress value={100} theme=\"success\" size=\"s\" />\n              )}\n            </div>\n          ))}\n        </div>\n      )}\n    </div>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Minimal single-file upload with compact preview",
+        "code": "import React from 'react';\nimport {FilePreview, Progress, Button, Icon, Text} from '@gravity-ui/uikit';\nimport {ArrowUpFromLine, TrashBin} from '@gravity-ui/icons';\n\nexport function SingleFileUpload({onFileReady}) {\n  const [file, setFile] = React.useState(null);\n  const [progress, setProgress] = React.useState(0);\n  const [uploading, setUploading] = React.useState(false);\n  const inputRef = React.useRef(null);\n\n  const handleSelect = (e) => {\n    const selected = e.target.files[0];\n    if (!selected) return;\n    setFile(selected);\n    setProgress(0);\n    onFileReady?.(selected);\n    e.target.value = '';\n  };\n\n  const handleRemove = () => {\n    setFile(null);\n    setProgress(0);\n    setUploading(false);\n  };\n\n  return (\n    <div>\n      {!file ? (\n        <div>\n          <Button view=\"outlined\" onClick={() => inputRef.current?.click()}>\n            <Icon data={ArrowUpFromLine} size={16} />\n            Choose file\n          </Button>\n          <input\n            ref={inputRef}\n            type=\"file\"\n            style={{display: 'none'}}\n            onChange={handleSelect}\n          />\n        </div>\n      ) : (\n        <div style={{width: 120}}>\n          <FilePreview\n            file={file}\n            view=\"compact\"\n            imageSrc={file.type.startsWith('image/') ? URL.createObjectURL(file) : undefined}\n            actions={[{\n              icon: <Icon data={TrashBin} size={14} />,\n              title: 'Remove',\n              onClick: handleRemove,\n            }]}\n          />\n          {uploading && (\n            <Progress value={progress} size=\"s\" text={`${progress}%`} />\n          )}\n        </div>\n      )}\n    </div>\n  );\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Using a bare <input type='file'> without visual dropzone -- poor UX, no drag-and-drop support, no preview",
+          "Building a custom file preview card from scratch when FilePreview already handles file name, type icon, image thumbnails, and action buttons",
+          "Polling the server for upload progress -- use XHR upload.onprogress or fetch ReadableStream for real-time client-side progress",
+          "Storing File objects in Redux/global state -- File objects are not serializable; keep them in local component state or refs",
+          "Forgetting to call URL.revokeObjectURL when removing image previews -- causes memory leaks",
+          "Using a single Progress bar for multiple file uploads -- show per-file progress so users can identify which file is slow or failed",
+          "Accepting all file types without validation -- always validate MIME type and file size before uploading to prevent server errors and security issues"
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          { "id": "confirmation-dialog", "note": "Use a confirmation dialog before removing a file that has already finished uploading." },
+          { "id": "user-feedback", "note": "Show a Toaster notification when all uploads complete or when an upload fails." }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "page-states",
+    "title": "Page States: Loading, Empty, Error",
+    "description": "Branching pattern that renders the correct visual state for a page or section depending on whether data is loading, the result set is empty, an error occurred, or content is ready.",
+    "level": "molecule",
+    "use_cases": [
+      "show a skeleton placeholder while page data is fetching",
+      "display a centered spinner for lazy-loaded sections",
+      "present an empty-state illustration when query returns zero results",
+      "render an error message with a retry action after a failed request",
+      "gate content rendering behind a loading/error/empty check"
+    ],
+    "packages": ["@gravity-ui/uikit"],
+    "tags": [
+      "loading", "empty", "error", "skeleton", "spinner",
+      "placeholder", "page-state", "loader", "spin", "fallback",
+      "empty-state", "error-state", "loading-state"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "A page, panel, or section fetches async data and must show distinct UI for loading, empty, error, and success states.",
+        "not_for": "Inline loading inside a button or label (use Spin directly), optimistic UI updates that skip the loading state, or skeleton-only table rows handled by the table component itself.",
+        "matrix": [
+          {
+            "situation": "Full page is loading for the first time",
+            "component": "Skeleton",
+            "why": "Skeleton preserves layout shape and reduces perceived load time by showing content placeholders in place."
+          },
+          {
+            "situation": "A small section or widget is loading",
+            "component": "Loader",
+            "why": "Loader is a centered animated spinner suitable for contained areas where layout shape is unknown."
+          },
+          {
+            "situation": "Inline element inside a button or label is loading",
+            "component": "Spin",
+            "why": "Spin is a compact rotating semicircle designed to sit inline next to text without breaking line height."
+          },
+          {
+            "situation": "Data loaded successfully but the result set is empty",
+            "component": "PlaceholderContainer",
+            "why": "PlaceholderContainer provides a structured empty-state layout with image, title, description, and optional action buttons."
+          },
+          {
+            "situation": "Request failed with an error",
+            "component": "PlaceholderContainer",
+            "why": "PlaceholderContainer doubles as an error state by setting a relevant title, description, and a retry action button."
+          }
+        ]
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/uikit",
+          "Wrap your app in ThemeProvider from @gravity-ui/uikit if not already done"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          {
+            "name": "Skeleton",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Displays a placeholder preview that mimics content layout while data loads. Set dimensions via style prop. Supports 'gradient' (default), 'pulse', or 'none' animation."
+          },
+          {
+            "name": "PlaceholderContainer",
+            "library": "uikit",
+            "usage": "required",
+            "role": "Structured empty-state or error-state block with image, title, description, and action buttons. Used for both empty results and error fallbacks."
+          },
+          {
+            "name": "Loader",
+            "library": "uikit",
+            "usage": "alternative",
+            "role": "Animated spinner for section-level loading where the layout shape is unknown or a centered indicator is preferred over skeleton blocks."
+          },
+          {
+            "name": "Spin",
+            "library": "uikit",
+            "usage": "alternative",
+            "role": "Compact inline spinner (rotating semicircle) for use inside buttons, labels, or other inline elements. Not for page-level loading."
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "flow": [
+          "isError? -> PlaceholderContainer (error image, title='Something went wrong', description=error.message, actions=[{text:'Retry', onClick:refetch}])",
+          "isLoading? -> Skeleton rows matching content layout  OR  Loader centered in container",
+          "data is empty? -> PlaceholderContainer (empty image, title='No results', description='Try adjusting your filters', actions=[{text:'Clear filters', onClick:resetFilters}])",
+          "else -> render actual content"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Page state branching with Skeleton, PlaceholderContainer, and error retry",
+        "code": "import React from 'react';\nimport {Skeleton, Loader, PlaceholderContainer} from '@gravity-ui/uikit';\n\nfunction PageSkeleton() {\n  return (\n    <div style={{display: 'flex', flexDirection: 'column', gap: 16}}>\n      <Skeleton style={{height: 32, width: '60%'}} />\n      <Skeleton style={{height: 20, width: '100%'}} />\n      <Skeleton style={{height: 20, width: '100%'}} />\n      <Skeleton style={{height: 20, width: '80%'}} />\n    </div>\n  );\n}\n\nexport function PageContent({data, isLoading, error, refetch}) {\n  if (error) {\n    return (\n      <PlaceholderContainer\n        title=\"Something went wrong\"\n        description={error.message || 'An unexpected error occurred. Please try again.'}\n        image={<img src=\"/images/error.svg\" alt=\"Error\" width={230} />}\n        size=\"l\"\n        direction=\"column\"\n        align=\"center\"\n        actions={[{text: 'Retry', view: 'action', onClick: refetch}]}\n      />\n    );\n  }\n\n  if (isLoading) {\n    return <PageSkeleton />;\n  }\n\n  if (!data || data.length === 0) {\n    return (\n      <PlaceholderContainer\n        title=\"No results found\"\n        description=\"Try adjusting your search or filters to find what you are looking for.\"\n        image={<img src=\"/images/empty.svg\" alt=\"No results\" width={230} />}\n        size=\"l\"\n        direction=\"column\"\n        align=\"center\"\n      />\n    );\n  }\n\n  return (\n    <div>\n      {data.map((item) => (\n        <div key={item.id}>{item.name}</div>\n      ))}\n    </div>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Section loading with Loader spinner instead of Skeleton",
+        "code": "import React from 'react';\nimport {Loader, PlaceholderContainer} from '@gravity-ui/uikit';\n\nexport function SectionContent({data, isLoading, error, refetch}) {\n  if (error) {\n    return (\n      <PlaceholderContainer\n        title=\"Failed to load section\"\n        description={error.message}\n        image={<img src=\"/images/error.svg\" alt=\"Error\" width={150} />}\n        size=\"m\"\n        actions={[{text: 'Retry', view: 'outlined', onClick: refetch}]}\n      />\n    );\n  }\n\n  if (isLoading) {\n    return (\n      <div style={{display: 'flex', justifyContent: 'center', padding: 40}}>\n        <Loader size=\"l\" />\n      </div>\n    );\n  }\n\n  if (!data || data.length === 0) {\n    return (\n      <PlaceholderContainer\n        title=\"Nothing here yet\"\n        description=\"This section is empty.\"\n        image={<img src=\"/images/empty.svg\" alt=\"Empty\" width={150} />}\n        size=\"s\"\n      />\n    );\n  }\n\n  return <div>{data.map((item) => <div key={item.id}>{item.name}</div>)}</div>;\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Showing a blank white page while data loads -- use Skeleton or Loader to indicate progress and reduce perceived wait time",
+          "Using Spin as a full-page loading indicator -- Spin is designed for inline scenarios; use Skeleton or Loader for page/section loading",
+          "Rendering content immediately and then replacing it when data arrives -- causes layout shift; gate rendering behind the loading check",
+          "Showing a generic 'Loading...' text string instead of a visual indicator -- Skeleton and Loader provide consistent branded experience",
+          "Forgetting the empty state and rendering an empty container or blank table -- always show PlaceholderContainer with guidance",
+          "Displaying a raw error object or stack trace to the user -- wrap errors in PlaceholderContainer with a human-readable message and retry action",
+          "Checking states in the wrong order (content before error) -- always check error first, then loading, then empty, then content"
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          {"id": "user-feedback", "note": "After a retry succeeds, use Toaster to confirm the data loaded successfully."},
+          {"id": "confirmation-dialog", "note": "If the error state offers a destructive fallback action, confirm it with a ConfirmDialog first."}
+        ]
+      }
+    ]
+  },
+  {
+    "id": "theming-dark-mode",
+    "title": "Theming and Dark Mode Setup",
+    "description": "Foundation recipe for configuring Gravity UI theming, wrapping your app in ThemeProvider, and building a theme toggle that supports light, dark, and system-preference modes.",
+    "level": "foundation",
+    "use_cases": [
+      "set up Gravity UI theming from scratch in a new project",
+      "add a dark mode toggle to an existing application",
+      "respect the user's OS-level color scheme preference",
+      "scope a different theme to a specific section of the page"
+    ],
+    "packages": ["@gravity-ui/uikit"],
+    "tags": [
+      "theme", "dark-mode", "light-mode", "theming", "ThemeProvider",
+      "useTheme", "CSS-variables", "design-tokens", "system-preference",
+      "color-scheme", "setup", "foundation"
+    ],
+    "sections": [
+      {
+        "type": "decision",
+        "when": "You are starting a new Gravity UI project, or adding theme switching to an existing one. ThemeProvider must wrap all Gravity UI components — it injects the CSS custom properties (--g-color-*) that every component depends on.",
+        "not_for": "Per-component color overrides (use className or style props instead). Branding that only changes the accent color (override --g-color-base-brand in CSS). Server-side-only pages with no client React tree."
+      },
+      {
+        "type": "setup",
+        "steps": [
+          "npm install @gravity-ui/uikit",
+          "Import the required CSS at the top of your entry file: import '@gravity-ui/uikit/styles/fonts.css'; import '@gravity-ui/uikit/styles/styles.css';",
+          "Wrap your root component in ThemeProvider: import {ThemeProvider} from '@gravity-ui/uikit';",
+          "Set the theme prop to 'light', 'dark', or 'system' — 'system' follows the user's prefers-color-scheme media query",
+          "Use the useTheme() hook anywhere inside the provider to read or change the current theme at runtime"
+        ]
+      },
+      {
+        "type": "components",
+        "items": [
+          { "name": "ThemeProvider", "library": "uikit", "usage": "required", "role": "Root provider that injects CSS custom properties (--g-color-base-background, --g-color-text-primary, etc.) onto a wrapper element. Accepts theme prop: 'light' | 'dark' | 'system'. Can be nested for scoped theming." },
+          { "name": "useTheme", "library": "uikit", "usage": "required", "role": "Hook returning [theme, setTheme]. theme is the resolved value ('light' | 'dark'). setTheme accepts 'light' | 'dark' | 'system'." },
+          { "name": "Switch", "library": "uikit", "usage": "optional", "role": "Simple two-state toggle, suitable for a light/dark toggle when system mode is not offered. Props: checked, onUpdate, size ('s' | 'm' | 'l')." },
+          { "name": "RadioGroup", "library": "uikit", "usage": "optional", "role": "Three-option selector for light / dark / system. Props: options (RadioGroupOption[]), value, onUpdate, direction ('horizontal' | 'vertical'), size ('m' | 'l' | 'xl')." }
+        ]
+      },
+      {
+        "type": "custom_parts",
+        "items": [
+          {
+            "name": "ThemeToggle (Switch variant)",
+            "description": "A composed component that uses Switch to flip between light and dark. Reads current theme from useTheme() and calls setTheme on toggle.",
+            "approach": "import React from 'react';\nimport {Switch, useTheme} from '@gravity-ui/uikit';\n\nexport function ThemeToggle() {\n  const [theme, setTheme] = useTheme();\n\n  return (\n    <Switch\n      checked={theme === 'dark'}\n      onUpdate={(checked) => setTheme(checked ? 'dark' : 'light')}\n    >\n      Dark mode\n    </Switch>\n  );\n}"
+          },
+          {
+            "name": "ThemeSelector (RadioGroup variant)",
+            "description": "A composed component that uses RadioGroup to choose between light, dark, and system. The system option defers to the OS prefers-color-scheme.",
+            "approach": "import React from 'react';\nimport {RadioGroup, useTheme} from '@gravity-ui/uikit';\n\nconst themeOptions = [\n  {value: 'light', content: 'Light'},\n  {value: 'dark', content: 'Dark'},\n  {value: 'system', content: 'System'},\n];\n\nexport function ThemeSelector() {\n  const [theme, setTheme] = useTheme();\n\n  return (\n    <RadioGroup\n      options={themeOptions}\n      value={theme}\n      onUpdate={setTheme}\n    />\n  );\n}"
+          }
+        ]
+      },
+      {
+        "type": "structure",
+        "tree": [
+          "index.tsx (entry point)",
+          "  import '@gravity-ui/uikit/styles/fonts.css'",
+          "  import '@gravity-ui/uikit/styles/styles.css'",
+          "  ThemeProvider  (theme='system')",
+          "    App",
+          "      Header",
+          "        ThemeToggle | ThemeSelector  (uses useTheme hook)",
+          "      Main content  (all Gravity UI components inherit theme)",
+          "",
+          "— scoped theming (nested provider) —",
+          "",
+          "ThemeProvider  (theme='light', root)",
+          "  ThemeProvider  (theme='dark', scoped to sidebar)",
+          "    Sidebar  (dark regardless of root theme)"
+        ]
+      },
+      {
+        "type": "example",
+        "title": "Full app setup with system theme and toggle",
+        "code": "import React from 'react';\nimport '@gravity-ui/uikit/styles/fonts.css';\nimport '@gravity-ui/uikit/styles/styles.css';\nimport {ThemeProvider, useTheme, RadioGroup, Text, Flex} from '@gravity-ui/uikit';\n\nconst themeOptions = [\n  {value: 'light', content: 'Light'},\n  {value: 'dark', content: 'Dark'},\n  {value: 'system', content: 'System'},\n];\n\nfunction ThemeSelector() {\n  const [theme, setTheme] = useTheme();\n\n  return (\n    <Flex alignItems=\"center\" gap={3}>\n      <Text variant=\"body-1\">Theme:</Text>\n      <RadioGroup\n        options={themeOptions}\n        value={theme}\n        onUpdate={setTheme}\n      />\n    </Flex>\n  );\n}\n\nfunction App() {\n  return (\n    <Flex direction=\"column\" gap={4} style={{padding: 20}}>\n      <ThemeSelector />\n      <Text variant=\"body-1\">\n        All Gravity UI components inside ThemeProvider automatically\n        respond to theme changes via CSS custom properties.\n      </Text>\n    </Flex>\n  );\n}\n\nexport default function Root() {\n  return (\n    <ThemeProvider theme=\"system\">\n      <App />\n    </ThemeProvider>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Scoped dark section inside a light app",
+        "code": "import React from 'react';\nimport {ThemeProvider, Text, Card, Flex} from '@gravity-ui/uikit';\n\nexport function PageWithDarkSidebar() {\n  return (\n    <ThemeProvider theme=\"light\">\n      <Flex>\n        <ThemeProvider theme=\"dark\">\n          <Card style={{padding: 16, width: 240}}>\n            <Text variant=\"body-1\">This sidebar is always dark.</Text>\n          </Card>\n        </ThemeProvider>\n        <Flex direction=\"column\" gap={3} style={{padding: 16, flex: 1}}>\n          <Text variant=\"body-1\">Main content uses the light theme.</Text>\n        </Flex>\n      </Flex>\n    </ThemeProvider>\n  );\n}"
+      },
+      {
+        "type": "example",
+        "title": "Persisting theme preference to localStorage",
+        "code": "import React from 'react';\nimport {ThemeProvider, useTheme, Switch} from '@gravity-ui/uikit';\n\nconst THEME_KEY = 'app-theme';\n\nfunction ThemeToggle() {\n  const [theme, setTheme] = useTheme();\n\n  const handleUpdate = (checked) => {\n    const next = checked ? 'dark' : 'light';\n    setTheme(next);\n    localStorage.setItem(THEME_KEY, next);\n  };\n\n  return (\n    <Switch checked={theme === 'dark'} onUpdate={handleUpdate}>\n      Dark mode\n    </Switch>\n  );\n}\n\nfunction getInitialTheme() {\n  if (typeof window === 'undefined') return 'system';\n  return localStorage.getItem(THEME_KEY) || 'system';\n}\n\nexport default function Root({children}) {\n  return (\n    <ThemeProvider theme={getInitialTheme()}>\n      <ThemeToggle />\n      {children}\n    </ThemeProvider>\n  );\n}"
+      },
+      {
+        "type": "avoid",
+        "items": [
+          "Toggling a .dark-theme CSS class on the body manually -- ThemeProvider manages the CSS custom properties; duplicating this leads to conflicts and flickering",
+          "Importing individual component CSS files instead of the main styles.css -- the main stylesheet includes all component styles and theme token definitions",
+          "Hardcoding color hex values instead of using --g-color-* tokens -- hardcoded values will not respond to theme changes",
+          "Using window.matchMedia('(prefers-color-scheme: dark)') directly -- ThemeProvider with theme='system' handles this automatically, including listening for changes",
+          "Wrapping every component in its own ThemeProvider -- one root provider is sufficient; nest only when you need a scoped theme override",
+          "Forgetting the CSS imports (fonts.css, styles.css) -- components will render without any styles or theme tokens"
+        ]
+      },
+      {
+        "type": "related",
+        "items": [
+          { "id": "confirmation-dialog", "note": "Dialogs inherit the current theme from ThemeProvider automatically." },
+          { "id": "user-feedback", "note": "Toaster inherits theme context; no extra setup needed for themed notifications." }
+        ]
+      }
+    ]
+  }
+]
