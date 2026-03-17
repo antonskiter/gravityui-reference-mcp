@@ -104,4 +104,31 @@ describe('loadJsonFile', () => {
     const result = loadJsonFile(filePath, fallback);
     expect(result).toEqual(fallback);
   });
+
+  it('loads recipes from recipes.json', () => {
+    const recipes = [
+      {
+        id: 'confirmation-dialog',
+        title: 'Confirmation Dialog',
+        description: 'A dialog pattern',
+        level: 'molecule',
+        use_cases: ['confirm delete'],
+        packages: ['@gravity-ui/uikit'],
+        tags: ['confirm'],
+        sections: [],
+      },
+    ];
+    const filePath = join(tmpDir, 'recipes.json');
+    writeFileSync(filePath, JSON.stringify(recipes));
+
+    const result = loadJsonFile(filePath, []);
+    expect(result).toHaveLength(1);
+    expect(result[0].id).toBe('confirmation-dialog');
+  });
+
+  it('returns empty array when recipes.json does not exist', () => {
+    const filePath = join(tmpDir, 'recipes.json');
+    const result = loadJsonFile(filePath, []);
+    expect(result).toEqual([]);
+  });
 });

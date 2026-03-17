@@ -2,7 +2,7 @@ import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { deserializeIndex } from "../ingest/index.js";
-import type { Page, Chunk, IngestMetadata, ComponentTags, DesignSystemOverview, ComponentDef, TokenSet, CategoryMap } from "../types.js";
+import type { Page, Chunk, IngestMetadata, ComponentTags, DesignSystemOverview, ComponentDef, TokenSet, CategoryMap, RecipeDef } from "../types.js";
 import type MiniSearch from "minisearch";
 
 export type { DesignSystemOverview } from "../types.js";
@@ -68,6 +68,8 @@ export interface LoadedData {
   componentsByLibrary: Map<string, ComponentDef[]>;
   tokens: TokenSet;
   categoryMap: CategoryMap;
+  recipes: RecipeDef[];
+  recipeById: Map<string, RecipeDef>;
 }
 
 export function loadData(): LoadedData {
@@ -95,6 +97,31 @@ export function loadData(): LoadedData {
   const tokens: TokenSet = loadJsonFile<TokenSet>(join(DATA_DIR, "tokens.json"), { colors: {}, spacing: {}, breakpoints: {}, sizes: {} });
   const categoryMap: CategoryMap = loadJsonFile<CategoryMap>(join(DATA_DIR, "categories.json"), { categories: {}, components: {} });
 
+  // Load recipes (optional file, graceful fallback)
+  const recipes: RecipeDef[] = loadJsonFile<RecipeDef[]>(join(DATA_DIR, "recipes.json"), []);
+
+  const recipeById = new Map<string, RecipeDef>();
+  for (const recipe of recipes) {
+    recipeById.set(recipe.id, recipe);
+  }
+
+  // Index recipe content into MiniSearch for unified search
+  if (recipes.length > 0) {
+    const avoidItems = (r: RecipeDef): string[] => {
+      for (const s of r.sections) {
+        if (s.type === 'avoid') return s.items;
+      }
+      return [];
+    };
+    index.addAll(recipes.map(r => ({
+      id: `recipe:${r.id}`,
+      page_title: r.title,
+      section_title: 'Recipe',
+      keywords_joined: r.tags.join(' '),
+      content: [r.description, ...r.use_cases, ...avoidItems(r)].join(' '),
+    })));
+  }
+
   // Build lookup maps
   const componentByName = new Map<string, ComponentDef[]>();
   for (const comp of componentDefs) {
@@ -109,5 +136,5 @@ export function loadData(): LoadedData {
     componentsByLibrary.set(comp.library, list);
   }
 
-  return { pages, chunks, metadata, index, pageById, chunkById, chunksByPageId, tagsByPageId, overview, componentDefs, componentByName, componentsByLibrary, tokens, categoryMap };
+  return { pages, chunks, metadata, index, pageById, chunkById, chunksByPageId, tagsByPageId, overview, componentDefs, componentByName, componentsByLibrary, tokens, categoryMap, recipes, recipeById };
 }
