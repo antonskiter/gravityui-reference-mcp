@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { handleGet, formatGet } from '../get.js';
+import { handleGet, formatGet, formatRecipe, formatLibrary, formatOverview } from '../get.js';
 
 function makeComponent(name: string, library: string) {
   return {
@@ -215,33 +215,249 @@ describe('formatGet', () => {
     expect(text).not.toContain('Similar');
   });
 
-  it('formats recipe output as stub', () => {
+  it('formats recipe output via formatGet compact', () => {
     const output = {
       type: 'recipe' as const,
-      data: { id: 'confirm-dialog', title: 'Confirmation Dialog', description: 'A dialog pattern' },
+      data: makeRecipe('confirm-dialog', {
+        title: 'Confirmation Dialog',
+        description: 'A dialog pattern',
+        level: 'molecule',
+        packages: ['@gravity-ui/uikit'],
+        sections: [
+          { type: 'decision', when: 'destructive action', not_for: 'simple alerts' },
+          { type: 'components', items: [{ name: 'Dialog', library: 'uikit', usage: 'required', role: 'modal container' }] },
+        ],
+      }),
     };
     const text = formatGet(output);
-    expect(text).toContain('recipe');
-    expect(text).toContain('Confirmation Dialog');
+    expect(text).toContain('Confirmation Dialog (molecule)');
+    expect(text).toContain('When: destructive action');
+    expect(text).toContain('Dialog (uikit) [required]');
   });
 
-  it('formats library output as stub', () => {
+  it('formats library output via formatGet', () => {
     const output = {
       type: 'library' as const,
-      data: { id: 'uikit', package: '@gravity-ui/uikit', purpose: 'Core components' },
+      data: { id: 'uikit', package: '@gravity-ui/uikit', purpose: 'Core components', component_count: 50, depends_on: [], is_peer_dependency_of: ['components'] },
     };
     const text = formatGet(output);
-    expect(text).toContain('library');
-    expect(text).toContain('uikit');
+    expect(text).toContain('uikit (@gravity-ui/uikit)');
+    expect(text).toContain('50 components');
+    expect(text).toContain('Used by: components');
   });
 
-  it('formats overview output as stub', () => {
+  it('formats overview output via formatGet', () => {
     const output = {
       type: 'overview' as const,
-      data: { system: { description: 'Gravity UI design system' } },
+      data: {
+        system: { description: 'Gravity UI', theming: 'dark/light', spacing: '4px grid', typography: 'scales', corner_radius: '4px', branding: 'Gravity' },
+        libraries: [
+          { id: 'uikit', package: '@gravity-ui/uikit', purpose: 'Core', component_count: 50, depends_on: [], is_peer_dependency_of: [] },
+          { id: 'components', package: '@gravity-ui/components', purpose: 'Extra', component_count: 20, depends_on: ['uikit'], is_peer_dependency_of: [] },
+        ],
+      },
     };
     const text = formatGet(output);
-    expect(text).toContain('overview');
-    expect(text).toContain('Gravity UI');
+    expect(text).toContain('Gravity UI Design System');
+    expect(text).toContain('Theming: dark/light');
+    expect(text).toContain('2 libraries: uikit, components');
+  });
+});
+
+describe('formatRecipe', () => {
+  const fullRecipe = makeRecipe('confirmation-dialog', {
+    title: 'Confirmation Dialog',
+    description: 'A confirmation dialog pattern for destructive actions',
+    level: 'molecule',
+    packages: ['@gravity-ui/uikit'],
+    sections: [
+      { type: 'decision', when: 'User triggers a destructive action', not_for: 'Simple informational alerts', matrix: [
+        { situation: 'Delete item', component: 'Dialog', why: 'Needs confirmation' },
+        { situation: 'Info notice', component: 'Alert', why: 'No action needed' },
+      ] },
+      { type: 'components', items: [
+        { name: 'Dialog', library: 'uikit', usage: 'required', role: 'modal container' },
+        { name: 'Button', library: 'uikit', usage: 'required', role: 'confirm/cancel actions' },
+        { name: 'Icon', library: 'uikit', usage: 'optional', role: 'visual indicator' },
+      ] },
+      { type: 'structure', tree: ['Dialog', '  Dialog.Header', '  Dialog.Body', '  Dialog.Footer'], flow: ['user clicks delete', 'dialog opens', 'user confirms or cancels'] },
+      { type: 'example', title: 'Basic confirmation', code: '<Dialog open={open}>\n  <Dialog.Body>Are you sure?</Dialog.Body>\n</Dialog>' },
+      { type: 'example', title: 'With icon', code: '<Dialog open={open}>\n  <Icon data={TrashBin} />\n</Dialog>' },
+      { type: 'avoid', items: ['Custom modal divs — Dialog handles focus trapping', 'window.confirm() — not styleable'] },
+      { type: 'related', items: [{ id: 'user-feedback', note: 'Show toast after confirmation completes' }] },
+    ],
+  });
+
+  it('compact: includes title, level, description', () => {
+    const text = formatRecipe(fullRecipe, 'compact');
+    expect(text).toContain('Confirmation Dialog (molecule)');
+    expect(text).toContain('A confirmation dialog pattern for destructive actions');
+  });
+
+  it('compact: includes decision when/not_for', () => {
+    const text = formatRecipe(fullRecipe, 'compact');
+    expect(text).toContain('When: User triggers a destructive action');
+    expect(text).toContain('Not for: Simple informational alerts');
+  });
+
+  it('compact: includes components list', () => {
+    const text = formatRecipe(fullRecipe, 'compact');
+    expect(text).toContain('Components:');
+    expect(text).toContain('Dialog (uikit) [required] — modal container');
+    expect(text).toContain('Button (uikit) [required] — confirm/cancel actions');
+    expect(text).toContain('Icon (uikit) [optional] — visual indicator');
+  });
+
+  it('compact: includes install line', () => {
+    const text = formatRecipe(fullRecipe, 'compact');
+    expect(text).toContain('Install: @gravity-ui/uikit');
+  });
+
+  it('compact: does NOT include structure, matrix, examples, avoid, related', () => {
+    const text = formatRecipe(fullRecipe, 'compact');
+    expect(text).not.toContain('Structure:');
+    expect(text).not.toContain('Flow:');
+    expect(text).not.toContain('Decision matrix:');
+    expect(text).not.toContain('Example:');
+    expect(text).not.toContain('Avoid:');
+    expect(text).not.toContain('Related:');
+  });
+
+  it('full: includes structure tree', () => {
+    const text = formatRecipe(fullRecipe, 'full');
+    expect(text).toContain('Structure:');
+    expect(text).toContain('Dialog');
+    expect(text).toContain('Dialog.Header');
+  });
+
+  it('full: includes structure flow', () => {
+    const text = formatRecipe(fullRecipe, 'full');
+    expect(text).toContain('Flow:');
+    expect(text).toContain('user clicks delete');
+  });
+
+  it('full: includes decision matrix', () => {
+    const text = formatRecipe(fullRecipe, 'full');
+    expect(text).toContain('Decision matrix:');
+    expect(text).toContain('Delete item -> Dialog — Needs confirmation');
+    expect(text).toContain('Info notice -> Alert — No action needed');
+  });
+
+  it('full: includes all examples with code fences', () => {
+    const text = formatRecipe(fullRecipe, 'full');
+    expect(text).toContain('Example: Basic confirmation');
+    expect(text).toContain('```tsx');
+    expect(text).toContain('<Dialog open={open}>');
+    expect(text).toContain('Example: With icon');
+    expect(text).toContain('TrashBin');
+  });
+
+  it('full: includes avoid items', () => {
+    const text = formatRecipe(fullRecipe, 'full');
+    expect(text).toContain('Avoid:');
+    expect(text).toContain('Custom modal divs — Dialog handles focus trapping');
+    expect(text).toContain('window.confirm() — not styleable');
+  });
+
+  it('full: includes related items', () => {
+    const text = formatRecipe(fullRecipe, 'full');
+    expect(text).toContain('Related:');
+    expect(text).toContain('user-feedback — Show toast after confirmation completes');
+  });
+
+  it('handles recipe with no sections gracefully', () => {
+    const minimal = makeRecipe('minimal', {
+      title: 'Minimal',
+      description: 'A minimal recipe',
+      level: 'foundation',
+      packages: [],
+    });
+    const text = formatRecipe(minimal, 'full');
+    expect(text).toContain('Minimal (foundation)');
+    expect(text).toContain('A minimal recipe');
+    expect(text).not.toContain('Components:');
+    expect(text).not.toContain('Install:');
+  });
+
+  it('defaults to compact when detail is omitted', () => {
+    const text = formatRecipe(fullRecipe);
+    expect(text).not.toContain('Example:');
+    expect(text).toContain('When:');
+  });
+});
+
+describe('formatLibrary', () => {
+  it('formats library with dependencies', () => {
+    const lib = {
+      id: 'components',
+      package: '@gravity-ui/components',
+      purpose: 'Extended component set',
+      component_count: 30,
+      depends_on: ['uikit'],
+      is_peer_dependency_of: ['navigation'],
+    };
+    const text = formatLibrary(lib);
+    expect(text).toContain('components (@gravity-ui/components)');
+    expect(text).toContain('Extended component set');
+    expect(text).toContain('30 components');
+    expect(text).toContain('Depends on: uikit');
+    expect(text).toContain('Used by: navigation');
+  });
+
+  it('formats library with no dependencies as "none"', () => {
+    const lib = {
+      id: 'uikit',
+      package: '@gravity-ui/uikit',
+      purpose: 'Core components',
+      component_count: 50,
+      depends_on: [],
+      is_peer_dependency_of: [],
+    };
+    const text = formatLibrary(lib);
+    expect(text).toContain('Depends on: none');
+    expect(text).toContain('Used by: none');
+  });
+
+  it('formats library with multiple dependencies', () => {
+    const lib = {
+      id: 'page-constructor',
+      package: '@gravity-ui/page-constructor',
+      purpose: 'Page builder',
+      component_count: 15,
+      depends_on: ['uikit', 'components'],
+      is_peer_dependency_of: ['blog-constructor'],
+    };
+    const text = formatLibrary(lib);
+    expect(text).toContain('Depends on: uikit, components');
+    expect(text).toContain('Used by: blog-constructor');
+  });
+});
+
+describe('formatOverview', () => {
+  it('formats overview with all fields', () => {
+    const overview = {
+      system: { description: 'Gravity UI', theming: 'dark/light', spacing: '4px grid', typography: 'type scales', corner_radius: '4px', branding: 'Gravity' },
+      libraries: [
+        { id: 'uikit', package: '@gravity-ui/uikit', purpose: 'Core', component_count: 50, depends_on: [], is_peer_dependency_of: [] },
+        { id: 'components', package: '@gravity-ui/components', purpose: 'Extra', component_count: 20, depends_on: [], is_peer_dependency_of: [] },
+      ],
+    };
+    const text = formatOverview(overview);
+    expect(text).toContain('Gravity UI Design System');
+    expect(text).toContain('Theming: dark/light');
+    expect(text).toContain('Spacing: 4px grid');
+    expect(text).toContain('Typography: type scales');
+    expect(text).toContain('2 libraries: uikit, components');
+  });
+
+  it('formats overview with single library', () => {
+    const overview = {
+      system: { description: 'Gravity UI', theming: 'light', spacing: '8px', typography: 'mono', corner_radius: '2px', branding: 'G' },
+      libraries: [
+        { id: 'uikit', package: '@gravity-ui/uikit', purpose: 'Core', component_count: 50, depends_on: [], is_peer_dependency_of: [] },
+      ],
+    };
+    const text = formatOverview(overview);
+    expect(text).toContain('1 libraries: uikit');
   });
 });
