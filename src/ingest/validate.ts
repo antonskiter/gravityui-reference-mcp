@@ -8,6 +8,7 @@ import {
   TokenSetSchema,
   ComponentTagsSchema,
   DesignSystemOverviewSchema,
+  RecipeDefSchema,
 } from "../schemas.js";
 import { loadJsonArray, loadJsonFile } from "../server/loader.js";
 
@@ -79,6 +80,14 @@ export function validateDataDir(dataDir: string, manifest?: Manifest): Validatio
     tryParse(DesignSystemOverviewSchema, rawOverview, 'overview', result);
   }
 
+  // 7. Validate recipes (optional file)
+  const recipesPath = join(dataDir, 'recipes.json');
+  let recipes: any[] | null = null;
+  if (existsSync(recipesPath)) {
+    const rawRecipes = loadJsonFile(recipesPath, []);
+    recipes = tryParse(z.array(RecipeDefSchema), rawRecipes, 'recipes', result);
+  }
+
   // Cross-reference checks (only if core data parsed successfully)
   if (pages && chunks) {
     const pageIds = new Set(pages.map(p => p.id));
@@ -123,6 +132,72 @@ export function validateDataDir(dataDir: string, manifest?: Manifest): Validatio
         result.warnings.push(
           `Manifest library "${entry.library}" has no components in data`
         );
+      }
+    }
+  }
+
+  // 7d. Recipe component names must exist in component data
+  if (recipes && components) {
+    const componentNames = new Set(components.map(c => c.name));
+    const componentLibraries = new Set(components.map(c => c.library));
+    for (const recipe of recipes) {
+      for (const section of recipe.sections) {
+        if (section.type === 'components') {
+          for (const item of section.items) {
+            if (!componentNames.has(item.name)) {
+              result.warnings.push(
+                `Recipe "${recipe.id}" references component "${item.name}" not found in component data`
+              );
+            }
+            if (!componentLibraries.has(item.library)) {
+              result.warnings.push(
+                `Recipe "${recipe.id}" references library "${item.library}" not found in component data`
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 7e. Recipe must have at least one example section
+  if (recipes) {
+    for (const recipe of recipes) {
+      const hasExample = recipe.sections.some((s: any) => s.type === 'example');
+      if (!hasExample) {
+        result.warnings.push(
+          `Recipe "${recipe.id}" has no example section`
+        );
+      }
+    }
+  }
+
+  // 7f. Recipe must have a decision section
+  if (recipes) {
+    for (const recipe of recipes) {
+      const hasDecision = recipe.sections.some((s: any) => s.type === 'decision');
+      if (!hasDecision) {
+        result.warnings.push(
+          `Recipe "${recipe.id}" has no decision section`
+        );
+      }
+    }
+  }
+
+  // 7g. Related recipe IDs should exist (warning only)
+  if (recipes) {
+    const recipeIds = new Set(recipes.map((r: any) => r.id));
+    for (const recipe of recipes) {
+      for (const section of recipe.sections) {
+        if (section.type === 'related') {
+          for (const item of section.items) {
+            if (!recipeIds.has(item.id)) {
+              result.warnings.push(
+                `Recipe "${recipe.id}" references related recipe "${item.id}" which does not exist`
+              );
+            }
+          }
+        }
       }
     }
   }

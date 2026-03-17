@@ -78,6 +78,38 @@ function makeTokens() {
   };
 }
 
+function makeRecipes() {
+  return [
+    {
+      id: 'confirmation-dialog',
+      title: 'Confirmation Dialog',
+      description: 'A confirmation dialog pattern',
+      level: 'molecule',
+      use_cases: ['confirm delete'],
+      packages: ['@gravity-ui/uikit'],
+      tags: ['confirm', 'dialog'],
+      sections: [
+        {
+          type: 'decision',
+          when: 'User must confirm action',
+          not_for: 'Multi-step wizards',
+        },
+        {
+          type: 'components',
+          items: [
+            { name: 'Button', library: 'uikit', usage: 'required', role: 'trigger' },
+          ],
+        },
+        {
+          type: 'example',
+          title: 'Basic',
+          code: '<ConfirmDialog />',
+        },
+      ],
+    },
+  ];
+}
+
 function writeFixtures(dir: string, overrides: Record<string, unknown> = {}) {
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, 'pages.json'), JSON.stringify(overrides.pages ?? makePages()));
@@ -85,6 +117,9 @@ function writeFixtures(dir: string, overrides: Record<string, unknown> = {}) {
   writeFileSync(join(dir, 'components.json'), JSON.stringify(overrides.components ?? makeComponents()));
   writeFileSync(join(dir, 'tags.json'), JSON.stringify(overrides.tags ?? makeTags()));
   writeFileSync(join(dir, 'tokens.json'), JSON.stringify(overrides.tokens ?? makeTokens()));
+  if (overrides.recipes !== undefined) {
+    writeFileSync(join(dir, 'recipes.json'), JSON.stringify(overrides.recipes));
+  }
 }
 
 beforeEach(() => {
@@ -186,5 +221,95 @@ describe('validateDataDir', () => {
     writeFixtures(TMP_DIR, { components });
     const result = validateDataDir(TMP_DIR);
     expect(result.warnings.some(w => w.includes('Mystery'))).toBe(true);
+  });
+});
+
+describe('validateDataDir — recipes', () => {
+  it('passes with valid recipes', () => {
+    writeFixtures(TMP_DIR, { recipes: makeRecipes() });
+    const result = validateDataDir(TMP_DIR);
+    expect(result.fatal).toBe(false);
+    expect(result.errors).toHaveLength(0);
+  });
+
+  it('reports fatal error for invalid recipe schema', () => {
+    writeFixtures(TMP_DIR, {
+      recipes: [{ id: 'bad', title: 'Bad', bad_field: true }],
+    });
+    const result = validateDataDir(TMP_DIR);
+    expect(result.fatal).toBe(true);
+    expect(result.errors.length).toBeGreaterThan(0);
+  });
+
+  it('warns when recipe references non-existent component', () => {
+    const recipes = [{
+      ...makeRecipes()[0],
+      sections: [
+        { type: 'decision', when: 'w', not_for: 'n' },
+        {
+          type: 'components',
+          items: [{ name: 'NonExistent', library: 'uikit', usage: 'required', role: 'test' }],
+        },
+        { type: 'example', title: 'test', code: '<X />' },
+      ],
+    }];
+    writeFixtures(TMP_DIR, { recipes });
+    const result = validateDataDir(TMP_DIR);
+    expect(result.warnings.some(w => w.includes('NonExistent'))).toBe(true);
+  });
+
+  it('warns when recipe references non-existent library', () => {
+    const recipes = [{
+      ...makeRecipes()[0],
+      sections: [
+        { type: 'decision', when: 'w', not_for: 'n' },
+        {
+          type: 'components',
+          items: [{ name: 'Button', library: 'no-such-lib', usage: 'required', role: 'test' }],
+        },
+        { type: 'example', title: 'test', code: '<X />' },
+      ],
+    }];
+    writeFixtures(TMP_DIR, { recipes });
+    const result = validateDataDir(TMP_DIR);
+    expect(result.warnings.some(w => w.includes('no-such-lib'))).toBe(true);
+  });
+
+  it('warns when recipe has no example section', () => {
+    const recipes = [{
+      ...makeRecipes()[0],
+      sections: [
+        { type: 'decision', when: 'w', not_for: 'n' },
+      ],
+    }];
+    writeFixtures(TMP_DIR, { recipes });
+    const result = validateDataDir(TMP_DIR);
+    expect(result.warnings.some(w => w.includes('no example'))).toBe(true);
+  });
+
+  it('warns when recipe has no decision section', () => {
+    const recipes = [{
+      ...makeRecipes()[0],
+      sections: [
+        { type: 'example', title: 'test', code: '<X />' },
+      ],
+    }];
+    writeFixtures(TMP_DIR, { recipes });
+    const result = validateDataDir(TMP_DIR);
+    expect(result.warnings.some(w => w.includes('no decision'))).toBe(true);
+  });
+
+  it('warns when related recipe ID does not exist', () => {
+    const recipes = [{
+      ...makeRecipes()[0],
+      sections: [
+        { type: 'decision', when: 'w', not_for: 'n' },
+        { type: 'example', title: 'test', code: '<X />' },
+        { type: 'related', items: [{ id: 'nonexistent-recipe', note: 'test' }] },
+      ],
+    }];
+    writeFixtures(TMP_DIR, { recipes });
+    const result = validateDataDir(TMP_DIR);
+    expect(result.warnings.some(w => w.includes('nonexistent-recipe'))).toBe(true);
   });
 });
