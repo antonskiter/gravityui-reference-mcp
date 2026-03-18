@@ -67,7 +67,7 @@ function computeDefScore(queryTokens: string[], def: ComponentDef): number {
   if (def.description) {
     defTokens.push(...tokenizeAndClean(def.description));
   }
-  for (const prop of def.props) {
+  for (const prop of def.props ?? []) {
     defTokens.push(...tokenizeAndClean(prop.name));
   }
 
