@@ -1,9 +1,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import { getLibraryConfig } from './library-config.js';
 
 export interface ManifestComponent {
   name: string;
-  readme_path: string;
+  readme_path?: string;  // optional — README enriches but is not required
   source_paths: string[];
   story_paths: string[];
   scss_paths: string[];
@@ -105,70 +106,6 @@ function walkFiles(dir: string, predicate: (rel: string) => boolean): string[] {
 }
 
 /**
- * Discovers components for a library: directories under {libDir}/src/components/
- * that start with an uppercase letter and contain a README.md.
- */
-function discoverComponents(libDir: string): ManifestComponent[] {
-  const componentsDir = path.join(libDir, 'src', 'components');
-  if (!fs.existsSync(componentsDir)) return [];
-
-  let componentDirs: string[];
-  try {
-    componentDirs = fs.readdirSync(componentsDir, { encoding: 'utf8' }).filter(entry => {
-      // Must start with uppercase
-      if (!/^[A-Z]/.test(entry)) return false;
-      // Must be a directory
-      try {
-        return fs.statSync(path.join(componentsDir, entry)).isDirectory();
-      } catch {
-        return false;
-      }
-    });
-  } catch {
-    return [];
-  }
-
-  const components: ManifestComponent[] = [];
-
-  for (const compName of componentDirs) {
-    const compDir = path.join(componentsDir, compName);
-    const readmePath = path.join(compDir, 'README.md');
-    if (!fs.existsSync(readmePath)) continue;
-
-    // Relative readme path from libDir
-    const readmeRelPath = path.join('src', 'components', compName, 'README.md');
-
-    // Source files: *.ts, *.tsx — excluding excluded dirs
-    const sourceFiles = walkFiles(compDir, rel => {
-      if (isExcluded(rel)) return false;
-      return /\.(ts|tsx)$/.test(rel) && !/\.stories\.(ts|tsx)$/.test(rel);
-    }).map(rel => path.join('src', 'components', compName, rel));
-
-    // Story files: *.stories.ts, *.stories.tsx
-    const storyFiles = walkFiles(compDir, rel => {
-      if (isExcluded(rel)) return false;
-      return /\.stories\.(ts|tsx)$/.test(rel);
-    }).map(rel => path.join('src', 'components', compName, rel));
-
-    // SCSS files: *.scss — excluding excluded dirs
-    const scssFiles = walkFiles(compDir, rel => {
-      if (isExcluded(rel)) return false;
-      return /\.scss$/.test(rel);
-    }).map(rel => path.join('src', 'components', compName, rel));
-
-    components.push({
-      name: compName,
-      readme_path: readmeRelPath,
-      source_paths: sourceFiles.sort(),
-      story_paths: storyFiles.sort(),
-      scss_paths: scssFiles.sort(),
-    });
-  }
-
-  return components.sort((a, b) => a.name.localeCompare(b.name));
-}
-
-/**
  * Splits an array into batches of at most batchSize items.
  */
 function batch<T>(items: T[], batchSize: number): T[][] {
@@ -177,6 +114,120 @@ function batch<T>(items: T[], batchSize: number): T[][] {
     batches.push(items.slice(i, i + batchSize));
   }
   return batches;
+}
+
+/**
+ * Discovers components for a library using library-config to determine scan paths and mode.
+ *
+ * - moduleBased libraries return [] (e.g. markdown-editor)
+ * - flatFiles libraries scan for .tsx files beginning with uppercase (e.g. graph, timeline, yagr)
+ * - directory-based libraries scan for sub-directories beginning with uppercase
+ *
+ * README.md is optional: present → readme_path set; absent → component still included.
+ * Components are deduplicated by name when multiple componentPaths overlap.
+ */
+function discoverComponents(libDir: string, libraryName: string): ManifestComponent[] {
+  const config = getLibraryConfig(libraryName);
+
+  if (config.moduleBased) return [];
+
+  const byName = new Map<string, ManifestComponent>();
+
+  for (const componentPath of config.componentPaths) {
+    const scanDir = path.join(libDir, componentPath);
+    if (!fs.existsSync(scanDir)) continue;
+
+    if (config.flatFiles) {
+      // Flat mode: each uppercase .tsx file in scanDir is a component
+      let files: string[];
+      try {
+        files = fs.readdirSync(scanDir, { encoding: 'utf8' }).filter(entry => {
+          if (!/^[A-Z]/.test(entry)) return false;
+          if (!/\.tsx$/.test(entry)) return false;
+          try {
+            return fs.statSync(path.join(scanDir, entry)).isFile();
+          } catch {
+            return false;
+          }
+        });
+      } catch {
+        continue;
+      }
+
+      for (const fileName of files) {
+        const compName = fileName.replace(/\.tsx$/, '');
+        if (byName.has(compName)) continue;
+
+        const relBase = path.join(componentPath, fileName);
+
+        byName.set(compName, {
+          name: compName,
+          // No README expected for flat-file components
+          source_paths: [relBase],
+          story_paths: [],
+          scss_paths: [],
+        });
+      }
+    } else {
+      // Directory mode: each uppercase sub-directory is a component
+      let dirs: string[];
+      try {
+        dirs = fs.readdirSync(scanDir, { encoding: 'utf8' }).filter(entry => {
+          if (!/^[A-Z]/.test(entry)) return false;
+          try {
+            return fs.statSync(path.join(scanDir, entry)).isDirectory();
+          } catch {
+            return false;
+          }
+        });
+      } catch {
+        continue;
+      }
+
+      for (const compName of dirs) {
+        // Skip if already discovered from an earlier componentPath
+        if (byName.has(compName)) continue;
+
+        const compDir = path.join(scanDir, compName);
+        const readmePath = path.join(compDir, 'README.md');
+        const readmeRelPath = fs.existsSync(readmePath)
+          ? path.join(componentPath, compName, 'README.md')
+          : undefined;
+
+        // Source files: *.ts, *.tsx — excluding excluded dirs and story files
+        const sourceFiles = walkFiles(compDir, rel => {
+          if (isExcluded(rel)) return false;
+          return /\.(ts|tsx)$/.test(rel) && !/\.stories\.(ts|tsx)$/.test(rel);
+        }).map(rel => path.join(componentPath, compName, rel));
+
+        // Story files: *.stories.ts, *.stories.tsx
+        const storyFiles = walkFiles(compDir, rel => {
+          if (isExcluded(rel)) return false;
+          return /\.stories\.(ts|tsx)$/.test(rel);
+        }).map(rel => path.join(componentPath, compName, rel));
+
+        // SCSS files: *.scss — excluding excluded dirs
+        const scssFiles = walkFiles(compDir, rel => {
+          if (isExcluded(rel)) return false;
+          return /\.scss$/.test(rel);
+        }).map(rel => path.join(componentPath, compName, rel));
+
+        const component: ManifestComponent = {
+          name: compName,
+          source_paths: sourceFiles.sort(),
+          story_paths: storyFiles.sort(),
+          scss_paths: scssFiles.sort(),
+        };
+        if (readmeRelPath !== undefined) {
+          component.readme_path = readmeRelPath;
+        }
+
+        byName.set(compName, component);
+      }
+    }
+  }
+
+  return Array.from(byName.values()).sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /**
@@ -224,7 +275,7 @@ export function buildManifest(
     // Normalize: compare by checking if the longer one starts with the shorter one
     const changed = !prevSha || (!prevSha.startsWith(gitSha) && !gitSha.startsWith(prevSha));
 
-    const components = discoverComponents(libDir);
+    const components = discoverComponents(libDir, libName);
     const batches = batch(components, BATCH_SIZE).map((batchComponents, idx) => ({
       batch_id: `${libName}-batch-${idx + 1}`,
       components: batchComponents,

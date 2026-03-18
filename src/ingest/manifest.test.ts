@@ -1,7 +1,13 @@
 import { describe, it, expect } from 'vitest';
+import * as path from 'path';
+import { fileURLToPath } from 'url';
 import { buildManifest } from './manifest.js';
 
-const VENDOR_DIR = 'vendor';
+// Resolve vendor from the main repo root (worktree submodules may be uninitialized).
+// __dirname is not available in ESM; use import.meta.url instead.
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const VENDOR_DIR = path.resolve(__dirname, '../../../../vendor');
 
 describe('buildManifest', () => {
   it('discovers vendor submodules and builds batches', () => {
@@ -54,20 +60,29 @@ describe('buildManifest', () => {
     }
   });
 
-  it('each component has a readme_path containing README', () => {
+  it('each component has source_paths and readme_path is optional', () => {
     const result = buildManifest(VENDOR_DIR, {});
 
     let componentCount = 0;
+    let withReadme = 0;
     for (const entry of result.entries) {
       for (const batch of entry.batches) {
         for (const component of batch.components) {
-          expect(component.readme_path).toContain('README');
+          // source_paths required for every component (except flat-file mode which has 1 path)
+          expect(component.source_paths.length).toBeGreaterThan(0);
+          // readme_path is optional — when present it must contain README
+          if (component.readme_path !== undefined) {
+            expect(component.readme_path).toContain('README');
+            withReadme++;
+          }
           componentCount++;
         }
       }
     }
-    // Should have found at least some components
+    // Should have found significantly more components than the old README-gated approach
     expect(componentCount).toBeGreaterThan(10);
+    // At least some components have a readme_path
+    expect(withReadme).toBeGreaterThan(0);
   });
 
   it('entries are sorted by library name', () => {
@@ -86,5 +101,39 @@ describe('buildManifest', () => {
       const uniqueIds = new Set(batchIds);
       expect(uniqueIds.size).toBe(batchIds.length);
     }
+  });
+
+  it('discovers layout components without README in uikit', () => {
+    const result = buildManifest(VENDOR_DIR, {});
+
+    const uikitEntry = result.entries.find(e => e.library === 'uikit');
+    expect(uikitEntry).toBeDefined();
+
+    const allComponents = uikitEntry!.batches.flatMap(b => b.components);
+    const names = allComponents.map(c => c.name);
+
+    // Layout components exist in src/components/layout/ without README.md
+    for (const expected of ['Flex', 'Box', 'Row', 'Col', 'Container']) {
+      expect(names).toContain(expected);
+    }
+
+    // Verify they have no readme_path (layout components don't have README.md)
+    for (const expected of ['Flex', 'Box', 'Row', 'Col', 'Container']) {
+      const comp = allComponents.find(c => c.name === expected);
+      expect(comp).toBeDefined();
+      expect(comp!.readme_path).toBeUndefined();
+    }
+  });
+
+  it('discovers flat file components in graph library', () => {
+    const result = buildManifest(VENDOR_DIR, {});
+
+    const graphEntry = result.entries.find(e => e.library === 'graph');
+    expect(graphEntry).toBeDefined();
+
+    const allComponents = graphEntry!.batches.flatMap(b => b.components);
+    const names = allComponents.map(c => c.name);
+
+    expect(names).toContain('GraphCanvas');
   });
 });
