@@ -1,0 +1,338 @@
+{
+  "library": "app-layout",
+  "npm_package": "@gravity-ui/app-layout",
+  "quickstart": "Install: `npm install --save-dev @gravity-ui/app-layout`\n\nBasic usage with Express:\n```js\nimport express from 'express';\nimport {createRenderFunction} from '@gravity-ui/app-layout';\n\nconst app = express();\nconst renderLayout = createRenderFunction();\n\napp.get('/', function (req, res) {\n  res.send(\n    renderLayout({\n      title: 'Home page',\n      bodyContent: { root: 'Hello world!' },\n    }),\n  );\n});\n\napp.listen(3000);\n```\n\nWith plugins:\n```js\nimport {createRenderFunction, createDefaultPlugins} from '@gravity-ui/app-layout';\n\nconst renderLayout = createRenderFunction(\n  createDefaultPlugins({layout: {manifest: 'path/to/assets-manifest.json'}})\n);\n```\n\nAlternative streaming usage with `generateRenderContent`, `renderHeadContent`, `renderBodyContent` for HTML streaming responses.",
+  "exports": [
+    {
+      "name": "createRenderFunction",
+      "kind": "function",
+      "signature": "function createRenderFunction<Plugins extends Plugin[]>(plugins?: Plugins): <Data>(params: RenderParams<Data, Plugins>) => string",
+      "description": "Creates a render function that generates a complete HTML page string. Accepts an optional array of plugins to extend rendering behavior. Returns a typed render function that accepts RenderParams and returns an HTML string.",
+      "parameters": [
+        {
+          "name": "plugins",
+          "type": "Plugins | undefined",
+          "description": "Optional array of plugins to extend the render function."
+        }
+      ],
+      "return_type": "<Data>(params: RenderParams<Data, Plugins>) => string",
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "generateRenderContent",
+      "kind": "function",
+      "signature": "function generateRenderContent<Plugins extends Plugin[], Data>(plugins: Plugins | undefined, params: RenderParams<Data, Plugins>): RenderContent",
+      "description": "Generates the content to be rendered in an HTML page. Applies all plugins to build the RenderContent object that can be used with renderHeadContent and renderBodyContent for streaming or custom rendering.",
+      "parameters": [
+        {
+          "name": "plugins",
+          "type": "Plugins | undefined",
+          "description": "An array of plugins."
+        },
+        {
+          "name": "params",
+          "type": "RenderParams<Data, Plugins>",
+          "description": "An object containing various parameters for rendering the content."
+        }
+      ],
+      "return_type": "RenderContent",
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "renderHeadContent",
+      "kind": "function",
+      "signature": "function renderHeadContent(content: HeadContent): string",
+      "description": "Renders the HTML head section content (title, meta tags, link tags, stylesheets, inline styles, scripts, inline scripts) from a HeadContent object. Used for streaming or custom HTML assembly.",
+      "parameters": [
+        {
+          "name": "content",
+          "type": "HeadContent",
+          "description": "The head content object produced by generateRenderContent."
+        }
+      ],
+      "return_type": "string",
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "renderBodyContent",
+      "kind": "function",
+      "signature": "function renderBodyContent(content: BodyContent): string",
+      "description": "Renders the HTML body content (beforeRoot, root div, afterRoot) from a BodyContent object. Used for streaming or custom HTML assembly.",
+      "parameters": [
+        {
+          "name": "content",
+          "type": "BodyContent",
+          "description": "The body content object produced by generateRenderContent."
+        }
+      ],
+      "return_type": "string",
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "createGoogleAnalyticsPlugin",
+      "kind": "function",
+      "signature": "function createGoogleAnalyticsPlugin(): Plugin<GoogleAnalyticsPluginOptions, 'googleAnalytics'>",
+      "description": "Creates a plugin that adds a Google Analytics counter (gtag.js) to the page body. Plugin name is 'googleAnalytics'. Requires counter.id to be specified in pluginsOptions.googleAnalytics.",
+      "parameters": [],
+      "return_type": "Plugin<GoogleAnalyticsPluginOptions, 'googleAnalytics'>",
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "createYandexMetrikaPlugin",
+      "kind": "function",
+      "signature": "function createYandexMetrikaPlugin(): Plugin<MetrikaPluginOptions, 'yandexMetrika'>",
+      "description": "Creates a plugin that adds Yandex Metrika counters to the page body. Plugin name is 'yandexMetrika'. Supports single or multiple counters via pluginsOptions.yandexMetrika.counter.",
+      "parameters": [],
+      "return_type": "Plugin<MetrikaPluginOptions, 'yandexMetrika'>",
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "createLayoutPlugin",
+      "kind": "function",
+      "signature": "function createLayoutPlugin(options: LayoutInitOptions): Plugin<LayoutPluginOptions, 'layout'>",
+      "description": "Creates a plugin that injects scripts and stylesheets from a webpack assets manifest file. Plugin name is 'layout'. Supports both entrypoints-based manifests and flat key-value manifests. Sets window.__PUBLIC_PATH__ inline script.",
+      "parameters": [
+        {
+          "name": "options",
+          "type": "LayoutInitOptions",
+          "description": "Init options including manifest path/object/function and optional publicPath (default '/build/')."
+        }
+      ],
+      "return_type": "Plugin<LayoutPluginOptions, 'layout'>",
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "createUikitPlugin",
+      "kind": "function",
+      "signature": "function createUikitPlugin(): Plugin<UikitPluginOptions, 'uikit'>",
+      "description": "Creates a plugin that adds @gravity-ui/uikit body attributes (g-root theme class and optional dir attribute for RTL support). Plugin name is 'uikit'.",
+      "parameters": [],
+      "return_type": "Plugin<UikitPluginOptions, 'uikit'>",
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "createRemoteVersionsPlugin",
+      "kind": "function",
+      "signature": "function createRemoteVersionsPlugin(): Plugin<RemoteVersionsPluginOptions, 'remoteVersions'>",
+      "description": "Creates a plugin that adds microfrontend version information to the page by setting window.__REMOTE_VERSIONS__ as an inline script. Plugin name is 'remoteVersions'. Used with module federation / microfrontend architectures.",
+      "parameters": [],
+      "return_type": "Plugin<RemoteVersionsPluginOptions, 'remoteVersions'>",
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "createDefaultPlugins",
+      "kind": "function",
+      "signature": "function createDefaultPlugins(options: {layout: LayoutInitOptions}): Plugin[]",
+      "description": "Helper that creates all built-in plugins (googleAnalytics, yandexMetrika, uikit, layout) pre-configured and ready to pass to createRenderFunction.",
+      "parameters": [
+        {
+          "name": "options",
+          "type": "{ layout: LayoutInitOptions }",
+          "description": "Object with a layout property containing LayoutInitOptions for the layout plugin."
+        }
+      ],
+      "return_type": "Plugin[]",
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "Plugin",
+      "kind": "interface",
+      "signature": "interface Plugin<Options = any, Name extends string = string>",
+      "description": "Interface describing a render plugin. Has a name identifier and an apply method called during rendering. The apply method receives options (from pluginsOptions), renderContent (mutable), commonOptions, and the deprecated utils (use renderContent.helpers instead).",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "RenderParams",
+      "kind": "interface",
+      "signature": "interface RenderParams<Data, Plugins extends Plugin[] = []> extends CommonOptions",
+      "description": "Parameters passed to the render function returned by createRenderFunction. Extends CommonOptions (title, lang, isMobile). Includes data (set to window.__DATA__), icon (favicon), nonce, htmlAttributes, meta, links, scripts, styleSheets, inlineScripts, inlineStyleSheets, bodyContent, and pluginsOptions.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "RenderFunction",
+      "kind": "type",
+      "signature": "type RenderFunction<Plugins extends Plugin[] = []> = <Data>(params: RenderParams<Data, Plugins>) => string",
+      "description": "Type alias for the render function returned by createRenderFunction.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "RenderHelpers",
+      "kind": "interface",
+      "signature": "interface RenderHelpers",
+      "description": "Helper utilities available on renderContent.helpers within plugins and the alternative rendering API. Provides renderScript, renderInlineScript, renderStyle, renderInlineStyle, renderMeta, renderLink, and attrs methods for generating HTML tag strings.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "Icon",
+      "kind": "interface",
+      "signature": "interface Icon { type?: string; sizes?: string; href?: string; }",
+      "description": "Describes the page favicon. Default: { type: 'image/png', sizes: '16x16', href: '/favicon.png' }.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "Link",
+      "kind": "interface",
+      "signature": "interface Link { as?: string; href: string; rel?: string; type?: string; sizes?: string; title?: HTMLLinkElement['title']; crossOrigin?: '' | 'anonymous' | 'use-credentials'; hreflang?: HTMLLinkElement['hreflang']; }",
+      "description": "Describes an HTML link tag (e.g. preload, font, manifest).",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "Script",
+      "kind": "interface",
+      "signature": "interface Script { src: string; defer?: boolean; async?: boolean; crossOrigin?: '' | 'anonymous' | 'use-credentials'; type?: 'importmap' | 'module' | (string & {}); }",
+      "description": "Describes a script tag. Each script also generates a preload link tag.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "Stylesheet",
+      "kind": "interface",
+      "signature": "interface Stylesheet { href: string; crossOrigin?: '' | 'anonymous' | 'use-credentials'; }",
+      "description": "Describes a stylesheet link tag.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "Meta",
+      "kind": "type",
+      "signature": "type Meta = { name: string; content: string }",
+      "description": "Describes an HTML meta tag with name and content attributes.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "GoogleAnalyticsCounter",
+      "kind": "interface",
+      "signature": "interface GoogleAnalyticsCounter { id: string; }",
+      "description": "Google Analytics counter configuration. The id is the GA measurement ID.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "GoogleAnalyticsPluginOptions",
+      "kind": "interface",
+      "signature": "interface GoogleAnalyticsPluginOptions { useBeaconTransport?: boolean; counter: GoogleAnalyticsCounter; defaultConsent?: { adStorage?: 'denied' | 'granted'; analyticsStorage?: 'denied' | 'granted'; waitForUpdate?: number; }; }",
+      "description": "Options for the googleAnalytics plugin passed via pluginsOptions.googleAnalytics. useBeaconTransport enables navigator.sendBeacon. defaultConsent configures gtag consent defaults.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "MetrikaCounter",
+      "kind": "interface",
+      "signature": "interface MetrikaCounter { id: number; defer?: boolean; clickmap?: boolean; trackLinks?: boolean; accurateTrackBounce?: boolean | number; webvisor?: boolean; sendTitle?: boolean; nonce?: string; encryptedExperiments?: string; triggerEvent?: boolean; trackHash?: boolean; ecommerce?: boolean | string; type?: number; userParams?: UserParams; }",
+      "description": "Yandex Metrika counter configuration. Defaults: defer=false, clickmap=true, trackLinks=true, accurateTrackBounce=true, webvisor=false, sendTitle=true, triggerEvent=false, trackHash=false, ecommerce=false, type=0.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "MetrikaPluginOptions",
+      "kind": "type",
+      "signature": "type MetrikaPluginOptions = { src?: string; counter: MetrikaCounter | MetrikaCounter[]; }",
+      "description": "Options for the yandexMetrika plugin passed via pluginsOptions.yandexMetrika. src overrides the metrika script URL (default: https://mc.yandex.ru/metrika/tag.js). counter accepts a single counter config or array.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "UserParams",
+      "kind": "type",
+      "signature": "type UserParams = { [x: string]: boolean | string | number | null | UserParams }",
+      "description": "Recursive type for Yandex Metrika user parameters passed to counter init.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "LayoutInitOptions",
+      "kind": "interface",
+      "signature": "interface LayoutInitOptions { publicPath?: string; manifest: string | Manifest | ((commonOptions: CommonOptions) => string | Manifest); }",
+      "description": "Initialization options for createLayoutPlugin. manifest can be a file path string, a Manifest object, or a function returning either. publicPath defaults to '/build/'.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "LayoutPluginOptions",
+      "kind": "interface",
+      "signature": "interface LayoutPluginOptions { name: string; prefix?: string; scriptsCrossOrigin?: '' | 'anonymous' | 'use-credentials'; stylesCrossOrigin?: '' | 'anonymous' | 'use-credentials'; }",
+      "description": "Per-request options for the layout plugin passed via pluginsOptions.layout. name is the webpack entrypoint name. prefix is an optional URL prefix.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "Manifest",
+      "kind": "type",
+      "signature": "type Manifest = Record<string, string> & { entrypoints?: Record<string, EntrypointAssets> }",
+      "description": "Webpack assets manifest shape. Supports both flat key-value format and entrypoints format with js/css asset arrays.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "UikitPluginOptions",
+      "kind": "interface",
+      "signature": "interface UikitPluginOptions { theme: string; direction?: 'ltr' | 'rtl'; }",
+      "description": "Options for the uikit plugin passed via pluginsOptions.uikit. theme sets the g-root theme class (e.g. 'dark', 'light'). direction sets the body dir attribute for RTL support.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "RemoteVersionsPluginOptions",
+      "kind": "type",
+      "signature": "type RemoteVersionsPluginOptions = Record<string, string>",
+      "description": "Options for the remoteVersions plugin passed via pluginsOptions.remoteVersions. A map of remote name to version string. Sets window.__REMOTE_VERSIONS__ on the page.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    }
+  ]
+}

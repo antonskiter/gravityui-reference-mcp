@@ -1,0 +1,7 @@
+{
+  "library": "eslint-config",
+  "npm_package": "@gravity-ui/eslint-config",
+  "description": "Shared ESLint configuration for Gravity UI projects, following the Gravity UI styleguide with TypeScript, React, a11y, Prettier, and import-order rule sets.",
+  "how_to_use": "import baseConfig from '@gravity-ui/eslint-config';\n\nexport default [\n  ...baseConfig,\n  {\n    // ...other config\n  },\n];",
+  "readme": "# @gravity-ui/eslint-config\n\n## Install\n\n```\nnpm install --save-dev eslint @gravity-ui/eslint-config\n```\n\n## Usage\n\nAdd `eslint.config.js` file in your project with the following content:\n\n```js\nimport baseConfig from '@gravity-ui/eslint-config';\n\nexport default [\n  ...baseConfig,\n  {\n    // ...other config\n  },\n];\n```\n\nBase config also includes TypeScript rules."
+}
