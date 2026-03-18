@@ -29,8 +29,9 @@ describe('getLibraryConfig', () => {
     expect(cfg.packageName).toBe('@gravity-ui/some-unknown-lib');
   });
 
-  it('marks markdown-editor as module-based', () => {
+  it('returns markdown-editor config with packages/editor/src path', () => {
     const cfg = getLibraryConfig('markdown-editor');
-    expect(cfg.moduleBased).toBe(true);
+    expect(cfg.componentPaths).toContain('packages/editor/src');
+    expect(cfg.moduleBased).toBe(false);
   });
 });

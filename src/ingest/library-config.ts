@@ -27,9 +27,11 @@ const LIBRARY_CONFIGS: Record<string, Partial<LibraryConfig>> = {
     componentPaths: ['src/react-components'],
     flatFiles: true,
   },
+  charts: {
+    componentPaths: ['src/components'],
+  },
   'markdown-editor': {
     componentPaths: ['packages/editor/src'],
-    moduleBased: true,
   },
   components: {
     componentPaths: ['src/components'],

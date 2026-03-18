@@ -2,6 +2,49 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { getLibraryConfig } from './library-config.js';
 
+export const ALL_LIBRARIES: Array<{
+  id: string;
+  npmPackage: string;
+  category: 'component' | 'asset' | 'utility' | 'config';
+}> = [
+  // Component libraries
+  { id: 'uikit',                    npmPackage: '@gravity-ui/uikit',                    category: 'component' },
+  { id: 'aikit',                    npmPackage: '@gravity-ui/aikit',                    category: 'component' },
+  { id: 'components',               npmPackage: '@gravity-ui/components',               category: 'component' },
+  { id: 'date-components',          npmPackage: '@gravity-ui/date-components',          category: 'component' },
+  { id: 'navigation',               npmPackage: '@gravity-ui/navigation',               category: 'component' },
+  { id: 'table',                    npmPackage: '@gravity-ui/table',                    category: 'component' },
+  { id: 'page-constructor',         npmPackage: '@gravity-ui/page-constructor',         category: 'component' },
+  { id: 'dashkit',                  npmPackage: '@gravity-ui/dashkit',                  category: 'component' },
+  { id: 'dialog-fields',            npmPackage: '@gravity-ui/dialog-fields',            category: 'component' },
+  { id: 'dynamic-forms',            npmPackage: '@gravity-ui/dynamic-forms',            category: 'component' },
+  { id: 'blog-constructor',         npmPackage: '@gravity-ui/blog-constructor',         category: 'component' },
+  { id: 'data-source',              npmPackage: '@gravity-ui/data-source',              category: 'component' },
+  { id: 'timeline',                 npmPackage: '@gravity-ui/timeline',                 category: 'component' },
+  { id: 'chartkit',                 npmPackage: '@gravity-ui/chartkit',                 category: 'component' },
+  { id: 'yagr',                     npmPackage: '@gravity-ui/yagr',                     category: 'component' },
+  { id: 'charts',                   npmPackage: '@gravity-ui/charts',                   category: 'component' },
+  { id: 'graph',                    npmPackage: '@gravity-ui/graph',                    category: 'component' },
+  { id: 'markdown-editor',          npmPackage: '@gravity-ui/markdown-editor',          category: 'component' },
+  // Asset libraries
+  { id: 'icons',                    npmPackage: '@gravity-ui/icons',                    category: 'asset' },
+  { id: 'illustrations',            npmPackage: '@gravity-ui/illustrations',            category: 'asset' },
+  // Utility libraries
+  { id: 'i18n',                     npmPackage: '@gravity-ui/i18n',                     category: 'utility' },
+  { id: 'date-utils',               npmPackage: '@gravity-ui/date-utils',               category: 'utility' },
+  { id: 'axios-wrapper',            npmPackage: '@gravity-ui/axios-wrapper',            category: 'utility' },
+  { id: 'app-layout',               npmPackage: '@gravity-ui/app-layout',               category: 'utility' },
+  // Config / tooling
+  { id: 'eslint-config',            npmPackage: '@gravity-ui/eslint-config',            category: 'config' },
+  { id: 'tsconfig',                 npmPackage: '@gravity-ui/tsconfig',                 category: 'config' },
+  { id: 'prettier-config',          npmPackage: '@gravity-ui/prettier-config',          category: 'config' },
+  { id: 'stylelint-config',         npmPackage: '@gravity-ui/stylelint-config',         category: 'config' },
+  { id: 'babel-preset',             npmPackage: '@gravity-ui/babel-preset',             category: 'config' },
+  { id: 'browserslist-config',      npmPackage: '@gravity-ui/browserslist-config',      category: 'config' },
+  { id: 'webpack-i18n-assets-plugin', npmPackage: '@gravity-ui/webpack-i18n-assets-plugin', category: 'config' },
+  { id: 'page-constructor-builder', npmPackage: '@gravity-ui/page-constructor-builder', category: 'config' },
+];
+
 export interface ManifestComponent {
   name: string;
   readme_path?: string;  // optional — README enriches but is not required
