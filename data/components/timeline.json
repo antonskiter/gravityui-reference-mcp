@@ -5,7 +5,7 @@
       "library": "timeline",
       "import_path": "@gravity-ui/timeline/react",
       "import_statement": "import { TimelineCanvas } from '@gravity-ui/timeline/react';",
-      "description": "React component that renders a Timeline instance onto an HTML canvas element. Initializes the timeline on mount and destroys it on unmount. The canvas fills its parent container at 100% width and height.",
+      "description": "React component that renders a Timeline instance onto an HTML canvas element. Initializes the timeline on mount and destroys it on unmount. The canvas fills its parent container at 100% width and height, has position:relative applied inline, and sets tabIndex={0} to enable keyboard focus.",
       "source_file": "vendor/timeline/src/react-components/TimelineCanvas.tsx",
       "props": [
         {
@@ -30,7 +30,7 @@
       "library": "timeline",
       "import_path": "@gravity-ui/timeline/react",
       "import_statement": "import { useTimeline } from '@gravity-ui/timeline/react';",
-      "description": "Creates and memoizes a Timeline instance from the given configuration. Returns the timeline instance, its API, and start/stop helpers for manual canvas management.",
+      "description": "Creates and memoizes a Timeline instance from the given configuration. Returns the timeline instance, its API, and start/stop helpers for manual canvas management: start(canvas) calls timeline.init(canvas) to attach the timeline to a canvas element, and stop() calls timeline.destroy() to detach it.",
       "source_file": "vendor/timeline/src/react-components/hooks/useTimeline.ts",
       "rules_of_hooks": true,
       "signature": "useTimeline<TEvent extends TimelineEvent, TMarker extends TimelineMarker = TimelineMarker, TSection extends TimelineSection = TimelineSection>(config: TimeLineConfig<TEvent, TMarker, TSection>) => { timeline: Timeline<TEvent, TMarker, TSection>; api: CanvasApi; start: (canvas: HTMLCanvasElement) => void; stop: () => void }",

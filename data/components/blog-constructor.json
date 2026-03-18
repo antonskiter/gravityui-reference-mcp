@@ -251,6 +251,129 @@
       ]
     },
     {
+      "name": "Prompt",
+      "library": "blog-constructor",
+      "description": "Popup that appears with a text message and button(s) for given actions. Automatically disappears after openDuration milliseconds, but stays visible while hovered (via useHover). openTimestamp (Date.now()) resets the visible duration.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {Prompt} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/Prompt/Prompt.tsx",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Prompt message text."
+        },
+        {
+          "name": "actions",
+          "type": "ButtonProps[]",
+          "required": true,
+          "description": "Array of uikit ButtonProps rendered as action buttons inside the prompt."
+        },
+        {
+          "name": "openTimestamp",
+          "type": "number",
+          "required": false,
+          "default": "0",
+          "description": "Unix timestamp in milliseconds marking when the prompt opened. Updating this value resets the visible duration."
+        },
+        {
+          "name": "openDuration",
+          "type": "number",
+          "required": false,
+          "description": "Duration in milliseconds the prompt remains visible before auto-closing. Uses useOpenCloseTimer default (4000 ms) when omitted."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class name for the root element."
+        },
+        {
+          "name": "theme",
+          "type": "'grey' | 'beige' | 'white'",
+          "required": false,
+          "description": "Visual theme of the prompt."
+        }
+      ]
+    },
+    {
+      "name": "PostCard",
+      "library": "blog-constructor",
+      "description": "Blog post card component. Renders a clickable card with post image, tag, title, description, and a footer info bar. The footer uses SuggestPostInfo to display date, reading time, and like/save controls — like functionality is handled entirely by SuggestPostInfo and driven by LikesContext, not by direct props on PostCard.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {PostCard} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/PostCard/PostCard.tsx",
+      "props": [
+        {
+          "name": "post",
+          "type": "PostData",
+          "required": true,
+          "description": "Blog post data object containing title, description, image, tags, date, readingTime, likes, and URL."
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Whether the card should occupy full available width."
+        },
+        {
+          "name": "showTag",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Whether to display the first post tag above the title."
+        },
+        {
+          "name": "size",
+          "type": "PostCardSize",
+          "required": false,
+          "default": "PostCardSize.SMALL",
+          "description": "Size variant applied to the title and description typography."
+        },
+        {
+          "name": "titleHeadingLevel",
+          "type": "PostCardTitleHeadingLevel",
+          "required": false,
+          "default": "PostCardTitleHeadingLevel.H3",
+          "description": "HTML heading level used for the post title."
+        },
+        {
+          "name": "analyticsEvents",
+          "type": "AnalyticsEventsProp",
+          "required": false,
+          "description": "Analytics events forwarded to the CardBase wrapper."
+        }
+      ]
+    },
+    {
+      "name": "PostsEmpty",
+      "library": "blog-constructor",
+      "description": "Empty state component displayed inside the Posts block whenever postsOnPage is empty, regardless of cause (no matching filters, no posts at all, etc.). Renders a localized title and subtitle from i18n keys TitleEmptyContainer and ContextEmptyContainer.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {PostsEmpty} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/PostsEmpty/PostsEmpty.tsx",
+      "props": []
+    },
+    {
+      "name": "PromptSignIn",
+      "library": "blog-constructor",
+      "description": "Authentication prompt shown when an unauthenticated user attempts a gated action. Extends Prompt with a pre-configured sign-in action button. All PromptProps are accepted as optional overrides.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {PromptSignIn} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/PromptSignIn/PromptSignIn.tsx",
+      "props": [
+        {
+          "name": "onClickSignIn",
+          "type": "React.EventHandler<React.SyntheticEvent>",
+          "required": false,
+          "default": "() => alert(i18n(Keyset.SignIn))",
+          "description": "Callback invoked when the sign-in button is clicked. Defaults to showing a localized browser alert with the sign-in label."
+        }
+      ]
+    },
+    {
       "name": "FeedHeader",
       "library": "blog-constructor",
       "description": "Blog feed header component. Renders a full-width header with optional background image/color and a Controls bar containing a search field, tag/service filter selects, and a saved-only toggle.",

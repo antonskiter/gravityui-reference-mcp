@@ -1217,14 +1217,14 @@
     },
     {
       "name": "AssistantMessage",
-      "description": "Renders an assistant chat message with support for multiple content types (text, thinking, tool) via a message renderer registry.",
+      "description": "Renders an assistant chat message with support for multiple content types (text, thinking, tool) via a message renderer registry. Accepts a TContent generic (defaults to never) for adding custom content types beyond the built-in ones; pass a custom type union to extend the registry.",
       "import_statement": "import {AssistantMessage} from '@gravity-ui/aikit';",
       "props": [
         {
           "name": "content",
           "type": "TAssistantMessageContent<TContent>",
           "required": true,
-          "description": "Message content (string, single content object, or array of content objects)"
+          "description": "Message content (string, single content object, or array of content objects). TContent defaults to never, meaning only built-in content types (text, thinking, tool) are accepted unless a custom type is passed as the generic parameter."
         },
         {
           "name": "id",
@@ -2120,7 +2120,7 @@
     },
     {
       "name": "ChatContainer",
-      "description": "Fully assembled chat component integrating Header, ChatContent, PromptInput, Disclaimer, and History. The main exportable page-level component.",
+      "description": "Fully assembled chat component integrating Header, ChatContent, PromptInput, Disclaimer, and History. The main exportable page-level component. Internally uses the useChatContainer hook to manage history open/close state, base actions resolution, and chat content view transitions.",
       "import_statement": "import {ChatContainer} from '@gravity-ui/aikit';",
       "props": [
         {

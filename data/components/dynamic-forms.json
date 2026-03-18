@@ -55,7 +55,7 @@
           "name": "destroyOnUnregister",
           "type": "boolean",
           "required": false,
-          "default": "true",
+          "default": true,
           "description": "Whether to destroy field value when the field is unregistered"
         },
         {
@@ -207,7 +207,7 @@
       "category": "layout",
       "import_path": "@gravity-ui/dynamic-forms",
       "import_statement": "import {AccordeonCard} from '@gravity-ui/dynamic-forms';",
-      "description": "A collapsible card component with accordion behavior, header, description, and toggle functionality.",
+      "description": "A collapsible card component with accordion behavior, header, description, and toggle functionality. When the body has no child elements, the toggle button is hidden and the df-accordeon-card_empty class is added automatically.",
       "source_file": "vendor/dynamic-forms/src/lib/kit/components/AccordeonCard/AccordeonCard.tsx",
       "props": [
         {
@@ -291,7 +291,7 @@
       "category": "layout",
       "import_path": "@gravity-ui/dynamic-forms",
       "import_statement": "import {Card} from '@gravity-ui/dynamic-forms';",
-      "description": "A collapsible card container with title, description tooltip, actions slot, and toggle functionality. Wraps GravityUI Card component.",
+      "description": "A collapsible card container with title, description tooltip, actions slot, and toggle functionality. Wraps GravityUI Card component. When title is a string, it is rendered with ellipsis inside a Popover (shown on overflow); if description is also provided, a HelpMark icon with the description appears beside the title.",
       "source_file": "vendor/dynamic-forms/src/lib/kit/components/Card/Card.tsx",
       "props": [
         {

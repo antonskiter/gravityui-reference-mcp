@@ -4,7 +4,7 @@
     "npm_package": "@gravity-ui/stylelint-config",
     "description": "Gravity UI Stylelint config, following our styleguide.",
     "how_to_use": "{ \"extends\": \"@gravity-ui/stylelint-config\" }",
-    "readme": "# @gravity-ui/stylelint-config\n\nStylelint configuration for Gravity UI projects.\n\n## Requirements\n\n- Node.js >= 20.x\n- Stylelint 16.18.0\n- PostCSS 8.x\n\n## Install\n\n```\nnpm install --save-dev stylelint postcss @gravity-ui/stylelint-config\n```\n\n## Usage\n\nAdd `.stylelintrc` file in the project root with the following content:\n\n```json\n{\n  \"extends\": \"@gravity-ui/stylelint-config\"\n}\n```"
+    "readme": "# @gravity-ui/stylelint-config\n\nStylelint configuration for Gravity UI projects.\n\n## Requirements\n\n- Node.js >= 20.x\n- Stylelint ^16.18.0\n- PostCSS 8.x\n\n## Install\n\n```\nnpm install --save-dev stylelint postcss @gravity-ui/stylelint-config\n```\n\n## Usage\n\nAdd `.stylelintrc` file in the project root with the following content:\n\n```json\n{\n  \"extends\": \"@gravity-ui/stylelint-config\"\n}\n```"
   },
   {
     "library": "stylelint-config/prettier",

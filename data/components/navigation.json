@@ -367,7 +367,7 @@
       "name": "AsideFallback",
       "library": "navigation",
       "import_statement": "import { AsideFallback } from '@gravity-ui/navigation';",
-      "description": "Fallback placeholder component for the aside navigation panel, used as a loading skeleton. Renders a minimal aside shell with optional header decoration and subheader item height reservation.",
+      "description": "Fallback placeholder component for the aside navigation panel, used as a loading skeleton. Must be used within an AsideHeader or PageLayout context (calls useAsideHeaderContext internally). Renders a minimal aside shell with optional header decoration and subheader item height reservation.",
       "source_file": "vendor/navigation/src/components/AsideHeader/components/PageLayout/AsideFallback.tsx",
       "props": [
         {
@@ -664,7 +664,7 @@
       "name": "HotkeysPanel",
       "library": "navigation",
       "import_statement": "import { HotkeysPanel } from '@gravity-ui/navigation';",
-      "description": "A slide-out drawer panel displaying keyboard shortcuts organized by groups. Supports filtering, custom styling, and platform-specific hotkey rendering.",
+      "description": "A slide-out drawer panel (built on uikit Drawer) displaying keyboard shortcuts organized by groups. Supports filtering, custom styling, and platform-specific hotkey rendering.",
       "source_file": "vendor/navigation/src/components/HotkeysPanel/HotkeysPanel.tsx",
       "props": [
         {
@@ -945,12 +945,14 @@
           "name": "burgerCloseTitle",
           "type": "string",
           "required": false,
+          "default": "i18n('burger_button_close')",
           "description": "Accessible title for the burger close button"
         },
         {
           "name": "burgerOpenTitle",
           "type": "string",
           "required": false,
+          "default": "i18n('burger_button_open')",
           "description": "Accessible title for the burger open button"
         },
         {
@@ -1384,6 +1386,7 @@
           "name": "closeTitle",
           "type": "string",
           "required": false,
+          "default": "i18n('button_close')",
           "description": "Accessible label for the close button"
         },
         {

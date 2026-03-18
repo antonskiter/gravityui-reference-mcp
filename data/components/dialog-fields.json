@@ -126,7 +126,7 @@
     },
     {
       "name": "CheckBoxControl",
-      "description": "Checkbox form control wrapping the Gravity UI Checkbox component for use in DFDialog forms",
+      "description": "Checkbox form control wrapping the Gravity UI Checkbox component for use in DFDialog forms. Inherits additional Checkbox props (size, disabled, indeterminate, title, qa, etc.) via Omit<CheckboxProps, 'value'|'view'|'checked'|'onUpdate'|'onChange'>.",
       "props": [
         {
           "name": "value",
@@ -151,7 +151,7 @@
     },
     {
       "name": "TextControl",
-      "description": "Text input form control wrapping the Gravity UI TextInput for use in DFDialog forms",
+      "description": "Text input form control wrapping the Gravity UI TextInput for use in DFDialog forms. Inherits additional TextInput props (size, disabled, placeholder, hasClear, pin, view, etc.) via Omit<TextInputProps, keyof ControlProps<string>>.",
       "props": [
         {
           "name": "value",
@@ -176,7 +176,7 @@
     },
     {
       "name": "TextAreaControl",
-      "description": "Textarea form control wrapping the Gravity UI TextArea for use in DFDialog forms",
+      "description": "Textarea form control wrapping the Gravity UI TextArea for use in DFDialog forms. Inherits additional TextArea props (rows, minRows, maxRows, disabled, placeholder, hasClear, pin, view, etc.) via Omit<TextAreaProps, 'value'|'ref'|'onUpdate'|'onChange'|'error'>.",
       "props": [
         {
           "name": "value",
@@ -201,7 +201,7 @@
     },
     {
       "name": "SelectControl",
-      "description": "Select form control wrapping the Gravity UI Select for use in DFDialog forms",
+      "description": "Select form control wrapping the Gravity UI Select for use in DFDialog forms. Inherits all Select props (options, multiple, filterable, placeholder, disabled, size, width, etc.) via Omit<SelectProps, 'onUpdate'|'onChange'>.",
       "props": [
         {
           "name": "value",
@@ -220,7 +220,7 @@
     },
     {
       "name": "RadioButtonControl",
-      "description": "Radio button group form control wrapping the Gravity UI SegmentedRadioGroup for use in DFDialog forms",
+      "description": "Radio button group form control wrapping the Gravity UI SegmentedRadioGroup for use in DFDialog forms. Inherits additional SegmentedRadioGroup props (disabled, width, qa, etc.) via Omit<SegmentedRadioGroupProps, 'onChange'|'value'>.",
       "props": [
         {
           "name": "value",
@@ -252,7 +252,7 @@
     },
     {
       "name": "TumblerControl",
-      "description": "Toggle switch form control wrapping the Gravity UI Switch for use in DFDialog forms",
+      "description": "Toggle switch form control wrapping the Gravity UI Switch for use in DFDialog forms. Inherits additional Switch props (disabled, qa, title, etc.) via Omit<SwitchProps, 'value'|'checked'|'onUpdate'|'onChange'>.",
       "props": [
         {
           "name": "value",
@@ -438,7 +438,7 @@
     },
     {
       "name": "MultiTextControl",
-      "description": "Multi-value text input control that creates label tags from entered text for use in DFDialog forms",
+      "description": "Multi-value text input control that creates label tags from entered text for use in DFDialog forms. Optionally inherits TextInput props (size, view, pin, placeholder, etc.) via Partial<Omit<TextInputProps, 'value'|'onBlur'|'onFocus'|'onUpdate'|'onChange'|'onKeyDown'|'error'>>.",
       "props": [
         {
           "name": "value",
@@ -703,7 +703,7 @@
     },
     {
       "name": "DeprecatedDialog",
-      "description": "Deprecated class-based Dialog component; use DFDialog instead",
+      "description": "Deprecated alias for the internal Dialog class; use DFDialog instead. Accepts the same DFDialogProps as DFDialog. Exported as a named alias: export const DeprecatedDialog = Dialog.",
       "props": [],
       "import_statement": "import { DeprecatedDialog } from '@gravity-ui/dialog-fields';"
     }
@@ -712,6 +712,7 @@
     {
       "name": "useStableEventHandler",
       "signature": "<TFunc extends (...args: unknown[]) => void>(func: TFunc | undefined) => (...args: Parameters<TFunc>) => void",
+      "description": "Returns a stable callback reference that always delegates to the latest provided function, preventing stale closures. Note: the vendor source file is named 'useStableEventHendler.ts' (typo), but the exported name is correctly spelled 'useStableEventHandler'.",
       "parameters": [
         {
           "name": "func",

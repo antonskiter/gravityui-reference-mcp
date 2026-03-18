@@ -6,6 +6,78 @@
   "readme": "# 🌍 webpack-i18n-assets-plugin\n\nA plugin for Webpack that replaces calls to localization functions (i18n) with target texts.\n\n### Features\n\n- Inlines i18n texts into the bundle (while substituting parameters into the final string)\n- Generates assets for all locales in one build\n- The plugin works only for production builds!\n- Supports only literals as keys in the localization function argument (template strings and variables are not allowed)",
   "exports": [
     {
+      "name": "gravityI18nImportResolver",
+      "kind": "function",
+      "signature": "gravityI18nImportResolver(source: string, exportName: string, identifierName: string, modulePath: string): {resolved: true, keyset?: string} | undefined",
+      "description": "Default ImportResolver for @gravity-ui/i18n. Resolves imports of the i18n instance from known paths (e.g. 'ui/utils/i18n'). Returns {resolved: true} when the import matches a known localizer, or undefined to skip. Use this as the importResolver option when the default @gravity-ui/i18n detection is sufficient.",
+      "import_path": "@gravity-ui/webpack-i18n-assets-plugin",
+      "library": "webpack-i18n-assets-plugin",
+      "parameters": [
+        {
+          "name": "source",
+          "type": "string",
+          "optional": false,
+          "description": "The import source string (module specifier)"
+        },
+        {
+          "name": "exportName",
+          "type": "string",
+          "optional": false,
+          "description": "The exported name being imported ('default' for default imports)"
+        },
+        {
+          "name": "identifierName",
+          "type": "string",
+          "optional": false,
+          "description": "The local identifier name used in code"
+        },
+        {
+          "name": "modulePath",
+          "type": "string",
+          "optional": false,
+          "description": "Absolute path of the module containing the import"
+        }
+      ]
+    },
+    {
+      "name": "gravityI18nDeclarationResolver",
+      "kind": "function",
+      "signature": "gravityI18nDeclarationResolver(declarator: VariableDeclarator, modulePath: string): {functionName: string, keyset?: string} | undefined",
+      "description": "Default DeclarationResolver for @gravity-ui/i18n. Detects variables whose name starts with 'i18n' and are initialized via i18n.bind(i18n, keyset). Returns {functionName, keyset} when matched, or undefined to skip. Use this as the declarationResolver option when the default @gravity-ui/i18n detection is sufficient.",
+      "import_path": "@gravity-ui/webpack-i18n-assets-plugin",
+      "library": "webpack-i18n-assets-plugin",
+      "parameters": [
+        {
+          "name": "declarator",
+          "type": "VariableDeclarator",
+          "optional": false,
+          "description": "The VariableDeclarator AST node to inspect"
+        },
+        {
+          "name": "modulePath",
+          "type": "string",
+          "optional": false,
+          "description": "Absolute path of the module containing the declaration"
+        }
+      ]
+    },
+    {
+      "name": "gravityI18nReplacer",
+      "kind": "function",
+      "signature": "gravityI18nReplacer(this: ReplacerContext, args: ReplacerArgs): {value: string, key: string, keyset: string}",
+      "description": "Default Replacer for @gravity-ui/i18n. Handles simple string keys, keyset-qualified keys (i18n(keyset, key)), parameter interpolation with {{param}} placeholders, and plural forms for ru/en/es/ja locales. Always returns the detailed {value, key, keyset} object required for collectUnusedKeys mode. Use this as the replacer option when the default @gravity-ui/i18n replacement logic is sufficient.",
+      "import_path": "@gravity-ui/webpack-i18n-assets-plugin",
+      "library": "webpack-i18n-assets-plugin",
+      "parameters": [
+        {
+          "name": "args",
+          "type": "ReplacerArgs",
+          "optional": false,
+          "description": "Object containing callNode, callArguments, localeName, key, and keyset from the plugin"
+        }
+      ]
+    },
+    {
       "name": "applyPluginToWebpackConfig",
       "kind": "function",
       "signature": "applyPluginToWebpackConfig(originalConfig: Configuration, options: Options): Configuration",

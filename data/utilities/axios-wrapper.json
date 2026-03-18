@@ -18,13 +18,13 @@
         }
       ],
       "constructor": {
-        "signature": "constructor(options?: AxiosWrapperOptions)",
+        "signature": "constructor(options: AxiosWrapperOptions = {})",
         "parameters": [
           {
             "name": "options",
             "type": "AxiosWrapperOptions",
-            "optional": true,
-            "description": "Configuration options including axios config, apiEndpoint, collector settings, and csrfHeaderName."
+            "optional": false,
+            "description": "Configuration options including axios config, apiEndpoint, collector settings, and csrfHeaderName. Defaults to empty object."
           }
         ]
       },
@@ -92,7 +92,7 @@
               "name": "info",
               "type": "RequestInfoToCollect",
               "optional": false,
-              "description": "Object containing method, url, data, requestStart timestamp, response, responseError, error flag, and cancelled flag."
+              "description": "Object containing method, url, data, requestStart timestamp, response, responseError, error flag, and cancelled flag. Note: RequestInfoToCollect is not re-exported from the package index and cannot be imported directly."
             }
           ],
           "return_type": "void"
@@ -100,7 +100,7 @@
         {
           "name": "getCollectedRequests",
           "signature": "getCollectedRequests(): { errors: CollectedRequestInfo[]; requests: CollectedRequestInfo[] }",
-          "description": "Returns a snapshot of all collected requests and errors stored by the collector.",
+          "description": "Returns a snapshot of all collected requests and errors stored by the collector. Note: CollectedRequestInfo is not re-exported from the package index and cannot be imported directly.",
           "parameters": [],
           "return_type": "{ errors: CollectedRequestInfo[]; requests: CollectedRequestInfo[] }"
         },
@@ -134,7 +134,7 @@
         },
         {
           "name": "get",
-          "signature": "get<T = any>(url: string, params: ApiMethodParams['params'], options?: ApiMethodParams['options']): Promise<T>",
+          "signature": "get<T = any>(url: string, params: ApiMethodParams['params'], options: ApiMethodParams['options'] = {}): Promise<T>",
           "description": "Sends a GET request.",
           "parameters": [
             {
@@ -152,15 +152,15 @@
             {
               "name": "options",
               "type": "ApiMethodParams['options']",
-              "optional": true,
-              "description": "Request options including concurrentId, collectRequest, timeout, headers, requestConfig, onDownloadProgress."
+              "optional": false,
+              "description": "Request options including concurrentId, collectRequest, timeout, headers, requestConfig, onDownloadProgress. Defaults to empty object."
             }
           ],
           "return_type": "Promise<T>"
         },
         {
           "name": "post",
-          "signature": "post<T = any>(url: string, data: unknown, params: ApiMethodParams['params'], options?: ApiMethodParams['options']): Promise<T>",
+          "signature": "post<T = any>(url: string, data: unknown, params: ApiMethodParams['params'], options: ApiMethodParams['options'] = {}): Promise<T>",
           "description": "Sends a POST request.",
           "parameters": [
             {
@@ -184,15 +184,15 @@
             {
               "name": "options",
               "type": "ApiMethodParams['options']",
-              "optional": true,
-              "description": "Request options."
+              "optional": false,
+              "description": "Request options. Defaults to empty object."
             }
           ],
           "return_type": "Promise<T>"
         },
         {
           "name": "put",
-          "signature": "put<T = any>(url: string, data: unknown, params: ApiMethodParams['params'], options?: ApiMethodParams['options']): Promise<T>",
+          "signature": "put<T = any>(url: string, data: unknown, params: ApiMethodParams['params'], options: ApiMethodParams['options'] = {}): Promise<T>",
           "description": "Sends a PUT request.",
           "parameters": [
             {
@@ -216,15 +216,15 @@
             {
               "name": "options",
               "type": "ApiMethodParams['options']",
-              "optional": true,
-              "description": "Request options."
+              "optional": false,
+              "description": "Request options. Defaults to empty object."
             }
           ],
           "return_type": "Promise<T>"
         },
         {
           "name": "patch",
-          "signature": "patch<T = any>(url: string, data: unknown, params: ApiMethodParams['params'], options?: ApiMethodParams['options']): Promise<T>",
+          "signature": "patch<T = any>(url: string, data: unknown, params: ApiMethodParams['params'], options: ApiMethodParams['options'] = {}): Promise<T>",
           "description": "Sends a PATCH request.",
           "parameters": [
             {
@@ -248,15 +248,15 @@
             {
               "name": "options",
               "type": "ApiMethodParams['options']",
-              "optional": true,
-              "description": "Request options."
+              "optional": false,
+              "description": "Request options. Defaults to empty object."
             }
           ],
           "return_type": "Promise<T>"
         },
         {
           "name": "delete",
-          "signature": "delete<T = any>(url: string, data: unknown, params: ApiMethodParams['params'], options?: ApiMethodParams['options']): Promise<T>",
+          "signature": "delete<T = any>(url: string, data: unknown, params: ApiMethodParams['params'], options: ApiMethodParams['options'] = {}): Promise<T>",
           "description": "Sends a DELETE request.",
           "parameters": [
             {
@@ -280,15 +280,15 @@
             {
               "name": "options",
               "type": "ApiMethodParams['options']",
-              "optional": true,
-              "description": "Request options."
+              "optional": false,
+              "description": "Request options. Defaults to empty object."
             }
           ],
           "return_type": "Promise<T>"
         },
         {
           "name": "head",
-          "signature": "head<T = any>(url: string, params: ApiMethodParams['params'], options?: ApiMethodParams['options']): Promise<T>",
+          "signature": "head<T = any>(url: string, params: ApiMethodParams['params'], options: ApiMethodParams['options'] = {}): Promise<T>",
           "description": "Sends a HEAD request.",
           "parameters": [
             {
@@ -306,8 +306,8 @@
             {
               "name": "options",
               "type": "ApiMethodParams['options']",
-              "optional": true,
-              "description": "Request options."
+              "optional": false,
+              "description": "Request options. Defaults to empty object."
             }
           ],
           "return_type": "Promise<T>"
@@ -469,7 +469,7 @@
           "name": "collector",
           "type": "CollectorOptions",
           "optional": true,
-          "description": "Request collector configuration controlling how many requests and errors are retained in memory."
+          "description": "Request collector configuration controlling how many requests and errors are retained in memory. Note: CollectorOptions is not re-exported from the package index and cannot be imported directly; use an inline object with optional collectRequests and collectErrors number fields."
         },
         {
           "name": "csrfHeaderName",

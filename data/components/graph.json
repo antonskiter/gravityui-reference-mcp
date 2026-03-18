@@ -44,7 +44,7 @@
     },
     {
       "name": "GraphBlock",
-      "description": "Base block component for rendering HTML blocks via React. Creates a container for the graph block, correctly places it on the canvas, updates geometry and z-index when state changes. By default hides canvas block automatically when React renders the block.",
+      "description": "Base block component for rendering HTML blocks via React. Creates a container for the graph block, correctly places it on the canvas, updates geometry and z-index when state changes. By default hides canvas block automatically when React renders the block. Supports forwardRef — attach a ref to access the outer container HTMLDivElement.",
       "import_statement": "import { GraphBlock } from '@gravity-ui/graph';",
       "props": [
         {
@@ -95,12 +95,19 @@
           "required": true,
           "default": null,
           "description": "Block content to render inside the wrapper"
+        },
+        {
+          "name": "ref",
+          "type": "React.Ref<HTMLDivElement>",
+          "required": false,
+          "default": null,
+          "description": "Ref forwarded to the outer container div via forwardRef"
         }
       ]
     },
     {
       "name": "Block",
-      "description": "Internal memo component that renders a single block using a render function and block state",
+      "description": "Memo component used internally by BlocksList to render a single block via a render function and block state. Exported from BlocksList.tsx but not re-exported from the package barrel — use BlocksList or GraphCanvas instead.",
       "import_statement": "import { Block } from '@gravity-ui/graph';",
       "props": [
         {
@@ -324,7 +331,7 @@
     },
     {
       "name": "GraphPortal",
-      "description": "Declarative component for creating HTML layers using render prop pattern. Creates an internal Layer with an HTML element and renders React components through React Portal without needing a separate Layer class.",
+      "description": "Declarative component for creating HTML layers using render prop pattern. Creates an internal Layer with an HTML element and renders React components through React Portal without needing a separate Layer class. Supports forwardRef — attach a ref to access the internal GraphPortalLayer instance.",
       "import_statement": "import { GraphPortal } from '@gravity-ui/graph';",
       "props": [
         {
@@ -354,6 +361,13 @@
           "required": true,
           "default": null,
           "description": "Static content or render function receiving the layer and graph instances"
+        },
+        {
+          "name": "ref",
+          "type": "React.Ref<GraphPortalLayer>",
+          "required": false,
+          "default": null,
+          "description": "Ref forwarded to the internal GraphPortalLayer instance via forwardRef"
         }
       ]
     }
@@ -574,8 +588,8 @@
     },
     {
       "name": "useBlockViewState",
-      "signature": "useBlockViewState<T extends TBlock>(graph: Graph, block: T | T[\"id\"]): ViewComponent | undefined",
-      "description": "Returns the view component for a block, providing access to the visual/rendering state",
+      "signature": "useBlockViewState<T extends TBlock>(graph: Graph, block: T | T[\"id\"]): Block | undefined",
+      "description": "Returns the canvas Block view component for a block (the low-level Canvas rendering component), or undefined if the block has no view component attached yet",
       "parameters": [
         {
           "name": "graph",
@@ -590,7 +604,7 @@
           "description": "Block instance or block ID"
         }
       ],
-      "return_type": "ViewComponent | undefined",
+      "return_type": "Block | undefined",
       "import_path": "@gravity-ui/graph",
       "library": "graph",
       "rules_of_hooks": true

@@ -41,6 +41,32 @@
           }
         ]
       },
+      "fields": [
+        {
+          "name": "queryClient",
+          "type": "QueryClient",
+          "readonly": true,
+          "description": "The underlying TanStack QueryClient instance used for all cache operations."
+        },
+        {
+          "name": "normalizer",
+          "type": "Normalizer | undefined",
+          "readonly": true,
+          "description": "The normy Normalizer instance, present only when normalizerConfig was provided."
+        },
+        {
+          "name": "queryNormalizer",
+          "type": "QueryNormalizer | undefined",
+          "readonly": true,
+          "description": "The query normalizer subscription manager, present only when normalizerConfig was provided."
+        },
+        {
+          "name": "normalizerConfig",
+          "type": "NormalizerConfig | boolean | undefined",
+          "readonly": true,
+          "description": "The normalization configuration passed to the constructor. Controls optimistic updates and invalidation behavior."
+        }
+      ],
       "methods": [
         {
           "name": "optimisticUpdate",

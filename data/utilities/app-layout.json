@@ -132,7 +132,7 @@
       "name": "createDefaultPlugins",
       "kind": "function",
       "signature": "function createDefaultPlugins(options: {layout: LayoutInitOptions}): Plugin[]",
-      "description": "Helper that creates all built-in plugins (googleAnalytics, yandexMetrika, uikit, layout) pre-configured and ready to pass to createRenderFunction.",
+      "description": "Helper that creates 4 standard plugins (googleAnalytics, yandexMetrika, uikit, layout) pre-configured and ready to pass to createRenderFunction. The remoteVersions plugin is NOT included and must be added manually if needed.",
       "parameters": [
         {
           "name": "options",
@@ -148,7 +148,7 @@
       "name": "Plugin",
       "kind": "interface",
       "signature": "interface Plugin<Options = any, Name extends string = string>",
-      "description": "Interface describing a render plugin. Has a name identifier and an apply method called during rendering. The apply method receives options (from pluginsOptions), renderContent (mutable), commonOptions, and the deprecated utils (use renderContent.helpers instead).",
+      "description": "Interface describing a render plugin. Members: name (Name extends string) — unique plugin identifier used as the key in pluginsOptions; apply (function) — called during rendering with a params object of shape { options: Options | undefined, renderContent: RenderContent, commonOptions: CommonOptions, utils: RenderHelpers } where utils is deprecated (use renderContent.helpers instead).",
       "parameters": [],
       "return_type": null,
       "import_path": "@gravity-ui/app-layout",
@@ -158,7 +158,7 @@
       "name": "RenderParams",
       "kind": "interface",
       "signature": "interface RenderParams<Data, Plugins extends Plugin[] = []> extends CommonOptions",
-      "description": "Parameters passed to the render function returned by createRenderFunction. Extends CommonOptions (title, lang, isMobile). Includes data (set to window.__DATA__), icon (favicon), nonce, htmlAttributes, meta, links, scripts, styleSheets, inlineScripts, inlineStyleSheets, bodyContent, and pluginsOptions.",
+      "description": "Parameters passed to the render function returned by createRenderFunction. Extends CommonOptions (title, lang, isMobile). Includes data (set to window.__DATA__), icon (favicon), nonce, htmlAttributes, meta, links, scripts, styleSheets, inlineScripts, inlineStyleSheets, bodyContent, and pluginsOptions. bodyContent has the nested shape { className?: string, attributes?: Attributes, beforeRoot?: string, root?: string, afterRoot?: string } where className adds a CSS class to the root div wrapper and beforeRoot/afterRoot are raw HTML strings. pluginsOptions is typed as Partial<PluginsOptions<Plugins>> where PluginsOptions is a utility type that derives the per-plugin options map from the Plugins generic parameter.",
       "parameters": [],
       "return_type": null,
       "import_path": "@gravity-ui/app-layout",

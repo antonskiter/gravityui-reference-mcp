@@ -185,7 +185,7 @@
     },
     {
       "name": "BackgroundImage",
-      "description": "Container component that renders a background image with optional children overlaid on top.",
+      "description": "Container component that renders a background image with optional children overlaid on top. BackgroundImageProps extends Partial<ImageDeviceProps> and Partial<ImageObjectProps>, so it also accepts mobile, tablet, alt, loading, fetchPriority, disableCompress, hide, and aria-describedby in addition to the listed props.",
       "props": [
         {
           "name": "src",
@@ -1490,7 +1490,7 @@
     },
     {
       "name": "Map",
-      "description": "Map component that renders Yandex or Google Maps based on the MapsContext configuration.",
+      "description": "Map component that renders Yandex or Google Maps based on the MapsContext configuration. MapProps is a union type (GMapProps | YMapProps): GMapProps requires address (string) while YMapProps requires markers and id; shared base props are zoom, className, and forceAspectRatio. The props listed below are a simplified merged view.",
       "props": [
         {
           "name": "address",
