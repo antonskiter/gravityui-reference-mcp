@@ -15,11 +15,15 @@ token, or a config package.
 
 Current state:
 - 11 of 35 vendor packages have ingested data (`data/components/*.json`)
-- 6 packages are configured in `library-config.ts` but never ingested
-- 17 packages have no config and no data
+- 6 component libraries are configured in `library-config.ts` but never ingested:
+  markdown-editor, dialog-fields, dynamic-forms, data-source, timeline, yagr
+- 1 component library (`charts`) is in vendor/ with no config entry and no data
+- 18 packages have no config and no data (including 3 out-of-scope)
 - `list()` only surfaces component-library entities
 - An agent has no way to discover that `i18n`, `date-utils`, `app-layout`, `icons`,
   or `eslint-config` exist
+
+Phase 1 addresses all 7 missing component libraries (6 configured + charts).
 
 Root causes:
 - Ingest pipeline only knows one strategy: React component extraction
@@ -40,6 +44,12 @@ Asset libraries (2):
 
 Utility libraries (4):
 - i18n, date-utils, axios-wrapper, app-layout
+
+Note: app-layout is a pure TypeScript utility (server-side HTML rendering helpers,
+no React components, zero .tsx files as of 2026-03-18). It exports functions like
+`render()` and utility helpers — processed by the utility strategy, not the component
+strategy. If .tsx files are discovered during ingest, reclassify to component strategy
+and re-run.
 
 Config / tooling (8):
 - eslint-config, tsconfig, prettier-config, stylelint-config, babel-preset,
@@ -62,7 +72,9 @@ Six entity types replace the previous component-centric model:
 
 `hook`
 - Exported React hook (name starts with `use`)
-- Source: exported functions from component library source files
+- Source: follow the module graph transitively from the package entry point (index.ts),
+  tracking all re-exports. Do not walk the filesystem independently — only hooks
+  reachable via the public module graph are included.
 - Data: name, signature, parameters (name, type, description), returnType,
   rulesOfHooks: true, importPath, library
 
@@ -78,13 +90,15 @@ Six entity types replace the previous component-centric model:
 - Data: name, importPath, category (if available), library
 
 `token`
-- Design token (already exists, unchanged)
+- Design token (already ingested into `data/tokens.json`, no new ingest needed)
+- Included in search index extension (Phase 0) so `find()` surfaces tokens alongside
+  other entity types
 - Data: name, value, description, category
 
 `config-package`
 - Build/lint/format configuration package
 - Source: README, package.json
-- Data: name, description, howToExtend (the config key or CLI usage), library,
+- Data: name, description, howToUse (the config key or CLI usage), library,
   npmPackage
 
 Additionally, every library itself is a first-class entity accessible via `get('{lib}')`:
@@ -100,8 +114,9 @@ Applies to: all 18 component libraries
 Component extraction: unchanged from current pipeline.
 
 Hook extraction (new phase added to existing pipeline):
-- Scan all source files exported from the library entry point
-- Identify functions matching `/^use[A-Z]/` that are exported
+
+- Follow the module graph transitively from the package entry point (index.ts)
+- Identify all exported functions matching `/^use[A-Z]/`
 - Extract TypeScript signature: parameters with types, return type
 - Store separately from components in the same library JSON under `hooks: []`
 
@@ -154,6 +169,7 @@ Format:
       "name": "I18n",
       "kind": "class",
       "signature": "class I18n<TKeyset>",
+      "comment": "Allowed kind values: function | class | type | interface | enum | const",
       "description": "...",
       "importPath": "@gravity-ui/i18n"
     }
@@ -189,14 +205,15 @@ Format:
 
 ### `list` tool
 
-New `type` parameter (optional): `component | hook | api-function | asset | config-package | library`
+New `type` parameter (optional): `component | hook | api-function | asset | token | config-package | library`
 
 Existing `scope` and `library` parameters unchanged.
 
 Behavior:
 - `list()` with no filters → all available libraries grouped by category
-  (components, utilities, assets, configs)
-- `list(type: 'library')` → same as above
+  (components, utilities, assets, configs). This is the ecosystem overview — use it
+  to discover what libraries exist, not to enumerate individual entities.
+- `list(type: 'library')` → same as above (explicit form)
 - `list(library: 'i18n')` → all exports from i18n utility
 - `list(type: 'hook')` → all hooks across all libraries
 - `list(library: 'icons', type: 'asset')` → all icons
@@ -214,8 +231,9 @@ Search index extended to cover all entity types. Each entry carries:
 
 ### `get` tool
 
-Resolves by name across all entity types. Resolution order on name collision:
-component > hook > api-function > asset > config-package
+Resolves by name across all entity types. If the query is an exact match for a library
+name, `library` wins regardless of other matches. Otherwise collision order is:
+component > hook > api-function > asset > token > config-package > library
 
 `get('i18n')` → library card: description, installation, key exports summary
 `get('useTheme')` → hook entry: signature, parameters, importPath
@@ -248,8 +266,11 @@ data/
 ## Validation Layer
 
 After each ingest run, a swarm of parallel mini-agents validates data quality against
-vendor sources. Follows the pattern established in
-`docs/superpowers/reports/2026-03-18-doc-review.md`.
+vendor sources. Pattern: one agent per library runs in parallel; each agent reads the
+generated JSON data and the corresponding vendor source, compares them, and emits
+a list of discrepancies with severity HIGH / MEDIUM / LOW. A coordinator agent
+aggregates all per-library reports into a single markdown file. No automatic fixes —
+review only. (Established in `docs/superpowers/reports/2026-03-18-doc-review.md`.)
 
 ### Agent types per entity type
 
@@ -285,37 +306,56 @@ before merging.
 
 ## Implementation Phases
 
+Phase 0 — Search index schema extension:
+
+- Define extended search-index entry schema: add `type` field (one of 6 entity types)
+  and `library` field to every entry
+- Migrate existing `search-index.json` entries to new schema
+- Update server search logic to accept and filter on `type`
+- Token entries from `data/tokens.json` added to search index in this phase
+- All subsequent phases write to this schema
+
 Phase 1 — Fix the 6 configured-but-missing component libraries:
+
 - Run ingest for: dialog-fields, dynamic-forms, data-source, timeline, yagr, charts
 - Fix markdown-editor moduleBased discovery issue
 - Run component validation swarm for new data
 
 Phase 2 — Hook extraction:
+
 - Add hook-extraction phase to existing component pipeline
 - Re-run ingest for all 18 component libraries to populate `hooks[]`
 - Update search index
 
 Phase 3 — Asset ingest:
+
 - Implement asset strategy for icons and illustrations
 - Populate `data/assets/`
 - Extend search index
 
 Phase 4 — Utility ingest:
+
 - Implement utility strategy for i18n, date-utils, axios-wrapper, app-layout
 - Populate `data/utilities/`
 - Extend search index
 
 Phase 5 — Config ingest:
+
 - Implement config strategy for 8 config/tooling packages
 - Populate `data/configs/`
 - Extend search index
 
 Phase 6 — Discovery layer:
+
 - Extend `list` with `type` parameter
 - Extend `find` search index to all entity types
 - Extend `get` resolver to all entity types and data directories
 
+Note: Phase 6 must complete before Phase 7. Validation agents use `get()` to retrieve
+entities; the resolver must support all data directories before validation can run.
+
 Phase 7 — Full ecosystem validation:
+
 - Run validation swarm across all entity types
 - Generate ecosystem-review report
 - Fix HIGH severity issues
