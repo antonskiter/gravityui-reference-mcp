@@ -2102,6 +2102,20 @@
           "type": "string",
           "required": false,
           "description": "Additional CSS class"
+        },
+        {
+          "name": "filterFunction",
+          "type": "ChatFilterFunction",
+          "required": false,
+          "default": "defaultChatFilter",
+          "description": "Custom filter function for search; defaults to defaultChatFilter which matches chat title"
+        },
+        {
+          "name": "size",
+          "type": "InputControlSize",
+          "required": false,
+          "default": "'m'",
+          "description": "Size of the underlying List component"
         }
       ]
     },
@@ -2460,48 +2474,6 @@
       "library": "aikit",
       "rules_of_hooks": true,
       "description": "Automatically collapses expanded content when tool status changes to cancelled."
-    },
-    {
-      "name": "useMarkdownTransform",
-      "signature": "function useMarkdownTransform(content: string, options?: OptionsType): string",
-      "parameters": [
-        {
-          "name": "content",
-          "type": "string",
-          "description": "Markdown content to transform"
-        },
-        {
-          "name": "options",
-          "type": "OptionsType",
-          "description": "Optional diplodoc transform options"
-        }
-      ],
-      "return_type": "string",
-      "import_path": "@gravity-ui/aikit",
-      "library": "aikit",
-      "rules_of_hooks": true,
-      "description": "Transforms markdown content to HTML using diplodoc/transform with block-level caching for efficient re-renders."
-    },
-    {
-      "name": "useRemend",
-      "signature": "function useRemend(content: string, enabled: boolean): string",
-      "parameters": [
-        {
-          "name": "content",
-          "type": "string",
-          "description": "Markdown content to close/fix"
-        },
-        {
-          "name": "enabled",
-          "type": "boolean",
-          "description": "Whether to enable incomplete markdown parsing"
-        }
-      ],
-      "return_type": "string",
-      "import_path": "@gravity-ui/aikit",
-      "library": "aikit",
-      "rules_of_hooks": true,
-      "description": "Closes incomplete markdown tags using the remend library, useful for rendering partial markdown during streaming."
     }
   ]
 }

@@ -392,46 +392,6 @@
       ]
     },
     {
-      "name": "Content",
-      "library": "navigation",
-      "import_statement": "import { Content } from '@gravity-ui/navigation';",
-      "description": "Content wrapper component used by AsideHeader's renderContent prop. Renders the main content area with a CSS variable for the aside header size.",
-      "source_file": "vendor/navigation/src/components/Content/Content.tsx",
-      "props": [
-        {
-          "name": "size",
-          "type": "number",
-          "required": true,
-          "description": "Width of the aside header in pixels, set as CSS variable"
-        },
-        {
-          "name": "className",
-          "type": "string",
-          "required": false,
-          "description": "CSS class name"
-        },
-        {
-          "name": "cssSizeVariableName",
-          "type": "string",
-          "required": false,
-          "default": "'--gn-aside-header-size'",
-          "description": "CSS custom property name for the size"
-        },
-        {
-          "name": "renderContent",
-          "type": "(data: {size: number}) => React.ReactNode",
-          "required": false,
-          "description": "Render function for content, receives size data"
-        },
-        {
-          "name": "children",
-          "type": "React.ReactNode",
-          "required": false,
-          "description": "Child elements, used when renderContent is not provided"
-        }
-      ]
-    },
-    {
       "name": "Footer",
       "library": "navigation",
       "import_statement": "import { Footer } from '@gravity-ui/navigation';",
@@ -1410,34 +1370,6 @@
       ]
     },
     {
-      "name": "TopAlert",
-      "library": "navigation",
-      "import_statement": "import { TopAlert } from '@gravity-ui/navigation';",
-      "description": "Top alert banner component displayed above the navigation. Supports standard Alert props or a custom render function. Tracks its height via CSS variable for layout adjustments.",
-      "source_file": "vendor/navigation/src/components/TopAlert/TopAlert.tsx",
-      "props": [
-        {
-          "name": "alert",
-          "type": "TopAlertProps",
-          "required": false,
-          "description": "Alert configuration. Either standard alert props (message, title, theme, etc.) or {render} for custom content."
-        },
-        {
-          "name": "className",
-          "type": "string",
-          "required": false,
-          "description": "CSS class for the wrapper"
-        },
-        {
-          "name": "mobileView",
-          "type": "boolean",
-          "required": false,
-          "default": "false",
-          "description": "Whether to render in mobile view (ellipsis text, no border)"
-        }
-      ]
-    },
-    {
       "name": "PageLayout",
       "library": "navigation",
       "import_statement": "import { PageLayout } from '@gravity-ui/navigation';",
@@ -1479,6 +1411,248 @@
           "type": "boolean",
           "required": false,
           "description": "When true, menu items use compact height"
+        }
+      ]
+    },
+    {
+      "name": "PageLayoutAside",
+      "library": "navigation",
+      "import_statement": "import { PageLayoutAside } from '@gravity-ui/navigation';",
+      "description": "Aside panel component for use inside PageLayout. Reads size and pinned state from AsideHeaderContext and renders the navigation aside. Accepts all AsideHeaderProps except 'pinned' and 'size' which are provided by context. Must be used inside PageLayout (which provides AsideHeaderContext).",
+      "source_file": "vendor/navigation/src/components/AsideHeader/components/PageLayout/PageLayoutAside.tsx",
+      "props": [
+        {
+          "name": "logo",
+          "type": "LogoProps",
+          "required": false,
+          "description": "Logo configuration for the aside header"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "CSS class for the aside header root"
+        },
+        {
+          "name": "collapseTitle",
+          "type": "string",
+          "required": false,
+          "description": "Tooltip title for the collapse button"
+        },
+        {
+          "name": "expandTitle",
+          "type": "string",
+          "required": false,
+          "description": "Tooltip title for the expand button"
+        },
+        {
+          "name": "menuMoreTitle",
+          "type": "string",
+          "required": false,
+          "description": "Title for the 'more items' button"
+        },
+        {
+          "name": "topAlert",
+          "type": "TopAlertProps",
+          "required": false,
+          "description": "Top alert configuration"
+        },
+        {
+          "name": "customBackground",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Custom background content for the aside"
+        },
+        {
+          "name": "customBackgroundClassName",
+          "type": "string",
+          "required": false,
+          "description": "CSS class for the custom background"
+        },
+        {
+          "name": "hideCollapseButton",
+          "type": "boolean",
+          "required": false,
+          "description": "When true, hides the collapse/expand button"
+        },
+        {
+          "name": "isCompactMode",
+          "type": "boolean",
+          "required": false,
+          "description": "When true, menu items use compact height"
+        },
+        {
+          "name": "renderContent",
+          "type": "RenderContentType",
+          "required": false,
+          "description": "Render function for the main content area inside the aside"
+        },
+        {
+          "name": "renderFooter",
+          "type": "(data: {size: number; isExpanded: boolean; isPinned: boolean; asideRef: React.RefObject<HTMLDivElement>; isCompactMode?: boolean}) => React.ReactNode | React.ReactNode[]",
+          "required": false,
+          "description": "Render function for the footer. Returns ReactNode for custom content or ReactNode[] to wrap in FooterBar."
+        },
+        {
+          "name": "renderFooterAfter",
+          "type": "(options?: {setCollapseBlocker?: SetCollapseBlocker}) => React.ReactNode",
+          "required": false,
+          "description": "Render function for additional content after footer items"
+        },
+        {
+          "name": "collapseButtonWrapper",
+          "type": "(defaultButton: React.ReactNode, data: {isExpanded: boolean; onChangePinned?: (pinned: boolean) => void}) => React.ReactNode",
+          "required": false,
+          "description": "Wrapper function for customizing the collapse button"
+        },
+        {
+          "name": "editMenuProps",
+          "type": "EditMenuProps",
+          "required": false,
+          "description": "Props for the edit menu mode (sorting, toggling items)"
+        },
+        {
+          "name": "onClosePanel",
+          "type": "() => void",
+          "required": false,
+          "description": "Callback when a panel is closed"
+        },
+        {
+          "name": "onChangePinned",
+          "type": "(pinned: boolean) => void",
+          "required": false,
+          "description": "Callback when pinned state changes"
+        },
+        {
+          "name": "onMenuMoreClick",
+          "type": "() => void",
+          "required": false,
+          "description": "Callback when the 'more' menu button is clicked"
+        },
+        {
+          "name": "onAllPagesClick",
+          "type": "() => void",
+          "required": false,
+          "description": "Callback when the all pages button is clicked"
+        },
+        {
+          "name": "panelItems",
+          "type": "PanelItemProps[]",
+          "required": false,
+          "description": "Drawer panel items"
+        },
+        {
+          "name": "subheaderItems",
+          "type": "AsideHeaderItem[]",
+          "required": false,
+          "description": "Items shown in the subheader area"
+        },
+        {
+          "name": "menuItems",
+          "type": "AsideHeaderItem[]",
+          "required": false,
+          "description": "Main navigation menu items"
+        },
+        {
+          "name": "defaultMenuItems",
+          "type": "AsideHeaderItem[]",
+          "required": false,
+          "description": "Default menu items used when edit mode resets"
+        },
+        {
+          "name": "menuGroups",
+          "type": "MenuGroup[]",
+          "required": false,
+          "description": "Menu item groups"
+        },
+        {
+          "name": "defaultMenuGroups",
+          "type": "MenuGroup[]",
+          "required": false,
+          "description": "Default menu groups used when edit mode resets"
+        },
+        {
+          "name": "headerDecoration",
+          "type": "boolean",
+          "required": false,
+          "description": "When true, adds a decorative element to the header area"
+        },
+        {
+          "name": "qa",
+          "type": "string",
+          "required": false,
+          "description": "data-qa HTML attribute for testing"
+        }
+      ]
+    },
+    {
+      "name": "getMobileHeaderCustomEvent",
+      "library": "navigation",
+      "import_statement": "import { getMobileHeaderCustomEvent } from '@gravity-ui/navigation';",
+      "description": "Utility function that creates a CustomEvent for programmatic control of MobileHeader panels. Use with MOBILE_HEADER_EVENT_NAMES constants and window.dispatchEvent to open, close, or toggle panels.",
+      "source_file": "vendor/navigation/src/components/MobileHeader/utils.ts",
+      "kind": "function",
+      "signature": "(eventName: string, detail?: MobileHeaderEventOptions) => CustomEvent<MobileHeaderEventOptions>",
+      "parameters": [
+        {
+          "name": "eventName",
+          "type": "string",
+          "required": true,
+          "description": "Event name, typically from MOBILE_HEADER_EVENT_NAMES (e.g. MOBILE_HEADER_EVENT_NAMES.TOGGLE)"
+        },
+        {
+          "name": "detail",
+          "type": "MobileHeaderEventOptions",
+          "required": false,
+          "description": "Event detail payload. MobileHeaderEventOptions: { panelName?: string }"
+        }
+      ],
+      "return_type": "CustomEvent<MobileHeaderEventOptions>"
+    },
+    {
+      "name": "MobileHeaderFooterItem",
+      "library": "navigation",
+      "import_statement": "import { MobileHeaderFooterItem } from '@gravity-ui/navigation';",
+      "description": "Footer item component for MobileHeader. Re-exported as MobileHeaderFooterItem (from FooterItem). Renders a button with an optional icon and a Sheet modal for panel content. Publishes click events via eventBroker.",
+      "source_file": "vendor/navigation/src/components/MobileHeader/FooterItem/FooterItem.tsx",
+      "props": [
+        {
+          "name": "icon",
+          "type": "IconProps['data']",
+          "required": false,
+          "description": "Icon data for the footer button"
+        },
+        {
+          "name": "iconSize",
+          "type": "string | number",
+          "required": false,
+          "default": "MOBILE_HEADER_ICON_SIZE",
+          "description": "Size of the icon"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "CSS class for the button element"
+        },
+        {
+          "name": "modalItem",
+          "type": "ModalItem",
+          "required": false,
+          "default": "{visible: false}",
+          "description": "Sheet modal configuration. ModalItem: { visible: boolean; title?: string; id?: string; className?: string; contentClassName?: string; modalAllowHideOnContentScroll?: boolean; renderContent?: () => React.ReactNode; onClose?: () => void }"
+        },
+        {
+          "name": "onClick",
+          "type": "(event: React.MouseEvent<HTMLElement, MouseEvent>) => void",
+          "required": false,
+          "description": "Click handler for the footer button"
+        },
+        {
+          "name": "eventBrokerMeta",
+          "type": "Record<string, string | undefined>",
+          "required": false,
+          "description": "Metadata passed to the eventBroker on click for analytics"
         }
       ]
     }
@@ -1526,6 +1700,17 @@
       "signature": "() => SettingsContextType",
       "parameters": [],
       "return_type": "SettingsContextType",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useSettingsSelectionContext",
+      "library": "navigation",
+      "import_path": "@gravity-ui/navigation",
+      "import_statement": "import { useSettingsSelectionContext } from '@gravity-ui/navigation';",
+      "description": "Returns the SettingsSelectionContext value providing the currently selected page, section, and setting within a Settings component. Used to implement custom highlighting or scrolling to the selected settings item. Returns SettingsSelectionProviderContextValue: { page?: SettingsPage; section?: SettingsPageSection; setting?: SettingsItem; selectedRef?: React.RefObject<HTMLDivElement> }.",
+      "signature": "() => SettingsSelectionProviderContextValue",
+      "parameters": [],
+      "return_type": "SettingsSelectionProviderContextValue",
       "rules_of_hooks": true
     }
   ]

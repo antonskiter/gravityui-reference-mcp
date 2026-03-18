@@ -41,38 +41,6 @@
       "library": "app-layout"
     },
     {
-      "name": "renderHeadContent",
-      "kind": "function",
-      "signature": "function renderHeadContent(content: HeadContent): string",
-      "description": "Renders the HTML head section content (title, meta tags, link tags, stylesheets, inline styles, scripts, inline scripts) from a HeadContent object. Used for streaming or custom HTML assembly.",
-      "parameters": [
-        {
-          "name": "content",
-          "type": "HeadContent",
-          "description": "The head content object produced by generateRenderContent."
-        }
-      ],
-      "return_type": "string",
-      "import_path": "@gravity-ui/app-layout",
-      "library": "app-layout"
-    },
-    {
-      "name": "renderBodyContent",
-      "kind": "function",
-      "signature": "function renderBodyContent(content: BodyContent): string",
-      "description": "Renders the HTML body content (beforeRoot, root div, afterRoot) from a BodyContent object. Used for streaming or custom HTML assembly.",
-      "parameters": [
-        {
-          "name": "content",
-          "type": "BodyContent",
-          "description": "The body content object produced by generateRenderContent."
-        }
-      ],
-      "return_type": "string",
-      "import_path": "@gravity-ui/app-layout",
-      "library": "app-layout"
-    },
-    {
       "name": "createGoogleAnalyticsPlugin",
       "kind": "function",
       "signature": "function createGoogleAnalyticsPlugin(): Plugin<GoogleAnalyticsPluginOptions, 'googleAnalytics'>",

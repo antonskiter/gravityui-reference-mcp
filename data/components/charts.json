@@ -115,165 +115,48 @@
       ]
     }
   ],
-  "hooks": [
+  "hooks": [],
+  "functions": [
     {
-      "name": "useAxis",
+      "name": "CustomShapeRenderer",
       "library": "charts",
-      "description": "Prepares and manages X and Y axis state asynchronously based on chart dimensions, series data, legend config, and raw axis options. Returns prepared axis objects for rendering.",
-      "signature": "function useAxis(props: UseAxesProps): AxesState",
-      "parameters": [
-        {
-          "name": "props",
-          "type": "UseAxesProps",
-          "description": "Object containing height, width, preparedChart, legendConfig, preparedLegend, preparedSeries, preparedSeriesOptions, boundsHeight, xAxis, yAxis"
-        }
-      ],
-      "return_type": "AxesState",
+      "description": "Namespace object providing built-in custom shape renderer factories for chart series. Currently includes pieCenterText for rendering centered text inside donut/pie chart inner radius areas.",
+      "type": "object",
+      "signature": "const CustomShapeRenderer: { pieCenterText: (text: string, options?: { padding?: string | number; color?: string; minFontSize?: number }) => ((args: { series: { innerRadius: number } }) => Promise<SVGGElement | null | undefined>) | undefined }",
       "import_path": "@gravity-ui/charts",
-      "rules_of_hooks": true
+      "import_statement": "import { CustomShapeRenderer } from '@gravity-ui/charts';"
     },
     {
-      "name": "useAxisScales",
+      "name": "getFormattedValue",
       "library": "charts",
-      "description": "Creates D3 scales for axis-related series. Memoizes scale creation based on bounds dimensions, series, axes, split, range slider state, and zoom state.",
-      "signature": "const useAxisScales: (args: Args) => { xScale?: ChartScale; yScale?: (ChartScale | undefined)[] }",
+      "description": "Formats a value according to a ValueFormat or CustomFormat specification. Handles number formatting, date formatting (via dateTimeUtc), and custom formatter functions. Falls back to String(value) for unrecognized or missing format types.",
+      "signature": "function getFormattedValue(args: { value: string | number | undefined | null; format?: ValueFormat | CustomFormat }): string | undefined",
       "parameters": [
         {
           "name": "args",
-          "type": "{ boundsWidth: number; boundsHeight: number; series: PreparedSeries[]; xAxis: PreparedAxis | null; yAxis: PreparedYAxis[]; split: PreparedSplit; isRangeSlider?: boolean; rangeSliderState?: RangeSliderState; zoomState?: Partial<ZoomState> }",
-          "description": "Scale creation arguments including bounds, series, axes, and optional zoom/range slider state"
+          "type": "{ value: string | number | undefined | null; format?: ValueFormat | CustomFormat }",
+          "description": "Object containing the value to format and an optional format descriptor (number, date, or custom)"
         }
       ],
-      "return_type": "{ xScale?: ChartScale; yScale?: (ChartScale | undefined)[] }",
+      "return_type": "string | undefined",
       "import_path": "@gravity-ui/charts",
-      "rules_of_hooks": true
+      "import_statement": "import { getFormattedValue } from '@gravity-ui/charts';"
     },
     {
-      "name": "useBrush",
+      "name": "getDefaultTooltipHeaderFormat",
       "library": "charts",
-      "description": "Manages D3 brush behavior on SVG elements for selection interactions. Supports x, y, and xy brush types with configurable areas, border styling, handles, and callbacks for brush start/move/end events.",
-      "signature": "function useBrush(props: UseBrushProps): void",
-      "parameters": [
-        {
-          "name": "props",
-          "type": "UseBrushProps",
-          "description": "Object containing areas, brushOptions, disabled, node, preventNullSelection, selection, type, onBrushStart, onBrush, onBrushEnd"
-        }
-      ],
-      "return_type": "void",
-      "import_path": "@gravity-ui/charts",
-      "rules_of_hooks": true
-    },
-    {
-      "name": "useCrosshair",
-      "library": "charts",
-      "description": "Renders crosshair lines (vertical and/or horizontal) on the chart plot area following hovered data points. Supports snap-to-point mode, custom colors, dash styles, and layer placement.",
-      "signature": "const useCrosshair: (props: Props) => void",
-      "parameters": [
-        {
-          "name": "props",
-          "type": "{ xAxis: PreparedXAxis | null; yAxes: PreparedYAxis[]; width: number; height: number; xScale?: ChartScale; yScale?: (ChartScale | undefined)[]; split: PreparedSplit | undefined; plotElement: SVGGElement | null; dispatcher: Dispatch<object>; boundsOffsetLeft: number; boundsOffsetTop: number }",
-          "description": "Crosshair configuration including axes, scales, split, plot element, and D3 dispatcher"
-        }
-      ],
-      "return_type": "void",
-      "import_path": "@gravity-ui/charts",
-      "rules_of_hooks": true
-    },
-    {
-      "name": "usePrevious",
-      "library": "charts",
-      "description": "Returns the previous value of a given variable from the last render cycle.",
-      "signature": "function usePrevious<T>(value: T): T | undefined",
-      "parameters": [
-        {
-          "name": "value",
-          "type": "T",
-          "description": "The value to track across renders"
-        }
-      ],
-      "return_type": "T | undefined",
-      "import_path": "@gravity-ui/charts",
-      "rules_of_hooks": true
-    },
-    {
-      "name": "useRangeSlider",
-      "library": "charts",
-      "description": "Manages the range slider control for chart data zooming. Computes axes, scales, shapes, brush selection, and click handling for the range slider UI below the main chart area.",
-      "signature": "function useRangeSlider(props: UseRangeSliderProps): PreparedRangeSliderProps",
-      "parameters": [
-        {
-          "name": "props",
-          "type": "UseRangeSliderProps",
-          "description": "Object containing boundsWidth, boundsOffsetLeft, clipPathId, height, htmlLayout, onUpdate, preparedChart, preparedLegend, legendConfig, preparedSeries, preparedSeriesOptions, preparedRangeSlider, rangeSliderState, width, xAxis, yAxis"
-        }
-      ],
-      "return_type": "PreparedRangeSliderProps",
-      "import_path": "@gravity-ui/charts",
-      "rules_of_hooks": true
-    },
-    {
-      "name": "useShapes",
-      "library": "charts",
-      "description": "Generates React elements and shape data for rendering chart series (bars, lines, areas, pies, scatter, treemaps, etc.). Handles series-to-shape mapping asynchronously with support for clip paths, zoom, and split layouts.",
-      "signature": "const useShapes: (args: Args) => { shapes: React.ReactElement[]; shapesData: ShapeData[] }",
+      "description": "Derives the default tooltip header format function based on series types and axis configuration. Returns undefined for series types that do not use an axis-based header (pie, treemap, waterfall, sankey, radar, heatmap, funnel). For bar-y series uses the Y axis domain; otherwise uses the X axis domain to determine the closest points range and select an appropriate value format.",
+      "signature": "function getDefaultTooltipHeaderFormat(args: { seriesData: ChartSeries[]; yAxes?: ChartYAxis[]; xAxis?: ChartXAxis }): ((args: { value: string | number | undefined | null }) => string | undefined) | undefined",
       "parameters": [
         {
           "name": "args",
-          "type": "{ boundsWidth: number; boundsHeight: number; clipPathId?: string; clipPathBySeriesType?: ClipPathBySeriesType; dispatcher?: Dispatch<object>; htmlLayout?: HTMLElement | null; isOutsideBounds?: IsOutsideBounds; isRangeSlider?: boolean; series: PreparedSeries[]; seriesOptions: PreparedSeriesOptions; split: PreparedSplit; xAxis: PreparedAxis | null; xScale?: ChartScale; yAxis: PreparedYAxis[]; yScale?: (ChartScale | undefined)[]; zoomState?: Partial<ZoomState> }",
-          "description": "Shape generation arguments including bounds, series, axes, scales, and layout options"
+          "type": "{ seriesData: ChartSeries[]; yAxes?: ChartYAxis[]; xAxis?: ChartXAxis }",
+          "description": "Object containing the chart series array and optional Y and X axis configurations"
         }
       ],
-      "return_type": "{ shapes: React.ReactElement[]; shapesData: ShapeData[] }",
+      "return_type": "((args: { value: string | number | undefined | null }) => string | undefined) | undefined",
       "import_path": "@gravity-ui/charts",
-      "rules_of_hooks": true
-    },
-    {
-      "name": "useTooltip",
-      "library": "charts",
-      "description": "Subscribes to chart hover events via a D3 dispatcher and returns the currently hovered data chunks, plot lines, plot bands, and pointer position for tooltip rendering.",
-      "signature": "const useTooltip: (args: { dispatcher: Dispatch<object>; tooltip: PreparedTooltip; xAxis?: PreparedXAxis | null; yAxis?: PreparedYAxis }) => { hovered?: TooltipDataChunk[]; hoveredPlotLines?: ChartTooltipRendererArgs['hoveredPlotLines']; hoveredPlotBands?: ChartTooltipRendererArgs['hoveredPlotBands']; pointerPosition?: PointPosition }",
-      "parameters": [
-        {
-          "name": "dispatcher",
-          "type": "Dispatch<object>",
-          "description": "D3 event dispatcher for chart hover events"
-        },
-        {
-          "name": "tooltip",
-          "type": "PreparedTooltip",
-          "description": "Prepared tooltip configuration with enabled flag and throttle"
-        },
-        {
-          "name": "xAxis",
-          "type": "PreparedXAxis | null",
-          "description": "Prepared X axis configuration for sorting and formatting"
-        },
-        {
-          "name": "yAxis",
-          "type": "PreparedYAxis",
-          "description": "Prepared Y axis configuration for sorting and formatting"
-        }
-      ],
-      "return_type": "{ hovered?: TooltipDataChunk[]; hoveredPlotLines?: ChartTooltipRendererArgs['hoveredPlotLines']; hoveredPlotBands?: ChartTooltipRendererArgs['hoveredPlotBands']; pointerPosition?: PointPosition }",
-      "import_path": "@gravity-ui/charts",
-      "rules_of_hooks": true
-    },
-    {
-      "name": "useZoom",
-      "library": "charts",
-      "description": "Manages chart zoom via D3 brush interactions. Creates brush areas matching split plot regions, converts brush selections to zoom bounds, and calls onUpdate with the new zoom state.",
-      "signature": "function useZoom(props: UseZoomProps): void",
-      "parameters": [
-        {
-          "name": "props",
-          "type": "UseZoomProps",
-          "description": "Object containing node, onUpdate, plotContainerHeight, plotContainerWidth, preparedSplit, preparedZoom, rangeSliderDomain, xAxis, xScale, yAxis, yScale"
-        }
-      ],
-      "return_type": "void",
-      "import_path": "@gravity-ui/charts",
-      "rules_of_hooks": true
+      "import_statement": "import { getDefaultTooltipHeaderFormat } from '@gravity-ui/charts';"
     }
   ]
 }

@@ -635,29 +635,224 @@
       "source_file": "data-source/src/react-query/hooks/useRefetchErrored.ts"
     },
     {
-      "name": "useRefetchInterval",
+      "name": "useDataManager",
       "library": "data-source",
       "import_path": "@gravity-ui/data-source",
-      "import_statement": "import {useRefetchInterval} from '@gravity-ui/data-source';",
-      "description": "Manages refetch interval with fetch count tracking. Wraps queryFn to count invocations and passes count to the refetchInterval function for progressive/adaptive polling.",
-      "signature": "<TQueryFnData, TError, TQueryData, TQueryKey extends QueryKey, TPageParam>(refetchInterval?: RefetchInterval<TQueryFnData, TError, TQueryData, TQueryKey>, queryFn?: QueryFunction<TQueryFnData, TQueryKey, TPageParam> | SkipToken) => UseRefetchIntervalResult<TQueryFnData, TError, TQueryData, TQueryKey, TPageParam>",
+      "import_statement": "import {useDataManager} from '@gravity-ui/data-source';",
+      "description": "Returns the DataManager instance from the nearest DataManagerContext. Throws an error if DataManager has not been provided by a DataManagerProvider or DataSourceProvider ancestor.",
+      "signature": "() => DataManager",
+      "parameters": [],
+      "return_type": "DataManager",
+      "rules_of_hooks": true,
+      "source_file": "data-source/src/react/DataManagerContext.ts"
+    }
+  ],
+  "contexts": [
+    {
+      "name": "DataManagerContext",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {DataManagerContext} from '@gravity-ui/data-source';",
+      "description": "React context holding the DataManager instance. Created via createContext<DataManager | null>(null). Consumed by useDataManager hook and DataManagerProvider.",
+      "type": "React.Context<DataManager | null>",
+      "default_value": "null",
+      "source_file": "data-source/src/react/DataManagerContext.ts"
+    }
+  ],
+  "higher_order_components": [
+    {
+      "name": "withDataManager",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {withDataManager} from '@gravity-ui/data-source';",
+      "description": "Higher-order component that injects the dataManager prop from context into the wrapped component using the useDataManager hook. Sets a descriptive displayName on the resulting component.",
+      "kind": "function",
+      "signature": "<T>(Component: React.ComponentType<T & WithDataManagerProps>) => React.FC<T>",
       "parameters": [
         {
-          "name": "refetchInterval",
-          "type": "RefetchInterval<TQueryFnData, TError, TQueryData, TQueryKey>",
-          "required": false,
-          "description": "Refetch interval value or function that receives (query, count) and returns interval or false."
-        },
-        {
-          "name": "queryFn",
-          "type": "QueryFunction<TQueryFnData, TQueryKey, TPageParam> | SkipToken",
-          "required": false,
-          "description": "Query function to wrap with fetch counting."
+          "name": "Component",
+          "type": "React.ComponentType<T & WithDataManagerProps>",
+          "required": true,
+          "description": "The component to wrap. Must accept a dataManager prop of type DataManager."
         }
       ],
-      "return_type": "UseRefetchIntervalResult<TQueryFnData, TError, TQueryData, TQueryKey, TPageParam>",
-      "rules_of_hooks": true,
-      "source_file": "data-source/src/react-query/hooks/useRefetchInterval.ts"
+      "return_type": "React.FC<T>",
+      "source_file": "data-source/src/react/withDataManager.tsx"
+    }
+  ],
+  "providers": [
+    {
+      "name": "DataManagerProvider",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {DataManagerProvider} from '@gravity-ui/data-source';",
+      "description": "Lower-level provider component that wraps children with DataManagerContext.Provider, making the DataManager instance available to descendant components and hooks. Used internally by DataSourceProvider.",
+      "props": [
+        {
+          "name": "dataManager",
+          "type": "DataManager",
+          "required": true,
+          "description": "The DataManager instance to provide to the component tree."
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Child components to render within the provider."
+        }
+      ],
+      "examples": [],
+      "source_file": "data-source/src/react/DataManagerProvider.tsx"
+    }
+  ],
+  "ui_components": [
+    {
+      "name": "DataLoader",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {DataLoader} from '@gravity-ui/data-source';",
+      "description": "Renders LoadingView, ErrorView, or children based on the current DataLoaderStatus. Handles the loading and error display pattern for data fetching.",
+      "props": [
+        {
+          "name": "status",
+          "type": "DataLoaderStatus",
+          "required": true,
+          "description": "Current loading status: 'loading' | 'success' | 'error'."
+        },
+        {
+          "name": "error",
+          "type": "TError | null",
+          "required": true,
+          "description": "The current error value, or null if no error."
+        },
+        {
+          "name": "errorAction",
+          "type": "ErrorAction | ErrorAction['handler']",
+          "required": false,
+          "description": "Action or handler to trigger on error (e.g., retry)."
+        },
+        {
+          "name": "LoadingView",
+          "type": "ComponentType<TLoadingViewProps>",
+          "required": true,
+          "description": "Component rendered when status is 'loading'."
+        },
+        {
+          "name": "ErrorView",
+          "type": "ComponentType<TErrorViewProps>",
+          "required": true,
+          "description": "Component rendered when status is 'error'. Receives error and errorAction props."
+        },
+        {
+          "name": "loadingViewProps",
+          "type": "TLoadingViewProps",
+          "required": false,
+          "description": "Additional props to pass to LoadingView."
+        },
+        {
+          "name": "errorViewProps",
+          "type": "Omit<TErrorViewProps, keyof ErrorViewProps<TError>>",
+          "required": false,
+          "description": "Additional props to pass to ErrorView beyond the base ErrorViewProps."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Content rendered when status is 'success'."
+        }
+      ],
+      "examples": [],
+      "source_file": "data-source/src/react/components/DataLoader/DataLoader.tsx"
+    },
+    {
+      "name": "DataInfiniteLoader",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {DataInfiniteLoader} from '@gravity-ui/data-source';",
+      "description": "Like DataLoader but adds infinite scroll support with a MoreView component. Renders LoadingView, ErrorView, children, or MoreView based on status and pagination state.",
+      "props": [
+        {
+          "name": "status",
+          "type": "DataLoaderStatus",
+          "required": true,
+          "description": "Current loading status: 'loading' | 'success' | 'error'."
+        },
+        {
+          "name": "error",
+          "type": "TError | null",
+          "required": true,
+          "description": "The current error value, or null if no error."
+        },
+        {
+          "name": "errorAction",
+          "type": "ErrorAction | ErrorAction['handler']",
+          "required": false,
+          "description": "Action or handler to trigger on error (e.g., retry)."
+        },
+        {
+          "name": "hasNextPage",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether more pages are available to load."
+        },
+        {
+          "name": "fetchNextPage",
+          "type": "() => unknown",
+          "required": true,
+          "description": "Callback to trigger fetching the next page."
+        },
+        {
+          "name": "isFetchingNextPage",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the next page is currently being fetched."
+        },
+        {
+          "name": "LoadingView",
+          "type": "ComponentType<TLoadingViewProps>",
+          "required": true,
+          "description": "Component rendered when status is 'loading'."
+        },
+        {
+          "name": "ErrorView",
+          "type": "ComponentType<TErrorViewProps>",
+          "required": true,
+          "description": "Component rendered when status is 'error'. Receives error and errorAction props."
+        },
+        {
+          "name": "MoreView",
+          "type": "ComponentType<TMoreViewProps>",
+          "required": true,
+          "description": "Component rendered when hasNextPage is true, to trigger loading more items. Receives isLoading and onClick props."
+        },
+        {
+          "name": "loadingViewProps",
+          "type": "TLoadingViewProps",
+          "required": false,
+          "description": "Additional props to pass to LoadingView."
+        },
+        {
+          "name": "errorViewProps",
+          "type": "Omit<TErrorViewProps, keyof ErrorViewProps<TError>>",
+          "required": false,
+          "description": "Additional props to pass to ErrorView beyond the base ErrorViewProps."
+        },
+        {
+          "name": "moreViewProps",
+          "type": "Omit<TMoreViewProps, keyof MoreViewProps>",
+          "required": false,
+          "description": "Additional props to pass to MoreView beyond the base MoreViewProps."
+        },
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": true,
+          "description": "Content rendered when status is 'success'."
+        }
+      ],
+      "examples": [],
+      "source_file": "data-source/src/react/components/DataInfiniteLoader/DataInfiniteLoader.tsx"
     }
   ]
 }
