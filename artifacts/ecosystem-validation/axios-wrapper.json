@@ -1,0 +1,36 @@
+{
+  "library": "axios-wrapper",
+  "category": "utility",
+  "issues": [
+    {
+      "severity": "MEDIUM",
+      "entity": "handleRequestError",
+      "message": "Protected method handleRequestError is missing from data. This is the primary extension point for subclassing (overload signatures: handleRequestError<T>(response, request, retries, error): Promise<T> | unknown). The quickstart says AxiosWrapper is intended to be subclassed, so documenting this hook is important for users."
+    },
+    {
+      "severity": "LOW",
+      "entity": "AxiosWrapper.constructor",
+      "message": "Data signature is 'constructor(options?: AxiosWrapperOptions)' but source is 'constructor(options: AxiosWrapperOptions = {})'. Functionally equivalent but technically different (default value vs optional marker)."
+    },
+    {
+      "severity": "LOW",
+      "entity": "get",
+      "message": "Data signature shows 'options?: ApiMethodParams[\"options\"]' but source uses 'options: ApiMethodParams[\"options\"] = {}'. Same pattern applies to post, put, patch, delete, head methods. Default value vs optional marker."
+    },
+    {
+      "severity": "LOW",
+      "entity": "RequestInfoToCollect",
+      "message": "Type RequestInfoToCollect is referenced in the collectRequest method parameter but is not re-exported from the package index (src/index.ts). Users cannot import this type directly."
+    },
+    {
+      "severity": "LOW",
+      "entity": "CollectedRequestInfo",
+      "message": "Type CollectedRequestInfo is referenced in the getCollectedRequests return type but is not re-exported from the package index (src/index.ts). Users cannot import this type directly."
+    },
+    {
+      "severity": "LOW",
+      "entity": "CollectorOptions",
+      "message": "Type CollectorOptions is referenced as the type for AxiosWrapperOptions.collector but is not re-exported from the package index (src/index.ts). Users cannot import this type directly."
+    }
+  ]
+}

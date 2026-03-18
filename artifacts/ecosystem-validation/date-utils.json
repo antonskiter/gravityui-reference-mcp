@@ -1,0 +1,31 @@
+{
+  "library": "date-utils",
+  "category": "utility",
+  "issues": [
+    {
+      "severity": "MEDIUM",
+      "entity": "duration",
+      "message": "Missing second overload. Source has two overloads: createDuration(amount, unit?, options?) and createDuration(amount, options?) where options ({lang?: string}) can be passed as the second argument directly without a unit. Data only documents the first overload."
+    },
+    {
+      "severity": "LOW",
+      "entity": "UtcTimeZone",
+      "message": "return_type is 'string' but actual type is the string literal 'UTC' (const UtcTimeZone = 'UTC'). The signature field correctly shows the literal type but return_type is imprecise."
+    },
+    {
+      "severity": "LOW",
+      "entity": "dateTimeParse",
+      "message": "Parameter type DateTimeOptionsWhenParsing is referenced in the signature but this type is not re-exported from the package index, so users cannot import it. Consider inlining the type in the signature or noting it is not importable."
+    },
+    {
+      "severity": "LOW",
+      "entity": "dateTime",
+      "message": "Parameter type FormatInput (string | undefined) is referenced in the signature but not re-exported from the package. Users seeing the signature cannot import FormatInput directly."
+    },
+    {
+      "severity": "LOW",
+      "entity": "dateTimeUtc",
+      "message": "Parameter type FormatInput (string | undefined) is referenced in the signature but not re-exported from the package. Users seeing the signature cannot import FormatInput directly."
+    }
+  ]
+}

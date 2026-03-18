@@ -1,0 +1,81 @@
+{
+  "library": "components",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "entity": "useOnIntersected",
+      "message": "Hook listed as public API but is NOT exported from the library's public index. It is an internal hook used only by InfiniteScroll component. Not re-exported from InfiniteScroll/index.ts or components/index.ts."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useDelayedValue",
+      "message": "Hook listed as public API but is NOT exported from the library's public index. It is an internal hook used only by DelayedTextInput component. Not re-exported from DelayedTextInput/index.ts or components/index.ts."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useReactionsPopup",
+      "message": "Hook listed as public API but is NOT exported from Reactions/index.ts. It is an internal hook used only by the Reaction component. The Reactions index only exports ReactionsContainer, Reactions, and Reaction."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ConfirmDialog",
+      "message": "Missing critical inherited props 'open' (boolean, required) and 'onClose' (DialogProps['onClose'], required) from Omit<DialogProps, 'children'>. The type extends DialogProps so it accepts all Dialog props, but the data only lists DialogFooter-related props. Without 'open' and 'onClose', the component cannot be used."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "AdaptiveTabs",
+      "message": "Prop 'breakpointsConfig' is declared as required in the TypeScript interface (no '?' modifier) but has a static defaultProps providing DEFAULT_BREAK_POINTS_CONFIG. Data marks it as required:false with a default, but the interface says required:true. In practice users can omit it due to defaultProps, but the type signature requires it."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "useGalleryImageZoom",
+      "message": "Hook signature in data says 'function useImageZoom(...)' but the public export name is 'useGalleryImageZoom' (re-exported as 'useImageZoom as useGalleryImageZoom' in Gallery/index.ts). The signature should read 'function useGalleryImageZoom(...)'."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "StoreBadge",
+      "message": "Component extends Omit<LinkProps, 'view' | 'onClick'>, inheriting additional Link props (e.g., target, rel, extraProps) not documented in data. The type is broader than what is listed."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "ConfirmDialog",
+      "message": "Missing inherited Dialog props beyond 'open' and 'onClose': 'className', 'disableBodyScrollLock', 'disableOutsideClick', 'disableEscapeKeyDown', 'keepMounted', 'hasCloseButton', 'qa', 'container', etc. The component spreads all remaining DialogProps via ...dialogProps."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "Notifications",
+      "message": "Data does not document that error state display is conditional on 'errorContent' being truthy (not 'errorTitle' or 'errorImage' alone). In source, errorContent is the trigger for showing error state, while errorTitle and errorImage are only used when errorContent is present."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "useSyncWithLS",
+      "message": "Data says return type is '{ callback: (...args: unknown[]) => void }' which matches the source UseSyncWithLSOutputProps, but data says the callback parameter type is 'T extends Function' while source declares it as a generic constraint '<T extends Function>'. The data description says 'Callback function to sync across tabs' but in reality the callback is called with no arguments when triggered by storage events from other tabs."
+    },
+    {
+      "severity": "LOW",
+      "entity": "SharePopover",
+      "message": "Data says 'shareOptions' default is '[]' but source sets it to 'ShareList.defaultProps.shareOptions' which may differ from an empty array."
+    },
+    {
+      "severity": "LOW",
+      "entity": "ReactionsContainer",
+      "message": "Data says 'style' prop type is 'CSSProperties' but source imports CSSProperties from '@gravity-ui/uikit' rather than React.CSSProperties. Minor type origin difference, functionally equivalent."
+    },
+    {
+      "severity": "LOW",
+      "entity": "Stories",
+      "message": "Data type for 'onClose' omits the full generic parameter on React.MouseEvent. Source says 'React.MouseEvent<HTMLElement, MouseEvent>' but data only says 'React.MouseEvent'."
+    },
+    {
+      "severity": "LOW",
+      "entity": "CookieConsent",
+      "message": "The CookieConsentProps type extends CookieConsentComponentProps which is a union of ConsentNotificationData, ConsentPopupData, and SimpleConsentData. These sub-types may contribute additional props beyond what is documented (consentManager, manageCookies, onConsentPopupClose)."
+    },
+    {
+      "severity": "LOW",
+      "entity": "Notification",
+      "message": "Data describes the component as taking a single 'notification' prop of type NotificationProps. The actual NotificationProps type has many fields (id, content, title, formattedDate, unread, archived, source, sourcePlacement, theme, className, sideActions, bottomActions, swipeActions, onClick, href, target, onMouseEnter, onMouseLeave) that are not individually enumerated in the data."
+    }
+  ]
+}

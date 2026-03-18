@@ -1,0 +1,16 @@
+{
+  "library": "babel-preset",
+  "category": "config",
+  "issues": [
+    {
+      "severity": "LOW",
+      "entity": "babel-preset",
+      "message": "Description omits additional plugins bundled by the preset: @babel/plugin-proposal-decorators (enabled with TypeScript), babel-plugin-transform-react-remove-prop-types (production only), and babel-plugin-dynamic-import-node (test only)."
+    },
+    {
+      "severity": "LOW",
+      "entity": "babel-preset",
+      "message": "No mention of environment-dependent behavior: preset configures different presets/plugins based on NODE_ENV/BABEL_ENV (development, production, test), e.g. targeting current Node in test, removing prop-types in production."
+    }
+  ]
+}

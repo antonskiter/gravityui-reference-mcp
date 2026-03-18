@@ -1,0 +1,16 @@
+{
+  "library": "stylelint-config",
+  "category": "config",
+  "issues": [
+    {
+      "severity": "MEDIUM",
+      "entity": "stylelint-config",
+      "message": "Missing documentation of /prettier and /order sub-configs. The vendor README and package.json exports document two additional configs: @gravity-ui/stylelint-config/prettier (Prettier integration) and @gravity-ui/stylelint-config/order (CSS property ordering). These are not mentioned in the data file."
+    },
+    {
+      "severity": "LOW",
+      "entity": "stylelint-config",
+      "message": "Requirements section lists 'Stylelint 16.18.0' as an exact version, but the actual peerDependency is '^16.18.0' (>=16.18.0 <17.0.0). Minor inaccuracy."
+    }
+  ]
+}

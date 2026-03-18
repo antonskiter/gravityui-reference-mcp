@@ -1,0 +1,71 @@
+{
+  "library": "uikit",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "entity": "MobileProvider",
+      "message": "Component exported from @gravity-ui/uikit (via components/mobile) but missing from data file entirely."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useMobile",
+      "message": "Hook exported from @gravity-ui/uikit (via components/mobile) but missing from data hooks array."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "usePlatform",
+      "message": "Hook exported from @gravity-ui/uikit (via components/mobile) but missing from data hooks array."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useLayoutContext",
+      "message": "Hook exported from @gravity-ui/uikit (via components/layout/hooks) but missing from data hooks array."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ColorPicker",
+      "message": "Wrong import statement. Listed as 'import {ColorPicker} from @gravity-ui/uikit' but only available as unstable_ColorPicker from '@gravity-ui/uikit/unstable'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "FileDropZone",
+      "message": "Wrong import statement. Listed as 'import {FileDropZone} from @gravity-ui/uikit' but only available as unstable_FileDropZone from '@gravity-ui/uikit/unstable'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ListItemView",
+      "message": "Wrong import statement. Listed as 'import {ListItemView} from @gravity-ui/uikit' but only available as unstable_ListItemView from '@gravity-ui/uikit/unstable'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "TreeList",
+      "message": "Wrong import statement. Listed as 'import {TreeList} from @gravity-ui/uikit' but only available as unstable_TreeList from '@gravity-ui/uikit/unstable'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "TreeSelect",
+      "message": "Wrong import statement. Listed as 'import {TreeSelect} from @gravity-ui/uikit' but only available as unstable_TreeSelect from '@gravity-ui/uikit/unstable'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "Virtualizer",
+      "message": "Wrong import statement. Listed as 'import {Virtualizer} from @gravity-ui/uikit' but only available via '@gravity-ui/uikit/unstable'. Also has garbled props: renderRow, item, parentKey, renderChildren are listed as separate props but are parameters of the renderRow callback."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ControlLabel",
+      "message": "Component listed in data but NOT exported from @gravity-ui/uikit public API (not in components/index.ts or any re-export chain). It is an internal component only."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "Dialog",
+      "message": "onClose prop type is listed as '() => void' but actual signature is '(event: MouseEvent | KeyboardEvent, reason: ModalCloseReason | closeButtonClick) => void'. Several props missing: onOpenChange, onEnterKeyDown, onEscapeKeyDown, onOutsideClick, container, initialFocus, returnFocus, modalClassName, disableHeightTransition, onTransitionIn/Out/InComplete/OutComplete."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "PrivateLayoutProvider",
+      "message": "Missing description field. While the component is technically exported, the 'Private' prefix suggests it is not intended for public use."
+    }
+  ]
+}

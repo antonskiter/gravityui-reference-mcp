@@ -1,0 +1,21 @@
+{
+  "library": "eslint-config",
+  "category": "config",
+  "issues": [
+    {
+      "severity": "MEDIUM",
+      "entity": "eslint-config",
+      "message": "Description is misleading: states the config includes 'React, a11y, Prettier, and import-order rule sets' but the base config (index.js) only includes base + typescript. The a11y, prettier, and import-order configs are separate optional imports (e.g. '@gravity-ui/eslint-config/prettier', '@gravity-ui/eslint-config/a11y', '@gravity-ui/eslint-config/import-order'). React is also a separate export ('./react'), not part of the base config."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "eslint-config",
+      "message": "README in data file is incomplete: vendor README documents three additional optional configs (prettier, a11y, import-order) with usage examples, but the data file's readme field only covers the base usage. These are important configs users need to know about."
+    },
+    {
+      "severity": "LOW",
+      "entity": "eslint-config",
+      "message": "Data file does not mention additional package exports: ./client, ./server, ./react, ./base, ./typescript are all available as separate imports per package.json exports but are not documented anywhere in the data file."
+    }
+  ]
+}
