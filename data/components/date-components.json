@@ -6,7 +6,7 @@
       "category": "forms",
       "import_path": "@gravity-ui/date-components",
       "import_statement": "import { Calendar } from '@gravity-ui/date-components';",
-      "description": "Calendar is a flexible date calendar component supporting single and multiple date selection, controlled and uncontrolled modes, and configurable display layouts (days, months, quarters, years).",
+      "description": "Calendar is a flexible date calendar component supporting single and multiple date selection, controlled and uncontrolled modes, and configurable display layouts (days, months, years). Quarters mode is opt-in and disabled by default (set modes.quarters: true to enable).",
       "source_file": "vendor/date-components/src/components/Calendar/Calendar.tsx",
       "props": [
         {
@@ -520,7 +520,7 @@
         },
         {
           "name": "errorPlacement",
-          "type": "string",
+          "type": "'outside' | 'inside'",
           "required": false,
           "description": "Error placement."
         },
@@ -781,7 +781,7 @@
         },
         {
           "name": "errorPlacement",
-          "type": "string",
+          "type": "'outside' | 'inside'",
           "required": false,
           "description": "Error placement."
         },
@@ -1663,7 +1663,7 @@
         },
         {
           "name": "errorPlacement",
-          "type": "string",
+          "type": "'outside' | 'inside'",
           "required": false,
           "description": "Error placement."
         },

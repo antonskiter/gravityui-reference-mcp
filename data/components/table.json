@@ -902,6 +902,146 @@
       ]
     },
     {
+      "name": "BaseSort",
+      "library": "table",
+      "import_path": "@gravity-ui/table",
+      "import_statement": "import { BaseSort } from '@gravity-ui/table';",
+      "description": "Headless sortable header cell wrapper that renders a focusable span with click and keyboard handlers for toggling column sort order. Extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'className' | 'onClick'>, so it also accepts all standard span HTML attributes (e.g. aria-*, data-*, style, tabIndex, onFocus, etc.).",
+      "source_file": "vendor/table/src/components/BaseSort/BaseSort.tsx",
+      "props": [
+        {
+          "name": "header",
+          "type": "Header<TData, TValue>",
+          "required": true,
+          "description": "TanStack Table header instance used to get the sort toggle handler"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "CSS class for the sort span element"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Content rendered inside the sort span"
+        }
+      ]
+    },
+    {
+      "name": "BaseDraggableRow",
+      "library": "table",
+      "import_path": "@gravity-ui/table",
+      "import_statement": "import { BaseDraggableRow } from '@gravity-ui/table';",
+      "description": "Drag-and-drop sortable table row built on dnd-kit's useSortable. Extends BaseRowProps (which itself extends Omit<React.HTMLAttributes<HTMLTableRowElement>, 'className' | 'onClick'>), inheriting all BaseRow props including row, table, attributes, cellClassName, onClick, renderCustomRowContent, renderGroupHeader, and row virtualizer support.",
+      "source_file": "vendor/table/src/components/BaseDraggableRow/BaseDraggableRow.tsx",
+      "props": [
+        {
+          "name": "row",
+          "type": "Row<TData>",
+          "required": true,
+          "description": "TanStack Table row instance"
+        },
+        {
+          "name": "table",
+          "type": "Table<TData>",
+          "required": true,
+          "description": "The table instance returned from the useTable hook"
+        },
+        {
+          "name": "attributes",
+          "type": "React.HTMLAttributes<HTMLTableRowElement> | ((row: Row<TData>) => React.HTMLAttributes<HTMLTableRowElement>)",
+          "required": false,
+          "description": "HTML attributes or attribute factory for the tr element; merged with drag-and-drop data attributes"
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "required": false,
+          "description": "Inline styles merged with dnd-kit transform and transition styles"
+        },
+        {
+          "name": "className",
+          "type": "string | ((row?: Row<TData>) => string)",
+          "required": false,
+          "description": "CSS class or class factory for the tr element (inherited from BaseRowProps)"
+        },
+        {
+          "name": "onClick",
+          "type": "(row: Row<TData>, event: React.MouseEvent<HTMLTableRowElement>) => void",
+          "required": false,
+          "description": "Click handler for the row (inherited from BaseRowProps)"
+        },
+        {
+          "name": "cellClassName",
+          "type": "BaseCellProps<TData>['className']",
+          "required": false,
+          "description": "CSS class for cells inside the row (inherited from BaseRowProps)"
+        },
+        {
+          "name": "cellAttributes",
+          "type": "BaseCellProps<TData>['attributes']",
+          "required": false,
+          "description": "HTML attributes for cells inside the row (inherited from BaseRowProps)"
+        },
+        {
+          "name": "renderCustomRowContent",
+          "type": "(props: {row: Row<TData>; Cell: React.FunctionComponent<BaseCellProps<TData>>; cellClassName?: BaseCellProps<TData>['className']}) => React.ReactNode",
+          "required": false,
+          "description": "Function to render custom row content when getIsCustomRow returns true (inherited from BaseRowProps)"
+        },
+        {
+          "name": "renderGroupHeader",
+          "type": "(props: BaseGroupHeaderProps<TData>) => React.ReactNode",
+          "required": false,
+          "description": "Function to override the default group header rendering (inherited from BaseRowProps)"
+        },
+        {
+          "name": "renderGroupHeaderRowContent",
+          "type": "(props: {row: Row<TData>; Cell: React.FunctionComponent<BaseCellProps<TData>>; cellClassName?: BaseCellProps<TData>['className']; getGroupTitle?: (row: Row<TData>) => React.ReactNode}) => React.ReactNode",
+          "required": false,
+          "description": "Function to override the entire group header row rendering (inherited from BaseRowProps)"
+        },
+        {
+          "name": "getGroupTitle",
+          "type": "(row: Row<TData>) => React.ReactNode",
+          "required": false,
+          "description": "Returns the title for a group header row (inherited from BaseRowProps)"
+        },
+        {
+          "name": "getIsCustomRow",
+          "type": "(row: Row<TData>) => boolean",
+          "required": false,
+          "description": "Checks if the row should use renderCustomRowContent (inherited from BaseRowProps)"
+        },
+        {
+          "name": "getIsGroupHeaderRow",
+          "type": "(row: Row<TData>) => boolean",
+          "required": false,
+          "description": "Checks if the row should be rendered as a group header (inherited from BaseRowProps)"
+        },
+        {
+          "name": "groupHeaderClassName",
+          "type": "string",
+          "required": false,
+          "description": "CSS class for the group header element (inherited from BaseRowProps)"
+        },
+        {
+          "name": "rowVirtualizer",
+          "type": "Virtualizer<TScrollElement, HTMLTableRowElement>",
+          "required": false,
+          "description": "Row virtualizer instance for virtual scrolling (inherited from BaseRowProps)"
+        },
+        {
+          "name": "virtualItem",
+          "type": "VirtualItem",
+          "required": false,
+          "description": "Virtual item metadata from the row virtualizer (inherited from BaseRowProps)"
+        }
+      ]
+    },
+    {
       "name": "TreeExpandableCell",
       "library": "table",
       "import_path": "@gravity-ui/table",

@@ -13,7 +13,7 @@
           "name": "options",
           "type": "I18NOptions",
           "optional": true,
-          "description": "Optional configuration object with lang, fallbackLang, data, and logger fields"
+          "description": "Optional configuration object with lang, fallbackLang, data, and logger fields. Note: I18NOptions is not exported from the package and cannot be imported directly."
         }
       ],
       "import_path": "@gravity-ui/i18n",
@@ -102,7 +102,7 @@
       "name": "I18NFn",
       "kind": "type",
       "signature": "type I18NFn<T = any> = { (keysetName: K, key: G | NoEnumLikeStringLiteral<S>, params?: {[key: string]: any}): string; keyset<K extends keyof T>(keysetName: K): (key: G | ..., params?: ...) => string; i18n<K, G, S>(...): () => string; has<K>(...): () => boolean; bind(...): ...; }",
-      "description": "Typed function interface for i18n lookups. Cast i18nInstance.i18n to I18NFn<typeof Keysets> to get keyset- and key-level type checking. Supports direct call, keyset(), i18n(), has(), and bind() overloads up to the third argument.",
+      "description": "Typed function interface for i18n lookups. Cast i18nInstance.i18n to I18NFn<typeof Keysets> to get keyset- and key-level type checking. Supports direct call, keyset(), i18n(), has(), and 4 distinct bind() overloads: bind(thisArg) returns the full typed function; bind(thisArg, keysetName) pins the keyset; bind(thisArg, keysetName, key) pins the key; bind(thisArg, keysetName, key, params) returns a zero-arg function.",
       "import_path": "@gravity-ui/i18n",
       "library": "i18n"
     },
@@ -110,7 +110,7 @@
       "name": "TypedParamsI18NFn",
       "kind": "type",
       "signature": "type TypedParamsI18NFn<T = any> = { (keysetName: K, key: G | NoEnumLikeStringLiteral<S>, params?: TypedParams<T[K][G]>): string; keyset<K extends keyof T>(keysetName: K): (...) => string; i18n<K, G, S>(...): () => string; has<K>(...): () => boolean; bind(...): ...; }",
-      "description": "Like I18NFn but additionally types the params argument based on the {{param}} placeholders present in the translation value, using TypedParams<T[K][G]>.",
+      "description": "Like I18NFn but additionally types the params argument based on the {{param}} placeholders present in the translation value, using TypedParams<T[K][G]>. Has 4 distinct bind() overloads mirroring I18NFn: bind(thisArg) returns the full typed function; bind(thisArg, keysetName) pins the keyset; bind(thisArg, keysetName, key) pins the key; bind(thisArg, keysetName, key, params) returns a zero-arg function.",
       "import_path": "@gravity-ui/i18n",
       "library": "i18n"
     },

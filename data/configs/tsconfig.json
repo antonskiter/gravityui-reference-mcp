@@ -1,7 +1,7 @@
 {
   "library": "tsconfig",
   "npm_package": "@gravity-ui/tsconfig",
-  "description": "Shared TypeScript configuration for Gravity UI projects, providing a base tsconfig that can be extended.",
+  "description": "Shared TypeScript configuration for Gravity UI projects, providing a base tsconfig that can be extended. Sets: target=es2017, module=commonjs, moduleResolution=node, esModuleInterop=true, strict=true, noImplicitReturns=true, noUnusedLocals=true, noUnusedParameters=true, noFallthroughCasesInSwitch=true, noEmitOnError=true, forceConsistentCasingInFileNames=true, skipLibCheck=true, experimentalDecorators=true, allowJs=true, pretty=true, newLine=lf, stripInternal=true.",
   "how_to_use": "{\"extends\": \"@gravity-ui/tsconfig/tsconfig.json\"}",
   "readme": "# @gravity-ui/tsconfig\n\n## Install\n```\nnpm install --save-dev @gravity-ui/tsconfig\n```\n\n## Usage\nAdd `tsconfig.json` file in the project root with the following content: \n\n```json\n{\n    \"extends\": \"@gravity-ui/tsconfig/tsconfig.json\"\n}\n```"
 }

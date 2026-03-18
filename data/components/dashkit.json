@@ -42,7 +42,7 @@
       "library": "dashkit",
       "import_path": "@gravity-ui/dashkit",
       "import_statement": "import { ActionPanelItemContainer } from '@gravity-ui/dashkit';",
-      "description": "Renders a single action panel item with an icon and title. Supports drag-and-drop via useDnDItemProps hook.",
+      "description": "Renders a single action panel item with an icon and title. Supports drag-and-drop via useDnDItemProps hook. Also forwards item.onClick as the click handler and item.qa as the data-qa attribute on the rendered element.",
       "props": [
         {
           "name": "item",
@@ -59,7 +59,7 @@
       "library": "dashkit",
       "import_path": "@gravity-ui/dashkit",
       "import_statement": "import { DashKit } from '@gravity-ui/dashkit';",
-      "description": "Main dashboard layout component that manages a grid of configurable, draggable, and resizable widgets. Supports plugin registration, edit mode with overlay controls, drag-and-drop between groups, mobile layout, and auto-updating. Provides static methods for plugin management and config manipulation.",
+      "description": "Main dashboard layout component that manages a grid of configurable, draggable, and resizable widgets. Supports plugin registration, edit mode with overlay controls, drag-and-drop between groups, mobile layout, and auto-updating. Provides static methods: registerPlugins(), reloadPlugins(), setSettings(), setItem(), removeItem(), reflowLayout(). Provides instance methods: getItemsMeta(), reloadItems().",
       "props": [
         {
           "name": "config",
@@ -245,7 +245,7 @@
       "library": "dashkit",
       "import_path": "@gravity-ui/dashkit",
       "import_statement": "import { DashKitDnDWrapper } from '@gravity-ui/dashkit';",
-      "description": "Context provider that enables drag-and-drop functionality between DashKit instances. Manages drag state and provides a custom drag image preview.",
+      "description": "Context provider that enables drag-and-drop functionality between DashKit instances. Wraps children in DashKitDnDContext.Provider, which is the key mechanism enabling cross-instance DnD. Manages drag state and provides a custom drag image preview.",
       "props": [
         {
           "name": "dragImageSrc",

@@ -1,7 +1,7 @@
 {
   "library": "babel-preset",
   "npm_package": "@gravity-ui/babel-preset",
-  "description": "Babel preset for Gravity UI projects, bundling env, TypeScript, React, and runtime transform plugins with sensible defaults.",
+  "description": "Babel preset for Gravity UI projects, bundling env, TypeScript, React, and runtime transform plugins with sensible defaults. Behavior varies by NODE_ENV/BABEL_ENV: development and production use @babel/preset-env for browser targets while test targets current Node; @babel/plugin-proposal-decorators is added when TypeScript is enabled; babel-plugin-transform-react-remove-prop-types (removeImport) is added in production only; babel-plugin-dynamic-import-node is added in test only.",
   "how_to_use": "\"presets\": [[\"@gravity-ui/babel-preset\", {\"env\": {}, \"runtime\": {}, \"typescript\": true, \"react\": {\"runtime\": \"automatic\"}}]]",
   "readme": "# @gravity-ui/babel-preset\n\nBabel preset for Gravity UI projects\n\n## Install\n```\nnpm install --save-dev @gravity-ui/babel-preset\n```\n\n## Usage\n\n### Via `.babelrc`\n\n```json5\n{\n  \"presets\": [\n      \"@gravity-ui/babel-preset\",\n      {\n        \"env\": {modules: false}, // defaults to {}\n        \"runtime\": {useESModules: true}, // defaults to {}\n        \"typescript\": true, // defaults to false\n        \"react\": {runtime: \"automatic\"} // defaults to {}\n      }\n  ]\n}\n```"
 }

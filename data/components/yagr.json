@@ -67,7 +67,7 @@
     {
       "name": "useTooltipState",
       "library": "yagr",
-      "description": "Subscribes to tooltip render and show events on a Yagr chart instance, forwarding tooltip data to a custom tooltip component via its onChange handler.",
+      "description": "Subscribes to tooltip events on a Yagr chart instance, forwarding tooltip data to a custom tooltip component via its onChange handler. Registers one 'render' listener and two duplicate 'show' listeners (source bug).",
       "import_path": "@gravity-ui/yagr",
       "import_statement": "import { useTooltipState } from '@gravity-ui/yagr/react';",
       "signature": "(yagrRef: React.MutableRefObject<YagrReactRef | null>, tooltipRef: React.RefObject<CustomTooltip>) => void",

@@ -13,7 +13,7 @@
           "name": "opt",
           "type": "{ input?: DateTimeInput; format?: FormatInput; timeZone?: TimeZone; lang?: string }",
           "optional": true,
-          "description": "Options object. input: value to parse (string, number, Date, array, object, DateTime, null, undefined). format: strict dayjs format string. timeZone: IANA zone, 'utc', or 'browser'. lang: locale code."
+          "description": "Options object. input: value to parse (string, number, Date, array, object, DateTime, null, undefined). format: strict dayjs format string (FormatInput = string | undefined; not re-exported from the package index). timeZone: IANA zone, 'utc', or 'browser'. lang: locale code."
         }
       ],
       "return_type": "DateTime",
@@ -30,7 +30,7 @@
           "name": "opt",
           "type": "{ input?: DateTimeInput; format?: FormatInput; lang?: string; offset?: number }",
           "optional": true,
-          "description": "Options object. input: value to parse. format: strict dayjs format string. lang: locale code. offset: UTC offset in minutes (default 0)."
+          "description": "Options object. input: value to parse. format: strict dayjs format string (FormatInput = string | undefined; not re-exported from the package index). lang: locale code. offset: UTC offset in minutes (default 0)."
         }
       ],
       "return_type": "DateTime",
@@ -90,7 +90,7 @@
           "name": "options",
           "type": "DateTimeOptionsWhenParsing",
           "optional": true,
-          "description": "Options: timeZone (IANA zone / 'utc' / 'browser'), format (strict parse format), lang (locale), roundUp (round the end of relative ranges up), allowRelative (default true; set false to reject relative expressions)."
+          "description": "Options: timeZone (IANA zone / 'utc' / 'browser'), format (strict parse format), lang (locale), roundUp (round the end of relative ranges up), allowRelative (default true; set false to reject relative expressions). Note: DateTimeOptionsWhenParsing is not re-exported from the package index and cannot be directly imported."
         }
       ],
       "return_type": "DateTime | undefined",
@@ -307,7 +307,7 @@
       "signature": "UtcTimeZone: 'UTC'",
       "description": "Constant string 'UTC' representing the UTC time zone, for use as a timeZone argument.",
       "parameters": [],
-      "return_type": "string",
+      "return_type": "'UTC'",
       "import_path": "@gravity-ui/date-utils",
       "library": "date-utils"
     },

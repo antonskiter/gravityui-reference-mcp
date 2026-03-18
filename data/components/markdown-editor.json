@@ -37,7 +37,7 @@
         "name": "stickyToolbar",
         "type": "boolean",
         "required": true,
-        "description": "Whether the toolbar should stick to the top when scrolling"
+        "description": "Whether the toolbar should stick to the top when scrolling. Required prop — must always be explicitly provided; there is no default value"
       },
       {
         "name": "enableSubmitInPreview",
@@ -142,7 +142,7 @@
         "type": "'zero' | 'commonmark' | 'default' | 'yfm' | 'full'",
         "required": false,
         "default": "'full'",
-        "description": "A set of plug-in extensions"
+        "description": "Controls which markdown syntax extensions are enabled. zero=none, commonmark=basic markdown, default=commonmark+strikethrough, yfm=default+YFM extensions, full=all extensions including emoji"
       },
       {
         "name": "props.md",
@@ -210,7 +210,7 @@
     "category": "editors",
     "import_path": "@gravity-ui/markdown-editor",
     "import_statement": "import {useMarkdownEditorContext} from '@gravity-ui/markdown-editor';",
-    "description": "React hook that retrieves the MarkdownEditor instance from the nearest MarkdownEditorProvider context. Returns null if no provider is found.",
+    "description": "React hook that retrieves the MarkdownEditor instance from the nearest MarkdownEditorProvider context. Returns null when no provider is present (the context default value is null).",
     "source_file": "vendor/markdown-editor/packages/editor/src/bundle/context.ts",
     "is_hook": true,
     "signature": "useMarkdownEditorContext(): MarkdownEditorInstance | null",

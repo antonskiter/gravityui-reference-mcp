@@ -26,5 +26,40 @@
     "description": "Optional import-order ESLint sub-config for Gravity UI projects. Add this alongside the base config to enforce a convention on module import ordering.",
     "how_to_use": "import baseConfig from '@gravity-ui/eslint-config';\nimport importOrderConfig from '@gravity-ui/eslint-config/import-order';\n\nexport default [\n  ...baseConfig,\n  ...importOrderConfig,\n  {\n    // ...other config\n  },\n];",
     "readme": "# @gravity-ui/eslint-config/import-order\n\nOptional sub-config that enforces a convention in module import order. Import alongside the base config to enable import ordering rules.\n\n## Usage\n\n```js\nimport baseConfig from '@gravity-ui/eslint-config';\nimport importOrderConfig from '@gravity-ui/eslint-config/import-order';\n\nexport default [\n  ...baseConfig,\n  ...importOrderConfig,\n  {\n    // ...other config\n  },\n];\n```"
+  },
+  {
+    "library": "eslint-config/base",
+    "npm_package": "@gravity-ui/eslint-config",
+    "description": "Low-level base ESLint sub-config for Gravity UI projects. Contains core JS rules (best-practices, variables, stylistic) using Babel parser, without TypeScript or React rules. The default export of the package already composes this with the TypeScript sub-config.",
+    "how_to_use": "import baseConfig from '@gravity-ui/eslint-config/base';\n\nexport default [\n  ...baseConfig,\n  {\n    // ...other config\n  },\n];",
+    "readme": "# @gravity-ui/eslint-config/base\n\nLow-level base config with core JS rules using the Babel parser. Does not include TypeScript or React rules. The top-level package entry point already includes this via composition.\n\n## Usage\n\n```js\nimport baseConfig from '@gravity-ui/eslint-config/base';\n\nexport default [\n  ...baseConfig,\n  {\n    // ...other config\n  },\n];\n```"
+  },
+  {
+    "library": "eslint-config/typescript",
+    "npm_package": "@gravity-ui/eslint-config",
+    "description": "Optional TypeScript ESLint sub-config for Gravity UI projects. Adds @typescript-eslint rules, stylistic member formatting, and TypeScript-aware import resolution. Applied only to .ts/.tsx files.",
+    "how_to_use": "import baseConfig from '@gravity-ui/eslint-config';\nimport typescriptConfig from '@gravity-ui/eslint-config/typescript';\n\nexport default [\n  ...baseConfig,\n  ...typescriptConfig,\n  {\n    // ...other config\n  },\n];",
+    "readme": "# @gravity-ui/eslint-config/typescript\n\nOptional sub-config that adds TypeScript-specific linting rules via @typescript-eslint. Applied to .ts/.tsx files only.\n\n## Usage\n\n```js\nimport baseConfig from '@gravity-ui/eslint-config';\nimport typescriptConfig from '@gravity-ui/eslint-config/typescript';\n\nexport default [\n  ...baseConfig,\n  ...typescriptConfig,\n  {\n    // ...other config\n  },\n];\n```"
+  },
+  {
+    "library": "eslint-config/react",
+    "npm_package": "@gravity-ui/eslint-config",
+    "description": "Optional React ESLint sub-config for Gravity UI projects. Adds eslint-plugin-react and eslint-plugin-react-hooks rules with JSX support. Use eslint-config/client instead if you also need browser globals.",
+    "how_to_use": "import baseConfig from '@gravity-ui/eslint-config';\nimport reactConfig from '@gravity-ui/eslint-config/react';\n\nexport default [\n  ...baseConfig,\n  ...reactConfig,\n  {\n    // ...other config\n  },\n];",
+    "readme": "# @gravity-ui/eslint-config/react\n\nOptional sub-config that adds React and React Hooks linting rules. For client-side apps that also need browser globals, prefer eslint-config/client.\n\n## Usage\n\n```js\nimport baseConfig from '@gravity-ui/eslint-config';\nimport reactConfig from '@gravity-ui/eslint-config/react';\n\nexport default [\n  ...baseConfig,\n  ...reactConfig,\n  {\n    // ...other config\n  },\n];\n```"
+  },
+  {
+    "library": "eslint-config/client",
+    "npm_package": "@gravity-ui/eslint-config",
+    "description": "Optional client-side ESLint sub-config for Gravity UI projects. Composes the React sub-config and adds browser globals. Use this for front-end/browser applications.",
+    "how_to_use": "import baseConfig from '@gravity-ui/eslint-config';\nimport clientConfig from '@gravity-ui/eslint-config/client';\n\nexport default [\n  ...baseConfig,\n  ...clientConfig,\n  {\n    // ...other config\n  },\n];",
+    "readme": "# @gravity-ui/eslint-config/client\n\nOptional sub-config for browser/client-side projects. Includes React rules and sets browser globals.\n\n## Usage\n\n```js\nimport baseConfig from '@gravity-ui/eslint-config';\nimport clientConfig from '@gravity-ui/eslint-config/client';\n\nexport default [\n  ...baseConfig,\n  ...clientConfig,\n  {\n    // ...other config\n  },\n];\n```"
+  },
+  {
+    "library": "eslint-config/server",
+    "npm_package": "@gravity-ui/eslint-config",
+    "description": "Optional server-side ESLint sub-config for Gravity UI projects. Sets Node.js globals and adds eslint-plugin-security rules to catch common server-side security issues.",
+    "how_to_use": "import baseConfig from '@gravity-ui/eslint-config';\nimport serverConfig from '@gravity-ui/eslint-config/server';\n\nexport default [\n  ...baseConfig,\n  ...serverConfig,\n  {\n    // ...other config\n  },\n];",
+    "readme": "# @gravity-ui/eslint-config/server\n\nOptional sub-config for Node.js/server-side projects. Sets Node globals and enables eslint-plugin-security rules.\n\n## Usage\n\n```js\nimport baseConfig from '@gravity-ui/eslint-config';\nimport serverConfig from '@gravity-ui/eslint-config/server';\n\nexport default [\n  ...baseConfig,\n  ...serverConfig,\n  {\n    // ...other config\n  },\n];\n```"
   }
 ]
