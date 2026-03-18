@@ -1,11 +1,519 @@
-[
-  {
-    "name": "Loader",
-    "library": "chartkit",
-    "import_path": "@gravity-ui/chartkit",
-    "import_statement": "import {Loader} from '@gravity-ui/chartkit';",
-    "props": [],
-    "examples": [],
-    "source_file": "chartkit/src/components/Loader/Loader.tsx"
-  }
-]
+{
+  "components": [
+    {
+      "name": "ChartKit",
+      "library": "chartkit",
+      "import_path": "@gravity-ui/chartkit",
+      "import_statement": "import ChartKit from '@gravity-ui/chartkit';",
+      "description": "Main chart rendering component that selects and renders a plugin-based chart based on type. Wraps content in ErrorBoundary and React.Suspense with a Loader fallback. Accepts a forwarded ref for imperative reflow control.",
+      "props": [
+        {
+          "name": "type",
+          "type": "T",
+          "required": true,
+          "description": "Chart plugin type identifier used to select the rendering plugin"
+        },
+        {
+          "name": "data",
+          "type": "ChartKitWidget[T]['data']",
+          "required": true,
+          "description": "Chart data payload, shape depends on the selected plugin type"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "description": "Optional chart instance ID. A random ID is generated if not provided"
+        },
+        {
+          "name": "isMobile",
+          "type": "boolean",
+          "required": false,
+          "description": "Enables mobile-optimized rendering mode"
+        },
+        {
+          "name": "onLoad",
+          "type": "(data?: ChartKitOnLoadData<T>) => void",
+          "required": false,
+          "description": "Callback fired when chart data is loaded"
+        },
+        {
+          "name": "onRender",
+          "type": "(data: ChartKitOnRenderData) => void",
+          "required": false,
+          "description": "Fires on each chartkit plugin's component render"
+        },
+        {
+          "name": "onChartLoad",
+          "type": "(data: ChartKitOnChartLoad<T>) => void",
+          "required": false,
+          "description": "Fires on chartkit plugin's component mount"
+        },
+        {
+          "name": "onError",
+          "type": "ChartKitOnError",
+          "required": false,
+          "description": "Fires in case of unhandled plugin's exception"
+        },
+        {
+          "name": "renderError",
+          "type": "RenderError",
+          "required": false,
+          "description": "Used to render user's error component"
+        },
+        {
+          "name": "renderPluginLoader",
+          "type": "ChartKitRenderPluginLoader",
+          "required": false,
+          "description": "Used to render user's plugin loader component"
+        },
+        {
+          "name": "validation",
+          "type": "{ seriesCountLimit?: number }",
+          "required": false,
+          "description": "Validation options. seriesCountLimit sets a series count limit (gravity-charts plugin only); exceeding it throws ERR.CK.TOO_MANY_LINES"
+        }
+      ],
+      "examples": [],
+      "source_file": "chartkit/src/components/ChartKit.tsx"
+    },
+    {
+      "name": "ErrorBoundary",
+      "library": "chartkit",
+      "import_path": "@gravity-ui/chartkit",
+      "import_statement": "import { ErrorBoundary } from '@gravity-ui/chartkit';",
+      "description": "React error boundary that catches rendering errors in chart plugins. Automatically resets on data changes for NO_DATA and INVALID_DATA errors. Supports custom error rendering via renderError prop.",
+      "props": [
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Child components to wrap with error boundary"
+        },
+        {
+          "name": "onError",
+          "type": "ChartKitOnError",
+          "required": false,
+          "description": "Callback fired when an error is caught"
+        },
+        {
+          "name": "data",
+          "type": "ChartKitWidget[ChartKitType]['data']",
+          "required": true,
+          "description": "Chart data used to detect data changes and auto-reset certain error states"
+        },
+        {
+          "name": "renderError",
+          "type": "RenderError",
+          "required": false,
+          "description": "Custom error renderer receiving error, message, and resetError callback"
+        }
+      ],
+      "examples": [],
+      "source_file": "chartkit/src/components/ErrorBoundary/ErrorBoundary.tsx"
+    },
+    {
+      "name": "Loader",
+      "library": "chartkit",
+      "import_path": "@gravity-ui/chartkit",
+      "import_statement": "import { Loader } from '@gravity-ui/chartkit';",
+      "description": "Loading indicator component used as a React.Suspense fallback. Wraps the base Gravity UI Loader and supports custom plugin loader rendering.",
+      "props": [
+        {
+          "name": "renderPluginLoader",
+          "type": "ChartKitRenderPluginLoader",
+          "required": false,
+          "description": "Optional function returning a custom loader element. When provided, replaces the default loader"
+        },
+        {
+          "name": "size",
+          "type": "'s' | 'm' | 'l'",
+          "required": false,
+          "description": "Loader size, inherited from base Gravity UI LoaderProps"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class name, inherited from base Gravity UI LoaderProps"
+        }
+      ],
+      "examples": [],
+      "source_file": "chartkit/src/components/Loader/Loader.tsx"
+    },
+    {
+      "name": "SplitPane",
+      "library": "chartkit",
+      "import_path": "@gravity-ui/chartkit",
+      "import_statement": "import { SplitPane } from '@gravity-ui/chartkit';",
+      "description": "Resizable split pane layout component supporting horizontal and vertical splits with drag-to-resize functionality. Based on react-split-pane.",
+      "props": [
+        {
+          "name": "allowResize",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Whether the pane divider can be dragged to resize"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Two child elements to render in the split panes"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class for the container"
+        },
+        {
+          "name": "primary",
+          "type": "'first' | 'second'",
+          "required": false,
+          "default": "'first'",
+          "description": "Which pane is the primary (sized) pane"
+        },
+        {
+          "name": "minSize",
+          "type": "number",
+          "required": false,
+          "default": "50",
+          "description": "Minimum size of the primary pane in pixels"
+        },
+        {
+          "name": "maxSize",
+          "type": "number",
+          "required": false,
+          "description": "Maximum size of the primary pane in pixels"
+        },
+        {
+          "name": "defaultSize",
+          "type": "number",
+          "required": false,
+          "description": "Initial default size of the primary pane"
+        },
+        {
+          "name": "size",
+          "type": "number | string",
+          "required": false,
+          "description": "Controlled size of the primary pane"
+        },
+        {
+          "name": "split",
+          "type": "SplitLayoutType",
+          "required": false,
+          "default": "'vertical'",
+          "description": "Split orientation: 'vertical' (left/right) or 'horizontal' (top/bottom)"
+        },
+        {
+          "name": "onDragStarted",
+          "type": "() => void",
+          "required": false,
+          "description": "Callback fired when drag-to-resize begins"
+        },
+        {
+          "name": "onDragFinished",
+          "type": "(size?: number | string) => void",
+          "required": false,
+          "description": "Callback fired when drag-to-resize ends with the final size"
+        },
+        {
+          "name": "onChange",
+          "type": "(size: number) => void",
+          "required": false,
+          "description": "Callback fired continuously during drag with the current size"
+        },
+        {
+          "name": "onResizerClick",
+          "type": "React.MouseEventHandler",
+          "required": false,
+          "description": "Click handler for the resizer element"
+        },
+        {
+          "name": "onResizerDoubleClick",
+          "type": "React.MouseEventHandler",
+          "required": false,
+          "description": "Double-click handler for the resizer element"
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "required": false,
+          "description": "Custom styles for the container"
+        },
+        {
+          "name": "resizerStyle",
+          "type": "React.CSSProperties",
+          "required": false,
+          "description": "Custom styles for the resizer element"
+        },
+        {
+          "name": "paneClassName",
+          "type": "string",
+          "required": false,
+          "default": "''",
+          "description": "CSS class applied to both panes"
+        },
+        {
+          "name": "pane1ClassName",
+          "type": "string",
+          "required": false,
+          "default": "''",
+          "description": "CSS class applied to the first pane only"
+        },
+        {
+          "name": "pane2ClassName",
+          "type": "string",
+          "required": false,
+          "default": "''",
+          "description": "CSS class applied to the second pane only"
+        },
+        {
+          "name": "paneStyle",
+          "type": "React.CSSProperties",
+          "required": false,
+          "description": "Custom styles applied to both panes"
+        },
+        {
+          "name": "pane1Style",
+          "type": "React.CSSProperties",
+          "required": false,
+          "description": "Custom styles for the first pane only"
+        },
+        {
+          "name": "pane2Style",
+          "type": "React.CSSProperties",
+          "required": false,
+          "description": "Custom styles for the second pane only"
+        },
+        {
+          "name": "resizerClassName",
+          "type": "string",
+          "required": false,
+          "description": "CSS class for the resizer element"
+        },
+        {
+          "name": "step",
+          "type": "number",
+          "required": false,
+          "description": "Snap step size in pixels for resize increments"
+        }
+      ],
+      "examples": [],
+      "source_file": "chartkit/src/components/SplitPane/SplitPane.tsx"
+    },
+    {
+      "name": "StyledSplitPane",
+      "library": "chartkit",
+      "import_path": "@gravity-ui/chartkit",
+      "import_statement": "import { StyledSplitPane } from '@gravity-ui/chartkit';",
+      "description": "A styled wrapper around SplitPane with built-in BEM CSS classes and touch hover effects on the resizer. Accepts render functions for each pane.",
+      "props": [
+        {
+          "name": "paneOneRender",
+          "type": "() => React.ReactNode",
+          "required": true,
+          "description": "Render function for the first pane content"
+        },
+        {
+          "name": "paneTwoRender",
+          "type": "() => React.ReactNode",
+          "required": true,
+          "description": "Render function for the second pane content"
+        },
+        {
+          "name": "allowResize",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Whether the pane divider can be dragged to resize (inherited from SplitPaneProps)"
+        },
+        {
+          "name": "split",
+          "type": "SplitLayoutType",
+          "required": false,
+          "default": "'vertical'",
+          "description": "Split orientation (inherited from SplitPaneProps)"
+        },
+        {
+          "name": "minSize",
+          "type": "number",
+          "required": false,
+          "default": "50",
+          "description": "Minimum pane size in pixels (inherited from SplitPaneProps)"
+        },
+        {
+          "name": "maxSize",
+          "type": "number",
+          "required": false,
+          "description": "Maximum pane size in pixels (inherited from SplitPaneProps)"
+        },
+        {
+          "name": "defaultSize",
+          "type": "number",
+          "required": false,
+          "description": "Initial default size of the primary pane (inherited from SplitPaneProps)"
+        },
+        {
+          "name": "size",
+          "type": "number | string",
+          "required": false,
+          "description": "Controlled size of the primary pane (inherited from SplitPaneProps)"
+        },
+        {
+          "name": "onDragStarted",
+          "type": "() => void",
+          "required": false,
+          "description": "Callback fired when drag begins (inherited from SplitPaneProps)"
+        },
+        {
+          "name": "onDragFinished",
+          "type": "(size?: number | string) => void",
+          "required": false,
+          "description": "Callback fired when drag ends (inherited from SplitPaneProps)"
+        },
+        {
+          "name": "onChange",
+          "type": "(size: number) => void",
+          "required": false,
+          "description": "Callback during drag (inherited from SplitPaneProps)"
+        }
+      ],
+      "examples": [],
+      "source_file": "chartkit/src/components/SplitPane/StyledSplitPane.tsx"
+    },
+    {
+      "name": "Pane",
+      "library": "chartkit",
+      "import_path": "@gravity-ui/chartkit",
+      "import_statement": "import { Pane } from '@gravity-ui/chartkit';",
+      "description": "Individual pane component used inside SplitPane. Renders a flex container that adapts its sizing based on the split direction.",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "CSS class name for the pane"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Content to render inside the pane"
+        },
+        {
+          "name": "size",
+          "type": "number | string",
+          "required": false,
+          "description": "Fixed size (width for vertical split, height for horizontal)"
+        },
+        {
+          "name": "split",
+          "type": "SplitLayoutType",
+          "required": false,
+          "description": "Split direction affecting how the size prop is applied"
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "required": false,
+          "description": "Custom inline styles for the pane"
+        },
+        {
+          "name": "eleRef",
+          "type": "(node: HTMLDivElement) => void",
+          "required": false,
+          "description": "Ref callback for the underlying DOM element"
+        }
+      ],
+      "examples": [],
+      "source_file": "chartkit/src/components/SplitPane/Pane.tsx"
+    },
+    {
+      "name": "Resizer",
+      "library": "chartkit",
+      "import_path": "@gravity-ui/chartkit",
+      "import_statement": "import { Resizer } from '@gravity-ui/chartkit';",
+      "description": "Draggable resizer handle component used between panes in SplitPane. Handles mouse and touch events for resize interactions.",
+      "props": [
+        {
+          "name": "onMouseDown",
+          "type": "React.MouseEventHandler",
+          "required": true,
+          "description": "Mouse down handler to initiate resize"
+        },
+        {
+          "name": "onTouchStart",
+          "type": "React.TouchEventHandler",
+          "required": true,
+          "description": "Touch start handler for mobile resize"
+        },
+        {
+          "name": "onTouchEnd",
+          "type": "React.TouchEventHandler",
+          "required": true,
+          "description": "Touch end handler to finish mobile resize"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class for the resizer"
+        },
+        {
+          "name": "split",
+          "type": "SplitLayoutType",
+          "required": false,
+          "description": "Split direction for styling the resizer orientation"
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "required": false,
+          "description": "Custom inline styles for the resizer"
+        },
+        {
+          "name": "resizerClassName",
+          "type": "string",
+          "required": false,
+          "default": "'Resizer'",
+          "description": "Base CSS class name for the resizer element"
+        },
+        {
+          "name": "onClick",
+          "type": "React.MouseEventHandler",
+          "required": false,
+          "description": "Click handler for the resizer"
+        },
+        {
+          "name": "onDoubleClick",
+          "type": "React.MouseEventHandler",
+          "required": false,
+          "description": "Double-click handler for the resizer"
+        }
+      ],
+      "examples": [],
+      "source_file": "chartkit/src/components/SplitPane/Resizer.tsx"
+    }
+  ],
+  "hooks": [
+    {
+      "name": "usePrevious",
+      "signature": "function usePrevious<T>(value: T): T | undefined",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "T",
+          "required": true,
+          "description": "The value to track across renders"
+        }
+      ],
+      "return_type": "T | undefined",
+      "import_path": "@gravity-ui/chartkit",
+      "library": "chartkit",
+      "rules_of_hooks": true,
+      "description": "Returns the previous value of the given argument from the last render cycle. Uses a ref internally to store the prior value."
+    }
+  ]
+}

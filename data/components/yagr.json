@@ -1,0 +1,93 @@
+{
+  "components": [
+    {
+      "name": "YagrReact",
+      "library": "yagr",
+      "description": "React wrapper component for the Yagr charting library. Renders a chart with the given config and supports dynamic or hard updates, chart lifecycle callbacks, and range selection.",
+      "import_path": "@gravity-ui/yagr",
+      "import_statement": "import YagrReact from '@gravity-ui/yagr/react';",
+      "props": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "description": "Chart ID"
+        },
+        {
+          "name": "config",
+          "type": "MinimalValidConfig",
+          "required": true,
+          "description": "Config of chart"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "default": "''",
+          "description": "Root component class name"
+        },
+        {
+          "name": "update",
+          "type": "'dynamic' | 'hard'",
+          "required": false,
+          "default": "'dynamic'",
+          "description": "Update strategy"
+        },
+        {
+          "name": "debug",
+          "type": "{ filename: string }",
+          "required": false,
+          "description": "Debug data"
+        },
+        {
+          "name": "onChartInited",
+          "type": "(chart: Yagr, meta: YagrMeta) => void",
+          "required": false,
+          "description": "Fires when chart is initialized"
+        },
+        {
+          "name": "onChartLoad",
+          "type": "(chart: Yagr, meta: YagrMeta) => void",
+          "required": false,
+          "description": "Fires after chart has drawn"
+        },
+        {
+          "name": "onSelect",
+          "type": "(from: number, to: number) => void",
+          "required": false,
+          "description": "Fires on every range selection"
+        }
+      ],
+      "ref_type": "YagrReactRef",
+      "examples": [],
+      "source_file": "yagr/src/react.tsx"
+    }
+  ],
+  "hooks": [
+    {
+      "name": "useTooltipState",
+      "library": "yagr",
+      "description": "Subscribes to tooltip render and show events on a Yagr chart instance, forwarding tooltip data to a custom tooltip component via its onChange handler.",
+      "import_path": "@gravity-ui/yagr",
+      "import_statement": "import { useTooltipState } from '@gravity-ui/yagr/react';",
+      "signature": "(yagrRef: React.MutableRefObject<YagrReactRef | null>, tooltipRef: React.RefObject<CustomTooltip>) => void",
+      "parameters": [
+        {
+          "name": "yagrRef",
+          "type": "React.MutableRefObject<YagrReactRef | null>",
+          "required": true,
+          "description": "Ref to the YagrReact component instance"
+        },
+        {
+          "name": "tooltipRef",
+          "type": "React.RefObject<CustomTooltip>",
+          "required": true,
+          "description": "Ref to a custom tooltip component with an onChange handler"
+        }
+      ],
+      "return_type": "void",
+      "rules_of_hooks": true,
+      "source_file": "yagr/src/react.tsx"
+    }
+  ]
+}

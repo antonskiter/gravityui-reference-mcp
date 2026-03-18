@@ -1,0 +1,1729 @@
+{
+  "components": [
+    {
+      "name": "DynamicField",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {DynamicField} from '@gravity-ui/dynamic-forms';",
+      "description": "Core form component that renders a dynamic form field based on a spec and config. Manages form state, validation, search, mutators, and renders the field tree via Controller.",
+      "source_file": "vendor/dynamic-forms/src/lib/core/components/Form/DynamicField.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The name/path of the form field"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "The specification object describing the field type, view, and validation"
+        },
+        {
+          "name": "config",
+          "type": "DynamicFormConfig",
+          "required": true,
+          "description": "Configuration mapping spec types to input components and layouts"
+        },
+        {
+          "name": "Monaco",
+          "type": "React.ComponentType<MonacoEditorProps>",
+          "required": false,
+          "description": "Optional Monaco editor component for code editing fields"
+        },
+        {
+          "name": "search",
+          "type": "string | ((spec: Spec, input: FieldValue, name: string) => boolean)",
+          "required": false,
+          "description": "Search string or custom search function for filtering visible fields"
+        },
+        {
+          "name": "generateRandomValue",
+          "type": "(spec: StringSpec) => string",
+          "required": false,
+          "description": "Function to generate random values for string fields"
+        },
+        {
+          "name": "withoutInsertFFDebounce",
+          "type": "boolean",
+          "required": false,
+          "description": "Disable debounce when inserting field values into final-form"
+        },
+        {
+          "name": "destroyOnUnregister",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Whether to destroy field value when the field is unregistered"
+        },
+        {
+          "name": "mutators",
+          "type": "DynamicFormMutators",
+          "required": false,
+          "description": "External mutators for customizing form field behavior"
+        },
+        {
+          "name": "shared",
+          "type": "Record<string, any>",
+          "required": false,
+          "description": "Shared state accessible by all fields via useFormShared hook"
+        },
+        {
+          "name": "storeSubscriber",
+          "type": "(store: FieldValue) => void",
+          "required": false,
+          "description": "Callback invoked whenever the form store changes"
+        },
+        {
+          "name": "__mirror",
+          "type": "WonderMirror",
+          "required": false,
+          "description": "Internal mirror object for testing and debugging field state"
+        }
+      ]
+    },
+    {
+      "name": "Controller",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {Controller} from '@gravity-ui/dynamic-forms';",
+      "description": "Internal controller component that manages individual field state, validation, and renders the appropriate input/layout pair. Used by DynamicField to recursively render the form tree.",
+      "source_file": "vendor/dynamic-forms/src/lib/core/components/Form/Controller/Controller.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "SpecType extends Spec",
+          "required": true,
+          "description": "The specification object for this field"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The field name/path"
+        },
+        {
+          "name": "value",
+          "type": "DirtyValue extends FieldValue",
+          "required": true,
+          "description": "The current field value from the parent"
+        },
+        {
+          "name": "parentOnChange",
+          "type": "((childName: string, childValue: FieldValue, childErrors: Record<string, ValidateError>) => void) | null",
+          "required": true,
+          "description": "Callback to propagate changes to the parent controller"
+        },
+        {
+          "name": "parentOnUnmount",
+          "type": "((childName: string) => void) | null",
+          "required": true,
+          "description": "Callback to notify parent when this field unmounts"
+        }
+      ]
+    },
+    {
+      "name": "DynamicView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {DynamicView} from '@gravity-ui/dynamic-forms';",
+      "description": "Core view component that renders a read-only view of form data based on a spec and config. Used to display submitted or saved form values.",
+      "source_file": "vendor/dynamic-forms/src/lib/core/components/View/DynamicView.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "FormValue",
+          "required": true,
+          "description": "The form data to display"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "The specification describing the data structure and view configuration"
+        },
+        {
+          "name": "config",
+          "type": "DynamicViewConfig",
+          "required": true,
+          "description": "Configuration mapping spec types to view components and layouts"
+        },
+        {
+          "name": "Link",
+          "type": "React.ComponentType<{ value: FormValue; link: Spec['viewSpec']['link'] }>",
+          "required": false,
+          "description": "Optional component for rendering linked values"
+        },
+        {
+          "name": "Monaco",
+          "type": "React.ComponentType<MonacoEditorProps>",
+          "required": false,
+          "description": "Optional Monaco editor component for code view fields"
+        },
+        {
+          "name": "showLayoutDescription",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether to show layout descriptions in the view"
+        },
+        {
+          "name": "shared",
+          "type": "Record<string, any>",
+          "required": false,
+          "description": "Shared state accessible by all view components via useViewShared hook"
+        }
+      ]
+    },
+    {
+      "name": "ViewController",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ViewController} from '@gravity-ui/dynamic-forms';",
+      "description": "Internal view controller that resolves view components and layouts for a given spec and renders the view tree.",
+      "source_file": "vendor/dynamic-forms/src/lib/core/components/View/ViewController.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "SpecType extends Spec",
+          "required": true,
+          "description": "The specification object for this view field"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The field name/path"
+        }
+      ]
+    },
+    {
+      "name": "AccordeonCard",
+      "library": "dynamic-forms",
+      "category": "layout",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {AccordeonCard} from '@gravity-ui/dynamic-forms';",
+      "description": "A collapsible card component with accordion behavior, header, description, and toggle functionality.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/AccordeonCard/AccordeonCard.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Content rendered inside the card body"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Unique name used for QA selectors"
+        },
+        {
+          "name": "header",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Header content or string title"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "description": "HTML description shown below the header"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class name"
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false,
+          "description": "Controlled open state"
+        },
+        {
+          "name": "onToggle",
+          "type": "(value: boolean) => void",
+          "required": false,
+          "description": "Callback when toggle state changes"
+        },
+        {
+          "name": "headerActionsTemplate",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Additional actions rendered in the header area"
+        },
+        {
+          "name": "ignoreHeaderToggle",
+          "type": "boolean",
+          "required": false,
+          "description": "Disable toggle on header click"
+        },
+        {
+          "name": "titleSize",
+          "type": "'s' | 'm'",
+          "required": false,
+          "default": "'m'",
+          "description": "Size variant for the title text"
+        },
+        {
+          "name": "alwaysOpen",
+          "type": "boolean",
+          "required": false,
+          "description": "Keep the card always expanded, hiding the toggle button"
+        },
+        {
+          "name": "classNameBody",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class for the body section"
+        }
+      ]
+    },
+    {
+      "name": "Card",
+      "library": "dynamic-forms",
+      "category": "layout",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {Card} from '@gravity-ui/dynamic-forms';",
+      "description": "A collapsible card container with title, description tooltip, actions slot, and toggle functionality. Wraps GravityUI Card component.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Card/Card.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Content rendered inside the card body"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Unique name used for QA selectors"
+        },
+        {
+          "name": "title",
+          "type": "string | React.ReactNode",
+          "required": false,
+          "description": "Card title, shown with ellipsis and popover if string"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "description": "HTML description shown in a HelpMark tooltip"
+        },
+        {
+          "name": "actions",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Action buttons rendered in the header right area"
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": false,
+          "description": "Controlled open state"
+        },
+        {
+          "name": "onToggle",
+          "type": "(value: boolean) => void",
+          "required": false,
+          "description": "Callback when toggle state changes"
+        },
+        {
+          "name": "alwaysOpen",
+          "type": "boolean",
+          "required": false,
+          "description": "Keep the card always expanded"
+        },
+        {
+          "name": "disableHeaderToggle",
+          "type": "boolean",
+          "required": false,
+          "description": "Disable toggle on header click"
+        },
+        {
+          "name": "checkEmptyBody",
+          "type": "boolean",
+          "required": false,
+          "description": "Add empty-body class when body has no child elements"
+        }
+      ]
+    },
+    {
+      "name": "CopyButton",
+      "library": "dynamic-forms",
+      "category": "utility",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {CopyButton} from '@gravity-ui/dynamic-forms';",
+      "description": "Renders a clipboard copy button for string and number fields when spec.viewSpec.copy is enabled.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/CopyButton/CopyButton.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "The field specification"
+        },
+        {
+          "name": "value",
+          "type": "FormValue",
+          "required": true,
+          "description": "The value to copy to clipboard"
+        }
+      ]
+    },
+    {
+      "name": "ErrorWrapper",
+      "library": "dynamic-forms",
+      "category": "utility",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ErrorWrapper} from '@gravity-ui/dynamic-forms';",
+      "description": "Wraps form field content and displays validation error messages when the field is touched or form submission failed.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/ErrorWrapper/ErrorWrapper.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "The form field content to wrap"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name used for error data attributes"
+        },
+        {
+          "name": "meta",
+          "type": "FieldRenderProps<FieldValue>['meta']",
+          "required": true,
+          "description": "Field metadata containing error, touched, and submitFailed states"
+        },
+        {
+          "name": "withoutChildErrorStyles",
+          "type": "boolean",
+          "required": false,
+          "description": "Disable error styling on the wrapper element"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class name"
+        }
+      ]
+    },
+    {
+      "name": "GroupIndent",
+      "library": "dynamic-forms",
+      "category": "layout",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {GroupIndent} from '@gravity-ui/dynamic-forms';",
+      "description": "Simple wrapper that adds left indentation to child content for visual grouping.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/GroupIndent/GroupIndent.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Content to indent"
+        }
+      ]
+    },
+    {
+      "name": "GenerateRandomValueButton",
+      "library": "dynamic-forms",
+      "category": "utility",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {GenerateRandomValueButton} from '@gravity-ui/dynamic-forms';",
+      "description": "Button that generates a random value for a string field using the generateRandomValue function from DynamicField context.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/GenerateRandomValueButton/GenerateRandomValueButton.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "StringSpec",
+          "required": true,
+          "description": "The string field specification"
+        },
+        {
+          "name": "onChange",
+          "type": "(value: string) => void",
+          "required": true,
+          "description": "Callback to update the field value with the generated value"
+        }
+      ]
+    },
+    {
+      "name": "HTMLContent",
+      "library": "dynamic-forms",
+      "category": "utility",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {HTMLContent} from '@gravity-ui/dynamic-forms';",
+      "description": "Renders raw HTML content using dangerouslySetInnerHTML.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/HTMLContent/HTMLContent.tsx",
+      "props": [
+        {
+          "name": "html",
+          "type": "string",
+          "required": true,
+          "description": "HTML string to render"
+        }
+      ]
+    },
+    {
+      "name": "LazyLoader",
+      "library": "dynamic-forms",
+      "category": "utility",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {LazyLoader} from '@gravity-ui/dynamic-forms';",
+      "description": "Renders a React.lazy component with Suspense and caches the resolved component as fallback for subsequent re-renders.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/LazyLoader/LazyLoader.tsx",
+      "props": [
+        {
+          "name": "component",
+          "type": "React.LazyExoticComponent<React.ComponentType<any>>",
+          "required": true,
+          "description": "The lazy-loaded component to render"
+        },
+        {
+          "name": "initialFallback",
+          "type": "React.JSX.Element",
+          "required": false,
+          "description": "Fallback element shown during initial loading"
+        }
+      ]
+    },
+    {
+      "name": "LongValue",
+      "library": "dynamic-forms",
+      "category": "utility",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {LongValue} from '@gravity-ui/dynamic-forms';",
+      "description": "Displays a text value with ellipsis truncation and click-to-expand behavior when the content overflows.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/LongValue/LongValue.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "string | number | boolean",
+          "required": false,
+          "description": "The value to display"
+        },
+        {
+          "name": "onClick",
+          "type": "(e: React.MouseEvent<HTMLDivElement>) => void",
+          "required": false,
+          "description": "Click handler, also toggles expand/collapse for long values"
+        }
+      ]
+    },
+    {
+      "name": "SimpleVerticalAccordeon",
+      "library": "dynamic-forms",
+      "category": "layout",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {SimpleVerticalAccordeon} from '@gravity-ui/dynamic-forms';",
+      "description": "A vertical accordion component with title, tooltip, and configurable open/close behavior. Supports hide-instead-of-destroy mode and branch view styling.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/SimpleVerticalAccordeon/SimpleVerticalAccordeon.tsx",
+      "props": [
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Content rendered inside the accordion body"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Unique name used for QA selectors"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "description": "Accordion title text"
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": true,
+          "default": "false",
+          "description": "Whether the accordion is expanded"
+        },
+        {
+          "name": "titleSize",
+          "type": "'s' | 'm' | 'l'",
+          "required": false,
+          "default": "'s'",
+          "description": "Size variant for the title text"
+        },
+        {
+          "name": "note",
+          "type": "string",
+          "required": false,
+          "description": "HTML tooltip content shown via HelpMark"
+        },
+        {
+          "name": "openTitle",
+          "type": "string",
+          "required": false,
+          "description": "Alternative title shown when accordion is open"
+        },
+        {
+          "name": "headerActionsTemplate",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Additional actions in the header"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class name"
+        },
+        {
+          "name": "contentClassName",
+          "type": "string",
+          "required": false,
+          "description": "CSS class for the content body"
+        },
+        {
+          "name": "buttonClassName",
+          "type": "string",
+          "required": false,
+          "description": "CSS class for the toggle button"
+        },
+        {
+          "name": "onOpenChange",
+          "type": "(open: boolean) => void",
+          "required": false,
+          "description": "Callback when open state changes"
+        },
+        {
+          "name": "hideInsteadOfDestroy",
+          "type": "boolean",
+          "required": false,
+          "description": "Hide content with CSS instead of unmounting when collapsed"
+        },
+        {
+          "name": "withBranchView",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Enable branch-style visual indentation"
+        },
+        {
+          "name": "viewLayout",
+          "type": "boolean",
+          "required": false,
+          "description": "Enable view layout mode that hides empty sections"
+        },
+        {
+          "name": "variantTitle",
+          "type": "TextProps['variant']",
+          "required": false,
+          "description": "Override the title text variant"
+        }
+      ]
+    },
+    {
+      "name": "TogglerCard",
+      "library": "dynamic-forms",
+      "category": "utility",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {TogglerCard} from '@gravity-ui/dynamic-forms';",
+      "description": "A selection card used as a toggler option in OneOf fields. Displays title, description tooltip, and body text.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/TogglerCard/TogglerCard.tsx",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "description": "Card title"
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Body text content"
+        },
+        {
+          "name": "onClick",
+          "type": "() => void",
+          "required": true,
+          "description": "Click handler for selection"
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether this card is currently selected"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false,
+          "description": "HTML description shown in a HelpMark tooltip"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the card is disabled"
+        }
+      ]
+    },
+    {
+      "name": "Text",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {Text} from '@gravity-ui/dynamic-forms';",
+      "description": "Text input component for string and number fields. Renders a TextInput or PasswordInput based on spec.viewSpec.type.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/Text/Text.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "{ value: string; onBlur: () => void; onChange: (value: string) => void; onFocus: () => void }",
+          "required": true,
+          "description": "Input handlers and current value from Controller"
+        },
+        {
+          "name": "spec",
+          "type": "StringSpec | NumberSpec",
+          "required": true,
+          "description": "Field specification with viewSpec for disabled, placeholder, type"
+        },
+        {
+          "name": "inputProps",
+          "type": "TextProps",
+          "required": false,
+          "description": "Additional props passed to the underlying TextInput component"
+        }
+      ]
+    },
+    {
+      "name": "TextArea",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {TextArea} from '@gravity-ui/dynamic-forms';",
+      "description": "Multi-line text area input component for string fields with auto-resizing rows.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/TextArea/TextArea.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "{ value: string; onBlur: () => void; onChange: (value: string) => void; onFocus: () => void }",
+          "required": true,
+          "description": "Input handlers and current value"
+        },
+        {
+          "name": "spec",
+          "type": "StringSpec",
+          "required": true,
+          "description": "Field specification"
+        },
+        {
+          "name": "inputProps",
+          "type": "TextAreaProps",
+          "required": false,
+          "description": "Additional props passed to the underlying TextArea component"
+        }
+      ]
+    },
+    {
+      "name": "Select",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {Select} from '@gravity-ui/dynamic-forms';",
+      "description": "Single-value select dropdown for string fields. Auto-enables filtering when enum has more than 9 options. Supports custom options and meta text.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/Select/Select.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "{ value: string; onBlur: () => void; onChange: (value: string) => void; onFocus: () => void }",
+          "required": true,
+          "description": "Input handlers and current value"
+        },
+        {
+          "name": "spec",
+          "type": "StringSpec",
+          "required": true,
+          "description": "Field specification with enum, description, and selectParams"
+        },
+        {
+          "name": "inputProps",
+          "type": "SelectProps",
+          "required": false,
+          "description": "Additional props including withCustomOptions flag"
+        }
+      ]
+    },
+    {
+      "name": "MultiSelect",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {MultiSelect} from '@gravity-ui/dynamic-forms';",
+      "description": "Multi-value select dropdown for array fields. Supports custom options, meta text, and auto-filtering.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/MultiSelect/MultiSelect.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "{ value: FieldArrayValue; onBlur: () => void; onChange: (value: FieldArrayValue) => void; onFocus: () => void }",
+          "required": true,
+          "description": "Input handlers and current value"
+        },
+        {
+          "name": "spec",
+          "type": "ArraySpec",
+          "required": true,
+          "description": "Field specification with enum, description, and selectParams"
+        },
+        {
+          "name": "inputProps",
+          "type": "MultiSelectProps",
+          "required": false,
+          "description": "Additional props including withCustomOptions flag"
+        }
+      ]
+    },
+    {
+      "name": "Checkbox",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {Checkbox} from '@gravity-ui/dynamic-forms';",
+      "description": "Boolean checkbox input component wrapping GravityUI Checkbox.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/Checkbox/Checkbox.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "{ value: boolean; onBlur: () => void; onChange: (value: boolean) => void; onFocus: () => void }",
+          "required": true,
+          "description": "Input handlers and current value"
+        },
+        {
+          "name": "spec",
+          "type": "BooleanSpec",
+          "required": true,
+          "description": "Field specification"
+        },
+        {
+          "name": "inputProps",
+          "type": "CheckboxProps",
+          "required": false,
+          "description": "Additional props passed to Checkbox"
+        }
+      ]
+    },
+    {
+      "name": "CheckboxGroup",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {CheckboxGroup} from '@gravity-ui/dynamic-forms';",
+      "description": "Multi-value checkbox group input for array fields. Renders checkboxes from spec.enum with vertical or horizontal placement.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/CheckboxGroup/CheckboxGroup.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "{ value: FieldArrayValue; onBlur: () => void; onChange: (value: FieldArrayValue) => void; onFocus: () => void }",
+          "required": true,
+          "description": "Input handlers and current value"
+        },
+        {
+          "name": "spec",
+          "type": "ArraySpec",
+          "required": true,
+          "description": "Field specification with enum, description, and checkboxGroupParams"
+        },
+        {
+          "name": "inputProps",
+          "type": "CheckboxGroupProps",
+          "required": false,
+          "description": "Additional props passed to each Checkbox"
+        }
+      ]
+    },
+    {
+      "name": "Switch",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {Switch} from '@gravity-ui/dynamic-forms';",
+      "description": "Boolean toggle switch input component wrapping GravityUI Switch.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/Switch/Switch.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "{ value: boolean; onBlur: () => void; onChange: (value: boolean) => void; onFocus: () => void }",
+          "required": true,
+          "description": "Input handlers and current value"
+        },
+        {
+          "name": "spec",
+          "type": "BooleanSpec",
+          "required": true,
+          "description": "Field specification"
+        }
+      ]
+    },
+    {
+      "name": "RadioGroup",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {RadioGroup} from '@gravity-ui/dynamic-forms';",
+      "description": "Radio button group input for string fields. Renders options from spec.enum with horizontal or vertical direction.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/RadioGroup/RadioGroup.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "{ value: string; onBlur: () => void; onChange: (value: string) => void; onFocus: () => void }",
+          "required": true,
+          "description": "Input handlers and current value"
+        },
+        {
+          "name": "spec",
+          "type": "StringSpec",
+          "required": true,
+          "description": "Field specification with enum, description, and radioGroupParams"
+        },
+        {
+          "name": "inputProps",
+          "type": "RadioGroupProps",
+          "required": false,
+          "description": "Additional props including withCustomOptions flag"
+        }
+      ]
+    },
+    {
+      "name": "NumInput",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {NumInput} from '@gravity-ui/dynamic-forms';",
+      "description": "Numeric input component wrapping GravityUI NumberInput with decimal support.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/Number/Number.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "{ value: number | undefined; onBlur: () => void; onChange: (value: number | undefined) => void; onFocus: () => void }",
+          "required": true,
+          "description": "Input handlers and current value"
+        },
+        {
+          "name": "spec",
+          "type": "NumberSpec",
+          "required": true,
+          "description": "Field specification"
+        },
+        {
+          "name": "inputProps",
+          "type": "NumberProps",
+          "required": false,
+          "description": "Additional props passed to NumberInput"
+        }
+      ]
+    },
+    {
+      "name": "NumberWithScale",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {NumberWithScale} from '@gravity-ui/dynamic-forms';",
+      "description": "Number input with a scale/unit selector dropdown. Converts between display value and storage value using configurable scale factors.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/NumberWithScale/NumberWithScale.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "{ value: string; onBlur: () => void; onChange: (value: string) => void; onFocus: () => void }",
+          "required": true,
+          "description": "Input handlers and current value"
+        },
+        {
+          "name": "spec",
+          "type": "StringSpec",
+          "required": true,
+          "description": "Field specification with viewSpec.sizeParams containing scale configuration"
+        }
+      ]
+    },
+    {
+      "name": "DateInput",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {DateInput} from '@gravity-ui/dynamic-forms';",
+      "description": "Date picker input using @gravity-ui/date-components. Supports configurable output formats (string, date, timestamp, date_time), time zones, and print formats.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/DateInput/DateInput.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "{ value: string; onChange: (value: string) => void; onBlur: () => void; onFocus: () => void }",
+          "required": true,
+          "description": "Input handlers and current value"
+        },
+        {
+          "name": "spec",
+          "type": "StringSpec",
+          "required": true,
+          "description": "Field specification with viewSpec.dateInput configuration"
+        },
+        {
+          "name": "inputProps",
+          "type": "DateProps",
+          "required": false,
+          "description": "Additional props passed to DatePicker"
+        }
+      ]
+    },
+    {
+      "name": "Secret",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {Secret} from '@gravity-ui/dynamic-forms';",
+      "description": "Object input that renders only the 'raw' property of an object spec with transparent layout. Used for secret/sensitive value fields.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/Secret/Secret.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification containing a 'raw' property"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "ObjectIndependentInputProps['input']",
+          "required": true,
+          "description": "Input handlers including value, onChange, parentOnUnmount"
+        },
+        {
+          "name": "Layout",
+          "type": "LayoutType",
+          "required": false,
+          "description": "Optional layout wrapper component"
+        }
+      ]
+    },
+    {
+      "name": "FileInput",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {FileInput} from '@gravity-ui/dynamic-forms';",
+      "description": "File upload input that reads file contents as a string. Supports configurable readAs method and accept file types.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/FileInput/FileInput.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "{ value: string; onChange: (value: string) => void }",
+          "required": true,
+          "description": "Input handlers and current value"
+        },
+        {
+          "name": "spec",
+          "type": "StringSpec",
+          "required": true,
+          "description": "Field specification with viewSpec.fileInput config (readAsMethod, accept)"
+        }
+      ]
+    },
+    {
+      "name": "MonacoInput",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {MonacoInput} from '@gravity-ui/dynamic-forms';",
+      "description": "Code editor input using Monaco Editor with syntax highlighting, configurable language, and an expandable dialog mode.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/MonacoInput/MonacoInputBase.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "{ value: string; onChange: (value: string) => void }",
+          "required": true,
+          "description": "Input handlers and current value"
+        },
+        {
+          "name": "spec",
+          "type": "StringSpec",
+          "required": true,
+          "description": "Field specification with viewSpec.monacoParams config"
+        },
+        {
+          "name": "MonacoComponent",
+          "type": "React.ComponentType<MonacoEditorProps>",
+          "required": false,
+          "description": "Monaco editor component override"
+        },
+        {
+          "name": "withoutDialog",
+          "type": "boolean",
+          "required": false,
+          "description": "Disable the expand-to-dialog button"
+        }
+      ]
+    },
+    {
+      "name": "ArrayBase",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ArrayBase} from '@gravity-ui/dynamic-forms';",
+      "description": "Base array input that renders a list of child Controllers with add/remove item functionality. Supports item labels, prefixes, and configurable add button position.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/ArrayBase/ArrayBase.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ArraySpec",
+          "required": true,
+          "description": "Array field specification with items, defaultValue, and viewSpec"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "arrayInput",
+          "type": "{ value: FieldArrayValue; onItemAdd: (value: FieldValue) => void; onItemRemove: (idx: string | number) => void; onDrop: () => void }",
+          "required": true,
+          "description": "Array-specific input handlers"
+        },
+        {
+          "name": "input",
+          "type": "{ value: FieldValue; onChange: Function; name: string; parentOnUnmount: Function }",
+          "required": true,
+          "description": "Standard input handlers"
+        },
+        {
+          "name": "meta",
+          "type": "FieldRenderProps<FieldValue>['meta']",
+          "required": true,
+          "description": "Field metadata with childErrors"
+        }
+      ]
+    },
+    {
+      "name": "ObjectBase",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ObjectBase} from '@gravity-ui/dynamic-forms';",
+      "description": "Base object input that renders child Controllers for each property in the spec. Supports ordered properties, delimiters, and inline mode.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/ObjectBase/ObjectBase.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object field specification with properties, viewSpec.order, viewSpec.delimiter"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "ObjectIndependentInputProps['input']",
+          "required": true,
+          "description": "Input handlers"
+        },
+        {
+          "name": "Layout",
+          "type": "LayoutType",
+          "required": false,
+          "description": "Layout wrapper component"
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "required": false,
+          "description": "Render in inline mode, filtering properties for inline display"
+        }
+      ]
+    },
+    {
+      "name": "ObjectInline",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ObjectInline} from '@gravity-ui/dynamic-forms';",
+      "description": "ObjectBase rendered in inline mode, filtering properties for compact horizontal display.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/ObjectBase/ObjectBase.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object field specification"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "ObjectIndependentInputProps['input']",
+          "required": true,
+          "description": "Input handlers"
+        },
+        {
+          "name": "Layout",
+          "type": "LayoutType",
+          "required": false,
+          "description": "Layout wrapper component"
+        }
+      ]
+    },
+    {
+      "name": "OneOf",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {OneOf} from '@gravity-ui/dynamic-forms';",
+      "description": "Discriminated union input that renders a toggler (radio/select/card/checkbox/switch) to select one variant and a Controller for the selected property.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/OneOf/OneOf.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification with properties representing union variants"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "ObjectIndependentInputProps['input']",
+          "required": true,
+          "description": "Input handlers"
+        },
+        {
+          "name": "Layout",
+          "type": "LayoutType",
+          "required": false,
+          "description": "Layout wrapper component"
+        },
+        {
+          "name": "withoutIndent",
+          "type": "boolean",
+          "required": false,
+          "description": "Disable indentation for the selected variant content"
+        }
+      ]
+    },
+    {
+      "name": "OneOfFlat",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {OneOfFlat} from '@gravity-ui/dynamic-forms';",
+      "description": "OneOf input variant without visual indentation for the selected variant content.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/OneOf/OneOf.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification with properties representing union variants"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "ObjectIndependentInputProps['input']",
+          "required": true,
+          "description": "Input handlers"
+        },
+        {
+          "name": "Layout",
+          "type": "LayoutType",
+          "required": false,
+          "description": "Layout wrapper component"
+        }
+      ]
+    },
+    {
+      "name": "CardOneOf",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {CardOneOf} from '@gravity-ui/dynamic-forms';",
+      "description": "OneOf input rendered inside a collapsible Card with a toggler in the header. Supports array item removal and auto-opens on validation errors.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/CardOneOf/CardOneOf.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification with properties representing union variants"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "ObjectIndependentInputProps['input']",
+          "required": true,
+          "description": "Input handlers"
+        },
+        {
+          "name": "meta",
+          "type": "FieldRenderProps<FieldValue>['meta']",
+          "required": true,
+          "description": "Field metadata for error checking"
+        },
+        {
+          "name": "Layout",
+          "type": "LayoutType",
+          "required": false,
+          "description": "Layout wrapper component"
+        }
+      ]
+    },
+    {
+      "name": "MultiOneOf",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {MultiOneOf} from '@gravity-ui/dynamic-forms';",
+      "description": "Multi-select union input that allows selecting multiple properties from an object spec. Renders a multi-select dropdown and Controllers for each selected property.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/MultiOneOf/MultiOneOf.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification with properties representing selectable variants"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "ObjectIndependentInputProps['input']",
+          "required": true,
+          "description": "Input handlers"
+        },
+        {
+          "name": "Layout",
+          "type": "LayoutType",
+          "required": false,
+          "description": "Layout wrapper component"
+        },
+        {
+          "name": "withoutIndent",
+          "type": "boolean",
+          "required": false,
+          "description": "Disable indentation for selected variant content"
+        }
+      ]
+    },
+    {
+      "name": "MultiOneOfFlat",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {MultiOneOfFlat} from '@gravity-ui/dynamic-forms';",
+      "description": "MultiOneOf input variant without visual indentation.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/MultiOneOf/MultiOneOf.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "ObjectIndependentInputProps['input']",
+          "required": true,
+          "description": "Input handlers"
+        },
+        {
+          "name": "Layout",
+          "type": "LayoutType",
+          "required": false,
+          "description": "Layout wrapper component"
+        }
+      ]
+    },
+    {
+      "name": "ObjectValueInput",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ObjectValueInput} from '@gravity-ui/dynamic-forms';",
+      "description": "Object input that renders only the designated 'value' property with transparent layout. Used for wrapped value objects.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/ObjectValueInput/ObjectValueInput.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification containing a value property"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "ObjectIndependentInputProps['input']",
+          "required": true,
+          "description": "Input handlers"
+        },
+        {
+          "name": "Layout",
+          "type": "LayoutType",
+          "required": false,
+          "description": "Layout wrapper component"
+        }
+      ]
+    },
+    {
+      "name": "TextContent",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {TextContent} from '@gravity-ui/dynamic-forms';",
+      "description": "Static text content display component. Supports Alert, Label, and plain text modes with optional icons. Used for informational text within forms.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/TextContent/TextContent.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "spec",
+          "type": "StringSpec",
+          "required": true,
+          "description": "Field specification with viewSpec.textContentParams"
+        },
+        {
+          "name": "input",
+          "type": "{ value: string }",
+          "required": true,
+          "description": "Input with current value"
+        },
+        {
+          "name": "Layout",
+          "type": "LayoutType",
+          "required": false,
+          "description": "Layout wrapper component"
+        }
+      ]
+    },
+    {
+      "name": "TextLink",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {TextLink} from '@gravity-ui/dynamic-forms';",
+      "description": "Object input that renders only the 'text' string property with transparent layout. Used for link-type fields.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/TextLink/TextLink.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification containing a 'text' string property"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "ObjectIndependentInputProps['input']",
+          "required": true,
+          "description": "Input handlers"
+        },
+        {
+          "name": "Layout",
+          "type": "LayoutType",
+          "required": false,
+          "description": "Layout wrapper component"
+        }
+      ]
+    },
+    {
+      "name": "TableArrayInput",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {TableArrayInput} from '@gravity-ui/dynamic-forms';",
+      "description": "Array input rendered as a table with configurable columns. Each row represents an array item with add/remove controls and search filtering support.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/TableArrayInput/TableArrayInput.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ArraySpec",
+          "required": true,
+          "description": "Array specification with items (ObjectSpec) and viewSpec.table column config"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "arrayInput",
+          "type": "{ value: FieldArrayValue; onItemAdd: (value: FieldValue) => void; onItemRemove: (idx: string | number) => void }",
+          "required": true,
+          "description": "Array-specific input handlers"
+        },
+        {
+          "name": "input",
+          "type": "{ value: FieldValue; onChange: Function; name: string; parentOnUnmount: Function }",
+          "required": true,
+          "description": "Standard input handlers"
+        }
+      ]
+    },
+    {
+      "name": "TimeRangeSelector",
+      "library": "dynamic-forms",
+      "category": "inputs",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {TimeRangeSelector} from '@gravity-ui/dynamic-forms';",
+      "description": "Time range selector with start and end time dropdowns. Filters available options based on selected values to prevent invalid ranges.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Inputs/TimeRangeSelector/TimeRangeSelector.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification with startTime and endTime string properties"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name"
+        },
+        {
+          "name": "input",
+          "type": "ObjectIndependentInputProps['input']",
+          "required": true,
+          "description": "Input handlers"
+        },
+        {
+          "name": "Layout",
+          "type": "LayoutType",
+          "required": false,
+          "description": "Layout wrapper component"
+        }
+      ]
+    }
+  ],
+  "hooks": [
+    {
+      "name": "useOneOf",
+      "library": "dynamic-forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {useOneOf} from '@gravity-ui/dynamic-forms';",
+      "description": "Hook for managing one-of (discriminated union) field state. Returns the current selected value, spec properties, and toggler UI elements (radio/select/card/checkbox/switch).",
+      "signature": "useOneOf(params: UseOneOfParams) => { oneOfValue: string; specProperties: Record<string, Spec>; toggler: React.ReactNode; togglerInput: React.ReactNode }",
+      "parameters": [
+        {
+          "name": "params",
+          "type": "UseOneOfParams",
+          "required": true,
+          "description": "Object with props (ObjectIndependentInputProps) and optional onTogglerChange callback"
+        }
+      ],
+      "return_type": "{ oneOfValue: string; specProperties: Record<string, Spec>; toggler: React.ReactNode; togglerInput: React.ReactNode }",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useErrorChecker",
+      "library": "dynamic-forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {useErrorChecker} from '@gravity-ui/dynamic-forms';",
+      "description": "Hook that auto-opens a collapsible section when validation errors are detected after form submission. Checks for error data attributes in the DOM.",
+      "signature": "useErrorChecker(params: UseErrorCheckerParams) => void",
+      "parameters": [
+        {
+          "name": "params",
+          "type": "UseErrorCheckerParams",
+          "required": true,
+          "description": "Object with name (string), meta (field metadata), open (boolean), setOpen ((flag: boolean) => void)"
+        }
+      ],
+      "return_type": "void",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useMutateDFState",
+      "library": "dynamic-forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {useMutateDFState} from '@gravity-ui/dynamic-forms';",
+      "description": "Hook to access the mutateDFState function from DynamicField context, allowing external mutation of the dynamic form state.",
+      "signature": "useMutateDFState() => DynamicFormsContext['tools']['mutateDFState']",
+      "parameters": [],
+      "return_type": "DynamicFormsContext['tools']['mutateDFState']",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useStoreValue",
+      "library": "dynamic-forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {useStoreValue} from '@gravity-ui/dynamic-forms';",
+      "description": "Hook to access the current form store (values and errors) from DynamicField context.",
+      "signature": "useStoreValue() => DynamicFormsContext['store']",
+      "parameters": [],
+      "return_type": "DynamicFormsContext['store']",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useFormShared",
+      "library": "dynamic-forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {useFormShared} from '@gravity-ui/dynamic-forms';",
+      "description": "Hook to access and update shared state within a DynamicField form. Returns the shared store and an onChangeShared updater function.",
+      "signature": "useFormShared<SharedStore extends Record<string, any>>() => { store: SharedStore; onChangeShared: <Name extends keyof SharedStore, Value extends SharedStore[Name]>(name: Name, value: Value) => void }",
+      "parameters": [],
+      "return_type": "{ store: SharedStore; onChangeShared: (name: keyof SharedStore, value: SharedStore[keyof SharedStore]) => void }",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useViewShared",
+      "library": "dynamic-forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {useViewShared} from '@gravity-ui/dynamic-forms';",
+      "description": "Hook to access and update shared state within a DynamicView. Returns the shared store and an onChangeShared updater function.",
+      "signature": "useViewShared<SharedStore extends Record<string, any>>() => { store: SharedStore; onChangeShared: <Name extends keyof SharedStore, Value extends SharedStore[Name]>(name: Name, value: Value) => void }",
+      "parameters": [],
+      "return_type": "{ store: SharedStore; onChangeShared: (name: keyof SharedStore, value: SharedStore[keyof SharedStore]) => void }",
+      "rules_of_hooks": true
+    }
+  ]
+}

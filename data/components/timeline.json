@@ -1,0 +1,79 @@
+{
+  "components": [
+    {
+      "name": "TimelineCanvas",
+      "library": "timeline",
+      "import_path": "@gravity-ui/timeline",
+      "import_statement": "import { TimelineCanvas } from '@gravity-ui/timeline';",
+      "description": "React component that renders a Timeline instance onto an HTML canvas element. Initializes the timeline on mount and destroys it on unmount. The canvas fills its parent container at 100% width and height.",
+      "source_file": "vendor/timeline/src/react-components/TimelineCanvas.tsx",
+      "props": [
+        {
+          "name": "timeline",
+          "type": "Timeline<TEvent, TMarker, TSection>",
+          "required": true,
+          "description": "A Timeline instance to render on the canvas. The component calls timeline.init() on mount and timeline.destroy() on unmount."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "CSS class name applied to the canvas element."
+        }
+      ],
+      "examples": []
+    }
+  ],
+  "hooks": [
+    {
+      "name": "useTimeline",
+      "library": "timeline",
+      "import_path": "@gravity-ui/timeline",
+      "import_statement": "import { useTimeline } from '@gravity-ui/timeline';",
+      "description": "Creates and memoizes a Timeline instance from the given configuration. Returns the timeline instance, its API, and start/stop helpers for manual canvas management.",
+      "source_file": "vendor/timeline/src/react-components/hooks/useTimeline.ts",
+      "rules_of_hooks": true,
+      "signature": "useTimeline<TEvent extends TimelineEvent, TMarker extends TimelineMarker = TimelineMarker, TSection extends TimelineSection = TimelineSection>(config: TimeLineConfig<TEvent, TMarker, TSection>) => { timeline: Timeline<TEvent, TMarker, TSection>; api: CanvasApi; start: (canvas: HTMLCanvasElement) => void; stop: () => void }",
+      "parameters": [
+        {
+          "name": "config",
+          "type": "TimeLineConfig<TEvent, TMarker, TSection>",
+          "required": true,
+          "description": "Configuration object containing settings (start, end, axes, events, markers, sections) and optional viewConfiguration for ruler, grid, axes, sections, events, markers, and camera options."
+        }
+      ],
+      "return_type": "{ timeline: Timeline<TEvent, TMarker, TSection>; api: CanvasApi; start: (canvas: HTMLCanvasElement) => void; stop: () => void }"
+    },
+    {
+      "name": "useTimelineEvent",
+      "library": "timeline",
+      "import_path": "@gravity-ui/timeline",
+      "import_statement": "import { useTimelineEvent } from '@gravity-ui/timeline';",
+      "description": "Subscribes to a specific event on a Timeline instance. Attaches the listener on mount via timeline.on() and removes it on unmount via timeline.off(). Uses useLayoutEffect for synchronous subscription.",
+      "source_file": "vendor/timeline/src/react-components/hooks/useTimelineEvent.ts",
+      "rules_of_hooks": true,
+      "signature": "useTimelineEvent<Event extends keyof ApiEvent, TEvent extends TimelineEvent = TimelineEvent, TMarker extends TimelineMarker = TimelineMarker, TSection extends TimelineSection = TimelineSection>(timeline: Timeline<TEvent, TMarker, TSection> | null, event: Event, cb: (data: UnwrapTimelineEventsDetail<Event, TEvent, TMarker, TSection>, event: UnwrapTimelineEvents<Event, TEvent, TMarker, TSection>) => void) => void",
+      "parameters": [
+        {
+          "name": "timeline",
+          "type": "Timeline<TEvent, TMarker, TSection> | null",
+          "required": true,
+          "description": "The Timeline instance to subscribe to, or null to skip subscription."
+        },
+        {
+          "name": "event",
+          "type": "Event extends keyof ApiEvent",
+          "required": true,
+          "description": "The event name to listen for on the timeline."
+        },
+        {
+          "name": "cb",
+          "type": "(data: UnwrapTimelineEventsDetail<Event, TEvent, TMarker, TSection>, event: UnwrapTimelineEvents<Event, TEvent, TMarker, TSection>) => void",
+          "required": true,
+          "description": "Callback invoked with the event detail data and the full event object when the specified event fires."
+        }
+      ],
+      "return_type": "void"
+    }
+  ]
+}
