@@ -40,8 +40,12 @@ export function loadJsonArray<T extends object>(dataDir: string, collectionName:
     const files = readdirSync(dirPath).filter(f => f.endsWith('.json')).sort();
     const items: T[] = [];
     for (const file of files) {
-      const parsed: T[] = loadJsonFile<T[]>(join(dirPath, file), []);
-      items.push(...parsed);
+      const parsed = loadJsonFile<T[] | T>(join(dirPath, file), []);
+      if (Array.isArray(parsed)) {
+        items.push(...parsed);
+      } else if (parsed && typeof parsed === 'object') {
+        items.push(parsed as T);
+      }
     }
     return sortByNameOrId(items);
   }
