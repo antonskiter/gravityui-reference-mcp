@@ -10,6 +10,74 @@ export interface ComponentInfo {
 }
 
 // ---------------------------------------------------------------------------
+// Helper: find the balanced closing paren/brace/bracket from a given position
+// ---------------------------------------------------------------------------
+
+/**
+ * Starting at `pos` (which should point at '(' or '{' or '<'), find the
+ * matching close character.  Returns the index of the matching close char,
+ * or -1 if not found.  Skips nested pairs of the same type plus strings.
+ */
+function findBalancedClose(source: string, pos: number): number {
+  const open = source[pos];
+  const closeMap: Record<string, string> = { '(': ')', '{': '}', '<': '>', '[': ']' };
+  const close = closeMap[open];
+  if (!close) return -1;
+
+  let depth = 1;
+  let i = pos + 1;
+  while (i < source.length && depth > 0) {
+    const ch = source[i];
+    if (ch === open) { depth++; }
+    else if (ch === close) { depth--; }
+    else if (ch === "'" || ch === '"' || ch === '`') {
+      // skip string
+      i++;
+      while (i < source.length && source[i] !== ch) {
+        if (source[i] === '\\') i++; // skip escaped
+        i++;
+      }
+    }
+    i++;
+  }
+  return depth === 0 ? i - 1 : -1;
+}
+
+/**
+ * Extract the balanced content between the open and close characters at the
+ * given position.  Returns the inner text (excluding the delimiters), or null.
+ */
+function extractBalancedContent(source: string, openPos: number): string | null {
+  const closePos = findBalancedClose(source, openPos);
+  if (closePos === -1) return null;
+  return source.slice(openPos + 1, closePos);
+}
+
+/**
+ * For a function-style component (export function / export const =), find
+ * the props type annotation inside the parameter list.  Handles multi-line
+ * params with nested parentheses (default values like `i18n(...)`, arrow
+ * functions, etc.).
+ *
+ * `paramStartIdx` should point at the opening `(` of the parameter list.
+ */
+function extractPropsTypeFromParams(source: string, paramStartIdx: number): string | null {
+  const inner = extractBalancedContent(source, paramStartIdx);
+  if (inner === null) return null;
+
+  // Look for }: PropsType  or ,  paramName: PropsType  patterns
+  // The props interface name follows }: or the last : in the params
+  const typeMatch = inner.match(/\}\s*:\s*(?:React\.PropsWithChildren\s*<\s*)?([A-Z][A-Za-z0-9_]*)/);
+  if (typeMatch) return typeMatch[1];
+
+  // Simple single-param: (props: PropsType
+  const simpleMatch = inner.match(/^\s*[a-z_$][A-Za-z0-9_$]*\s*:\s*([A-Z][A-Za-z0-9_]*)/);
+  if (simpleMatch) return simpleMatch[1];
+
+  return null;
+}
+
+// ---------------------------------------------------------------------------
 // extractComponentInfo
 // ---------------------------------------------------------------------------
 
@@ -18,19 +86,22 @@ export interface ComponentInfo {
  * Returns null when the file does not contain a recognisable component export.
  */
 export function extractComponentInfo(source: string): ComponentInfo | null {
-  // Patterns ordered from most specific to least specific.
-  // Each captures: (name, propsInterface)
+  let result: ComponentInfo | null = null;
+
+  // --- Phase 1: Simple regex patterns (most specific first) ---
+
   const patterns: RegExp[] = [
-    // export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
+    // Pattern 1: export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
     /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*=\s*React\.forwardRef\s*<[^,>]+,\s*([A-Za-z][A-Za-z0-9_]*)\s*>/,
-    // export const Flex = React.forwardRef(function Flex<T...>(props: FlexProps
-    /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*=\s*React\.forwardRef\s*\(\s*function\s+[A-Z][A-Za-z0-9_]*\s*(?:<[^(]*)?\(\s*[\n\r\s]*(?:\{[^}]*\}|[a-z_$][A-Za-z0-9_$]*)\s*:\s*([A-Za-z][A-Za-z0-9_]*)/,
-    // export const Alert: React.FC<AlertProps>
-    /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*:\s*React\.(?:FC|FunctionComponent|VFC|ComponentType|ComponentClass)\s*<\s*([A-Za-z][A-Za-z0-9_]*)\s*>/,
-    // export function GraphCanvas({...}: GraphProps)
-    /export\s+function\s+([A-Z][A-Za-z0-9_]*)\s*\([^)]*:\s*([A-Za-z][A-Za-z0-9_]*)\s*[),]/,
-    // export const Foo = ({...}: FooProps) =>
-    /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*=\s*\([^)]*:\s*([A-Za-z][A-Za-z0-9_]*)\s*\)\s*=>/,
+
+    // Pattern G1: export const Icon: React.ForwardRefExoticComponent<IconProps & ...> = React.forwardRef<..., IconProps>(
+    /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*:[^=]+=\s*React\.forwardRef\s*<[^,>]+,\s*([A-Za-z][A-Za-z0-9_]*)\s*>/,
+
+    // Pattern 3: export const Alert: React.FC<AlertProps>
+    /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*:\s*(?:React\.)?(?:FC|FunctionComponent|VFC|ComponentType|ComponentClass)\s*<\s*([A-Za-z][A-Za-z0-9_]*)\s*>/,
+
+    // Pattern B: export const X = React.memo(function X(props: Props) {...})
+    /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*=\s*React\.memo\s*\(\s*function\s+[A-Z][A-Za-z0-9_]*\s*\(\s*(?:[\n\r\s]*(?:\{[^}]*\}|[a-z_$][A-Za-z0-9_$]*))\s*:\s*([A-Za-z][A-Za-z0-9_]*)/,
   ];
 
   for (const pattern of patterns) {
@@ -41,6 +112,242 @@ export function extractComponentInfo(source: string): ComponentInfo | null {
       const description = extractJsDocBefore(source, m[0]);
       return { name, propsInterfaceName, description };
     }
+  }
+
+  // --- Phase 2: forwardRef(function Name<T>(params)) — balanced paren matching ---
+  // Handles: export const X = React.forwardRef(function X<T...>({...}: Props, ref))
+  const fwdRefFnPattern = /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*=\s*React\.forwardRef\s*\(\s*function\s+[A-Z][A-Za-z0-9_]*\s*(?:<[^(]*)?\(/g;
+  let fwdRefFnMatch: RegExpExecArray | null;
+  while ((fwdRefFnMatch = fwdRefFnPattern.exec(source)) !== null) {
+    // Find the opening paren of the function params
+    const parenIdx = source.lastIndexOf('(', fwdRefFnPattern.lastIndex - 1);
+    const propsType = extractPropsTypeFromParams(source, parenIdx);
+    if (propsType) {
+      const name = fwdRefFnMatch[1];
+      const description = extractJsDocBefore(source, fwdRefFnMatch[0]);
+      return { name, propsInterfaceName: propsType, description };
+    }
+  }
+
+  // --- Phase 3: forwardRef with inline destructured params (multi-line) ---
+  // Handles: export const BaseTable = React.forwardRef( <T,...>({...}: Props, ref) => {
+  const fwdRefArrowPattern = /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*(?::[^=]+=|=)\s*React\.forwardRef\s*\(\s*(?:<[^(]*)?\(/g;
+  let fwdRefArrowMatch: RegExpExecArray | null;
+  while ((fwdRefArrowMatch = fwdRefArrowPattern.exec(source)) !== null) {
+    const parenIdx = source.lastIndexOf('(', fwdRefArrowPattern.lastIndex - 1);
+    const propsType = extractPropsTypeFromParams(source, parenIdx);
+    if (propsType) {
+      const name = fwdRefArrowMatch[1];
+      const description = extractJsDocBefore(source, fwdRefArrowMatch[0]);
+      return { name, propsInterfaceName: propsType, description };
+    }
+  }
+
+  // --- Phase 4: export function X<T>({...}: Props) — balanced paren matching ---
+  // Handles generic functions where [^)]* would fail on default values containing )
+  const exportFnPattern = /export\s+function\s+([A-Z][A-Za-z0-9_]*)\s*(?:<[^(]*)?\(/g;
+  let exportFnMatch: RegExpExecArray | null;
+  while ((exportFnMatch = exportFnPattern.exec(source)) !== null) {
+    const parenIdx = source.lastIndexOf('(', exportFnPattern.lastIndex - 1);
+    const propsType = extractPropsTypeFromParams(source, parenIdx);
+    if (propsType) {
+      const name = exportFnMatch[1];
+      const description = extractJsDocBefore(source, exportFnMatch[0]);
+      return { name, propsInterfaceName: propsType, description };
+    }
+  }
+
+  // --- Phase 5: export const X = ({...}: Props) => ... — balanced paren matching ---
+  const exportConstArrowPattern = /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*=\s*\(/g;
+  let exportConstArrowMatch: RegExpExecArray | null;
+  while ((exportConstArrowMatch = exportConstArrowPattern.exec(source)) !== null) {
+    const parenIdx = exportConstArrowPattern.lastIndex - 1;
+    const closeIdx = findBalancedClose(source, parenIdx);
+    if (closeIdx === -1) continue;
+    // Check that => follows the close paren
+    const afterParen = source.slice(closeIdx + 1, closeIdx + 20).trimStart();
+    if (!afterParen.startsWith('=>')) continue;
+    const propsType = extractPropsTypeFromParams(source, parenIdx);
+    if (propsType) {
+      const name = exportConstArrowMatch[1];
+      const description = extractJsDocBefore(source, exportConstArrowMatch[0]);
+      return { name, propsInterfaceName: propsType, description };
+    }
+  }
+
+  // --- Phase 6: Pattern C — forwardRef with function reference ---
+  // export const X = React.forwardRef(SomeFunctionName)
+  // Then look up function SomeFunctionName(props: PropsType, ref: ...)
+  const fwdRefRefPattern = /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*=\s*React\.forwardRef\s*\(\s*([A-Z][A-Za-z0-9_]*)\s*\)/;
+  const fwdRefRefMatch = source.match(fwdRefRefPattern);
+  if (fwdRefRefMatch) {
+    const name = fwdRefRefMatch[1];
+    const fnName = fwdRefRefMatch[2];
+    // Find the function definition
+    const fnDefPattern = new RegExp(`function\\s+${fnName}\\s*(?:<[^(]*)?(\\()`);
+    const fnDefMatch = source.match(fnDefPattern);
+    if (fnDefMatch && fnDefMatch.index !== undefined) {
+      const parenIdx = source.indexOf('(', fnDefMatch.index + fnDefMatch[0].length - 1);
+      const propsType = extractPropsTypeFromParams(source, parenIdx);
+      if (propsType) {
+        const description = extractJsDocBefore(source, fwdRefRefMatch[0]);
+        return { name, propsInterfaceName: propsType, description };
+      }
+    }
+  }
+
+  // --- Phase 6b: Pattern F — export class X extends React.Component<Props> ---
+  // Uses balanced angle-bracket matching for generics like <T extends Foo = Record<string, string>>
+  const classPattern = /export\s+(?:default\s+)?class\s+([A-Z][A-Za-z0-9_]*)\s*(?:<|(?=\s+extends))/g;
+  let classMatch: RegExpExecArray | null;
+  while ((classMatch = classPattern.exec(source)) !== null) {
+    const className = classMatch[1];
+    // Skip the generic params if present
+    let searchFrom = classPattern.lastIndex;
+    if (source[searchFrom - 1] === '<') {
+      const closeAngle = findBalancedClose(source, searchFrom - 1);
+      if (closeAngle === -1) continue;
+      searchFrom = closeAngle + 1;
+    }
+    // Now match: extends React.Component<PropsType
+    const afterGenerics = source.slice(searchFrom);
+    const extendsMatch = afterGenerics.match(/^\s+extends\s+React\.Component\s*<\s*([A-Za-z][A-Za-z0-9_]*)/);
+    if (extendsMatch) {
+      const propsInterfaceName = extendsMatch[1];
+      const description = extractJsDocBefore(source, classMatch[0]);
+      return { name: className, propsInterfaceName, description };
+    }
+  }
+
+  // --- Phase 7: Pattern A — Object.assign with internal component ---
+  // export const X = Object.assign(_X, {...}) or
+  // const XExport = Object.assign(X, {...}); export {XExport as X}
+  result = extractObjectAssignComponent(source);
+  if (result) return result;
+
+  // --- Phase 8: Pattern E — export default X ---
+  // First find: export default X  (identifier, not inline expression)
+  // Then look up the component definition of X above
+  result = extractDefaultExportComponent(source);
+  if (result) return result;
+
+  return null;
+}
+
+/**
+ * Handle Object.assign pattern: find the internal component and extract its props.
+ *
+ * Patterns handled:
+ *   export const Button = Object.assign(_Button, {Icon: ButtonIcon})
+ *   const PublicX = Object.assign(X, {...}); export {PublicX as X}
+ */
+function extractObjectAssignComponent(source: string): ComponentInfo | null {
+  // Pattern: export const X = Object.assign(_Y, {
+  const directAssign = /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*=\s*Object\.assign\s*\(\s*_?([A-Za-z][A-Za-z0-9_]*)/;
+  const directMatch = source.match(directAssign);
+  if (directMatch) {
+    const name = directMatch[1];
+    const internalName = directMatch[2];
+    const info = findInternalComponentInfo(source, internalName);
+    if (info) {
+      return { name, propsInterfaceName: info, description: extractJsDocBefore(source, directMatch[0]) };
+    }
+  }
+
+  // Pattern: const XExport = Object.assign(X, {...}); ... export {XExport as X}
+  const namedAssign = /const\s+([A-Z][A-Za-z0-9_]*)\s*=\s*Object\.assign\s*\(\s*([A-Za-z][A-Za-z0-9_]*)\s*,/g;
+  let namedMatch: RegExpExecArray | null;
+  while ((namedMatch = namedAssign.exec(source)) !== null) {
+    const aliasName = namedMatch[1];
+    const internalName = namedMatch[2];
+    // Check for: export {aliasName as ExportName}
+    const reExportPattern = new RegExp(`export\\s*\\{\\s*${aliasName}\\s+as\\s+([A-Z][A-Za-z0-9_]*)\\s*\\}`);
+    const reExportMatch = source.match(reExportPattern);
+    if (reExportMatch) {
+      const exportName = reExportMatch[1];
+      const info = findInternalComponentInfo(source, internalName);
+      if (info) {
+        return { name: exportName, propsInterfaceName: info };
+      }
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Given the name of an internal component (e.g. _Button, FormRowComponent),
+ * find its props interface name by looking at its definition in the source.
+ */
+function findInternalComponentInfo(source: string, internalName: string): string | null {
+  // Try: const _X = React.forwardRef(function X<T>(props: Props
+  const fwdRefFnPat = new RegExp(
+    `(?:const|let)\\s+_?${internalName}\\s*=\\s*React\\.forwardRef\\s*\\(\\s*function\\s+[A-Z][A-Za-z0-9_]*\\s*(?:<[^(]*)?(\\()`,
+  );
+  const fwdRefFnMatch = source.match(fwdRefFnPat);
+  if (fwdRefFnMatch && fwdRefFnMatch.index !== undefined) {
+    const parenIdx = source.indexOf('(', fwdRefFnMatch.index + fwdRefFnMatch[0].length - 1);
+    const propsType = extractPropsTypeFromParams(source, parenIdx);
+    if (propsType) return propsType;
+  }
+
+  // Try: const _X = React.forwardRef<Elem, Props>(
+  const fwdRefGenPat = new RegExp(
+    `(?:const|let)\\s+_?${internalName}\\s*=\\s*React\\.forwardRef\\s*<[^,>]+,\\s*([A-Za-z][A-Za-z0-9_]*)\\s*>`,
+  );
+  const fwdRefGenMatch = source.match(fwdRefGenPat);
+  if (fwdRefGenMatch) return fwdRefGenMatch[1];
+
+  // Try: const X = ({...}: Props) =>  or  const X = (props: Props) =>
+  const arrowPat = new RegExp(
+    `(?:const|let|function)\\s+_?${internalName}\\s*=?\\s*(?:<[^(]*)?(\\()`,
+  );
+  const arrowMatch = source.match(arrowPat);
+  if (arrowMatch && arrowMatch.index !== undefined) {
+    const parenIdx = source.indexOf('(', arrowMatch.index + arrowMatch[0].length - 1);
+    const propsType = extractPropsTypeFromParams(source, parenIdx);
+    if (propsType) return propsType;
+  }
+
+  // Try: function X({...}: Props) or function X(props: Props)
+  const fnPat = new RegExp(
+    `function\\s+_?${internalName}\\s*(?:<[^(]*)?(\\()`,
+  );
+  const fnMatch = source.match(fnPat);
+  if (fnMatch && fnMatch.index !== undefined) {
+    const parenIdx = source.indexOf('(', fnMatch.index + fnMatch[0].length - 1);
+    const propsType = extractPropsTypeFromParams(source, parenIdx);
+    if (propsType) return propsType;
+  }
+
+  return null;
+}
+
+/**
+ * Handle `export default X` pattern.
+ * Look for the component definition of X above the export default.
+ */
+function extractDefaultExportComponent(source: string): ComponentInfo | null {
+  // export default X  (where X is an identifier starting with uppercase)
+  const defaultExportMatch = source.match(/export\s+default\s+([A-Z][A-Za-z0-9_]*)\s*;?\s*$/m);
+  if (!defaultExportMatch) return null;
+
+  const name = defaultExportMatch[1];
+
+  // Try class X extends React.Component<Props>
+  const classPattern = new RegExp(
+    `(?:export\\s+default\\s+)?class\\s+${name}(?:<[^>]*>)?\\s+extends\\s+React\\.Component\\s*<\\s*([A-Za-z][A-Za-z0-9_]*)`,
+  );
+  const classMatch = source.match(classPattern);
+  if (classMatch) {
+    const description = extractJsDocBefore(source, classMatch[0]);
+    return { name, propsInterfaceName: classMatch[1], description };
+  }
+
+  // Try const X = (props: Props) =>  or  const X = ({...}: Props) =>
+  const info = findInternalComponentInfo(source, name);
+  if (info) {
+    return { name, propsInterfaceName: info };
   }
 
   return null;
@@ -291,20 +598,7 @@ export function extractLibraryComponents(vendorDir: string, libraryName: string)
         if (!/^[A-Z]/.test(entry.name)) continue;
 
         const componentDir = path.join(absPath, entry.name);
-        // Try ComponentName.tsx first, then index.tsx
-        const candidates = [
-          path.join(componentDir, `${entry.name}.tsx`),
-          path.join(componentDir, 'index.tsx'),
-        ];
-
-        let filePath: string | null = null;
-        for (const candidate of candidates) {
-          if (fs.existsSync(candidate)) {
-            filePath = candidate;
-            break;
-          }
-        }
-
+        const filePath = findMainComponentFile(componentDir, entry.name);
         if (!filePath) continue;
 
         let description: string | undefined;
@@ -327,6 +621,36 @@ export function extractLibraryComponents(vendorDir: string, libraryName: string)
   }
 
   return Array.from(components.values());
+}
+
+/**
+ * Find the main component .tsx file within a component directory.
+ * Searches common locations:
+ *   ComponentDir/ComponentName.tsx
+ *   ComponentDir/index.tsx
+ *   ComponentDir/components/ComponentName.tsx   (e.g. Drawer)
+ *   ComponentDir/desktop/ComponentName.tsx      (e.g. Footer)
+ *   ComponentDir/mobile/ComponentName.tsx
+ */
+function findMainComponentFile(componentDir: string, componentName: string): string | null {
+  // Direct candidates
+  const directCandidates = [
+    path.join(componentDir, `${componentName}.tsx`),
+    path.join(componentDir, 'index.tsx'),
+  ];
+
+  for (const candidate of directCandidates) {
+    if (fs.existsSync(candidate)) return candidate;
+  }
+
+  // Search one level of well-known subdirectories
+  const subDirs = ['components', 'desktop', 'mobile'];
+  for (const subDir of subDirs) {
+    const nested = path.join(componentDir, subDir, `${componentName}.tsx`);
+    if (fs.existsSync(nested)) return nested;
+  }
+
+  return null;
 }
 
 function processFile(
