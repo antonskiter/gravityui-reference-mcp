@@ -1,4 +1,4 @@
-# Full GravityUI Ecosystem Expansion — Design Spec
+так # Full GravityUI Ecosystem Expansion — Design Spec
 
 Date: 2026-03-18
 Status: Approved
@@ -123,110 +123,93 @@ Additionally, every library itself is a first-class entity accessible via `get('
 - name, npmPackage, description, entityTypes (which of the 6 types it contains),
   installation snippet, quickstart from README
 
-## Ingest Strategies
+## Ingest Architecture
 
-### Strategy 1: Component + Hook (extended existing pipeline)
+All extraction is LLM-based. The existing regex pipeline (`extract-from-source.ts`)
+is replaced entirely. All 32 in-scope libraries — including the 11 already ingested —
+are re-ingested through the new LLM swarm.
 
-Applies to: all 18 component libraries
+### Universal pattern
 
-Component extraction: unchanged from current pipeline.
+For every library:
 
-Hook extraction (new phase added to existing pipeline):
+1. Manifest discovery (existing — finds source files, unchanged)
+2. LLM extraction swarm: parallel Haiku agents, one per source unit
+3. Zod schema validation of each agent output
+4. Write to data files
 
-- Follow the module graph transitively from the package entry point (index.ts)
-- Identify all exported functions matching `/^use[A-Z]/`
-- Do not walk the filesystem independently — only hooks reachable via the public
-  module graph are included; unexported internal hooks are excluded
-- Extract TypeScript signature: parameters with types, return type
-- Store separately from components in the same library JSON under `hooks: []`
+Model: `claude-haiku-4-5` for all extraction agents.
 
-Output: `data/components/{lib}.json` (extended with `hooks` array)
+### Agent granularity
 
-### Strategy 2: Asset
+The source unit passed to each agent depends on entity type:
 
-Applies to: icons, illustrations
+- Component library: one agent per component directory (all .ts/.tsx files in it)
+- Asset library: one agent for the entire package (index.ts)
+- Utility library: one agent for the entire package (all exported source files + README)
+- Config package: one agent for the entire package (README.md + package.json)
 
-Steps:
+This keeps context manageable: component directories are small by definition.
+Large packages (icons) pass only the index file.
 
-- Read `index.ts` or `index.tsx` at package root
-- Collect all named exports
-- For icons: attempt to read SVG viewBox or category from file path structure
-- No LLM involvement; pure static extraction
+### Prompts per entity type
 
-Output: `data/assets/{lib}.json`
+#### Component + Hook agent
 
-Format:
+Input: source files for one component directory
 
-```json
-{
-  "library": "icons",
-  "npmPackage": "@gravity-ui/icons",
-  "assets": [
-    { "name": "ArrowLeft", "importPath": "@gravity-ui/icons", "category": "arrow" }
-  ]
-}
-```
+Prompt instructs the agent to extract:
 
-### Strategy 3: Utility
+- All React components: name, description, props (name, type, required, default,
+  description), usage examples if present
+- All exported hooks (name starts with `use`): name, signature, parameters with
+  types and descriptions, return type
+- Import path (package name)
 
-Applies to: i18n, date-utils, axios-wrapper, app-layout
+Output schema: `{ components: ComponentDef[], hooks: HookDef[] }`
 
-Steps:
+#### Asset agent
 
-- Resolve entry point from package.json `types` or `main` field
-- Parse TypeScript declarations: extract all exported functions, classes, and types
-- For each export: collect name, full signature, JSDoc description if present
-- Extract README sections: Installation, Usage, Getting Started (first 2000 chars)
+Input: index.ts of the package
 
-Output: `data/utilities/{lib}.json`
+Prompt instructs the agent to extract:
 
-The `kind` field for each export must be one of:
-`function | class | type | interface | enum | const`
+- All named exports: name, inferred category (from name prefix/suffix patterns),
+  import path
 
-Format:
+Output schema: `{ assets: AssetDef[] }`
 
-```json
-{
-  "library": "i18n",
-  "npmPackage": "@gravity-ui/i18n",
-  "description": "...",
-  "readme": "...",
-  "exports": [
-    {
-      "name": "I18n",
-      "kind": "class",
-      "signature": "class I18n<TKeyset>",
-      "description": "...",
-      "importPath": "@gravity-ui/i18n"
-    }
-  ]
-}
-```
+#### Utility agent
 
-### Strategy 4: Config Package
+Input: all source .ts files (not test files) + README.md
 
-Applies to: eslint-config, tsconfig, prettier-config, stylelint-config, babel-preset,
-browserslist-config, webpack-i18n-assets-plugin, page-constructor-builder
+Prompt instructs the agent to extract:
 
-Steps:
+- All public exports: name, kind (`function | class | type | interface | enum | const`),
+  full TypeScript signature, description from JSDoc or README, import path
+- Library-level quickstart: installation command, minimal usage snippet from README
 
-- Read package.json: name, description, version
-- Extract README: first relevant section explaining how to use/extend
-- For eslint/tsconfig/prettier/stylelint: capture the extend/plugin key
-- For CLI tools (page-constructor-builder): capture bin name and basic usage flags
+Output schema: `{ exports: ApiFunctionDef[], quickstart: string }`
 
-Output: `data/configs/{lib}.json`
+#### Config agent
 
-Format:
+Input: README.md + package.json
 
-```json
-{
-  "library": "eslint-config",
-  "npmPackage": "@gravity-ui/eslint-config",
-  "description": "...",
-  "howToUse": "extends: ['@gravity-ui/eslint-config']",
-  "readme": "..."
-}
+Prompt instructs the agent to extract:
+
+- How to install the package
+- How to use/extend it (config key, CLI command, etc.)
+- One-sentence description
+
+Output schema: `{ description: string, howToUse: string, readme: string }`
+
+### Output files
+
+```text
+data/components/{lib}.json   ← components[] + hooks[]
+data/assets/{lib}.json       ← assets[]
+data/utilities/{lib}.json    ← exports[] + quickstart
+data/configs/{lib}.json      ← description + howToUse + readme
 ```
 
 ## Discovery Layer Changes
@@ -372,58 +355,44 @@ Phase 0 — Search index schema extension:
   in `get()` for library-name exact matches from Phase 1 onward)
 - All subsequent phases write to this schema
 
-Phase 1 — Fix the 7 missing component libraries (components only, no hooks yet):
+Phase 1 — LLM re-ingest all 18 component libraries:
 
-- Add `charts` to `library-config.ts` with appropriate config
-- Run component ingest for: dialog-fields, dynamic-forms, data-source, timeline,
-  yagr, charts
-- Fix markdown-editor moduleBased discovery issue
-- Run component validation swarm for new data (reads JSON files directly, not via MCP tools)
+- Add `charts` to `library-config.ts`; investigate and fix `markdown-editor`
+  discovery (currently returns empty due to `moduleBased: true`)
+- Run LLM swarm (component+hook agents) for all 18 libraries in parallel
+- Replaces all existing `data/components/*.json` files
+- Run validation swarm (reads JSON directly, not via MCP tools)
 
-Note: `chartkit` is already ingested (one of the 11 existing `data/components/*.json`
-files). It is not part of the 7 missing libraries addressed in this phase.
+Phase 2 — LLM ingest assets:
 
-Note: Phase 1 intentionally produces component-only data. Hook extraction is added
-in Phase 2, which re-runs ingest for all 18 libraries. This two-pass design allows
-early validation of component data before introducing hook extraction complexity.
-
-Phase 2 — Hook extraction:
-
-- Add hook-extraction phase to existing component pipeline
-- Re-run ingest for all 18 component libraries to populate `hooks[]`
-- Update search index
-
-Phase 3 — Asset ingest:
-
-- Implement asset strategy for icons and illustrations
+- Run LLM swarm (asset agents) for icons and illustrations
 - Populate `data/assets/`
 - Extend search index
 
-Phase 4 — Utility ingest:
+Phase 3 — LLM ingest utilities:
 
-- Implement utility strategy for i18n, date-utils, axios-wrapper, app-layout
+- Run LLM swarm (utility agents) for i18n, date-utils, axios-wrapper, app-layout
 - Populate `data/utilities/`
 - Extend search index
 
-Phase 5 — Config ingest:
+Phase 4 — LLM ingest configs:
 
-- Implement config strategy for 8 config/tooling packages
+- Run LLM swarm (config agents) for 8 config/tooling packages
 - Populate `data/configs/`
 - Extend search index
 
-Phase 6 — Discovery layer:
+Phase 5 — Discovery layer:
 
 - Extend `list` with `type` parameter
 - Extend `find` search index to all entity types
 - Extend `get` resolver to all entity types and data directories
 
-Note: new entity types written in Phases 1–5 are not surfaced by the MCP tools until
-Phase 6 completes. Validation swarms run in Phases 1–5 read JSON files directly from
-`data/` — they do not use `get()`. Phase 7 validation is the first swarm that uses
-the MCP tools. Phase 6 must therefore complete before Phase 7.
+Note: new entity types from Phases 1–4 are not surfaced by the MCP tools until
+Phase 5 completes. Validation swarms in Phases 1–4 read JSON files directly.
+Phase 5 must complete before Phase 6.
 
-Phase 7 — Full ecosystem validation:
+Phase 6 — Full ecosystem validation:
 
-- Run validation swarm across all entity types
+- Run validation swarm across all entity types using MCP tools
 - Generate ecosystem-review report
 - Fix HIGH severity issues
