@@ -85,14 +85,19 @@ Six entity types replace the previous component-centric model:
   tracking all re-exports. Do not walk the filesystem independently — only hooks
   reachable via the public module graph are included.
 - Data: name, signature, parameters (name, type, description), returnType,
-  rulesOfHooks: true, importPath, library
+  importPath, library
+- The `rulesOfHooks: true` flag is a static constant on all hook entries (every hook
+  by definition obeys Rules of Hooks); it signals to consumers that this entity has
+  React call-site restrictions.
 
 `api-function`
 
-- Exported function, class, or type from a utility library
+- Any named export from a utility library: function, class, type, interface, enum,
+  or const. All are filed under the `api-function` entity type regardless of `kind`.
+  The `kind` field (see Strategy 3) distinguishes the specific form.
 - Source: TypeScript declarations (.d.ts or source), README
-- Data: name, signature, parameters, returnType, description, examples, importPath,
-  library
+- Data: name, kind, signature, parameters, returnType, description, examples,
+  importPath, library
 
 `asset`
 
@@ -245,17 +250,31 @@ Behavior:
 
 ### `find` tool
 
-Search index extended to cover all entity types. Each entry carries:
+Search mechanics are unchanged from the existing implementation (keyword matching
+against the search index). This spec only extends what is indexed, not how matching
+works. Each index entry gains two new fields: `type` and `library`.
+
+Updated search-index entry schema:
 
 - `type` (one of 6 entity types)
 - `library` (source package)
-- `name`, `description` (for ranking)
+- `name` — indexed as primary match target
+- `description` — indexed as secondary match target
 
-Examples:
+Indexed text per entity type:
 
-- `find('локализация')` → surfaces i18n library + its key exports
+- component: name + description + prop names
+- hook: name + parameter names + return type description
+- api-function: name + signature + description
+- asset: name + category
+- token: name + description + category
+- config-package: name + description + howToUse
+
+Examples (keyword matches, not semantic):
+
+- `find('i18n')` → surfaces i18n library + its key exports
 - `find('arrow')` → surfaces ArrowLeft and similar icon names
-- `find('dark theme')` → surfaces useTheme hook + token entries
+- `find('theme')` → surfaces useTheme hook + token entries
 
 ### `get` tool
 
@@ -349,6 +368,8 @@ Phase 0 — Search index schema extension:
 - Migrate existing `search-index.json` entries to new schema
 - Update server search logic to accept and filter on `type`
 - Token entries from `data/tokens.json` added to search index in this phase
+- Update `manifest.json` to list all 32 in-scope libraries (enables Stage 1 fast path
+  in `get()` for library-name exact matches from Phase 1 onward)
 - All subsequent phases write to this schema
 
 Phase 1 — Fix the 7 missing component libraries (components only, no hooks yet):
@@ -357,7 +378,10 @@ Phase 1 — Fix the 7 missing component libraries (components only, no hooks yet
 - Run component ingest for: dialog-fields, dynamic-forms, data-source, timeline,
   yagr, charts
 - Fix markdown-editor moduleBased discovery issue
-- Run component validation swarm for new data
+- Run component validation swarm for new data (reads JSON files directly, not via MCP tools)
+
+Note: `chartkit` is already ingested (one of the 11 existing `data/components/*.json`
+files). It is not part of the 7 missing libraries addressed in this phase.
 
 Note: Phase 1 intentionally produces component-only data. Hook extraction is added
 in Phase 2, which re-runs ingest for all 18 libraries. This two-pass design allows
@@ -394,9 +418,9 @@ Phase 6 — Discovery layer:
 - Extend `get` resolver to all entity types and data directories
 
 Note: new entity types written in Phases 1–5 are not surfaced by the MCP tools until
-Phase 6 completes — do not attempt intermediate QA via the tools during those phases.
-Phase 6 must complete before Phase 7: validation agents use `get()` to retrieve
-entities, requiring the resolver to support all data directories first.
+Phase 6 completes. Validation swarms run in Phases 1–5 read JSON files directly from
+`data/` — they do not use `get()`. Phase 7 validation is the first swarm that uses
+the MCP tools. Phase 6 must therefore complete before Phase 7.
 
 Phase 7 — Full ecosystem validation:
 
