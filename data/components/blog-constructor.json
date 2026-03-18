@@ -249,7 +249,109 @@
           "description": "Sign-in click handler. Required to enable the PromptSignIn overlay when an unauthenticated user attempts to like a post."
         }
       ]
+    },
+    {
+      "name": "FeedHeader",
+      "library": "blog-constructor",
+      "description": "Blog feed header component. Renders a full-width header with optional background image/color and a Controls bar containing a search field, tag/service filter selects, and a saved-only toggle.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {FeedHeader} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/FeedHeader/FeedHeader.tsx",
+      "props": [
+        {
+          "name": "handleLoadData",
+          "type": "(props: FetchArgs) => void",
+          "required": true,
+          "description": "Callback invoked when filters or search change to fetch new posts."
+        },
+        {
+          "name": "queryParams",
+          "type": "Query",
+          "required": true,
+          "description": "Current URL query parameters used to initialize filter state."
+        },
+        {
+          "name": "tags",
+          "type": "SelectItem[]",
+          "required": false,
+          "default": "[]",
+          "description": "Tag filter options rendered in the tag select dropdown."
+        },
+        {
+          "name": "services",
+          "type": "SelectItem[]",
+          "required": false,
+          "default": "[]",
+          "description": "Service filter options rendered in the services select dropdown. The select is hidden when this array is empty."
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false,
+          "default": "i18n(Keyset.Title)",
+          "description": "Heading text displayed at the top of the controls bar."
+        },
+        {
+          "name": "background",
+          "type": "ThemedImage",
+          "required": false,
+          "description": "Optional themed background image or color for the header."
+        },
+        {
+          "name": "theme",
+          "type": "string",
+          "required": false,
+          "default": "\"light\"",
+          "description": "Theme used to resolve the themed background value."
+        },
+        {
+          "name": "offset",
+          "type": "string",
+          "required": false,
+          "default": "\"default\"",
+          "description": "Grid offset applied to the content container."
+        },
+        {
+          "name": "verticalOffset",
+          "type": "string",
+          "required": false,
+          "default": "\"l\"",
+          "description": "Vertical padding size applied to the content container."
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class name for the root header element."
+        }
+      ]
     }
   ],
-  "hooks": []
+  "hooks": [
+    {
+      "name": "useOpenCloseTimer",
+      "library": "blog-constructor",
+      "description": "Timer hook that computes an open/closed boolean state based on an open timestamp and a duration. Returns {open: true} while Date.now() - openTimestamp < openDuration, then automatically flips to {open: false} via a scheduled timeout.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {useOpenCloseTimer} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/hooks/useOpenCloseTimer.ts",
+      "parameters": [
+        {
+          "name": "openTimestamp",
+          "type": "number",
+          "required": false,
+          "default": "Date.now()",
+          "description": "UNIX timestamp in milliseconds marking when the open state began."
+        },
+        {
+          "name": "openDuration",
+          "type": "number",
+          "required": false,
+          "default": "4000",
+          "description": "Duration in milliseconds the open state should last."
+        }
+      ],
+      "returns": "{ open: boolean }"
+    }
+  ]
 }

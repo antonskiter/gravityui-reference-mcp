@@ -22,7 +22,7 @@
         {
           "name": "position",
           "type": "\"absolute\" | \"fixed\"",
-          "required": true,
+          "required": false,
           "default": "\"fixed\"",
           "description": "CSS position mode for anchor placement"
         },
@@ -193,6 +193,83 @@
           "required": false,
           "default": null,
           "description": "Additional React elements to render inside the graph wrapper"
+        },
+        {
+          "name": "click",
+          "type": "(data: { target?: EventedComponent; sourceEvent: Event; pointerPressed?: boolean }, event: GraphMouseEvent) => void",
+          "required": false,
+          "default": null,
+          "description": "Fired when the graph canvas is clicked. Receives event detail with optional target component and source DOM event."
+        },
+        {
+          "name": "dblclick",
+          "type": "(data: { target?: EventedComponent; sourceEvent: Event; pointerPressed?: boolean }, event: GraphMouseEvent) => void",
+          "required": false,
+          "default": null,
+          "description": "Fired when the graph canvas is double-clicked. Receives event detail with optional target component and source DOM event."
+        },
+        {
+          "name": "onCameraChange",
+          "type": "(data: TCameraState, event: CustomEvent<TCameraState>) => void",
+          "required": false,
+          "default": null,
+          "description": "Fired when the camera state changes (pan, zoom). Receives the new camera state."
+        },
+        {
+          "name": "onBlockDragStart",
+          "type": "(data: { nativeEvent: MouseEvent; block: TBlock }, event: CustomEvent<{ nativeEvent: MouseEvent; block: TBlock }>) => void",
+          "required": false,
+          "default": null,
+          "description": "Fired when a block drag operation starts. Receives the native mouse event and the block being dragged."
+        },
+        {
+          "name": "onBlockDrag",
+          "type": "(data: { nativeEvent: MouseEvent; block: TBlock; x: number; y: number }, event: CustomEvent<{ nativeEvent: MouseEvent; block: TBlock; x: number; y: number }>) => void",
+          "required": false,
+          "default": null,
+          "description": "Fired continuously while a block is being dragged. Receives the native mouse event, the block, and the new x/y coordinates."
+        },
+        {
+          "name": "onBlockDragEnd",
+          "type": "(data: { nativeEvent: MouseEvent; block: TBlock }, event: CustomEvent<{ nativeEvent: MouseEvent; block: TBlock }>) => void",
+          "required": false,
+          "default": null,
+          "description": "Fired when a block drag operation ends. Receives the native mouse event and the block that was dragged."
+        },
+        {
+          "name": "onBlockSelectionChange",
+          "type": "(data: TSelectionDiff<TBlockId>, event: SelectionEvent<TBlockId>) => void",
+          "required": false,
+          "default": null,
+          "description": "Fired when the block selection changes. Receives a selection diff with added and removed block IDs."
+        },
+        {
+          "name": "onBlockAnchorSelectionChange",
+          "type": "(data: { anchor: TAnchor; selected: boolean }, event: CustomEvent<{ anchor: TAnchor; selected: boolean }>) => void",
+          "required": false,
+          "default": null,
+          "description": "Fired when a block anchor selection changes. Receives the anchor and its new selection state."
+        },
+        {
+          "name": "onBlockChange",
+          "type": "(data: { block: TBlock }, event: CustomEvent<{ block: TBlock }>) => void",
+          "required": false,
+          "default": null,
+          "description": "Fired when a block is changed (e.g. moved). Receives the updated block data."
+        },
+        {
+          "name": "onConnectionSelectionChange",
+          "type": "(data: TSelectionDiff<TConnection[\"id\"]>, event: SelectionEvent<TConnection[\"id\"]>) => void",
+          "required": false,
+          "default": null,
+          "description": "Fired when the connection selection changes. Receives a selection diff with added and removed connection IDs."
+        },
+        {
+          "name": "onStateChanged",
+          "type": "(data: { state: GraphState }, event: CustomEvent<{ state: GraphState }>) => void",
+          "required": false,
+          "default": null,
+          "description": "Fired when the graph state changes. Receives the new graph state."
         }
       ]
     },

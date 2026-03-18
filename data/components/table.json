@@ -292,6 +292,114 @@
           "type": "string",
           "required": false,
           "description": "CSS class for the checkbox"
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the checkbox is checked"
+        },
+        {
+          "name": "defaultChecked",
+          "type": "boolean",
+          "required": false,
+          "description": "Default checked state for uncontrolled usage"
+        },
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the checkbox is in an indeterminate state"
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the checkbox is disabled"
+        },
+        {
+          "name": "size",
+          "type": "'m' | 'l' | 'xl'",
+          "required": false,
+          "description": "Checkbox size variant"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false,
+          "description": "Name attribute for the underlying input element"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false,
+          "description": "Value attribute for the underlying input element"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false,
+          "description": "Id attribute for the underlying input element"
+        },
+        {
+          "name": "onFocus",
+          "type": "React.FocusEventHandler<HTMLInputElement>",
+          "required": false,
+          "description": "Focus event handler for the underlying input"
+        },
+        {
+          "name": "onBlur",
+          "type": "React.FocusEventHandler<HTMLInputElement>",
+          "required": false,
+          "description": "Blur event handler for the underlying input"
+        },
+        {
+          "name": "onUpdate",
+          "type": "(checked: boolean) => void",
+          "required": false,
+          "description": "Callback fired with the new boolean checked value"
+        },
+        {
+          "name": "controlProps",
+          "type": "Omit<React.InputHTMLAttributes<HTMLInputElement>, 'name' | 'value' | 'id' | 'onFocus' | 'onBlur' | 'disabled' | 'type' | 'onChange' | 'defaultChecked' | 'checked' | 'aria-checked'>",
+          "required": false,
+          "description": "Additional HTML attributes passed to the underlying input element"
+        },
+        {
+          "name": "controlRef",
+          "type": "React.Ref<HTMLInputElement>",
+          "required": false,
+          "description": "Ref for the underlying input element"
+        },
+        {
+          "name": "content",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Content rendered as the checkbox label (alternative to children)"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Children rendered as the checkbox label"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false,
+          "description": "Title attribute for the checkbox label element"
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "required": false,
+          "description": "Inline styles for the checkbox"
+        },
+        {
+          "name": "qa",
+          "type": "string",
+          "required": false,
+          "description": "Test attribute for QA automation"
         }
       ]
     },
@@ -348,6 +456,75 @@
           "type": "string",
           "required": false,
           "description": "URL for the row link. Component renders null if not provided"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Content rendered inside the link"
+        },
+        {
+          "name": "view",
+          "type": "'normal' | 'primary' | 'secondary'",
+          "required": false,
+          "default": "'normal'",
+          "description": "Visual style variant of the link"
+        },
+        {
+          "name": "visitable",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Whether to show visited link styling"
+        },
+        {
+          "name": "underline",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Whether to show an underline on the link"
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "required": false,
+          "description": "Anchor target attribute (e.g. '_blank')"
+        },
+        {
+          "name": "rel",
+          "type": "string",
+          "required": false,
+          "description": "Anchor rel attribute. Defaults to 'noopener noreferrer' when target is '_blank'"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "CSS class for the link element"
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "required": false,
+          "description": "Inline styles for the link element"
+        },
+        {
+          "name": "qa",
+          "type": "string",
+          "required": false,
+          "description": "Test attribute for QA automation"
+        },
+        {
+          "name": "onClick",
+          "type": "React.MouseEventHandler<HTMLAnchorElement>",
+          "required": false,
+          "description": "Click event handler"
+        },
+        {
+          "name": "extraProps",
+          "type": "React.AnchorHTMLAttributes<HTMLAnchorElement>",
+          "required": false,
+          "description": "Additional HTML anchor attributes (deprecated: use root props instead)"
         }
       ]
     },
@@ -457,6 +634,220 @@
           "type": "(row: Row<TData>, event: React.MouseEvent<HTMLTableRowElement>) => void",
           "required": false,
           "description": "Click handler for rows"
+        },
+        {
+          "name": "attributes",
+          "type": "React.TableHTMLAttributes<HTMLTableElement>",
+          "required": false,
+          "description": "HTML attributes for the table element"
+        },
+        {
+          "name": "bodyAttributes",
+          "type": "React.HTMLAttributes<HTMLTableSectionElement>",
+          "required": false,
+          "description": "HTML attributes for the tbody element"
+        },
+        {
+          "name": "bodyClassName",
+          "type": "string",
+          "required": false,
+          "description": "CSS classes for the tbody element"
+        },
+        {
+          "name": "bodyRef",
+          "type": "React.Ref<HTMLTableSectionElement>",
+          "required": false,
+          "description": "Ref for the tbody element"
+        },
+        {
+          "name": "cellAttributes",
+          "type": "BaseCellProps<TData>['attributes']",
+          "required": false,
+          "description": "HTML attributes for td elements inside tbody"
+        },
+        {
+          "name": "customFooterRowCount",
+          "type": "number",
+          "required": false,
+          "description": "Used with renderCustomFooterContent to set correct aria-rowcount"
+        },
+        {
+          "name": "emptyContent",
+          "type": "React.ReactNode | (() => React.ReactNode)",
+          "required": false,
+          "description": "Content displayed when the table has no data rows"
+        },
+        {
+          "name": "footerAttributes",
+          "type": "React.HTMLAttributes<HTMLTableSectionElement>",
+          "required": false,
+          "description": "HTML attributes for the tfoot element"
+        },
+        {
+          "name": "footerCellAttributes",
+          "type": "BaseFooterRowProps<TData>['cellAttributes']",
+          "required": false,
+          "description": "HTML attributes for th elements inside tfoot"
+        },
+        {
+          "name": "footerClassName",
+          "type": "string",
+          "required": false,
+          "description": "CSS classes for the tfoot element"
+        },
+        {
+          "name": "footerRowAttributes",
+          "type": "BaseFooterRowProps<TData>['attributes']",
+          "required": false,
+          "description": "HTML attributes for tr elements inside tfoot"
+        },
+        {
+          "name": "footerRowClassName",
+          "type": "BaseFooterRowProps<TData>['className']",
+          "required": false,
+          "description": "CSS classes for tr elements inside tfoot"
+        },
+        {
+          "name": "getGroupTitle",
+          "type": "BaseRowProps<TData>['getGroupTitle']",
+          "required": false,
+          "description": "Returns the title for a group header row"
+        },
+        {
+          "name": "getIsCustomRow",
+          "type": "BaseRowProps<TData>['getIsCustomRow']",
+          "required": false,
+          "description": "Checks if the row is custom and should be rendered using renderCustomRowContent"
+        },
+        {
+          "name": "getIsGroupHeaderRow",
+          "type": "BaseRowProps<TData>['getIsGroupHeaderRow']",
+          "required": false,
+          "description": "Checks if the row should be rendered as a group header"
+        },
+        {
+          "name": "groupHeaderClassName",
+          "type": "BaseRowProps<TData>['groupHeaderClassName']",
+          "required": false,
+          "description": "CSS classes for the group header elements"
+        },
+        {
+          "name": "headerAttributes",
+          "type": "React.HTMLAttributes<HTMLTableSectionElement>",
+          "required": false,
+          "description": "HTML attributes for the thead element"
+        },
+        {
+          "name": "headerCellAttributes",
+          "type": "BaseHeaderRowProps<TData>['cellAttributes']",
+          "required": false,
+          "description": "HTML attributes for th elements inside thead"
+        },
+        {
+          "name": "headerRowAttributes",
+          "type": "BaseHeaderRowProps<TData>['attributes']",
+          "required": false,
+          "description": "HTML attributes for tr elements inside thead"
+        },
+        {
+          "name": "headerRowClassName",
+          "type": "BaseHeaderRowProps<TData>['className']",
+          "required": false,
+          "description": "CSS classes for tr elements inside thead"
+        },
+        {
+          "name": "renderCustomFooterContent",
+          "type": "(props: {cellClassName: string; footerGroups: HeaderGroup<TData>[]; rowClassName: string; rowIndex: number}) => React.ReactNode",
+          "required": false,
+          "description": "Function to render custom footer content"
+        },
+        {
+          "name": "renderCustomRowContent",
+          "type": "BaseRowProps<TData>['renderCustomRowContent']",
+          "required": false,
+          "description": "Function to render custom rows"
+        },
+        {
+          "name": "renderGroupHeader",
+          "type": "BaseRowProps<TData>['renderGroupHeader']",
+          "required": false,
+          "description": "Function to override the default rendering of group headers"
+        },
+        {
+          "name": "renderGroupHeaderRowContent",
+          "type": "BaseRowProps<TData>['renderGroupHeaderRowContent']",
+          "required": false,
+          "description": "Function to override the default rendering of the entire group header row"
+        },
+        {
+          "name": "renderHeaderCellContent",
+          "type": "BaseHeaderRowProps<TData>['renderHeaderCellContent']",
+          "required": false,
+          "description": "Function to override the default rendering of header cell content"
+        },
+        {
+          "name": "renderResizeHandle",
+          "type": "BaseHeaderRowProps<TData>['renderResizeHandle']",
+          "required": false,
+          "description": "Function to override the default rendering of resize handles"
+        },
+        {
+          "name": "renderSortIndicator",
+          "type": "BaseHeaderRowProps<TData>['renderSortIndicator']",
+          "required": false,
+          "description": "Function to override the default rendering of sort indicators"
+        },
+        {
+          "name": "resizeHandleClassName",
+          "type": "BaseHeaderRowProps<TData>['resizeHandleClassName']",
+          "required": false,
+          "description": "CSS classes for resize handles in th elements"
+        },
+        {
+          "name": "rowAttributes",
+          "type": "BaseRowProps<TData>['attributes']",
+          "required": false,
+          "description": "HTML attributes for tr elements inside tbody"
+        },
+        {
+          "name": "rowVirtualizer",
+          "type": "Virtualizer<TScrollElement, HTMLTableRowElement>",
+          "required": false,
+          "description": "The row virtualizer instance returned from useRowVirtualizer or useWindowRowVirtualizer hooks"
+        },
+        {
+          "name": "sortIndicatorClassName",
+          "type": "BaseHeaderRowProps<TData>['sortIndicatorClassName']",
+          "required": false,
+          "description": "CSS classes for the sort indicator inside th elements"
+        },
+        {
+          "name": "stickyFooter",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Makes the tfoot element sticky"
+        },
+        {
+          "name": "stickyHeader",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Makes the thead element sticky"
+        },
+        {
+          "name": "withFooter",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Determines whether the tfoot element should be rendered"
+        },
+        {
+          "name": "withHeader",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Determines whether the thead element should be rendered"
         }
       ]
     },

@@ -1048,6 +1048,12 @@
           "description": "Error message text."
         },
         {
+          "name": "errorPlacement",
+          "type": "string",
+          "required": false,
+          "description": "Error placement."
+        },
+        {
           "name": "autoFocus",
           "type": "boolean",
           "required": false,
@@ -1295,6 +1301,18 @@
           "type": "React.ReactNode",
           "required": false,
           "description": "Error message text."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "string",
+          "required": false,
+          "description": "Error placement."
+        },
+        {
+          "name": "parseDateFromString",
+          "type": "(dateStr: string, format: string, timeZone?: string) => DateTime",
+          "required": false,
+          "description": "Custom parser function for parsing pasted date strings."
         },
         {
           "name": "autoFocus",
@@ -1955,6 +1973,12 @@
           "description": "Error message text."
         },
         {
+          "name": "errorPlacement",
+          "type": "string",
+          "required": false,
+          "description": "Error placement."
+        },
+        {
           "name": "autoFocus",
           "type": "boolean",
           "required": false,
@@ -2274,6 +2298,12 @@
           "type": "React.ReactNode",
           "required": false,
           "description": "Error message text."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "string",
+          "required": false,
+          "description": "Error placement."
         },
         {
           "name": "autoFocus",

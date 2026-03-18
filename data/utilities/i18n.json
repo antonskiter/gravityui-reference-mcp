@@ -18,6 +18,33 @@
       ],
       "import_path": "@gravity-ui/i18n",
       "library": "i18n",
+      "fields": [
+        {
+          "name": "data",
+          "type": "Record<string, KeysetData>",
+          "description": "All registered language data, keyed by language code. Each value is a KeysetData map of keyset names to their translation keys."
+        },
+        {
+          "name": "lang",
+          "type": "string | undefined",
+          "description": "The currently active language used for translation lookups. Set via setLang() or the lang constructor option."
+        },
+        {
+          "name": "fallbackLang",
+          "type": "string | undefined",
+          "description": "The fallback language used when a key is missing in the active language. Set via setFallbackLang() or the fallbackLang constructor option."
+        },
+        {
+          "name": "logger",
+          "type": "Logger | null",
+          "description": "Logger instance used to emit i18n warnings. Defaults to null. Can be set directly or via the logger constructor option."
+        },
+        {
+          "name": "pluralizers",
+          "type": "Record<string, Pluralizer>",
+          "description": "Map of language codes to pluralizer functions. Pre-populated with built-in pluralizers for 'en' and 'ru'. Extend via configurePluralization() (deprecated)."
+        }
+      ],
       "methods": [
         {
           "name": "setLang",

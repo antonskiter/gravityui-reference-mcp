@@ -172,7 +172,7 @@
       "name": "AsideHeader",
       "library": "navigation",
       "import_statement": "import { AsideHeader } from '@gravity-ui/navigation';",
-      "description": "Main navigation sidebar component providing a flexible and customizable navigation experience. Supports pinned/collapsed states, menu items, panels, footer, logo, top alerts, and compact mode. Uses PageLayout internally for layout structure.",
+      "description": "Main navigation sidebar component providing a flexible and customizable navigation experience. Supports pinned/collapsed states, menu items, panels, footer, logo, top alerts, and compact mode. Uses PageLayout internally for layout structure. Forwards a ref to the inner HTMLDivElement (the aside panel element) via React.forwardRef.",
       "source_file": "vendor/navigation/src/components/AsideHeader/AsideHeader.tsx",
       "props": [
         {
@@ -585,52 +585,78 @@
           "type": "string",
           "required": false,
           "description": "data-qa HTML attribute for testing"
-        }
-      ]
-    },
-    {
-      "name": "FooterBar",
-      "library": "navigation",
-      "import_statement": "import { FooterBar } from '@gravity-ui/navigation';",
-      "description": "Container component for footer items in the AsideHeader. Manages horizontal/vertical layout based on pinned state, overflow with dropdown menu, and provides FooterLayoutContext to children.",
-      "source_file": "vendor/navigation/src/components/AsideHeader/components/FooterBar/FooterBar.tsx",
-      "props": [
-        {
-          "name": "children",
-          "type": "React.ReactNode[]",
-          "required": true,
-          "description": "Array of footer elements (typically FooterItem components)"
         },
         {
-          "name": "renderAfter",
-          "type": "(options?: {setCollapseBlocker?: SetCollapseBlocker}) => React.ReactNode",
+          "name": "href",
+          "type": "string",
           "required": false,
-          "description": "Render function for additional content after items (e.g., user profile). Receives setCollapseBlocker option."
+          "description": "URL that the item links to"
         },
         {
-          "name": "setCollapseBlocker",
-          "type": "SetCollapseBlocker",
+          "name": "className",
+          "type": "string",
           "required": false,
-          "description": "Registers a temporary block on collapse (e.g. while dropdown is open)"
+          "description": "CSS class for the item element"
         },
         {
-          "name": "isPinned",
+          "name": "hidden",
           "type": "boolean",
-          "required": true,
-          "description": "When true, the navigation is pinned (expanded). Items render horizontally."
-        },
-        {
-          "name": "isExpanded",
-          "type": "boolean",
-          "required": true,
-          "description": "When true, the navigation is expanded (hover or pinned)"
-        },
-        {
-          "name": "maxVisibleItems",
-          "type": "number",
           "required": false,
-          "default": "5",
-          "description": "Maximum number of visible items before showing 'more' button"
+          "description": "Visibility flag — when true the item is not shown in the menu"
+        },
+        {
+          "name": "type",
+          "type": "'regular' | 'action' | 'divider'",
+          "required": false,
+          "description": "Item type controlling rendering behavior"
+        },
+        {
+          "name": "preventUserRemoving",
+          "type": "boolean",
+          "required": false,
+          "description": "When true, the item cannot be removed by the user in edit mode"
+        },
+        {
+          "name": "rightAdornment",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Content rendered to the right of the item label"
+        },
+        {
+          "name": "itemWrapper",
+          "type": "(p: MakeItemParams, makeItem: (p: MakeItemParams) => React.ReactNode, opts: {isExpanded: boolean; item: MenuItem; ref: React.RefObject<HTMLElement>; setCollapseBlocker: SetCollapseBlocker | undefined}) => React.ReactNode",
+          "required": false,
+          "description": "Custom wrapper function for the item. Use to render popups or other overlays attached to the item."
+        },
+        {
+          "name": "onItemClickCapture",
+          "type": "(event: React.SyntheticEvent) => void",
+          "required": false,
+          "description": "Capture-phase click handler for the item"
+        },
+        {
+          "name": "groupId",
+          "type": "string",
+          "required": false,
+          "description": "The group ID the item belongs to, used for grouped menu rendering"
+        },
+        {
+          "name": "enableTooltip",
+          "type": "boolean",
+          "required": false,
+          "description": "When true, enables tooltip display for this item (inherited from AsideHeaderItem)"
+        },
+        {
+          "name": "bringForward",
+          "type": "boolean",
+          "required": false,
+          "description": "When true, renders the item above the sidebar overlay (inherited from AsideHeaderItem)"
+        },
+        {
+          "name": "iconQa",
+          "type": "string",
+          "required": false,
+          "description": "data-qa attribute for the icon element"
         }
       ]
     },
@@ -761,6 +787,12 @@
           "type": "boolean",
           "required": false,
           "description": "Whether to hide the drawer backdrop veil"
+        },
+        {
+          "name": "itemClassName",
+          "type": "string",
+          "required": false,
+          "description": "CSS class applied to each hotkey list item row. Passed to the underlying List component's itemClassName prop."
         }
       ]
     },
@@ -768,7 +800,7 @@
       "name": "Logo",
       "library": "navigation",
       "import_statement": "import { Logo } from '@gravity-ui/navigation';",
-      "description": "Logo component for the navigation sidebar header or footer. Supports icon (SVG or image URL), text, expand/collapse animation, custom wrapper, and link functionality.",
+      "description": "Logo component for the navigation sidebar header or footer. Supports icon (SVG or image URL), text, expand/collapse animation, custom wrapper, and link functionality. Spreads remaining LogoProps (including iconSize) onto internal rendering.",
       "source_file": "vendor/navigation/src/components/Logo/Logo.tsx",
       "props": [
         {
@@ -1655,6 +1687,36 @@
           "description": "Metadata passed to the eventBroker on click for analytics"
         }
       ]
+    },
+    {
+      "name": "MOBILE_HEADER_EVENT_NAMES",
+      "library": "navigation",
+      "import_statement": "import { MOBILE_HEADER_EVENT_NAMES } from '@gravity-ui/navigation';",
+      "description": "Constant object containing the event name strings used for programmatic MobileHeader panel control via window.dispatchEvent. Values: toggleEvent: 'MOBILE_PANEL_TOGGLE', closeEvent: 'MOBILE_PANEL_CLOSE', openEvent: 'MOBILE_PANEL_OPEN'. Use with getMobileHeaderCustomEvent to open, close, or toggle panels.",
+      "source_file": "vendor/navigation/src/components/MobileHeader/constants.ts",
+      "kind": "constant",
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "FooterLayoutContext",
+      "library": "navigation",
+      "import_statement": "import { FooterLayoutContext } from '@gravity-ui/navigation';",
+      "description": "React context object that provides layout information to footer items. Value type: FooterLayoutContextValue { layout: 'horizontal' | 'vertical'; isExpanded: boolean }. Use as a context provider or read via useFooterLayout hook. FooterItem reads this context to determine its effective layout and expanded state.",
+      "source_file": "vendor/navigation/src/components/AsideHeader/FooterLayoutContext.ts",
+      "kind": "context",
+      "props": [],
+      "examples": []
+    },
+    {
+      "name": "AsideHeaderContextProvider",
+      "library": "navigation",
+      "import_statement": "import { AsideHeaderContextProvider } from '@gravity-ui/navigation';",
+      "description": "React context Provider for AsideHeaderContext. Use to supply AsideHeaderContextType values (pinned, size, isExpanded, onChangePinned, onExpand, onFold, setCollapseBlocker) to a custom PageLayout composition. Required when building custom layouts with PageLayoutAside outside of AsideHeader.",
+      "source_file": "vendor/navigation/src/components/AsideHeader/AsideHeaderContext.ts",
+      "kind": "context",
+      "props": [],
+      "examples": []
     }
   ],
   "hooks": [

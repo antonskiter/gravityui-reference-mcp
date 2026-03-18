@@ -5,7 +5,7 @@
       "library": "chartkit",
       "import_path": "@gravity-ui/chartkit",
       "import_statement": "import ChartKit from '@gravity-ui/chartkit';",
-      "description": "Main chart rendering component that selects and renders a plugin-based chart based on type. Wraps content in ErrorBoundary and React.Suspense with a Loader fallback. Accepts a forwarded ref for imperative reflow control.",
+      "description": "Main chart rendering component that selects and renders a plugin-based chart based on type. Wraps content in ErrorBoundary and React.Suspense with a Loader fallback. Accepts a forwarded ref for imperative reflow control. In addition to the fixed props listed here, ChartKitProps uses an intersection type that spreads plugin-specific props directly onto the component: each registered plugin (yagr, indicator, highcharts, gravity-charts) contributes additional props derived from its ChartKitWidget entry (all keys except 'data' and 'widget'). For example, the highcharts plugin adds hoistConfigError, nonBodyScroll, splitTooltip, paneSplitOrientation, onSplitPaneOrientationChange, and onChange; the yagr plugin adds tooltip; the indicator plugin adds formatNumber; and the gravity-charts plugin adds tooltip.",
       "props": [
         {
           "name": "type",

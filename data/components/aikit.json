@@ -916,8 +916,7 @@
           "name": "visible",
           "type": "boolean",
           "required": false,
-          "default": "true",
-          "description": "Controls visibility"
+          "description": "Controls visibility. RatingBlock has no internal default for this prop; whether it renders when visible is omitted depends on the parent component (e.g. MessageList renders it only when visible !== false)."
         },
         {
           "name": "className",
@@ -1663,19 +1662,19 @@
           "name": "className",
           "type": "string",
           "required": false,
-          "description": "Additional CSS class"
+          "description": "Additional CSS class (defined in ThinkingMessageContentData; also available via DOMProps inheritance)"
         },
         {
           "name": "qa",
           "type": "string",
           "required": false,
-          "description": "QA/test identifier"
+          "description": "QA/test identifier (defined in ThinkingMessageContentData; also available via QAProps inheritance)"
         },
         {
           "name": "style",
           "type": "React.CSSProperties",
           "required": false,
-          "description": "Inline styles"
+          "description": "Inline styles (inherited from DOMProps, not part of ThinkingMessageContentData)"
         }
       ]
     },

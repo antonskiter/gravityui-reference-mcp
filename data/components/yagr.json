@@ -43,7 +43,7 @@
           "name": "onChartInited",
           "type": "(chart: Yagr, meta: YagrMeta) => void",
           "required": false,
-          "description": "Fires when chart is initialized"
+          "description": "Fires when chart is initialized. Note: this prop has no effect at runtime — it is defined in YagrChartProps but is never destructured or used in the YagrReact component implementation."
         },
         {
           "name": "onChartLoad",

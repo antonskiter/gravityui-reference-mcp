@@ -284,6 +284,48 @@
           "type": "string",
           "required": false,
           "description": "Test attribute for QA automation"
+        },
+        {
+          "name": "image",
+          "type": "ImageProps | ImageProps[]",
+          "required": false,
+          "description": "Image or array of images (inherited from MediaProps)"
+        },
+        {
+          "name": "youtube",
+          "type": "string",
+          "required": false,
+          "description": "YouTube video ID or URL (inherited from MediaProps)"
+        },
+        {
+          "name": "videoIframe",
+          "type": "string",
+          "required": false,
+          "description": "Custom video iframe URL (inherited from MediaProps)"
+        },
+        {
+          "name": "dataLens",
+          "type": "string",
+          "required": false,
+          "description": "DataLens chart configuration (inherited from MediaProps)"
+        },
+        {
+          "name": "iframe",
+          "type": "string",
+          "required": false,
+          "description": "Generic iframe URL (inherited from MediaProps)"
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "required": false,
+          "description": "Media height in pixels (inherited from MediaProps)"
+        },
+        {
+          "name": "previewImg",
+          "type": "string",
+          "required": false,
+          "description": "Preview image URL for video (inherited from MediaProps)"
         }
       ],
       "import_statement": "import { BackgroundMedia } from '@gravity-ui/page-constructor';"
@@ -307,7 +349,8 @@
         {
           "name": "children",
           "type": "React.ReactNode[]",
-          "required": true,
+          "required": false,
+          "default": "[]",
           "description": "Array of child elements to distribute across columns"
         },
         {
@@ -1600,6 +1643,55 @@
           "type": "() => void",
           "required": false,
           "description": "Callback when image loads"
+        },
+        {
+          "name": "disableImageSliderForArrayInput",
+          "type": "boolean",
+          "required": false,
+          "description": "Disable slider behavior when image is an array"
+        },
+        {
+          "name": "playVideo",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Whether to play the video"
+        },
+        {
+          "name": "isBackground",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether the media is used as a background"
+        },
+        {
+          "name": "playButton",
+          "type": "PlayButtonProps",
+          "required": false,
+          "description": "Custom play button configuration"
+        },
+        {
+          "name": "customBarControlsClassName",
+          "type": "string",
+          "required": false,
+          "description": "CSS class for custom bar controls"
+        },
+        {
+          "name": "margins",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether to apply margins to iframe"
+        },
+        {
+          "name": "videoMicrodata",
+          "type": "{ name?: string; description?: string; duration?: string; uploadDate?: string; contentUrl?: string; thumbnailUrl?: string }",
+          "required": false,
+          "description": "Structured data for video SEO (VideoObject schema)"
+        },
+        {
+          "name": "isFullscreenImageCover",
+          "type": "boolean",
+          "required": false,
+          "description": "Whether fullscreen image uses cover mode"
         }
       ],
       "import_statement": "import { Media } from '@gravity-ui/page-constructor';"
@@ -1807,6 +1899,18 @@
           "required": false,
           "default": "true",
           "description": "Whether to contain the video within bounds"
+        },
+        {
+          "name": "elapsedTime",
+          "type": "number",
+          "required": false,
+          "description": "Time in seconds to start playback from"
+        },
+        {
+          "name": "customControlsOptions",
+          "type": "CustomControlsOptions",
+          "required": false,
+          "description": "Configuration for custom controls (type, muteButtonShown, positioning)"
         },
         {
           "name": "children",
