@@ -164,3 +164,39 @@ export interface RecipeDef {
   tags: string[];
   sections: RecipeSection[];
 }
+
+export interface HookDef {
+  name: string;
+  signature: string;
+  parameters: Array<{ name: string; type: string; description?: string }>;
+  return_type: string;
+  import_path: string;
+  library: string;
+  rules_of_hooks: true;
+}
+
+export interface AssetDef {
+  name: string;
+  import_path: string;
+  library: string;
+  category?: string;
+}
+
+export interface ApiFunctionDef {
+  name: string;
+  kind: 'function' | 'class' | 'type' | 'interface' | 'enum' | 'const';
+  signature: string;
+  parameters: Array<{ name: string; type: string; description?: string }>;
+  return_type?: string;
+  description?: string;
+  import_path: string;
+  library: string;
+}
+
+export interface ConfigDoc {
+  library: string;
+  npm_package: string;
+  description: string;
+  how_to_use: string;
+  readme: string;
+}
