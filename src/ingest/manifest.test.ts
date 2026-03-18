@@ -1,13 +1,21 @@
 import { describe, it, expect } from 'vitest';
 import * as path from 'path';
+import * as fs from 'fs';
 import { fileURLToPath } from 'url';
 import { buildManifest } from './manifest.js';
 
 // Resolve vendor from the main repo root (worktree submodules may be uninitialized).
+// When running from a git worktree at .worktrees/<name>/, the main repo is 4 levels up
+// from src/ingest/ rather than 2 levels up.
 // __dirname is not available in ESM; use import.meta.url instead.
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const VENDOR_DIR = path.resolve(__dirname, '../../vendor');
+const VENDOR_MAIN     = path.resolve(__dirname, '../../vendor');
+const VENDOR_WORKTREE = path.resolve(__dirname, '../../../../vendor');
+// The worktree may have vendor/ as an empty directory (uninitialized submodules).
+// Prefer the vendor with actual content (check for a known submodule).
+const hasContent = (dir: string) => fs.existsSync(path.join(dir, 'uikit', 'src'));
+const VENDOR_DIR = hasContent(VENDOR_MAIN) ? VENDOR_MAIN : VENDOR_WORKTREE;
 
 describe('buildManifest', () => {
   it('discovers vendor submodules and builds batches', () => {
