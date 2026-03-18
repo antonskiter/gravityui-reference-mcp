@@ -40,11 +40,18 @@ export function loadJsonArray<T extends object>(dataDir: string, collectionName:
     const files = readdirSync(dirPath).filter(f => f.endsWith('.json')).sort();
     const items: T[] = [];
     for (const file of files) {
-      const parsed = loadJsonFile<T[] | T>(join(dirPath, file), []);
+      const parsed = loadJsonFile<T[] | Record<string, unknown>>(join(dirPath, file), []);
       if (Array.isArray(parsed)) {
         items.push(...parsed);
       } else if (parsed && typeof parsed === 'object') {
-        items.push(parsed as T);
+        // Unwrap objects that nest an array under the collection name
+        // e.g. {components: [...]} when collectionName is "components"
+        const nested = (parsed as Record<string, unknown>)[collectionName];
+        if (Array.isArray(nested)) {
+          items.push(...(nested as T[]));
+        } else {
+          items.push(parsed as T);
+        }
       }
     }
     return sortByNameOrId(items);
