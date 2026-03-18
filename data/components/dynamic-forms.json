@@ -1724,6 +1724,1330 @@
       "parameters": [],
       "return_type": "{ store: SharedStore; onChangeShared: (name: keyof SharedStore, value: SharedStore[keyof SharedStore]) => void }",
       "rules_of_hooks": true
+    },
+    {
+      "name": "RemoveButton",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {RemoveButton} from '@gravity-ui/dynamic-forms';",
+      "description": "A dropdown menu button used to remove/drop a form field item. Renders an ellipsis icon button that opens a danger-themed 'Delete' menu action. Used internally by layout components such as CardAccordeon, CardSection, Accordeon, AccordeonCard, and Section.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/RemoveButton/RemoveButton.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The field name/path; used to generate the qa attribute for the dropdown switcher button"
+        },
+        {
+          "name": "onDrop",
+          "type": "() => void",
+          "required": true,
+          "description": "Callback invoked when the user selects the delete action from the dropdown menu"
+        },
+        {
+          "name": "switcherClassName",
+          "type": "string",
+          "required": false,
+          "description": "Optional CSS class applied to the ellipsis switcher button"
+        }
+      ]
+    },
+    {
+      "name": "CardAccordeon",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {CardAccordeon} from '@gravity-ui/dynamic-forms';",
+      "description": "A collapsible form layout that wraps field children in a Card component with accordion toggle behavior. The initial open state is driven by spec.viewSpec.layoutOpen. Automatically shows a RemoveButton when the field is an array item or when the value is present and the field is not required. Monitors errors and auto-opens the card if an error is detected.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Layouts/CardAccordeon.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The field name/path used for error checking and remove button qa attribute"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "The field specification; spec.viewSpec.layoutTitle, layoutDescription, and layoutOpen are used by this layout"
+        },
+        {
+          "name": "input",
+          "type": "FieldRenderProps['input']",
+          "required": true,
+          "description": "The final-form input object; input.onDrop is called when the remove button is activated"
+        },
+        {
+          "name": "meta",
+          "type": "FieldRenderProps['meta']",
+          "required": true,
+          "description": "The final-form meta object used by useErrorChecker to detect validation errors and auto-open the card"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "The field content rendered inside the Card body, wrapped in an ErrorWrapper"
+        }
+      ]
+    },
+    {
+      "name": "CardSection",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {CardSection} from '@gravity-ui/dynamic-forms';",
+      "description": "A non-collapsible form layout that wraps field children in an always-open Card component. Shows a RemoveButton when the field is an array item or when the value is present and the field is not required. Unlike CardAccordeon, the card is always expanded with no toggle behavior.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Layouts/CardSection.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The field name/path used for error wrapping and remove button qa attribute"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "The field specification; spec.viewSpec.layoutTitle and layoutDescription are displayed in the card header"
+        },
+        {
+          "name": "input",
+          "type": "FieldRenderProps['input']",
+          "required": true,
+          "description": "The final-form input object; input.onDrop is called when the remove button is activated"
+        },
+        {
+          "name": "meta",
+          "type": "FieldRenderProps['meta']",
+          "required": true,
+          "description": "The final-form meta object used for error display in the ErrorWrapper"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "The field content rendered inside the Card body, wrapped in an ErrorWrapper"
+        }
+      ]
+    },
+    {
+      "name": "Accordeon",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {Accordeon} from '@gravity-ui/dynamic-forms';",
+      "description": "A collapsible form layout using SimpleVerticalAccordeon. Works with both array and object field specs. Reads an optional variantTitle from spec.viewSpec.layoutProps to control the title text variant. Initial open state is driven by spec.viewSpec.layoutOpen. Shows a RemoveButton in the header when the field is an array item or non-required with a value. Auto-opens on validation error via useErrorChecker.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Layouts/Accordeon/Accordeon.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The field name/path used for error checking and remove button qa attribute"
+        },
+        {
+          "name": "spec",
+          "type": "ArrayLayoutProps['spec'] | ObjectLayoutProps['spec']",
+          "required": true,
+          "description": "The field specification; spec.viewSpec.layoutTitle, layoutDescription, layoutOpen, and layoutProps.variantTitle are consumed by this layout"
+        },
+        {
+          "name": "input",
+          "type": "FieldRenderProps['input']",
+          "required": true,
+          "description": "The final-form input object; input.onDrop is called when the remove button is activated"
+        },
+        {
+          "name": "meta",
+          "type": "FieldRenderProps['meta']",
+          "required": true,
+          "description": "The final-form meta object used by useErrorChecker to detect validation errors and auto-open the accordeon"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "The field content rendered inside the SimpleVerticalAccordeon body, wrapped in an ErrorWrapper"
+        }
+      ]
+    },
+    {
+      "name": "AccordeonCard",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {AccordeonCardForm} from '@gravity-ui/dynamic-forms';",
+      "description": "A collapsible form layout that wraps array or object field children in an AccordeonCard component. The exported name is AccordeonCardForm. Initial open state is driven by spec.viewSpec.layoutOpen. Shows a RemoveButton in the header when the field is an array item or non-required with a value. Auto-opens on validation error via useErrorChecker.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Layouts/AccordeonCard/AccordeonCardForm.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The field name/path used for error checking and remove button qa attribute"
+        },
+        {
+          "name": "spec",
+          "type": "ArrayLayoutProps['spec'] | ObjectLayoutProps['spec']",
+          "required": true,
+          "description": "The field specification; spec.viewSpec.layoutTitle, layoutDescription, and layoutOpen are consumed by this layout"
+        },
+        {
+          "name": "input",
+          "type": "FieldRenderProps['input']",
+          "required": true,
+          "description": "The final-form input object; input.onDrop is called when the remove button is activated"
+        },
+        {
+          "name": "meta",
+          "type": "FieldRenderProps['meta']",
+          "required": true,
+          "description": "The final-form meta object used by useErrorChecker to detect validation errors and auto-open the card"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "The field content rendered inside the AccordeonCard body, wrapped in an ErrorWrapper"
+        }
+      ]
+    },
+    {
+      "name": "Row",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {Row} from '@gravity-ui/dynamic-forms';",
+      "description": "A horizontal two-column form layout: the left column shows the field title (with a required marker) and an optional HelpMark description popover; the right column renders the field input wrapped in ErrorWrapper. For array items, a trash-bin remove button is appended. Also renders a GenerateRandomValueButton when the spec includes random value generation. A RowVerbose variant is also exported that renders the description inline below the input instead of in a popover.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Layouts/Row/Row.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The field name/path used for error wrapping and qa attributes on the remove button"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "The field specification; spec.viewSpec.layoutTitle, layoutDescription, and spec.required drive the title and description rendering"
+        },
+        {
+          "name": "input",
+          "type": "FieldRenderProps['input']",
+          "required": true,
+          "description": "The final-form input object; input.onDrop and input.onChange are used for the remove button and generate button"
+        },
+        {
+          "name": "meta",
+          "type": "FieldRenderProps['meta']",
+          "required": true,
+          "description": "The final-form meta object passed to ErrorWrapper for inline validation error display"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "The field input component rendered in the right column"
+        }
+      ]
+    },
+    {
+      "name": "Column",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {Column} from '@gravity-ui/dynamic-forms';",
+      "description": "A vertical stacked form layout: the first row shows the field title and an optional HelpMark description popover; the second row renders the field input wrapped in ErrorWrapper. For array items, a trash-bin remove button is appended. Also renders a GenerateRandomValueButton when the spec includes random value generation. Similar to Row but arranged vertically rather than horizontally.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Layouts/Column/Column.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The field name/path used for error wrapping and qa attributes on the remove button"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "The field specification; spec.viewSpec.layoutTitle, layoutDescription, and spec.required drive the title and description rendering"
+        },
+        {
+          "name": "input",
+          "type": "FieldRenderProps['input']",
+          "required": true,
+          "description": "The final-form input object; input.onDrop and input.onChange are used for the remove button and generate button"
+        },
+        {
+          "name": "meta",
+          "type": "FieldRenderProps['meta']",
+          "required": true,
+          "description": "The final-form meta object passed to ErrorWrapper for inline validation error display"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "The field input component rendered in the second row"
+        }
+      ]
+    },
+    {
+      "name": "Section",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {Section} from '@gravity-ui/dynamic-forms';",
+      "description": "A section-style form layout that renders a titled header above the field children. The title is displayed with ellipsis and a Popover for overflow. The description is shown as a HelpMark popover next to the title. For array items, a RemoveButton is included in the header. Supports an optional variantTitle via spec.viewSpec.layoutProps. Also exported: Section2 (smaller title size), SectionWithSubtitle and SectionWithSubtitle2 (description rendered inline as subtitle), Group and Group2 (adds GroupIndent wrapping). All variants accept an ignoreDescription prop.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Layouts/Section/Section.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The field name/path used for error wrapping and remove button generation"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "The field specification; spec.viewSpec.layoutTitle, layoutDescription, and layoutProps.variantTitle are consumed; works with both LayoutProps and ViewLayoutProps"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "The field content rendered below the section header"
+        },
+        {
+          "name": "ignoreDescription",
+          "type": "boolean",
+          "required": false,
+          "description": "When true, suppresses rendering of the layoutDescription even if present"
+        },
+        {
+          "name": "input",
+          "type": "FieldRenderProps['input']",
+          "required": false,
+          "description": "The final-form input object; only present in form (non-view) usage; input.onDrop is used for the remove button on array items"
+        },
+        {
+          "name": "meta",
+          "type": "FieldRenderProps['meta']",
+          "required": false,
+          "description": "The final-form meta object; only present in form usage; passed to ErrorWrapper for validation error display"
+        }
+      ]
+    },
+    {
+      "name": "TableCell",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {TableCell} from '@gravity-ui/dynamic-forms';",
+      "description": "A minimal table-cell form layout that wraps the field children in an ErrorWrapper with no additional chrome, title, or remove button. Intended for use as a cell layout inside table-style array views.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Layouts/TableCell/TableCell.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The field name/path passed to ErrorWrapper"
+        },
+        {
+          "name": "meta",
+          "type": "FieldRenderProps['meta']",
+          "required": true,
+          "description": "The final-form meta object passed to ErrorWrapper for validation error display"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "The field input component rendered inside the ErrorWrapper"
+        }
+      ]
+    },
+    {
+      "name": "Transparent",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {Transparent} from '@gravity-ui/dynamic-forms';",
+      "description": "A layout with no visible chrome that renders the field input directly with error wrapping. For array items it appends an inline trash-bin remove button. Supports max-width variation based on whether the spec is an array or object type. Also renders a GenerateRandomValueButton when the spec supports random value generation.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Layouts/Transparent/Transparent.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The field name/path used for error wrapping and qa attributes on the remove button"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "The field specification; used to determine isArrayItem, isArraySpec, isObjectSpec, and withGenerateButton behavior"
+        },
+        {
+          "name": "input",
+          "type": "FieldRenderProps['input']",
+          "required": true,
+          "description": "The final-form input object; input.onDrop is called by the inline remove button; input.onChange is used by the generate button"
+        },
+        {
+          "name": "meta",
+          "type": "FieldRenderProps['meta']",
+          "required": true,
+          "description": "The final-form meta object passed to ErrorWrapper for validation error display"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "The field input component rendered inside the ErrorWrapper"
+        }
+      ]
+    },
+    {
+      "name": "BaseView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {BaseView} from '@gravity-ui/dynamic-forms';",
+      "description": "Generic read-only view for boolean, number, and string values. Renders the value as text using LongValue, with support for description maps (spec.description) to display human-readable labels. If the value is a string and a linkValue is provided, renders the link instead.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/BaseView/BaseView.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "boolean | number | string",
+          "required": true,
+          "description": "The current field value to display"
+        },
+        {
+          "name": "spec",
+          "type": "BooleanSpec | NumberSpec | StringSpec",
+          "required": true,
+          "description": "The field specification; spec.description is used to map values to human-readable labels"
+        },
+        {
+          "name": "linkValue",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "When provided and value is a string, renders this node instead of the raw value (used for link rendering)"
+        }
+      ]
+    },
+    {
+      "name": "ArrayBaseView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ArrayBaseView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for array fields. Renders each array item using ViewController with the item spec. Supports an optional itemPrefix label (from spec.viewSpec.itemPrefix) displayed between items. Appends the 1-based index to each item's layoutTitle.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/ArrayBaseView/ArrayBaseView.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ArraySpec",
+          "required": true,
+          "description": "Array field specification; spec.items defines the item spec, spec.viewSpec.itemPrefix sets the separator label"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "The field name/path, used to compose child names as name[idx]"
+        },
+        {
+          "name": "value",
+          "type": "FieldValue[]",
+          "required": false,
+          "default": "[]",
+          "description": "Array of values to render"
+        }
+      ]
+    },
+    {
+      "name": "CheckboxGroupView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {CheckboxGroupView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for checkbox group (multi-value) array fields. Renders each selected value as a text item with a Popover tooltip for long values. Supports horizontal (default) and vertical layouts via spec.viewSpec.checkboxGroupParams.placement. In horizontal layout, items are separated by commas.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/CheckboxGroupView/CheckboxGroupView.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ArraySpec",
+          "required": true,
+          "description": "Field specification; spec.description maps values to labels; spec.viewSpec.checkboxGroupParams.placement controls layout ('horizontal' | 'vertical')"
+        },
+        {
+          "name": "value",
+          "type": "string[]",
+          "required": false,
+          "default": "[]",
+          "description": "Array of selected string values to display"
+        }
+      ]
+    },
+    {
+      "name": "CardOneOfView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {CardOneOfView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for oneOf object fields rendered inside a Card container. Displays the selected option's title (from spec.description or spec.properties[key].viewSpec.layoutTitle) as the card header, and renders the selected option's children via ViewController. The card is collapsible.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/CardOneOfView.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "Record<string, unknown>",
+          "required": false,
+          "default": "{}",
+          "description": "Object with a single key corresponding to the selected oneOf option"
+        },
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification with properties defining the available oneOf options and optional description map"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path for composing child view names"
+        },
+        {
+          "name": "Layout",
+          "type": "React.ComponentType",
+          "required": false,
+          "description": "Optional layout component; if provided, used to wrap the selected option title row instead of the default ViewRow"
+        }
+      ]
+    },
+    {
+      "name": "FileInputView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {FileInputView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for file input fields. When spec.viewSpec.fileInput.ignoreText is true, displays a localized 'Data loaded' label instead of the raw value. Otherwise displays the value via LongValue.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/FileInputView/FileInputView.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": false,
+          "description": "The file field value (e.g. file contents or identifier)"
+        },
+        {
+          "name": "spec",
+          "type": "StringSpec",
+          "required": true,
+          "description": "Field specification; spec.viewSpec.fileInput.ignoreText controls whether to show the value or a generic 'Data loaded' message"
+        }
+      ]
+    },
+    {
+      "name": "MonacoView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {MonacoView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only Monaco editor view for string fields containing code or structured text. Renders the value in an embedded Monaco editor with a header showing the language and a button to open a full-screen dialog. Returns null if value is empty or Monaco is unavailable. Configured via spec.viewSpec.monacoParams (language, fontSize, header sizes, dialog button size).",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/MonacoInputView/MonacoBaseView.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": false,
+          "description": "The code/text value to display in the Monaco editor"
+        },
+        {
+          "name": "spec",
+          "type": "StringSpec",
+          "required": true,
+          "description": "Field specification; spec.viewSpec.monacoParams configures language, fontSize, headerIconSize, headerIconIndent, headerTitleVariant, headerDialogButtonSize, headerDialogIconSize; spec.viewSpec.layoutTitle is used as the dialog title"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path, used for QA attribute on the open-dialog button"
+        }
+      ]
+    },
+    {
+      "name": "MultiOneOfView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {MultiOneOfView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for multi-select oneOf object fields. Displays selected option titles as text items with Popover tooltips, then renders each selected option's children via ViewController indented beneath. Supports an optional withoutIndent prop to render flat without indentation.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/MultiOneOfView/MultiOneOfView.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "Record<string, unknown>",
+          "required": false,
+          "description": "Object whose keys are the selected option identifiers"
+        },
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification with properties defining available options and optional description map for display labels"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path for composing child view names"
+        },
+        {
+          "name": "Layout",
+          "type": "React.ComponentType",
+          "required": false,
+          "description": "Optional layout component wrapping the selected option titles row"
+        },
+        {
+          "name": "withoutIndent",
+          "type": "boolean",
+          "required": false,
+          "description": "When true, renders children without GroupIndent indentation (flat layout)"
+        }
+      ]
+    },
+    {
+      "name": "MultiOneOfFlatView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {MultiOneOfFlatView} from '@gravity-ui/dynamic-forms';",
+      "description": "Variant of MultiOneOfView with withoutIndent forced to true, rendering selected options and their children in a flat layout without GroupIndent.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/MultiOneOfView/MultiOneOfView.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "Record<string, unknown>",
+          "required": false,
+          "description": "Object whose keys are the selected option identifiers"
+        },
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification with properties defining available options and optional description map"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path for composing child view names"
+        },
+        {
+          "name": "Layout",
+          "type": "React.ComponentType",
+          "required": false,
+          "description": "Optional layout component wrapping the selected option titles row"
+        }
+      ]
+    },
+    {
+      "name": "MultiSelectView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {MultiSelectView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for multi-select array fields. Renders each selected string value as a text item with a Popover tooltip for long values. Values are mapped through spec.description for human-readable labels.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/MultiSelectView/MultiSelectView.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ArraySpec",
+          "required": true,
+          "description": "Field specification; spec.description maps raw values to display labels"
+        },
+        {
+          "name": "value",
+          "type": "string[]",
+          "required": false,
+          "default": "[]",
+          "description": "Array of selected string values to display"
+        }
+      ]
+    },
+    {
+      "name": "NumberWithScaleView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {NumberWithScaleView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for number-with-scale string fields. Converts the raw string value to a scaled representation using useInitial (e.g. bytes to KB/MB) and displays the scaled value alongside the scale unit title. Returns null if spec.viewSpec.sizeParams is missing or value is empty. Long values show a Popover tooltip.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/NumberWithScaleView/NumberWithScaleView.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": false,
+          "description": "The raw numeric string value to scale and display"
+        },
+        {
+          "name": "spec",
+          "type": "StringSpec",
+          "required": true,
+          "description": "Field specification; spec.viewSpec.sizeParams must be defined with a scale map for unit conversion"
+        }
+      ]
+    },
+    {
+      "name": "ObjectBaseView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ObjectBaseView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for object fields. Renders each property's value using ViewController in the order defined by spec.viewSpec.order (or property declaration order). Supports optional delimiter text between properties (spec.viewSpec.delimiter). When inline is true, filters properties using filterPropertiesForObjectInline. If a Layout is provided and content is present, wraps the content in the layout.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/ObjectBaseView/ObjectBaseView.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object field specification; spec.properties defines child fields; spec.viewSpec.order sets render order; spec.viewSpec.delimiter sets text between properties"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path for composing child view names"
+        },
+        {
+          "name": "Layout",
+          "type": "React.ComponentType",
+          "required": false,
+          "description": "Optional layout component to wrap the rendered properties content"
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "required": false,
+          "description": "When true, filters properties to only those suitable for inline rendering using filterPropertiesForObjectInline"
+        }
+      ]
+    },
+    {
+      "name": "ObjectInlineView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ObjectInlineView} from '@gravity-ui/dynamic-forms';",
+      "description": "Variant of ObjectBaseView with inline forced to true. Renders only inline-compatible object properties in a compact inline layout.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/ObjectBaseView/ObjectBaseView.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Properties are filtered for inline display"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path for composing child view names"
+        },
+        {
+          "name": "Layout",
+          "type": "React.ComponentType",
+          "required": false,
+          "description": "Optional layout component to wrap the rendered properties content"
+        }
+      ]
+    },
+    {
+      "name": "ObjectValueInputView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ObjectValueInputView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for object fields that wrap a single value property (OBJECT_VALUE_PROPERTY_NAME constant). Extracts the inner value spec, strips its layout, and renders it via ViewController. Useful for objects that semantically hold one typed value with extra metadata. Returns null if the value property spec is absent.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/ObjectValueInputView/ObjectValueInputView.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification; must have spec.properties[OBJECT_VALUE_PROPERTY_NAME] defined for the view to render anything"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path for composing the child value property view name"
+        },
+        {
+          "name": "Layout",
+          "type": "React.ComponentType",
+          "required": false,
+          "description": "Optional layout component wrapping the rendered value content"
+        }
+      ]
+    },
+    {
+      "name": "OneOfView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {OneOfView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for oneOf object fields. Displays the selected option's label (from spec.description, spec.properties[key].viewSpec.layoutTitle, or the key itself), with special handling for checkbox/switch togglers that use spec.viewSpec.oneOfParams.booleanMap. Renders the selected option's children via ViewController inside a GroupIndent. Returns null if value is empty.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/OneOfView/OneOfView.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "Record<string, unknown>",
+          "required": false,
+          "default": "{}",
+          "description": "Object with a single key identifying the selected oneOf option"
+        },
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification; spec.description maps keys to labels; spec.viewSpec.oneOfParams.toggler and booleanMap support checkbox/switch togglers"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path for composing child view names"
+        },
+        {
+          "name": "Layout",
+          "type": "React.ComponentType",
+          "required": false,
+          "description": "Optional layout component wrapping the selected option label"
+        },
+        {
+          "name": "withoutIndent",
+          "type": "boolean",
+          "required": false,
+          "description": "When true, renders without GroupIndent indentation (flat layout)"
+        }
+      ]
+    },
+    {
+      "name": "OneOfFlatView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {OneOfFlatView} from '@gravity-ui/dynamic-forms';",
+      "description": "Variant of OneOfView with withoutIndent forced to true. Renders the selected option label and its children without GroupIndent indentation.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/OneOfView/OneOfView.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "Record<string, unknown>",
+          "required": false,
+          "default": "{}",
+          "description": "Object with a single key identifying the selected oneOf option"
+        },
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification with properties and optional description map"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path for composing child view names"
+        },
+        {
+          "name": "Layout",
+          "type": "React.ComponentType",
+          "required": false,
+          "description": "Optional layout component wrapping the selected option label"
+        }
+      ]
+    },
+    {
+      "name": "TableArrayView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {TableArrayView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for array fields that renders items in a GravityUI Table. Requires spec.items to be an ObjectSpec and spec.viewSpec.table to define column config (property, label, description, width). Each column renders the matching object property via ViewController. An index column is prepended. Column headers can include a HelpMark with description when showLayoutDescription is enabled in context. Returns null if columns cannot be built or value is empty.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/TableArrayView/TableArrayView.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "ArraySpec",
+          "required": true,
+          "description": "Array specification; spec.items must be ObjectSpec; spec.viewSpec.table is an array of {property, label, description?, width?} column definitions"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path used to compose cell view names as name[idx].property"
+        },
+        {
+          "name": "value",
+          "type": "ObjectValue[]",
+          "required": false,
+          "default": "[]",
+          "description": "Array of object values representing table rows"
+        }
+      ]
+    },
+    {
+      "name": "TextAreaView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {TextAreaView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for textarea string fields. Displays the value as text. When the value exceeds 50 characters, the view becomes interactive: clicking toggles between collapsed (ellipsis) and expanded (break-spaces) display, with a ChevronDown icon indicator.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/TextAreaView/TextAreaView.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": false,
+          "default": "''",
+          "description": "The text value to display; values longer than 50 characters get a collapsible/expandable toggle"
+        }
+      ]
+    },
+    {
+      "name": "TextContentView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {TextContentView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for text content fields. Delegates rendering to the shared TextContentComponent (also used by the TextContent input). Wraps the optional Layout prop to inject the field name and a stub value for layout compatibility.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/TextContentView.tsx",
+      "props": [
+        {
+          "name": "spec",
+          "type": "StringSpec",
+          "required": true,
+          "description": "Field specification passed to TextContentComponent for rendering the text content"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false,
+          "description": "The text content value"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path injected into the wrapped Layout component"
+        },
+        {
+          "name": "Layout",
+          "type": "React.ComponentType",
+          "required": false,
+          "description": "Optional layout component; wrapped to inject name and a stub value before passing to TextContentComponent"
+        }
+      ]
+    },
+    {
+      "name": "TextLinkView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {TextLinkView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for text-link object fields. Extracts the 'text' string property from spec.properties, strips its layout, copies value.link into the spec, then renders it via ViewController. This enables the underlying string view to render the value as a hyperlink using the link context. Returns null if the text property spec is missing or value.text is absent.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/TextLinkView/TextLinkView.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "{ text: string; link?: string }",
+          "required": false,
+          "description": "Object with text to display and optional link URL"
+        },
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification; must have spec.properties.text as a StringSpec"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path for composing the child text property view name"
+        },
+        {
+          "name": "Layout",
+          "type": "React.ComponentType",
+          "required": false,
+          "description": "Optional layout component wrapping the rendered link content"
+        }
+      ]
+    },
+    {
+      "name": "TimeRangeSelectorView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {TimeRangeSelectorView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for time range object fields. Expects spec.properties to contain START_TIME and END_TIME string properties. Clones each spec, sets their layout to 'row', and renders both via ViewController. Returns null if either spec is missing or not a StringSpec.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/TimeRangeSelectorView/TimeRangeSelectorView.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "{ startTime?: string; endTime?: string }",
+          "required": false,
+          "description": "Object with start and end time values"
+        },
+        {
+          "name": "spec",
+          "type": "ObjectSpec",
+          "required": true,
+          "description": "Object specification; must have spec.properties[START_TIME] and spec.properties[END_TIME] as StringSpec entries"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path for composing child view names"
+        },
+        {
+          "name": "Layout",
+          "type": "React.ComponentType",
+          "required": false,
+          "description": "Optional layout component wrapping both time range child views"
+        }
+      ]
+    },
+    {
+      "name": "DateView",
+      "library": "dynamic-forms",
+      "category": "forms",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {DateView} from '@gravity-ui/dynamic-forms';",
+      "description": "Read-only view for date string fields. Formats the value using dateTimeParse from @gravity-ui/date-utils with spec.viewSpec.dateInput config (printFormat, outputFormat, timeZone). Supports Timestamp objects ({seconds, nanos?}) by converting seconds to milliseconds. Falls back to the raw value string if parsing fails. Renders via BaseView.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/Views/DateView/DateView.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "string | { seconds: string; nanos?: number }",
+          "required": false,
+          "description": "The date value as an ISO string, numeric string, or Timestamp object with seconds/nanos"
+        },
+        {
+          "name": "spec",
+          "type": "StringSpec",
+          "required": true,
+          "description": "Field specification; spec.viewSpec.dateInput configures printFormat (display format, default DEFAULT_DATE_FORMAT), outputFormat (input parse format), and timeZone"
+        }
+      ]
+    },
+    {
+      "name": "ViewAccordeon",
+      "library": "dynamic-forms",
+      "category": "view-layout",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ViewAccordeon} from '@gravity-ui/dynamic-forms';",
+      "description": "View layout that wraps content in a collapsible vertical accordion. Only renders when the value is non-empty. Reads layoutOpen from viewSpec to set the initial open state (defaults to true). Renders layout description as a note when showLayoutDescription context is enabled. Supports a custom title text variant via layoutProps.variantTitle.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/ViewLayouts/ViewAccordeon/ViewAccordeon.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path used for QA selectors and identification"
+        },
+        {
+          "name": "value",
+          "type": "ArrayValue | ObjectValue",
+          "required": true,
+          "description": "Current field value; if empty, renders null"
+        },
+        {
+          "name": "spec",
+          "type": "Spec<any, any, ViewAccordeonLayoutProps>",
+          "required": true,
+          "description": "Field specification; viewSpec.layoutTitle sets accordion title, viewSpec.layoutOpen sets initial open state, viewSpec.layoutDescription sets the note, viewSpec.layoutProps.variantTitle sets title text variant"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Content rendered inside the accordion body"
+        }
+      ]
+    },
+    {
+      "name": "ViewCardAccordeon",
+      "library": "dynamic-forms",
+      "category": "view-layout",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ViewCardAccordeon} from '@gravity-ui/dynamic-forms';",
+      "description": "View layout that wraps content in a collapsible Card component with accordion behavior. Only renders when value is non-empty. Reads layoutOpen from viewSpec for initial open state (defaults to true). Uses the Card component with checkEmptyBody enabled, which hides the card if the body is empty after rendering.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/ViewLayouts/ViewCardAccordeon.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path used for QA selectors"
+        },
+        {
+          "name": "value",
+          "type": "ArrayValue | ObjectValue",
+          "required": true,
+          "description": "Current field value; if empty, renders null"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "Field specification; viewSpec.layoutTitle sets the card title, viewSpec.layoutOpen sets the initial open state"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Content rendered inside the card body"
+        }
+      ]
+    },
+    {
+      "name": "ViewAccordeonCard",
+      "library": "dynamic-forms",
+      "category": "view-layout",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ViewAccordeonCard} from '@gravity-ui/dynamic-forms';",
+      "description": "View layout that wraps content in an AccordeonCard component. Only renders when value is non-empty. Reads layoutOpen from viewSpec for initial open state (defaults to true). Uses the AccordeonCard primitive (which differs from Card in that it has a simpler toggle mechanism).",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/ViewLayouts/ViewAccordeonCard/ViewAccordeonCard.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path used for QA selectors and identification"
+        },
+        {
+          "name": "value",
+          "type": "ArrayValue | ObjectValue",
+          "required": true,
+          "description": "Current field value; if empty, renders null"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "Field specification; viewSpec.layoutTitle sets the accordion card header, viewSpec.layoutOpen sets the initial open state"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Content rendered inside the accordion card body"
+        }
+      ]
+    },
+    {
+      "name": "ViewCardSection",
+      "library": "dynamic-forms",
+      "category": "view-layout",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ViewCardSection} from '@gravity-ui/dynamic-forms';",
+      "description": "View layout that wraps content in a always-open Card section. Only renders when value is non-empty. The card is always expanded (alwaysOpen) and hides itself if the body is empty (checkEmptyBody). Title comes from viewSpec.layoutTitle.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/ViewLayouts/ViewCardSection.tsx",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path used for QA selectors"
+        },
+        {
+          "name": "value",
+          "type": "FormValue",
+          "required": true,
+          "description": "Current field value; if empty, renders null"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "Field specification; viewSpec.layoutTitle sets the card title"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Content rendered inside the card body"
+        }
+      ]
+    },
+    {
+      "name": "ViewRow",
+      "library": "dynamic-forms",
+      "category": "view-layout",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ViewRow} from '@gravity-ui/dynamic-forms';",
+      "description": "View layout that renders a horizontal key-value row. Left side shows the layoutTitle label (secondary color, nowrap, ellipsis) with an optional HelpMark description tooltip and a dotted spacer. Right side renders children. Appends a CopyButton for copying the value. Only renders when value is non-empty. Shows description help mark when showLayoutDescription context is true.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/ViewLayouts/ViewRow/ViewRow.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "FormValue",
+          "required": true,
+          "description": "Current field value; if empty, renders null"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "Field specification; viewSpec.layoutTitle sets the row label, viewSpec.layoutDescription sets the help tooltip content"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Value content rendered on the right side of the row"
+        }
+      ]
+    },
+    {
+      "name": "ViewColumn",
+      "library": "dynamic-forms",
+      "category": "view-layout",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ViewColumn} from '@gravity-ui/dynamic-forms';",
+      "description": "View layout that renders a vertical label-over-value column. First row shows the layoutTitle label (secondary color, ellipsis) with an optional HelpMark description tooltip. Second row renders children. Appends a CopyButton for copying the value. Only renders when value is non-empty. Shows description help mark when showLayoutDescription context is true.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/ViewLayouts/ViewColumn/ViewColumn.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "FormValue",
+          "required": true,
+          "description": "Current field value; if empty, renders null"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "Field specification; viewSpec.layoutTitle sets the column label, viewSpec.layoutDescription sets the help tooltip content"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Value content rendered below the label"
+        }
+      ]
+    },
+    {
+      "name": "ViewSection",
+      "library": "dynamic-forms",
+      "category": "view-layout",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ViewSection} from '@gravity-ui/dynamic-forms';",
+      "description": "View layout that renders content using the Section layout component with medium title size (body-2 variant). Only renders when value is non-empty. Delegates to the shared Section component with ignoreDescription set, suppressing the description tooltip in view context. Title comes from viewSpec.layoutTitle. Also exports ViewSection2 (small/body-1 title), ViewGroup (medium title with indent), and ViewGroup2 (small title with indent) from the same file.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/ViewLayouts/ViewSection/ViewSection.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "FormValue",
+          "required": true,
+          "description": "Current field value; if empty, renders null"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "Field specification; viewSpec.layoutTitle sets the section title, viewSpec.layoutProps.variantTitle overrides the title text variant"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true,
+          "description": "Field name/path"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Content rendered inside the section body"
+        }
+      ]
+    },
+    {
+      "name": "ViewTableCell",
+      "library": "dynamic-forms",
+      "category": "view-layout",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ViewTableCell} from '@gravity-ui/dynamic-forms';",
+      "description": "View layout for rendering a value inside a table cell. Always renders (never returns null). When the value is non-empty, renders children in an inner div alongside a CopyButton. When the value is empty, renders an em dash ('—') as a placeholder. No label or title is displayed.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/ViewLayouts/ViewTableCell/ViewTableCell.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "FormValue",
+          "required": true,
+          "description": "Current field value; determines whether children or the em dash placeholder is shown"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "Field specification; passed to CopyButton for copy-to-clipboard behavior"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Value content rendered when value is non-empty"
+        }
+      ]
+    },
+    {
+      "name": "ViewTransparent",
+      "library": "dynamic-forms",
+      "category": "view-layout",
+      "import_path": "@gravity-ui/dynamic-forms",
+      "import_statement": "import {ViewTransparent} from '@gravity-ui/dynamic-forms';",
+      "description": "Minimal view layout that renders children with no visible wrapper structure. Only renders when value is non-empty. Wraps children in an inner div and appends a CopyButton. No title, label, card, or accordion is shown — used when the field's value should appear inline without decoration.",
+      "source_file": "vendor/dynamic-forms/src/lib/kit/components/ViewLayouts/ViewTransparent/ViewTransparent.tsx",
+      "props": [
+        {
+          "name": "value",
+          "type": "FormValue",
+          "required": true,
+          "description": "Current field value; if empty, renders null"
+        },
+        {
+          "name": "spec",
+          "type": "Spec",
+          "required": true,
+          "description": "Field specification; passed to CopyButton for copy-to-clipboard behavior"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Content rendered inside the transparent wrapper"
+        }
+      ]
     }
   ]
 }

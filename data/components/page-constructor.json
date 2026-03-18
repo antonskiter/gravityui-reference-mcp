@@ -734,37 +734,6 @@
       "import_statement": "import { Control } from '@gravity-ui/page-constructor';"
     },
     {
-      "name": "DefaultVideo",
-      "description": "Native HTML5 video player with custom controls support, mute toggle, play/pause, and loop configuration.",
-      "props": [
-        {
-          "name": "video",
-          "type": "MediaVideoProps",
-          "required": true,
-          "description": "Video configuration including src, controls, muted, loop settings"
-        },
-        {
-          "name": "qa",
-          "type": "string",
-          "required": false,
-          "description": "Test attribute for QA automation"
-        },
-        {
-          "name": "customBarControlsClassName",
-          "type": "string",
-          "required": false,
-          "description": "CSS class for custom bar controls"
-        },
-        {
-          "name": "className",
-          "type": "string",
-          "required": false,
-          "description": "Additional CSS class name"
-        }
-      ],
-      "import_statement": "import { DefaultVideo } from '@gravity-ui/page-constructor';"
-    },
-    {
       "name": "ErrorWrapper",
       "description": "Conditional error display wrapper. Shows error message with retry button when isError is true, otherwise renders children.",
       "props": [
@@ -1636,69 +1605,6 @@
       "import_statement": "import { Media } from '@gravity-ui/page-constructor';"
     },
     {
-      "name": "MediaBase",
-      "description": "Two-column layout component for media content with configurable direction, animation, and responsive grid sizing.",
-      "props": [
-        {
-          "name": "children",
-          "type": "React.ReactElement",
-          "required": true,
-          "description": "Media element to render (or MediaBase.Card compound component)"
-        },
-        {
-          "name": "largeMedia",
-          "type": "boolean",
-          "required": false,
-          "description": "Whether the media column takes 8/12 width instead of 6/12"
-        },
-        {
-          "name": "direction",
-          "type": "'content-media' | 'media-content'",
-          "required": false,
-          "default": "'content-media'",
-          "description": "Layout direction on desktop"
-        },
-        {
-          "name": "mobileDirection",
-          "type": "'content-media' | 'media-content'",
-          "required": false,
-          "default": "'content-media'",
-          "description": "Layout direction on mobile"
-        },
-        {
-          "name": "animated",
-          "type": "boolean",
-          "required": false,
-          "description": "Whether to animate on scroll"
-        },
-        {
-          "name": "mediaOnly",
-          "type": "boolean",
-          "required": false,
-          "description": "Whether to show only the media without content column"
-        },
-        {
-          "name": "onScroll",
-          "type": "() => void",
-          "required": false,
-          "description": "Callback when block scrolls into view"
-        },
-        {
-          "name": "title",
-          "type": "string | TitleItemProps",
-          "required": false,
-          "description": "Section title"
-        },
-        {
-          "name": "description",
-          "type": "string",
-          "required": false,
-          "description": "Section description"
-        }
-      ],
-      "import_statement": "import { MediaBase } from '@gravity-ui/page-constructor';"
-    },
-    {
       "name": "MetaInfo",
       "description": "Renders a list of meta information items using YFM markup.",
       "props": [
@@ -1793,7 +1699,7 @@
       "import_statement": "import { OverflowScroller } from '@gravity-ui/page-constructor';"
     },
     {
-      "name": "ReactPlayerBlock",
+      "name": "ReactPlayer",
       "description": "Feature-rich video player based on react-player with custom controls, mute/play buttons, progress tracking, and analytics.",
       "props": [
         {
@@ -2444,6 +2350,46 @@
       "parameters": [],
       "return_type": "number",
       "description": "Returns the current active breakpoint value based on window width. Updates on window resize with debouncing.",
+      "import_path": "@gravity-ui/page-constructor",
+      "library": "page-constructor",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useLoopBackHubspotEvents",
+      "signature": "(formId: string) => void",
+      "parameters": [
+        {
+          "name": "formId",
+          "type": "string",
+          "required": true,
+          "description": "Hubspot form ID to listen for and loop back events"
+        }
+      ],
+      "return_type": "void",
+      "description": "Attaches a window message listener on the top-level frame that loops back Hubspot form events back to the origin frame. Must be used in the top-level frame.",
+      "import_path": "@gravity-ui/page-constructor",
+      "library": "page-constructor",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useHandleHubspotEvents",
+      "signature": "(handlers: HubspotEventHandlers, formId: string) => void",
+      "parameters": [
+        {
+          "name": "handlers",
+          "type": "HubspotEventHandlers",
+          "required": true,
+          "description": "Form event handlers object; should be stable across renders (memoized)"
+        },
+        {
+          "name": "formId",
+          "type": "string",
+          "required": true,
+          "description": "Hubspot form ID to handle events for"
+        }
+      ],
+      "return_type": "void",
+      "description": "Attaches a window message listener in any frame to handle Hubspot form events using the provided handlers. Handlers must be stable across renders to avoid re-subscribing.",
       "import_path": "@gravity-ui/page-constructor",
       "library": "page-constructor",
       "rules_of_hooks": true

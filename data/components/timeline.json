@@ -3,8 +3,8 @@
     {
       "name": "TimelineCanvas",
       "library": "timeline",
-      "import_path": "@gravity-ui/timeline",
-      "import_statement": "import { TimelineCanvas } from '@gravity-ui/timeline';",
+      "import_path": "@gravity-ui/timeline/react",
+      "import_statement": "import { TimelineCanvas } from '@gravity-ui/timeline/react';",
       "description": "React component that renders a Timeline instance onto an HTML canvas element. Initializes the timeline on mount and destroys it on unmount. The canvas fills its parent container at 100% width and height.",
       "source_file": "vendor/timeline/src/react-components/TimelineCanvas.tsx",
       "props": [
@@ -28,8 +28,8 @@
     {
       "name": "useTimeline",
       "library": "timeline",
-      "import_path": "@gravity-ui/timeline",
-      "import_statement": "import { useTimeline } from '@gravity-ui/timeline';",
+      "import_path": "@gravity-ui/timeline/react",
+      "import_statement": "import { useTimeline } from '@gravity-ui/timeline/react';",
       "description": "Creates and memoizes a Timeline instance from the given configuration. Returns the timeline instance, its API, and start/stop helpers for manual canvas management.",
       "source_file": "vendor/timeline/src/react-components/hooks/useTimeline.ts",
       "rules_of_hooks": true,
@@ -47,8 +47,8 @@
     {
       "name": "useTimelineEvent",
       "library": "timeline",
-      "import_path": "@gravity-ui/timeline",
-      "import_statement": "import { useTimelineEvent } from '@gravity-ui/timeline';",
+      "import_path": "@gravity-ui/timeline/react",
+      "import_statement": "import { useTimelineEvent } from '@gravity-ui/timeline/react';",
       "description": "Subscribes to a specific event on a Timeline instance. Attaches the listener on mount via timeline.on() and removes it on unmount via timeline.off(). Uses useLayoutEffect for synchronous subscription.",
       "source_file": "vendor/timeline/src/react-components/hooks/useTimelineEvent.ts",
       "rules_of_hooks": true,

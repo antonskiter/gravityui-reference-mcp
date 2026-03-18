@@ -1100,7 +1100,8 @@
     {
       "name": "ColorPicker",
       "description": "> The `unstable_ColorPicker` component is an experimental color selection component. The component is unstable, > so it means breaking changes can occur during minor or patch releases. Be aware of that.",
-      "import_statement": "import {ColorPicker} from '@gravity-ui/uikit';",
+      "import_path": "@gravity-ui/uikit/unstable",
+      "import_statement": "import {unstable_ColorPicker} from '@gravity-ui/uikit/unstable';",
       "props": [
         {
           "name": "size",
@@ -1205,12 +1206,6 @@
           "required": false
         }
       ]
-    },
-    {
-      "name": "ControlLabel",
-      "description": "Wrap with label for `<Checkbox/>`, `<Radio/>`, `<Switch/>`",
-      "import_statement": "import {ControlLabel} from '@gravity-ui/uikit';",
-      "props": []
     },
     {
       "name": "CopyToClipboard",
@@ -1692,7 +1687,8 @@
     {
       "name": "FileDropZone",
       "description": "A drag-and-drop file upload zone with customizable layout. Supports file type filtering, multiple files, validation states, and composable sub-components (Icon, Title, Description, Button).",
-      "import_statement": "import {FileDropZone} from '@gravity-ui/uikit';",
+      "import_path": "@gravity-ui/uikit/unstable",
+      "import_statement": "import {unstable_FileDropZone} from '@gravity-ui/uikit/unstable';",
       "props": [
         {
           "name": "accept",
@@ -2463,7 +2459,8 @@
     {
       "name": "ListItemView",
       "description": "A versatile list item component for rendering selectable, expandable, and draggable items with start/end content slots, description, and nested levels.",
-      "import_statement": "import {ListItemView} from '@gravity-ui/uikit';",
+      "import_path": "@gravity-ui/uikit/unstable",
+      "import_statement": "import {unstable_ListItemView} from '@gravity-ui/uikit/unstable';",
       "props": [
         {
           "name": "children",
@@ -2656,6 +2653,45 @@
           "type": "React.CSSProperties",
           "required": false,
           "description": "Inline styles for the root element."
+        }
+      ]
+    },
+    {
+      "name": "MobileProvider",
+      "description": "Context provider that sets mobile and platform state for the application. Controls the mobile boolean flag and platform type (Browser, Ios, Android), and exposes history and location hooks used by mobile-aware components.",
+      "import_statement": "import {MobileProvider} from '@gravity-ui/uikit';",
+      "props": [
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Child elements to render inside the provider."
+        },
+        {
+          "name": "mobile",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Whether the application is running in mobile mode. Toggles a CSS class on document.body."
+        },
+        {
+          "name": "platform",
+          "type": "'browser' | 'ios' | 'android'",
+          "required": false,
+          "default": "'browser'",
+          "description": "The current platform. Used by usePlatform() consumers."
+        },
+        {
+          "name": "useHistory",
+          "type": "() => Omit<History, 'goBack'> & { back?: () => void; goBack?: () => void }",
+          "required": false,
+          "description": "Hook that returns a history object (supports react-router v4 and v5 history shapes)."
+        },
+        {
+          "name": "useLocation",
+          "type": "() => Location",
+          "required": false,
+          "description": "Hook that returns the current location (pathname, search, hash)."
         }
       ]
     },
@@ -5878,7 +5914,8 @@
     {
       "name": "TreeList",
       "description": "A generic tree list component that renders hierarchical list data with keyboard navigation, item selection, and customizable rendering. Uses useList internally.",
-      "import_statement": "import {TreeList} from '@gravity-ui/uikit';",
+      "import_path": "@gravity-ui/uikit/unstable",
+      "import_statement": "import {unstable_TreeList} from '@gravity-ui/uikit/unstable';",
       "props": [
         {
           "name": "list",
@@ -5951,7 +5988,8 @@
     },
     {
       "name": "TreeSelect",
-      "import_statement": "import {TreeSelect} from '@gravity-ui/uikit';",
+      "import_path": "@gravity-ui/uikit/unstable",
+      "import_statement": "import {unstable_TreeSelect} from '@gravity-ui/uikit/unstable';",
       "props": []
     },
     {
@@ -6106,7 +6144,8 @@
     },
     {
       "name": "Virtualizer",
-      "import_statement": "import {Virtualizer} from '@gravity-ui/uikit';",
+      "import_path": "@gravity-ui/uikit/unstable",
+      "import_statement": "import {unstable_Virtualizer} from '@gravity-ui/uikit/unstable';",
       "props": [
         {
           "name": "apiRef",
@@ -6761,6 +6800,36 @@
       "library": "uikit",
       "rules_of_hooks": true,
       "description": "Returns the current language options (lang, fallbackLang) from ThemeProvider context or global configuration."
+    },
+    {
+      "name": "useMobile",
+      "signature": "useMobile(): boolean",
+      "parameters": [],
+      "return_type": "boolean",
+      "import_path": "@gravity-ui/uikit",
+      "library": "uikit",
+      "rules_of_hooks": true,
+      "description": "Returns the current mobile boolean value from MobileProvider context. Returns false when used outside a MobileProvider."
+    },
+    {
+      "name": "usePlatform",
+      "signature": "usePlatform(): Platform",
+      "parameters": [],
+      "return_type": "Platform",
+      "import_path": "@gravity-ui/uikit",
+      "library": "uikit",
+      "rules_of_hooks": true,
+      "description": "Returns the current platform value ('browser', 'ios', or 'android') from MobileProvider context."
+    },
+    {
+      "name": "useLayoutContext",
+      "signature": "useLayoutContext(): { theme: LayoutTheme; activeMediaQuery: MediaType; isMediaActive: (query: MediaType) => boolean; getClosestMediaProps: <T>(map: Partial<Record<MediaType, T>>) => T | undefined }",
+      "parameters": [],
+      "return_type": "{ theme: LayoutTheme; activeMediaQuery: MediaType; isMediaActive: (query: MediaType) => boolean; getClosestMediaProps: <T>(map: Partial<Record<MediaType, T>>) => T | undefined }",
+      "import_path": "@gravity-ui/uikit",
+      "library": "uikit",
+      "rules_of_hooks": true,
+      "description": "Returns the current layout theme and media query helpers from LayoutContext. Provides activeMediaQuery (the current active breakpoint), isMediaActive (returns true if the given breakpoint is active or smaller than the active one, enabling mobile-first logic), and getClosestMediaProps (returns the nearest map value for the active breakpoint using mobile-first resolution)."
     }
   ]
 }
