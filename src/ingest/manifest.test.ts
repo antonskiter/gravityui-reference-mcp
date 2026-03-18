@@ -7,7 +7,7 @@ import { buildManifest } from './manifest.js';
 // __dirname is not available in ESM; use import.meta.url instead.
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const VENDOR_DIR = path.resolve(__dirname, '../../../../vendor');
+const VENDOR_DIR = path.resolve(__dirname, '../../vendor');
 
 describe('buildManifest', () => {
   it('discovers vendor submodules and builds batches', () => {
