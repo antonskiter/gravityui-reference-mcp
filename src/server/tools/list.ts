@@ -101,7 +101,7 @@ const TOKEN_HINTS: Record<string, string> = {
 // Ecosystem helpers
 // ---------------------------------------------------------------------------
 
-export function buildEcosystemLibraryList(libraryFilter?: string): EcosystemLibraryListOutput {
+function buildEcosystemLibraryList(libraryFilter?: string): EcosystemLibraryListOutput {
   const filtered = libraryFilter
     ? ALL_LIBRARIES.filter(l => l.id === libraryFilter)
     : ALL_LIBRARIES;

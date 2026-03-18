@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { handleList } from '../list.js';
-import type { ListInput } from '../list.js';
+import { handleList, formatList } from '../list.js';
+import type { ListInput, TableOfContents, EcosystemEntityListOutput, ErrorOutput } from '../list.js';
 import type { LoadedData } from '../../loader.js';
 
 const stubData = {
@@ -157,5 +157,100 @@ describe('list tool — LoadedData lookups', () => {
       expect(result.libraries).toHaveLength(1);
       expect(result.libraries[0].id).toBe('uikit');
     }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// formatList
+// ---------------------------------------------------------------------------
+
+describe('formatList — kind=toc', () => {
+  const toc: TableOfContents = {
+    kind: 'toc',
+    componentCount: 120,
+    libraryCount: 5,
+    categories: ['layout', 'forms', 'feedback'],
+    recipeCount: 8,
+    tokenTopics: ['spacing', 'colors'],
+  };
+
+  it('includes component count and library count', () => {
+    const result = formatList(toc);
+    expect(result).toContain('Components: 120 in 5 libraries');
+  });
+
+  it('includes categories', () => {
+    const result = formatList(toc);
+    expect(result).toContain('layout, forms, feedback');
+  });
+
+  it('includes recipe count', () => {
+    const result = formatList(toc);
+    expect(result).toContain('Recipes: 8 patterns');
+  });
+
+  it('includes token topics', () => {
+    const result = formatList(toc);
+    expect(result).toContain('Tokens: spacing, colors');
+  });
+});
+
+describe('formatList — kind=ecosystem-entities', () => {
+  const entities: EcosystemEntityListOutput = {
+    kind: 'ecosystem-entities',
+    type: 'hook',
+    library: 'uikit',
+    entities: [
+      { name: 'useDisclosure', library: 'uikit', kind: 'hook' },
+      { name: 'useList', library: 'uikit', kind: 'hook' },
+    ],
+    totalCount: 2,
+  };
+
+  it('includes count and type in header', () => {
+    const result = formatList(entities);
+    expect(result).toContain('2 hooks in uikit');
+  });
+
+  it('lists entity names with library and kind suffix', () => {
+    const result = formatList(entities);
+    expect(result).toContain('useDisclosure [uikit] (hook)');
+    expect(result).toContain('useList [uikit] (hook)');
+  });
+
+  it('omits kind suffix when entity has no kind', () => {
+    const noKind: EcosystemEntityListOutput = {
+      kind: 'ecosystem-entities',
+      type: 'component',
+      entities: [{ name: 'Button', library: 'uikit' }],
+      totalCount: 1,
+    };
+    const result = formatList(noKind);
+    expect(result).toContain('Button [uikit]');
+    expect(result).not.toContain('Button [uikit] (');
+  });
+
+  it('omits library qualifier in header when no library filter', () => {
+    const global: EcosystemEntityListOutput = {
+      kind: 'ecosystem-entities',
+      type: 'hook',
+      entities: [],
+      totalCount: 0,
+    };
+    const result = formatList(global);
+    expect(result).toContain('0 hooks');
+    expect(result).not.toContain(' in ');
+  });
+});
+
+describe('formatList — kind=error', () => {
+  const error: ErrorOutput = {
+    kind: 'error',
+    message: "'unknown' is not valid. Use: components, recipes, libraries, tokens.",
+  };
+
+  it('returns the error message directly', () => {
+    const result = formatList(error);
+    expect(result).toBe(error.message);
   });
 });

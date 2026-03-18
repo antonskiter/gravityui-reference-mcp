@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { handleGet } from '../get.js';
+import { handleGet, formatGet } from '../get.js';
+import type { GetOutput } from '../get.js';
 import MiniSearch from 'minisearch';
 
 // ---------------------------------------------------------------------------
@@ -161,5 +162,136 @@ describe('handleGet', () => {
     expect(result.type).toBe('component');
     expect(result.seeAlso).toBeDefined();
     expect(result.seeAlso!.length).toBeGreaterThanOrEqual(1);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// formatGet
+// ---------------------------------------------------------------------------
+
+describe('formatGet', () => {
+  it('type=component — formats component output', () => {
+    const output: GetOutput = {
+      type: 'component',
+      data: {
+        name: 'Button',
+        library: 'uikit',
+        import_path: '@gravity-ui/uikit',
+        import_statement: "import {Button} from '@gravity-ui/uikit';",
+        props: [],
+        examples: [],
+        source_file: '',
+      },
+    };
+    const result = formatGet(output);
+    expect(result).toContain('Button');
+    expect(result).toContain('@gravity-ui/uikit');
+  });
+
+  it('type=component — appends seeAlso disambiguation', () => {
+    const output: GetOutput = {
+      type: 'component',
+      data: {
+        name: 'Button',
+        library: 'uikit',
+        import_path: '@gravity-ui/uikit',
+        import_statement: "import {Button} from '@gravity-ui/uikit';",
+        props: [],
+        examples: [],
+        source_file: '',
+      },
+      seeAlso: ['Button (other-lib)'],
+    };
+    const result = formatGet(output);
+    expect(result).toContain('Also available in: Button (other-lib)');
+  });
+
+  it('type=recipe — delegates to formatRecipe (compact)', () => {
+    const output: GetOutput = {
+      type: 'recipe',
+      data: {
+        id: 'form-recipe',
+        title: 'Form Recipe',
+        description: 'How to build forms.',
+        level: 'molecule',
+        use_cases: [],
+        packages: ['@gravity-ui/uikit'],
+        tags: [],
+        sections: [],
+      },
+    };
+    const result = formatGet(output, 'compact');
+    expect(result).toContain('Form Recipe (molecule)');
+    expect(result).toContain('Install: @gravity-ui/uikit');
+  });
+
+  it('type=tokens — delegates to formatGetDesignTokens', () => {
+    const output: GetOutput = {
+      type: 'tokens',
+      data: { spacing: { '1': '4px', '2': '8px' } },
+    };
+    const result = formatGet(output);
+    expect(result).toContain('Spacing');
+    expect(result).toContain('1: 4px');
+  });
+
+  it('type=overview — delegates to formatOverview', () => {
+    const output: GetOutput = {
+      type: 'overview',
+      data: {
+        system: {
+          description: '',
+          theming: 'CSS variables',
+          spacing: '4px grid',
+          typography: 'Inter',
+          corner_radius: '4px',
+          branding: '',
+        },
+        libraries: [
+          { id: 'uikit', package: '@gravity-ui/uikit', purpose: 'Core', component_count: 50, depends_on: [], is_peer_dependency_of: [] },
+        ],
+      },
+    };
+    const result = formatGet(output);
+    expect(result).toContain('Gravity UI Design System');
+    expect(result).toContain('Theming: CSS variables');
+    expect(result).toContain('1 libraries:');
+  });
+
+  it('type=library — delegates to formatLibrary', () => {
+    const output: GetOutput = {
+      type: 'library',
+      data: {
+        id: 'icons',
+        package: '@gravity-ui/icons',
+        purpose: 'Icon set.',
+        component_count: 500,
+        depends_on: [],
+        is_peer_dependency_of: ['uikit'],
+      },
+    };
+    const result = formatGet(output);
+    expect(result).toContain('icons (@gravity-ui/icons)');
+    expect(result).toContain('500 components');
+    expect(result).toContain('Used by: uikit');
+  });
+
+  it('type=not_found — returns not found message with name', () => {
+    const output: GetOutput = {
+      type: 'not_found',
+      data: { name: 'NonExistentWidget', suggestions: [] },
+    };
+    const result = formatGet(output);
+    expect(result).toContain("'NonExistentWidget' not found.");
+    expect(result).toContain("Try find('NonExistentWidget')");
+  });
+
+  it('type=not_found — includes similar suggestions when present', () => {
+    const output: GetOutput = {
+      type: 'not_found',
+      data: { name: 'Buton', suggestions: ['Button', 'ButtonGroup'] },
+    };
+    const result = formatGet(output);
+    expect(result).toContain('Similar: Button, ButtonGroup');
   });
 });

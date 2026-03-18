@@ -292,13 +292,15 @@ describe("ComponentTagsSchema", () => {
 
 describe("RecipeLevelSchema", () => {
   it("accepts valid levels", () => {
+    expect(RecipeLevelSchema.parse("atom")).toBe("atom");
     expect(RecipeLevelSchema.parse("foundation")).toBe("foundation");
     expect(RecipeLevelSchema.parse("molecule")).toBe("molecule");
     expect(RecipeLevelSchema.parse("organism")).toBe("organism");
+    expect(RecipeLevelSchema.parse("page")).toBe("page");
   });
 
   it("rejects invalid levels", () => {
-    expect(() => RecipeLevelSchema.parse("atom")).toThrow();
+    expect(() => RecipeLevelSchema.parse("invalid")).toThrow();
     expect(() => RecipeLevelSchema.parse("")).toThrow();
   });
 });
@@ -444,7 +446,7 @@ describe("RecipeDefSchema", () => {
   it("rejects a RecipeDef with invalid level", () => {
     expect(() => RecipeDefSchema.parse({
       ...minimal,
-      level: "atom",
+      level: "invalid-level",
     })).toThrow();
   });
 

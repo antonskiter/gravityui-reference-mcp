@@ -1,7 +1,6 @@
 import { searchIndex } from "../../ingest/index.js";
 import type { LoadedData } from "../loader.js";
 import type { ComponentDef } from "../../types.js";
-import { indent } from "../text-utils.js";
 
 // ---------------------------------------------------------------------------
 // String utilities (previously in ingest/tags.ts, inlined after pipeline cleanup)
@@ -242,17 +241,4 @@ export function handleSuggestComponent(
   }
 
   return { suggestions };
-}
-
-export function formatSuggestComponent(result: SuggestComponentOutput): string {
-  const { suggestions } = result;
-  if (suggestions.length === 0) return "No suggestions found.";
-  const lines: string[] = [];
-  suggestions.forEach((s, i) => {
-    const tags = s.matching_tags.length > 0 ? `\n   Tags: ${s.matching_tags.join(", ")}` : "";
-    const importLine = s.import_statement ? `\n   Import: ${s.import_statement}` : "";
-    lines.push(`${i + 1}. ${s.component} (${s.library}) ${Math.round(s.score * 100)}`);
-    lines.push(`${indent(s.description)}${tags}${importLine}`);
-  });
-  return lines.join("\n");
 }
