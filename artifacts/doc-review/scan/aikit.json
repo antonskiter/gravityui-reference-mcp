@@ -1,0 +1,253 @@
+{
+  "library": "aikit",
+  "component_count": 31,
+  "component_paths": [
+    "src/components/atoms",
+    "src/components/molecules",
+    "src/components/organisms",
+    "src/components/templates",
+    "src/components/pages"
+  ],
+  "flat_files": false,
+  "components": [
+    {
+      "name": "ActionButton",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/atoms/ActionButton/ActionButton.tsx"
+    },
+    {
+      "name": "Alert",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/atoms/Alert/index.tsx"
+    },
+    {
+      "name": "BaseMessage",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/molecules/BaseMessage/index.tsx"
+    },
+    {
+      "name": "ButtonGroup",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/molecules/ButtonGroup/index.tsx"
+    },
+    {
+      "name": "ChatContainer",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/pages/ChatContainer/ChatContainer.tsx"
+    },
+    {
+      "name": "ChatContent",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/templates/ChatContent/ChatContent.tsx"
+    },
+    {
+      "name": "ChatDate",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/atoms/ChatDate/ChatDate.tsx"
+    },
+    {
+      "name": "ContextIndicator",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/atoms/ContextIndicator/index.tsx"
+    },
+    {
+      "name": "ContextItem",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/atoms/ContextItem/index.tsx"
+    },
+    {
+      "name": "DiffStat",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/atoms/DiffStat/index.tsx"
+    },
+    {
+      "name": "Disclaimer",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/atoms/Disclaimer/Disclaimer.tsx"
+    },
+    {
+      "name": "EmptyContainer",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/templates/EmptyContainer/EmptyContainer.tsx"
+    },
+    {
+      "name": "Header",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/organisms/Header/Header.tsx"
+    },
+    {
+      "name": "History",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/templates/History/History.tsx"
+    },
+    {
+      "name": "IntersectionContainer",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/atoms/IntersectionContainer/IntersectionContainer.tsx"
+    },
+    {
+      "name": "Loader",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/atoms/Loader/Loader.tsx"
+    },
+    {
+      "name": "MessageBalloon",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/atoms/MessageBalloon/index.tsx"
+    },
+    {
+      "name": "PromptInput",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/organisms/PromptInput/PromptInput.tsx"
+    },
+    {
+      "name": "PromptInputFooter",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/molecules/PromptInputFooter/PromptInputFooter.tsx"
+    },
+    {
+      "name": "PromptInputHeader",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/molecules/PromptInputHeader/PromptInputHeader.tsx"
+    },
+    {
+      "name": "PromptInputPanel",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/molecules/PromptInputPanel/PromptInputPanel.tsx"
+    },
+    {
+      "name": "RatingBlock",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/molecules/RatingBlock/RatingBlock.tsx"
+    },
+    {
+      "name": "Shimmer",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/atoms/Shimmer/index.tsx"
+    },
+    {
+      "name": "StarRating",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/molecules/StarRating/StarRating.tsx"
+    },
+    {
+      "name": "SubmitButton",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/atoms/SubmitButton/SubmitButton.tsx"
+    },
+    {
+      "name": "Suggestions",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/molecules/Suggestions/Suggestions.tsx"
+    },
+    {
+      "name": "Tabs",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/molecules/Tabs/Tabs.tsx"
+    },
+    {
+      "name": "ThinkingMessage",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/organisms/ThinkingMessage/index.tsx"
+    },
+    {
+      "name": "ToolFooter",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/molecules/ToolFooter/index.tsx"
+    },
+    {
+      "name": "ToolHeader",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/molecules/ToolHeader/index.tsx"
+    },
+    {
+      "name": "ToolIndicator",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/atoms/ToolIndicator/index.tsx"
+    },
+    {
+      "name": "ToolMessage",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/organisms/ToolMessage/index.tsx"
+    },
+    {
+      "name": "ToolStatus",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/molecules/ToolStatus/index.tsx"
+    },
+    {
+      "name": "UserMessage",
+      "library": "aikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/aikit/src/components/organisms/UserMessage/index.tsx"
+    }
+  ],
+  "suggested_batches": 4
+}

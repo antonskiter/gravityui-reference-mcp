@@ -1,0 +1,31 @@
+{
+  "library": "timeline",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "entity": "TimelineCanvas",
+      "message": "Wrong import_path: data says '@gravity-ui/timeline' but package.json exports this component from '@gravity-ui/timeline/react' (via ./react entry point). import_path and import_statement should use '@gravity-ui/timeline/react'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useTimeline",
+      "message": "Wrong import_path: data says '@gravity-ui/timeline' but this hook is exported from '@gravity-ui/timeline/react' (via ./react entry point). import_path and import_statement should use '@gravity-ui/timeline/react'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useTimelineEvent",
+      "message": "Wrong import_path: data says '@gravity-ui/timeline' but this hook is exported from '@gravity-ui/timeline/react' (via ./react entry point). import_path and import_statement should use '@gravity-ui/timeline/react'."
+    },
+    {
+      "severity": "LOW",
+      "entity": "TimelineCanvas",
+      "message": "Description says 'The canvas fills its parent container at 100% width and height' but omits that the canvas also sets position: relative and tabIndex={0} for keyboard focus support."
+    },
+    {
+      "severity": "LOW",
+      "entity": "useTimeline",
+      "message": "Description says 'start/stop helpers for manual canvas management' — these are thin wrappers around timeline.init(canvas) and timeline.destroy(). The term 'manual canvas management' is slightly vague but not materially wrong."
+    }
+  ]
+}

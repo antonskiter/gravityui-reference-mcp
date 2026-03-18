@@ -1,0 +1,33 @@
+{
+  "library": "illustrations",
+  "category": "asset",
+  "dataFileCount": 21,
+  "vendorCount": 21,
+  "issues": [
+    {
+      "severity": "LOW",
+      "entity": "History",
+      "message": "Empty category string in data file; asset has no assigned category"
+    },
+    {
+      "severity": "LOW",
+      "entity": "Project",
+      "message": "Empty category string in data file; asset has no assigned category"
+    },
+    {
+      "severity": "LOW",
+      "entity": "Template",
+      "message": "Empty category string in data file; asset has no assigned category"
+    },
+    {
+      "severity": "LOW",
+      "entity": "Detail",
+      "message": "Empty category string in data file; asset has no assigned category"
+    },
+    {
+      "severity": "LOW",
+      "entity": "Feature",
+      "message": "Empty category string in data file; asset has no assigned category"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "batch_id": "page-constructor-2",
+  "libraries": ["page-constructor"],
+  "issues": [
+    {
+      "component": "Table",
+      "prop": "justify",
+      "severity": "HIGH",
+      "type": "type_mismatch",
+      "source_type": "Justify[]",
+      "doc_type": "'start' | 'center' | 'end'[]",
+      "note": "Doc type is malformed — missing parentheses around the union. Source expands to ('start' | 'center' | 'end')[]. Doc representation '\"start' | 'center' | 'end'[]' is ambiguous and incorrectly implies only 'end' is arrayed."
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "Table",
+      "source_description": "Renders a data table from a 2D string array, with optional legend markers (disk or tick) and per-column alignment. Legend is shown below the table unless hideLegend is set. Caption is used as an accessible aria-label.",
+      "doc_description": "Table component for page-constructor that renders data tables with optional legend markers."
+    },
+    {
+      "component": "Title",
+      "source_description": "Renders a title and optional subtitle wrapped in a responsive grid column. Accepts a title as a plain string or a TitleItemProps object. Column sizes default to {all: 12, sm: 8}. Supports an id for anchor linking.",
+      "doc_description": "Title component for page-constructor that renders a title with optional subtitle and supports various text sizes."
+    }
+  ]
+}

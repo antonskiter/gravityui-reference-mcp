@@ -1,0 +1,116 @@
+{
+  "library": "navigation",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "entity": "Content",
+      "message": "Content is NOT exported from the public API (not in src/components/index.ts). It is an internal component used by AsideHeader and MobileHeader internally. Should not be listed as a public component."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "TopAlert",
+      "message": "TopAlert is NOT exported from the public API (not in src/components/index.ts). It is lazy-loaded internally by PageLayout and MobileHeader. Should not be listed as a public component."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "PageLayoutAside",
+      "message": "PageLayoutAside is exported from the public API (via AsideHeader/index.ts) but missing from the data file. It is a publicly available component used for custom PageLayout compositions."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "getMobileHeaderCustomEvent",
+      "message": "getMobileHeaderCustomEvent is exported from the public API (via MobileHeader/index.ts) as a utility function but missing from the data file. Used for programmatic MobileHeader panel control."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "MobileHeaderFooterItem",
+      "message": "MobileHeaderFooterItem (re-export of FooterItem as MobileHeaderFooterItem) is exported from MobileHeader/index.ts but missing from the data file. It is a distinct public export name."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useSettingsSelectionContext",
+      "message": "useSettingsSelectionContext hook is exported from Settings/index.ts but missing from the hooks section of the data file."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "AsideHeader",
+      "message": "Data file lists 'pinned' as required: true, but in the source AsideHeaderProps extends LayoutProps where pinned is required. This is correct. However, the data file is missing the 'ref' forwarding - AsideHeader uses React.forwardRef, which is not documented."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "Logo",
+      "message": "Data file lists 'placement' prop with type \"'header' | 'footer'\" and required: true. In source, placement is defined in the local Props interface (not LogoProps), so it is required on the Logo component directly. However, 'isExpanded' default is listed as 'true' in data but source shows default is 'true' via destructuring default - this is correct. The 'iconSize' prop is listed as type 'number' but source uses it as number (correct). Note: Logo also spreads ...props which includes iconSize from LogoProps."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "MobileLogo",
+      "message": "Data file lists 'isExpanded' as required: true. Source confirms MobileLogoProps extends LogoProps with 'isExpanded: boolean' (no optional marker), so this is correct. However, MobileLogo does not have 'iconPlaceClassName' prop (which Logo has) - data correctly omits it. No issue here after review."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "HotkeysPanel",
+      "message": "Data file is missing the 'itemClassName' prop. Source shows HotkeysPanelProps extends from ListProps which includes 'itemClassName', and it is explicitly used in the component's render (line 139). This is a user-facing prop that is missing from the data."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "FooterBar",
+      "message": "Data file lists 'children' type as 'React.ReactNode[]' with required: true. Source confirms FooterBarProps has 'children: React.ReactNode[]' - correct. However, FooterBar is exported from AsideHeader/components/FooterBar/index.ts and re-exported via AsideHeader/index.ts... checking: FooterBar is NOT in AsideHeader/index.ts exports. It is only exported from its own index.ts but not re-exported to the public API. FooterBar may not be a public component."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "FooterItem",
+      "message": "Data file lists several props (id, title, icon, iconSize, current, isExpanded, onItemClick, tooltipText, qa) as direct props. Source shows FooterItemProps extends AsideHeaderItem which extends MenuItem. The listed props are correct but incomplete - missing inherited props: href, className, hidden, type, preventUserRemoving, rightAdornment, itemWrapper, onItemClickCapture, groupId, enableTooltip, bringForward, iconQa."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "Settings.Page",
+      "message": "Data file lists 'icon' prop type as 'IconProps'. Source confirms SettingsPageProps has 'icon?: IconProps' - correct. However, data is missing the 'disabled' prop. The SettingsPageProps type does not have 'disabled' directly, but it appears in the Item interface in types.ts which is used for menu rendering. After review, SettingsPageProps does not have disabled - no issue."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "MOBILE_HEADER_EVENT_NAMES",
+      "message": "MOBILE_HEADER_EVENT_NAMES constant is exported from the public API (MobileHeader/index.ts) but not documented in the data file. Used for programmatic event dispatch."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "FooterLayoutContext",
+      "message": "FooterLayoutContext React context object is exported from the public API (AsideHeader/index.ts) but not documented in the data file. Allows custom footer layout context providers."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "AsideHeaderContextProvider",
+      "message": "AsideHeaderContextProvider is exported from the public API (AsideHeader/index.ts) but not documented in the data file. Needed for custom PageLayout compositions."
+    },
+    {
+      "severity": "LOW",
+      "entity": "Title",
+      "message": "Data file lists 'closeTitle' with no default. Source shows closeTitle has a default from i18n('button_close'). The default value should be documented as an i18n-derived string."
+    },
+    {
+      "severity": "LOW",
+      "entity": "HotkeysPanel",
+      "message": "Data file describes HotkeysPanel as 'A slide-out drawer panel' but it actually uses the Drawer component from @gravity-ui/uikit, not a custom panel. Description is acceptable but slightly imprecise."
+    },
+    {
+      "severity": "LOW",
+      "entity": "FooterBar",
+      "message": "Data file lists maxVisibleItems default as '5'. Source confirms MAX_VISIBLE_ITEMS = 5 from constants. Correct."
+    },
+    {
+      "severity": "LOW",
+      "entity": "MobileHeader",
+      "message": "Data file lists burgerCloseTitle and burgerOpenTitle with no defaults. Source shows defaults from i18n: burgerCloseTitle = i18n('burger_button_close'), burgerOpenTitle = i18n('burger_button_open'). Missing default documentation."
+    },
+    {
+      "severity": "LOW",
+      "entity": "AsideFallback",
+      "message": "Data file description says 'Renders a minimal aside shell with optional header decoration and subheader item height reservation.' Source confirms this is accurate. The component also uses useAsideHeaderContext internally, meaning it must be used within an AsideHeader/PageLayout context - this constraint is not mentioned."
+    },
+    {
+      "severity": "LOW",
+      "entity": "useAsideHeaderContext",
+      "message": "Data file description mentions the hook 'Throws when used outside an AsideHeader provider' which is correct. However, the return type fields listed (size, pinned, isExpanded, onChangePinned, onExpand, onFold, setCollapseBlocker) are in description text only, not structured. Acceptable but could be more precise."
+    }
+  ]
+}

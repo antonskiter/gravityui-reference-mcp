@@ -1,0 +1,56 @@
+{
+  "library": "aikit",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "entity": "useMarkdownTransform",
+      "message": "Hook listed in data file but NOT exported from hooks/index.ts. It is an internal hook used only by MarkdownRenderer. Should be removed from public hooks list."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useRemend",
+      "message": "Hook listed in data file but NOT exported from hooks/index.ts. It is an internal hook used only by MarkdownRenderer. Should be removed from public hooks list."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "History",
+      "message": "Missing prop 'filterFunction' (type: ChatFilterFunction). HistoryProps extends HistoryListProps (minus onChatClick) which includes filterFunction as optional with default defaultChatFilter."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "History",
+      "message": "Missing prop 'size' (type: InputControlSize, default: 'm'). HistoryProps extends HistoryListProps which includes size prop for the underlying List component."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "ThinkingMessage",
+      "message": "Data file lists props individually but actual ThinkingMessageProps = DOMProps & QAProps & ThinkingMessageContentData. The 'style' prop comes from DOMProps, not ThinkingMessageContentData. Technically accurate props but misrepresents origin."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "RatingBlock",
+      "message": "Data file says 'visible' prop has default 'true'. In vendor source, visible is declared optional with no explicit default in the component. The default-true behavior is only enforced in MessageList (visible !== false check), not in RatingBlock itself."
+    },
+    {
+      "severity": "LOW",
+      "entity": "InlineCitation",
+      "message": "InlineCitation directory exists in vendor atoms with re-export in atoms/index.ts but exports nothing (export {}). Data file correctly omits it. Vendor has a dead re-export."
+    },
+    {
+      "severity": "LOW",
+      "entity": "InputContext",
+      "message": "InputContext directory exists in vendor molecules with re-export in molecules/index.ts but exports nothing (export {}). Data file correctly omits it. Vendor has a dead re-export."
+    },
+    {
+      "severity": "LOW",
+      "entity": "AssistantMessage",
+      "message": "Data file content type 'TAssistantMessageContent<TContent>' is correct but generic parameter TContent defaults to 'never'. Could note the default for clarity."
+    },
+    {
+      "severity": "LOW",
+      "entity": "ChatContainer",
+      "message": "Description mentions Disclaimer and History integration but does not mention useChatContainer hook which manages significant internal state (history open/close, base actions resolution, chat content view)."
+    }
+  ]
+}

@@ -16,12 +16,16 @@ const EXPECTED_IDS = [
   "data-table",
   "date-range-filter",
   "file-upload",
+  "flex-layout",
   "form-with-validation",
+  "grid-layout",
   "landing-page",
   "multi-step-wizard",
+  "page-layout",
   "page-states",
   "search-with-suggestions",
   "settings-page",
+  "spacing-and-containers",
   "theming-dark-mode",
   "user-feedback",
 ];
@@ -34,12 +38,16 @@ const EXPECTED_LEVELS: Record<string, string> = {
   "data-table": "organism",
   "date-range-filter": "molecule",
   "file-upload": "organism",
+  "flex-layout": "foundation",
   "form-with-validation": "organism",
+  "grid-layout": "foundation",
   "landing-page": "organism",
   "multi-step-wizard": "organism",
+  "page-layout": "organism",
   "page-states": "molecule",
   "search-with-suggestions": "molecule",
   "settings-page": "organism",
+  "spacing-and-containers": "foundation",
   "theming-dark-mode": "foundation",
   "user-feedback": "molecule",
 };
@@ -50,8 +58,8 @@ describe("data/recipes.json conformance", () => {
     expect(parsed).toBeDefined();
   });
 
-  it("contains exactly 15 recipes", () => {
-    expect(parsed).toHaveLength(15);
+  it("contains exactly 19 recipes", () => {
+    expect(parsed).toHaveLength(19);
   });
 
   it("has the expected IDs in alphabetical order", () => {

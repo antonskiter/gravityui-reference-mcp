@@ -1,0 +1,231 @@
+{
+  "library": "dynamic-forms",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "entity": "RemoveButton",
+      "message": "Component exported from kit/components but missing from data file. RemoveButton is a public component with props: name (string, required), onDrop (() => void, required), switcherClassName (string, optional). Used in layout components like CardAccordeon and CardSection."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "CardAccordeon (Layout)",
+      "message": "Layout component exported from kit/components/Layouts but missing from data file. CardAccordeon is a form layout that wraps content in a collapsible Card with error checking and remove button support. Uses LayoutProps generic type."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "CardSection (Layout)",
+      "message": "Layout component exported from kit/components/Layouts but missing from data file. CardSection is a form layout that wraps content in an always-open Card with remove button support. Uses LayoutProps generic type."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "Accordeon (Layout)",
+      "message": "Layout component exported from kit/components/Layouts/Accordeon but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "AccordeonCard (Layout)",
+      "message": "Layout component exported from kit/components/Layouts/AccordeonCard but missing from data file. This is a layout wrapper (distinct from the standalone AccordeonCard component)."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "Row (Layout)",
+      "message": "Layout component exported from kit/components/Layouts/Row but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "Column (Layout)",
+      "message": "Layout component exported from kit/components/Layouts/Column but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "Section (Layout)",
+      "message": "Layout component exported from kit/components/Layouts/Section but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "TableCell (Layout)",
+      "message": "Layout component exported from kit/components/Layouts/TableCell but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "Transparent (Layout)",
+      "message": "Layout component exported from kit/components/Layouts/Transparent but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BaseView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ArrayBaseView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "CheckboxGroupView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "CardOneOfView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "FileInputView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "MonacoInputView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "MultiOneOfView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "MultiSelectView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "NumberWithScaleView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ObjectBaseView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ObjectValueInputView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "OneOfView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "TableArrayView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "TextAreaView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "TextContentView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "TextLinkView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "TimeRangeSelectorView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "DateView",
+      "message": "View component exported from kit/components/Views but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ViewAccordeon",
+      "message": "ViewLayout component exported from kit/components/ViewLayouts but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ViewCardAccordeon",
+      "message": "ViewLayout component exported from kit/components/ViewLayouts but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ViewAccordeonCard",
+      "message": "ViewLayout component exported from kit/components/ViewLayouts but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ViewCardSection",
+      "message": "ViewLayout component exported from kit/components/ViewLayouts but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ViewRow",
+      "message": "ViewLayout component exported from kit/components/ViewLayouts but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ViewColumn",
+      "message": "ViewLayout component exported from kit/components/ViewLayouts but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ViewSection",
+      "message": "ViewLayout component exported from kit/components/ViewLayouts but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ViewTableCell",
+      "message": "ViewLayout component exported from kit/components/ViewLayouts but missing from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ViewTransparent",
+      "message": "ViewLayout component exported from kit/components/ViewLayouts but missing from data file."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "LongValue",
+      "message": "LongValue extends TextProps from @gravity-ui/uikit but data file does not document inherited props (className, color, variant, ellipsis, etc.). The source signature is LongValueProps extends TextProps with value and onClick as explicitly declared props."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "MonacoInput",
+      "message": "Data file source_file points to MonacoInputBase.tsx but the exported component MonacoInput is defined at line 115 of that same file as a wrapper around MonacoInputBase. The interface name in source is MonacoInputBaseProps, not MonacoInputProps."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "Switch",
+      "message": "Data file does not list an inputProps prop, but the source uses BooleanInput type which does not accept inputProps. This is correct, but the Switch component type in the source is BooleanInput (no generic parameter), while Checkbox uses BooleanInput<CheckboxProps>. Data file inconsistently omits inputProps for Switch but includes it for Checkbox."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "SimpleVerticalAccordeon",
+      "message": "Data file lists 'open' as required with default 'false'. In source, 'open' is declared as required in the interface (open: boolean) but has a static defaultProps setting open: false. Since defaultProps provides a fallback, listing it as both required and having a default is potentially misleading."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "NumInput",
+      "message": "Data file names this component 'NumInput' which matches the export name, but the source file is Number.tsx (at vendor/dynamic-forms/src/lib/kit/components/Inputs/Number/Number.tsx). Data file source_file is correct."
+    },
+    {
+      "severity": "LOW",
+      "entity": "AccordeonCard",
+      "message": "Data file description says 'A collapsible card component with accordion behavior, header, description, and toggle functionality' which is accurate but does not mention the empty-body auto-hide behavior present in the source."
+    },
+    {
+      "severity": "LOW",
+      "entity": "Card",
+      "message": "Data file description mentions 'Wraps GravityUI Card component' but the data file does not mention that the title, when a string, gets a Popover with ellipsis behavior and a HelpMark for the description."
+    },
+    {
+      "severity": "LOW",
+      "entity": "DynamicField",
+      "message": "Data file correctly lists all props. The destroyOnUnregister default is listed as 'true' (string) in the data file; the source confirms the default is true (boolean). Minor format inconsistency."
+    }
+  ]
+}

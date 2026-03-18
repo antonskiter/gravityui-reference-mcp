@@ -40,18 +40,19 @@ server.tool(
 // Tool 3: list
 server.tool(
   "list",
-  "List available Gravity UI components and recipes, optionally filtered by library or recipe level. Examples: list(), list({scope:'recipes'}), list({library:'uikit'}), list({level:'page'})",
+  "List available Gravity UI components, recipes, hooks, assets, utilities, config packages, or all 32 libraries grouped by category. Examples: list(), list({type:'library'}), list({type:'hook',library:'uikit'}), list({type:'asset'}), list({scope:'recipes'})",
   {
     scope: z.enum(["components", "recipes", "all"]).optional().describe("What to list (default: all)"),
-    library: z.string().optional().describe("Filter components by library ID"),
+    library: z.string().optional().describe("Filter by library id (e.g. i18n, icons, uikit)"),
     level: z.enum(["atom", "molecule", "organism", "page", "foundation"]).optional().describe("Filter recipes by level"),
+    type: z.enum(["component", "hook", "api-function", "asset", "token", "config-package", "library"]).optional().describe("Filter by entity type"),
   },
   (args) => {
-    const { scope, library, level } = args;
+    const { scope, library, level, type } = args;
     // Map new schema to handleList's expected input
     const what = scope === "all" || !scope ? undefined : scope as "components" | "recipes";
-    const filter = library ?? level;
-    const result = handleList(data, { what, filter });
+    const filter = !type && !library ? (library ?? level) : undefined;
+    const result = handleList(data, { what, filter, type, library });
     return { content: [{ type: "text", text: formatList(result) }] };
   },
 );

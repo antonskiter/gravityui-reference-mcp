@@ -1,0 +1,16 @@
+{
+  "library": "yagr",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "MEDIUM",
+      "entity": "YagrReact",
+      "message": "Prop 'onChartInited' is defined in the YagrChartProps interface (react.tsx:21) but is never destructured or used in the component implementation (react.tsx:35). The data file documents it as a functional prop, but passing it has no effect at runtime."
+    },
+    {
+      "severity": "LOW",
+      "entity": "useTooltipState",
+      "message": "Description says 'render and show events' but the source (react.tsx:130-140) actually subscribes to 'render' once and 'show' twice (duplicate 'show' listener). The hook description omits mention of this duplication."
+    }
+  ]
+}

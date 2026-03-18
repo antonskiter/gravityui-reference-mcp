@@ -1,0 +1,93 @@
+{
+  "library": "blog-constructor",
+  "component_count": 12,
+  "component_paths": ["src/components"],
+  "flat_files": false,
+  "components": [
+    {
+      "name": "FeedHeader",
+      "library": "blog-constructor",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/blog-constructor/src/components/FeedHeader/FeedHeader.tsx"
+    },
+    {
+      "name": "MetaWrapper",
+      "library": "blog-constructor",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/blog-constructor/src/components/MetaWrapper/MetaWrapper.tsx"
+    },
+    {
+      "name": "Paginator",
+      "library": "blog-constructor",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/blog-constructor/src/components/Paginator/Paginator.tsx"
+    },
+    {
+      "name": "PostCard",
+      "library": "blog-constructor",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/blog-constructor/src/components/PostCard/PostCard.tsx"
+    },
+    {
+      "name": "PostInfo",
+      "library": "blog-constructor",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/blog-constructor/src/components/PostInfo/PostInfo.tsx"
+    },
+    {
+      "name": "Posts",
+      "library": "blog-constructor",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/blog-constructor/src/components/Posts/Posts.tsx"
+    },
+    {
+      "name": "PostsEmpty",
+      "library": "blog-constructor",
+      "data_entry": false,
+      "source_file_found": true,
+      "source_file": "vendor/blog-constructor/src/components/PostsEmpty/PostsEmpty.tsx"
+    },
+    {
+      "name": "PostsError",
+      "library": "blog-constructor",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/blog-constructor/src/components/PostsError/PostsError.tsx"
+    },
+    {
+      "name": "Prompt",
+      "library": "blog-constructor",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/blog-constructor/src/components/Prompt/Prompt.tsx"
+    },
+    {
+      "name": "PromptSignIn",
+      "library": "blog-constructor",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/blog-constructor/src/components/PromptSignIn/PromptSignIn.tsx"
+    },
+    {
+      "name": "Search",
+      "library": "blog-constructor",
+      "data_entry": false,
+      "source_file_found": true,
+      "source_file": "vendor/blog-constructor/src/components/Search/Search.tsx"
+    },
+    {
+      "name": "Wrapper",
+      "library": "blog-constructor",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/blog-constructor/src/components/Wrapper/Wrapper.tsx"
+    }
+  ],
+  "suggested_batches": 1
+}

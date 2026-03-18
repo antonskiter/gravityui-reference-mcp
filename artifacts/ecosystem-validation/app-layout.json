@@ -1,0 +1,61 @@
+{
+  "library": "app-layout",
+  "category": "utility",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "entity": "HeadContent",
+      "message": "Type HeadContent is exported from src/types.ts and used as the parameter type of renderHeadContent, but it is NOT re-exported from the public index.ts. Users cannot import this type, yet the data file references it in the renderHeadContent signature. Either the type should be exported or the data should note it is not importable."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BodyContent",
+      "message": "Type BodyContent is exported from src/types.ts and used as the parameter type of renderBodyContent, but it is NOT re-exported from the public index.ts. Users cannot import this type, yet the data file references it in the renderBodyContent signature. Either the type should be exported or the data should note it is not importable."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "RenderContent",
+      "message": "Interface RenderContent (extends HeadContent, adds htmlAttributes and bodyContent) is the return type of generateRenderContent and is passed to plugin apply methods, but it is NOT exported from index.ts and is completely missing from the data file. This is a key type for the streaming/plugin API."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "CommonOptions",
+      "message": "Interface CommonOptions (title: string, lang?: string, isMobile?: boolean) is the base interface that RenderParams extends. It is NOT exported from index.ts and is missing from the data file. It is referenced in the data description of RenderParams but users cannot import it."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "Attributes",
+      "message": "Type Attributes = Record<string, string | number | boolean | undefined> is used in RenderContent.htmlAttributes, BodyContent.attributes, RenderParams.htmlAttributes, and RenderHelpers.attrs(). It is NOT exported from index.ts and is missing from the data file."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "renderHeadContent",
+      "message": "Parameter type listed as HeadContent which is correct per source, but HeadContent is not a publicly exported type. The data should clarify that HeadContent comes from RenderContent (the return of generateRenderContent) since users obtain it that way, not by constructing it directly."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "renderBodyContent",
+      "message": "Parameter type listed as BodyContent which is correct per source, but BodyContent is not a publicly exported type. The data should clarify that BodyContent is accessed via RenderContent.bodyContent from generateRenderContent."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "generateRenderContent",
+      "message": "Return type in data is listed as RenderContent, but RenderContent is not exported from the package and is not documented in the data file. Users reading this data cannot understand the return shape without RenderContent being defined."
+    },
+    {
+      "severity": "LOW",
+      "entity": "createDefaultPlugins",
+      "message": "Description says 'all built-in plugins' but it only includes 4 of 5: googleAnalytics, yandexMetrika, uikit, layout. The remoteVersions plugin is NOT included in createDefaultPlugins. Description should clarify it returns the 4 standard plugins, not 'all'."
+    },
+    {
+      "severity": "LOW",
+      "entity": "Plugin",
+      "message": "The data description mentions 'deprecated utils' but does not document the full apply method signature shape: { options, renderContent, commonOptions, utils }. The interface members (name, apply) are not individually listed."
+    },
+    {
+      "severity": "LOW",
+      "entity": "RenderParams",
+      "message": "The data description mentions bodyContent but does not detail its nested shape: { className?, attributes?, beforeRoot?, root?, afterRoot? }. Also does not mention the pluginsOptions typing is derived from the Plugins generic via PluginsOptions utility type."
+    }
+  ]
+}

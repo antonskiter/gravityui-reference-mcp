@@ -1,0 +1,205 @@
+{
+  "batch_id": "uikit-5",
+  "libraries": ["uikit"],
+  "issues": [
+    {
+      "component": "TableColumnSetup",
+      "library": "uikit",
+      "prop": "switcher",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "description": "Prop 'switcher' (deprecated React.ReactElement | undefined) exists in TableColumnSetupProps but is absent from the JSON entry."
+    },
+    {
+      "component": "Text",
+      "library": "uikit",
+      "prop": "color",
+      "issue_type": "type_mismatch",
+      "severity": "HIGH",
+      "description": "JSON type includes open 'string' in the union. Source ColorTextBaseProps restricts color to '(typeof TEXT_COLORS)[number]' — a fixed set of named tokens with no open string escape hatch."
+    },
+    {
+      "component": "TextArea",
+      "library": "uikit",
+      "prop": "*",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "description": "JSON props array is empty. Source TextAreaProps extends BaseInputControlProps<HTMLTextAreaElement> and adds controlProps, rows, minRows, maxRows, note. All props are missing: view, size, pin, name, value, defaultValue, disabled, readOnly, hasClear, error, errorMessage, errorPlacement, validationState, autoComplete, id, tabIndex, style, className, qa, controlRef, autoFocus, onBlur, onChange, onFocus, onKeyDown, onKeyPress, onKeyUp, onUpdate, placeholder, controlProps, rows, minRows, maxRows, note."
+    },
+    {
+      "component": "TextInput",
+      "library": "uikit",
+      "prop": "*",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "description": "JSON props array is empty. Source TextInputProps extends BaseInputControlProps<HTMLInputElement> and adds type, controlProps, label, startContent, endContent, note. All props are missing: view, size, pin, name, value, defaultValue, disabled, readOnly, hasClear, error, errorMessage, errorPlacement, validationState, autoComplete, id, tabIndex, style, className, qa, controlRef, autoFocus, onBlur, onChange, onFocus, onKeyDown, onKeyPress, onKeyUp, onUpdate, placeholder, type, controlProps, label, startContent, endContent, note."
+    },
+    {
+      "component": "Toc",
+      "library": "uikit",
+      "prop": "items",
+      "issue_type": "required_mismatch",
+      "severity": "MEDIUM",
+      "description": "JSON marks 'items' as required: false. Source TocProps declares 'items: TocItemType[]' without '?' making it required."
+    },
+    {
+      "component": "Toc",
+      "library": "uikit",
+      "prop": "onItemClick",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "description": "Prop 'onItemClick?: (event: React.MouseEvent) => void' exists in TocProps but is absent from the JSON entry."
+    },
+    {
+      "component": "Tooltip",
+      "library": "uikit",
+      "prop": "onOpenChange",
+      "issue_type": "type_mismatch",
+      "severity": "HIGH",
+      "description": "JSON type uses 'reason?: string'. Source declares 'reason?: OpenChangeReason' where OpenChangeReason is an imported type from @floating-ui/react, not a plain string."
+    },
+    {
+      "component": "Tooltip",
+      "library": "uikit",
+      "prop": "placement",
+      "issue_type": "type_mismatch",
+      "severity": "HIGH",
+      "description": "JSON type is 'string | string[]'. Source uses 'PopupPlacement', which is a specific placement union type, not an arbitrary string or array."
+    },
+    {
+      "component": "TreeSelect",
+      "library": "uikit",
+      "prop": "*",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "description": "JSON props array is empty. Source TreeSelectProps includes: id, qa, title, placement, slotBeforeListBody, slotAfterListBody, size, defaultOpen, width, containerRef, className, containerClassName, popupClassName, open, multiple, popupWidth, popupDisablePortal, items, value, defaultValue, placeholder, disabled, withExpandedState, defaultExpandedState, hasClear, errorMessage, errorPlacement, validationState, onClose, onOpenChange, onUpdate, renderControl, renderItem, renderContainer, mapItemDataToContentProps, onFocus, onBlur, getItemId, onItemClick. Also missing description field."
+    },
+    {
+      "component": "Virtualizer",
+      "library": "uikit",
+      "prop": "loading",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "description": "Prop 'loading?: boolean' from the Loadable interface is part of VirtualizerProps but absent from the JSON entry."
+    },
+    {
+      "component": "Virtualizer",
+      "library": "uikit",
+      "prop": "onLoadMore",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "description": "Prop 'onLoadMore?: () => void' from the Loadable interface is part of VirtualizerProps but absent from the JSON entry."
+    },
+    {
+      "component": "Virtualizer",
+      "library": "uikit",
+      "prop": "item",
+      "issue_type": "phantom_prop",
+      "severity": "HIGH",
+      "description": "'item' is not a top-level prop of Virtualizer. It is a parameter of the renderRow callback function. The JSON incorrectly promotes it to a standalone prop."
+    },
+    {
+      "component": "Virtualizer",
+      "library": "uikit",
+      "prop": "parentKey",
+      "issue_type": "phantom_prop",
+      "severity": "HIGH",
+      "description": "'parentKey' is not a top-level prop of Virtualizer. It is a parameter of the renderRow callback function. The JSON incorrectly promotes it to a standalone prop."
+    },
+    {
+      "component": "Virtualizer",
+      "library": "uikit",
+      "prop": "renderChildren",
+      "issue_type": "phantom_prop",
+      "severity": "HIGH",
+      "description": "'renderChildren' is not a top-level prop of Virtualizer. It is a parameter of the renderRow callback function. The JSON incorrectly promotes it to a standalone prop."
+    },
+    {
+      "component": "Virtualizer",
+      "library": "uikit",
+      "prop": "renderRow",
+      "issue_type": "type_mismatch",
+      "severity": "HIGH",
+      "description": "JSON type for renderRow is just '(' (truncated/malformed). Source type is '(item: Item, parentKey: Key | undefined, renderChildren: (options: {count: number; height: number}) => React.ReactNode) => React.ReactNode'."
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "TableColumnSetup",
+      "library": "uikit",
+      "source_description": "No JSDoc description found on TableColumnSetupProps or the component function directly.",
+      "json_description": "The TableColumnSetup component provides a user interface for configuring table column visibility and order. It displays a button that opens a popup with a list of available columns, allowing users to show/hide columns and optionally reorder them via drag and drop.",
+      "match": "json_only"
+    },
+    {
+      "component": "Text",
+      "library": "uikit",
+      "source_description": "A component for working with typography. Provides a convenient API for working with mixins of typography and text colors. Just point at the prop in you favorite code editor and read the accompanying documentation via jsdoc on where to apply this or that font or color.",
+      "json_description": "A component for working with typography. Provides a convenient API for working with mixins of typography and text colors.",
+      "match": "partial"
+    },
+    {
+      "component": "TextArea",
+      "library": "uikit",
+      "source_description": "No JSDoc description on component. Control for multi-line text input extending BaseInputControlProps with rows, minRows, maxRows, and note.",
+      "json_description": "<!--GITHUB_BLOCK-->",
+      "match": "none"
+    },
+    {
+      "component": "TextInput",
+      "library": "uikit",
+      "source_description": "No JSDoc description on component. Control for single-line text input extending BaseInputControlProps with type, label, startContent, endContent, and note.",
+      "json_description": "<!--GITHUB_BLOCK-->",
+      "match": "none"
+    },
+    {
+      "component": "Toaster",
+      "library": "uikit",
+      "source_description": "Class-based Toaster implementing add/remove/removeAll/update/has methods. withToaster is an HOC that injects the toaster context via useToaster hook.",
+      "json_description": "This is a component for adjustable notifications also known as toasts.",
+      "match": "partial"
+    },
+    {
+      "component": "Toc",
+      "library": "uikit",
+      "source_description": "No JSDoc on component. Renders a <nav> element with TocSections for two-level table of contents navigation.",
+      "json_description": "The Toc component is designed to display a table of contents of the page, namely showing a set items with two levels of hierarchy.",
+      "match": "json_only"
+    },
+    {
+      "component": "Tooltip",
+      "library": "uikit",
+      "source_description": "No JSDoc on component function. Floating tooltip using @floating-ui/react with hover/focus triggers, configurable delay, placement, offset, and portal support.",
+      "json_description": "A simple text tip that uses its child node as an anchor. This component accepts only text content and may be an excellent alternative to the browser's title attribute with its small size and long appearance delay.",
+      "match": "partial"
+    },
+    {
+      "component": "TreeSelect",
+      "library": "uikit",
+      "source_description": "No JSDoc on component. A tree-structured select dropdown combining TreeList, SelectControl, and SelectPopup with support for multi-select, controlled open state, validation, and custom rendering.",
+      "json_description": null,
+      "match": "none"
+    },
+    {
+      "component": "User",
+      "library": "uikit",
+      "source_description": "No JSDoc on component. Displays a user avatar with optional name and description block. Uses Avatar component internally.",
+      "json_description": "This is a general component for displaying a user avatar with an info block. It uses the Avatar component to render the avatar. It can also accept a custom React node as an avatar.",
+      "match": "json_only"
+    },
+    {
+      "component": "UserLabel",
+      "library": "uikit",
+      "source_description": "No JSDoc on component. Displays a user label chip with avatar, text, optional description, close button, and click handler. Supports person/email/empty types.",
+      "json_description": "The UserLabel component can be used to display users or user-related information.",
+      "match": "partial"
+    },
+    {
+      "component": "Virtualizer",
+      "library": "uikit",
+      "source_description": "No JSDoc on component. A virtualized scrollable list using @tanstack/react-virtual supporting nested children, persisted indexes, load-more on scroll, and optional virtualization disable.",
+      "json_description": null,
+      "match": "none"
+    }
+  ]
+}

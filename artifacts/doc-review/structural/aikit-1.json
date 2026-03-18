@@ -1,0 +1,719 @@
+{
+  "batch_id": "aikit-1",
+  "libraries": ["aikit"],
+  "issues": [
+    {
+      "component": "Alert",
+      "library": "aikit",
+      "type": "type_mismatch",
+      "severity": "HIGH",
+      "prop": "button",
+      "detail": "Data has type '{' (truncated/malformed). TSX defines button as '{ content: React.ReactNode; onClick: () => void } | undefined' — the full inline object type was not captured."
+    },
+    {
+      "component": "Alert",
+      "library": "aikit",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "prop": "onClick",
+      "detail": "Data lists 'onClick: () => void' as a top-level required prop. In TSX it is a sub-property of the optional 'button' object, not a standalone prop."
+    },
+    {
+      "component": "Alert",
+      "library": "aikit",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "prop": "content (button sub-prop flattened)",
+      "detail": "Data has two 'content' entries: one required (a flattened sub-prop of 'button') and one optional (the real top-level prop). The required entry is phantom — it does not exist as a top-level prop in TSX."
+    },
+    {
+      "component": "Alert",
+      "library": "aikit",
+      "type": "required_mismatch",
+      "severity": "MEDIUM",
+      "prop": "content",
+      "detail": "The second data entry for 'content' is 'required: false', which matches TSX. The first (phantom) entry marks it 'required: true', which is incorrect and confusing."
+    },
+    {
+      "component": "BaseMessage",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "children",
+      "detail": "TSX defines 'children: React.ReactNode' (required). Data props array is empty."
+    },
+    {
+      "component": "BaseMessage",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "role",
+      "detail": "TSX defines 'role: TMessageRole' (required, 'user' | 'assistant' | 'system'). Data props array is empty."
+    },
+    {
+      "component": "BaseMessage",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "actions",
+      "detail": "TSX defines 'actions?: BaseMessageAction[]'. Data props array is empty."
+    },
+    {
+      "component": "BaseMessage",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "userRating",
+      "detail": "TSX defines 'userRating?: UserRating' ('like' | 'dislike'). Data props array is empty."
+    },
+    {
+      "component": "BaseMessage",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "timestamp",
+      "detail": "TSX defines 'timestamp?: string'. Data props array is empty."
+    },
+    {
+      "component": "BaseMessage",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showTimestamp",
+      "detail": "TSX defines 'showTimestamp?: boolean'. Data props array is empty."
+    },
+    {
+      "component": "BaseMessage",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showActionsOnHover",
+      "detail": "TSX defines 'showActionsOnHover?: boolean'. Data props array is empty."
+    },
+    {
+      "component": "BaseMessage",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "detail": "TSX defines 'className?: string'. Data props array is empty."
+    },
+    {
+      "component": "BaseMessage",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "detail": "TSX defines 'qa?: string'. Data props array is empty."
+    },
+    {
+      "component": "ButtonGroup",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "children",
+      "detail": "TSX defines 'children: React.ReactNode' (required). Data props array is empty."
+    },
+    {
+      "component": "ButtonGroup",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "orientation",
+      "detail": "TSX defines 'orientation?: \"horizontal\" | \"vertical\"' (default 'horizontal'). Data props array is empty."
+    },
+    {
+      "component": "ButtonGroup",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "detail": "TSX defines 'className?: string'. Data props array is empty."
+    },
+    {
+      "component": "ButtonGroup",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "detail": "TSX defines 'qa?: string'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onSendMessage",
+      "detail": "TSX defines 'onSendMessage: (data: TSubmitData) => Promise<void>' (required). Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "chats",
+      "detail": "TSX defines 'chats?: ChatType[]'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "activeChat",
+      "detail": "TSX defines 'activeChat?: ChatType | null'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "messages",
+      "detail": "TSX defines 'messages?: TChatMessage[]'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "status",
+      "detail": "TSX defines 'status?: ChatStatus'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "error",
+      "detail": "TSX defines 'error?: Error | null'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onCancel",
+      "detail": "TSX defines 'onCancel?: () => Promise<void>'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onDeleteChat",
+      "detail": "TSX defines 'onDeleteChat?: (chat: ChatType) => void'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onSelectChat",
+      "detail": "TSX defines 'onSelectChat?: (chat: ChatType) => void'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onCreateChat",
+      "detail": "TSX defines 'onCreateChat?: () => void'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onDeleteAllChats",
+      "detail": "TSX defines 'onDeleteAllChats?: () => Promise<void>'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onFold",
+      "detail": "TSX defines 'onFold?: (value: 'collapsed' | 'opened') => void'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onClose",
+      "detail": "TSX defines 'onClose?: () => void'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onRetry",
+      "detail": "TSX defines 'onRetry?: () => void'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showActionsOnHover",
+      "detail": "TSX defines 'showActionsOnHover?: boolean'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "contextItems",
+      "detail": "TSX defines 'contextItems?: ContextItemConfig[]'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "transformOptions",
+      "detail": "TSX defines 'transformOptions?: OptionsType'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "shouldParseIncompleteMarkdown",
+      "detail": "TSX defines 'shouldParseIncompleteMarkdown?: boolean'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "messageListConfig",
+      "detail": "TSX defines 'messageListConfig?: MessageListConfig'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "headerProps",
+      "detail": "TSX defines 'headerProps?: Partial<Omit<HeaderProps, ...>>'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "contentProps",
+      "detail": "TSX defines 'contentProps?: Partial<Omit<ChatContentProps, ...>>'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "emptyContainerProps",
+      "detail": "TSX defines 'emptyContainerProps?: Partial<EmptyContainerProps>'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "promptInputProps",
+      "detail": "TSX defines 'promptInputProps?: Partial<Omit<PromptInputProps, ...>>'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "disclaimerProps",
+      "detail": "TSX defines 'disclaimerProps?: Partial<DisclaimerProps>'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "historyProps",
+      "detail": "TSX defines 'historyProps?: Partial<Omit<HistoryProps, ...>>'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "welcomeConfig",
+      "detail": "TSX defines 'welcomeConfig?: WelcomeConfig'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "i18nConfig",
+      "detail": "TSX defines 'i18nConfig?: ChatContainerI18nConfig'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showHistory",
+      "detail": "TSX defines 'showHistory?: boolean'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showNewChat",
+      "detail": "TSX defines 'showNewChat?: boolean'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showFolding",
+      "detail": "TSX defines 'showFolding?: boolean'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showClose",
+      "detail": "TSX defines 'showClose?: boolean'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "hideTitleOnEmptyChat",
+      "detail": "TSX defines 'hideTitleOnEmptyChat?: boolean'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "detail": "TSX defines 'className?: string'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "headerClassName",
+      "detail": "TSX defines 'headerClassName?: string'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "contentClassName",
+      "detail": "TSX defines 'contentClassName?: string'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "footerClassName",
+      "detail": "TSX defines 'footerClassName?: string'. Data props array is empty."
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "detail": "TSX defines 'qa?: string'. Data props array is empty."
+    },
+    {
+      "component": "ChatDate",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "date",
+      "detail": "TSX defines 'date: string | Date | number' (required). Data props array is empty."
+    },
+    {
+      "component": "ChatDate",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showTime",
+      "detail": "TSX defines 'showTime?: boolean' (default false). Data props array is empty."
+    },
+    {
+      "component": "ChatDate",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "format",
+      "detail": "TSX defines 'format?: string' (custom dayjs format). Data props array is empty."
+    },
+    {
+      "component": "ChatDate",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "relative",
+      "detail": "TSX defines 'relative?: boolean' (default false). Data props array is empty."
+    },
+    {
+      "component": "ChatDate",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "detail": "TSX defines 'className?: string' (from DOMProps). Data props array is empty."
+    },
+    {
+      "component": "ChatDate",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "style",
+      "detail": "TSX defines 'style?: CSSProperties' (from DOMProps). Data props array is empty."
+    },
+    {
+      "component": "ChatDate",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "detail": "TSX defines 'qa?: string' (from QAProps). Data props array is empty."
+    },
+    {
+      "component": "ContextIndicator",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "type",
+      "detail": "TSX defines discriminant 'type: \"number\" | \"percent\"' (required). Data props array is empty."
+    },
+    {
+      "component": "ContextIndicator",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "usedContext",
+      "detail": "TSX defines 'usedContext: number' (required in both variants). Data props array is empty."
+    },
+    {
+      "component": "ContextIndicator",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "maxContext",
+      "detail": "TSX defines 'maxContext: number' (required when type='number'). Data props array is empty."
+    },
+    {
+      "component": "ContextIndicator",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "orientation",
+      "detail": "TSX defines 'orientation?: \"horizontal\" | \"vertical\"' (default 'horizontal'). Data props array is empty."
+    },
+    {
+      "component": "ContextIndicator",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "reversed",
+      "detail": "TSX defines 'reversed?: boolean' (default false). Data props array is empty."
+    },
+    {
+      "component": "ContextIndicator",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "detail": "TSX defines 'className?: string'. Data props array is empty."
+    },
+    {
+      "component": "ContextIndicator",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "detail": "TSX defines 'qa?: string'. Data props array is empty."
+    },
+    {
+      "component": "ContextItem",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "content",
+      "detail": "TSX defines 'content: React.ReactNode' (required). Data props array is empty."
+    },
+    {
+      "component": "ContextItem",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onClick",
+      "detail": "TSX defines 'onClick?: () => void'. Data props array is empty."
+    },
+    {
+      "component": "ContextItem",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "detail": "TSX defines 'className?: string'. Data props array is empty."
+    },
+    {
+      "component": "ContextItem",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "detail": "TSX defines 'qa?: string' (from QAProps). Data props array is empty."
+    },
+    {
+      "component": "DiffStat",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "added",
+      "detail": "TSX defines 'added: number' (required). Data props array is empty."
+    },
+    {
+      "component": "DiffStat",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "deleted",
+      "detail": "TSX defines 'deleted: number' (required). Data props array is empty."
+    },
+    {
+      "component": "DiffStat",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "detail": "TSX defines 'className?: string' (from DOMProps). Data props array is empty."
+    },
+    {
+      "component": "DiffStat",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "style",
+      "detail": "TSX defines 'style?: CSSProperties' (from DOMProps). Data props array is empty."
+    },
+    {
+      "component": "DiffStat",
+      "library": "aikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "detail": "TSX defines 'qa?: string' (from QAProps). Data props array is empty."
+    },
+    {
+      "component": "InlineCitation",
+      "library": "aikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "component exists in TSX source (vendor/aikit/src/components/atoms/InlineCitation/) but absent from data"
+    },
+    {
+      "component": "InputContext",
+      "library": "aikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "component exists in TSX source (vendor/aikit/src/components/molecules/InputContext/) but absent from data"
+    },
+    {
+      "component": "PromptInputBody",
+      "library": "aikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "component exists in TSX source (vendor/aikit/src/components/molecules/PromptInputBody/) but absent from data"
+    },
+    {
+      "component": "AssistantMessage",
+      "library": "aikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "component exists in TSX source (vendor/aikit/src/components/organisms/AssistantMessage/) but absent from data"
+    },
+    {
+      "component": "MessageList",
+      "library": "aikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "component exists in TSX source (vendor/aikit/src/components/organisms/MessageList/) but absent from data"
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "ActionButton",
+      "library": "aikit",
+      "tsx_context": "/**\n * ActionButton component combines Button with ActionTooltip\n *\n * This component wraps a Button inside an ActionTooltip, providing\n * a convenient way to add tooltips to action buttons throughout the application.\n *\n * @param props - Component props\n * @param ref - Forwarded ref to the button element\n * @returns ActionButton component\n */\nexport interface ActionButtonProps extends Omit<ButtonButtonProps, 'className'> {\n    children?: React.ReactNode;\n    className?: string;\n    tooltipTitle?: ActionTooltipProps['title'];\n    tooltipPlacement?: ActionTooltipProps['placement'];\n    tooltipDisabled?: ActionTooltipProps['disabled'];\n    tooltipOpenDelay?: ActionTooltipProps['openDelay'];\n    tooltipCloseDelay?: ActionTooltipProps['closeDelay'];\n    wrapperClassName?: string;\n}",
+      "data_description": "A button component with integrated tooltip functionality, combining Button and ActionTooltip from Gravity UI."
+    },
+    {
+      "component": "Alert",
+      "library": "aikit",
+      "tsx_context": "export interface AlertProps {\n    text: string;\n    variant?: 'default' | 'warning' | 'error' | 'info';\n    icon?: React.ReactNode;\n    button?: {\n        content: React.ReactNode;\n        onClick: () => void;\n    };\n    content?: React.ReactNode;\n    initialExpanded?: boolean;\n    className?: string;\n    qa?: string;\n}",
+      "data_description": "An alert message with an indicator of alert's type opportunity to pass a button"
+    },
+    {
+      "component": "BaseMessage",
+      "library": "aikit",
+      "tsx_context": "export type BaseMessageProps = {\n    children: React.ReactNode;\n    role: TMessageRole; // 'user' | 'assistant' | 'system'\n    actions?: BaseMessageAction[];\n    userRating?: UserRating; // 'like' | 'dislike'\n    timestamp?: string;\n    showTimestamp?: boolean;\n    showActionsOnHover?: boolean;\n    className?: string;\n    qa?: string;\n};",
+      "data_description": "Base wrapper for message with support for rendering action buttons"
+    },
+    {
+      "component": "ButtonGroup",
+      "library": "aikit",
+      "tsx_context": "export type ButtonGroupProps = {\n    orientation?: 'horizontal' | 'vertical';\n    children: React.ReactNode;\n    className?: string;\n    qa?: string;\n};",
+      "data_description": "Wrapper for buttons group"
+    },
+    {
+      "component": "ChatContainer",
+      "library": "aikit",
+      "tsx_context": "/**\n * ChatContainer - fully assembled chat component, the main exportable component of the library.\n * Integrates Header, ChatContent, History and manages their state.\n */\nexport interface ChatContainerProps {\n    chats?: ChatType[];\n    activeChat?: ChatType | null;\n    messages?: TChatMessage[];\n    onSendMessage: (data: TSubmitData) => Promise<void>;\n    onSelectChat?: (chat: ChatType) => void;\n    onCreateChat?: () => void;\n    onDeleteChat?: (chat: ChatType) => void;\n    onDeleteAllChats?: () => Promise<void>;\n    onFold?: (value: 'collapsed' | 'opened') => void;\n    onClose?: () => void;\n    onCancel?: () => Promise<void>;\n    status?: ChatStatus;\n    error?: Error | null;\n    showActionsOnHover?: boolean;\n    onRetry?: () => void;\n    contextItems?: ContextItemConfig[];\n    transformOptions?: OptionsType;\n    shouldParseIncompleteMarkdown?: boolean;\n    messageListConfig?: MessageListConfig;\n    headerProps?: Partial<Omit<HeaderProps, ...>>;\n    contentProps?: Partial<Omit<ChatContentProps, ...>>;\n    emptyContainerProps?: Partial<EmptyContainerProps>;\n    promptInputProps?: Partial<Omit<PromptInputProps, ...>>;\n    disclaimerProps?: Partial<DisclaimerProps>;\n    historyProps?: Partial<Omit<HistoryProps, ...>>;\n    welcomeConfig?: WelcomeConfig;\n    i18nConfig?: ChatContainerI18nConfig;\n    showHistory?: boolean;\n    showNewChat?: boolean;\n    showFolding?: boolean;\n    showClose?: boolean;\n    hideTitleOnEmptyChat?: boolean;\n    className?: string;\n    headerClassName?: string;\n    contentClassName?: string;\n    footerClassName?: string;\n    qa?: string;\n}",
+      "data_description": "A fully assembled chat component - the main exportable component of the library that integrates Header, ChatContent, and History."
+    },
+    {
+      "component": "ChatContent",
+      "library": "aikit",
+      "tsx_context": "/**\n * Props for ChatContent component\n */\nexport interface ChatContentProps {\n    /** Display mode: 'empty' - EmptyContainer, 'chat' - MessageList */\n    view: ChatContentView; // 'empty' | 'chat'\n    /** Props for EmptyContainer (used when view='empty') */\n    emptyContainerProps?: EmptyContainerProps;\n    /** Props for MessageList (used when view='chat') */\n    messageListProps?: MessageListProps;\n    /** Additional CSS class */\n    className?: string;\n    /** QA/test identifier */\n    qa?: string;\n}",
+      "data_description": "Main chat content container with view switching between empty state and message list."
+    },
+    {
+      "component": "ChatDate",
+      "library": "aikit",
+      "tsx_context": "/**\n * ChatDate component displays formatted dates with optional time\n */\nexport type ChatDateProps = QAProps & DOMProps & {\n    /** Date value in string, Date, or number (timestamp) format */\n    date: string | Date | number;\n    /** Show time along with date */\n    showTime?: boolean;\n    /** Custom format string (dayjs format) */\n    format?: string;\n    /** Display relative dates (today, yesterday, two days ago, etc.) */\n    relative?: boolean;\n};",
+      "data_description": "A ChatDate component displays formatted dates with time and locale support."
+    },
+    {
+      "component": "ContextIndicator",
+      "library": "aikit",
+      "tsx_context": "type CommonProps = {\n    usedContext: number;\n    className?: string;\n    qa?: string;\n    orientation?: 'horizontal' | 'vertical';\n    reversed?: boolean;\n};\ntype NumberProps = { type: 'number'; maxContext: number; } & CommonProps;\ntype PercentProps = { type: 'percent'; usedContext: number; } & CommonProps;\nexport type ContextIndicatorProps = NumberProps | PercentProps;",
+      "data_description": "A circular progress indicator that visualizes context usage as a percentage (0-100%)."
+    },
+    {
+      "component": "ContextItem",
+      "library": "aikit",
+      "tsx_context": "type ContextItemProps = QAProps & {\n    content: React.ReactNode;\n    onClick?: () => void;\n    className?: string;\n};",
+      "data_description": "A label for rendering context"
+    },
+    {
+      "component": "DiffStat",
+      "library": "aikit",
+      "tsx_context": "type DiffStatProps = DOMProps & QAProps & {\n    added: number;\n    deleted: number;\n};",
+      "data_description": "A compact component that displays diff statistics showing the number of added and deleted lines."
+    }
+  ]
+}

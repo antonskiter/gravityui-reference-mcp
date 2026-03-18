@@ -1,0 +1,81 @@
+{
+  "library": "page-constructor",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "entity": "DefaultVideo",
+      "message": "Component included in data but NOT exported from components/index.ts. DefaultVideo is an internal component (used inside Media/Video), not part of the public API. Should be removed from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "ReactPlayerBlock",
+      "message": "Component name field says 'ReactPlayerBlock' but the public export name is 'ReactPlayer' (from components/index.ts line 34). The import_statement correctly uses ReactPlayer but the name field is wrong."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "MediaBase",
+      "message": "Component included in data but NOT exported from components/index.ts. MediaBase is an internal layout component used by block-level sub-blocks. Should be removed from data file."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useLoopBackHubspotEvents",
+      "message": "Hook exported from hooks/index.ts (via hubspot.ts) but missing from data file hooks array. Signature: useLoopBackHubspotEvents(formId: string): void"
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useHandleHubspotEvents",
+      "message": "Hook exported from hooks/index.ts (via hubspot.ts) but missing from data file hooks array. Signature: useHandleHubspotEvents(handlers: HubspotEventHandlers, formId: string): void"
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "Media",
+      "message": "Data file missing several props from MediaAllProps: 'disableImageSliderForArrayInput' (boolean), 'playVideo' (boolean, default true), 'isBackground' (boolean), 'playButton' (PlayButtonProps), 'customBarControlsClassName' (string), 'margins' (boolean), 'videoMicrodata' (object with name/description/duration/uploadDate/contentUrl/thumbnailUrl), 'isFullscreenImageCover' (boolean)."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "ReactPlayerBlock",
+      "message": "Data file missing 'autoplay' prop (boolean) which is destructured and used in source. Also missing 'elapsedTime' and 'customControlsOptions' props inherited from MediaVideoProps via Omit<MediaVideoProps, 'src'|'ref'>."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "BalancedMasonry",
+      "message": "Data file marks 'children' as required:true but source destructures with default: 'children = []'. Should be required:false with default '[]'."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "Button",
+      "message": "Data file lists size type including 'ns' and 'n' values. The source uses OldButtonSize type mapped via toCommonSize - verify 'ns' is a real size value and not a typo."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "BackgroundMedia",
+      "message": "Data file missing props inherited from MediaProps via BackgroundMediaProps: 'image' (ImageProps), 'youtube' (string), 'videoIframe' (string), 'dataLens' (string), 'iframe' (string), 'height' (number), 'previewImg' (string). These are passed through via ...props spread to Media component."
+    },
+    {
+      "severity": "LOW",
+      "entity": "BackgroundImage",
+      "message": "Data file lists only 'src', 'desktop', 'className', 'imageClassName', 'style', 'qa', 'children' but BackgroundImageProps likely inherits additional image props (tablet, mobile, alt, etc.) that are spread into Image component."
+    },
+    {
+      "severity": "LOW",
+      "entity": "Map",
+      "message": "MapProps is actually a union of YMapProps and GMapProps with different prop sets. Data file presents a flat simplified view that doesn't distinguish between the two map provider types."
+    },
+    {
+      "severity": "LOW",
+      "entity": "FullWidthBackground",
+      "message": "Description says 'Class component' but this should be verified - modern page-constructor may use function components."
+    },
+    {
+      "severity": "LOW",
+      "entity": "OutsideClick",
+      "message": "Description says 'Class component' - needs verification against actual source implementation style."
+    },
+    {
+      "severity": "LOW",
+      "entity": "OverflowScroller",
+      "message": "Description says 'Class component' - needs verification. Default arrowSize=18 should be confirmed against source."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "batch_id": "uikit-1",
+  "issues": [
+    {
+      "component": "ActionsPanel",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "The description omits the renderNote render-prop, which allows displaying a note section alongside the actions. This is a semantically significant prop (it even has a companion noteClassName prop) that is invisible from the current description.",
+      "suggestion": "A floating panel that displays a set of actions and an optional note section, typically used for bulk operations on selected items. Supports a custom note renderer via renderNote and a configurable maximum number of actions per row."
+    },
+    {
+      "component": "ArrowToggle",
+      "library": "uikit",
+      "severity": "MEDIUM",
+      "issue": "The description claims the component 'rotates to indicate an open or closed state' and implies animation, but the TSX interface has only a `direction` prop with four static values ('top', 'left', 'bottom', 'right'). There is no toggle, open/closed state, or animation prop in the interface — the arrow simply points in the specified direction.",
+      "suggestion": "A directional arrow icon that renders pointing in one of four directions (top, left, bottom, right). Commonly used as a visual cue in dropdowns and expandable sections by changing the direction prop."
+    },
+    {
+      "component": "Avatar",
+      "library": "uikit",
+      "severity": "MEDIUM",
+      "issue": "The description states the component 'can be rendered as a button or link', but the TSX interface (AvatarBaseProps union with AvatarImageProps, AvatarIconProps, AvatarTextProps) contains no `as`, `href`, `component`, or similar prop that would enable button or link rendering.",
+      "suggestion": "Displays a user avatar using an image, icon, or text initials. Supports multiple sizes, themes (light/dark), shapes (circle/square), and custom background and border colors."
+    }
+  ]
+}

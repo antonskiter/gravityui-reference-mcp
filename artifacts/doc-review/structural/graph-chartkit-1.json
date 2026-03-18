@@ -1,0 +1,306 @@
+{
+  "batch_id": "graph-chartkit-1",
+  "libraries": ["graph", "chartkit"],
+  "issues": [
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "Block",
+      "library": "graph",
+      "prop": "graph",
+      "detail": "Prop 'graph: Graph' (required) exists in source TGraphBlockProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "Block",
+      "library": "graph",
+      "prop": "block",
+      "detail": "Prop 'block: T extends TBlock' (required) exists in source TGraphBlockProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "Block",
+      "library": "graph",
+      "prop": "children",
+      "detail": "Prop 'children: React.ReactNode' (required) exists in source TGraphBlockProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "Block",
+      "library": "graph",
+      "prop": "className",
+      "detail": "Prop 'className?: string' exists in source TGraphBlockProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "Block",
+      "library": "graph",
+      "prop": "containerClassName",
+      "detail": "Prop 'containerClassName?: string' exists in source TGraphBlockProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "Block",
+      "library": "graph",
+      "prop": "autoHideCanvas",
+      "detail": "Prop 'autoHideCanvas?: boolean' (default: true) exists in source TGraphBlockProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "Block",
+      "library": "graph",
+      "prop": "canvasVisible",
+      "detail": "Prop 'canvasVisible?: boolean' exists in source TGraphBlockProps but is absent from data props array"
+    },
+    {
+      "type": "missing_source",
+      "severity": "HIGH",
+      "component": "GraphBlockAnchor",
+      "library": "graph",
+      "detail": "Source file not found for GraphBlockAnchor; cannot verify props"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "graph",
+      "detail": "Prop 'graph: Graph' (required) exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "className",
+      "detail": "Prop 'className?: string' exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "blockListClassName",
+      "detail": "Prop 'blockListClassName?: string' exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "renderBlock",
+      "detail": "Prop 'renderBlock?: TRenderBlockFn' (from Partial<TBlockListProps>) exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "reactLayerRef",
+      "detail": "Prop 'reactLayerRef?: React.MutableRefObject<ReactLayer | null>' exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "children",
+      "detail": "Prop 'children?: React.ReactNode' exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "click",
+      "detail": "Event callback 'click?' (from Partial<TGraphEventCallbacks>) exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "dblclick",
+      "detail": "Event callback 'dblclick?' (from Partial<TGraphEventCallbacks>) exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "onCameraChange",
+      "detail": "Event callback 'onCameraChange?' (from Partial<TGraphEventCallbacks>) exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "onBlockDragStart",
+      "detail": "Event callback 'onBlockDragStart?' (from Partial<TGraphEventCallbacks>) exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "onBlockDrag",
+      "detail": "Event callback 'onBlockDrag?' (from Partial<TGraphEventCallbacks>) exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "onBlockDragEnd",
+      "detail": "Event callback 'onBlockDragEnd?' (from Partial<TGraphEventCallbacks>) exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "onBlockSelectionChange",
+      "detail": "Event callback 'onBlockSelectionChange?' (from Partial<TGraphEventCallbacks>) exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "onBlockAnchorSelectionChange",
+      "detail": "Event callback 'onBlockAnchorSelectionChange?' (from Partial<TGraphEventCallbacks>) exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "onBlockChange",
+      "detail": "Event callback 'onBlockChange?' (from Partial<TGraphEventCallbacks>) exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "onConnectionSelectionChange",
+      "detail": "Event callback 'onConnectionSelectionChange?' (from Partial<TGraphEventCallbacks>) exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "GraphCanvas",
+      "library": "graph",
+      "prop": "onStateChanged",
+      "detail": "Event callback 'onStateChanged?' (from Partial<TGraphEventCallbacks>) exists in source GraphProps but is absent from data props array"
+    },
+    {
+      "type": "missing_source",
+      "severity": "HIGH",
+      "component": "GraphContextProvider",
+      "library": "graph",
+      "detail": "Source file not found for GraphContextProvider in batch manifest; cannot verify props"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "Loader",
+      "library": "chartkit",
+      "prop": "renderPluginLoader",
+      "detail": "Prop 'renderPluginLoader?: ChartKitRenderPluginLoader' exists in source LoaderProps but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "Loader",
+      "library": "chartkit",
+      "prop": "size",
+      "detail": "Prop 'size?: LoaderSize' ('s'|'m'|'l', default 's') exists in source LoaderProps (via BaseLoaderProps) but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "Loader",
+      "library": "chartkit",
+      "prop": "className",
+      "detail": "Prop 'className?: string' exists in source LoaderProps (via BaseLoaderProps) but is absent from data props array"
+    },
+    {
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "component": "Loader",
+      "library": "chartkit",
+      "prop": "qa",
+      "detail": "Prop 'qa?: string' exists in source LoaderProps (via BaseLoaderProps > QAProps) but is absent from data props array"
+    },
+    {
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "component": "BlocksList",
+      "library": "graph",
+      "detail": "File vendor/graph/src/react-components/BlocksList.tsx exists but component 'BlocksList' has no entry in data/components/graph.json"
+    },
+    {
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "component": "GraphLayer",
+      "library": "graph",
+      "detail": "File vendor/graph/src/react-components/GraphLayer.tsx exists but component 'GraphLayer' has no entry in data/components/graph.json"
+    },
+    {
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "component": "GraphPortal",
+      "library": "graph",
+      "detail": "File vendor/graph/src/react-components/GraphPortal.tsx exists but component 'GraphPortal' has no entry in data/components/graph.json"
+    },
+    {
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "component": "ChartKit",
+      "library": "chartkit",
+      "detail": "File vendor/chartkit/src/components/ChartKit.tsx exists but component 'ChartKit' has no entry in data/components/chartkit.json"
+    },
+    {
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "component": "ErrorBoundary",
+      "library": "chartkit",
+      "detail": "Directory vendor/chartkit/src/components/ErrorBoundary/ exists but component 'ErrorBoundary' has no entry in data/components/chartkit.json"
+    },
+    {
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "component": "SplitPane",
+      "library": "chartkit",
+      "detail": "Directory vendor/chartkit/src/components/SplitPane/ exists but component 'SplitPane' has no entry in data/components/chartkit.json"
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "Block",
+      "library": "graph",
+      "source_description": "Base block component for render HTML block via react. Creates a container for the graph block, correctly places it on the canvas, updates the geometry and z-index when the state changes. By default will hide canvas block automatically when react will render the block, but autoHideCanvas can be set to false with canvasVisible to control visibility manually.",
+      "data_description": null
+    },
+    {
+      "component": "GraphCanvas",
+      "library": "graph",
+      "source_description": null,
+      "data_description": null
+    },
+    {
+      "component": "Loader",
+      "library": "chartkit",
+      "source_description": null,
+      "data_description": null
+    }
+  ]
+}

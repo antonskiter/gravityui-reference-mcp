@@ -1,0 +1,46 @@
+{
+  "library": "i18n",
+  "category": "utility",
+  "issues": [
+    {
+      "severity": "MEDIUM",
+      "entity": "I18N.data",
+      "message": "Public property 'data: Record<string, KeysetData>' is not documented in the data file. This is a public instance field that allows direct access to all registered language data."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "I18N.lang",
+      "message": "Public property 'lang?: string' is not documented in the data file. This is a public instance field holding the current active language."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "I18N.fallbackLang",
+      "message": "Public property 'fallbackLang?: string' is not documented in the data file. This is a public instance field holding the fallback language."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "I18N.logger",
+      "message": "Public property 'logger: Logger | null' is not documented in the data file. This is a public instance field that can be set directly."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "I18N.pluralizers",
+      "message": "Public property 'pluralizers: Record<string, Pluralizer>' is not documented in the data file. This is a public instance field with default pluralizers for 'en' and 'ru'."
+    },
+    {
+      "severity": "LOW",
+      "entity": "I18NFn",
+      "message": "Data file signature is heavily abbreviated and omits the full bind() overloads. Source has 4 distinct bind() overloads with different arities (0-3 bound args). Data collapses these into 'bind(...): ...'."
+    },
+    {
+      "severity": "LOW",
+      "entity": "TypedParamsI18NFn",
+      "message": "Same as I18NFn: data file signature is heavily abbreviated and omits the full bind() overloads. Source has 4 distinct bind() overloads using TypedParams."
+    },
+    {
+      "severity": "LOW",
+      "entity": "I18N constructor",
+      "message": "I18NOptions type is not exported from the package (it is a local type in index.ts), but the data file references it as the constructor parameter type. Users cannot import I18NOptions directly."
+    }
+  ]
+}

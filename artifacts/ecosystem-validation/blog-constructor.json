@@ -1,0 +1,66 @@
+{
+  "library": "blog-constructor",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "entity": "All components and hooks",
+      "message": "import_path '@gravity-ui/blog-constructor' and import_statements claim direct named exports (e.g. import {FeedHeader} from '@gravity-ui/blog-constructor'), but the library index.ts only exports BlogConstructorProvider, BlogPostPage, BlogPage, models, locale, schema, BREAKPOINTS, and utils. None of the 12 documented components or 7 hooks are re-exported from the package entry point. The import_statement values are incorrect for all entities."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BlogConstructorProvider",
+      "message": "Exported component BlogConstructorProvider from index.ts is missing from the data file entirely."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BlogPostPage",
+      "message": "Exported component BlogPostPage from index.ts is missing from the data file entirely."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BlogPage",
+      "message": "Exported component BlogPage from index.ts is missing from the data file entirely."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "FeedHeader",
+      "message": "Props 'tags' and 'services' are documented with no default, but source (Controls.tsx:46-47) shows both default to empty arrays []."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "FeedHeader",
+      "message": "Prop 'title' is documented with no default, but source (Controls.tsx:46) shows it defaults to i18n(Keyset.Title)."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "useOpenCloseTimer",
+      "message": "Parameters are documented as named object properties in a parameters array, but source (useOpenCloseTimer.ts:9) shows they are positional function arguments: useOpenCloseTimer(openTimestamp?, openDuration?), not a destructured object."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "Wrapper",
+      "message": "Prop 'paddings' is documented with no default value. Source (Wrapper.tsx:20) shows paddings defaults to DEFAULT_PADDINGS imported from constants."
+    },
+    {
+      "severity": "LOW",
+      "entity": "Prompt",
+      "message": "Description says 'Automatically disappears after a configurable duration' but omits that the Prompt also stays visible while hovered (via useHover hook). This hover-to-keep-open behavior is undocumented."
+    },
+    {
+      "severity": "LOW",
+      "entity": "PostCard",
+      "message": "Description mentions 'like functionality' but PostCard itself has no like props. Like functionality is delegated entirely to the SuggestPostInfo child component rendered in the card footer, and only appears when LikesContext provides likes data."
+    },
+    {
+      "severity": "LOW",
+      "entity": "PostsEmpty",
+      "message": "Description says 'displayed when no blog posts match the current filters' but it is rendered by Posts whenever postsOnPage is empty, regardless of whether filters caused the empty state."
+    },
+    {
+      "severity": "LOW",
+      "entity": "PromptSignIn",
+      "message": "Description of onClickSignIn default says 'Defaults to an alert' which is vague. Source shows it defaults to () => alert(i18n(Keyset.SignIn)), a localized sign-in alert."
+    }
+  ]
+}

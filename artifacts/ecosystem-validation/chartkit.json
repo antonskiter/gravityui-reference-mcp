@@ -1,0 +1,66 @@
+{
+  "library": "chartkit",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "entity": "ErrorBoundary",
+      "message": "import_path '@gravity-ui/chartkit' is incorrect. ErrorBoundary is not re-exported from src/index.ts. It is only available as an internal import from './components/ErrorBoundary/ErrorBoundary'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "Loader",
+      "message": "import_path '@gravity-ui/chartkit' is incorrect. Loader is not re-exported from src/index.ts. It is only available as an internal import from './components/Loader/Loader'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "SplitPane",
+      "message": "import_path '@gravity-ui/chartkit' is incorrect. SplitPane is not re-exported from src/index.ts. It is only available via the internal SplitPane module at './components/SplitPane'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "StyledSplitPane",
+      "message": "import_path '@gravity-ui/chartkit' is incorrect. StyledSplitPane is not re-exported from src/index.ts. It is only available via the internal SplitPane module at './components/SplitPane'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "Pane",
+      "message": "import_path '@gravity-ui/chartkit' is incorrect. Pane is not re-exported from src/index.ts. It is only available via the internal SplitPane module at './components/SplitPane'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "Resizer",
+      "message": "import_path '@gravity-ui/chartkit' is incorrect. Resizer is not re-exported from src/index.ts. It is only available via the internal SplitPane module at './components/SplitPane'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "usePrevious",
+      "message": "import_path '@gravity-ui/chartkit' is incorrect. usePrevious is not re-exported from src/index.ts. It is defined in src/hooks/misc.ts but not part of the public API."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "ChartKit",
+      "message": "Props list is incomplete. ChartKitProps<T> includes an intersection type '{ [key in keyof Omit<ChartKitWidget[T], \"data\" | \"widget\">]: ChartKitWidget[T][key] }' that spreads additional plugin-specific props onto the component. This dynamic prop spreading is not documented."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "ErrorBoundary",
+      "message": "import_statement uses named import '{ ErrorBoundary }' from '@gravity-ui/chartkit', but ErrorBoundary is not a named export of the package root. The only default export is ChartKit itself."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "Loader",
+      "message": "import_statement uses named import '{ Loader }' from '@gravity-ui/chartkit', but Loader is not a named export of the package root."
+    },
+    {
+      "severity": "LOW",
+      "entity": "Loader",
+      "message": "Props documentation only lists size and className from BaseLoaderProps, but the component spreads all BaseLoaderProps (from @gravity-ui/uikit Loader) onto the underlying component. Other inherited props like 'qa' are not listed."
+    },
+    {
+      "severity": "LOW",
+      "entity": "ChartKit",
+      "message": "Description says 'Accepts a forwarded ref for imperative reflow control' which is accurate but the ref type (ChartKitRef) providing the reflow method is not documented in the props list since it is passed via React.forwardRef, not as a prop."
+    }
+  ]
+}

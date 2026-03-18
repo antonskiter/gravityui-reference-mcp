@@ -1,0 +1,539 @@
+{
+  "batch_id": "uikit-1",
+  "libraries": ["uikit"],
+  "issues": [
+    {
+      "component": "Accordion",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'ariaLevel' (type: number, optional, default 3) is absent from data props array."
+    },
+    {
+      "component": "Accordion",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'ariaLabel' (type: string, optional) is absent from data props array."
+    },
+    {
+      "component": "Accordion",
+      "library": "uikit",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "detail": "Data prop 'disabled' does not exist in TSX AccordionProps interface."
+    },
+    {
+      "component": "Accordion",
+      "library": "uikit",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "detail": "Data prop 'keepMounted' does not exist in TSX AccordionProps interface."
+    },
+    {
+      "component": "Accordion",
+      "library": "uikit",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "detail": "Data prop 'style' does not exist in TSX AccordionProps interface (not in QAProps or the explicit props list)."
+    },
+    {
+      "component": "Accordion",
+      "library": "uikit",
+      "type": "default_mismatch",
+      "severity": "MEDIUM",
+      "detail": "Prop 'arrowPosition': TSX default is 'end' (from destructuring: arrowPosition = 'end'), data default is 'start'."
+    },
+    {
+      "component": "ActionsPanel",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'noteClassName' (type: string, optional) is absent from data props array."
+    },
+    {
+      "component": "ActionsPanel",
+      "library": "uikit",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "detail": "Data prop 'style' does not exist in TSX ActionsPanelProps interface."
+    },
+    {
+      "component": "ActionsPanel",
+      "library": "uikit",
+      "type": "type_mismatch",
+      "severity": "HIGH",
+      "detail": "Prop 'actions': TSX type is 'ActionsPanelItem[]'; data type is 'ActionsPanelAction[] | ActionsPanelActionGroup[]'. These are different named types — ActionsPanelItem has both button and dropdown sub-config fields, not matching the data's named types."
+    },
+    {
+      "component": "Alert",
+      "library": "uikit",
+      "type": "type_mismatch",
+      "severity": "HIGH",
+      "detail": "Prop 'title': TSX type is 'React.ReactNode' (accepts any renderable content); data type is 'string' (too narrow)."
+    },
+    {
+      "component": "Alert",
+      "library": "uikit",
+      "type": "default_mismatch",
+      "severity": "MEDIUM",
+      "detail": "Prop 'align': TSX JSDoc says @default 'baseline'; data default is 'center'."
+    },
+    {
+      "component": "Alert",
+      "library": "uikit",
+      "type": "default_mismatch",
+      "severity": "MEDIUM",
+      "detail": "Prop 'layout': TSX default in destructuring is 'vertical'; data default is 'horizontal'."
+    },
+    {
+      "component": "ArrowToggle",
+      "library": "uikit",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "detail": "Data prop 'style' does not exist in TSX ArrowToggleProps interface (extends only QAProps)."
+    },
+    {
+      "component": "Avatar",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'sizes' (type: string, optional, from AvatarImageProps — responsive image sizes attribute) is absent from data props array."
+    },
+    {
+      "component": "Avatar",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'withImageBorder' (type: boolean, optional, from AvatarImageProps) is absent from data props array."
+    },
+    {
+      "component": "AvatarStack",
+      "library": "uikit",
+      "type": "type_mismatch",
+      "severity": "HIGH",
+      "detail": "Prop 'renderMore': TSX type is '(options: {count: number}) => React.ReactElement'; data type is '(overflowCount: number) => React.ReactNode'. Parameter shape '{count: number}' vs a plain number parameter, and ReactElement vs ReactNode."
+    },
+    {
+      "component": "AvatarStack",
+      "library": "uikit",
+      "type": "required_mismatch",
+      "severity": "MEDIUM",
+      "detail": "Prop 'children': TSX marks it as optional (children?: React.ReactNode); data marks it as required."
+    },
+    {
+      "component": "Box",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'width' (type: React.CSSProperties['width'], optional) is absent from data props array."
+    },
+    {
+      "component": "Box",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'height' (type: React.CSSProperties['height'], optional) is absent from data props array."
+    },
+    {
+      "component": "Box",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'maxHeight' (type: React.CSSProperties['maxHeight'], optional) is absent from data props array."
+    },
+    {
+      "component": "Box",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'maxWidth' (type: React.CSSProperties['maxWidth'], optional) is absent from data props array."
+    },
+    {
+      "component": "Box",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'minHeight' (type: React.CSSProperties['minHeight'], optional) is absent from data props array."
+    },
+    {
+      "component": "Box",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'minWidth' (type: React.CSSProperties['minWidth'], optional) is absent from data props array."
+    },
+    {
+      "component": "Box",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'position' (type: React.CSSProperties['position'], optional) is absent from data props array."
+    },
+    {
+      "component": "Box",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'qa' (type: string, optional, from QAProps) is absent from data props array."
+    },
+    {
+      "component": "Breadcrumbs",
+      "library": "uikit",
+      "type": "type_mismatch",
+      "severity": "HIGH",
+      "detail": "Prop 'popupStyle': TSX type is literal '\"staircase\"' (a string literal, not CSSProperties); data type is 'React.CSSProperties'."
+    },
+    {
+      "component": "Button",
+      "library": "uikit",
+      "type": "type_mismatch",
+      "severity": "HIGH",
+      "detail": "Prop 'extraProps': TSX type is 'React.ButtonHTMLAttributes<HTMLButtonElement>' (or AnchorHTMLAttributes for link variant); data type is 'Record<string, unknown>'."
+    },
+    {
+      "component": "Checkbox",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'children' (type: React.ReactNode, optional) is absent from data props array."
+    },
+    {
+      "component": "Checkbox",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'name' (type: string, optional, from ControlProps) is absent from data props array."
+    },
+    {
+      "component": "Checkbox",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'controlProps' (from ControlProps — passes extra attributes to the underlying input) is absent from data props array."
+    },
+    {
+      "component": "Checkbox",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'controlRef' (type: React.Ref<HTMLInputElement>, from ControlProps) is absent from data props array."
+    },
+    {
+      "component": "Checkbox",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'onFocus' (type: React.FocusEventHandler<HTMLInputElement>, from ControlProps) is absent from data props array."
+    },
+    {
+      "component": "Checkbox",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "TSX prop 'onBlur' (type: React.FocusEventHandler<HTMLInputElement>, from ControlProps) is absent from data props array."
+    },
+    {
+      "component": "Disclosure",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Disclosure' exists in TSX source (vendor/uikit/src/components/Disclosure/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "FileDropZone",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'FileDropZone' exists in TSX source (vendor/uikit/src/components/lab/FileDropZone/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "HelpMark",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'HelpMark' exists in TSX source (vendor/uikit/src/components/HelpMark/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "Hotkey",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Hotkey' exists in TSX source (vendor/uikit/src/components/Hotkey/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "Icon",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Icon' exists in TSX source (vendor/uikit/src/components/Icon/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "Label",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Label' exists in TSX source (vendor/uikit/src/components/Label/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "Link",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Link' exists in TSX source (vendor/uikit/src/components/Link/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "List",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'List' exists in TSX source (vendor/uikit/src/components/List/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "ListItemView",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'ListItemView' exists in TSX source (vendor/uikit/src/components/lab/ListItemView/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "Menu",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Menu' (lab variant) exists in TSX source (vendor/uikit/src/components/lab/Menu/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "NumberInput",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'NumberInput' exists in TSX source (vendor/uikit/src/components/NumberInput/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "Overlay",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Overlay' exists in TSX source (vendor/uikit/src/components/Overlay/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "Palette",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Palette' exists in TSX source (vendor/uikit/src/components/Palette/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "PinInput",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'PinInput' exists in TSX source (vendor/uikit/src/components/PinInput/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "SegmentedRadioGroup",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'SegmentedRadioGroup' exists in TSX source (vendor/uikit/src/components/SegmentedRadioGroup/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "Sheet",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Sheet' exists in TSX source (vendor/uikit/src/components/Sheet/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "Stepper",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Stepper' exists in TSX source (vendor/uikit/src/components/Stepper/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "TableColumnSetup",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'TableColumnSetup' exists in TSX source (vendor/uikit/src/components/TableColumnSetup/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "Toc",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Toc' exists in TSX source (vendor/uikit/src/components/Toc/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "TreeList",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'TreeList' exists in TSX source (vendor/uikit/src/components/TreeList/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "TreeSelect",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'TreeSelect' exists in TSX source (vendor/uikit/src/components/TreeSelect/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "User",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'User' exists in TSX source (vendor/uikit/src/components/User/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "UserLabel",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'UserLabel' exists in TSX source (vendor/uikit/src/components/UserLabel/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "Virtualizer",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Virtualizer' exists in TSX source (vendor/uikit/src/components/lab/Virtualizer/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "Flex",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Flex' exists in TSX source (vendor/uikit/src/components/layout/Flex/) and has a data entry but that entry lacks an 'id' field and 'category' field — structurally incomplete compared to fully-ingested components."
+    },
+    {
+      "component": "Row",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Row' exists in TSX source (vendor/uikit/src/components/layout/Row/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "LayoutProvider",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'LayoutProvider' exists in TSX source (vendor/uikit/src/components/layout/LayoutProvider/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "PasswordInput",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'PasswordInput' exists in TSX source (vendor/uikit/src/components/controls/PasswordInput/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "TextArea",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'TextArea' exists in TSX source (vendor/uikit/src/components/controls/TextArea/) but is absent from data/components/uikit.json."
+    },
+    {
+      "component": "TextInput",
+      "library": "uikit",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'TextInput' exists in TSX source (vendor/uikit/src/components/controls/TextInput/) but is absent from data/components/uikit.json."
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "Accordion",
+      "library": "uikit",
+      "tsx_context": "export type AccordionProps<Multiple extends boolean = false> = {\n    size?: AccordionSize;\n    view?: AccordionView;\n    multiple?: Multiple;\n    className?: string;\n    arrowPosition?: AccordionArrowPosition;\n    defaultValue?: AccordionValue<Multiple>;\n    value?: AccordionValue<Multiple>;\n    onUpdate?: (value: AccordionValue<Multiple>) => void;\n    children?: React.ReactElement<AccordionItemProps>[] | React.ReactElement<AccordionItemProps>;\n    ariaLevel?: number;\n    ariaLabel?: string;\n} & QAProps;",
+      "data_description": "A vertically stacked set of interactive headings that reveal or hide associated sections of content. Supports controlled and uncontrolled modes."
+    },
+    {
+      "component": "ActionsPanel",
+      "library": "uikit",
+      "tsx_context": "export interface ActionsPanelProps extends QAProps {\n    /** Array of actions ActionsPanelItem[] */\n    actions: ActionsPanelItem[];\n    /** ClassName of element */\n    className?: string;\n    /** Close button click handler */\n    onClose?: () => void;\n    /** Render-prop for displaying the content of a note */\n    renderNote?: () => React.ReactNode;\n    /** ClassName of note */\n    noteClassName?: string;\n    /** Maximum number of actions in a row */\n    maxRowActions?: number;\n}",
+      "data_description": "A floating panel that displays a set of actions, typically used for bulk operations on selected items. Renders at the bottom of a container."
+    },
+    {
+      "component": "ActionTooltip",
+      "library": "uikit",
+      "tsx_context": "export interface ActionTooltipProps\n    extends QAProps,\n        DOMProps,\n        Omit<TooltipProps, 'content' | 'role'> {\n    /** Floating element title */\n    title: string;\n    /** Floating element description */\n    description?: React.ReactNode;\n    /** Floating element hotkey label */\n    hotkey?: HotkeyProps['value'];\n}",
+      "data_description": "A tooltip designed for action triggers such as icon buttons. Displays a title, optional description, and optional keyboard shortcut hotkey."
+    },
+    {
+      "component": "Alert",
+      "library": "uikit",
+      "tsx_context": "export interface AlertProps extends QAProps, Partial<AlertContextType> {\n    title?: React.ReactNode;\n    message?: React.ReactNode;\n    theme?: AlertTheme;\n    /** Override default icons */\n    icon?: React.ReactNode;\n    /** @default - normal */\n    corners?: AlertCorners;\n    onClose?: () => void;\n    actions?: React.ReactNode | AlertAction[];\n    /**\n     * Center all content in vertical direction,\n     * useful if for some reason you actions takes more space then text\n     * or needed icon to be on the middle of the card\n     * @default - 'baseline'\n     */\n    align?: 'center' | 'baseline';\n    style?: React.CSSProperties;\n    className?: string;\n}",
+      "data_description": "Displays an inline notification or feedback message with optional icon, title, message body, and action buttons. Supports multiple themes and visual variants."
+    },
+    {
+      "component": "ArrowToggle",
+      "library": "uikit",
+      "tsx_context": "export interface ArrowToggleProps extends QAProps {\n    size?: number;\n    direction?: 'top' | 'left' | 'bottom' | 'right';\n    className?: string;\n}",
+      "data_description": "A simple animated arrow icon that rotates to indicate an open or closed state, commonly used in dropdowns and expandable sections."
+    },
+    {
+      "component": "Avatar",
+      "library": "uikit",
+      "tsx_context": "interface AvatarBaseProps extends AriaLabelingProps, DOMProps, QAProps {\n    size?: AvatarSize;\n    theme?: AvatarTheme;\n    view?: AvatarView;\n    shape?: AvatarShape;\n    backgroundColor?: string;\n    borderColor?: string;\n    title?: string;\n}\n// Union variant AvatarImageProps: imgUrl, fallbackImgUrl?, sizes?, srcSet?, alt?, loading?, withImageBorder?\n// Union variant AvatarIconProps: icon, color?\n// Union variant AvatarTextProps: text, color?\nexport type AvatarProps = AvatarBaseProps & DistributiveOmit<AvatarImageProps | AvatarIconProps | AvatarTextProps, keyof AvatarCommonProps>;",
+      "data_description": "Displays a user avatar using an image, icon, or initials. Supports multiple sizes, themes, shapes, and can be rendered as a button or link."
+    },
+    {
+      "component": "AvatarStack",
+      "library": "uikit",
+      "tsx_context": "export interface AvatarStackProps {\n    /** Amount of avatars to be shown before more button. Default 3. */\n    max?: number;\n    /** Total amount of items, used to calculate number of not rendered avatars */\n    total?: number;\n    overlapSize?: AvatarStackOverlapSize;\n    /** Size for control displaying count of extra avatars */\n    size?: AvatarSize;\n    className?: string;\n    children?: React.ReactNode;\n    /** Custom render for control displaying extra data */\n    renderMore?: (options: {count: number}) => React.ReactElement;\n    /** Variant of default control displaying extra data */\n    moreVariant?: AvatarStackMoreVariant;\n}",
+      "data_description": "Renders a horizontal stack of overlapping Avatar components. Automatically collapses excess avatars into a count indicator or dots."
+    },
+    {
+      "component": "Box",
+      "library": "uikit",
+      "tsx_context": "/**\n * Basic block to build other components and for standalone usage as a smart block with build in support of most usable css properties and shortcut `spacing` properties.\n */\nexport interface BoxProps<T extends React.ElementType = 'div'>\n    extends QAProps,\n        React.HTMLAttributes<T>,\n        React.PropsWithChildren<\n            Pick<\n                React.CSSProperties,\n                | 'width'\n                | 'height'\n                | 'maxHeight'\n                | 'maxWidth'\n                | 'minHeight'\n                | 'minWidth'\n                | 'position'\n            >\n        > {\n    as?: T;\n    overflow?: 'hidden' | 'x' | 'y' | 'auto';\n    className?: string;\n    spacing?: SpacingProps;\n}",
+      "data_description": "Basic block to build other components and for standalone usage as a smart block with build in support of most usable css properties and shortcut `spacing` properties."
+    },
+    {
+      "component": "Breadcrumbs",
+      "library": "uikit",
+      "tsx_context": "export interface BreadcrumbsProps extends DOMProps, AriaLabelingProps, QAProps {\n    id?: string;\n    showRoot?: boolean;\n    separator?: React.ReactNode;\n    maxItems?: number;\n    popupStyle?: 'staircase';\n    popupPlacement?: PopupPlacement;\n    itemComponent?: React.ElementType;\n    children: React.ReactNode;\n    disabled?: boolean;\n    onAction?: (key: Key) => void;\n    endContent?: React.ReactNode;\n}",
+      "data_description": "Displays a navigation trail showing the user's current location within a hierarchy. Automatically collapses middle items into a popup when there are too many to display."
+    },
+    {
+      "component": "Button",
+      "library": "uikit",
+      "tsx_context": "interface ButtonCommonProps extends QAProps, DOMProps {\n    view?: ButtonView;\n    size?: ButtonSize;\n    pin?: ButtonPin;\n    selected?: boolean;\n    disabled?: boolean;\n    loading?: boolean;\n    width?: ButtonWidth;\n    children?: React.ReactNode;\n}\n// ButtonButtonProps: component?: never, href?: never, extraProps?: React.ButtonHTMLAttributes<HTMLButtonElement>\n// ButtonLinkProps: component?: never, href: string, extraProps?: React.AnchorHTMLAttributes<HTMLAnchorElement>\n// ButtonComponentProps<T>: component: T, extraProps?: React.ComponentPropsWithoutRef<T>\nexport type ButtonProps<T extends ButtonCustomElementType = undefined> =\n    | ButtonLinkProps | ButtonButtonProps | ButtonComponentProps<Exclude<T, undefined>>;",
+      "data_description": "A versatile interactive button component. Supports multiple visual styles, sizes, pin shapes, loading state, and can render as a link."
+    },
+    {
+      "component": "Card",
+      "library": "uikit",
+      "tsx_context": "export interface CardProps extends Omit<BoxProps<'div'>, 'as' | 'onClick'> {\n    children: React.ReactNode;\n    /** Card click handler. Available for type: 'selection', 'action' */\n    onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;\n    /** Disabled card. Available for type: 'selection', 'action' */\n    disabled?: boolean;\n    /** Selected card. Available for type: 'selection' */\n    selected?: boolean;\n    /** Card's type affects on available properties */\n    type?: CardType;\n    /** Available for type: 'container' and 'selection' */\n    view?: CardView;\n    /** Card's base color. Available for type: 'container' */\n    theme?: CardTheme;\n    /** Card's size affects on available properties*/\n    size?: CardSize;\n}",
+      "data_description": "A container component that groups related content with a visual boundary. Supports selection, action, and container types with various visual styles."
+    },
+    {
+      "component": "Checkbox",
+      "library": "uikit",
+      "tsx_context": "export interface CheckboxProps extends ControlProps, DOMProps, QAProps {\n    size?: CheckboxSize;\n    content?: React.ReactNode;\n    children?: React.ReactNode;\n    title?: string;\n}\n// ControlProps includes: name?, value?, id?, checked?, onChange?, onFocus?, onBlur?, disabled?, defaultChecked?, indeterminate?, onUpdate?, controlProps?, controlRef?",
+      "data_description": "A form checkbox input that supports controlled and uncontrolled modes, an indeterminate state, and optional label content."
+    },
+    {
+      "component": "ClipboardButton",
+      "library": "uikit",
+      "tsx_context": "export interface ClipboardButtonProps\n    extends Omit<CopyToClipboardProps, 'children'>,\n        Omit<ClipboardButtonComponentProps, 'status' | 'closeDelay'> {}\n// CopyToClipboardProps: text, timeout?, onCopy?\n// ClipboardButtonComponentProps extends Omit<ButtonButtonProps, 'onCopy'>: hasTooltip?, tooltipInitialText?, tooltipSuccessText?, iconPosition?, icon?",
+      "data_description": "A button that copies a specified text to the clipboard and provides visual feedback via a tooltip that changes on success."
+    },
+    {
+      "component": "ClipboardIcon",
+      "library": "uikit",
+      "tsx_context": "export interface ClipboardIconProps {\n    size?: number;\n    status: CopyToClipboardStatus;\n    className?: string;\n}",
+      "data_description": "An icon that animates between clipboard and checkmark states to represent the clipboard copy operation status."
+    },
+    {
+      "component": "Col",
+      "library": "uikit",
+      "tsx_context": "export interface ColProps extends QAProps {\n    /** @deprecated Use \"size\" prop */\n    s?: MediaPartial<ColSize>['s'];\n    /** @deprecated Use \"size\" prop */\n    m?: MediaPartial<ColSize>['m'];\n    /** @deprecated Use \"size\" prop */\n    l?: MediaPartial<ColSize>['l'];\n    /** @deprecated Use \"size\" prop */\n    xl?: MediaPartial<ColSize>['xl'];\n    /** @deprecated Use \"size\" prop */\n    xxl?: MediaPartial<ColSize>['xxl'];\n    size?: ColSize | [ColSize | undefined, MediaPartial<ColSize>] | MediaPartial<ColSize>;\n    className?: string;\n    style?: React.CSSProperties;\n    children?: React.ReactNode;\n}",
+      "data_description": "How many columns of you 12-th column layout will take content. Must be used as a child of `Row` component. By default, component takes all available space. If you want to specify static size use `size` prop."
+    }
+  ]
+}

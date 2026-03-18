@@ -1,0 +1,7 @@
+{
+  "library": "webpack-i18n-assets-plugin",
+  "npm_package": "@gravity-ui/webpack-i18n-assets-plugin",
+  "description": "A Webpack plugin that replaces calls to localization functions (i18n) with target texts, inlining and multiplying i18n assets for all locales in a single production build.",
+  "how_to_use": "const {I18nAssetsPlugin} = require('@gravity-ui/webpack-i18n-assets-plugin');\n\nmodule.exports = {\n  output: {\n    filename: '[name].[locale].js',\n  },\n  plugins: [\n    new I18nAssetsPlugin({ locales })\n  ]\n}",
+  "readme": "# 🌍 webpack-i18n-assets-plugin\n\nA plugin for Webpack that replaces calls to localization functions (i18n) with target texts.\n\n### Features\n\n- Inlines i18n texts into the bundle (while substituting parameters into the final string)\n- Generates assets for all locales in one build\n- The plugin works only for production builds!\n- Supports only literals as keys in the localization function argument (template strings and variables are not allowed)"
+}

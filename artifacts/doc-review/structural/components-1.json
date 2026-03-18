@@ -1,0 +1,135 @@
+{
+  "batch_id": "components-1",
+  "libraries": ["components"],
+  "issues": [
+    {
+      "component": "ConfirmDialog",
+      "library": "components",
+      "type": "required_mismatch",
+      "severity": "MEDIUM",
+      "prop": "onClickButtonApply",
+      "source_required": false,
+      "data_required": true,
+      "detail": "DialogFooterProps declares onClickButtonApply as optional (?). Data marks it required: true."
+    },
+    {
+      "component": "ConfirmDialog",
+      "library": "components",
+      "type": "required_mismatch",
+      "severity": "MEDIUM",
+      "prop": "onClickButtonCancel",
+      "source_required": false,
+      "data_required": true,
+      "detail": "DialogFooterProps declares onClickButtonCancel as optional (?). Data marks it required: true."
+    },
+    {
+      "component": "ConfirmDialog",
+      "library": "components",
+      "type": "required_mismatch",
+      "severity": "MEDIUM",
+      "prop": "textButtonApply",
+      "source_required": false,
+      "data_required": true,
+      "detail": "DialogFooterProps declares textButtonApply as optional (?). Data marks it required: true."
+    },
+    {
+      "component": "ConfirmDialog",
+      "library": "components",
+      "type": "required_mismatch",
+      "severity": "MEDIUM",
+      "prop": "textButtonCancel",
+      "source_required": false,
+      "data_required": true,
+      "detail": "DialogFooterProps declares textButtonCancel as optional (?). Data marks it required: true."
+    },
+    {
+      "component": "InfiniteScroll",
+      "library": "components",
+      "type": "required_mismatch",
+      "severity": "MEDIUM",
+      "prop": "children",
+      "source_required": true,
+      "data_required": false,
+      "detail": "Source interface declares children: React.ReactNode (required, no ?). Data marks it required: false."
+    },
+    {
+      "component": "Gallery",
+      "library": "components",
+      "type": "type_mismatch",
+      "severity": "HIGH",
+      "prop": "onOpenChange",
+      "source_type": "(open: boolean, event?: Event, reason?: OpenChangeReason) => void",
+      "data_type": "(open: boolean) => void",
+      "detail": "Gallery picks onOpenChange from ModalProps. ModalProps declares it as (open: boolean, event?: Event, reason?: OpenChangeReason) => void. Data omits event and reason parameters."
+    },
+    {
+      "component": "Notifications",
+      "library": "components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "source_type": "string",
+      "source_required": false,
+      "detail": "NotificationsProps extends QAProps which adds qa?: string. The qa prop is absent from data."
+    },
+    {
+      "component": "Notification",
+      "library": "components",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "vendor/components/src/components/Notification/ directory exists and is exported from vendor/components/src/components/index.ts. No entry for 'Notification' found in data/components/components.json."
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "AdaptiveTabs",
+      "source_description": "Tabs component that hides overflowing tabs into a 'N more' dropdown select when the container is too narrow. When only one tab fits, renders all tabs as a select.",
+      "data_description": "If there is not enough container width to fit all the tabs, the tabs that do not fit will be hidden and accessible via the select with the caption 'More'. If only one tab fits, the select is displayed instead of the tabs."
+    },
+    {
+      "component": "ChangelogDialog",
+      "source_description": "Dialog displaying a list of ChangelogItem versions, with optional full-list link, loading state, error state, and retry. Supports story click and link click callbacks.",
+      "data_description": "Component for displaying the changelog. It looks like a list of versions in a modal. It can display regular versions and versions associated with stories."
+    },
+    {
+      "component": "ConfirmDialog",
+      "source_description": "Utility dialog composed from Dialog + Dialog.Footer. Accepts title, message, apply/cancel button text and handlers. Inherits all DialogProps except children.",
+      "data_description": "ConfirmDialog is a utility component, which renders confirmation dialogs"
+    },
+    {
+      "component": "CookieConsent",
+      "source_description": "Cookie consent banner that shows after a 1-second delay if consent is not yet defined. Renders ConsentPopup, ConsentNotification, or SimpleConsent based on consentManager.mode. manageCookies prop forces the manage view.",
+      "data_description": "CookieConsent is a component for managing cookie consent notifications. It supports three modes: notification, base, and manage, rendered based on the consent manager mode."
+    },
+    {
+      "component": "DelayedTextInput",
+      "source_description": "Controlled TextInput wrapper that delays calling onUpdate until the user stops typing. Requires both value and onUpdate. Immediate clear when hasClear is used.",
+      "data_description": "Component for delaying user input synchronization with external state."
+    },
+    {
+      "component": "FormRow",
+      "source_description": "Layout wrapper pairing a label (with optional HelpPopover slot and required star) with a form field. Supports row and column directions.",
+      "data_description": "Base component to place form input and label."
+    },
+    {
+      "component": "Gallery",
+      "source_description": "Modal gallery with keyboard/swipe navigation, full-screen support, header with actions, footer thumbnail strip, and mobile gesture handling. Children must be GalleryItem elements.",
+      "data_description": "The base component for rendering galleries of any type of data. The component is responsible for the gallery navigation (keyboard arrows, body side click and header arrow click). The children of the Gallery should be an array of GalleryItem with the required properties for rendering the gallery item view."
+    },
+    {
+      "component": "InfiniteScroll",
+      "source_description": "Renders children followed by an intersection sentinel. When the sentinel enters the viewport and disabled is false, calls onActivate and shows a loader until the promise resolves.",
+      "data_description": "The component is useful for creating infinite lists like Social Network Feed, or events history. It renders its children. If you scroll it to the bottom, it will show a loader and call an onActivate callback. When all the data is loaded and there is no need to load more, pass the disabled={true} property."
+    },
+    {
+      "component": "ItemSelector",
+      "source_description": "Dual-list selector: left list of available items, right list of selected items in chosen order (sortable). Supports select-all, deselect-all, custom item rendering, and filtering.",
+      "data_description": "A component that allows you to form a subset of a list (e.g., a subset of columns)."
+    },
+    {
+      "component": "Notifications",
+      "source_description": "Notifications panel with title, action slots, custom header render, loading/error/empty states, and infinite scroll for loading more notifications. Swipe-to-dismiss support via swipeThreshold.",
+      "data_description": "Components for displaying notifications. Can be used on desktop and touch devices."
+    }
+  ]
+}

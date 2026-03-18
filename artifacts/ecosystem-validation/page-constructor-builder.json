@@ -1,0 +1,16 @@
+{
+  "library": "page-constructor-builder",
+  "category": "config",
+  "issues": [
+    {
+      "severity": "MEDIUM",
+      "entity": "page-constructor-builder",
+      "message": "The readme field is severely truncated — it only includes the title and first install step, missing all CLI options, configuration reference, page configuration format, custom components, navigation, analytics, and favicon documentation that exist in the actual README."
+    },
+    {
+      "severity": "LOW",
+      "entity": "page-constructor-builder",
+      "message": "The how_to_use summary mentions only input/output/assets/theme config options but omits other important options available in page-builder.config.yml: navigation, analytics, favicon, components, css, webpack, baseUrl, minify, sourceMaps, watch."
+    }
+  ]
+}

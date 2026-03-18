@@ -1,0 +1,68 @@
+{
+  "batch_id": "components-1",
+  "issues": [
+    {
+      "component": "ChangelogDialog",
+      "library": "components",
+      "severity": "LOW",
+      "issue": "Description omits loading state, error state, retry behavior, the full-list link, and link-click callback. It only mentions version display and story association.",
+      "suggestion": "Dialog displaying a list of ChangelogItem versions with optional full-list link. Supports loading and error states with retry, and provides callbacks for story clicks and link clicks."
+    },
+    {
+      "component": "ConfirmDialog",
+      "library": "components",
+      "severity": "LOW",
+      "issue": "Description is too vague to be useful. It does not mention the key props (title, message, apply/cancel button text and handlers) or that it composes Dialog + Dialog.Footer and inherits all DialogProps except children.",
+      "suggestion": "Utility dialog composed from Dialog and Dialog.Footer. Accepts title, message, apply/cancel button text and click handlers. Inherits all DialogProps except children."
+    },
+    {
+      "component": "CookieConsent",
+      "library": "components",
+      "severity": "LOW",
+      "issue": "Description omits the 1-second display delay, the manageCookies prop that forces the manage view, and does not clarify that modes map to distinct sub-components (ConsentPopup, ConsentNotification, SimpleConsent).",
+      "suggestion": "Cookie consent banner shown after a 1-second delay when consent is not yet defined. Renders one of three sub-components (ConsentPopup, ConsentNotification, or SimpleConsent) based on consentManager.mode. The manageCookies prop forces the manage view regardless of mode."
+    },
+    {
+      "component": "DelayedTextInput",
+      "library": "components",
+      "severity": "LOW",
+      "issue": "Description is too vague. It omits that the component is a controlled TextInput wrapper (requires value and onUpdate), the debounce behavior, and that hasClear triggers an immediate (non-delayed) clear.",
+      "suggestion": "Controlled TextInput wrapper that delays calling onUpdate until the user stops typing. Requires both value and onUpdate props. When hasClear is used, clearing the input fires onUpdate immediately without delay."
+    },
+    {
+      "component": "FormRow",
+      "library": "components",
+      "severity": "LOW",
+      "issue": "Description omits the optional HelpPopover slot, the required-field star indicator, and support for row vs column layout directions.",
+      "suggestion": "Layout wrapper that pairs a label with a form field. Supports an optional HelpPopover slot alongside the label, a required-field star indicator, and both row and column layout directions."
+    },
+    {
+      "component": "Gallery",
+      "library": "components",
+      "severity": "LOW",
+      "issue": "Description omits swipe/mobile gesture navigation, full-screen support, and the footer thumbnail strip. It only describes keyboard and click navigation.",
+      "suggestion": "Modal gallery with keyboard, click, swipe, and mobile gesture navigation. Supports full-screen mode, a header with action slots, and a footer thumbnail strip. Children must be GalleryItem elements."
+    },
+    {
+      "component": "InfiniteScroll",
+      "library": "components",
+      "severity": "LOW",
+      "issue": "Description omits that onActivate must return a promise and that the loader remains visible until that promise resolves. It also does not mention the intersection sentinel mechanism.",
+      "suggestion": "Renders children followed by an intersection sentinel. When the sentinel enters the viewport and disabled is false, calls onActivate and shows a loader until the returned promise resolves. Pass disabled={true} when all data has been loaded."
+    },
+    {
+      "component": "ItemSelector",
+      "library": "components",
+      "severity": "LOW",
+      "issue": "Description is too vague and does not convey the dual-list UI, sortable selected list, select-all/deselect-all actions, custom item rendering, or filtering capability.",
+      "suggestion": "Dual-list selector with a left panel of available items and a right panel of selected items in user-defined order. Supports select-all, deselect-all, sortable selection, custom item rendering, and filtering."
+    },
+    {
+      "component": "Notifications",
+      "library": "components",
+      "severity": "LOW",
+      "issue": "Description only mentions multi-device support and omits title, action slots, custom header rendering, loading/error/empty states, infinite scroll for pagination, and swipe-to-dismiss via swipeThreshold.",
+      "suggestion": "Notifications panel with a title, action slots, and optional custom header. Supports loading, error, and empty states, infinite scroll for loading more items, and swipe-to-dismiss controlled by swipeThreshold."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "library": "markdown-editor",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "MEDIUM",
+      "entity": "MarkdownEditorView",
+      "message": "Prop 'editor' type listed as 'Editor' but the public exported type name is 'MarkdownEditorInstance' (Editor is re-exported as MarkdownEditorInstance in bundle/types.ts). Should use 'MarkdownEditorInstance' for consistency with the public API."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "MarkdownEditorProvider",
+      "message": "Prop 'value' type listed as 'Editor | null' but the public exported type name is 'MarkdownEditorInstance'. Should be 'MarkdownEditorInstance | null' to match the public API surface."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "useMarkdownEditorContext",
+      "message": "Return type listed as 'Editor | null' but the public exported type name is 'MarkdownEditorInstance'. Should be 'MarkdownEditorInstance | null' to match the public API surface."
+    },
+    {
+      "severity": "LOW",
+      "entity": "MarkdownEditorProvider",
+      "message": "Description says 'Returns null if no provider is found' which applies to useMarkdownEditorContext, not the Provider itself. The Provider description is otherwise accurate but source_file points to 'bundle/context.ts' — the Provider is just EditorContext.Provider, a standard React context provider, which is correct."
+    },
+    {
+      "severity": "LOW",
+      "entity": "useMarkdownEditorContext",
+      "message": "Description says 'Returns null if no provider is found.' More precisely, it returns the context value which defaults to null (the createContext default). If a provider is present but passes null as value, it also returns null. Minor nuance."
+    },
+    {
+      "severity": "LOW",
+      "entity": "useMarkdownEditor",
+      "message": "Parameter 'props.preset' default listed as \"'full'\" which is correct (set in useMarkdownEditor.ts line 36: props.preset ?? 'full'). However the description 'A set of plug-in extensions' is vague — it controls which markdown syntax extensions are enabled (zero=none, commonmark=basic, default/yfm/full=progressively more)."
+    },
+    {
+      "severity": "LOW",
+      "entity": "MarkdownEditorView",
+      "message": "Prop 'stickyToolbar' is marked required:true which matches the TypeScript definition (no '?' in ViewProps). However, no default value is documented — users must always provide this prop explicitly."
+    }
+  ]
+}

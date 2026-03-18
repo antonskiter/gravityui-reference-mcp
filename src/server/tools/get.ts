@@ -1,3 +1,6 @@
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import type { LoadedData } from '../loader.js';
 import type { ComponentDef, RecipeDef, RecipeSection, LibraryOverviewEntry, DesignSystemOverview } from '../../types.js';
 import { pickByLibraryPriority } from './lib-priority.js';
@@ -5,6 +8,11 @@ import { handleSuggestComponent, levenshtein } from './suggest-component.js';
 import { formatGetComponent } from './get-component.js';
 import { formatGetDesignTokens } from './get-design-tokens.js';
 import { codeBlock } from '../format.js';
+import { ALL_LIBRARIES } from '../../ingest/manifest.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const DATA_DIR = join(__dirname, '..', '..', '..', 'data');
 
 export interface GetInput {
   name: string;
@@ -260,4 +268,155 @@ export function formatOverview(overview: DesignSystemOverview): string {
   const libIds = overview.libraries.map(l => l.id).join(', ');
   lines.push(`${overview.libraries.length} libraries: ${libIds}`);
   return lines.join('\n');
+}
+
+// ---------------------------------------------------------------------------
+// Ecosystem resolveGet — two-stage resolution across all data directories
+// ---------------------------------------------------------------------------
+
+function readDataJson<T>(filePath: string, fallback: T): T {
+  if (!existsSync(filePath)) return fallback;
+  try {
+    return JSON.parse(readFileSync(filePath, 'utf-8')) as T;
+  } catch {
+    return fallback;
+  }
+}
+
+function scanDataDir(subDir: string): string[] {
+  const dirPath = join(DATA_DIR, subDir);
+  if (!existsSync(dirPath)) return [];
+  try {
+    return readdirSync(dirPath).filter(f => f.endsWith('.json')).sort();
+  } catch {
+    return [];
+  }
+}
+
+function formatLibraryCard(lib: { id: string; npmPackage: string; category: string }): string {
+  return `${lib.id} (${lib.npmPackage})\ncategory: ${lib.category}`;
+}
+
+function formatHookEntry(hook: { name: string; signature?: string; return_type?: string; library?: string }): string {
+  const lines = [`hook: ${hook.name}`];
+  if (hook.library) lines.push(`library: ${hook.library}`);
+  if (hook.signature) lines.push(`signature: ${hook.signature}`);
+  if (hook.return_type) lines.push(`returns: ${hook.return_type}`);
+  return lines.join('\n');
+}
+
+function formatApiFunctionEntry(fn: { name: string; kind?: string; signature?: string; library?: string; description?: string }): string {
+  const lines = [`${fn.kind ?? 'export'}: ${fn.name}`];
+  if (fn.library) lines.push(`library: ${fn.library}`);
+  if (fn.signature) lines.push(`signature: ${fn.signature}`);
+  if (fn.description) lines.push(fn.description);
+  return lines.join('\n');
+}
+
+function formatAssetEntry(asset: { name: string; library?: string; category?: string; import_path?: string }): string {
+  const lines = [`asset: ${asset.name}`];
+  if (asset.library) lines.push(`library: ${asset.library}`);
+  if (asset.category) lines.push(`category: ${asset.category}`);
+  if (asset.import_path) lines.push(`import: import { ${asset.name} } from '${asset.import_path}';`);
+  return lines.join('\n');
+}
+
+function formatConfigEntry(cfg: { library?: string; npm_package?: string; description?: string; how_to_use?: string }): string {
+  const lines = [`config: ${cfg.library ?? '(unknown)'}`];
+  if (cfg.npm_package) lines.push(`package: ${cfg.npm_package}`);
+  if (cfg.description) lines.push(cfg.description);
+  if (cfg.how_to_use) lines.push(`usage: ${cfg.how_to_use}`);
+  return lines.join('\n');
+}
+
+/**
+ * Two-stage resolution:
+ * Stage 1: exact library name / npm package match (fast path — no data dir scan needed)
+ * Stage 2: cascade across data directories
+ *   component > hook > api-function > asset > config-package
+ */
+export async function resolveGet(topic: string): Promise<string> {
+  const topicLower = topic.toLowerCase();
+
+  // Stage 1: exact library id or npm package match
+  const libMeta = ALL_LIBRARIES.find(
+    l => l.id === topicLower || l.id === topic || l.npmPackage === topic || l.npmPackage === topicLower,
+  );
+  if (libMeta) return formatLibraryCard(libMeta);
+
+  // Stage 2: scan components directory for matching component or hook
+  for (const file of scanDataDir('components')) {
+    const libId = file.replace(/\.json$/, '');
+    const data = readDataJson<{
+      components?: Array<{ name: string; description?: string; import_statement?: string; props?: unknown[] }>;
+      hooks?: Array<{ name: string; signature?: string; return_type?: string; library?: string }>;
+    }>(join(DATA_DIR, 'components', file), {});
+
+    // Check components
+    const comp = (data.components ?? []).find(
+      c => c.name === topic || c.name.toLowerCase() === topicLower,
+    );
+    if (comp) {
+      const lines = [`component: ${comp.name}`, `library: ${libId}`];
+      if (comp.description) lines.push(comp.description);
+      if (comp.import_statement) lines.push(`import: ${comp.import_statement}`);
+      if (comp.props && Array.isArray(comp.props)) {
+        lines.push(`props: ${comp.props.length} props`);
+      }
+      return lines.join('\n');
+    }
+
+    // Check hooks
+    const hook = (data.hooks ?? []).find(
+      h => h.name === topic || h.name.toLowerCase() === topicLower,
+    );
+    if (hook) return formatHookEntry({ ...hook, library: hook.library ?? libId });
+  }
+
+  // Stage 2: scan utilities directory for api-functions
+  for (const file of scanDataDir('utilities')) {
+    const libId = file.replace(/\.json$/, '');
+    const data = readDataJson<{
+      exports?: Array<{ name: string; kind?: string; signature?: string; library?: string; description?: string }>;
+      skipped?: boolean;
+    }>(join(DATA_DIR, 'utilities', file), {});
+
+    if (data.skipped) continue;
+
+    const fn = (data.exports ?? []).find(
+      e => e.name === topic || e.name.toLowerCase() === topicLower,
+    );
+    if (fn) return formatApiFunctionEntry({ ...fn, library: fn.library ?? libId });
+  }
+
+  // Stage 2: scan assets directory
+  for (const file of scanDataDir('assets')) {
+    const libId = file.replace(/\.json$/, '');
+    const data = readDataJson<{
+      assets?: Array<{ name: string; library?: string; category?: string; import_path?: string }>;
+    }>(join(DATA_DIR, 'assets', file), {});
+
+    const asset = (data.assets ?? []).find(
+      a => a.name === topic || a.name.toLowerCase() === topicLower,
+    );
+    if (asset) return formatAssetEntry({ ...asset, library: asset.library ?? libId });
+  }
+
+  // Stage 2: scan configs directory
+  for (const file of scanDataDir('configs')) {
+    const libId = file.replace(/\.json$/, '');
+    const data = readDataJson<{
+      library?: string;
+      npm_package?: string;
+      description?: string;
+      how_to_use?: string;
+    }>(join(DATA_DIR, 'configs', file), {});
+
+    const configId = data.library ?? libId;
+    if (configId === topic || configId === topicLower || libId === topic || libId === topicLower) {
+      return formatConfigEntry(data);
+    }
+  }
+
+  return `"${topic}" not found. Try find('${topic}') for broader search.`;
 }

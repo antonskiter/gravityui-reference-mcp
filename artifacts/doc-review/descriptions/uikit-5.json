@@ -1,0 +1,61 @@
+{
+  "batch_id": "uikit-5",
+  "issues": [
+    {
+      "component": "TextArea",
+      "library": "uikit",
+      "severity": "MEDIUM",
+      "issue": "The stored description is '<!--GITHUB_BLOCK-->' — a raw HTML/markdown comment artifact, not a real description. It says nothing about what the component does.",
+      "suggestion": "A multi-line text input control that extends BaseInputControlProps with additional props for rows, minRows, maxRows, and a note element."
+    },
+    {
+      "component": "TextInput",
+      "library": "uikit",
+      "severity": "MEDIUM",
+      "issue": "The stored description is '<!--GITHUB_BLOCK-->' — a raw HTML/markdown comment artifact, not a real description. It says nothing about what the component does.",
+      "suggestion": "A single-line text input control that extends BaseInputControlProps with additional props for type, label, startContent, endContent, and a note element."
+    },
+    {
+      "component": "Tooltip",
+      "library": "uikit",
+      "severity": "MEDIUM",
+      "issue": "The description claims the component 'accepts only text content', but the source shows a floating tooltip built on @floating-ui/react whose content prop is not restricted to plain text. The description also does not mention configurable triggers (hover/focus), delay, placement, offset, or portal support.",
+      "suggestion": "A floating tooltip built on @floating-ui/react that attaches to its child node as an anchor. Supports hover and focus triggers, configurable open/close delay, placement, offset, and portal rendering."
+    },
+    {
+      "component": "TreeSelect",
+      "library": "uikit",
+      "severity": "MEDIUM",
+      "issue": "The description is null — the component has no description at all in the data JSON.",
+      "suggestion": "A tree-structured select dropdown that combines TreeList, SelectControl, and SelectPopup. Supports single and multi-select, controlled open state, validation, and custom item/control rendering."
+    },
+    {
+      "component": "Virtualizer",
+      "library": "uikit",
+      "severity": "MEDIUM",
+      "issue": "The description is null — the component has no description at all in the data JSON.",
+      "suggestion": "A virtualized scrollable list built on @tanstack/react-virtual. Supports nested children, persisted item indexes, load-more-on-scroll behavior, and the ability to disable virtualization entirely."
+    },
+    {
+      "component": "Toaster",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "The description ('adjustable notifications also known as toasts') omits the imperative class-based API (add, remove, removeAll, update, has methods) and the withToaster HOC that injects the toaster context.",
+      "suggestion": "A class-based toast notification manager exposing add, remove, removeAll, update, and has methods. Also provides a withToaster HOC and useToaster hook for injecting the toaster context into components."
+    },
+    {
+      "component": "User",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "The description claims the component 'can also accept a custom React node as an avatar', but the source description only mentions it uses the Avatar component internally. This custom-ReactNode claim is not confirmed by the available source context.",
+      "suggestion": "A component for displaying a user avatar with an optional name and description block, using the Avatar component internally."
+    },
+    {
+      "component": "UserLabel",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "The description ('can be used to display users or user-related information') is too vague to meaningfully distinguish this component. The source shows it is a chip/label that includes an avatar, primary text, optional description, a close button, a click handler, and supports person/email/empty variants.",
+      "suggestion": "A chip-style label for displaying a user with an avatar, primary text, optional description, and a close button. Supports click handling and three variants: person, email, and empty."
+    }
+  ]
+}

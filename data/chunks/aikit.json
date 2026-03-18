@@ -1,0 +1,1634 @@
+[
+  {
+    "page_id": "component:aikit:actionbutton",
+    "url": "https://gravity-ui.com/components/aikit/actionbutton",
+    "page_title": "ActionButton",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ActionButton"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:actionbutton:description",
+    "section_title": "Description",
+    "content": "A button component with integrated tooltip functionality, combining Button and ActionTooltip from Gravity UI."
+  },
+  {
+    "page_id": "component:aikit:actionbutton",
+    "url": "https://gravity-ui.com/components/aikit/actionbutton",
+    "page_title": "ActionButton",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ActionButton"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:actionbutton:props",
+    "section_title": "Props",
+    "content": "Props for ActionButton:\n\n- children: React.ReactNode — Button content (icon, text, or any ReactNode)\n- className: string — Additional CSS class for the button\n- tooltipTitle: ActionTooltipProps['title'] — Tooltip title text\n- tooltipPlacement: ActionTooltipProps['placement'] — Tooltip placement\n- tooltipDisabled: ActionTooltipProps['disabled'] — Tooltip disabled state\n- tooltipOpenDelay: ActionTooltipProps['openDelay'] — Tooltip open delay in ms\n- tooltipCloseDelay: ActionTooltipProps['closeDelay'] — Tooltip close delay in ms\n- wrapperClassName: string — Additional CSS class for the wrapper"
+  },
+  {
+    "page_id": "component:aikit:actionbutton",
+    "url": "https://gravity-ui.com/components/aikit/actionbutton",
+    "page_title": "ActionButton",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ActionButton"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:actionbutton:import",
+    "section_title": "Import",
+    "content": "Import: import {ActionButton} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:alert",
+    "url": "https://gravity-ui.com/components/aikit/alert",
+    "page_title": "Alert",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Alert"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:alert:description",
+    "section_title": "Description",
+    "content": "An alert message with an indicator of alert's type opportunity to pass a button"
+  },
+  {
+    "page_id": "component:aikit:alert",
+    "url": "https://gravity-ui.com/components/aikit/alert",
+    "page_title": "Alert",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Alert"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:alert:props",
+    "section_title": "Props",
+    "content": "Props for Alert:\n\n- text (required): string\n- variant: 'default' | 'warning' | 'error' | 'info' — default: 'default'\n- icon: React.ReactNode\n- button: {\n- content (required): React.ReactNode\n- onClick (required): () => void\n- content: React.ReactNode\n- initialExpanded: boolean — default: false\n- className: string\n- qa: string"
+  },
+  {
+    "page_id": "component:aikit:alert",
+    "url": "https://gravity-ui.com/components/aikit/alert",
+    "page_title": "Alert",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Alert"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:alert:import",
+    "section_title": "Import",
+    "content": "Import: import {Alert} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:basemessage",
+    "url": "https://gravity-ui.com/components/aikit/basemessage",
+    "page_title": "BaseMessage",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "BaseMessage"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:basemessage:description",
+    "section_title": "Description",
+    "content": "Base wrapper for message with support for rendering action buttons"
+  },
+  {
+    "page_id": "component:aikit:basemessage",
+    "url": "https://gravity-ui.com/components/aikit/basemessage",
+    "page_title": "BaseMessage",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "BaseMessage"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:basemessage:props",
+    "section_title": "Props",
+    "content": "BaseMessage has no documented props."
+  },
+  {
+    "page_id": "component:aikit:basemessage",
+    "url": "https://gravity-ui.com/components/aikit/basemessage",
+    "page_title": "BaseMessage",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "BaseMessage"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:basemessage:import",
+    "section_title": "Import",
+    "content": "Import: import {BaseMessage} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:buttongroup",
+    "url": "https://gravity-ui.com/components/aikit/buttongroup",
+    "page_title": "ButtonGroup",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ButtonGroup"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:buttongroup:description",
+    "section_title": "Description",
+    "content": "Wrapper for buttons group"
+  },
+  {
+    "page_id": "component:aikit:buttongroup",
+    "url": "https://gravity-ui.com/components/aikit/buttongroup",
+    "page_title": "ButtonGroup",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ButtonGroup"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:buttongroup:props",
+    "section_title": "Props",
+    "content": "ButtonGroup has no documented props."
+  },
+  {
+    "page_id": "component:aikit:buttongroup",
+    "url": "https://gravity-ui.com/components/aikit/buttongroup",
+    "page_title": "ButtonGroup",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ButtonGroup"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:buttongroup:import",
+    "section_title": "Import",
+    "content": "Import: import {ButtonGroup} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:chatcontainer",
+    "url": "https://gravity-ui.com/components/aikit/chatcontainer",
+    "page_title": "ChatContainer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ChatContainer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:chatcontainer:description",
+    "section_title": "Description",
+    "content": "A fully assembled chat component - the main exportable component of the library that integrates Header, ChatContent, and History."
+  },
+  {
+    "page_id": "component:aikit:chatcontainer",
+    "url": "https://gravity-ui.com/components/aikit/chatcontainer",
+    "page_title": "ChatContainer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ChatContainer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:chatcontainer:props",
+    "section_title": "Props",
+    "content": "ChatContainer has no documented props."
+  },
+  {
+    "page_id": "component:aikit:chatcontainer",
+    "url": "https://gravity-ui.com/components/aikit/chatcontainer",
+    "page_title": "ChatContainer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ChatContainer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:chatcontainer:import",
+    "section_title": "Import",
+    "content": "Import: import {ChatContainer} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:chatcontent",
+    "url": "https://gravity-ui.com/components/aikit/chatcontent",
+    "page_title": "ChatContent",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ChatContent"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:chatcontent:description",
+    "section_title": "Description",
+    "content": "Main chat content container with view switching between empty state and message list."
+  },
+  {
+    "page_id": "component:aikit:chatcontent",
+    "url": "https://gravity-ui.com/components/aikit/chatcontent",
+    "page_title": "ChatContent",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ChatContent"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:chatcontent:props",
+    "section_title": "Props",
+    "content": "Props for ChatContent:\n\n- view (required): ChatContentView — Display mode: 'empty' - EmptyContainer, 'chat' - MessageList\n- emptyContainerProps: EmptyContainerProps — Props for EmptyContainer (used when view='empty')\n- messageListProps: MessageListProps — Props for MessageList (used when view='chat')\n- className: string — Additional CSS class\n- qa: string — QA/test identifier"
+  },
+  {
+    "page_id": "component:aikit:chatcontent",
+    "url": "https://gravity-ui.com/components/aikit/chatcontent",
+    "page_title": "ChatContent",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ChatContent"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:chatcontent:import",
+    "section_title": "Import",
+    "content": "Import: import {ChatContent} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:chatdate",
+    "url": "https://gravity-ui.com/components/aikit/chatdate",
+    "page_title": "ChatDate",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ChatDate"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:chatdate:description",
+    "section_title": "Description",
+    "content": "A ChatDate component displays formatted dates with time and locale support."
+  },
+  {
+    "page_id": "component:aikit:chatdate",
+    "url": "https://gravity-ui.com/components/aikit/chatdate",
+    "page_title": "ChatDate",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ChatDate"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:chatdate:props",
+    "section_title": "Props",
+    "content": "ChatDate has no documented props."
+  },
+  {
+    "page_id": "component:aikit:chatdate",
+    "url": "https://gravity-ui.com/components/aikit/chatdate",
+    "page_title": "ChatDate",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ChatDate"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:chatdate:import",
+    "section_title": "Import",
+    "content": "Import: import {ChatDate} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:contextindicator",
+    "url": "https://gravity-ui.com/components/aikit/contextindicator",
+    "page_title": "ContextIndicator",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ContextIndicator"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:contextindicator:description",
+    "section_title": "Description",
+    "content": "A circular progress indicator that visualizes context usage as a percentage (0-100%)."
+  },
+  {
+    "page_id": "component:aikit:contextindicator",
+    "url": "https://gravity-ui.com/components/aikit/contextindicator",
+    "page_title": "ContextIndicator",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ContextIndicator"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:contextindicator:props",
+    "section_title": "Props",
+    "content": "ContextIndicator has no documented props."
+  },
+  {
+    "page_id": "component:aikit:contextindicator",
+    "url": "https://gravity-ui.com/components/aikit/contextindicator",
+    "page_title": "ContextIndicator",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ContextIndicator"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:contextindicator:import",
+    "section_title": "Import",
+    "content": "Import: import {ContextIndicator} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:contextitem",
+    "url": "https://gravity-ui.com/components/aikit/contextitem",
+    "page_title": "ContextItem",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ContextItem"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:contextitem:description",
+    "section_title": "Description",
+    "content": "A label for rendering context"
+  },
+  {
+    "page_id": "component:aikit:contextitem",
+    "url": "https://gravity-ui.com/components/aikit/contextitem",
+    "page_title": "ContextItem",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ContextItem"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:contextitem:props",
+    "section_title": "Props",
+    "content": "ContextItem has no documented props."
+  },
+  {
+    "page_id": "component:aikit:contextitem",
+    "url": "https://gravity-ui.com/components/aikit/contextitem",
+    "page_title": "ContextItem",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ContextItem"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:contextitem:import",
+    "section_title": "Import",
+    "content": "Import: import {ContextItem} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:diffstat",
+    "url": "https://gravity-ui.com/components/aikit/diffstat",
+    "page_title": "DiffStat",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "DiffStat"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:diffstat:description",
+    "section_title": "Description",
+    "content": "A compact component that displays diff statistics showing the number of added and deleted lines."
+  },
+  {
+    "page_id": "component:aikit:diffstat",
+    "url": "https://gravity-ui.com/components/aikit/diffstat",
+    "page_title": "DiffStat",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "DiffStat"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:diffstat:props",
+    "section_title": "Props",
+    "content": "DiffStat has no documented props."
+  },
+  {
+    "page_id": "component:aikit:diffstat",
+    "url": "https://gravity-ui.com/components/aikit/diffstat",
+    "page_title": "DiffStat",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "DiffStat"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:diffstat:import",
+    "section_title": "Import",
+    "content": "Import: import {DiffStat} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:disclaimer",
+    "url": "https://gravity-ui.com/components/aikit/disclaimer",
+    "page_title": "Disclaimer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Disclaimer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:disclaimer:description",
+    "section_title": "Description",
+    "content": "A Disclaimer component displays informational or warning messages"
+  },
+  {
+    "page_id": "component:aikit:disclaimer",
+    "url": "https://gravity-ui.com/components/aikit/disclaimer",
+    "page_title": "Disclaimer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Disclaimer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:disclaimer:props",
+    "section_title": "Props",
+    "content": "Disclaimer has no documented props."
+  },
+  {
+    "page_id": "component:aikit:disclaimer",
+    "url": "https://gravity-ui.com/components/aikit/disclaimer",
+    "page_title": "Disclaimer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Disclaimer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:disclaimer:import",
+    "section_title": "Import",
+    "content": "Import: import {Disclaimer} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:emptycontainer",
+    "url": "https://gravity-ui.com/components/aikit/emptycontainer",
+    "page_title": "EmptyContainer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "EmptyContainer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:emptycontainer:description",
+    "section_title": "Description",
+    "content": "A template component for displaying a welcome screen with image, title, description, and suggestions."
+  },
+  {
+    "page_id": "component:aikit:emptycontainer",
+    "url": "https://gravity-ui.com/components/aikit/emptycontainer",
+    "page_title": "EmptyContainer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "EmptyContainer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:emptycontainer:props",
+    "section_title": "Props",
+    "content": "Props for EmptyContainer:\n\n- image: React.ReactNode — Image or icon to display at the top\n- title: React.ReactNode — Title text or custom React element for the welcome screen\n- description: React.ReactNode — Description text or custom React element explaining the functionality\n- suggestionTitle: React.ReactNode — Title for the suggestions section - can be string or custom React element\n- suggestions: Suggestion[] — Array of suggestion items\n- onSuggestionClick: (content: string, id?: string) => void — Callback when a suggestion is clicked\n- alignment: AlignmentConfig — Alignment configuration for image, title, and description\n- layout: 'grid' | 'list' — Layout orientation for suggestions: 'grid' for horizontal, 'list' for vertical\n- wrapText: boolean — Enable text wrapping inside suggestion buttons instead of ellipsis\n- showMore: () => void — Callback for showing more suggestions\n- showMoreText: string — Custom text for the show more button\n- className: string — Additional CSS class\n- qa: string — QA/test identifier"
+  },
+  {
+    "page_id": "component:aikit:emptycontainer",
+    "url": "https://gravity-ui.com/components/aikit/emptycontainer",
+    "page_title": "EmptyContainer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "EmptyContainer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:emptycontainer:import",
+    "section_title": "Import",
+    "content": "Import: import {EmptyContainer} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:header",
+    "url": "https://gravity-ui.com/components/aikit/header",
+    "page_title": "Header",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Header"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:header:description",
+    "section_title": "Description",
+    "content": "Header component for displaying chat header with navigation and actions."
+  },
+  {
+    "page_id": "component:aikit:header",
+    "url": "https://gravity-ui.com/components/aikit/header",
+    "page_title": "Header",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Header"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:header:props",
+    "section_title": "Props",
+    "content": "Header has no documented props."
+  },
+  {
+    "page_id": "component:aikit:header",
+    "url": "https://gravity-ui.com/components/aikit/header",
+    "page_title": "Header",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Header"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:header:import",
+    "section_title": "Import",
+    "content": "Import: import {Header} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:history",
+    "url": "https://gravity-ui.com/components/aikit/history",
+    "page_title": "History",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "History"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:history:description",
+    "section_title": "Description",
+    "content": "A comprehensive chat history component that displays a list of chats in a popup with integrated search, grouping, and action capabilities."
+  },
+  {
+    "page_id": "component:aikit:history",
+    "url": "https://gravity-ui.com/components/aikit/history",
+    "page_title": "History",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "History"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:history:props",
+    "section_title": "Props",
+    "content": "Props for History:\n\n- open: boolean — Control popup open state\n- onOpenChange: (open: boolean) => void — Callback when popup open state changes\n- anchorElement (required): HTMLElement | null — Anchor element for the popup"
+  },
+  {
+    "page_id": "component:aikit:history",
+    "url": "https://gravity-ui.com/components/aikit/history",
+    "page_title": "History",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "History"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:history:import",
+    "section_title": "Import",
+    "content": "Import: import {History} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:intersectioncontainer",
+    "url": "https://gravity-ui.com/components/aikit/intersectioncontainer",
+    "page_title": "IntersectionContainer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "IntersectionContainer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:intersectioncontainer:description",
+    "section_title": "Description",
+    "content": "Wrapper component for Intersection Observer API. Used for automatic loading of previous messages when scrolling up in `MessageList`."
+  },
+  {
+    "page_id": "component:aikit:intersectioncontainer",
+    "url": "https://gravity-ui.com/components/aikit/intersectioncontainer",
+    "page_title": "IntersectionContainer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "IntersectionContainer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:intersectioncontainer:props",
+    "section_title": "Props",
+    "content": "Props for IntersectionContainer:\n\n- children: React.ReactNode\n- onIntersect: () => void\n- options: IntersectionObserverInit\n- className: string"
+  },
+  {
+    "page_id": "component:aikit:intersectioncontainer",
+    "url": "https://gravity-ui.com/components/aikit/intersectioncontainer",
+    "page_title": "IntersectionContainer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "IntersectionContainer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:intersectioncontainer:import",
+    "section_title": "Import",
+    "content": "Import: import {IntersectionContainer} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:loader",
+    "url": "https://gravity-ui.com/components/aikit/loader",
+    "page_title": "Loader",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Loader"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:loader:description",
+    "section_title": "Description",
+    "content": "A Loader visualizes loading state"
+  },
+  {
+    "page_id": "component:aikit:loader",
+    "url": "https://gravity-ui.com/components/aikit/loader",
+    "page_title": "Loader",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Loader"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:loader:props",
+    "section_title": "Props",
+    "content": "Props for Loader:\n\n- view: 'streaming' | 'loading' — default: 'streaming'\n- size: LoaderSize — default: 's'\n- className: string\n- qa: string"
+  },
+  {
+    "page_id": "component:aikit:loader",
+    "url": "https://gravity-ui.com/components/aikit/loader",
+    "page_title": "Loader",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Loader"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:loader:import",
+    "section_title": "Import",
+    "content": "Import: import {Loader} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:messageballoon",
+    "url": "https://gravity-ui.com/components/aikit/messageballoon",
+    "page_title": "MessageBalloon",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "MessageBalloon"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:messageballoon:description",
+    "section_title": "Description",
+    "content": "Visual wrapper for user's message"
+  },
+  {
+    "page_id": "component:aikit:messageballoon",
+    "url": "https://gravity-ui.com/components/aikit/messageballoon",
+    "page_title": "MessageBalloon",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "MessageBalloon"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:messageballoon:props",
+    "section_title": "Props",
+    "content": "MessageBalloon has no documented props."
+  },
+  {
+    "page_id": "component:aikit:messageballoon",
+    "url": "https://gravity-ui.com/components/aikit/messageballoon",
+    "page_title": "MessageBalloon",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "MessageBalloon"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:messageballoon:import",
+    "section_title": "Import",
+    "content": "Import: import {MessageBalloon} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:promptinput",
+    "url": "https://gravity-ui.com/components/aikit/promptinput",
+    "page_title": "PromptInput",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "PromptInput"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:promptinput:description",
+    "section_title": "Description",
+    "content": "A flexible input component for chat interfaces with support for simple and full views, expandable panels, attachments, suggestions, and more."
+  },
+  {
+    "page_id": "component:aikit:promptinput",
+    "url": "https://gravity-ui.com/components/aikit/promptinput",
+    "page_title": "PromptInput",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "PromptInput"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:promptinput:props",
+    "section_title": "Props",
+    "content": "PromptInput has no documented props."
+  },
+  {
+    "page_id": "component:aikit:promptinput",
+    "url": "https://gravity-ui.com/components/aikit/promptinput",
+    "page_title": "PromptInput",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "PromptInput"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:promptinput:import",
+    "section_title": "Import",
+    "content": "Import: import {PromptInput} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:promptinputfooter",
+    "url": "https://gravity-ui.com/components/aikit/promptinputfooter",
+    "page_title": "PromptInputFooter",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "PromptInputFooter"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:promptinputfooter:description",
+    "section_title": "Description",
+    "content": "A footer component for prompt input that displays action icons (settings, attachment, microphone) and a submit button."
+  },
+  {
+    "page_id": "component:aikit:promptinputfooter",
+    "url": "https://gravity-ui.com/components/aikit/promptinputfooter",
+    "page_title": "PromptInputFooter",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "PromptInputFooter"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:promptinputfooter:props",
+    "section_title": "Props",
+    "content": "PromptInputFooter has no documented props."
+  },
+  {
+    "page_id": "component:aikit:promptinputfooter",
+    "url": "https://gravity-ui.com/components/aikit/promptinputfooter",
+    "page_title": "PromptInputFooter",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "PromptInputFooter"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:promptinputfooter:import",
+    "section_title": "Import",
+    "content": "Import: import {PromptInputFooter} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:promptinputheader",
+    "url": "https://gravity-ui.com/components/aikit/promptinputheader",
+    "page_title": "PromptInputHeader",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "PromptInputHeader"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:promptinputheader:description",
+    "section_title": "Description",
+    "content": "A header component for prompt input that displays context items, context indicator, or custom content."
+  },
+  {
+    "page_id": "component:aikit:promptinputheader",
+    "url": "https://gravity-ui.com/components/aikit/promptinputheader",
+    "page_title": "PromptInputHeader",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "PromptInputHeader"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:promptinputheader:props",
+    "section_title": "Props",
+    "content": "PromptInputHeader has no documented props."
+  },
+  {
+    "page_id": "component:aikit:promptinputheader",
+    "url": "https://gravity-ui.com/components/aikit/promptinputheader",
+    "page_title": "PromptInputHeader",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "PromptInputHeader"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:promptinputheader:import",
+    "section_title": "Import",
+    "content": "Import: import {PromptInputHeader} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:promptinputpanel",
+    "url": "https://gravity-ui.com/components/aikit/promptinputpanel",
+    "page_title": "PromptInputPanel",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "PromptInputPanel"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:promptinputpanel:description",
+    "section_title": "Description",
+    "content": "A simple panel container component that displays custom content."
+  },
+  {
+    "page_id": "component:aikit:promptinputpanel",
+    "url": "https://gravity-ui.com/components/aikit/promptinputpanel",
+    "page_title": "PromptInputPanel",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "PromptInputPanel"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:promptinputpanel:props",
+    "section_title": "Props",
+    "content": "PromptInputPanel has no documented props."
+  },
+  {
+    "page_id": "component:aikit:promptinputpanel",
+    "url": "https://gravity-ui.com/components/aikit/promptinputpanel",
+    "page_title": "PromptInputPanel",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "PromptInputPanel"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:promptinputpanel:import",
+    "section_title": "Import",
+    "content": "Import: import {PromptInputPanel} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:ratingblock",
+    "url": "https://gravity-ui.com/components/aikit/ratingblock",
+    "page_title": "RatingBlock",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "RatingBlock"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:ratingblock:description",
+    "section_title": "Description",
+    "content": "Universal rating block with title and star rating."
+  },
+  {
+    "page_id": "component:aikit:ratingblock",
+    "url": "https://gravity-ui.com/components/aikit/ratingblock",
+    "page_title": "RatingBlock",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "RatingBlock"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:ratingblock:props",
+    "section_title": "Props",
+    "content": "RatingBlock has no documented props."
+  },
+  {
+    "page_id": "component:aikit:ratingblock",
+    "url": "https://gravity-ui.com/components/aikit/ratingblock",
+    "page_title": "RatingBlock",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "RatingBlock"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:ratingblock:import",
+    "section_title": "Import",
+    "content": "Import: import {RatingBlock} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:shimmer",
+    "url": "https://gravity-ui.com/components/aikit/shimmer",
+    "page_title": "Shimmer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Shimmer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:shimmer:description",
+    "section_title": "Description",
+    "content": "A loading animation component that creates a shimmer effect over its children."
+  },
+  {
+    "page_id": "component:aikit:shimmer",
+    "url": "https://gravity-ui.com/components/aikit/shimmer",
+    "page_title": "Shimmer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Shimmer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:shimmer:props",
+    "section_title": "Props",
+    "content": "Shimmer has no documented props."
+  },
+  {
+    "page_id": "component:aikit:shimmer",
+    "url": "https://gravity-ui.com/components/aikit/shimmer",
+    "page_title": "Shimmer",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Shimmer"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:shimmer:import",
+    "section_title": "Import",
+    "content": "Import: import {Shimmer} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:starrating",
+    "url": "https://gravity-ui.com/components/aikit/starrating",
+    "page_title": "StarRating",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "StarRating"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:starrating:description",
+    "section_title": "Description",
+    "content": "A star rating component for displaying and collecting user ratings from 1 to 5 stars."
+  },
+  {
+    "page_id": "component:aikit:starrating",
+    "url": "https://gravity-ui.com/components/aikit/starrating",
+    "page_title": "StarRating",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "StarRating"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:starrating:props",
+    "section_title": "Props",
+    "content": "Props for StarRating:\n\n- value: number — Current rating value (1-5)\n- onChange: (rating: number) => void — Callback when rating changes\n- disabled: boolean — default: false — Disabled state\n- size: StarRatingSize — default: 'l' — Size variant\n- className: string — Additional CSS class\n- qa: string — QA/test identifier"
+  },
+  {
+    "page_id": "component:aikit:starrating",
+    "url": "https://gravity-ui.com/components/aikit/starrating",
+    "page_title": "StarRating",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "StarRating"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:starrating:import",
+    "section_title": "Import",
+    "content": "Import: import {StarRating} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:submitbutton",
+    "url": "https://gravity-ui.com/components/aikit/submitbutton",
+    "page_title": "SubmitButton",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "SubmitButton"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:submitbutton:description",
+    "section_title": "Description",
+    "content": "A submit button component with state management through props and send/cancel icon switching."
+  },
+  {
+    "page_id": "component:aikit:submitbutton",
+    "url": "https://gravity-ui.com/components/aikit/submitbutton",
+    "page_title": "SubmitButton",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "SubmitButton"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:submitbutton:props",
+    "section_title": "Props",
+    "content": "Props for SubmitButton:\n\n- onClick (required): () => Promise<void> — Click handler\n- state (required): SubmitButtonState — Button state\n- className: string — Additional CSS class\n- size: ButtonButtonProps['size'] — default: 'm' — Button size\n- tooltipSend: string — Custom tooltip for enabled state\n- tooltipCancel: string — Custom tooltip for cancelable state\n- cancelableText: string — Custom cancelable text (if provided, will be shown in cancelable state)\n- qa: string — QA/test identifier"
+  },
+  {
+    "page_id": "component:aikit:submitbutton",
+    "url": "https://gravity-ui.com/components/aikit/submitbutton",
+    "page_title": "SubmitButton",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "SubmitButton"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:submitbutton:import",
+    "section_title": "Import",
+    "content": "Import: import {SubmitButton} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:suggestions",
+    "url": "https://gravity-ui.com/components/aikit/suggestions",
+    "page_title": "Suggestions",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Suggestions"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:suggestions:description",
+    "section_title": "Description",
+    "content": "A Suggestions component displays a group of clickable suggestion buttons arranged in either horizontal (grid) or vertical (list) layout."
+  },
+  {
+    "page_id": "component:aikit:suggestions",
+    "url": "https://gravity-ui.com/components/aikit/suggestions",
+    "page_title": "Suggestions",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Suggestions"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:suggestions:props",
+    "section_title": "Props",
+    "content": "Suggestions has no documented props."
+  },
+  {
+    "page_id": "component:aikit:suggestions",
+    "url": "https://gravity-ui.com/components/aikit/suggestions",
+    "page_title": "Suggestions",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Suggestions"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:suggestions:import",
+    "section_title": "Import",
+    "content": "Import: import {Suggestions} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:tabs",
+    "url": "https://gravity-ui.com/components/aikit/tabs",
+    "page_title": "Tabs",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Tabs"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:tabs:description",
+    "section_title": "Description",
+    "content": "Tabs component for switching between sections with optional delete functionality. Built on top of Gravity UI's Label component."
+  },
+  {
+    "page_id": "component:aikit:tabs",
+    "url": "https://gravity-ui.com/components/aikit/tabs",
+    "page_title": "Tabs",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Tabs"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:tabs:props",
+    "section_title": "Props",
+    "content": "Tabs has no documented props."
+  },
+  {
+    "page_id": "component:aikit:tabs",
+    "url": "https://gravity-ui.com/components/aikit/tabs",
+    "page_title": "Tabs",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "Tabs"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:tabs:import",
+    "section_title": "Import",
+    "content": "Import: import {Tabs} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:thinkingmessage",
+    "url": "https://gravity-ui.com/components/aikit/thinkingmessage",
+    "page_title": "ThinkingMessage",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ThinkingMessage"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:thinkingmessage:description",
+    "section_title": "Description",
+    "content": "A message component that displays AI thinking process with collapsible content and a status indicator."
+  },
+  {
+    "page_id": "component:aikit:thinkingmessage",
+    "url": "https://gravity-ui.com/components/aikit/thinkingmessage",
+    "page_title": "ThinkingMessage",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ThinkingMessage"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:thinkingmessage:props",
+    "section_title": "Props",
+    "content": "ThinkingMessage has no documented props."
+  },
+  {
+    "page_id": "component:aikit:thinkingmessage",
+    "url": "https://gravity-ui.com/components/aikit/thinkingmessage",
+    "page_title": "ThinkingMessage",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ThinkingMessage"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:thinkingmessage:import",
+    "section_title": "Import",
+    "content": "Import: import {ThinkingMessage} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:toolfooter",
+    "url": "https://gravity-ui.com/components/aikit/toolfooter",
+    "page_title": "ToolFooter",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolFooter"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolfooter:description",
+    "section_title": "Description",
+    "content": "Footer component for tool messages with action buttons and status message"
+  },
+  {
+    "page_id": "component:aikit:toolfooter",
+    "url": "https://gravity-ui.com/components/aikit/toolfooter",
+    "page_title": "ToolFooter",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolFooter"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolfooter:props",
+    "section_title": "Props",
+    "content": "ToolFooter has no documented props."
+  },
+  {
+    "page_id": "component:aikit:toolfooter",
+    "url": "https://gravity-ui.com/components/aikit/toolfooter",
+    "page_title": "ToolFooter",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolFooter"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolfooter:import",
+    "section_title": "Import",
+    "content": "Import: import {ToolFooter} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:toolheader",
+    "url": "https://gravity-ui.com/components/aikit/toolheader",
+    "page_title": "ToolHeader",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolHeader"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolheader:description",
+    "section_title": "Description",
+    "content": "Header component for tool messages with icon, name, actions, and status indicators"
+  },
+  {
+    "page_id": "component:aikit:toolheader",
+    "url": "https://gravity-ui.com/components/aikit/toolheader",
+    "page_title": "ToolHeader",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolHeader"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolheader:props",
+    "section_title": "Props",
+    "content": "ToolHeader has no documented props."
+  },
+  {
+    "page_id": "component:aikit:toolheader",
+    "url": "https://gravity-ui.com/components/aikit/toolheader",
+    "page_title": "ToolHeader",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolHeader"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolheader:import",
+    "section_title": "Import",
+    "content": "Import: import {ToolHeader} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:toolindicator",
+    "url": "https://gravity-ui.com/components/aikit/toolindicator",
+    "page_title": "ToolIndicator",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolIndicator"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolindicator:description",
+    "section_title": "Description",
+    "content": "A status indicator component that displays different icons based on the tool execution status. Shows a loader for loading state."
+  },
+  {
+    "page_id": "component:aikit:toolindicator",
+    "url": "https://gravity-ui.com/components/aikit/toolindicator",
+    "page_title": "ToolIndicator",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolIndicator"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolindicator:props",
+    "section_title": "Props",
+    "content": "ToolIndicator has no documented props."
+  },
+  {
+    "page_id": "component:aikit:toolindicator",
+    "url": "https://gravity-ui.com/components/aikit/toolindicator",
+    "page_title": "ToolIndicator",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolIndicator"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolindicator:import",
+    "section_title": "Import",
+    "content": "Import: import {ToolIndicator} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:toolmessage",
+    "url": "https://gravity-ui.com/components/aikit/toolmessage",
+    "page_title": "ToolMessage",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolMessage"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolmessage:description",
+    "section_title": "Description",
+    "content": "Complete tool message component with automatic expand/collapse functionality and status-based behavior"
+  },
+  {
+    "page_id": "component:aikit:toolmessage",
+    "url": "https://gravity-ui.com/components/aikit/toolmessage",
+    "page_title": "ToolMessage",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolMessage"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolmessage:props",
+    "section_title": "Props",
+    "content": "ToolMessage has no documented props."
+  },
+  {
+    "page_id": "component:aikit:toolmessage",
+    "url": "https://gravity-ui.com/components/aikit/toolmessage",
+    "page_title": "ToolMessage",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolMessage"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolmessage:import",
+    "section_title": "Import",
+    "content": "Import: import {ToolMessage} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:toolstatus",
+    "url": "https://gravity-ui.com/components/aikit/toolstatus",
+    "page_title": "ToolStatus",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolStatus"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolstatus:description",
+    "section_title": "Description",
+    "content": "Component for displaying tool status with indicators and localized text"
+  },
+  {
+    "page_id": "component:aikit:toolstatus",
+    "url": "https://gravity-ui.com/components/aikit/toolstatus",
+    "page_title": "ToolStatus",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolStatus"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolstatus:props",
+    "section_title": "Props",
+    "content": "ToolStatus has no documented props."
+  },
+  {
+    "page_id": "component:aikit:toolstatus",
+    "url": "https://gravity-ui.com/components/aikit/toolstatus",
+    "page_title": "ToolStatus",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "ToolStatus"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:toolstatus:import",
+    "section_title": "Import",
+    "content": "Import: import {ToolStatus} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  },
+  {
+    "page_id": "component:aikit:usermessage",
+    "url": "https://gravity-ui.com/components/aikit/usermessage",
+    "page_title": "UserMessage",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "UserMessage"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:usermessage:description",
+    "section_title": "Description",
+    "content": "Component for rendering user message"
+  },
+  {
+    "page_id": "component:aikit:usermessage",
+    "url": "https://gravity-ui.com/components/aikit/usermessage",
+    "page_title": "UserMessage",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "UserMessage"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:usermessage:props",
+    "section_title": "Props",
+    "content": "UserMessage has no documented props."
+  },
+  {
+    "page_id": "component:aikit:usermessage",
+    "url": "https://gravity-ui.com/components/aikit/usermessage",
+    "page_title": "UserMessage",
+    "page_type": "component",
+    "library": "aikit",
+    "breadcrumbs": [
+      "aikit",
+      "UserMessage"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:aikit:usermessage:import",
+    "section_title": "Import",
+    "content": "Import: import {UserMessage} from '@gravity-ui/aikit';\nPackage: @gravity-ui/aikit"
+  }
+]

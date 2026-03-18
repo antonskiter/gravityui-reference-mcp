@@ -1,0 +1,663 @@
+{
+  "components": [
+    {
+      "name": "DataSourceProvider",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {DataSourceProvider} from '@gravity-ui/data-source';",
+      "description": "Root provider component that wraps the application with QueryClientProvider and DataManagerProvider, managing query normalization subscriptions lifecycle.",
+      "props": [
+        {
+          "name": "dataManager",
+          "type": "ClientDataManager",
+          "required": true,
+          "description": "The ClientDataManager instance that manages query client, normalization and data invalidation."
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "description": "Child components to render within the provider."
+        }
+      ],
+      "examples": [],
+      "source_file": "data-source/src/react-query/DataSourceProvider.tsx"
+    },
+    {
+      "name": "ClientDataManager",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {ClientDataManager} from '@gravity-ui/data-source';",
+      "description": "Class implementing DataManager interface. Manages QueryClient, data normalization, optimistic updates, and cache invalidation for data sources.",
+      "kind": "class",
+      "constructor": {
+        "parameters": [
+          {
+            "name": "config",
+            "type": "ClientDataManagerConfig",
+            "required": false,
+            "default": "{}",
+            "description": "Configuration extending QueryClientConfig with optional normalizerConfig."
+          }
+        ]
+      },
+      "methods": [
+        {
+          "name": "optimisticUpdate",
+          "signature": "(mutationData: Data, queryKey?: QueryKey, queryData?: Data) => void",
+          "description": "Performs optimistic update on queries affected by mutation data."
+        },
+        {
+          "name": "invalidateData",
+          "signature": "(data: Data, queryKey?: QueryKey) => void",
+          "description": "Invalidates queries affected by the given data."
+        },
+        {
+          "name": "update",
+          "signature": "(data: Data) => void",
+          "description": "Updates queries based on normalization, applying optimistic updates and/or invalidation per query meta configuration."
+        },
+        {
+          "name": "invalidateTag",
+          "signature": "(tag: DataSourceTag, invalidateOptions?: InvalidateOptions) => Promise<void>",
+          "description": "Invalidates all queries matching the given tag."
+        },
+        {
+          "name": "invalidateTags",
+          "signature": "(tags: DataSourceTag[], invalidateOptions?: InvalidateOptions) => Promise<void>",
+          "description": "Invalidates all queries matching all given tags."
+        },
+        {
+          "name": "invalidateSource",
+          "signature": "<TDataSource extends AnyDataSource>(dataSource: TDataSource, invalidateOptions?: InvalidateOptions) => Promise<void>",
+          "description": "Invalidates all queries for a given data source."
+        },
+        {
+          "name": "resetSource",
+          "signature": "<TDataSource extends AnyDataSource>(dataSource: TDataSource) => Promise<void>",
+          "description": "Resets all queries for a given data source."
+        },
+        {
+          "name": "invalidateParams",
+          "signature": "<TDataSource extends AnyDataSource>(dataSource: TDataSource, params: DataSourceParams<TDataSource>, invalidateOptions?: InvalidateOptions) => Promise<void>",
+          "description": "Invalidates queries for a data source with specific parameters."
+        },
+        {
+          "name": "resetParams",
+          "signature": "<TDataSource extends AnyDataSource>(dataSource: TDataSource, params: DataSourceParams<TDataSource>) => Promise<void>",
+          "description": "Resets queries for a data source with specific parameters."
+        },
+        {
+          "name": "invalidateSourceTags",
+          "signature": "<TDataSource extends AnyDataSource>(dataSource: TDataSource, params: DataSourceParams<TDataSource>, invalidateOptions?: InvalidateOptions) => Promise<void>",
+          "description": "Invalidates queries matching a data source's tags for given parameters."
+        }
+      ],
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/react-query/ClientDataManager.ts"
+    },
+    {
+      "name": "makePlainQueryDataSource",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {makePlainQueryDataSource} from '@gravity-ui/data-source';",
+      "description": "Factory function that creates a plain (non-paginated) query data source configuration with type 'plain'.",
+      "kind": "function",
+      "signature": "<TParams, TRequest, TResponse, TData, TError>(config: Omit<PlainQueryDataSource<TParams, TRequest, TResponse, TData, TError>, 'type'>) => PlainQueryDataSource<TParams, TRequest, TResponse, TData, TError>",
+      "parameters": [
+        {
+          "name": "config",
+          "type": "Omit<PlainQueryDataSource<TParams, TRequest, TResponse, TData, TError>, 'type'>",
+          "required": true,
+          "description": "Data source configuration with name, fetch, optional transformParams, transformResponse, tags, and options."
+        }
+      ],
+      "return_type": "PlainQueryDataSource<TParams, TRequest, TResponse, TData, TError>",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/react-query/impl/plain/factory.ts"
+    },
+    {
+      "name": "makeInfiniteQueryDataSource",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {makeInfiniteQueryDataSource} from '@gravity-ui/data-source';",
+      "description": "Factory function that creates an infinite (paginated) query data source configuration with type 'infinite'. Requires next page param resolver and optional prev page param resolver.",
+      "kind": "function",
+      "signature": "<TParams, TRequest, TResponse, TData, TError>(config: Omit<InfiniteQueryDataSource<TParams, TRequest, TResponse, TData, TError>, 'type'>) => InfiniteQueryDataSource<TParams, TRequest, TResponse, TData, TError>",
+      "parameters": [
+        {
+          "name": "config",
+          "type": "Omit<InfiniteQueryDataSource<TParams, TRequest, TResponse, TData, TError>, 'type'>",
+          "required": true,
+          "description": "Data source configuration with name, fetch, next, optional prev, transformParams, transformResponse, tags, and options."
+        }
+      ],
+      "return_type": "InfiniteQueryDataSource<TParams, TRequest, TResponse, TData, TError>",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/react-query/impl/infinite/factory.ts"
+    },
+    {
+      "name": "composePlainQueryOptions",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {composePlainQueryOptions} from '@gravity-ui/data-source';",
+      "description": "Composes TanStack Query options from a plain data source, params, and context. Produces queryKey, queryFn, select, and meta for useQuery.",
+      "kind": "function",
+      "signature": "<TDataSource extends AnyPlainQueryDataSource>(context: DataSourceContext<TDataSource>, dataSource: TDataSource, params: DataSourceParams<TDataSource>, options?: Partial<DataSourceOptions<TDataSource>>) => QueryObserverExtendedOptions<...>",
+      "parameters": [
+        {
+          "name": "context",
+          "type": "DataSourceContext<TDataSource>",
+          "required": true,
+          "description": "Query data source context containing the query client."
+        },
+        {
+          "name": "dataSource",
+          "type": "TDataSource",
+          "required": true,
+          "description": "The plain query data source."
+        },
+        {
+          "name": "params",
+          "type": "DataSourceParams<TDataSource>",
+          "required": true,
+          "description": "Parameters for the query. Pass idle symbol to skip the query."
+        },
+        {
+          "name": "options",
+          "type": "Partial<DataSourceOptions<TDataSource>>",
+          "required": false,
+          "description": "Additional query options to merge."
+        }
+      ],
+      "return_type": "QueryObserverExtendedOptions<DataSourceResponse<TDataSource>, DataSourceError<TDataSource>, DataSourceData<TDataSource>, DataSourceResponse<TDataSource>, DataSourceKey>",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/react-query/impl/plain/utils.ts"
+    },
+    {
+      "name": "composeInfiniteQueryOptions",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {composeInfiniteQueryOptions} from '@gravity-ui/data-source';",
+      "description": "Composes TanStack Query infinite query options from an infinite data source, params, and context. Produces queryKey, queryFn, select, getNextPageParam, getPreviousPageParam, and meta.",
+      "kind": "function",
+      "signature": "<TDataSource extends AnyInfiniteQueryDataSource>(context: DataSourceContext<TDataSource>, dataSource: TDataSource, params: DataSourceParams<TDataSource>, options?: Partial<DataSourceOptions<TDataSource>>) => InfiniteQueryObserverExtendedOptions<...>",
+      "parameters": [
+        {
+          "name": "context",
+          "type": "DataSourceContext<TDataSource>",
+          "required": true,
+          "description": "Query data source context containing the query client."
+        },
+        {
+          "name": "dataSource",
+          "type": "TDataSource",
+          "required": true,
+          "description": "The infinite query data source."
+        },
+        {
+          "name": "params",
+          "type": "DataSourceParams<TDataSource>",
+          "required": true,
+          "description": "Parameters for the query. Pass idle symbol to skip the query."
+        },
+        {
+          "name": "options",
+          "type": "Partial<DataSourceOptions<TDataSource>>",
+          "required": false,
+          "description": "Additional query options to merge."
+        }
+      ],
+      "return_type": "InfiniteQueryObserverExtendedOptions<DataSourceResponse<TDataSource>, DataSourceError<TDataSource>, InfiniteData<DataSourceData<TDataSource>, AnyPageParam>, DataSourceResponse<TDataSource>, DataSourceKey, AnyPageParam>",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/react-query/impl/infinite/utils.ts"
+    },
+    {
+      "name": "normalizeStatus",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {normalizeStatus} from '@gravity-ui/data-source';",
+      "description": "Converts TanStack Query status and fetchStatus into a unified DataLoaderStatus. Maps pending+fetching to 'loading', pending+idle to 'success', and passes through 'success' and 'error'.",
+      "kind": "function",
+      "signature": "(status: QueryStatus, fetchStatus: FetchStatus) => DataLoaderStatus",
+      "parameters": [
+        {
+          "name": "status",
+          "type": "QueryStatus",
+          "required": true,
+          "description": "TanStack Query status: 'pending' | 'success' | 'error'."
+        },
+        {
+          "name": "fetchStatus",
+          "type": "FetchStatus",
+          "required": true,
+          "description": "TanStack Query fetch status: 'fetching' | 'paused' | 'idle'."
+        }
+      ],
+      "return_type": "DataLoaderStatus",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/react-query/utils/normalizeStatus.ts"
+    },
+    {
+      "name": "getProgressiveRefetch",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {getProgressiveRefetch} from '@gravity-ui/data-source';",
+      "description": "Creates a progressive refetch interval function with exponential backoff. Interval = min(minInterval * multiplier^count, maxInterval).",
+      "kind": "function",
+      "signature": "<TQueryFnData, TError, TData, TQueryKey extends QueryKey>(options: ProgressiveRefetchOptions) => RefetchIntervalFunction<TQueryFnData, TError, TData, TQueryKey>",
+      "parameters": [
+        {
+          "name": "options",
+          "type": "ProgressiveRefetchOptions",
+          "required": true,
+          "description": "Options object with minInterval (number), maxInterval (number), and optional multiplier (number, defaults to 2)."
+        }
+      ],
+      "return_type": "RefetchIntervalFunction<TQueryFnData, TError, TData, TQueryKey>",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/react-query/utils/getProgressiveRefetch.ts"
+    },
+    {
+      "name": "idle",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {idle} from '@gravity-ui/data-source';",
+      "description": "Unique symbol used as a sentinel value for data source params to indicate the query should be skipped (not fetched). Preferred over the deprecated enabled option.",
+      "kind": "constant",
+      "type": "typeof idle (unique symbol)",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/core/constants.ts"
+    },
+    {
+      "name": "composeKey",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {composeKey} from '@gravity-ui/data-source';",
+      "description": "Composes a string cache key from a data source and its params. Returns 'name:idle' for idle params, or 'name(hashedParams)' otherwise.",
+      "kind": "function",
+      "signature": "<TDataSource extends AnyDataSource>(dataSource: TDataSource, params: DataSourceParams<TDataSource>) => string",
+      "parameters": [
+        {
+          "name": "dataSource",
+          "type": "TDataSource extends AnyDataSource",
+          "required": true,
+          "description": "The data source instance."
+        },
+        {
+          "name": "params",
+          "type": "DataSourceParams<TDataSource>",
+          "required": true,
+          "description": "Query parameters or idle symbol."
+        }
+      ],
+      "return_type": "string",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/core/utils/composeKey.ts"
+    },
+    {
+      "name": "composeFullKey",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {composeFullKey} from '@gravity-ui/data-source';",
+      "description": "Composes a full query key array from a data source and params, including the data source name, tags, and the composed key string.",
+      "kind": "function",
+      "signature": "<TDataSource extends AnyDataSource>(dataSource: TDataSource, params: DataSourceParams<TDataSource>) => ReadonlyArray<string>",
+      "parameters": [
+        {
+          "name": "dataSource",
+          "type": "TDataSource extends AnyDataSource",
+          "required": true,
+          "description": "The data source instance."
+        },
+        {
+          "name": "params",
+          "type": "DataSourceParams<TDataSource>",
+          "required": true,
+          "description": "Query parameters or idle symbol."
+        }
+      ],
+      "return_type": "ReadonlyArray<string>",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/core/utils/composeFullKey.ts"
+    },
+    {
+      "name": "getError",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {getError} from '@gravity-ui/data-source';",
+      "description": "Returns the first non-null error from an array of states, or null if none found.",
+      "kind": "function",
+      "signature": "<T>(states: {error: T | null}[]) => NonNullable<T> | null",
+      "parameters": [
+        {
+          "name": "states",
+          "type": "{error: T | null}[]",
+          "required": true,
+          "description": "Array of state objects with error property."
+        }
+      ],
+      "return_type": "NonNullable<T> | null",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/core/utils/getError.ts"
+    },
+    {
+      "name": "getStatus",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {getStatus} from '@gravity-ui/data-source';",
+      "description": "Merges an array of DataLoaderStatus values into a single status. Returns 'error' if any is error, 'loading' if any is loading, 'success' otherwise.",
+      "kind": "function",
+      "signature": "(states: {status: DataLoaderStatus}[]) => DataLoaderStatus",
+      "parameters": [
+        {
+          "name": "states",
+          "type": "{status: DataLoaderStatus}[]",
+          "required": true,
+          "description": "Array of state objects with status property."
+        }
+      ],
+      "return_type": "DataLoaderStatus",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/core/utils/getStatus.ts"
+    },
+    {
+      "name": "hasTag",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {hasTag} from '@gravity-ui/data-source';",
+      "description": "Checks if a data source key array contains a given tag. Skips the first element (data source name) and last element (full key) for consistency.",
+      "kind": "function",
+      "signature": "(key: DataSourceKey, tag: DataSourceTag) => boolean",
+      "parameters": [
+        {
+          "name": "key",
+          "type": "DataSourceKey",
+          "required": true,
+          "description": "The data source query key array."
+        },
+        {
+          "name": "tag",
+          "type": "DataSourceTag",
+          "required": true,
+          "description": "The tag string to search for."
+        }
+      ],
+      "return_type": "boolean",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/core/utils/hasTag.ts"
+    },
+    {
+      "name": "mergeStatuses",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {mergeStatuses} from '@gravity-ui/data-source';",
+      "description": "Merges an array of DataLoaderStatus values into a single status with priority: error > loading > success.",
+      "kind": "function",
+      "signature": "(statuses: DataLoaderStatus[]) => DataLoaderStatus",
+      "parameters": [
+        {
+          "name": "statuses",
+          "type": "DataLoaderStatus[]",
+          "required": true,
+          "description": "Array of status values to merge."
+        }
+      ],
+      "return_type": "DataLoaderStatus",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/core/utils/mergeStatuses.ts"
+    },
+    {
+      "name": "skipContext",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {skipContext} from '@gravity-ui/data-source';",
+      "description": "Wraps a fetch function to ignore the data source context and fetch context parameters. Used to adapt simple fetch functions for the data source fetch signature.",
+      "kind": "function",
+      "signature": "<TFunc extends AnyFunction>(fetch: TFunc) => (_0: unknown, _1: unknown, ...args: Parameters<TFunc>) => ReturnType<TFunc>",
+      "parameters": [
+        {
+          "name": "fetch",
+          "type": "TFunc extends AnyFunction",
+          "required": true,
+          "description": "The fetch function to wrap."
+        }
+      ],
+      "return_type": "(_0: unknown, _1: unknown, ...args: Parameters<TFunc>) => ReturnType<TFunc>",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/core/utils/skipContext.ts"
+    },
+    {
+      "name": "withCatch",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {withCatch} from '@gravity-ui/data-source';",
+      "description": "Wraps a Promise-returning function with standardized error handling. Catches errors and processes them through a provided error handler.",
+      "kind": "function",
+      "signature": "<TArgs extends unknown[], TFetchReturnType, TCatchReturnType>(fetchFn: (...args: TArgs) => Promise<TFetchReturnType>, onCatchFn: (reason: unknown) => TCatchReturnType) => (...args: TArgs) => Promise<TFetchReturnType | TCatchReturnType>",
+      "parameters": [
+        {
+          "name": "fetchFn",
+          "type": "(...args: TArgs) => Promise<TFetchReturnType>",
+          "required": true,
+          "description": "The original function that returns a Promise."
+        },
+        {
+          "name": "onCatchFn",
+          "type": "(reason: unknown) => TCatchReturnType",
+          "required": true,
+          "description": "Error handler function that processes caught errors."
+        }
+      ],
+      "return_type": "(...args: TArgs) => Promise<TFetchReturnType | TCatchReturnType>",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/core/utils/withCatch.ts"
+    },
+    {
+      "name": "withCancellation",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {withCancellation} from '@gravity-ui/data-source';",
+      "description": "Wraps a data source fetch function to support cancellation. If the fetch context has an AbortSignal and the return value is Cancellable, connects abort to cancel.",
+      "kind": "function",
+      "signature": "<TDataSource extends AnyDataSource>(fetch: TDataSource['fetch']) => TDataSource['fetch']",
+      "parameters": [
+        {
+          "name": "fetch",
+          "type": "TDataSource['fetch']",
+          "required": true,
+          "description": "The data source fetch function to wrap with cancellation support."
+        }
+      ],
+      "return_type": "TDataSource['fetch']",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/core/utils/withCancellation.ts"
+    },
+    {
+      "name": "isCancellable",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {isCancellable} from '@gravity-ui/data-source';",
+      "description": "Type guard that checks if a value implements the Cancellable interface (has a cancel method).",
+      "kind": "function",
+      "signature": "(value: unknown) => value is Cancellable",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "unknown",
+          "required": true,
+          "description": "Value to check."
+        }
+      ],
+      "return_type": "value is Cancellable",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/core/utils/withCancellation.ts"
+    },
+    {
+      "name": "isAbortable",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {isAbortable} from '@gravity-ui/data-source';",
+      "description": "Type guard that checks if a value has an AbortSignal signal property.",
+      "kind": "function",
+      "signature": "(value: unknown) => value is {signal: AbortSignal}",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "unknown",
+          "required": true,
+          "description": "Value to check."
+        }
+      ],
+      "return_type": "value is {signal: AbortSignal}",
+      "props": [],
+      "examples": [],
+      "source_file": "data-source/src/core/utils/withCancellation.ts"
+    }
+  ],
+  "hooks": [
+    {
+      "name": "useQueryData",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {useQueryData} from '@gravity-ui/data-source';",
+      "description": "Primary hook for fetching data from a data source. Supports both plain and infinite query data sources, dispatching to the appropriate implementation based on dataSource.type.",
+      "signature": "<TDataSource extends AnyQueryDataSource>(dataSource: TDataSource, params: DataSourceParams<TDataSource>, options?: Partial<DataSourceOptions<TDataSource>>) => DataSourceState<TDataSource>",
+      "parameters": [
+        {
+          "name": "dataSource",
+          "type": "TDataSource extends AnyQueryDataSource",
+          "required": true,
+          "description": "A plain or infinite query data source created via makePlainQueryDataSource or makeInfiniteQueryDataSource."
+        },
+        {
+          "name": "params",
+          "type": "DataSourceParams<TDataSource>",
+          "required": true,
+          "description": "Parameters for the query. Pass idle to skip the query."
+        },
+        {
+          "name": "options",
+          "type": "Partial<DataSourceOptions<TDataSource>>",
+          "required": false,
+          "description": "Additional query options to override data source defaults."
+        }
+      ],
+      "return_type": "DataSourceState<TDataSource>",
+      "rules_of_hooks": true,
+      "source_file": "data-source/src/react-query/hooks/useQueryData.ts"
+    },
+    {
+      "name": "useQueryContext",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {useQueryContext} from '@gravity-ui/data-source';",
+      "description": "Returns the QueryDataSourceContext containing the QueryClient instance from the nearest QueryClientProvider.",
+      "signature": "() => QueryDataSourceContext",
+      "parameters": [],
+      "return_type": "QueryDataSourceContext",
+      "rules_of_hooks": true,
+      "source_file": "data-source/src/react-query/hooks/useQueryContext.ts"
+    },
+    {
+      "name": "useQueryResponses",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {useQueryResponses} from '@gravity-ui/data-source';",
+      "description": "Combines multiple query response states into a single aggregated state with merged status, first error, refetch-all, and refetch-errored callbacks.",
+      "signature": "<TError>(responses: {status: DataLoaderStatus; error: TError | null; refetch: Function}[]) => {status: DataLoaderStatus; error: NonNullable<TError> | null; refetch: () => void; refetchErrored: () => void}",
+      "parameters": [
+        {
+          "name": "responses",
+          "type": "{status: DataLoaderStatus; error: TError | null; refetch: Function}[]",
+          "required": true,
+          "description": "Array of query response state objects to combine."
+        }
+      ],
+      "return_type": "{status: DataLoaderStatus; error: NonNullable<TError> | null; refetch: () => void; refetchErrored: () => void}",
+      "rules_of_hooks": true,
+      "source_file": "data-source/src/react-query/hooks/useQueryResponses.ts"
+    },
+    {
+      "name": "useRefetchAll",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {useRefetchAll} from '@gravity-ui/data-source';",
+      "description": "Returns a memoized callback that triggers refetch on all provided query states.",
+      "signature": "(states: {refetch: Function}[]) => () => void",
+      "parameters": [
+        {
+          "name": "states",
+          "type": "{refetch: Function}[]",
+          "required": true,
+          "description": "Array of state objects with refetch functions."
+        }
+      ],
+      "return_type": "() => void",
+      "rules_of_hooks": true,
+      "source_file": "data-source/src/react-query/hooks/useRefetchAll.ts"
+    },
+    {
+      "name": "useRefetchErrored",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {useRefetchErrored} from '@gravity-ui/data-source';",
+      "description": "Returns a memoized callback that triggers refetch only on states that have a non-null error.",
+      "signature": "<TError>(states: {error: TError | null; refetch: Function}[]) => () => void",
+      "parameters": [
+        {
+          "name": "states",
+          "type": "{error: TError | null; refetch: Function}[]",
+          "required": true,
+          "description": "Array of state objects with error and refetch properties."
+        }
+      ],
+      "return_type": "() => void",
+      "rules_of_hooks": true,
+      "source_file": "data-source/src/react-query/hooks/useRefetchErrored.ts"
+    },
+    {
+      "name": "useRefetchInterval",
+      "library": "data-source",
+      "import_path": "@gravity-ui/data-source",
+      "import_statement": "import {useRefetchInterval} from '@gravity-ui/data-source';",
+      "description": "Manages refetch interval with fetch count tracking. Wraps queryFn to count invocations and passes count to the refetchInterval function for progressive/adaptive polling.",
+      "signature": "<TQueryFnData, TError, TQueryData, TQueryKey extends QueryKey, TPageParam>(refetchInterval?: RefetchInterval<TQueryFnData, TError, TQueryData, TQueryKey>, queryFn?: QueryFunction<TQueryFnData, TQueryKey, TPageParam> | SkipToken) => UseRefetchIntervalResult<TQueryFnData, TError, TQueryData, TQueryKey, TPageParam>",
+      "parameters": [
+        {
+          "name": "refetchInterval",
+          "type": "RefetchInterval<TQueryFnData, TError, TQueryData, TQueryKey>",
+          "required": false,
+          "description": "Refetch interval value or function that receives (query, count) and returns interval or false."
+        },
+        {
+          "name": "queryFn",
+          "type": "QueryFunction<TQueryFnData, TQueryKey, TPageParam> | SkipToken",
+          "required": false,
+          "description": "Query function to wrap with fetch counting."
+        }
+      ],
+      "return_type": "UseRefetchIntervalResult<TQueryFnData, TError, TQueryData, TQueryKey, TPageParam>",
+      "rules_of_hooks": true,
+      "source_file": "data-source/src/react-query/hooks/useRefetchInterval.ts"
+    }
+  ]
+}

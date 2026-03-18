@@ -1,0 +1,26 @@
+{
+  "library": "webpack-i18n-assets-plugin",
+  "category": "config",
+  "issues": [
+    {
+      "severity": "MEDIUM",
+      "entity": "webpack-i18n-assets-plugin",
+      "message": "Missing applyPluginToWebpackConfig export. This is a significant helper function exported from the package (src/index.ts, src/webpackHelpers.ts) and documented in the README as an alternative usage pattern that also connects WebpackAssetsManifest for per-locale asset manifests."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "webpack-i18n-assets-plugin",
+      "message": "Missing plugin options documentation. The Options type (src/types.ts) defines importResolver, declarationResolver, replacer, and collectUnusedKeys, all documented in the README under Settings. None are mentioned in the data file."
+    },
+    {
+      "severity": "LOW",
+      "entity": "webpack-i18n-assets-plugin",
+      "message": "Missing exported framework helpers: gravityI18nImportResolver, gravityI18nDeclarationResolver, gravityI18nReplacer. These are the default resolver/replacer implementations for @gravity-ui/i18n and are exported from the package index."
+    },
+    {
+      "severity": "LOW",
+      "entity": "webpack-i18n-assets-plugin",
+      "message": "Missing constraint: if any custom function (importResolver, declarationResolver, replacer) is provided, all three must be provided together. This validation rule (src/types.ts:76-83) is important for correct usage."
+    }
+  ]
+}

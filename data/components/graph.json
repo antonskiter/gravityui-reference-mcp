@@ -1,0 +1,699 @@
+{
+  "components": [
+    {
+      "name": "GraphBlockAnchor",
+      "description": "Renders an anchor (connection point) for a graph block, positioning it on the canvas and managing selection/raised state",
+      "import_statement": "import { GraphBlockAnchor } from '@gravity-ui/graph';",
+      "props": [
+        {
+          "name": "graph",
+          "type": "Graph",
+          "required": true,
+          "default": null,
+          "description": "Graph instance"
+        },
+        {
+          "name": "anchor",
+          "type": "TAnchor",
+          "required": true,
+          "default": null,
+          "description": "Anchor data object"
+        },
+        {
+          "name": "position",
+          "type": "\"absolute\" | \"fixed\"",
+          "required": true,
+          "default": "\"fixed\"",
+          "description": "CSS position mode for anchor placement"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "default": null,
+          "description": "Additional CSS class name"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode | ((anchorState: AnchorState) => React.ReactNode)",
+          "required": false,
+          "default": null,
+          "description": "Render content or render function receiving anchor state"
+        }
+      ]
+    },
+    {
+      "name": "GraphBlock",
+      "description": "Base block component for rendering HTML blocks via React. Creates a container for the graph block, correctly places it on the canvas, updates geometry and z-index when state changes. By default hides canvas block automatically when React renders the block.",
+      "import_statement": "import { GraphBlock } from '@gravity-ui/graph';",
+      "props": [
+        {
+          "name": "graph",
+          "type": "Graph",
+          "required": true,
+          "default": null,
+          "description": "Graph instance"
+        },
+        {
+          "name": "block",
+          "type": "T extends TBlock",
+          "required": true,
+          "default": null,
+          "description": "Block instance"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "default": null,
+          "description": "Class name for wrapper div. Applied to the inner wrapper div around block content."
+        },
+        {
+          "name": "containerClassName",
+          "type": "string",
+          "required": false,
+          "default": null,
+          "description": "Class name for container div. Applied to the outer container div for position and size."
+        },
+        {
+          "name": "autoHideCanvas",
+          "type": "boolean",
+          "required": false,
+          "default": "true",
+          "description": "Flag to hide canvas block automatically when React renders the block. Set to false to manage canvas block visibility manually."
+        },
+        {
+          "name": "canvasVisible",
+          "type": "boolean",
+          "required": false,
+          "default": null,
+          "description": "Flag to manage visibility of canvas block. Use with autoHideCanvas=false for manual visibility control."
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "default": null,
+          "description": "Block content to render inside the wrapper"
+        }
+      ]
+    },
+    {
+      "name": "Block",
+      "description": "Internal memo component that renders a single block using a render function and block state",
+      "import_statement": "import { Block } from '@gravity-ui/graph';",
+      "props": [
+        {
+          "name": "blockState",
+          "type": "BlockState<TBlock>",
+          "required": true,
+          "default": null,
+          "description": "Reactive block state object"
+        },
+        {
+          "name": "graphObject",
+          "type": "Graph",
+          "required": true,
+          "default": null,
+          "description": "Graph instance"
+        },
+        {
+          "name": "renderBlock",
+          "type": "<T extends TBlock>(graphObject: Graph, block: T, blockState: BlockState<T>) => React.JSX.Element",
+          "required": true,
+          "default": null,
+          "description": "Render function for the block content"
+        }
+      ]
+    },
+    {
+      "name": "BlocksList",
+      "description": "Optimized list component that renders visible blocks at the detailed zoom level. Uses viewport culling and Set-based diffing for performance.",
+      "import_statement": "import { BlocksList } from '@gravity-ui/graph';",
+      "props": [
+        {
+          "name": "graphObject",
+          "type": "Graph",
+          "required": true,
+          "default": null,
+          "description": "Graph instance"
+        },
+        {
+          "name": "renderBlock",
+          "type": "TRenderBlockFn",
+          "required": true,
+          "default": null,
+          "description": "Render function called for each visible block"
+        }
+      ]
+    },
+    {
+      "name": "GraphCanvas",
+      "description": "Main graph container component. Attaches the graph to the DOM, sets up event handlers, manages colors, and renders the React layer portal.",
+      "import_statement": "import { GraphCanvas } from '@gravity-ui/graph';",
+      "props": [
+        {
+          "name": "graph",
+          "type": "Graph",
+          "required": true,
+          "default": null,
+          "description": "Graph instance"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "default": null,
+          "description": "CSS class for the graph wrapper"
+        },
+        {
+          "name": "blockListClassName",
+          "type": "string",
+          "required": false,
+          "default": null,
+          "description": "CSS class for the block list container"
+        },
+        {
+          "name": "renderBlock",
+          "type": "TRenderBlockFn",
+          "required": false,
+          "default": null,
+          "description": "Render function for blocks"
+        },
+        {
+          "name": "reactLayerRef",
+          "type": "React.MutableRefObject<ReactLayer | null>",
+          "required": false,
+          "default": null,
+          "description": "Ref to access the internal ReactLayer instance"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false,
+          "default": null,
+          "description": "Additional React elements to render inside the graph wrapper"
+        }
+      ]
+    },
+    {
+      "name": "GraphContextProvider",
+      "description": "React context provider that makes a Graph instance available to child components via useGraphContext",
+      "import_statement": "import { GraphContextProvider } from '@gravity-ui/graph';",
+      "props": [
+        {
+          "name": "graph",
+          "type": "Graph",
+          "required": true,
+          "default": null,
+          "description": "Graph instance to provide via context"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": true,
+          "default": null,
+          "description": "Child elements that can access the graph context"
+        }
+      ]
+    },
+    {
+      "name": "GraphLayer",
+      "description": "Declarative component for adding existing Layer classes to the graph. Provides a React-friendly way to register and manage graph layers.",
+      "import_statement": "import { GraphLayer } from '@gravity-ui/graph';",
+      "props": [
+        {
+          "name": "layer",
+          "type": "TLayer extends Constructor<Layer>",
+          "required": true,
+          "default": null,
+          "description": "Layer constructor class"
+        },
+        {
+          "name": "props",
+          "type": "LayerPublicProps<TLayer>",
+          "required": false,
+          "default": null,
+          "description": "Props to pass to layer constructor"
+        },
+        {
+          "name": "ref",
+          "type": "React.Ref<LayerInstanceForConstructor<TLayer>>",
+          "required": false,
+          "default": null,
+          "description": "Ref to access layer instance"
+        }
+      ]
+    },
+    {
+      "name": "GraphPortal",
+      "description": "Declarative component for creating HTML layers using render prop pattern. Creates an internal Layer with an HTML element and renders React components through React Portal without needing a separate Layer class.",
+      "import_statement": "import { GraphPortal } from '@gravity-ui/graph';",
+      "props": [
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "default": null,
+          "description": "Additional CSS classes for layer"
+        },
+        {
+          "name": "zIndex",
+          "type": "number",
+          "required": false,
+          "default": null,
+          "description": "Layer position on Z axis"
+        },
+        {
+          "name": "transformByCameraPosition",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Whether HTML element should follow camera position"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode | ((layer: GraphPortalLayer, graph: Graph) => React.ReactNode)",
+          "required": true,
+          "default": null,
+          "description": "Static content or render function receiving the layer and graph instances"
+        }
+      ]
+    }
+  ],
+  "hooks": [
+    {
+      "name": "useGraph",
+      "signature": "useGraph(config: HookGraphParams): { graph: Graph; api: PublicGraphApi; setSettings: Function; start: Function; stop: Function; setViewConfiguration: Function; addLayer: Function; setEntities: Function; updateEntities: Function; zoomTo: Function }",
+      "description": "Creates and manages a Graph instance with configuration, settings, and convenience methods for controlling the graph lifecycle",
+      "parameters": [
+        {
+          "name": "config",
+          "type": "HookGraphParams",
+          "required": true,
+          "description": "Graph configuration including settings, layers, viewConfiguration, and optional existing graph instance"
+        }
+      ],
+      "return_type": "{ graph: Graph; api: PublicGraphApi; setSettings: Function; start: Function; stop: Function; setViewConfiguration: Function; addLayer: Function; setEntities: Function; updateEntities: Function; zoomTo: Function }",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useLayer",
+      "signature": "useLayer<T extends Constructor<Layer>>(graph: Graph | null, layerCtor: T, props: LayerPublicProps<T>): InstanceType<T> | null",
+      "description": "Manages graph layers with automatic initialization, cleanup on unmount, and deep props comparison to optimize re-renders",
+      "parameters": [
+        {
+          "name": "graph",
+          "type": "Graph | null",
+          "required": true,
+          "description": "Graph instance"
+        },
+        {
+          "name": "layerCtor",
+          "type": "T extends Constructor<Layer>",
+          "required": true,
+          "description": "Layer class constructor"
+        },
+        {
+          "name": "props",
+          "type": "LayerPublicProps<T>",
+          "required": true,
+          "description": "Layer properties (excluding internal props like root, camera, graph, emitter)"
+        }
+      ],
+      "return_type": "InstanceType<T> | null",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useSignal",
+      "signature": "useSignal<T>(signal: Signal<T>): T",
+      "description": "Subscribes to a Preact signal and returns its current value, re-rendering the component when the signal changes",
+      "parameters": [
+        {
+          "name": "signal",
+          "type": "Signal<T>",
+          "required": true,
+          "description": "Signal to subscribe to"
+        }
+      ],
+      "return_type": "T",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useComputedSignal",
+      "signature": "useComputedSignal<T>(compute: () => T, deps: DependencyList): T",
+      "description": "Subscribes to a computed signal derived from a compute function and dependency list",
+      "parameters": [
+        {
+          "name": "compute",
+          "type": "() => T",
+          "required": true,
+          "description": "Computed function to subscribe to"
+        },
+        {
+          "name": "deps",
+          "type": "DependencyList",
+          "required": true,
+          "description": "Dependencies that trigger recomputation"
+        }
+      ],
+      "return_type": "T",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useSignalEffect",
+      "signature": "useSignalEffect(effectFn: () => void, deps: DependencyList): void",
+      "description": "Runs a side effect that tracks signal dependencies, re-executing when tracked signals or deps change",
+      "parameters": [
+        {
+          "name": "effectFn",
+          "type": "() => void",
+          "required": true,
+          "description": "Effect function that accesses signals"
+        },
+        {
+          "name": "deps",
+          "type": "DependencyList",
+          "required": true,
+          "description": "Dependencies that recreate the effect when they change"
+        }
+      ],
+      "return_type": "void",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useGraphEvent",
+      "signature": "useGraphEvent<Event extends keyof GraphEventsDefinitions>(graph: Graph | null, event: Event, cb: (data: UnwrapGraphEventsDetail<Event>, event: UnwrapGraphEvents<Event>) => void, debounceParams?: { priority?: ESchedulerPriority; frameInterval?: number; frameTimeout?: number }): void",
+      "description": "Subscribes to a graph event with automatic cleanup and optional debouncing via the scheduler",
+      "parameters": [
+        {
+          "name": "graph",
+          "type": "Graph | null",
+          "required": true,
+          "description": "Graph instance"
+        },
+        {
+          "name": "event",
+          "type": "Event extends keyof GraphEventsDefinitions",
+          "required": true,
+          "description": "Event name to subscribe to"
+        },
+        {
+          "name": "cb",
+          "type": "(data: UnwrapGraphEventsDetail<Event>, event: UnwrapGraphEvents<Event>) => void",
+          "required": true,
+          "description": "Callback receiving event detail and the full event"
+        },
+        {
+          "name": "debounceParams",
+          "type": "{ priority?: ESchedulerPriority; frameInterval?: number; frameTimeout?: number }",
+          "required": false,
+          "description": "Optional debounce configuration for the event handler"
+        }
+      ],
+      "return_type": "void",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useGraphEvents",
+      "signature": "useGraphEvents(graph: Graph | null, events: Partial<TGraphEventCallbacks>): void",
+      "description": "Subscribes to multiple graph events at once using a callback map with automatic cleanup",
+      "parameters": [
+        {
+          "name": "graph",
+          "type": "Graph | null",
+          "required": true,
+          "description": "Graph instance"
+        },
+        {
+          "name": "events",
+          "type": "Partial<TGraphEventCallbacks>",
+          "required": true,
+          "description": "Object mapping event callback names to handler functions"
+        }
+      ],
+      "return_type": "void",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useBlockState",
+      "signature": "useBlockState<T extends TBlock>(graph: Graph, block: T | T[\"id\"]): BlockState<T> | undefined",
+      "description": "Returns the reactive BlockState for a given block or block ID, re-rendering when the block state changes",
+      "parameters": [
+        {
+          "name": "graph",
+          "type": "Graph",
+          "required": true,
+          "description": "Graph instance"
+        },
+        {
+          "name": "block",
+          "type": "T | T[\"id\"]",
+          "required": true,
+          "description": "Block instance or block ID"
+        }
+      ],
+      "return_type": "BlockState<T> | undefined",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useSyncBlockState",
+      "signature": "useSyncBlockState<T extends TBlock>(graph: Graph, block: T | T[\"id\"]): BlockState<T> | undefined",
+      "description": "Returns the current BlockState synchronously without subscribing to signal updates",
+      "parameters": [
+        {
+          "name": "graph",
+          "type": "Graph",
+          "required": true,
+          "description": "Graph instance"
+        },
+        {
+          "name": "block",
+          "type": "T | T[\"id\"]",
+          "required": true,
+          "description": "Block instance or block ID"
+        }
+      ],
+      "return_type": "BlockState<T> | undefined",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useBlockViewState",
+      "signature": "useBlockViewState<T extends TBlock>(graph: Graph, block: T | T[\"id\"]): ViewComponent | undefined",
+      "description": "Returns the view component for a block, providing access to the visual/rendering state",
+      "parameters": [
+        {
+          "name": "graph",
+          "type": "Graph",
+          "required": true,
+          "description": "Graph instance"
+        },
+        {
+          "name": "block",
+          "type": "T | T[\"id\"]",
+          "required": true,
+          "description": "Block instance or block ID"
+        }
+      ],
+      "return_type": "ViewComponent | undefined",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useBlockAnchorState",
+      "signature": "useBlockAnchorState(graph: Graph, anchor: TAnchor): AnchorState | undefined",
+      "description": "Returns the reactive AnchorState for a given anchor, looking it up via the parent block state",
+      "parameters": [
+        {
+          "name": "graph",
+          "type": "Graph",
+          "required": true,
+          "description": "Graph instance"
+        },
+        {
+          "name": "anchor",
+          "type": "TAnchor",
+          "required": true,
+          "description": "Anchor data object"
+        }
+      ],
+      "return_type": "AnchorState | undefined",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useBlockAnchorPosition",
+      "signature": "useBlockAnchorPosition(state: AnchorState | undefined, anchorContainerRef: React.MutableRefObject<HTMLDivElement> | undefined): void",
+      "description": "Syncs an anchor's position CSS variables to its container element based on the anchor view component position",
+      "parameters": [
+        {
+          "name": "state",
+          "type": "AnchorState | undefined",
+          "required": true,
+          "description": "Anchor state to track position from"
+        },
+        {
+          "name": "anchorContainerRef",
+          "type": "React.MutableRefObject<HTMLDivElement> | undefined",
+          "required": true,
+          "description": "Ref to the anchor container DOM element"
+        }
+      ],
+      "return_type": "void",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useSceneChange",
+      "signature": "useSceneChange(graph: Graph, fn: () => void): void",
+      "description": "Subscribes to scene updates triggered by camera changes or component position changes, with scheduler-based debouncing",
+      "parameters": [
+        {
+          "name": "graph",
+          "type": "Graph",
+          "required": true,
+          "description": "Graph instance"
+        },
+        {
+          "name": "fn",
+          "type": "() => void",
+          "required": true,
+          "description": "Function to handle scene updates"
+        }
+      ],
+      "return_type": "void",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useSchedulerDebounce",
+      "signature": "useSchedulerDebounce<T extends (...args: Parameters<T>) => void>(fn: T, options: TDebounceOptions): T & { cancel: () => void }",
+      "description": "Creates a debounced function that delays execution until both frame count and time conditions are met",
+      "parameters": [
+        {
+          "name": "fn",
+          "type": "T extends (...args: Parameters<T>) => void",
+          "required": true,
+          "description": "The function to debounce"
+        },
+        {
+          "name": "options",
+          "type": "TDebounceOptions",
+          "required": true,
+          "description": "Configuration with priority, frameInterval, and frameTimeout"
+        }
+      ],
+      "return_type": "T & { cancel: () => void }",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useSchedulerThrottle",
+      "signature": "useSchedulerThrottle<T extends (...args: Parameters<T>) => void>(fn: T, options: TDebounceOptions): T & { cancel: () => void }",
+      "description": "Creates a throttled function that limits execution frequency based on frame count and time conditions",
+      "parameters": [
+        {
+          "name": "fn",
+          "type": "T extends (...args: Parameters<T>) => void",
+          "required": true,
+          "description": "The function to throttle"
+        },
+        {
+          "name": "options",
+          "type": "TDebounceOptions",
+          "required": true,
+          "description": "Configuration with priority, frameInterval, and frameTimeout"
+        }
+      ],
+      "return_type": "T & { cancel: () => void }",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useScheduledTask",
+      "signature": "useScheduledTask<T extends TSchedulerTaskFn>(fn: T, options: Omit<TScheduleOptions, \"once\">): void",
+      "description": "Schedules a task for execution after a specified number of frames, with automatic cleanup on unmount",
+      "parameters": [
+        {
+          "name": "fn",
+          "type": "T extends TSchedulerTaskFn",
+          "required": true,
+          "description": "The function to schedule for execution"
+        },
+        {
+          "name": "options",
+          "type": "Omit<TScheduleOptions, \"once\">",
+          "required": true,
+          "description": "Configuration with priority and frameInterval"
+        }
+      ],
+      "return_type": "void",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useGraphContext",
+      "signature": "useGraphContext(): GraphContextType",
+      "description": "Returns the Graph instance from the nearest GraphCanvas context. Throws if used outside of GraphCanvas.",
+      "parameters": [],
+      "return_type": "GraphContextType",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useElk",
+      "signature": "useElk(config: ElkNode, elk: InstanceType<typeof ELK>, args?: ElkLayoutArguments & { onError?: (e: Error) => void }): { result: ConverterResult | null; isLoading: boolean }",
+      "description": "Computes ELK graph layout asynchronously and returns the converted result with loading state",
+      "parameters": [
+        {
+          "name": "config",
+          "type": "ElkNode",
+          "required": true,
+          "description": "ELK node configuration"
+        },
+        {
+          "name": "elk",
+          "type": "InstanceType<typeof ELK>",
+          "required": true,
+          "description": "ELK instance"
+        },
+        {
+          "name": "args",
+          "type": "ElkLayoutArguments & { onError?: (e: Error) => void }",
+          "required": false,
+          "description": "Optional layout arguments and error handler"
+        }
+      ],
+      "return_type": "{ result: ConverterResult | null; isLoading: boolean }",
+      "import_path": "@gravity-ui/graph",
+      "library": "graph",
+      "rules_of_hooks": true
+    }
+  ]
+}

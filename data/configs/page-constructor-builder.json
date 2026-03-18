@@ -1,0 +1,7 @@
+{
+  "library": "page-constructor-builder",
+  "npm_package": "@gravity-ui/page-constructor-builder",
+  "description": "A command-line utility for building static pages from YAML configurations using the @gravity-ui/page-constructor package.",
+  "how_to_use": "Install the package, add `page-builder build` as a build script in package.json, create a `page-builder.config.yml` specifying input/output/assets/theme options, and define pages as YAML files with `meta` and `blocks` sections. Run `npm run build` to generate static HTML files.",
+  "readme": "# Page Constructor Builder\n\nA powerful command-line utility for building static pages from YAML configurations using the [@gravity-ui/page-constructor](https://github.com/gravity-ui/page-constructor) package. See [page-constructor storybook](https://preview.gravity-ui.com/page-constructor/) for configuration details.\n\n## Quick Start\n\n1. **Install package:**\n\n```bash\nnpm install @gravity-ui/page-constructor-builder\n```"
+}

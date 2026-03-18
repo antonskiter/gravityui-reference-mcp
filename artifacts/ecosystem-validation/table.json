@@ -1,0 +1,146 @@
+{
+  "library": "table",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "entity": "ActionsCell",
+      "message": "Not part of public API. ActionsCell is not exported from the package entry point (src/index.ts) and cannot be imported from '@gravity-ui/table'. It is an internal component."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BaseSort",
+      "message": "Not part of public API. BaseSort is not exported from the components barrel (components/index.ts) nor from the package entry point (src/index.ts). It is an internal component used by BaseHeaderCell."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "RowLink",
+      "message": "Wrong export name. The component is exported as 'ExperimentalRowLink', not 'RowLink'. The import statement should be: import { ExperimentalRowLink } from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useColumnsAutoSize",
+      "message": "Wrong export name. The hook is exported as 'experimentalUseColumnsAutoSize', not 'useColumnsAutoSize'. The import statement should be: import { experimentalUseColumnsAutoSize } from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useDraggableRowStyle",
+      "message": "Not part of public API. useDraggableRowStyle is not exported from the package entry point (src/index.ts). It is only in the internal hooks barrel."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useSortableList",
+      "message": "Not part of public API. useSortableList is not exported from the package entry point (src/index.ts). It is only in the internal hooks barrel."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useRowSelectionFixedHandler",
+      "message": "Not part of public API. useRowSelectionFixedHandler is not exported from the package entry point (src/index.ts). It is only in the internal hooks barrel."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BaseCell",
+      "message": "Not part of public API. BaseCell is exported from the components barrel but NOT from the package entry point (src/index.ts). Cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BaseDraggableRow",
+      "message": "Not part of public API. BaseDraggableRow is exported from the components barrel but NOT from the package entry point (src/index.ts). Cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BaseFooterCell",
+      "message": "Not part of public API. BaseFooterCell is exported from the components barrel but NOT from the package entry point (src/index.ts). Cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BaseFooterRow",
+      "message": "Not part of public API. BaseFooterRow is exported from the components barrel but NOT from the package entry point (src/index.ts). Cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BaseHeaderCell",
+      "message": "Not part of public API. BaseHeaderCell is exported from the components barrel but NOT from the package entry point (src/index.ts). Cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BaseHeaderRow",
+      "message": "Not part of public API. BaseHeaderRow is exported from the components barrel but NOT from the package entry point (src/index.ts). Cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BaseResizeHandle",
+      "message": "Not part of public API. BaseResizeHandle is exported from the components barrel but NOT from the package entry point (src/index.ts). Cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BaseRow",
+      "message": "Not part of public API. BaseRow is exported from the components barrel but NOT from the package entry point (src/index.ts). Cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BaseSortIndicator",
+      "message": "Not part of public API. BaseSortIndicator is exported from the components barrel but NOT from the package entry point (src/index.ts). Cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "DragHandle",
+      "message": "Not part of public API. DragHandle is exported from the components barrel but NOT from the package entry point (src/index.ts). Cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "RowActions",
+      "message": "Not part of public API. RowActions is exported from the components barrel but NOT from the package entry point (src/index.ts). Cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "SelectionCheckbox",
+      "message": "Not part of public API. SelectionCheckbox is exported from the components barrel but NOT from the package entry point (src/index.ts). Cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "SortableList",
+      "message": "Not part of public API. SortableList is exported from the components barrel but NOT from the package entry point (src/index.ts). Cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "SortableListDndContext",
+      "message": "Not part of public API. SortableListDndContext is exported from the components barrel but NOT from the package entry point (src/index.ts). Cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "BaseGroupHeader",
+      "message": "Not part of public API as a component (only type BaseGroupHeaderProps is exported from package entry). BaseGroupHeader component cannot be imported from '@gravity-ui/table'."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "SelectionCheckbox",
+      "message": "Props are incomplete. SelectionCheckbox extends CheckboxProps from @gravity-ui/uikit via React.forwardRef, accepting all Checkbox props (size, qa, title, value, etc.), not just the 5 listed (className, checked, indeterminate, onChange, disabled)."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "RangedSelectionCheckbox",
+      "message": "Props are incomplete. RangedSelectionCheckbox extends Omit<CheckboxProps, 'onChange'>, so it accepts all CheckboxProps except onChange (checked, indeterminate, disabled, size, qa, etc.), not just cellContext and className."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "RowLink",
+      "message": "Props are incomplete. RowLink accepts all props from the GravityUI Link component (Parameters<typeof Link>[0]), not just href. This includes children, target, rel, className, etc."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "Table",
+      "message": "Props are incomplete. Table extends BaseTableProps, so it inherits all BaseTable props (stickyHeader, stickyFooter, withHeader, withFooter, emptyContent, rowVirtualizer, renderGroupHeader, etc.) in addition to its own size/verticalAlign props. Only 12 of ~40+ props are listed."
+    },
+    {
+      "severity": "LOW",
+      "entity": "BaseSort",
+      "message": "Props are incomplete. BaseSort extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'className' | 'onClick'>, so it accepts all span HTML attributes in addition to header, className, and children."
+    },
+    {
+      "severity": "LOW",
+      "entity": "BaseDraggableRow",
+      "message": "Props description is slightly misleading. BaseDraggableRow extends BaseRowProps (inheriting all BaseRow props), not just the 6 props listed. The interface is: BaseDraggableRowProps<TData> extends BaseRowProps<TData>."
+    }
+  ]
+}

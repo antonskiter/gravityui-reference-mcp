@@ -1,0 +1,51 @@
+{
+  "library": "date-components",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "MEDIUM",
+      "entity": "RangeDatePicker",
+      "message": "Missing prop 'parseDateFromString'. RangeDatePickerProps = DatePickerProps<RangeValue<DateTime>> which extends DatePickerStateOptions -> DateFieldBase, which includes parseDateFromString: (dateStr: string, format: string, timeZone?: string) => DateTime."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "RangeDateField",
+      "message": "Missing prop 'errorPlacement'. RangeDateFieldProps extends DateFieldProps which includes Validation (Pick<TextInputBaseProps, 'validationState' | 'errorMessage' | 'errorPlacement'>)."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "RangeDatePicker",
+      "message": "Missing prop 'errorPlacement'. RangeDatePickerProps extends DatePickerStateOptions -> DateFieldBase -> Validation, which includes errorPlacement."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "RelativeDatePicker",
+      "message": "Missing prop 'errorPlacement'. RelativeDatePickerProps extends RelativeDatePickerStateOptions -> DateFieldBase -> Validation, which includes errorPlacement."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "RelativeRangeDatePicker",
+      "message": "Missing prop 'errorPlacement'. RelativeRangeDatePickerProps extends Validation directly (types.ts line 60), which includes errorPlacement."
+    },
+    {
+      "severity": "LOW",
+      "entity": "DateField",
+      "message": "Prop 'errorPlacement' type listed as 'string' but actual type is from uikit TextInputProps which is a more specific union type ('outside' | 'inside')."
+    },
+    {
+      "severity": "LOW",
+      "entity": "DatePicker",
+      "message": "Prop 'errorPlacement' type listed as 'string' but actual type is from uikit TextInputProps which is a more specific union type ('outside' | 'inside')."
+    },
+    {
+      "severity": "LOW",
+      "entity": "RelativeDateField",
+      "message": "Prop 'errorPlacement' type listed as 'string' but actual type is from uikit TextInputProps which is a more specific union type ('outside' | 'inside')."
+    },
+    {
+      "severity": "LOW",
+      "entity": "Calendar",
+      "message": "Description mentions 'quarters' as a display layout but quarters mode is disabled by default (defaultModes in useCalendarState.ts has quarters: false). Description could note quarters are opt-in."
+    }
+  ]
+}

@@ -1,0 +1,386 @@
+{
+  "batch_id": "navigation-1",
+  "libraries": ["navigation"],
+  "issues": [
+    {
+      "component": "AsideHeader",
+      "library": "navigation",
+      "prop": "renderFooterAfter",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'renderFooterAfter' (optional, '(options?: {setCollapseBlocker?: SetCollapseBlocker}) => React.ReactNode') exists in AsideHeaderGeneralProps but is absent from data JSON"
+    },
+    {
+      "component": "AsideHeader",
+      "library": "navigation",
+      "prop": "onClosePanel",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'onClosePanel' (optional, '() => void') exists in AsideHeaderGeneralProps but is absent from data JSON"
+    },
+    {
+      "component": "AsideHeader",
+      "library": "navigation",
+      "prop": "onMenuMoreClick",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'onMenuMoreClick' (optional, '() => void') exists in AsideHeaderGeneralProps but is absent from data JSON"
+    },
+    {
+      "component": "AsideHeader",
+      "library": "navigation",
+      "prop": "onAllPagesClick",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'onAllPagesClick' (optional, '() => void') exists in AsideHeaderGeneralProps but is absent from data JSON"
+    },
+    {
+      "component": "AsideHeader",
+      "library": "navigation",
+      "prop": "openModalSubscriber",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'openModalSubscriber' (optional, '(subscriber: OpenModalSubscriber) => void') exists in AsideHeaderGeneralProps but is absent from data JSON"
+    },
+    {
+      "component": "AsideHeader",
+      "library": "navigation",
+      "prop": "onMenuGroupsChanged",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'onMenuGroupsChanged' (optional, '(groups: MenuGroup[]) => void') exists in AsideHeaderDefaultProps but is absent from data JSON"
+    },
+    {
+      "component": "AsideHeader",
+      "library": "navigation",
+      "prop": "qa",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'qa' (optional string from QAProps) exists in AsideHeaderGeneralProps via QAProps but is absent from data JSON"
+    },
+    {
+      "component": "AsideHeader",
+      "library": "navigation",
+      "prop": "renderFooter",
+      "issue_type": "type_mismatch",
+      "severity": "HIGH",
+      "detail": "Source type includes 'isCompactMode?: boolean' in the data parameter: '(data: {size: number; isExpanded: boolean; isPinned: boolean; asideRef: React.RefObject<HTMLDivElement>; isCompactMode?: boolean}) => ...' but data JSON omits 'isCompactMode' from the parameter shape"
+    },
+    {
+      "component": "Footer",
+      "library": "navigation",
+      "prop": "copyright",
+      "issue_type": "required_mismatch",
+      "severity": "MEDIUM",
+      "detail": "Source FooterProps defines 'copyright: string' (required, no '?'), but data JSON has 'required: false'"
+    },
+    {
+      "component": "Logo",
+      "library": "navigation",
+      "prop": "pinned",
+      "issue_type": "phantom_prop",
+      "severity": "HIGH",
+      "detail": "Data JSON lists 'pinned' prop but it does not exist in the Logo source interface (Props extends LogoProps). The relevant state is controlled via 'isExpanded' which is an internal prop not in public LogoProps."
+    },
+    {
+      "component": "Logo",
+      "library": "navigation",
+      "prop": "buttonWrapperClassName",
+      "issue_type": "phantom_prop",
+      "severity": "HIGH",
+      "detail": "Data JSON lists 'buttonWrapperClassName' but the source Logo Props has 'iconPlaceClassName' (for icon place) and 'buttonClassName' (for the button), neither matches 'buttonWrapperClassName'"
+    },
+    {
+      "component": "Logo",
+      "library": "navigation",
+      "prop": "text",
+      "issue_type": "required_mismatch",
+      "severity": "MEDIUM",
+      "detail": "Source LogoProps defines 'text: (() => React.ReactNode) | string' (required, no '?'), but data JSON has 'required: false'"
+    },
+    {
+      "component": "MobileHeader",
+      "library": "navigation",
+      "prop": "logo",
+      "issue_type": "required_mismatch",
+      "severity": "MEDIUM",
+      "detail": "Source MobileHeaderProps defines 'logo: LogoProps' (required), but data JSON has 'required: false'"
+    },
+    {
+      "component": "MobileHeader",
+      "library": "navigation",
+      "prop": "burgerMenu",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'burgerMenu' (required, BurgerMenuProps) is defined in source MobileHeaderProps but completely absent from data JSON"
+    },
+    {
+      "component": "MobileHeader",
+      "library": "navigation",
+      "prop": "menuItems",
+      "issue_type": "phantom_prop",
+      "severity": "HIGH",
+      "detail": "Data JSON lists 'menuItems: MobileMenuItem[]' as a direct prop of MobileHeader, but source MobileHeaderProps has no 'menuItems' prop. Menu items are nested under 'burgerMenu.items'."
+    },
+    {
+      "component": "MobileHeader",
+      "library": "navigation",
+      "prop": "panelItems",
+      "issue_type": "type_mismatch",
+      "severity": "HIGH",
+      "detail": "Data JSON has type 'ModalItem[]' for 'panelItems', but source defines it as 'PanelItemProps[]' (where PanelItemProps extends DrawerProps with an 'id' string)"
+    },
+    {
+      "component": "MobileHeader",
+      "library": "navigation",
+      "prop": "overlapPanel",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'overlapPanel' (optional, OverlapPanelProps) is defined in source MobileHeaderProps but absent from data JSON"
+    },
+    {
+      "component": "MobileHeader",
+      "library": "navigation",
+      "prop": "burgerCloseTitle",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'burgerCloseTitle' (optional string) is defined in source MobileHeaderProps but absent from data JSON"
+    },
+    {
+      "component": "MobileHeader",
+      "library": "navigation",
+      "prop": "burgerOpenTitle",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'burgerOpenTitle' (optional string) is defined in source MobileHeaderProps but absent from data JSON"
+    },
+    {
+      "component": "MobileHeader",
+      "library": "navigation",
+      "prop": "topAlert",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'topAlert' (optional, TopAlertProps) is defined in source MobileHeaderProps but absent from data JSON"
+    },
+    {
+      "component": "MobileHeader",
+      "library": "navigation",
+      "prop": "renderContent",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'renderContent' (optional, RenderContentType) is defined in source MobileHeaderProps but absent from data JSON"
+    },
+    {
+      "component": "MobileHeader",
+      "library": "navigation",
+      "prop": "sideItemRenderContent",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'sideItemRenderContent' (optional, RenderContentType) is defined in source MobileHeaderProps but absent from data JSON"
+    },
+    {
+      "component": "MobileHeader",
+      "library": "navigation",
+      "prop": "onEvent",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'onEvent' (optional, '(itemName: string, eventName: MobileHeaderEvent) => void') is defined in source MobileHeaderProps but absent from data JSON"
+    },
+    {
+      "component": "MobileHeader",
+      "library": "navigation",
+      "prop": "onClosePanel",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'onClosePanel' (optional, '() => void') is defined in source MobileHeaderProps but absent from data JSON"
+    },
+    {
+      "component": "MobileHeader",
+      "library": "navigation",
+      "prop": "contentClassName",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'contentClassName' (optional string) is defined in source MobileHeaderProps but absent from data JSON"
+    },
+    {
+      "component": "MobileLogo",
+      "library": "navigation",
+      "prop": "text",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'text' (required via LogoProps, '(() => React.ReactNode) | string') exists in MobileLogoProps via LogoProps but is absent from data JSON (only 'isExpanded' is documented)"
+    },
+    {
+      "component": "MobileLogo",
+      "library": "navigation",
+      "prop": "className",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'className' (optional string via LogoProps) exists in MobileLogoProps but is absent from data JSON"
+    },
+    {
+      "component": "MobileLogo",
+      "library": "navigation",
+      "prop": "icon",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'icon' (optional, IconProps['data'] via LogoProps) exists in MobileLogoProps but is absent from data JSON"
+    },
+    {
+      "component": "MobileLogo",
+      "library": "navigation",
+      "prop": "iconSrc",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'iconSrc' (optional string via LogoProps) exists in MobileLogoProps but is absent from data JSON"
+    },
+    {
+      "component": "MobileLogo",
+      "library": "navigation",
+      "prop": "iconClassName",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'iconClassName' (optional string via LogoProps) exists in MobileLogoProps but is absent from data JSON"
+    },
+    {
+      "component": "MobileLogo",
+      "library": "navigation",
+      "prop": "iconSize",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'iconSize' (optional number via LogoProps, default 32) exists in MobileLogoProps but is absent from data JSON"
+    },
+    {
+      "component": "MobileLogo",
+      "library": "navigation",
+      "prop": "textSize",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'textSize' (optional number via LogoProps, default 20) exists in MobileLogoProps but is absent from data JSON"
+    },
+    {
+      "component": "MobileLogo",
+      "library": "navigation",
+      "prop": "href",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'href' (optional string via LogoProps, default '/') exists in MobileLogoProps but is absent from data JSON"
+    },
+    {
+      "component": "MobileLogo",
+      "library": "navigation",
+      "prop": "target",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'target' (optional HTMLAttributeAnchorTarget via LogoProps, default '_self') exists in MobileLogoProps but is absent from data JSON"
+    },
+    {
+      "component": "MobileLogo",
+      "library": "navigation",
+      "prop": "wrapper",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'wrapper' (optional function via LogoProps) exists in MobileLogoProps but is absent from data JSON"
+    },
+    {
+      "component": "MobileLogo",
+      "library": "navigation",
+      "prop": "onClick",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'onClick' (optional event handler via LogoProps) exists in MobileLogoProps but is absent from data JSON"
+    },
+    {
+      "component": "Settings",
+      "library": "navigation",
+      "prop": "renderSectionRightAdornment",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'renderSectionRightAdornment' (optional, '(section: SettingsPageSection) => React.ReactNode') exists in source SettingsProps but is absent from data JSON"
+    },
+    {
+      "component": "TopAlert",
+      "library": "navigation",
+      "prop": "alert",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'alert' (optional, TopAlertProps) is defined in source TopAlert Props but data JSON has an empty props array"
+    },
+    {
+      "component": "TopAlert",
+      "library": "navigation",
+      "prop": "className",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'className' (optional string) is defined in source TopAlert Props but data JSON has an empty props array"
+    },
+    {
+      "component": "TopAlert",
+      "library": "navigation",
+      "prop": "mobileView",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'mobileView' (optional boolean, default false) is defined in source TopAlert Props but data JSON has an empty props array"
+    },
+    {
+      "component": "Title",
+      "library": "navigation",
+      "prop": null,
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component 'Title' exists in vendor/navigation/src/components/Title/ and is exported from the library index (components/index.ts) but has no entry in data/components/navigation.json"
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "ActionBar",
+      "source": "ActionBar is used as a container that organizes navigation elements into sections and groups. Props interface: DOMProps & QAProps & PropsWithChildren<{'aria-label'?: string}>.",
+      "data": "ActionBar is a flexible horizontal bar that provides a standardized layout for arranging navigation elements, actions, and informational content within an application. It serves as a container for organizing UI elements like breadcrumbs, buttons, and dropdown menus into defined sections and groups."
+    },
+    {
+      "component": "AsideHeader",
+      "source": "AsideHeader is a React.forwardRef component accepting AsideHeaderProps (AsideHeaderGeneralProps + LayoutProps + Partial<AsideHeaderDefaultProps>). It composes PageLayout and PageLayoutAside internally. Props include pinned (required), className, topAlert, isCompactMode, logo, menuItems, panelItems, renderContent, renderFooter, renderFooterAfter, collapseButtonWrapper, editMenuProps, onChangePinned, onClosePanel, onMenuMoreClick, onAllPagesClick, openModalSubscriber, onMenuGroupsChanged, and more.",
+      "data": "AsideHeader provides a flexible and customizable navigation experience within your application. Users can easily customize the appearance of the sidebar to match their branding colors and add personalized links and icons."
+    },
+    {
+      "component": "Content",
+      "source": "Content is a layout helper component that sets a CSS size variable on a wrapper div and conditionally renders via renderContent function or children. Props: size (required number), className, cssSizeVariableName (default '--gn-aside-header-size'), renderContent, children.",
+      "data": "No description field in data JSON entry."
+    },
+    {
+      "component": "Footer",
+      "source": "Footer is the desktop page footer component (FC<FooterProps>). FooterProps: className?, menuItems?, withDivider?, moreButtonTitle?, onMoreButtonClick?, view? ('normal'|'clear', default 'normal'), logo?, logoWrapperClassName?, copyright (required string).",
+      "data": "The page footer component for desktop. Use Footer for the desktop version and MobileFooter for the mobile version."
+    },
+    {
+      "component": "HotkeysPanel",
+      "source": "HotkeysPanel is a generic function component (HotkeysPanel<T>) rendering a Drawer with a searchable list of hotkey groups. Required props: hotkeys (HotkeysGroup<T>[]), open (boolean). Optional: title, togglePanelHotkey, filterable (default true), filterPlaceholder, emptyState, onClose, className, drawerItemClassName, filterClassName, titleClassName, itemContentClassName, listClassName, leftOffset, topOffset, style, platform, container, hideVeil, plus ListProps passthrough.",
+      "data": "A navigation panel for hotkeys documentation. The panel displays a set of hotkeys for your application with a description of their purpose."
+    },
+    {
+      "component": "Logo",
+      "source": "Logo is an FC<Props> where Props extends LogoProps and adds placement ('header'|'footer', required internally), isCompactMode?, isExpanded?, buttonClassName?, iconPlaceClassName?. LogoProps: text (required), className?, icon?, iconSrc?, iconClassName?, iconSize?, textSize? (default 15), href?, target? (default '_self'), wrapper?, onClick?, aria-label?, aria-labelledby?.",
+      "data": "Logo icon is wrapped in UIKit Button, text is wrapped in HTML tag a or div, when passing hasWrapper prop."
+    },
+    {
+      "component": "MobileHeader",
+      "source": "MobileHeader is a React.forwardRef component with MobileHeaderProps: logo (required LogoProps), burgerMenu (required BurgerMenuProps), overlapPanel?, burgerCloseTitle?, burgerOpenTitle?, panelItems? (PanelItemProps[]), topAlert?, renderContent?, sideItemRenderContent?, onEvent?, onClosePanel?, className?, contentClassName?.",
+      "data": "Header for Mobile navigation. MobileHeader provides maintaining Panels except for Modals."
+    },
+    {
+      "component": "MobileLogo",
+      "source": "MobileLogo is an FC<MobileLogoProps> where MobileLogoProps extends LogoProps and adds isExpanded (required boolean). Full set of props: text (required via LogoProps), isExpanded (required), icon?, iconSrc?, iconClassName?, iconSize? (default 32), textSize? (default 20), href? (default '/'), target? (default '_self'), wrapper?, onClick?, className?.",
+      "data": "No description field in data JSON entry."
+    },
+    {
+      "component": "Settings",
+      "source": "Settings is a function component accepting SettingsProps: children (required), title?, filterPlaceholder?, emptyPlaceholder?, initialPage?, initialSearch?, selection?, onPageChange?, renderNotFound?, renderLoading?, loading?, view? ('normal'|'mobile'), onClose?, renderRightAdornment?, renderSectionRightAdornment?, showRightAdornmentOnHover?. Also exposes Settings.Group, Settings.Page, Settings.Section, Settings.Item subcomponents.",
+      "data": "The Settings component provides layouting functionality of settings panel with features including single-level and two-level grouping of items, filtering of the panel's content by headers of items, and displaying of loading status and content."
+    },
+    {
+      "component": "TopAlert",
+      "source": "TopAlert is an FC<Props> where Props = {alert?: TopAlertProps; className?: string; mobileView?: boolean}. Renders an Alert or custom render function. All three props are optional.",
+      "data": "No description field in data JSON entry."
+    }
+  ]
+}

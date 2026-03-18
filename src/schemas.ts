@@ -173,3 +173,47 @@ export const RecipeDefSchema = z.object({
   tags: z.array(z.string()),
   sections: z.array(RecipeSectionSchema),
 });
+
+export const HookDefSchema = z.object({
+  name: z.string(),
+  signature: z.string(),
+  parameters: z.array(z.object({
+    name: z.string(),
+    type: z.string(),
+    description: z.string().optional(),
+  })),
+  return_type: z.string(),
+  import_path: z.string(),
+  library: z.string(),
+  rules_of_hooks: z.literal(true),
+});
+
+export const AssetDefSchema = z.object({
+  name: z.string(),
+  import_path: z.string(),
+  library: z.string(),
+  category: z.string().optional(),
+});
+
+export const ApiFunctionDefSchema = z.object({
+  name: z.string(),
+  kind: z.enum(['function', 'class', 'type', 'interface', 'enum', 'const']),
+  signature: z.string(),
+  parameters: z.array(z.object({
+    name: z.string(),
+    type: z.string(),
+    description: z.string().optional(),
+  })),
+  return_type: z.string().optional(),
+  description: z.string().optional(),
+  import_path: z.string(),
+  library: z.string(),
+});
+
+export const ConfigDocSchema = z.object({
+  library: z.string(),
+  npm_package: z.string(),
+  description: z.string(),
+  how_to_use: z.string(),
+  readme: z.string(),
+});

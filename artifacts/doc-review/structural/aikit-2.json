@@ -1,0 +1,798 @@
+{
+  "batch_id": "aikit-2",
+  "libraries": ["aikit"],
+  "issues": [
+    {
+      "component": "Disclaimer",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "children",
+      "expected_type": "React.ReactNode",
+      "expected_required": false,
+      "message": "Prop 'children' exists in source (via React.PropsWithChildren) but is absent from data JSON"
+    },
+    {
+      "component": "Disclaimer",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'className' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Disclaimer",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "text",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'text' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Disclaimer",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "variant",
+      "expected_type": "TextProps['variant']",
+      "expected_required": false,
+      "message": "Prop 'variant' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Disclaimer",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'qa' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "icon",
+      "expected_type": "React.ReactNode",
+      "expected_required": false,
+      "message": "Prop 'icon' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "title",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'title' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "preview",
+      "expected_type": "React.ReactNode",
+      "expected_required": false,
+      "message": "Prop 'preview' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "baseActions",
+      "expected_type": "HeaderAction[]",
+      "expected_required": false,
+      "message": "Prop 'baseActions' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "handleNewChat",
+      "expected_type": "() => void",
+      "expected_required": false,
+      "message": "Prop 'handleNewChat' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "handleHistoryToggle",
+      "expected_type": "() => void",
+      "expected_required": false,
+      "message": "Prop 'handleHistoryToggle' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "handleFolding",
+      "expected_type": "(value: 'collapsed' | 'opened') => void",
+      "expected_required": false,
+      "message": "Prop 'handleFolding' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "handleClose",
+      "expected_type": "() => void",
+      "expected_required": false,
+      "message": "Prop 'handleClose' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "additionalActions",
+      "expected_type": "Action[]",
+      "expected_required": false,
+      "message": "Prop 'additionalActions' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "historyButtonRef",
+      "expected_type": "React.RefObject<HTMLElement>",
+      "expected_required": false,
+      "message": "Prop 'historyButtonRef' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "foldingState",
+      "expected_type": "'collapsed' | 'opened'",
+      "expected_required": false,
+      "message": "Prop 'foldingState' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "titlePosition",
+      "expected_type": "'left' | 'center'",
+      "expected_required": false,
+      "message": "Prop 'titlePosition' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "withIcon",
+      "expected_type": "boolean",
+      "expected_required": false,
+      "message": "Prop 'withIcon' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showTitle",
+      "expected_type": "boolean",
+      "expected_required": false,
+      "message": "Prop 'showTitle' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'className' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "chats",
+      "expected_type": "ChatType[]",
+      "expected_required": true,
+      "message": "Required prop 'chats' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "selectedChat",
+      "expected_type": "ChatType | null",
+      "expected_required": false,
+      "message": "Prop 'selectedChat' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onSelectChat",
+      "expected_type": "(chat: ChatType) => void",
+      "expected_required": false,
+      "message": "Prop 'onSelectChat' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onDeleteChat",
+      "expected_type": "(chat: ChatType) => void",
+      "expected_required": false,
+      "message": "Prop 'onDeleteChat' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onLoadMore",
+      "expected_type": "(() => void) | OnLoadMoreLazy",
+      "expected_required": false,
+      "message": "Prop 'onLoadMore' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "hasMore",
+      "expected_type": "boolean",
+      "expected_required": false,
+      "message": "Prop 'hasMore' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "loadMode",
+      "expected_type": "HistoryLoadMode",
+      "expected_required": false,
+      "message": "Prop 'loadMode' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "searchable",
+      "expected_type": "boolean",
+      "expected_required": false,
+      "message": "Prop 'searchable' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "groupBy",
+      "expected_type": "'date' | 'none'",
+      "expected_required": false,
+      "message": "Prop 'groupBy' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showActions",
+      "expected_type": "boolean",
+      "expected_required": false,
+      "message": "Prop 'showActions' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "emptyPlaceholder",
+      "expected_type": "React.ReactNode",
+      "expected_required": false,
+      "message": "Prop 'emptyPlaceholder' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "emptyFilteredPlaceholder",
+      "expected_type": "React.ReactNode",
+      "expected_required": false,
+      "message": "Prop 'emptyFilteredPlaceholder' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'className' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "filterFunction",
+      "expected_type": "ChatFilterFunction",
+      "expected_required": false,
+      "message": "Prop 'filterFunction' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "loading",
+      "expected_type": "boolean",
+      "expected_required": false,
+      "message": "Prop 'loading' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "size",
+      "expected_type": "InputControlSize",
+      "expected_required": false,
+      "message": "Prop 'size' (inherited from HistoryListProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'qa' (inherited from HistoryListProps via QAProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "style",
+      "expected_type": "React.CSSProperties",
+      "expected_required": false,
+      "message": "Prop 'style' (inherited from HistoryListProps via DOMProps) exists in source but is absent from data JSON"
+    },
+    {
+      "component": "MessageBalloon",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "children",
+      "expected_type": "React.ReactNode",
+      "expected_required": true,
+      "message": "Required prop 'children' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "MessageBalloon",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'className' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "MessageBalloon",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'qa' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "view",
+      "expected_type": "'full' | 'simple'",
+      "expected_required": false,
+      "message": "Prop 'view' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onSend",
+      "expected_type": "(data: TSubmitData) => Promise<void>",
+      "expected_required": true,
+      "message": "Required prop 'onSend' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onCancel",
+      "expected_type": "() => Promise<void>",
+      "expected_required": false,
+      "message": "Prop 'onCancel' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "initialValue",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'initialValue' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "disabled",
+      "expected_type": "boolean",
+      "expected_required": false,
+      "message": "Prop 'disabled' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "status",
+      "expected_type": "ChatStatus",
+      "expected_required": false,
+      "message": "Prop 'status' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "maxLength",
+      "expected_type": "number",
+      "expected_required": false,
+      "message": "Prop 'maxLength' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "headerProps",
+      "expected_type": "PromptInputHeaderConfig",
+      "expected_required": false,
+      "message": "Prop 'headerProps' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "bodyProps",
+      "expected_type": "PromptInputBodyConfig",
+      "expected_required": false,
+      "message": "Prop 'bodyProps' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "footerProps",
+      "expected_type": "PromptInputFooterConfig",
+      "expected_required": false,
+      "message": "Prop 'footerProps' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "suggestionsProps",
+      "expected_type": "PromptInputSuggestionsConfig",
+      "expected_required": false,
+      "message": "Prop 'suggestionsProps' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "topPanel",
+      "expected_type": "PromptInputPanelConfig",
+      "expected_required": false,
+      "message": "Prop 'topPanel' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "bottomPanel",
+      "expected_type": "PromptInputPanelConfig",
+      "expected_required": false,
+      "message": "Prop 'bottomPanel' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'className' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'qa' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputFooter",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "submitButton",
+      "expected_type": "SubmitButtonProps",
+      "expected_required": true,
+      "message": "Required prop 'submitButton' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputFooter",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showSettings",
+      "expected_type": "boolean",
+      "expected_required": false,
+      "message": "Prop 'showSettings' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputFooter",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onSettingsClick",
+      "expected_type": "() => void",
+      "expected_required": false,
+      "message": "Prop 'onSettingsClick' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputFooter",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showAttachment",
+      "expected_type": "boolean",
+      "expected_required": false,
+      "message": "Prop 'showAttachment' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputFooter",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onAttachmentClick",
+      "expected_type": "() => void",
+      "expected_required": false,
+      "message": "Prop 'onAttachmentClick' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputFooter",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showMicrophone",
+      "expected_type": "boolean",
+      "expected_required": false,
+      "message": "Prop 'showMicrophone' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputFooter",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onMicrophoneClick",
+      "expected_type": "() => void",
+      "expected_required": false,
+      "message": "Prop 'onMicrophoneClick' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputFooter",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "children",
+      "expected_type": "ReactNode",
+      "expected_required": false,
+      "message": "Prop 'children' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputFooter",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'className' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputFooter",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "buttonSize",
+      "expected_type": "ButtonButtonProps['size']",
+      "expected_required": false,
+      "message": "Prop 'buttonSize' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputFooter",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'qa' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputHeader",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "contextItems",
+      "expected_type": "ContextItemConfig[]",
+      "expected_required": false,
+      "message": "Prop 'contextItems' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputHeader",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showContextIndicator",
+      "expected_type": "boolean",
+      "expected_required": false,
+      "message": "Prop 'showContextIndicator' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputHeader",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "contextIndicatorProps",
+      "expected_type": "ContextIndicatorProps",
+      "expected_required": false,
+      "message": "Prop 'contextIndicatorProps' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputHeader",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "children",
+      "expected_type": "ReactNode",
+      "expected_required": false,
+      "message": "Prop 'children' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputHeader",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'className' exists in source but is absent from data JSON"
+    },
+    {
+      "component": "PromptInputHeader",
+      "library": "aikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "expected_type": "string",
+      "expected_required": false,
+      "message": "Prop 'qa' exists in source but is absent from data JSON"
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "Disclaimer",
+      "library": "aikit",
+      "source_description": "Disclaimer component displays informational or warning messages",
+      "data_description": "A Disclaimer component displays informational or warning messages"
+    },
+    {
+      "component": "EmptyContainer",
+      "library": "aikit",
+      "source_description": "EmptyContainer component - displays a welcome screen with image, title, description, and suggestions",
+      "data_description": "A template component for displaying a welcome screen with image, title, description, and suggestions."
+    },
+    {
+      "component": "Header",
+      "library": "aikit",
+      "source_description": "Header component for displaying chat header with navigation and actions",
+      "data_description": "Header component for displaying chat header with navigation and actions."
+    },
+    {
+      "component": "History",
+      "library": "aikit",
+      "source_description": "History component - wraps HistoryList in a Popup",
+      "data_description": "A comprehensive chat history component that displays a list of chats in a popup with integrated search, grouping, and action capabilities."
+    },
+    {
+      "component": "IntersectionContainer",
+      "library": "aikit",
+      "source_description": "Wrapper component for Intersection Observer API",
+      "data_description": "Wrapper component for Intersection Observer API. Used for automatic loading of previous messages when scrolling up in `MessageList`."
+    },
+    {
+      "component": "Loader",
+      "library": "aikit",
+      "source_description": "Loader visualizes loading state",
+      "data_description": "A Loader visualizes loading state"
+    },
+    {
+      "component": "MessageBalloon",
+      "library": "aikit",
+      "source_description": "Visual wrapper component for message content",
+      "data_description": "Visual wrapper for user's message"
+    },
+    {
+      "component": "PromptInput",
+      "library": "aikit",
+      "source_description": "PromptInput component - a flexible input component for chat interfaces with support for simple and full views, attachments, suggestions, and expandable panels",
+      "data_description": "A flexible input component for chat interfaces with support for simple and full views, expandable panels, attachments, suggestions, and more."
+    },
+    {
+      "component": "PromptInputFooter",
+      "library": "aikit",
+      "source_description": "PromptInputFooter component displays the footer section with action icons and submit button",
+      "data_description": "A footer component for prompt input that displays action icons (settings, attachment, microphone) and a submit button."
+    },
+    {
+      "component": "PromptInputHeader",
+      "library": "aikit",
+      "source_description": "PromptInputHeader component displays the header section of prompt input with optional context items on the left, context indicator on the right, or custom content",
+      "data_description": "A header component for prompt input that displays context items, context indicator, or custom content."
+    }
+  ]
+}

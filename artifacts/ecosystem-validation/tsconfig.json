@@ -1,0 +1,11 @@
+{
+  "library": "tsconfig",
+  "category": "config",
+  "issues": [
+    {
+      "severity": "LOW",
+      "entity": "tsconfig",
+      "message": "Data file does not document the actual compilerOptions provided by the shared config (e.g., target: es2017, module: commonjs, strict: true, esModuleInterop: true, skipLibCheck: true, etc.). While the vendor README also omits these, including key options would help users understand what they inherit."
+    }
+  ]
+}

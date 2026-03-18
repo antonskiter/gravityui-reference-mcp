@@ -1,0 +1,386 @@
+{
+  "batch_id": "uikit-3",
+  "libraries": ["uikit"],
+  "issues": [
+    {
+      "component": "Label",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "closeButtonLabel",
+      "details": "LabelProps declares closeButtonLabel?: string for the aria-label of the close button. Not present in JSON."
+    },
+    {
+      "component": "Label",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "copyButtonLabel",
+      "details": "LabelProps declares copyButtonLabel?: string for the aria-label of the copy button. Not present in JSON."
+    },
+    {
+      "component": "Label",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "title",
+      "details": "LabelProps declares title?: string for the browser native tooltip. Not present in JSON."
+    },
+    {
+      "component": "Label",
+      "library": "uikit",
+      "issue_type": "type_mismatch",
+      "severity": "HIGH",
+      "prop": "value",
+      "details": "Source declares value?: React.ReactNode, but JSON has type 'string'. The prop accepts arbitrary React nodes, not just strings."
+    },
+    {
+      "component": "Label",
+      "library": "uikit",
+      "issue_type": "type_mismatch",
+      "severity": "HIGH",
+      "prop": "onCloseClick",
+      "details": "Source declares onCloseClick?(event: React.MouseEvent<HTMLButtonElement>): void (HTMLButtonElement), but JSON has React.MouseEventHandler<HTMLElement> (HTMLElement). The element type differs."
+    },
+    {
+      "component": "Label",
+      "library": "uikit",
+      "issue_type": "phantom_prop",
+      "severity": "HIGH",
+      "prop": "style",
+      "details": "JSON lists style?: React.CSSProperties, but LabelProps only extends QAProps. There is no style prop in the source interface."
+    },
+    {
+      "component": "Link",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "extraProps",
+      "details": "LinkProps declares extraProps?: React.AnchorHTMLAttributes<HTMLAnchorElement> (deprecated). Not present in JSON."
+    },
+    {
+      "component": "Link",
+      "library": "uikit",
+      "issue_type": "phantom_prop",
+      "severity": "HIGH",
+      "prop": "href",
+      "details": "JSON lists href twice: once as required:true and once again as required:false with a different description. The duplicate required:false entry is erroneous. href is a single required prop."
+    },
+    {
+      "component": "List",
+      "library": "uikit",
+      "issue_type": "type_mismatch",
+      "severity": "HIGH",
+      "prop": "filterItem",
+      "details": "Source declares filterItem as a curried function: (filter: string) => (item: ListItemData<T>) => boolean. JSON has (filter: string, item: T) => boolean — a non-curried two-argument form. These signatures are incompatible."
+    },
+    {
+      "component": "List",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "autoFocus",
+      "details": "ListProps declares autoFocus?: boolean. Not present in JSON."
+    },
+    {
+      "component": "List",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "role",
+      "details": "ListProps declares role?: React.AriaRole for the list element ARIA role. Not present in JSON."
+    },
+    {
+      "component": "List",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onScrollToItem",
+      "details": "ListProps declares onScrollToItem?: (node: HTMLElement) => boolean. Not present in JSON."
+    },
+    {
+      "component": "List",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "filterClassName",
+      "details": "ListProps declares filterClassName?: string for CSS class on the filter container. Not present in JSON."
+    },
+    {
+      "component": "List",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onFilterEnd",
+      "details": "ListProps declares onFilterEnd?: ({items}: {items: ListItemData<T>[]}) => void. Not present in JSON."
+    },
+    {
+      "component": "List",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onFilterUpdate",
+      "details": "ListProps declares onFilterUpdate?: (filter: string) => void. Not present in JSON."
+    },
+    {
+      "component": "Loader",
+      "library": "uikit",
+      "issue_type": "phantom_prop",
+      "severity": "HIGH",
+      "prop": "style",
+      "details": "JSON lists style?: React.CSSProperties, but LoaderProps only extends QAProps. There is no style prop in the source interface."
+    },
+    {
+      "component": "NumberInput",
+      "library": "uikit",
+      "issue_type": "type_mismatch",
+      "severity": "HIGH",
+      "prop": "tabIndex",
+      "details": "BaseInputControlProps declares tabIndex?: number, but JSON has type 'string'. tabIndex is a numeric attribute."
+    },
+    {
+      "component": "PasswordInput",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "hideCopyButton",
+      "details": "PasswordInputProps declares hideCopyButton?: boolean. JSON has props: [] — all props are missing."
+    },
+    {
+      "component": "PasswordInput",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "hideRevealButton",
+      "details": "PasswordInputProps declares hideRevealButton?: boolean. Not present in JSON."
+    },
+    {
+      "component": "PasswordInput",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showCopyTooltip",
+      "details": "PasswordInputProps declares showCopyTooltip?: boolean. Not present in JSON."
+    },
+    {
+      "component": "PasswordInput",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showRevealTooltip",
+      "details": "PasswordInputProps declares showRevealTooltip?: boolean. Not present in JSON."
+    },
+    {
+      "component": "PasswordInput",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "revealValue",
+      "details": "PasswordInputProps declares revealValue?: boolean for controlled visibility state. Not present in JSON."
+    },
+    {
+      "component": "PasswordInput",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onRevealValueUpdate",
+      "details": "PasswordInputProps declares onRevealValueUpdate?: (value: boolean) => void. Not present in JSON."
+    },
+    {
+      "component": "Popover",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "returnFocus",
+      "details": "PopoverProps picks returnFocus from PopupProps (FloatingFocusManagerProps['returnFocus']). Not present in JSON."
+    },
+    {
+      "component": "Popover",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "initialFocus",
+      "details": "PopoverProps picks initialFocus from PopupProps (FloatingFocusManagerProps['initialFocus']). Not present in JSON."
+    },
+    {
+      "component": "Popover",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "disableVisuallyHiddenDismiss",
+      "details": "PopoverProps picks disableVisuallyHiddenDismiss from PopupProps. Not present in JSON."
+    },
+    {
+      "component": "Popup",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "focusOrder",
+      "details": "PopupProps declares focusOrder?: FloatingFocusManagerProps['order']. Not present in JSON."
+    },
+    {
+      "component": "Popup",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "anchorRef",
+      "details": "PopupProps declares anchorRef?: PopupAnchorRef (deprecated). Not present in JSON."
+    },
+    {
+      "component": "Popup",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "floatingContext",
+      "details": "PopupProps declares floatingContext?: FloatingRootContext<ReferenceType>. Not present in JSON."
+    },
+    {
+      "component": "Popup",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "floatingInteractions",
+      "details": "PopupProps declares floatingInteractions?: ElementProps[]. Not present in JSON."
+    },
+    {
+      "component": "Popup",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "floatingRef",
+      "details": "PopupProps declares floatingRef?: React.Ref<HTMLDivElement>. Not present in JSON."
+    },
+    {
+      "component": "Popup",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "floatingStyles",
+      "details": "PopupProps declares floatingStyles?: React.CSSProperties. Not present in JSON."
+    },
+    {
+      "component": "Popup",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "floatingClassName",
+      "details": "PopupProps declares floatingClassName?: string. Not present in JSON."
+    },
+    {
+      "component": "Popup",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onClose",
+      "details": "PopupProps declares onClose?: (event: MouseEvent | KeyboardEvent, reason: PopupCloseReason) => void (deprecated). Not present in JSON."
+    },
+    {
+      "component": "Popup",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onEscapeKeyDown",
+      "details": "PopupProps declares onEscapeKeyDown?: (event: KeyboardEvent) => void (deprecated). Not present in JSON."
+    },
+    {
+      "component": "Popup",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onOutsideClick",
+      "details": "PopupProps declares onOutsideClick?: (event: MouseEvent) => void (deprecated). Not present in JSON."
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "Label",
+      "library": "uikit",
+      "source_description": null,
+      "json_description": "A small tag or badge component used to display metadata, statuses, or categories. Supports copy, close, and info interaction types."
+    },
+    {
+      "component": "Link",
+      "library": "uikit",
+      "source_description": null,
+      "json_description": "A styled anchor element for navigation. Supports multiple visual variants and optional visited state styling."
+    },
+    {
+      "component": "List",
+      "library": "uikit",
+      "source_description": null,
+      "json_description": "A performant list component supporting virtual scrolling, filtering, sorting, and custom item rendering. Used for long lists and select-like interfaces."
+    },
+    {
+      "component": "Loader",
+      "library": "uikit",
+      "source_description": null,
+      "json_description": "An animated spinner used to indicate a loading state. Comes in three sizes."
+    },
+    {
+      "component": "Menu",
+      "library": "uikit",
+      "source_description": null,
+      "json_description": "A vertical list of menu items with optional grouping. Provides Menu.Item for individual actions and Menu.Group for labeled sections."
+    },
+    {
+      "component": "Modal",
+      "library": "uikit",
+      "source_description": null,
+      "json_description": "A base modal overlay component that renders content above the page with a backdrop. Manages focus trapping, scroll locking, and dismiss interactions."
+    },
+    {
+      "component": "NumberInput",
+      "library": "uikit",
+      "source_description": "NumberInput allow users to enter numbers into a UI.",
+      "json_description": "NumberInput allow users to enter numbers into a UI."
+    },
+    {
+      "component": "Overlay",
+      "library": "uikit",
+      "source_description": null,
+      "json_description": "The Overlay component renders an overlay over the parent element with the relative position, i.e., the parent element must have position set to relative."
+    },
+    {
+      "component": "Pagination",
+      "library": "uikit",
+      "source_description": null,
+      "json_description": "This component renders pagination."
+    },
+    {
+      "component": "Palette",
+      "library": "uikit",
+      "source_description": null,
+      "json_description": "The Palette component is used to display a grid of icons, emojis, reactions, and symbols which you can select or deselect."
+    },
+    {
+      "component": "PasswordInput",
+      "library": "uikit",
+      "source_description": null,
+      "json_description": "<!--GITHUB_BLOCK-->"
+    },
+    {
+      "component": "PinInput",
+      "library": "uikit",
+      "source_description": null,
+      "json_description": "PinInput is a group of inputs to enter sequence of numeric or alphanumeric values quickly. Its most common use case is entering OTP or confirmation codes received through text messages (SMS), emails, or authenticator apps."
+    },
+    {
+      "component": "PlaceholderContainer",
+      "library": "uikit",
+      "source_description": null,
+      "json_description": "PlaceholderContainer is a component for displaying content with an image, text content, and action controls."
+    },
+    {
+      "component": "Popover",
+      "library": "uikit",
+      "source_description": null,
+      "json_description": "The Popover component is technically the Popup with some trigger interactivity built-in. The Popover uses passed ReactElement from children property as a trigger, and opens whenever trigger is hovered or clicked."
+    },
+    {
+      "component": "Popup",
+      "library": "uikit",
+      "source_description": null,
+      "json_description": "You can use a Popup to display floating content above the page. Technically, it is a wrapper around Floating UI with some default values. To manage Popup visibility, use the open property."
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "library": "dashkit",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "entity": "GridItem",
+      "message": "GridItem is NOT publicly exported from @gravity-ui/dashkit (not in components/index.ts or src/index.ts). Data file claims it can be imported via `import { GridItem } from '@gravity-ui/dashkit'` but this is incorrect - it is an internal component."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "GridLayout",
+      "message": "GridLayout is NOT publicly exported from @gravity-ui/dashkit. Data file claims it can be imported via `import { GridLayout } from '@gravity-ui/dashkit'` but this is incorrect - it is an internal component used only by DashKitView."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "Item",
+      "message": "Item is NOT publicly exported from @gravity-ui/dashkit. Data file claims it can be imported via `import { Item } from '@gravity-ui/dashkit'` but this is incorrect - it is an internal component used only by GridItem and MobileLayout."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "MobileLayout",
+      "message": "MobileLayout is NOT publicly exported from @gravity-ui/dashkit. Data file claims it can be imported via `import { MobileLayout } from '@gravity-ui/dashkit'` but this is incorrect - it is an internal component used only by DashKitView."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "OverlayControls",
+      "message": "OverlayControls is NOT publicly exported as a component from @gravity-ui/dashkit. Only the types OverlayControlItem and PreparedCopyItemOptions are exported from OverlayControls.tsx. The component itself is an internal default export used by GridItem."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useCalcPropsLayout",
+      "message": "useCalcPropsLayout hook is NOT publicly exported from @gravity-ui/dashkit (hooks directory is not re-exported from src/index.ts). Data file claims it can be imported via `import { useCalcPropsLayout } from '@gravity-ui/dashkit'` but this is incorrect - it is an internal hook used by DashKitView."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useDeepEqualMemo",
+      "message": "useDeepEqualMemo hook is NOT publicly exported from @gravity-ui/dashkit (hooks directory is not re-exported from src/index.ts). Data file claims it can be imported via `import { useDeepEqualMemo } from '@gravity-ui/dashkit'` but this is incorrect - it is an internal utility hook."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useDnDItemProps",
+      "message": "useDnDItemProps hook is NOT publicly exported from @gravity-ui/dashkit (hooks directory is not re-exported from src/index.ts). Data file claims it can be imported via `import { useDnDItemProps } from '@gravity-ui/dashkit'` but this is incorrect - it is an internal hook used by ActionPanelItemContainer."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "Item",
+      "message": "Item component is wrapped by prepareItem HOC (`export default prepareItem(Item)`), so the actual component interface differs from the raw ItemProps. The data file documents raw inner props (registerManager, rendererProps) which are injected by the HOC, not passed by consumers."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "GridItem",
+      "message": "GridItem is exported as a forwardRef wrapper (GridItemForwarderRef) that forwards ref as forwardedRef. Data file lists props without forwardedRef but includes several missing props from the source: children, className, style, onMouseDown, onMouseUp, onTouchEnd, onTouchStart (injected by react-grid-layout)."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "GridLayout",
+      "message": "GridLayout props documented as only having `ref`. In reality it uses GridLayoutProps type (imported from ./types.ts) which is a separate interface, not just a ref. The data file materially misrepresents the component interface."
+    },
+    {
+      "severity": "LOW",
+      "entity": "DashKit",
+      "message": "Data file does not document static methods: DashKit.registerPlugins(), DashKit.reloadPlugins(), DashKit.setSettings(), DashKit.setItem(), DashKit.removeItem(), DashKit.reflowLayout(). These are important parts of the public API. Also missing instance methods: getItemsMeta(), reloadItems()."
+    },
+    {
+      "severity": "LOW",
+      "entity": "ActionPanelItemContainer",
+      "message": "Description says 'Supports drag-and-drop via useDnDItemProps hook' which is accurate, but does not mention that it also renders onClick handler and data-qa attribute from the item prop."
+    },
+    {
+      "severity": "LOW",
+      "entity": "DashKitDnDWrapper",
+      "message": "Description says 'Manages drag state and provides a custom drag image preview' which is accurate but incomplete - it also wraps children in DashKitDnDContext.Provider, which is the key mechanism enabling cross-instance DnD."
+    }
+  ]
+}

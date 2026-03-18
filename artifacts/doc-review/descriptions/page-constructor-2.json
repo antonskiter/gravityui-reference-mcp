@@ -1,0 +1,19 @@
+{
+  "batch_id": "page-constructor-2",
+  "issues": [
+    {
+      "component": "Table",
+      "library": "page-constructor",
+      "severity": "LOW",
+      "issue": "Description omits per-column alignment support, the hideLegend prop that controls legend visibility, and the caption prop used as an accessible aria-label. It also does not clarify that data is a 2D string array.",
+      "suggestion": "Table component for page-constructor that renders a data table from a 2D string array, with optional legend markers (disk or tick) and per-column alignment. The legend is shown below the table unless hideLegend is set. The caption prop is used as an accessible aria-label."
+    },
+    {
+      "component": "Title",
+      "library": "page-constructor",
+      "severity": "MEDIUM",
+      "issue": "Description states the component 'supports various text sizes', but the source describes column sizes for responsive grid layout ({all: 12, sm: 8}), not text sizes. This is a factual inaccuracy. The description also omits that the title accepts either a plain string or a TitleItemProps object, and that an id prop enables anchor linking.",
+      "suggestion": "Title component for page-constructor that renders a title and optional subtitle wrapped in a responsive grid column. Accepts the title as a plain string or a TitleItemProps object. Column sizes default to {all: 12, sm: 8}. Supports an id prop for anchor linking."
+    }
+  ]
+}

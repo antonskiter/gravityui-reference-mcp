@@ -1,0 +1,54 @@
+{
+  "batch_id": "navigation-1",
+  "issues": [
+    {
+      "component": "AsideHeader",
+      "library": "navigation",
+      "severity": "MEDIUM",
+      "issue": "Description claims users can 'customize branding colors' — no color or theme prop exists in AsideHeaderGeneralProps, AsideHeaderDefaultProps, or LayoutProps. The description also omits all functional behavior (pinned state, panel items, collapse, footer rendering) in favor of vague marketing language.",
+      "suggestion": "AsideHeader is a collapsible sidebar navigation component. It renders a logo, menu items, panel items, and footer regions. Supports pinned/expanded/compact display modes, panel open/close handling, and custom footer rendering via renderFooter and renderFooterAfter."
+    },
+    {
+      "component": "Logo",
+      "library": "navigation",
+      "severity": "MEDIUM",
+      "issue": "Description references a prop named 'hasWrapper' which does not exist in the source. The actual prop is 'wrapper' (a function that wraps the logo element). The description is built around a non-existent prop name.",
+      "suggestion": "Logo renders a brand logo with an icon and text. The icon is wrapped in a UIKit Button; the text link is rendered as an anchor or, when the 'wrapper' prop is provided, wrapped using that custom render function. Supports icon (SVG data or src URL), text, href, target, and click handler."
+    },
+    {
+      "component": "ActionBar",
+      "library": "navigation",
+      "severity": "LOW",
+      "issue": "Description introduces layout specifics ('horizontal bar') and content examples ('breadcrumbs, buttons, and dropdown menus') that are not present in the TSX source. The source only describes a container that organizes navigation elements into sections and groups with no layout direction or element-type constraints implied.",
+      "suggestion": "ActionBar is a container component for organizing navigation elements into sections and groups. Accepts standard DOM and QA props plus an aria-label and children."
+    },
+    {
+      "component": "Footer",
+      "library": "navigation",
+      "severity": "LOW",
+      "issue": "Description is accurate but omits all notable features: menuItems, logo, copyright (required), withDivider, view variants ('normal'|'clear'), and the more-button pattern.",
+      "suggestion": "Footer is the desktop page footer. It renders a logo, menu item links, a divider, and a copyright notice. Supports a 'more' overflow button, a 'clear' view variant (no background), and custom class names. Use MobileFooter for the mobile equivalent."
+    },
+    {
+      "component": "HotkeysPanel",
+      "library": "navigation",
+      "severity": "LOW",
+      "issue": "Description omits that the panel is rendered inside a Drawer and that the list is filterable/searchable (filterable prop defaults to true). These are the two most distinctive behaviors of the component beyond listing hotkeys.",
+      "suggestion": "HotkeysPanel renders a Drawer containing a searchable list of hotkey groups. Requires a hotkeys array (HotkeysGroup[]) and an open boolean. Filtering is enabled by default and can be disabled with filterable={false}. Supports custom title, empty state, close handler, and layout offset props."
+    },
+    {
+      "component": "MobileHeader",
+      "library": "navigation",
+      "severity": "LOW",
+      "issue": "Description is vague ('provides maintaining Panels except for Modals') and omits the required burger menu prop (burgerMenu: BurgerMenuProps), which is the core interactive element of the component. The phrase 'maintaining Panels except for Modals' is not meaningful to a consumer.",
+      "suggestion": "MobileHeader is a mobile navigation header. Requires logo (LogoProps) and burgerMenu (BurgerMenuProps) for the hamburger navigation drawer. Optionally supports panel items, overlap panel, top alert, custom content rendering, event callbacks, and open/close title strings for the burger control."
+    },
+    {
+      "component": "Settings",
+      "library": "navigation",
+      "severity": "LOW",
+      "issue": "Description covers filtering and grouping but omits the view prop ('normal'|'mobile'), the exposed subcomponents (Settings.Group, Settings.Page, Settings.Section, Settings.Item), and the right-adornment rendering props.",
+      "suggestion": "Settings provides the layout for a settings panel supporting single-level and two-level item grouping, content filtering, loading state, and 'normal'/'mobile' view modes. Exposes Settings.Group, Settings.Page, Settings.Section, and Settings.Item subcomponents for composing the panel structure. Also supports right-adornment slots and a close handler."
+    }
+  ]
+}

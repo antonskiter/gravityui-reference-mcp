@@ -1,0 +1,51 @@
+{
+  "library": "data-source",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "entity": "useDataManager",
+      "message": "Hook missing from data file. Exported publicly from src/react/DataManagerContext.ts via src/react/index.ts. Returns DataManager from context, throws if not provided. Signature: () => DataManager."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "DataManagerProvider",
+      "message": "Component missing from data file. Exported publicly from src/react/DataManagerProvider.tsx via src/react/index.ts. A lower-level provider (used internally by DataSourceProvider) that wraps children with DataManagerContext.Provider. Props: dataManager (DataManager, required), children (ReactNode, required)."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "DataManagerContext",
+      "message": "React context object missing from data file. Exported publicly from src/react/DataManagerContext.ts via src/react/index.ts. Created via createContext<DataManager | null>(null)."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "withDataManager",
+      "message": "HOC missing from data file. Exported publicly from src/react/withDataManager.tsx via src/react/index.ts. Injects dataManager prop into wrapped component using useDataManager hook. Signature: <T>(Component: React.ComponentType<T & WithDataManagerProps>) => React.FC<T>."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "DataLoader",
+      "message": "Component missing from data file. Exported publicly from src/react/components/DataLoader/ via src/react/index.ts. Renders LoadingView, ErrorView, or children based on DataLoaderStatus. Props: status (DataLoaderStatus), error (TError|null), errorAction (ErrorAction|handler), LoadingView (ComponentType), ErrorView (ComponentType), loadingViewProps, errorViewProps, children (ReactNode)."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "DataInfiniteLoader",
+      "message": "Component missing from data file. Exported publicly from src/react/components/DataInfiniteLoader/ via src/react/index.ts. Like DataLoader but adds infinite scroll support with MoreView. Props: status, error, errorAction, hasNextPage (boolean), fetchNextPage (()=>unknown), isFetchingNextPage (boolean), LoadingView, ErrorView, MoreView (ComponentType), loadingViewProps, errorViewProps, moreViewProps, children (ReactNode)."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useRefetchInterval",
+      "message": "Hook listed in data file but NOT exported from public API. react-query/index.ts does not export useRefetchInterval — it is an internal hook used by plain/infinite hooks internally. Should be removed from data file or marked as internal."
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "DataSourceProvider",
+      "message": "Description says 'wraps the application with QueryClientProvider and DataManagerProvider, managing query normalization subscriptions lifecycle' which is accurate. However, the data file does not mention that DataSourceProvider also manages queryNormalizer subscribe/unsubscribe/clear lifecycle in a useEffect, which is a key behavioral detail."
+    },
+    {
+      "severity": "LOW",
+      "entity": "ClientDataManager",
+      "message": "Data file omits readonly properties queryClient (QueryClient), normalizer (Normalizer|undefined), queryNormalizer (QueryNormalizer|undefined), and normalizerConfig (NormalizerConfig|boolean|undefined) that are publicly accessible on the class instance."
+    }
+  ]
+}

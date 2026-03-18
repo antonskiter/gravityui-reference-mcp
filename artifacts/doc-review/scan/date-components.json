@@ -1,0 +1,86 @@
+{
+  "library": "date-components",
+  "component_count": 11,
+  "component_paths": ["src/components"],
+  "flat_files": false,
+  "components": [
+    {
+      "name": "Calendar",
+      "library": "date-components",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/date-components/src/components/Calendar/Calendar.tsx"
+    },
+    {
+      "name": "CalendarView",
+      "library": "date-components",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/date-components/src/components/CalendarView/CalendarView.tsx"
+    },
+    {
+      "name": "DateField",
+      "library": "date-components",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/date-components/src/components/DateField/DateField.tsx"
+    },
+    {
+      "name": "DatePicker",
+      "library": "date-components",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/date-components/src/components/DatePicker/DatePicker.tsx"
+    },
+    {
+      "name": "RangeCalendar",
+      "library": "date-components",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/date-components/src/components/RangeCalendar/RangeCalendar.tsx"
+    },
+    {
+      "name": "RangeDateField",
+      "library": "date-components",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/date-components/src/components/RangeDateField/RangeDateField.tsx"
+    },
+    {
+      "name": "RangeDatePicker",
+      "library": "date-components",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/date-components/src/components/RangeDatePicker/RangeDatePicker.tsx"
+    },
+    {
+      "name": "RangeDateSelection",
+      "library": "date-components",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/date-components/src/components/RangeDateSelection/RangeDateSelection.tsx"
+    },
+    {
+      "name": "RelativeDateField",
+      "library": "date-components",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/date-components/src/components/RelativeDateField/RelativeDateField.tsx"
+    },
+    {
+      "name": "RelativeDatePicker",
+      "library": "date-components",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/date-components/src/components/RelativeDatePicker/RelativeDatePicker.tsx"
+    },
+    {
+      "name": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/date-components/src/components/RelativeRangeDatePicker/RelativeRangeDatePicker.tsx"
+    }
+  ],
+  "suggested_batches": 1
+}

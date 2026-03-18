@@ -1,0 +1,353 @@
+{
+  "library": "date-utils",
+  "npm_package": "@gravity-ui/date-utils",
+  "quickstart": "npm i @gravity-ui/date-utils\n\nimport {dateTimeParse, dateTime} from '@gravity-ui/date-utils';\n\n// parse absolute date\ndateTimeParse('2021-08-07')?.format('YYYY-MM-DDTHH:mm:ssZ');\n// parse relative date\ndateTimeParse('now-1d')?.format('YYYY-MM-DDTHH:mm:ssZ');\n// create dateTime\ndateTime({input: '2021-08-07', timeZone: 'Europe/Istanbul'}).format('YYYY-MM-DDTHH:mm:ssZ');\n// manage settings\nimport {settings} from '@gravity-ui/date-utils';\nsettings.loadLocale('de').then(() => settings.setLocale('de'));",
+  "exports": [
+    {
+      "name": "dateTime",
+      "kind": "function",
+      "signature": "dateTime(opt?: { input?: DateTimeInput; format?: FormatInput; timeZone?: TimeZone; lang?: string }): DateTime",
+      "description": "Creates a DateTime instance. Accepts optional input to parse, a strict format string, a time zone, and a locale lang. With no arguments returns current time in the default time zone.",
+      "parameters": [
+        {
+          "name": "opt",
+          "type": "{ input?: DateTimeInput; format?: FormatInput; timeZone?: TimeZone; lang?: string }",
+          "optional": true,
+          "description": "Options object. input: value to parse (string, number, Date, array, object, DateTime, null, undefined). format: strict dayjs format string. timeZone: IANA zone, 'utc', or 'browser'. lang: locale code."
+        }
+      ],
+      "return_type": "DateTime",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "dateTimeUtc",
+      "kind": "function",
+      "signature": "dateTimeUtc(opt?: { input?: DateTimeInput; format?: FormatInput; lang?: string; offset?: number }): DateTime",
+      "description": "Creates a DateTime instance with a fixed UTC offset instead of a named time zone. The offset defaults to 0 (UTC).",
+      "parameters": [
+        {
+          "name": "opt",
+          "type": "{ input?: DateTimeInput; format?: FormatInput; lang?: string; offset?: number }",
+          "optional": true,
+          "description": "Options object. input: value to parse. format: strict dayjs format string. lang: locale code. offset: UTC offset in minutes (default 0)."
+        }
+      ],
+      "return_type": "DateTime",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "isDateTime",
+      "kind": "function",
+      "signature": "isDateTime(value: unknown): value is DateTime",
+      "description": "Checks if a value is a DateTime instance.",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "unknown",
+          "description": "Value to check."
+        }
+      ],
+      "return_type": "value is DateTime",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "expandFormat",
+      "kind": "function",
+      "signature": "expandFormat(format: string, formats?: LongDateFormat): string",
+      "description": "Expands localized format tokens (L, LL, LLL, LLLL, LT, LTS and their lowercase variants) in a format string into their full representations using the provided or current locale's long date format map.",
+      "parameters": [
+        {
+          "name": "format",
+          "type": "string",
+          "description": "Format string potentially containing localized tokens."
+        },
+        {
+          "name": "formats",
+          "type": "LongDateFormat",
+          "optional": true,
+          "description": "Long date format map. Defaults to the current locale's formats."
+        }
+      ],
+      "return_type": "string",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "dateTimeParse",
+      "kind": "function",
+      "signature": "dateTimeParse(input: unknown, options?: DateTimeOptionsWhenParsing): DateTime | undefined",
+      "description": "Parses a number, text, or Date to a DateTime value. Supports absolute dates and relative date-math expressions such as 'now-6h' or 'now/d'. Returns undefined for invalid or empty input.",
+      "parameters": [
+        {
+          "name": "input",
+          "type": "unknown",
+          "description": "Value to parse: string, number, Date, array, object, DateTime, or null/undefined."
+        },
+        {
+          "name": "options",
+          "type": "DateTimeOptionsWhenParsing",
+          "optional": true,
+          "description": "Options: timeZone (IANA zone / 'utc' / 'browser'), format (strict parse format), lang (locale), roundUp (round the end of relative ranges up), allowRelative (default true; set false to reject relative expressions)."
+        }
+      ],
+      "return_type": "DateTime | undefined",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "isValid",
+      "kind": "function",
+      "signature": "isValid(value?: string | DateTime): boolean",
+      "description": "Checks whether a value is a valid date. Accepts a DateTime instance or a string parseable by dateTimeParse (including relative expressions).",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "string | DateTime",
+          "optional": true,
+          "description": "Value to validate."
+        }
+      ],
+      "return_type": "boolean",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "isLikeRelative",
+      "kind": "function",
+      "signature": "isLikeRelative(text: unknown): text is string",
+      "description": "Returns true if the value looks like a relative date expression (e.g. 'now', 'now-1d'). Uses the currently configured relative parser.",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "unknown",
+          "description": "Value to test."
+        }
+      ],
+      "return_type": "text is string",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "defaultRelativeParse",
+      "kind": "function",
+      "signature": "defaultRelativeParse(text: string, options?: { roundUp?: boolean; timeZone?: TimeZone }): DateTime | undefined",
+      "description": "The built-in relative date-math parser. Parses expressions like 'now', 'now-6h', 'now/d', 'now+1d/d'. Exported as the default implementation used by dateTimeParse.",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "Relative date expression to parse."
+        },
+        {
+          "name": "options",
+          "type": "{ roundUp?: boolean; timeZone?: TimeZone }",
+          "optional": true,
+          "description": "roundUp: round to end of unit instead of start. timeZone: override time zone."
+        }
+      ],
+      "return_type": "DateTime | undefined",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "defaultIsLikeRelative",
+      "kind": "function",
+      "signature": "defaultIsLikeRelative(text: string): boolean",
+      "description": "The built-in implementation of isLikeRelative. Returns true when the string starts with 'now'.",
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string",
+          "description": "String to test."
+        }
+      ],
+      "return_type": "boolean",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "getTimeZonesList",
+      "kind": "function",
+      "signature": "getTimeZonesList(): string[]",
+      "description": "Returns all available IANA time zone identifiers using Intl.supportedValuesOf('timeZone'). Returns an empty array if the runtime does not support the API.",
+      "parameters": [],
+      "return_type": "string[]",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "guessUserTimeZone",
+      "kind": "function",
+      "signature": "guessUserTimeZone(): string",
+      "description": "Returns the user's local IANA time zone identifier using Intl.DateTimeFormat().resolvedOptions().timeZone.",
+      "parameters": [],
+      "return_type": "string",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "isValidTimeZone",
+      "kind": "function",
+      "signature": "isValidTimeZone(zone: string): boolean",
+      "description": "Checks whether a string is a valid IANA time zone identifier. Results are cached internally.",
+      "parameters": [
+        {
+          "name": "zone",
+          "type": "string",
+          "description": "Time zone identifier to validate."
+        }
+      ],
+      "return_type": "boolean",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "timeZoneOffset",
+      "kind": "function",
+      "signature": "timeZoneOffset(zone: TimeZone, ts: number): number",
+      "description": "Returns the UTC offset in minutes for a given time zone at a specific Unix timestamp (milliseconds). Returns NaN for invalid zones or timestamps.",
+      "parameters": [
+        {
+          "name": "zone",
+          "type": "TimeZone",
+          "description": "IANA time zone, 'utc', 'browser', or 'system'."
+        },
+        {
+          "name": "ts",
+          "type": "number",
+          "description": "Unix timestamp in milliseconds."
+        }
+      ],
+      "return_type": "number",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "duration",
+      "kind": "function",
+      "signature": "duration(amount: DurationInput, unit?: DurationUnit, options?: { lang?: string }): Duration",
+      "description": "Creates a Duration instance. Accepts a number (with optional unit), an ISO 8601 duration string (e.g. 'P1Y2M3DT4H'), a duration input object, or an existing Duration. Throws on unrecognised input.",
+      "parameters": [
+        {
+          "name": "amount",
+          "type": "DurationInput",
+          "description": "Amount as number, ISO 8601 string, object, or Duration."
+        },
+        {
+          "name": "unit",
+          "type": "DurationUnit",
+          "optional": true,
+          "description": "Unit for numeric amount (e.g. 'hours', 'days'). Defaults to 'milliseconds'."
+        },
+        {
+          "name": "options",
+          "type": "{ lang?: string }",
+          "optional": true,
+          "description": "locale code for humanization."
+        }
+      ],
+      "return_type": "Duration",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "isDuration",
+      "kind": "function",
+      "signature": "isDuration(value: unknown): value is Duration",
+      "description": "Checks whether a value is a Duration instance.",
+      "parameters": [
+        {
+          "name": "value",
+          "type": "unknown",
+          "description": "Value to check."
+        }
+      ],
+      "return_type": "value is Duration",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "settings",
+      "kind": "const",
+      "signature": "settings: PublicSettings",
+      "description": "Singleton settings object that manages global configuration for all DateTime instances. Supports locale loading/setting, default time zone configuration, and custom relative parser injection.",
+      "parameters": [],
+      "return_type": "PublicSettings",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "UtcTimeZone",
+      "kind": "const",
+      "signature": "UtcTimeZone: 'UTC'",
+      "description": "Constant string 'UTC' representing the UTC time zone, for use as a timeZone argument.",
+      "parameters": [],
+      "return_type": "string",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "HTML5_INPUT_FORMATS",
+      "kind": "const",
+      "signature": "HTML5_INPUT_FORMATS: { DATETIME_LOCAL: string; DATETIME_LOCAL_SECONDS: string; DATETIME_LOCAL_MS: string; DATE: string; TIME: string; TIME_SECONDS: string; TIME_MS: string; WEEK: string; MONTH: string }",
+      "description": "Format string constants matching HTML5 date/time input element formats. Keys: DATETIME_LOCAL, DATETIME_LOCAL_SECONDS, DATETIME_LOCAL_MS, DATE, TIME, TIME_SECONDS, TIME_MS, WEEK, MONTH.",
+      "parameters": [],
+      "return_type": "object",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "DateTime",
+      "kind": "interface",
+      "signature": "interface DateTime",
+      "description": "Immutable date-time object returned by dateTime(), dateTimeUtc(), and dateTimeParse(). Provides chainable methods for arithmetic, formatting, comparison, zone switching, and all getter/setter operations for every date-time component.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "DateTimeInput",
+      "kind": "type",
+      "signature": "type DateTimeInput = InputObject | Date | string | number | Array<string | number> | DateTime | null | undefined",
+      "description": "Union type for all values accepted as date-time input by dateTime() and dateTimeParse(). Covers plain objects, native Date, ISO strings, Unix timestamps, year-month-day arrays, DateTime instances, and nullish values.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "Duration",
+      "kind": "interface",
+      "signature": "interface Duration",
+      "description": "Immutable duration object returned by duration(). Provides getters (milliseconds, seconds, minutes, hours, days, weeks, months, quarters, years), as*() total-length methods, arithmetic (add, subtract, negate), conversion (shiftTo, rescale, normalize), and formatting (format, humanize, humanizeIntl, toISOString).",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "DurationInput",
+      "kind": "type",
+      "signature": "type DurationInput = Duration | number | string | DurationInputObject | null | undefined",
+      "description": "Union type for all values accepted as duration input by duration() and DateTime arithmetic methods.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
+      "name": "DurationUnit",
+      "kind": "type",
+      "signature": "type DurationUnit = BaseUnit | QuarterUnit | WeekUnit",
+      "description": "Union of all valid duration unit strings: year/years/y, month/months/M, day/days/d, hour/hours/h, minute/minutes/m, second/seconds/s, millisecond/milliseconds/ms, quarter/quarters/Q, week/weeks/w.",
+      "parameters": [],
+      "return_type": null,
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    }
+  ]
+}

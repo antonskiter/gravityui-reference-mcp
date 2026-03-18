@@ -1,0 +1,299 @@
+{
+  "batch_id": "uikit-4",
+  "libraries": ["uikit"],
+  "issues": [
+    {
+      "component": "Row",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "details": "RowProps extends QAProps which declares qa?: string, but the JSON entry has no qa prop listed."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onClose",
+      "details": "SelectProps extends UseOpenProps which declares onClose?: () => void. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "open",
+      "details": "SelectProps extends UseOpenProps which declares open?: boolean. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "defaultOpen",
+      "details": "SelectProps extends UseOpenProps which declares defaultOpen?: boolean. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "renderControl",
+      "details": "SelectProps declares renderControl?: SelectRenderControl. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "renderFilter",
+      "details": "SelectProps declares renderFilter?: SelectRenderFilter. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "renderOption",
+      "details": "SelectProps declares renderOption?: SelectRenderOption<T>. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "renderOptionGroup",
+      "details": "SelectProps declares renderOptionGroup?: SelectRenderOptionGroup<T>. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "renderSelectedOption",
+      "details": "SelectProps declares renderSelectedOption?: (option: SelectOption<T>, index: number) => React.ReactElement. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "renderEmptyOptions",
+      "details": "SelectProps declares renderEmptyOptions?: ({filter}: {filter: string}) => React.ReactElement. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "renderPopup",
+      "details": "SelectProps declares renderPopup?: SelectRenderPopup. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "renderCounter",
+      "details": "SelectProps declares renderCounter?: SelectRenderCounter. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "getOptionHeight",
+      "details": "SelectProps declares getOptionHeight?: (option: SelectOption<T>, index: number) => number. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "getOptionGroupHeight",
+      "details": "SelectProps declares getOptionGroupHeight?: (option: SelectOptionGroup<T>, index: number) => number. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "filterOption",
+      "details": "SelectProps declares filterOption?: (option: SelectOption<T>, filter: string) => boolean. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "disablePortal",
+      "details": "SelectProps declares disablePortal?: boolean. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "virtualizationThreshold",
+      "details": "SelectProps declares virtualizationThreshold?: number. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "children",
+      "details": "SelectProps declares children for Select.Option / Select.OptionGroup elements. Not present in JSON."
+    },
+    {
+      "component": "Select",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "error",
+      "details": "SelectProps declares error?: string | boolean (deprecated). Not present in JSON."
+    },
+    {
+      "component": "Table",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onRowMouseDown",
+      "details": "TableProps declares onRowMouseDown?: (item: I, index: number, event: React.MouseEvent<HTMLTableRowElement>) => void. Not present in JSON."
+    },
+    {
+      "component": "Table",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "width",
+      "details": "TableProps declares width?: TableWidth ('auto' | 'max'). Not present in JSON."
+    },
+    {
+      "component": "Table",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "wordWrap",
+      "details": "TableProps declares wordWrap?: boolean. Not present in JSON."
+    },
+    {
+      "component": "Table",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "details": "TableProps extends QAProps which declares qa?: string. Not present in JSON."
+    },
+    {
+      "component": "Table",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "aria-label",
+      "details": "TableProps extends AriaLabelingProps which declares aria-label?: string. Not present in JSON."
+    },
+    {
+      "component": "Table",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "aria-labelledby",
+      "details": "TableProps extends AriaLabelingProps which declares aria-labelledby?: string. Not present in JSON."
+    },
+    {
+      "component": "Table",
+      "library": "uikit",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "aria-describedby",
+      "details": "TableProps extends AriaLabelingProps which declares aria-describedby?: string. Not present in JSON."
+    },
+    {
+      "component": "Table",
+      "library": "uikit",
+      "issue_type": "default_mismatch",
+      "severity": "MEDIUM",
+      "prop": "edgePadding",
+      "details": "Source sets static defaultProps = { edgePadding: true }, so default is true. JSON lists edgePadding without a default value."
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "Portal",
+      "source_description": null,
+      "json_description": "Portal is a utility component. Basically, it is a simple wrapper around React's createPortal that allows you to render children into a DOM node outside the parent component."
+    },
+    {
+      "component": "PrivateLayoutProvider",
+      "source_description": null,
+      "json_description": null
+    },
+    {
+      "component": "Progress",
+      "source_description": null,
+      "json_description": "The Progress component shows current operation progress. It can also be divided into sections."
+    },
+    {
+      "component": "Radio",
+      "source_description": null,
+      "json_description": "The Radio component allows the users to select a single option from a list of choices."
+    },
+    {
+      "component": "RadioGroup",
+      "source_description": null,
+      "json_description": "The RadioGroup component is used to create a group where users can select a single option from multiple choices."
+    },
+    {
+      "component": "Row",
+      "source_description": "Defines the margins between columns (<Col />). Required to use with <Col /> component.",
+      "json_description": "Defines the margins between columns (`<Col />`). Required to use with `<Col />` component."
+    },
+    {
+      "component": "SegmentedRadioGroup",
+      "source_description": null,
+      "json_description": "The SegmentedRadioGroup component is used to create a group of radio buttons where users can select a single option from multiple choices."
+    },
+    {
+      "component": "Select",
+      "source_description": null,
+      "json_description": "Select is a control that provides a list of options that a user can select."
+    },
+    {
+      "component": "Sheet",
+      "source_description": null,
+      "json_description": "Sheet is a component designed for using in the mobile context as an information or interactive element. You can place content of any size in it, since the internal scrolling and dynamic resizing are supported."
+    },
+    {
+      "component": "Skeleton",
+      "source_description": null,
+      "json_description": "The Skeleton component displays a placeholder preview of your content before the data gets loaded. This preview is shown in order to reduce the loading time frustration."
+    },
+    {
+      "component": "Slider",
+      "source_description": null,
+      "json_description": "The slider is a customizable and responsive React component that allows users to select a single value or a range of values from a specified data set."
+    },
+    {
+      "component": "Spin",
+      "source_description": null,
+      "json_description": "The Spin component displays the loading state (a rotating semicircle) in inline scenarios. Unlike Loader, this component is used to display the loading state in inline scenarios, e.g., in a Button or Label."
+    },
+    {
+      "component": "Stepper",
+      "source_description": null,
+      "json_description": "Stepper conveys progress through numbered steps. It provides a wizard-like workflow. Steppers display progress through a sequence of logical and numbered steps."
+    },
+    {
+      "component": "Switch",
+      "source_description": null,
+      "json_description": "The Switch component is used to toggle between two states: typically, between on and off, or enabled and disabled."
+    },
+    {
+      "component": "Table",
+      "source_description": null,
+      "json_description": "A Table allows selecting and sorting rows, as well as performing actions on a row."
+    }
+  ]
+}

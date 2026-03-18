@@ -1,0 +1,66 @@
+{
+  "library": "dialog-fields",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "MEDIUM",
+      "entity": "CustomBlock",
+      "message": "children prop marked as required:false in data but is non-optional (no ?) in source interface CustomBlockProps: children: React.ReactNode"
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "RadioButtonControl",
+      "message": "Description says 'wrapping the Gravity UI SegmentedRadioGroup' but size type in data is \"'s' | 'm' | 'l' | 'xl'\" which may not match SegmentedRadioGroupProps size. The actual size options depend on the uikit SegmentedRadioGroup component"
+    },
+    {
+      "severity": "MEDIUM",
+      "entity": "DFDialog",
+      "message": "onClose prop type in data is '(form: FormApi<FormValues, InitialFormValues>) => void' but source signature is 'onClose?: (form: FormApi<FormValues, InitialFormValues>) => void' with default '() => {}'. The source also receives a second argument: the ModalCloseReason event from the uikit Dialog onClose callback, which is not reflected in the data type"
+    },
+    {
+      "severity": "LOW",
+      "entity": "CheckBoxControl",
+      "message": "Props list is minimal (value, onChange, children) but actual interface extends Omit<CheckboxProps, 'value' | 'view' | 'checked' | 'onUpdate' | 'onChange'>, inheriting many additional props from Gravity UI Checkbox (size, disabled, indeterminate, etc.)"
+    },
+    {
+      "severity": "LOW",
+      "entity": "TextControl",
+      "message": "Props list is minimal (value, onChange, error) but actual type is ControlProps<string> & Omit<TextInputProps, keyof ControlProps<string>>, inheriting many additional props from Gravity UI TextInput (size, disabled, placeholder, hasClear, etc.)"
+    },
+    {
+      "severity": "LOW",
+      "entity": "TextAreaControl",
+      "message": "Props list is minimal (value, onChange, error) but actual type extends Omit<TextArea props, 'value' | 'ref' | 'onUpdate' | 'onChange' | 'error'>, inheriting many additional props from Gravity UI TextArea (rows, minRows, maxRows, disabled, placeholder, etc.)"
+    },
+    {
+      "severity": "LOW",
+      "entity": "SelectControl",
+      "message": "Props list is minimal (value, onChange) but actual type is Omit<SelectProps, 'onUpdate' | 'onChange'> & {onChange}, inheriting many additional props from Gravity UI Select (options, multiple, filterable, placeholder, disabled, etc.)"
+    },
+    {
+      "severity": "LOW",
+      "entity": "TumblerControl",
+      "message": "Props list is minimal (value, onChange, labelLeft, labelRight, size) but actual type extends Omit<Switch props, 'value' | 'checked' | 'onUpdate' | 'onChange'>, inheriting additional props from Gravity UI Switch (disabled, etc.)"
+    },
+    {
+      "severity": "LOW",
+      "entity": "MultiTextControl",
+      "message": "Props list is minimal but actual type extends Partial<Omit<TextInputProps, ...>>, inheriting additional optional props from Gravity UI TextInput (placeholder, size, etc.)"
+    },
+    {
+      "severity": "LOW",
+      "entity": "RadioButtonControl",
+      "message": "Props list is minimal but actual interface extends Omit<SegmentedRadioGroupProps, 'onChange' | 'value'>, inheriting additional props from Gravity UI SegmentedRadioGroup (disabled, width, etc.)"
+    },
+    {
+      "severity": "LOW",
+      "entity": "useStableEventHandler",
+      "message": "Hook filename in vendor source is misspelled as 'useStableEventHendler.ts' (Hendler vs Handler). Data correctly names it useStableEventHandler but consumers should be aware of the source typo"
+    },
+    {
+      "severity": "LOW",
+      "entity": "DeprecatedDialog",
+      "message": "Data lists empty props array. DeprecatedDialog is an alias for the internal Dialog class which accepts the same DFDialogProps interface. Listing at least a reference to DFDialogProps would be more informative"
+    }
+  ]
+}

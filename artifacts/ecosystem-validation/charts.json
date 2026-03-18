@@ -1,0 +1,66 @@
+{
+  "library": "charts",
+  "category": "component",
+  "issues": [
+    {
+      "severity": "HIGH",
+      "entity": "useAxis",
+      "message": "Hook is NOT exported from the public API. src/index.ts does not re-export from hooks/. useAxis is internal to the library and cannot be imported from '@gravity-ui/charts'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useAxisScales",
+      "message": "Hook is NOT exported from the public API. src/index.ts does not re-export from hooks/. useAxisScales is internal to the library and cannot be imported from '@gravity-ui/charts'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useBrush",
+      "message": "Hook is NOT exported from the public API. src/index.ts does not re-export from hooks/. useBrush is internal to the library and cannot be imported from '@gravity-ui/charts'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useCrosshair",
+      "message": "Hook is NOT exported from the public API. src/index.ts does not re-export from hooks/. useCrosshair is internal to the library and cannot be imported from '@gravity-ui/charts'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "usePrevious",
+      "message": "Hook is NOT exported from the public API. src/index.ts does not re-export from hooks/. usePrevious is internal to the library and cannot be imported from '@gravity-ui/charts'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useRangeSlider",
+      "message": "Hook is NOT exported from the public API. src/index.ts does not re-export from hooks/. useRangeSlider is internal to the library and cannot be imported from '@gravity-ui/charts'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useShapes",
+      "message": "Hook is NOT exported from the public API. src/index.ts does not re-export from hooks/. useShapes is internal to the library and cannot be imported from '@gravity-ui/charts'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useTooltip",
+      "message": "Hook is NOT exported from the public API. src/index.ts does not re-export from hooks/. useTooltip is internal to the library and cannot be imported from '@gravity-ui/charts'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "useZoom",
+      "message": "Hook is NOT exported from the public API. src/index.ts does not re-export from hooks/. useZoom is internal to the library and cannot be imported from '@gravity-ui/charts'."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "CustomShapeRenderer",
+      "message": "Missing from data file. CustomShapeRenderer is exported from '@gravity-ui/charts' (via src/utils/chart-ui/) but is not listed as a component, hook, or utility in the data."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "getFormattedValue",
+      "message": "Missing from data file. getFormattedValue is exported from '@gravity-ui/charts' (via src/utils/chart/format.ts) but is not listed in the data."
+    },
+    {
+      "severity": "HIGH",
+      "entity": "getDefaultTooltipHeaderFormat",
+      "message": "Missing from data file. getDefaultTooltipHeaderFormat is exported from '@gravity-ui/charts' (via src/utils/chart/tooltip.ts) but is not listed in the data."
+    }
+  ]
+}

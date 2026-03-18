@@ -1,47 +1,781 @@
-[
-  {
-    "name": "PromptSignIn",
-    "library": "blog-constructor",
-    "category": "feedback",
-    "import_path": "@gravity-ui/blog-constructor",
-    "import_statement": "import {PromptSignIn} from '@gravity-ui/blog-constructor';",
-    "description": "PromptSignIn displays a prompt encouraging unauthenticated users to sign in. It extends the uikit Prompt component with a dedicated sign-in action button. Used in blog contexts to gate interactions like comments or reactions behind authentication.",
-    "source_file": "vendor/blog-constructor/src/components/PromptSignIn/PromptSignIn.tsx",
-    "props": [
-      {
-        "name": "onClickSignIn",
-        "type": "React.EventHandler<React.SyntheticEvent>",
-        "required": false,
-        "description": "Callback when the sign-in button is clicked"
-      },
-      {
-        "name": "actions",
-        "type": "PromptAction[]",
-        "required": false,
-        "description": "Custom action buttons. Defaults to a single sign-in button"
-      },
-      {
-        "name": "className",
-        "type": "string",
-        "required": false,
-        "description": "Additional CSS class"
-      },
-      {
-        "name": "message",
-        "type": "string",
-        "required": false,
-        "description": "Prompt message text. Defaults to a localized sign-in prompt"
-      },
-      {
-        "name": "title",
-        "type": "string",
-        "required": false,
-        "description": "Prompt title text"
-      }
-    ],
-    "examples": [
-      "<PromptSignIn onClickSignIn={() => router.push('/login')} />",
-      "<PromptSignIn\n  title=\"Members only\"\n  message=\"Sign in to leave a comment\"\n  onClickSignIn={handleSignIn}\n/>"
-    ]
-  }
-]
+{
+  "components": [
+    {
+      "name": "FeedHeader",
+      "library": "blog-constructor",
+      "description": "Blog feed header with background image support, tag/service filters, search, and saved-only toggle. Combines a visual header area with interactive Controls for filtering blog posts.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {FeedHeader} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/FeedHeader/FeedHeader.tsx",
+      "props": [
+        {
+          "name": "tags",
+          "type": "SelectItem[]",
+          "required": false,
+          "description": "List of tag filter options"
+        },
+        {
+          "name": "services",
+          "type": "SelectItem[]",
+          "required": false,
+          "description": "List of service filter options"
+        },
+        {
+          "name": "handleLoadData",
+          "type": "(props: FetchArgs) => void",
+          "required": true,
+          "description": "Callback to load data when filters change"
+        },
+        {
+          "name": "offset",
+          "type": "'default' | string",
+          "required": false,
+          "default": "'default'",
+          "description": "Grid content offset"
+        },
+        {
+          "name": "background",
+          "type": "HeaderBlockProps['background']",
+          "required": false,
+          "description": "Themed background image configuration"
+        },
+        {
+          "name": "theme",
+          "type": "'light' | 'dark'",
+          "required": false,
+          "default": "'light'",
+          "description": "Visual theme"
+        },
+        {
+          "name": "verticalOffset",
+          "type": "'l' | string",
+          "required": false,
+          "default": "'l'",
+          "description": "Vertical offset size"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class"
+        },
+        {
+          "name": "queryParams",
+          "type": "Query",
+          "required": true,
+          "description": "Current URL query parameters for filter state"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": false,
+          "description": "Header title text"
+        }
+      ]
+    },
+    {
+      "name": "MetaWrapper",
+      "library": "blog-constructor",
+      "description": "Wrapper for page meta data. Optionally wraps the meta component with react-helmet's Helmet for server-side rendering support.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {MetaWrapper} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/MetaWrapper/MetaWrapper.tsx",
+      "props": [
+        {
+          "name": "needHelmetWrapper",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Whether the component needs a Helmet wrapper"
+        },
+        {
+          "name": "metaComponent",
+          "type": "JSX.Element",
+          "required": true,
+          "description": "Meta data component to render"
+        }
+      ]
+    },
+    {
+      "name": "Paginator",
+      "library": "blog-constructor",
+      "description": "Pagination component for blog post lists. Renders page numbers with navigation arrows, analytics tracking, and automatic page count calculation.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {Paginator} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/Paginator/Paginator.tsx",
+      "props": [
+        {
+          "name": "page",
+          "type": "number",
+          "required": true,
+          "description": "Current active page number"
+        },
+        {
+          "name": "totalItems",
+          "type": "number",
+          "required": true,
+          "description": "Total number of items across all pages"
+        },
+        {
+          "name": "itemsPerPage",
+          "type": "number",
+          "required": true,
+          "description": "Number of items displayed per page"
+        },
+        {
+          "name": "maxPages",
+          "type": "number",
+          "required": true,
+          "description": "Maximum number of pages to display"
+        },
+        {
+          "name": "onPageChange",
+          "type": "(page: number) => void",
+          "required": true,
+          "description": "Callback when page changes"
+        },
+        {
+          "name": "pageCountForShowSupportButtons",
+          "type": "number",
+          "required": false,
+          "default": "6",
+          "description": "Minimum page count to show prev/next navigation buttons"
+        },
+        {
+          "name": "queryParams",
+          "type": "Query",
+          "required": true,
+          "description": "URL query parameters for building page links"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class"
+        }
+      ]
+    },
+    {
+      "name": "PostCard",
+      "library": "blog-constructor",
+      "description": "Blog post card component that displays a post preview with image, title, description, tags, date, reading time, and like functionality.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {PostCard} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/PostCard/PostCard.tsx",
+      "props": [
+        {
+          "name": "post",
+          "type": "PostData",
+          "required": true,
+          "description": "Blog post data object"
+        },
+        {
+          "name": "fullWidth",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Whether the card should take full width"
+        },
+        {
+          "name": "showTag",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Whether to show the first tag label"
+        },
+        {
+          "name": "size",
+          "type": "PostCardSize",
+          "required": false,
+          "default": "PostCardSize.SMALL",
+          "description": "Card size variant ('s' | 'm')"
+        },
+        {
+          "name": "titleHeadingLevel",
+          "type": "PostCardTitleHeadingLevel",
+          "required": false,
+          "default": "PostCardTitleHeadingLevel.H3",
+          "description": "HTML heading level for the title ('h2' | 'h3')"
+        },
+        {
+          "name": "analyticsEvents",
+          "type": "AnalyticsEventsProp",
+          "required": false,
+          "description": "Analytics events configuration for the card"
+        }
+      ]
+    },
+    {
+      "name": "PostInfo",
+      "library": "blog-constructor",
+      "description": "Blog post info panel displaying date, reading time, sharing controls, save/like button, and optional extra info items.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {PostInfo} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/PostInfo/PostInfo.tsx",
+      "props": [
+        {
+          "name": "postId",
+          "type": "PostData['id']",
+          "required": true,
+          "description": "Post identifier"
+        },
+        {
+          "name": "readingTime",
+          "type": "PostData['readingTime']",
+          "required": true,
+          "description": "Post reading time in minutes"
+        },
+        {
+          "name": "date",
+          "type": "PostData['date']",
+          "required": true,
+          "description": "Post creation date"
+        },
+        {
+          "name": "theme",
+          "type": "'light' | 'dark'",
+          "required": false,
+          "default": "'light'",
+          "description": "Visual theme"
+        },
+        {
+          "name": "qa",
+          "type": "string",
+          "required": false,
+          "description": "Test attribute for QA"
+        },
+        {
+          "name": "analyticsEventsContainer",
+          "type": "Record<string, AnalyticsEventsProp>",
+          "required": false,
+          "description": "Map of analytics events for sharing and save actions"
+        }
+      ]
+    },
+    {
+      "name": "SuggestPostInfo",
+      "library": "blog-constructor",
+      "description": "Compact post info component for suggestion cards, showing date, reading time, and an optional save/like button.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {SuggestPostInfo} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/PostInfo/SuggestPostInfo.tsx",
+      "props": [
+        {
+          "name": "postId",
+          "type": "PostData['blogPostId']",
+          "required": true,
+          "description": "Post identifier"
+        },
+        {
+          "name": "date",
+          "type": "PostData['date']",
+          "required": true,
+          "description": "Post creation date"
+        },
+        {
+          "name": "readingTime",
+          "type": "PostData['readingTime']",
+          "required": true,
+          "description": "Post reading time in minutes"
+        },
+        {
+          "name": "hasUserLike",
+          "type": "PostData['hasUserLike']",
+          "required": true,
+          "description": "Whether the current user has liked the post"
+        },
+        {
+          "name": "likes",
+          "type": "{ likesCount?: number; hasUserLike?: boolean; toggleLike?: ToggleLikeCallbackType }",
+          "required": false,
+          "description": "Likes data and toggle callback"
+        },
+        {
+          "name": "size",
+          "type": "PostCardSize",
+          "required": false,
+          "default": "PostCardSize.SMALL",
+          "description": "Text size variant ('s' | 'm')"
+        },
+        {
+          "name": "qa",
+          "type": "string",
+          "required": false,
+          "description": "Test attribute for QA"
+        },
+        {
+          "name": "dateId",
+          "type": "string",
+          "required": false,
+          "description": "ID for the date element, useful for accessible descriptions"
+        },
+        {
+          "name": "readingTimeId",
+          "type": "string",
+          "required": false,
+          "description": "ID for the reading time element, useful for accessible descriptions"
+        }
+      ]
+    },
+    {
+      "name": "Posts",
+      "library": "blog-constructor",
+      "description": "Blog posts list container that renders a grid of PostCard components with pinned post support, show-more button, pagination, and loading/error states.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {Posts} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/Posts/Posts.tsx",
+      "props": [
+        {
+          "name": "containerId",
+          "type": "string",
+          "required": true,
+          "description": "HTML id for the cards container element"
+        },
+        {
+          "name": "currentPage",
+          "type": "number",
+          "required": true,
+          "description": "Current page number"
+        },
+        {
+          "name": "isShowMoreVisible",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether the 'show more' button is visible"
+        },
+        {
+          "name": "errorShowMore",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether an error occurred during 'show more' loading"
+        },
+        {
+          "name": "postCountOnPage",
+          "type": "number",
+          "required": true,
+          "description": "Total number of posts for pagination"
+        },
+        {
+          "name": "perPageInQuery",
+          "type": "number",
+          "required": true,
+          "description": "Number of posts per page used in the query"
+        },
+        {
+          "name": "isFetching",
+          "type": "boolean",
+          "required": true,
+          "description": "Whether posts are currently being fetched"
+        },
+        {
+          "name": "handleShowMore",
+          "type": "(value?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => Promise<void> | void",
+          "required": true,
+          "description": "Callback for the 'show more' button"
+        },
+        {
+          "name": "handlePageChange",
+          "type": "(value: number) => Promise<void> | void",
+          "required": true,
+          "description": "Callback when page changes"
+        },
+        {
+          "name": "postsOnPage",
+          "type": "PostData[]",
+          "required": false,
+          "description": "Array of post data for the current page"
+        },
+        {
+          "name": "pinnedPostOnPage",
+          "type": "PostData",
+          "required": false,
+          "description": "Pinned post displayed prominently on the first page"
+        },
+        {
+          "name": "pageCountForShowSupportButtons",
+          "type": "number",
+          "required": false,
+          "description": "Minimum page count to show prev/next navigation buttons in paginator"
+        },
+        {
+          "name": "queryParams",
+          "type": "Query",
+          "required": true,
+          "description": "URL query parameters for paginator links"
+        }
+      ]
+    },
+    {
+      "name": "PostsEmpty",
+      "library": "blog-constructor",
+      "description": "Empty state component displayed when no blog posts match the current filters.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {PostsEmpty} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/PostsEmpty/PostsEmpty.tsx",
+      "props": []
+    },
+    {
+      "name": "PostsError",
+      "library": "blog-constructor",
+      "description": "Error state component displayed when blog posts fail to load. Shows an error message with a retry button.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {PostsError} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/PostsError/PostsError.tsx",
+      "props": [
+        {
+          "name": "onButtonClick",
+          "type": "() => void | Promise<void>",
+          "required": false,
+          "description": "Callback for the retry button. Defaults to window.location.reload()"
+        }
+      ]
+    },
+    {
+      "name": "Prompt",
+      "library": "blog-constructor",
+      "description": "Popup that appears with a text message and action buttons. Automatically disappears after a configurable duration and resets visibility on openTimestamp change.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {Prompt} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/Prompt/Prompt.tsx",
+      "props": [
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Prompt message text"
+        },
+        {
+          "name": "actions",
+          "type": "ButtonProps[]",
+          "required": true,
+          "description": "Array of button configurations for action buttons"
+        },
+        {
+          "name": "openTimestamp",
+          "type": "number",
+          "required": false,
+          "default": "0",
+          "description": "Unix timestamp in milliseconds when the Prompt opens. Changing resets the visible duration"
+        },
+        {
+          "name": "openDuration",
+          "type": "number",
+          "required": false,
+          "description": "Milliseconds to remain visible before auto-closing"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class"
+        },
+        {
+          "name": "theme",
+          "type": "'grey' | 'beige' | 'white'",
+          "required": false,
+          "description": "Visual theme variant"
+        }
+      ]
+    },
+    {
+      "name": "PromptSignIn",
+      "library": "blog-constructor",
+      "description": "Authentication popup that appears when a user action requires login. Extends the Prompt component with a default sign-in action button.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {PromptSignIn} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/PromptSignIn/PromptSignIn.tsx",
+      "props": [
+        {
+          "name": "onClickSignIn",
+          "type": "React.EventHandler<React.SyntheticEvent>",
+          "required": false,
+          "description": "Callback when the sign-in button is clicked. Defaults to an alert."
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "required": false,
+          "description": "Prompt message text. Defaults to a localized sign-in prompt"
+        },
+        {
+          "name": "actions",
+          "type": "ButtonProps[]",
+          "required": false,
+          "description": "Action buttons. Defaults to a single sign-in button"
+        },
+        {
+          "name": "openTimestamp",
+          "type": "number",
+          "required": false,
+          "default": "0",
+          "description": "Unix timestamp in milliseconds when the Prompt opens"
+        },
+        {
+          "name": "openDuration",
+          "type": "number",
+          "required": false,
+          "description": "Milliseconds to remain visible"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class"
+        },
+        {
+          "name": "theme",
+          "type": "'grey' | 'beige' | 'white'",
+          "required": false,
+          "description": "Visual theme variant"
+        }
+      ]
+    },
+    {
+      "name": "Search",
+      "library": "blog-constructor",
+      "description": "Search input component for the blog main page. Based on TextInput from uikit with debounced submit, clear button, and auto-focus support.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {Search} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/Search/Search.tsx",
+      "props": [
+        {
+          "name": "initialValue",
+          "type": "string",
+          "required": true,
+          "description": "Initial search input value"
+        },
+        {
+          "name": "onSubmit",
+          "type": "(value: string) => void",
+          "required": true,
+          "description": "Callback invoked with the search value after debounce"
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": false,
+          "description": "Controlled external value"
+        },
+        {
+          "name": "debounce",
+          "type": "number",
+          "required": false,
+          "default": "300",
+          "description": "Debounce delay in milliseconds"
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "required": false,
+          "description": "Input placeholder text. Defaults to localized 'Search'"
+        },
+        {
+          "name": "size",
+          "type": "'s' | 'm'",
+          "required": false,
+          "default": "'m'",
+          "description": "Input size variant"
+        },
+        {
+          "name": "autoFocus",
+          "type": "boolean",
+          "required": false,
+          "default": "false",
+          "description": "Whether to auto-focus the input on mount (disabled on iPhone)"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class"
+        }
+      ]
+    },
+    {
+      "name": "Wrapper",
+      "library": "blog-constructor",
+      "description": "Section wrapper component with configurable padding on all sides. Used to provide consistent spacing around blog content blocks.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {Wrapper} from '@gravity-ui/blog-constructor';",
+      "source_file": "vendor/blog-constructor/src/components/Wrapper/Wrapper.tsx",
+      "props": [
+        {
+          "name": "paddings",
+          "type": "Paddings",
+          "required": false,
+          "description": "Padding configuration with top, bottom, left, right sizes ('xs' | 's' | 'sm' | 'm' | 'l' | 'xl')"
+        },
+        {
+          "name": "children",
+          "type": "React.ReactNode",
+          "required": false,
+          "description": "Content to render inside the wrapper"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS class"
+        },
+        {
+          "name": "qa",
+          "type": "string",
+          "required": false,
+          "description": "Test attribute for QA"
+        },
+        {
+          "name": "style",
+          "type": "React.CSSProperties",
+          "required": false,
+          "description": "Inline styles"
+        }
+      ]
+    }
+  ],
+  "hooks": [
+    {
+      "name": "useAriaAttributes",
+      "library": "blog-constructor",
+      "description": "Returns aria-labelledby and aria-describedby attributes by joining provided label and description IDs, filtering out falsy values.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {useAriaAttributes} from '@gravity-ui/blog-constructor';",
+      "signature": "useAriaAttributes({labelIds, descriptionIds}: UseAriaAttributesProps) => { 'aria-labelledby': string; 'aria-describedby': string }",
+      "parameters": [
+        {
+          "name": "labelIds",
+          "type": "(string | number | boolean | undefined)[]",
+          "required": false,
+          "description": "Array of label element IDs. Falsy values are filtered out"
+        },
+        {
+          "name": "descriptionIds",
+          "type": "(string | number | boolean | undefined)[]",
+          "required": true,
+          "description": "Array of description element IDs. Falsy values are filtered out"
+        }
+      ],
+      "return_type": "{ 'aria-labelledby': string; 'aria-describedby': string }",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useExtendedComponentMap",
+      "library": "blog-constructor",
+      "description": "Merges the default blog-constructor block/header component map with custom components from a CustomConfig. Returns a memoized combined configuration.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {useExtendedComponentMap} from '@gravity-ui/blog-constructor';",
+      "signature": "useExtendedComponentMap(custom: CustomConfig | undefined) => { blocks: Record<string, unknown>; headers: Record<string, unknown> }",
+      "parameters": [
+        {
+          "name": "custom",
+          "type": "CustomConfig | undefined",
+          "required": false,
+          "description": "Custom component configuration to merge with defaults"
+        }
+      ],
+      "return_type": "{ blocks: Record<string, unknown>; headers: Record<string, unknown> }",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useHover",
+      "library": "blog-constructor",
+      "description": "Tracks mouse hover state on an element. Returns a ref to attach to the target element and a boolean indicating whether it is being hovered.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {useHover} from '@gravity-ui/blog-constructor';",
+      "signature": "useHover<T extends HTMLElement = HTMLElement>() => [ref: React.RefObject<T>, hovering: boolean]",
+      "parameters": [],
+      "return_type": "[ref: React.RefObject<T>, hovering: boolean]",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useIsIPhone",
+      "library": "blog-constructor",
+      "description": "Returns whether the current device is an iPhone based on the DeviceContext.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {useIsIPhone} from '@gravity-ui/blog-constructor';",
+      "signature": "useIsIPhone() => boolean",
+      "parameters": [],
+      "return_type": "boolean",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useLikes",
+      "library": "blog-constructor",
+      "description": "Manages like state for a blog post. Tracks whether the user has liked the post, the current like count, and provides a toggle handler with callback support.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {useLikes} from '@gravity-ui/blog-constructor';",
+      "signature": "useLikes(props: UseLikesProps) => UseLikeData",
+      "parameters": [
+        {
+          "name": "hasLike",
+          "type": "boolean",
+          "required": false,
+          "description": "Initial like state from the user"
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "required": false,
+          "description": "Initial like count"
+        },
+        {
+          "name": "postId",
+          "type": "number | string",
+          "required": false,
+          "description": "Post identifier"
+        },
+        {
+          "name": "toggleLikeCallback",
+          "type": "ToggleLikeCallbackType",
+          "required": false,
+          "description": "Callback invoked when the like state is toggled"
+        }
+      ],
+      "return_type": "{ likesCount: number; hasUserLike: boolean; handleLike: () => void }",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "useOpenCloseTimer",
+      "library": "blog-constructor",
+      "description": "Timer hook that automatically updates an 'open' boolean state after a given duration. Used by the Prompt component for auto-dismiss behavior.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {useOpenCloseTimer} from '@gravity-ui/blog-constructor';",
+      "signature": "useOpenCloseTimer(openTimestamp?: number, openDuration?: number) => { open: boolean }",
+      "parameters": [
+        {
+          "name": "openTimestamp",
+          "type": "number",
+          "required": false,
+          "default": "Date.now()",
+          "description": "UNIX timestamp in milliseconds when the timer starts"
+        },
+        {
+          "name": "openDuration",
+          "type": "number",
+          "required": false,
+          "default": "4000",
+          "description": "Duration in milliseconds before the state closes"
+        }
+      ],
+      "return_type": "{ open: boolean }",
+      "rules_of_hooks": true
+    },
+    {
+      "name": "usePromptSignInProps",
+      "library": "blog-constructor",
+      "description": "Returns props for the PromptSignIn component including an openTimestamp state and a requireSignIn function that triggers the sign-in prompt.",
+      "import_path": "@gravity-ui/blog-constructor",
+      "import_statement": "import {usePromptSignInProps} from '@gravity-ui/blog-constructor';",
+      "signature": "usePromptSignInProps(onClickSignIn?: React.EventHandler<React.SyntheticEvent>) => { onClickSignIn: React.EventHandler<React.SyntheticEvent> | undefined; openTimestamp: number; requireSignIn: (() => void) | undefined }",
+      "parameters": [
+        {
+          "name": "onClickSignIn",
+          "type": "React.EventHandler<React.SyntheticEvent>",
+          "required": false,
+          "description": "Sign-in click handler. If provided, requireSignIn will be available"
+        }
+      ],
+      "return_type": "{ onClickSignIn: React.EventHandler<React.SyntheticEvent> | undefined; openTimestamp: number; requireSignIn: (() => void) | undefined }",
+      "rules_of_hooks": true
+    }
+  ]
+}

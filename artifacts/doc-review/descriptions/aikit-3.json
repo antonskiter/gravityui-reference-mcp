@@ -1,0 +1,33 @@
+{
+  "batch_id": "aikit-3",
+  "issues": [
+    {
+      "component": "SubmitButton",
+      "library": "aikit",
+      "severity": "LOW",
+      "issue": "Description says 'send/cancel icon switching' but omits the third visual state: loading renders a spinner (Spin), not an icon switch. The description implies only two icon states exist.",
+      "suggestion": "A submit button component with state management through props. Shows an arrow-up icon when enabled, a spinner when loading, and a stop icon when cancelable."
+    },
+    {
+      "component": "ThinkingMessage",
+      "library": "aikit",
+      "severity": "LOW",
+      "issue": "Description says 'status indicator' but the source renders a Loader (loading spinner), not a generic status indicator. The copy button visible in the source is also omitted entirely.",
+      "suggestion": "A message component that displays AI thinking process with collapsible content, a loading spinner shown while thinking is in progress, and a copy button available after the thought completes."
+    },
+    {
+      "component": "ToolFooter",
+      "library": "aikit",
+      "severity": "LOW",
+      "issue": "Description says 'status message' for what the source calls 'content' (React.ReactNode). The loading spinner controlled by showLoader is not mentioned at all.",
+      "suggestion": "Footer component for tool messages with action buttons, optional content text, and an optional loading spinner (shown by default while the tool is processing)."
+    },
+    {
+      "component": "ToolHeader",
+      "library": "aikit",
+      "severity": "LOW",
+      "issue": "Description omits the 'content' prop (React.ReactNode) which is rendered between the tool name and the actions area.",
+      "suggestion": "Header component for tool messages with icon, name, optional inline content, action buttons, and a status indicator."
+    }
+  ]
+}

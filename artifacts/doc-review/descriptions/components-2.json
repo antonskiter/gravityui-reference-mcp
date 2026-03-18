@@ -1,0 +1,54 @@
+{
+  "batch_id": "components-2",
+  "issues": [
+    {
+      "component": "OnboardingMenu",
+      "library": "components",
+      "severity": "MEDIUM",
+      "issue": "The description says 'managing onboarding presets' but the source shows no concept of presets; it is a UI menu with a progress bar, expandable item list, and collapse/complete buttons. The word 'presets' is a fabricated feature not present in the source.",
+      "suggestion": "A menu component for onboarding flows, featuring a progress bar, expandable item list, collapse and complete actions, and an optional close button revealed on hover."
+    },
+    {
+      "component": "PromoSheet",
+      "library": "components",
+      "severity": "MEDIUM",
+      "issue": "The description restricts the component to 'informing the user about a new feature in the service's mobile application', but the source describes a generic bottom sheet promo dialog with no such constraint. It does not require a mobile context and is not limited to announcing new features.",
+      "suggestion": "A bottom sheet promo dialog that optionally loads an image, displays a title, message, and action button, and dismisses itself when the action is taken or the dialog is closed."
+    },
+    {
+      "component": "Reactions",
+      "library": "components",
+      "severity": "LOW",
+      "issue": "The description is accurate at a surface level but omits the palette popup for adding reactions, per-reaction tooltip support, read-only mode, configurable size, and render-prop-based layout customization — all significant behaviors visible in the source.",
+      "suggestion": "An emoji reaction bar with a palette popup for adding reactions, per-reaction tooltip support, configurable size, read-only mode, and fully customizable layout via render props."
+    },
+    {
+      "component": "SharePopover",
+      "library": "components",
+      "severity": "LOW",
+      "issue": "The description omits Web Share API support, the hover-or-click activation modes, and the copy-button customization capability, which are significant behaviors described in the source.",
+      "suggestion": "A popover trigger that opens a list of social sharing options and a copy-link button; supports the Web Share API, hover or click activation, and full copy-button customization."
+    },
+    {
+      "component": "StoreBadge",
+      "library": "components",
+      "severity": "LOW",
+      "issue": "The description only mentions placing links to app stores but omits the conditional rendering behavior (accessible link vs clickable div depending on whether href is provided) and language-specific badge SVGs, both of which are central to how the component works.",
+      "suggestion": "Renders an App Store or Google Play badge as an accessible link when an href is provided, or as a clickable div otherwise, using language-specific badge SVGs."
+    },
+    {
+      "component": "Stories",
+      "library": "components",
+      "severity": "LOW",
+      "issue": "The description omits keyboard arrow navigation, optional cross-tab sync, and the configurable close/next/previous callback API, all of which are significant behaviors in the source.",
+      "suggestion": "A modal carousel of story slides with keyboard arrow navigation, optional cross-tab synchronization, and configurable close, next, and previous callbacks."
+    },
+    {
+      "component": "StoriesGroup",
+      "library": "components",
+      "severity": "LOW",
+      "issue": "The description omits the thumbnail preview slider, the distinction between group-level and item-level navigation, and the configurable maximum slider item count — all key features described in the source.",
+      "suggestion": "A modal carousel for grouped stories featuring a thumbnail preview slider, separate group and item navigation, and a configurable maximum slider item count."
+    }
+  ]
+}

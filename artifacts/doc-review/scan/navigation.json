@@ -1,0 +1,19 @@
+{
+  "library": "navigation",
+  "component_count": 9,
+  "component_paths": ["src/components"],
+  "flat_files": false,
+  "components": [
+    {"name": "ActionBar", "library": "navigation", "data_entry": true, "source_file_found": true, "source_file": "vendor/navigation/src/components/ActionBar/ActionBar.tsx"},
+    {"name": "AsideHeader", "library": "navigation", "data_entry": true, "source_file_found": true, "source_file": "vendor/navigation/src/components/AsideHeader/AsideHeader.tsx"},
+    {"name": "Content", "library": "navigation", "data_entry": true, "source_file_found": true, "source_file": "vendor/navigation/src/components/Content/Content.tsx"},
+    {"name": "Footer", "library": "navigation", "data_entry": true, "source_file_found": true, "source_file": "vendor/navigation/src/components/Footer/desktop/Footer.tsx"},
+    {"name": "HotkeysPanel", "library": "navigation", "data_entry": true, "source_file_found": true, "source_file": "vendor/navigation/src/components/HotkeysPanel/HotkeysPanel.tsx"},
+    {"name": "Logo", "library": "navigation", "data_entry": true, "source_file_found": true, "source_file": "vendor/navigation/src/components/Logo/Logo.tsx"},
+    {"name": "MobileHeader", "library": "navigation", "data_entry": true, "source_file_found": true, "source_file": "vendor/navigation/src/components/MobileHeader/MobileHeader.tsx"},
+    {"name": "MobileLogo", "library": "navigation", "data_entry": true, "source_file_found": true, "source_file": "vendor/navigation/src/components/MobileLogo/MobileLogo.tsx"},
+    {"name": "Settings", "library": "navigation", "data_entry": true, "source_file_found": true, "source_file": "vendor/navigation/src/components/Settings/Settings.tsx"},
+    {"name": "TopAlert", "library": "navigation", "data_entry": true, "source_file_found": true, "source_file": "vendor/navigation/src/components/TopAlert/TopAlert.tsx"}
+  ],
+  "suggested_batches": 1
+}

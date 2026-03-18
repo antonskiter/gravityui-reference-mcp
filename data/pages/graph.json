@@ -1,0 +1,70 @@
+[
+  {
+    "id": "component:graph:block",
+    "title": "Block",
+    "page_type": "component",
+    "library": "graph",
+    "url": "https://gravity-ui.com/components/graph/block",
+    "breadcrumbs": [
+      "graph",
+      "Block"
+    ],
+    "description": "Block component from graph",
+    "section_ids": [
+      "component:graph:block:description",
+      "component:graph:block:props",
+      "component:graph:block:import"
+    ]
+  },
+  {
+    "id": "component:graph:graphblockanchor",
+    "title": "GraphBlockAnchor",
+    "page_type": "component",
+    "library": "graph",
+    "url": "https://gravity-ui.com/components/graph/graphblockanchor",
+    "breadcrumbs": [
+      "graph",
+      "GraphBlockAnchor"
+    ],
+    "description": "GraphBlockAnchor component from graph",
+    "section_ids": [
+      "component:graph:graphblockanchor:description",
+      "component:graph:graphblockanchor:props",
+      "component:graph:graphblockanchor:import"
+    ]
+  },
+  {
+    "id": "component:graph:graphcanvas",
+    "title": "GraphCanvas",
+    "page_type": "component",
+    "library": "graph",
+    "url": "https://gravity-ui.com/components/graph/graphcanvas",
+    "breadcrumbs": [
+      "graph",
+      "GraphCanvas"
+    ],
+    "description": "GraphCanvas component from graph",
+    "section_ids": [
+      "component:graph:graphcanvas:description",
+      "component:graph:graphcanvas:props",
+      "component:graph:graphcanvas:import"
+    ]
+  },
+  {
+    "id": "component:graph:graphcontextprovider",
+    "title": "GraphContextProvider",
+    "page_type": "component",
+    "library": "graph",
+    "url": "https://gravity-ui.com/components/graph/graphcontextprovider",
+    "breadcrumbs": [
+      "graph",
+      "GraphContextProvider"
+    ],
+    "description": "GraphContextProvider component from graph",
+    "section_ids": [
+      "component:graph:graphcontextprovider:description",
+      "component:graph:graphcontextprovider:props",
+      "component:graph:graphcontextprovider:import"
+    ]
+  }
+]

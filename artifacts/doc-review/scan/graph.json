@@ -1,0 +1,37 @@
+{
+  "library": "graph",
+  "component_count": 4,
+  "component_paths": ["src/react-components"],
+  "flat_files": true,
+  "components": [
+    {
+      "name": "Block",
+      "library": "graph",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/graph/src/react-components/Block.tsx"
+    },
+    {
+      "name": "GraphBlockAnchor",
+      "library": "graph",
+      "data_entry": true,
+      "source_file_found": false,
+      "source_file": null
+    },
+    {
+      "name": "GraphCanvas",
+      "library": "graph",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/graph/src/react-components/GraphCanvas.tsx"
+    },
+    {
+      "name": "GraphContextProvider",
+      "library": "graph",
+      "data_entry": true,
+      "source_file_found": false,
+      "source_file": null
+    }
+  ],
+  "suggested_batches": 1
+}

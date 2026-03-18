@@ -1,0 +1,439 @@
+{
+  "batch_id": "table-dashkit-1",
+  "libraries": ["table", "dashkit"],
+  "issues": [
+    {
+      "component": "BaseTable",
+      "library": "table",
+      "prop": "emptyContent",
+      "issue_type": "type_mismatch",
+      "severity": "HIGH",
+      "source_type": "React.ReactNode | (() => React.ReactNode)",
+      "data_type": "React.ReactNode",
+      "detail": "Data omits the function variant (() => React.ReactNode) from the union type"
+    },
+    {
+      "component": "BaseTable",
+      "library": "table",
+      "prop": "renderCustomFooterContent",
+      "issue_type": "type_mismatch",
+      "severity": "HIGH",
+      "source_type": "(props: {cellClassName: string; footerGroups: HeaderGroup<TData>[]; rowClassName: string; rowIndex: number}) => React.ReactNode",
+      "data_type": "(params: {rows: Row<TData>[]}) => React.ReactNode",
+      "detail": "Data signature is completely wrong: uses {rows} param shape instead of {cellClassName, footerGroups, rowClassName, rowIndex}"
+    },
+    {
+      "component": "SortableList",
+      "library": "table",
+      "prop": "items",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "string[]",
+      "required": true,
+      "detail": "Required prop from UseSortableListParams is absent from data"
+    },
+    {
+      "component": "SortableList",
+      "library": "table",
+      "prop": "onDragStart",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "(activeId: string) => void",
+      "required": false,
+      "detail": "Optional prop from UseSortableListParams is absent from data"
+    },
+    {
+      "component": "SortableList",
+      "library": "table",
+      "prop": "onDragEnd",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "(result: SortableListDragResult) => void",
+      "required": false,
+      "detail": "Optional prop from UseSortableListParams is absent from data"
+    },
+    {
+      "component": "SortableList",
+      "library": "table",
+      "prop": "enableNesting",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "boolean",
+      "required": false,
+      "detail": "Optional prop from UseSortableListParams is absent from data"
+    },
+    {
+      "component": "SortableList",
+      "library": "table",
+      "prop": "childModeOffset",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "number",
+      "required": false,
+      "detail": "Optional prop from UseSortableListParams (default 20) is absent from data"
+    },
+    {
+      "component": "SortableList",
+      "library": "table",
+      "prop": "nextChildModeOffset",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "number",
+      "required": false,
+      "detail": "Optional prop from UseSortableListParams (default 10) is absent from data"
+    },
+    {
+      "component": "ActionPanel",
+      "library": "dashkit",
+      "prop": "items",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "ActionPanelItem[]",
+      "required": true,
+      "detail": "Required prop is absent; data.props is an empty array"
+    },
+    {
+      "component": "ActionPanel",
+      "library": "dashkit",
+      "prop": "className",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "string",
+      "required": false,
+      "detail": "Optional prop is absent; data.props is an empty array"
+    },
+    {
+      "component": "ActionPanel",
+      "library": "dashkit",
+      "prop": "disable",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "boolean",
+      "required": false,
+      "detail": "Optional prop is absent; data.props is an empty array"
+    },
+    {
+      "component": "ActionPanel",
+      "library": "dashkit",
+      "prop": "toggleAnimation",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "boolean",
+      "required": false,
+      "detail": "Optional prop is absent; data.props is an empty array"
+    },
+    {
+      "component": "DashKitDnDWrapper",
+      "library": "dashkit",
+      "prop": "dragImageSrc",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "string",
+      "required": false,
+      "detail": "Optional prop is absent; data.props is an empty array"
+    },
+    {
+      "component": "DashKitDnDWrapper",
+      "library": "dashkit",
+      "prop": "onDropDragOver",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "(draggedItem: DraggedOverItem, sharedItem: DraggedOverItem | null) => void | boolean",
+      "required": false,
+      "detail": "Optional prop is absent; data.props is an empty array"
+    },
+    {
+      "component": "DashKitDnDWrapper",
+      "library": "dashkit",
+      "prop": "onDragStart",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "(dragProps: ItemDragProps) => void",
+      "required": false,
+      "detail": "Optional prop is absent; data.props is an empty array"
+    },
+    {
+      "component": "DashKitDnDWrapper",
+      "library": "dashkit",
+      "prop": "onDragEnd",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "() => void",
+      "required": false,
+      "detail": "Optional prop is absent; data.props is an empty array"
+    },
+    {
+      "component": "DashKitDnDWrapper",
+      "library": "dashkit",
+      "prop": "children",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "source_type": "React.ReactElement",
+      "required": true,
+      "detail": "Required prop is absent; data.props is an empty array"
+    },
+    {
+      "component": "ActionsCell",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "BaseCell",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "BaseDraggableRow",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "BaseFooterCell",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "BaseFooterRow",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "BaseGroupHeader",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "BaseHeaderCell",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "BaseHeaderRow",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "BaseResizeHandle",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "BaseRow",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "BaseSort",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "BaseSortIndicator",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "DragHandle",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "LastSelectedRowContext",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "RangedSelectionCheckbox",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "ReorderingProvider",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "RowActions",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "RowActionsMenu",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "RowLink",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "SelectionCheckbox",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "SortIndicator",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "SortableListContext",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "Table",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "TableSettings",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "TableSettingsColumn",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "TreeExpandableCell",
+      "library": "table",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/table/src/components but has no entry in data/components/table.json"
+    },
+    {
+      "component": "DashKit",
+      "library": "dashkit",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/dashkit/src/components but has no entry in data/components/dashkit.json"
+    },
+    {
+      "component": "DashKitView",
+      "library": "dashkit",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/dashkit/src/components but has no entry in data/components/dashkit.json"
+    },
+    {
+      "component": "GridItem",
+      "library": "dashkit",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/dashkit/src/components but has no entry in data/components/dashkit.json"
+    },
+    {
+      "component": "GridLayout",
+      "library": "dashkit",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/dashkit/src/components but has no entry in data/components/dashkit.json"
+    },
+    {
+      "component": "Item",
+      "library": "dashkit",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/dashkit/src/components but has no entry in data/components/dashkit.json"
+    },
+    {
+      "component": "MobileLayout",
+      "library": "dashkit",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/dashkit/src/components but has no entry in data/components/dashkit.json"
+    },
+    {
+      "component": "OverlayControls",
+      "library": "dashkit",
+      "issue_type": "missing_from_data",
+      "severity": "HIGH",
+      "detail": "Component directory exists in vendor/dashkit/src/components but has no entry in data/components/dashkit.json"
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "BaseTable",
+      "library": "table",
+      "source_description": "Low-level headless table component built on top of TanStack Table. Accepts a table instance and renders thead/tbody/tfoot with full control over row grouping, virtualization, custom row/footer content, resize handles, sort indicators, and sticky header/footer.",
+      "data_description": "BaseTable is a low-level, headless table component built on top of TanStack Table. It provides full control over rendering and behavior through a tanstack table instance. Supports sticky header/footer, row grouping, virtualization, custom row content, resize handles, and sort indicators."
+    },
+    {
+      "component": "SortableList",
+      "library": "table",
+      "source_description": "Wraps a list of sortable items in DnD-kit SortableContext and exposes drag state via SortableListContext. Accepts items (string IDs), optional drag callbacks, and optional nesting support (with configurable offset thresholds). Must be used inside SortableListDndContext.",
+      "data_description": "No description in data entry."
+    },
+    {
+      "component": "SortableListDndContext",
+      "library": "table",
+      "source_description": "Provides the DnD-kit DndContext with PointerSensor, rectIntersection collision detection, and WhileDragging measuring strategy. Optionally accepts dnd-kit modifiers. Wraps SortableList instances.",
+      "data_description": "No description in data entry."
+    },
+    {
+      "component": "ActionPanel",
+      "library": "dashkit",
+      "source_description": "Renders a panel of icon+title action items. Supports optional CSS transition animation (toggleAnimation), disabled/hidden state (disable), per-item custom wrappers (wrapTo), drag-and-drop item props, and QA selectors. Uses CSSTransition for animated show/hide.",
+      "data_description": "No description in data entry."
+    },
+    {
+      "component": "DashKitDnDWrapper",
+      "library": "dashkit",
+      "source_description": "Context provider that enables drag-and-drop for DashKit. Manages drag state (dragProps), a transparent drag image preview (overridable via dragImageSrc), and exposes onDragStart/onDragEnd/onDropDragOver callbacks through DashKitDnDContext to child DashKit instances.",
+      "data_description": "No description in data entry."
+    }
+  ]
+}

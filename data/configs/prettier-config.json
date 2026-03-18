@@ -1,0 +1,7 @@
+{
+  "library": "prettier-config",
+  "npm_package": "@gravity-ui/prettier-config",
+  "description": "Gravity UI Prettier config following the GravityUI styleguide.",
+  "how_to_use": "Add `.prettierrc.js` in the project root with: `module.exports = require('@gravity-ui/prettier-config');`",
+  "readme": "# @gravity-ui/prettier-config\n\n## Install\n\n```\nnpm install --save-dev prettier @gravity-ui/prettier-config\n```\n\n## Usage\n\nAdd `.prettierrc.js` file in the project root with the following content:\n\n```js\nmodule.exports = require('@gravity-ui/prettier-config');\n```"
+}
