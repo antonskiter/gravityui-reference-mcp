@@ -254,6 +254,28 @@
       "library": "date-utils"
     },
     {
+      "name": "duration",
+      "kind": "function",
+      "signature": "duration(amount: DurationInput, options?: { lang?: string }): Duration",
+      "description": "Creates a Duration instance. Overload that accepts options directly as the second argument without a unit. Accepts a number, an ISO 8601 duration string (e.g. 'P1Y2M3DT4H'), a duration input object, or an existing Duration. Throws on unrecognised input.",
+      "parameters": [
+        {
+          "name": "amount",
+          "type": "DurationInput",
+          "description": "Amount as number, ISO 8601 string, object, or Duration."
+        },
+        {
+          "name": "options",
+          "type": "{ lang?: string }",
+          "optional": true,
+          "description": "Options object. lang: locale code for humanization."
+        }
+      ],
+      "return_type": "Duration",
+      "import_path": "@gravity-ui/date-utils",
+      "library": "date-utils"
+    },
+    {
       "name": "isDuration",
       "kind": "function",
       "signature": "isDuration(value: unknown): value is Duration",

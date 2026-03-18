@@ -1,7 +1,30 @@
-{
-  "library": "eslint-config",
-  "npm_package": "@gravity-ui/eslint-config",
-  "description": "Shared ESLint configuration for Gravity UI projects, following the Gravity UI styleguide with TypeScript, React, a11y, Prettier, and import-order rule sets.",
-  "how_to_use": "import baseConfig from '@gravity-ui/eslint-config';\n\nexport default [\n  ...baseConfig,\n  {\n    // ...other config\n  },\n];",
-  "readme": "# @gravity-ui/eslint-config\n\n## Install\n\n```\nnpm install --save-dev eslint @gravity-ui/eslint-config\n```\n\n## Usage\n\nAdd `eslint.config.js` file in your project with the following content:\n\n```js\nimport baseConfig from '@gravity-ui/eslint-config';\n\nexport default [\n  ...baseConfig,\n  {\n    // ...other config\n  },\n];\n```\n\nBase config also includes TypeScript rules."
-}
+[
+  {
+    "library": "eslint-config",
+    "npm_package": "@gravity-ui/eslint-config",
+    "description": "Shared ESLint base configuration for Gravity UI projects with TypeScript rules. Does NOT include React, a11y, Prettier, or import-order rules — those are separate optional sub-configs.",
+    "how_to_use": "import baseConfig from '@gravity-ui/eslint-config';\n\nexport default [\n  ...baseConfig,\n  {\n    // ...other config\n  },\n];",
+    "readme": "# @gravity-ui/eslint-config\n\n## Install\n\n```\nnpm install --save-dev eslint @gravity-ui/eslint-config\n```\n\n## Usage\n\nAdd `eslint.config.js` file in your project with the following content:\n\n```js\nimport baseConfig from '@gravity-ui/eslint-config';\n\nexport default [\n  ...baseConfig,\n  {\n    // ...other config\n  },\n];\n```\n\nBase config also includes TypeScript rules."
+  },
+  {
+    "library": "eslint-config/prettier",
+    "npm_package": "@gravity-ui/eslint-config",
+    "description": "Optional Prettier-compatible ESLint sub-config for Gravity UI projects. Add this alongside the base config when using Prettier to disable rules that conflict with Prettier formatting.",
+    "how_to_use": "import baseConfig from '@gravity-ui/eslint-config';\nimport prettierConfig from '@gravity-ui/eslint-config/prettier';\n\nexport default [\n  ...baseConfig,\n  ...prettierConfig,\n  {\n    // ...other config\n  },\n];",
+    "readme": "# @gravity-ui/eslint-config/prettier\n\nOptional sub-config for projects using Prettier. Import alongside the base config to disable ESLint rules that conflict with Prettier formatting.\n\n## Usage\n\n```js\nimport baseConfig from '@gravity-ui/eslint-config';\nimport prettierConfig from '@gravity-ui/eslint-config/prettier';\n\nexport default [\n  ...baseConfig,\n  ...prettierConfig,\n  {\n    // ...other config\n  },\n];\n```"
+  },
+  {
+    "library": "eslint-config/a11y",
+    "npm_package": "@gravity-ui/eslint-config",
+    "description": "Optional accessibility (a11y) ESLint sub-config for Gravity UI projects. Add this alongside the base config to enable rules that catch accessibility issues.",
+    "how_to_use": "import baseConfig from '@gravity-ui/eslint-config';\nimport a11yConfig from '@gravity-ui/eslint-config/a11y';\n\nexport default [\n  ...baseConfig,\n  ...a11yConfig,\n  {\n    // ...other config\n  },\n];",
+    "readme": "# @gravity-ui/eslint-config/a11y\n\nOptional sub-config that adds accessibility linting rules. Import alongside the base config to spot accessibility issues in your code.\n\n## Usage\n\n```js\nimport baseConfig from '@gravity-ui/eslint-config';\nimport a11yConfig from '@gravity-ui/eslint-config/a11y';\n\nexport default [\n  ...baseConfig,\n  ...a11yConfig,\n  {\n    // ...other config\n  },\n];\n```"
+  },
+  {
+    "library": "eslint-config/import-order",
+    "npm_package": "@gravity-ui/eslint-config",
+    "description": "Optional import-order ESLint sub-config for Gravity UI projects. Add this alongside the base config to enforce a convention on module import ordering.",
+    "how_to_use": "import baseConfig from '@gravity-ui/eslint-config';\nimport importOrderConfig from '@gravity-ui/eslint-config/import-order';\n\nexport default [\n  ...baseConfig,\n  ...importOrderConfig,\n  {\n    // ...other config\n  },\n];",
+    "readme": "# @gravity-ui/eslint-config/import-order\n\nOptional sub-config that enforces a convention in module import order. Import alongside the base config to enable import ordering rules.\n\n## Usage\n\n```js\nimport baseConfig from '@gravity-ui/eslint-config';\nimport importOrderConfig from '@gravity-ui/eslint-config/import-order';\n\nexport default [\n  ...baseConfig,\n  ...importOrderConfig,\n  {\n    // ...other config\n  },\n];\n```"
+  }
+]

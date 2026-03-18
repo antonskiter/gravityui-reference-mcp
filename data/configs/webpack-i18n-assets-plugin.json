@@ -3,5 +3,69 @@
   "npm_package": "@gravity-ui/webpack-i18n-assets-plugin",
   "description": "A Webpack plugin that replaces calls to localization functions (i18n) with target texts, inlining and multiplying i18n assets for all locales in a single production build.",
   "how_to_use": "const {I18nAssetsPlugin} = require('@gravity-ui/webpack-i18n-assets-plugin');\n\nmodule.exports = {\n  output: {\n    filename: '[name].[locale].js',\n  },\n  plugins: [\n    new I18nAssetsPlugin({ locales })\n  ]\n}",
-  "readme": "# 🌍 webpack-i18n-assets-plugin\n\nA plugin for Webpack that replaces calls to localization functions (i18n) with target texts.\n\n### Features\n\n- Inlines i18n texts into the bundle (while substituting parameters into the final string)\n- Generates assets for all locales in one build\n- The plugin works only for production builds!\n- Supports only literals as keys in the localization function argument (template strings and variables are not allowed)"
+  "readme": "# 🌍 webpack-i18n-assets-plugin\n\nA plugin for Webpack that replaces calls to localization functions (i18n) with target texts.\n\n### Features\n\n- Inlines i18n texts into the bundle (while substituting parameters into the final string)\n- Generates assets for all locales in one build\n- The plugin works only for production builds!\n- Supports only literals as keys in the localization function argument (template strings and variables are not allowed)",
+  "exports": [
+    {
+      "name": "applyPluginToWebpackConfig",
+      "kind": "function",
+      "signature": "applyPluginToWebpackConfig(originalConfig: Configuration, options: Options): Configuration",
+      "description": "Helper function that applies I18nAssetsPlugin to an existing Webpack configuration object. Returns the original config unchanged in development mode. In production mode, it modifies the output filenames to include [locale], removes any existing WebpackAssetsManifest plugin, adds I18nAssetsPlugin, and adds per-locale WebpackAssetsManifest plugins that generate assets-manifest.<locale>.json files.",
+      "import_path": "@gravity-ui/webpack-i18n-assets-plugin",
+      "library": "webpack-i18n-assets-plugin",
+      "parameters": [
+        {
+          "name": "originalConfig",
+          "type": "Configuration",
+          "optional": false,
+          "description": "The existing Webpack configuration object to modify"
+        },
+        {
+          "name": "options",
+          "type": "Options",
+          "optional": false,
+          "description": "Plugin options including the locales map and optional custom resolver/replacer functions"
+        }
+      ]
+    },
+    {
+      "name": "Options",
+      "kind": "type",
+      "signature": "type Options",
+      "description": "Configuration options for I18nAssetsPlugin and applyPluginToWebpackConfig. By default the plugin works with @gravity-ui/i18n, but custom resolver/replacer functions can be provided for other i18n libraries. If any of importResolver, declarationResolver, or replacer is provided, all three must be provided together.",
+      "import_path": "@gravity-ui/webpack-i18n-assets-plugin",
+      "library": "webpack-i18n-assets-plugin",
+      "fields": [
+        {
+          "name": "locales",
+          "type": "Record<string, LocaleData>",
+          "optional": false,
+          "description": "Required map of locale names to locale data objects. Each key is a locale code (e.g. 'en', 'ru') and the value is the translation data for that locale."
+        },
+        {
+          "name": "importResolver",
+          "type": "ImportResolver",
+          "optional": true,
+          "description": "Custom function that processes import declarations and marks which imports should be treated as localization functions. Receives the import source, export name, identifier name, and module path. Return {resolved: true, keyset?: string} to mark the import as a localizer, or undefined to skip it. Must be provided together with declarationResolver and replacer if any custom function is used."
+        },
+        {
+          "name": "declarationResolver",
+          "type": "DeclarationResolver",
+          "optional": true,
+          "description": "Custom function that processes variable declarations and marks which variables should be treated as localization functions. Receives the VariableDeclarator AST node and module path. Return {functionName: string, keyset?: string} to mark the variable as a localizer, or undefined to skip. Must be provided together with importResolver and replacer if any custom function is used."
+        },
+        {
+          "name": "replacer",
+          "type": "Replacer",
+          "optional": true,
+          "description": "Custom function that processes localization function calls and returns the replacement string. Receives ReplacerArgs (callNode, callArguments, localeName, key, keyset) and is bound to a ReplacerContext with a resolveKey helper and the full localeData. Must be provided together with importResolver and declarationResolver if any custom function is used."
+        },
+        {
+          "name": "collectUnusedKeys",
+          "type": "boolean",
+          "optional": true,
+          "description": "When true, enables unused key collection mode. After the build completes, generates an unused-keys.json file listing keys that were never referenced. Requires the replacer to always return the detailed {value, key, keyset} format. Defaults to false."
+        }
+      ]
+    }
+  ]
 }

@@ -338,7 +338,7 @@
         {
           "name": "children",
           "type": "React.ReactNode",
-          "required": false,
+          "required": true,
           "description": "Custom content to render in the form field"
         }
       ],

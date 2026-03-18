@@ -325,6 +325,39 @@
             }
           ],
           "return_type": "string"
+        },
+        {
+          "name": "handleRequestError",
+          "signature": "protected handleRequestError<T>(response: unknown, request: () => Promise<T>, retries: number, error: Error): Promise<T> | unknown",
+          "access": "protected",
+          "description": "Called by `request` when an HTTP error occurs. The default implementation re-throws the error response. Subclasses override this method to implement custom error handling, retry logic, or error transformation. The `request` callback can be called to retry the original request (incrementing the internal retry counter automatically).",
+          "parameters": [
+            {
+              "name": "response",
+              "type": "unknown",
+              "optional": false,
+              "description": "The error response object from axios, or a plain object derived from the thrown error."
+            },
+            {
+              "name": "request",
+              "type": "() => Promise<T>",
+              "optional": false,
+              "description": "A callback that retries the original request with the retry counter incremented. Call this to implement retry logic."
+            },
+            {
+              "name": "retries",
+              "type": "number",
+              "optional": false,
+              "description": "The number of retries already attempted for this request."
+            },
+            {
+              "name": "error",
+              "type": "Error",
+              "optional": false,
+              "description": "A normalized Error object wrapping the original thrown error."
+            }
+          ],
+          "return_type": "Promise<T> | unknown"
         }
       ]
     },

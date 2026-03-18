@@ -23,7 +23,7 @@
       "name": "generateRenderContent",
       "kind": "function",
       "signature": "function generateRenderContent<Plugins extends Plugin[], Data>(plugins: Plugins | undefined, params: RenderParams<Data, Plugins>): RenderContent",
-      "description": "Generates the content to be rendered in an HTML page. Applies all plugins to build the RenderContent object that can be used with renderHeadContent and renderBodyContent for streaming or custom rendering.",
+      "description": "Generates the content to be rendered in an HTML page. Applies all plugins to build the render content object that can be used with renderHeadContent and renderBodyContent for streaming or custom rendering. Returns an object with: scripts (Script[]), helpers (RenderHelpers), links (Link[]), meta (Meta[]), styleSheets (Stylesheet[]), inlineStyleSheets (string[]), inlineScripts (string[]), title (string), htmlAttributes (Record<string, string|number|boolean|undefined>), and bodyContent ({ attributes: Record<string, string|number|boolean|undefined>, beforeRoot: string[], root?: string, afterRoot: string[] }).",
       "parameters": [
         {
           "name": "plugins",
@@ -36,7 +36,39 @@
           "description": "An object containing various parameters for rendering the content."
         }
       ],
-      "return_type": "RenderContent",
+      "return_type": "{ scripts: Script[]; helpers: RenderHelpers; links: Link[]; meta: Meta[]; styleSheets: Stylesheet[]; inlineStyleSheets: string[]; inlineScripts: string[]; title: string; htmlAttributes: Record<string, string | number | boolean | undefined>; bodyContent: { attributes: Record<string, string | number | boolean | undefined>; beforeRoot: string[]; root?: string; afterRoot: string[] } }",
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "renderHeadContent",
+      "kind": "function",
+      "signature": "function renderHeadContent(content: HeadContent): string",
+      "description": "Renders the HTML head section content as a string. Accepts the head-relevant fields from the object returned by generateRenderContent: scripts (Script[]), helpers (RenderHelpers), links (Link[]), meta (Meta[]), styleSheets (Stylesheet[]), inlineStyleSheets (string[]), inlineScripts (string[]), and title (string). Returns a string of HTML tags suitable for insertion inside <head>.",
+      "parameters": [
+        {
+          "name": "content",
+          "type": "{ scripts: Script[]; helpers: RenderHelpers; links: Link[]; meta: Meta[]; styleSheets: Stylesheet[]; inlineStyleSheets: string[]; inlineScripts: string[]; title: string }",
+          "description": "The head content object — pass the result of generateRenderContent() directly. HeadContent is not publicly exported; obtain this value from generateRenderContent()."
+        }
+      ],
+      "return_type": "string",
+      "import_path": "@gravity-ui/app-layout",
+      "library": "app-layout"
+    },
+    {
+      "name": "renderBodyContent",
+      "kind": "function",
+      "signature": "function renderBodyContent(content: BodyContent): string",
+      "description": "Renders the HTML body section content as a string. Accepts the bodyContent field from the object returned by generateRenderContent: attributes (Record<string, string|number|boolean|undefined>), beforeRoot (string[]), root (optional string), and afterRoot (string[]). Returns an HTML string with content placed before, inside, and after the #root div.",
+      "parameters": [
+        {
+          "name": "content",
+          "type": "{ attributes: Record<string, string | number | boolean | undefined>; beforeRoot: string[]; root?: string; afterRoot: string[] }",
+          "description": "The body content object — pass renderContent.bodyContent from the result of generateRenderContent(). BodyContent is not publicly exported; obtain this value via generateRenderContent().bodyContent."
+        }
+      ],
+      "return_type": "string",
       "import_path": "@gravity-ui/app-layout",
       "library": "app-layout"
     },

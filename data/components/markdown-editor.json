@@ -10,7 +10,7 @@
     "props": [
       {
         "name": "editor",
-        "type": "Editor",
+        "type": "MarkdownEditorInstance",
         "required": false,
         "description": "Editor instance created by useMarkdownEditor. If not provided, the editor is read from MarkdownEditorProvider context"
       },
@@ -105,7 +105,7 @@
     "props": [
       {
         "name": "value",
-        "type": "Editor | null",
+        "type": "MarkdownEditorInstance | null",
         "required": true,
         "description": "The editor instance created by useMarkdownEditor to provide to descendant components"
       },
@@ -213,9 +213,9 @@
     "description": "React hook that retrieves the MarkdownEditor instance from the nearest MarkdownEditorProvider context. Returns null if no provider is found.",
     "source_file": "vendor/markdown-editor/packages/editor/src/bundle/context.ts",
     "is_hook": true,
-    "signature": "useMarkdownEditorContext(): Editor | null",
+    "signature": "useMarkdownEditorContext(): MarkdownEditorInstance | null",
     "parameters": [],
-    "return_type": "Editor | null",
+    "return_type": "MarkdownEditorInstance | null",
     "rules_of_hooks": true,
     "props": []
   }
