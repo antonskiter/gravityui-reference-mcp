@@ -74,6 +74,12 @@ const LIBRARY_CONFIGS: Record<string, Partial<LibraryConfig>> = {
     componentPaths: ['src'],
     flatFiles: true,
   },
+  nodekit: {
+    componentPaths: ['src'],
+  },
+  expresskit: {
+    componentPaths: ['src'],
+  },
 };
 
 export function getLibraryConfig(libraryName: string): LibraryConfig {

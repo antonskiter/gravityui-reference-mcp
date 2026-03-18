@@ -34,6 +34,8 @@ export const ALL_LIBRARIES: Array<{
   { id: 'date-utils',               npmPackage: '@gravity-ui/date-utils',               category: 'utility' },
   { id: 'axios-wrapper',            npmPackage: '@gravity-ui/axios-wrapper',            category: 'utility' },
   { id: 'app-layout',               npmPackage: '@gravity-ui/app-layout',               category: 'utility' },
+  { id: 'nodekit',                  npmPackage: '@gravity-ui/nodekit',                  category: 'utility' },
+  { id: 'expresskit',               npmPackage: '@gravity-ui/expresskit',               category: 'utility' },
   // Config / tooling
   { id: 'eslint-config',            npmPackage: '@gravity-ui/eslint-config',            category: 'config' },
   { id: 'tsconfig',                 npmPackage: '@gravity-ui/tsconfig',                 category: 'config' },
