@@ -1,6 +1,6 @@
 import { searchIndex } from "../../ingest/index.js";
 import type { LoadedData } from "../loader.js";
-import { indent } from "../format.js";
+import { indent } from "../text-utils.js";
 
 export function truncateAtWord(text: string, maxLen: number): string {
   if (text.length <= maxLen) return text;

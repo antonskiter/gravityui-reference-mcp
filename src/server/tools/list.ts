@@ -1,14 +1,7 @@
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import type { LoadedData } from '../loader.js';
 import { handleListComponents, formatListComponents } from './list-components.js';
 import type { ListComponentsOutput } from './list-components.js';
 import { ALL_LIBRARIES } from '../../ingest/manifest.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const DATA_DIR = join(__dirname, '..', '..', '..', 'data');
 
 export type EntityType = 'component' | 'hook' | 'api-function' | 'asset' | 'token' | 'config-package' | 'library';
 
@@ -105,45 +98,8 @@ const TOKEN_HINTS: Record<string, string> = {
 };
 
 // ---------------------------------------------------------------------------
-// Ecosystem helpers — read data directories gracefully
+// Ecosystem helpers
 // ---------------------------------------------------------------------------
-
-function readJsonFile<T>(filePath: string, fallback: T): T {
-  if (!existsSync(filePath)) return fallback;
-  try {
-    return JSON.parse(readFileSync(filePath, 'utf-8')) as T;
-  } catch {
-    return fallback;
-  }
-}
-
-function listJsonFilesInDir(dirPath: string): string[] {
-  if (!existsSync(dirPath)) return [];
-  try {
-    return readdirSync(dirPath).filter(f => f.endsWith('.json')).sort();
-  } catch {
-    return [];
-  }
-}
-
-function collectEntitiesFromDir(
-  subDir: string,
-  extractor: (parsed: unknown, libraryId: string) => Array<{ name: string; library: string; kind?: string }>,
-  libraryFilter?: string,
-): Array<{ name: string; library: string; kind?: string }> {
-  const dirPath = join(DATA_DIR, subDir);
-  const files = listJsonFilesInDir(dirPath);
-  const results: Array<{ name: string; library: string; kind?: string }> = [];
-  for (const file of files) {
-    const libraryId = file.replace(/\.json$/, '');
-    if (libraryFilter && libraryId !== libraryFilter) continue;
-    const parsed = readJsonFile<unknown>(join(dirPath, file), null);
-    if (parsed != null) {
-      results.push(...extractor(parsed, libraryId));
-    }
-  }
-  return results;
-}
 
 export function buildEcosystemLibraryList(libraryFilter?: string): EcosystemLibraryListOutput {
   const filtered = libraryFilter
@@ -175,31 +131,30 @@ export function handleList(data: LoadedData, input: ListInput): ListOutput {
     let entities: Array<{ name: string; library: string; kind?: string }> = [];
 
     if (type === 'component') {
-      entities = collectEntitiesFromDir('components', (parsed, libId) => {
-        const p = parsed as { components?: Array<{ name: string }> };
-        return (p.components ?? []).map(c => ({ name: c.name, library: libId }));
-      }, library);
+      const compList = library
+        ? (data.componentsByLibrary.get(library) ?? [])
+        : data.componentDefs;
+      entities = compList.map(c => ({ name: c.name, library: c.library }));
     } else if (type === 'hook') {
-      entities = collectEntitiesFromDir('components', (parsed, libId) => {
-        const p = parsed as { hooks?: Array<{ name: string }> };
-        return (p.hooks ?? []).map(h => ({ name: h.name, library: libId, kind: 'hook' }));
-      }, library);
+      const hookList = library
+        ? (data.hooksByLibrary.get(library) ?? [])
+        : data.hooks;
+      entities = hookList.map(h => ({ name: h.name, library: h.library, kind: 'hook' }));
     } else if (type === 'asset') {
-      entities = collectEntitiesFromDir('assets', (parsed, libId) => {
-        const p = parsed as { assets?: Array<{ name: string; category?: string }> };
-        return (p.assets ?? []).map(a => ({ name: a.name, library: libId, kind: a.category }));
-      }, library);
+      const assetList = library
+        ? (data.assetsByLibrary.get(library) ?? [])
+        : data.assets;
+      entities = assetList.map(a => ({ name: a.name, library: a.library, kind: a.category }));
     } else if (type === 'api-function') {
-      entities = collectEntitiesFromDir('utilities', (parsed, libId) => {
-        const p = parsed as { exports?: Array<{ name: string; kind?: string }>; skipped?: boolean };
-        if (p.skipped) return [];
-        return (p.exports ?? []).map(e => ({ name: e.name, library: libId, kind: e.kind }));
-      }, library);
+      const fnList = library
+        ? (data.apiFunctionsByLibrary.get(library) ?? [])
+        : data.apiFunctions;
+      entities = fnList.map(f => ({ name: f.name, library: f.library, kind: f.kind }));
     } else if (type === 'config-package') {
-      entities = collectEntitiesFromDir('configs', (parsed, libId) => {
-        const p = parsed as { library?: string; npm_package?: string };
-        return [{ name: p.library ?? libId, library: libId, kind: 'config' }];
-      }, library);
+      const configList = library
+        ? data.configDocs.filter(c => c.library === library)
+        : data.configDocs;
+      entities = configList.map(c => ({ name: c.library, library: c.library, kind: 'config' }));
     }
 
     return {
@@ -293,13 +248,6 @@ function firstSentence(text: string): string {
   return match ? match[0].trim() : text.trim();
 }
 
-/** Format token value range as a compact summary. */
-function tokenRange(values: Record<string, unknown>): string {
-  const keys = Object.keys(values);
-  if (keys.length === 0) return '';
-  if (keys.length <= 3) return keys.join(', ');
-  return `${keys[0]}..${keys[keys.length - 1]}`;
-}
 
 export function formatList(output: ListOutput): string {
   if (output.kind === 'error') {

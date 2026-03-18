@@ -7,7 +7,6 @@ import { handleGet, formatGet } from "./tools/get.js";
 import { handleList, formatList } from "./tools/list.js";
 
 const data = loadData();
-console.error(`Loaded: ${data.pages.length} pages, ${data.chunks.length} chunks, ${data.componentDefs.length} components, ${data.recipes.length} recipes`);
 
 const server = new McpServer({ name: "gravityui-docs", version: "1.0.0" });
 
@@ -51,7 +50,7 @@ server.tool(
     const { scope, library, level, type } = args;
     // Map new schema to handleList's expected input
     const what = scope === "all" || !scope ? undefined : scope as "components" | "recipes";
-    const filter = !type && !library ? (library ?? level) : undefined;
+    const filter = (!type && !library) ? level : undefined;
     const result = handleList(data, { what, filter, type, library });
     return { content: [{ type: "text", text: formatList(result) }] };
   },

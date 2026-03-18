@@ -1,7 +1,7 @@
 import { searchIndex } from "../../ingest/index.js";
 import type { LoadedData } from "../loader.js";
 import type { ComponentDef } from "../../types.js";
-import { indent } from "../format.js";
+import { indent } from "../text-utils.js";
 
 // ---------------------------------------------------------------------------
 // String utilities (previously in ingest/tags.ts, inlined after pipeline cleanup)
