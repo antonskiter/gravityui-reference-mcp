@@ -2,7 +2,7 @@ import type { LoadedData } from '../loader.js';
 import type { TokenSet } from '../../types.js';
 
 export interface GetDesignTokensInput {
-  topic?: 'spacing' | 'breakpoints' | 'sizes' | 'colors';
+  topic?: 'spacing' | 'breakpoints' | 'sizes' | 'colors' | 'typography';
 }
 
 export type GetDesignTokensOutput = Partial<TokenSet>;
@@ -71,6 +71,15 @@ export function formatGetDesignTokens(output: GetDesignTokensOutput): string {
     lines.push('Semantic colors');
     lines.push('');
     for (const [key, value] of Object.entries(output.colors)) {
+      lines.push(`  ${key}: ${value}`);
+    }
+  }
+
+  if (output.typography) {
+    if (lines.length) lines.push('');
+    lines.push('Typography');
+    lines.push('');
+    for (const [key, value] of Object.entries(output.typography)) {
       lines.push(`  ${key}: ${value}`);
     }
   }

@@ -2,7 +2,7 @@ import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { deserializeIndex } from "../ingest/index.js";
-import type { Page, Chunk, IngestMetadata, ComponentTags, DesignSystemOverview, ComponentDef, TokenSet, CategoryMap, RecipeDef } from "../types.js";
+import type { Page, Chunk, IngestMetadata, ComponentTags, DesignSystemOverview, ComponentDef, TokenSet, CategoryMap, RecipeDef, HookDef, AssetDef, ApiFunctionDef, ConfigDoc } from "../types.js";
 import type MiniSearch from "minisearch";
 
 export type { DesignSystemOverview } from "../types.js";
@@ -97,6 +97,198 @@ function loadComponentDefs(dataDir: string): ComponentDef[] {
   return items.sort((a, b) => a.name.localeCompare(b.name));
 }
 
+/**
+ * Load hooks from data/components/ (nested under "hooks" key) and data/utilities/ (if present).
+ * Injects library from filename, fills defaults.
+ */
+function loadHookDefs(dataDir: string): HookDef[] {
+  const items: HookDef[] = [];
+
+  // From data/components/*.json — extract "hooks" arrays from wrapper objects
+  const componentsDirPath = join(dataDir, 'components');
+  if (existsSync(componentsDirPath)) {
+    const files = readdirSync(componentsDirPath).filter(f => f.endsWith('.json')).sort();
+    for (const file of files) {
+      const libId = file.replace(/\.json$/, '');
+      const parsed = loadJsonFile<Record<string, unknown> | HookDef[]>(join(componentsDirPath, file), []);
+      if (!Array.isArray(parsed) && parsed && typeof parsed === 'object') {
+        const hooks = (parsed as Record<string, unknown>).hooks;
+        if (Array.isArray(hooks)) {
+          for (const hook of hooks as HookDef[]) {
+            items.push({
+              ...hook,
+              library: hook.library || libId,
+              import_path: hook.import_path || `@gravity-ui/${libId}`,
+              parameters: hook.parameters ?? [],
+              rules_of_hooks: true,
+            });
+          }
+        }
+      }
+    }
+  }
+
+  // From data/utilities/*.json — extract "hooks" arrays if present
+  const utilitiesDirPath = join(dataDir, 'utilities');
+  if (existsSync(utilitiesDirPath)) {
+    const files = readdirSync(utilitiesDirPath).filter(f => f.endsWith('.json')).sort();
+    for (const file of files) {
+      const libId = file.replace(/\.json$/, '');
+      const parsed = loadJsonFile<Record<string, unknown>>(join(utilitiesDirPath, file), {});
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+        const hooks = (parsed as Record<string, unknown>).hooks;
+        if (Array.isArray(hooks)) {
+          for (const hook of hooks as HookDef[]) {
+            items.push({
+              ...hook,
+              library: hook.library || libId,
+              import_path: hook.import_path || `@gravity-ui/${libId}`,
+              parameters: hook.parameters ?? [],
+              rules_of_hooks: true,
+            });
+          }
+        }
+      }
+    }
+  }
+
+  return items.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+/**
+ * Load API function definitions from data/utilities/ and data/configs/ (both under "exports" key).
+ * Injects library from filename, fills defaults.
+ */
+function loadApiFunctionDefs(dataDir: string): ApiFunctionDef[] {
+  const items: ApiFunctionDef[] = [];
+
+  const dirs = ['utilities', 'configs'];
+  for (const dir of dirs) {
+    const dirPath = join(dataDir, dir);
+    if (!existsSync(dirPath)) continue;
+    const files = readdirSync(dirPath).filter(f => f.endsWith('.json')).sort();
+    for (const file of files) {
+      const libId = file.replace(/\.json$/, '');
+      const parsed = loadJsonFile<Record<string, unknown> | ApiFunctionDef[]>(join(dirPath, file), []);
+      // Single config object with "exports" key
+      if (!Array.isArray(parsed) && parsed && typeof parsed === 'object') {
+        const exports = (parsed as Record<string, unknown>).exports;
+        if (Array.isArray(exports)) {
+          for (const fn of exports as ApiFunctionDef[]) {
+            items.push({
+              ...fn,
+              library: fn.library || libId,
+              import_path: fn.import_path || `@gravity-ui/${libId}`,
+              parameters: fn.parameters ?? [],
+              kind: fn.kind ?? 'function',
+            });
+          }
+        }
+      } else if (Array.isArray(parsed)) {
+        // Array of config docs — each may have "exports"
+        for (const entry of parsed as Array<Record<string, unknown>>) {
+          const entryLibId = (entry.library as string) || libId;
+          const exports = entry.exports;
+          if (Array.isArray(exports)) {
+            for (const fn of exports as ApiFunctionDef[]) {
+              items.push({
+                ...fn,
+                library: fn.library || entryLibId,
+                import_path: fn.import_path || `@gravity-ui/${entryLibId}`,
+                parameters: fn.parameters ?? [],
+                kind: fn.kind ?? 'function',
+              });
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return items.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+/**
+ * Load asset definitions from data/assets/ (under "assets" key).
+ * Injects library from filename, fills defaults.
+ */
+function loadAssetDefs(dataDir: string): AssetDef[] {
+  const items: AssetDef[] = [];
+
+  const dirPath = join(dataDir, 'assets');
+  if (!existsSync(dirPath)) return items;
+
+  const files = readdirSync(dirPath).filter(f => f.endsWith('.json')).sort();
+  for (const file of files) {
+    const libId = file.replace(/\.json$/, '');
+    const parsed = loadJsonFile<Record<string, unknown> | AssetDef[]>(join(dirPath, file), []);
+    if (!Array.isArray(parsed) && parsed && typeof parsed === 'object') {
+      const assets = (parsed as Record<string, unknown>).assets;
+      if (Array.isArray(assets)) {
+        for (const asset of assets as AssetDef[]) {
+          items.push({
+            ...asset,
+            library: asset.library || libId,
+            import_path: asset.import_path || `@gravity-ui/${libId}`,
+          });
+        }
+      }
+    } else if (Array.isArray(parsed)) {
+      for (const asset of parsed as AssetDef[]) {
+        items.push({
+          ...asset,
+          library: asset.library || libId,
+          import_path: asset.import_path || `@gravity-ui/${libId}`,
+        });
+      }
+    }
+  }
+
+  return items.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+/**
+ * Load config docs from data/configs/ (both single-object and array formats).
+ * Injects library from filename.
+ */
+function loadConfigDocs(dataDir: string): ConfigDoc[] {
+  const items: ConfigDoc[] = [];
+
+  const dirPath = join(dataDir, 'configs');
+  if (!existsSync(dirPath)) return items;
+
+  const files = readdirSync(dirPath).filter(f => f.endsWith('.json')).sort();
+  for (const file of files) {
+    const libId = file.replace(/\.json$/, '');
+    const parsed = loadJsonFile<ConfigDoc | ConfigDoc[]>(join(dirPath, file), [] as ConfigDoc[]);
+    if (Array.isArray(parsed)) {
+      for (const doc of parsed) {
+        items.push({ ...doc, library: doc.library || libId });
+      }
+    } else if (parsed && typeof parsed === 'object') {
+      items.push({ ...parsed, library: (parsed as ConfigDoc).library || libId });
+    }
+  }
+
+  return items.sort((a, b) => a.library.localeCompare(b.library));
+}
+
+/**
+ * Load a required JSON file, exiting the process if missing or unparseable.
+ */
+function loadRequiredJson<T>(filePath: string, description: string): T {
+  if (!existsSync(filePath)) {
+    console.error(`Missing required file: ${description} (${filePath})`);
+    process.exit(1);
+  }
+  try {
+    return JSON.parse(readFileSync(filePath, 'utf-8')) as T;
+  } catch (e) {
+    console.error(`Failed to parse ${description} (${filePath}): ${e}`);
+    process.exit(1);
+  }
+}
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const DATA_DIR = join(__dirname, "..", "..", "data");
@@ -118,16 +310,34 @@ export interface LoadedData {
   categoryMap: CategoryMap;
   recipes: RecipeDef[];
   recipeById: Map<string, RecipeDef>;
+  hooks: HookDef[];
+  hooksByLibrary: Map<string, HookDef[]>;
+  apiFunctions: ApiFunctionDef[];
+  apiFunctionsByLibrary: Map<string, ApiFunctionDef[]>;
+  assets: AssetDef[];
+  assetsByLibrary: Map<string, AssetDef[]>;
+  configDocs: ConfigDoc[];
 }
 
 export function loadData(): LoadedData {
   const pages: Page[] = loadJsonArray<Page>(DATA_DIR, "pages");
   const chunks: Chunk[] = loadJsonArray<Chunk>(DATA_DIR, "chunks");
-  const metadata: IngestMetadata = JSON.parse(readFileSync(join(DATA_DIR, "metadata.json"), "utf-8"));
-  const indexJson = readFileSync(join(DATA_DIR, "search-index.json"), "utf-8");
+  const metadata: IngestMetadata = loadRequiredJson<IngestMetadata>(join(DATA_DIR, "metadata.json"), "metadata");
+  const searchIndexPath = join(DATA_DIR, "search-index.json");
+  if (!existsSync(searchIndexPath)) {
+    console.error(`Missing required file: search-index (${searchIndexPath})`);
+    process.exit(1);
+  }
+  let indexJson: string;
+  try {
+    indexJson = readFileSync(searchIndexPath, "utf-8");
+  } catch (e) {
+    console.error(`Failed to read search-index (${searchIndexPath}): ${e}`);
+    process.exit(1);
+  }
   const index = deserializeIndex(indexJson);
-  const tagsRaw: ComponentTags = JSON.parse(readFileSync(join(DATA_DIR, "tags.json"), "utf-8"));
-  const overview: DesignSystemOverview = JSON.parse(readFileSync(join(DATA_DIR, "overview.json"), "utf-8"));
+  const tagsRaw: ComponentTags = loadRequiredJson<ComponentTags>(join(DATA_DIR, "tags.json"), "tags");
+  const overview: DesignSystemOverview = loadRequiredJson<DesignSystemOverview>(join(DATA_DIR, "overview.json"), "overview");
 
   const pageById = new Map(pages.map(p => [p.id, p]));
   const chunkById = new Map(chunks.map(c => [c.id, c]));
@@ -184,5 +394,41 @@ export function loadData(): LoadedData {
     componentsByLibrary.set(comp.library, list);
   }
 
-  return { pages, chunks, metadata, index, pageById, chunkById, chunksByPageId, tagsByPageId, overview, componentDefs, componentByName, componentsByLibrary, tokens, categoryMap, recipes, recipeById };
+  // Load hooks
+  const hooks = loadHookDefs(DATA_DIR);
+  const hooksByLibrary = new Map<string, HookDef[]>();
+  for (const h of hooks) {
+    const list = hooksByLibrary.get(h.library) || [];
+    list.push(h);
+    hooksByLibrary.set(h.library, list);
+  }
+
+  // Load API functions
+  const apiFunctions = loadApiFunctionDefs(DATA_DIR);
+  const apiFunctionsByLibrary = new Map<string, ApiFunctionDef[]>();
+  for (const fn of apiFunctions) {
+    const list = apiFunctionsByLibrary.get(fn.library) || [];
+    list.push(fn);
+    apiFunctionsByLibrary.set(fn.library, list);
+  }
+
+  // Load assets
+  const assets = loadAssetDefs(DATA_DIR);
+  const assetsByLibrary = new Map<string, AssetDef[]>();
+  for (const asset of assets) {
+    const list = assetsByLibrary.get(asset.library) || [];
+    list.push(asset);
+    assetsByLibrary.set(asset.library, list);
+  }
+
+  // Load config docs
+  const configDocs = loadConfigDocs(DATA_DIR);
+
+  console.log(
+    `Loaded: ${pages.length} pages, ${chunks.length} chunks, ${componentDefs.length} components, ` +
+    `${hooks.length} hooks, ${apiFunctions.length} API fns, ${assets.length} assets, ${configDocs.length} config docs, ` +
+    `${recipes.length} recipes`
+  );
+
+  return { pages, chunks, metadata, index, pageById, chunkById, chunksByPageId, tagsByPageId, overview, componentDefs, componentByName, componentsByLibrary, tokens, categoryMap, recipes, recipeById, hooks, hooksByLibrary, apiFunctions, apiFunctionsByLibrary, assets, assetsByLibrary, configDocs };
 }

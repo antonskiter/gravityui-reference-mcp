@@ -90,7 +90,7 @@ export interface CategoryMap {
   components: Record<string, string>; // ComponentName → category slug
 }
 
-export type RecipeLevel = 'foundation' | 'molecule' | 'organism';
+export type RecipeLevel = 'atom' | 'foundation' | 'molecule' | 'organism' | 'page';
 
 export interface RecipeComponentItem {
   name: string;
