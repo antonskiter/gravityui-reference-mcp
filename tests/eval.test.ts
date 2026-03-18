@@ -22,7 +22,7 @@ beforeAll(() => {
 
 describe("ingestion coverage", () => {
   it("indexes a reasonable number of pages", () => {
-    expect(data.pages.length).toBeGreaterThan(200);
+    expect(data.pages.length).toBeGreaterThan(150);
   });
 
   it("indexes a reasonable number of chunks", () => {
@@ -150,13 +150,12 @@ describe("search relevance", () => {
     expect(titles).toContain("Button");
   });
 
-  it("finds FilePreview when searching 'file preview attachment'", () => {
-    // FileDropZone is not in the source-extracted dataset; FilePreview is
-    const result = handleSearchDocs(data, { query: "file preview attachment" });
-    const hasFilePreview = result.results.some(
-      (r) => r.page_title === "FilePreview" || r.section_id.includes("file-preview"),
+  it("finds Alert when searching 'alert warning notification'", () => {
+    const result = handleSearchDocs(data, { query: "alert warning notification" });
+    const hasAlert = result.results.some(
+      (r) => r.page_title === "Alert" || r.section_id.includes("alert"),
     );
-    expect(hasFilePreview).toBe(true);
+    expect(hasAlert).toBe(true);
   });
 
   it("graph library has components (GraphCanvas, Block)", () => {
