@@ -1,0 +1,20 @@
+[
+  {
+    "name": "ActionPanel",
+    "library": "dashkit",
+    "import_path": "@gravity-ui/dashkit",
+    "import_statement": "import {ActionPanel} from '@gravity-ui/dashkit';",
+    "props": [],
+    "examples": [],
+    "source_file": "dashkit/src/components/ActionPanel/ActionPanel.tsx"
+  },
+  {
+    "name": "DashKitDnDWrapper",
+    "library": "dashkit",
+    "import_path": "@gravity-ui/dashkit",
+    "import_statement": "import {DashKitDnDWrapper} from '@gravity-ui/dashkit';",
+    "props": [],
+    "examples": [],
+    "source_file": "dashkit/src/components/DashKitDnDWrapper/DashKitDnDWrapper.tsx"
+  }
+]

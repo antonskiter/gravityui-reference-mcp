@@ -1,0 +1,49 @@
+[
+  {
+    "name": "Block",
+    "library": "graph",
+    "import_path": "@gravity-ui/graph",
+    "import_statement": "import {Block} from '@gravity-ui/graph';",
+    "props": [],
+    "examples": [],
+    "source_file": "graph/src/react-components/BlocksList.tsx"
+  },
+  {
+    "name": "GraphBlockAnchor",
+    "library": "graph",
+    "import_path": "@gravity-ui/graph",
+    "import_statement": "import {GraphBlockAnchor} from '@gravity-ui/graph';",
+    "props": [],
+    "examples": [],
+    "source_file": "graph/src/react-components/Anchor.tsx"
+  },
+  {
+    "name": "GraphCanvas",
+    "library": "graph",
+    "import_path": "@gravity-ui/graph",
+    "import_statement": "import {GraphCanvas} from '@gravity-ui/graph';",
+    "props": [],
+    "examples": [],
+    "source_file": "graph/src/react-components/GraphCanvas.tsx"
+  },
+  {
+    "name": "GraphContextProvider",
+    "library": "graph",
+    "import_path": "@gravity-ui/graph",
+    "import_statement": "import {GraphContextProvider} from '@gravity-ui/graph';",
+    "props": [
+      {
+        "name": "graph",
+        "type": "Graph",
+        "required": true
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true
+      }
+    ],
+    "examples": [],
+    "source_file": "graph/src/react-components/GraphContext.tsx"
+  }
+]

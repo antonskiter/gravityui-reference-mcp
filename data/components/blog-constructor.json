@@ -1,5 +1,112 @@
 [
   {
+    "name": "FeedHeader",
+    "library": "blog-constructor",
+    "import_path": "@gravity-ui/blog-constructor",
+    "import_statement": "import {FeedHeader} from '@gravity-ui/blog-constructor';",
+    "props": [],
+    "examples": [],
+    "source_file": "blog-constructor/src/components/FeedHeader/FeedHeader.tsx"
+  },
+  {
+    "name": "MetaWrapper",
+    "library": "blog-constructor",
+    "import_path": "@gravity-ui/blog-constructor",
+    "import_statement": "import {MetaWrapper} from '@gravity-ui/blog-constructor';",
+    "props": [],
+    "examples": [],
+    "source_file": "blog-constructor/src/components/MetaWrapper/MetaWrapper.tsx",
+    "description": "Wrapper on meta data of page @param needHelmetWrapper - component needs helmet wrapper @param metaComponent - meta data component @returns jsx"
+  },
+  {
+    "name": "Paginator",
+    "library": "blog-constructor",
+    "import_path": "@gravity-ui/blog-constructor",
+    "import_statement": "import {Paginator} from '@gravity-ui/blog-constructor';",
+    "props": [],
+    "examples": [],
+    "source_file": "blog-constructor/src/components/Paginator/Paginator.tsx"
+  },
+  {
+    "name": "PostCard",
+    "library": "blog-constructor",
+    "import_path": "@gravity-ui/blog-constructor",
+    "import_statement": "import {PostCard} from '@gravity-ui/blog-constructor';",
+    "props": [],
+    "examples": [],
+    "source_file": "blog-constructor/src/components/PostCard/PostCard.tsx"
+  },
+  {
+    "name": "PostInfo",
+    "library": "blog-constructor",
+    "import_path": "@gravity-ui/blog-constructor",
+    "import_statement": "import {PostInfo} from '@gravity-ui/blog-constructor';",
+    "props": [],
+    "examples": [],
+    "source_file": "blog-constructor/src/components/PostInfo/PostInfo.tsx",
+    "description": "Blog post info panel component @param postId - post id @param readingTime - post reading time @param date - post create date @param theme - theme name @param qa - test-attr @param analyticsEventsContainer - a map of records with a single or collection of objects detailing analytics events @returns jsx"
+  },
+  {
+    "name": "Posts",
+    "library": "blog-constructor",
+    "import_path": "@gravity-ui/blog-constructor",
+    "import_statement": "import {Posts} from '@gravity-ui/blog-constructor';",
+    "props": [],
+    "examples": [],
+    "source_file": "blog-constructor/src/components/Posts/Posts.tsx"
+  },
+  {
+    "name": "PostsError",
+    "library": "blog-constructor",
+    "import_path": "@gravity-ui/blog-constructor",
+    "import_statement": "import {PostsError} from '@gravity-ui/blog-constructor';",
+    "props": [],
+    "examples": [],
+    "source_file": "blog-constructor/src/components/PostsError/PostsError.tsx"
+  },
+  {
+    "name": "Prompt",
+    "library": "blog-constructor",
+    "import_path": "@gravity-ui/blog-constructor",
+    "import_statement": "import {Prompt} from '@gravity-ui/blog-constructor';",
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "actions",
+        "type": "ButtonProps[]",
+        "required": true
+      },
+      {
+        "name": "openTimestamp",
+        "type": "number",
+        "required": false,
+        "default": "0"
+      },
+      {
+        "name": "openDuration",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "theme",
+        "type": "'grey' | 'beige' | 'white'",
+        "required": false
+      }
+    ],
+    "examples": [],
+    "source_file": "blog-constructor/src/components/Prompt/Prompt.tsx",
+    "description": "Popup that appears with text message and button(s) for given `actions`. Features: - Automatically disappears after `openDuration` in milliseconds - `openTimestamp` (`Date.now()`) resets the visible duration @returns {JSX|null}"
+  },
+  {
     "name": "PromptSignIn",
     "library": "blog-constructor",
     "category": "feedback",
@@ -43,5 +150,14 @@
       "<PromptSignIn onClickSignIn={() => router.push('/login')} />",
       "<PromptSignIn\n  title=\"Members only\"\n  message=\"Sign in to leave a comment\"\n  onClickSignIn={handleSignIn}\n/>"
     ]
+  },
+  {
+    "name": "Wrapper",
+    "library": "blog-constructor",
+    "import_path": "@gravity-ui/blog-constructor",
+    "import_statement": "import {Wrapper} from '@gravity-ui/blog-constructor';",
+    "props": [],
+    "examples": [],
+    "source_file": "blog-constructor/src/components/Wrapper/Wrapper.tsx"
   }
 ]

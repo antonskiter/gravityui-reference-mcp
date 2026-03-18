@@ -1,0 +1,98 @@
+[
+  {
+    "page_id": "component:dashkit:actionpanel",
+    "url": "https://gravity-ui.com/components/dashkit/actionpanel",
+    "page_title": "ActionPanel",
+    "page_type": "component",
+    "library": "dashkit",
+    "breadcrumbs": [
+      "dashkit",
+      "ActionPanel"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:dashkit:actionpanel:description",
+    "section_title": "Description",
+    "content": "ActionPanel component from the dashkit library."
+  },
+  {
+    "page_id": "component:dashkit:actionpanel",
+    "url": "https://gravity-ui.com/components/dashkit/actionpanel",
+    "page_title": "ActionPanel",
+    "page_type": "component",
+    "library": "dashkit",
+    "breadcrumbs": [
+      "dashkit",
+      "ActionPanel"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:dashkit:actionpanel:props",
+    "section_title": "Props",
+    "content": "ActionPanel has no documented props."
+  },
+  {
+    "page_id": "component:dashkit:actionpanel",
+    "url": "https://gravity-ui.com/components/dashkit/actionpanel",
+    "page_title": "ActionPanel",
+    "page_type": "component",
+    "library": "dashkit",
+    "breadcrumbs": [
+      "dashkit",
+      "ActionPanel"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:dashkit:actionpanel:import",
+    "section_title": "Import",
+    "content": "Import: import {ActionPanel} from '@gravity-ui/dashkit';\nPackage: @gravity-ui/dashkit"
+  },
+  {
+    "page_id": "component:dashkit:dashkitdndwrapper",
+    "url": "https://gravity-ui.com/components/dashkit/dashkitdndwrapper",
+    "page_title": "DashKitDnDWrapper",
+    "page_type": "component",
+    "library": "dashkit",
+    "breadcrumbs": [
+      "dashkit",
+      "DashKitDnDWrapper"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:dashkit:dashkitdndwrapper:description",
+    "section_title": "Description",
+    "content": "DashKitDnDWrapper component from the dashkit library."
+  },
+  {
+    "page_id": "component:dashkit:dashkitdndwrapper",
+    "url": "https://gravity-ui.com/components/dashkit/dashkitdndwrapper",
+    "page_title": "DashKitDnDWrapper",
+    "page_type": "component",
+    "library": "dashkit",
+    "breadcrumbs": [
+      "dashkit",
+      "DashKitDnDWrapper"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:dashkit:dashkitdndwrapper:props",
+    "section_title": "Props",
+    "content": "DashKitDnDWrapper has no documented props."
+  },
+  {
+    "page_id": "component:dashkit:dashkitdndwrapper",
+    "url": "https://gravity-ui.com/components/dashkit/dashkitdndwrapper",
+    "page_title": "DashKitDnDWrapper",
+    "page_type": "component",
+    "library": "dashkit",
+    "breadcrumbs": [
+      "dashkit",
+      "DashKitDnDWrapper"
+    ],
+    "code_examples": [],
+    "keywords": [],
+    "id": "component:dashkit:dashkitdndwrapper:import",
+    "section_title": "Import",
+    "content": "Import: import {DashKitDnDWrapper} from '@gravity-ui/dashkit';\nPackage: @gravity-ui/dashkit"
+  }
+]

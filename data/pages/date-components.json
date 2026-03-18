@@ -9,96 +9,187 @@
       "date-components",
       "Calendar"
     ],
-    "description": "Calendar renders an interactive calendar for selecting a single date. Supports controlled and uncontrolled modes, min/max date constraints, disabled dates, and multiple calendar modes (days, months, quarters, years).",
+    "description": "Calendar is a flexible, user-friendly calendar component for React applications. It allows users to view, select, and manage dates with ease. It can be controlled if you set value property, or uncontrolled otherwise.",
     "section_ids": [
-      "component:date-components:calendar:overview",
+      "component:date-components:calendar:description",
       "component:date-components:calendar:props",
+      "component:date-components:calendar:import",
       "component:date-components:calendar:examples"
     ]
   },
   {
-    "id": "component:date-components:date-field",
+    "id": "component:date-components:calendarview",
+    "title": "CalendarView",
+    "page_type": "component",
+    "library": "date-components",
+    "url": "https://gravity-ui.com/components/date-components/calendarview",
+    "breadcrumbs": [
+      "date-components",
+      "CalendarView"
+    ],
+    "description": "The size of the element. @default m",
+    "section_ids": [
+      "component:date-components:calendarview:description",
+      "component:date-components:calendarview:props",
+      "component:date-components:calendarview:import"
+    ]
+  },
+  {
+    "id": "component:date-components:datefield",
     "title": "DateField",
     "page_type": "component",
     "library": "date-components",
-    "url": "https://gravity-ui.com/components/date-components/date-field",
+    "url": "https://gravity-ui.com/components/date-components/datefield",
     "breadcrumbs": [
       "date-components",
       "DateField"
     ],
-    "description": "DateField is a text input for entering a date and/or time value following a specified format. Each date segment (year, month, day, hour, minute, second) is independently editable.",
+    "description": "DateField component is a versatile and convenient input field specifically designed for date entry in React applications. It can be controlled if you set value property, or uncontrolled otherwise.",
     "section_ids": [
-      "component:date-components:date-field:overview",
-      "component:date-components:date-field:props",
-      "component:date-components:date-field:examples"
+      "component:date-components:datefield:description",
+      "component:date-components:datefield:props",
+      "component:date-components:datefield:import",
+      "component:date-components:datefield:examples"
     ]
   },
   {
-    "id": "component:date-components:date-picker",
+    "id": "component:date-components:datepicker",
     "title": "DatePicker",
     "page_type": "component",
     "library": "date-components",
-    "url": "https://gravity-ui.com/components/date-components/date-picker",
+    "url": "https://gravity-ui.com/components/date-components/datepicker",
     "breadcrumbs": [
       "date-components",
       "DatePicker"
     ],
-    "description": "DatePicker combines a DateField input with a Calendar popup for selecting a single date. Supports controlled and uncontrolled modes, min/max constraints, disabled dates, and various sizes.",
+    "description": "DatePicker is a sophisticated, lightweight, and fully customizable component designed to provide intuitive date picking functionality in your React applications. It can be controlled if you set value property, or uncontrolled otherwise.",
     "section_ids": [
-      "component:date-components:date-picker:overview",
-      "component:date-components:date-picker:props",
-      "component:date-components:date-picker:examples"
+      "component:date-components:datepicker:description",
+      "component:date-components:datepicker:props",
+      "component:date-components:datepicker:import",
+      "component:date-components:datepicker:examples"
     ]
   },
   {
-    "id": "component:date-components:range-calendar",
+    "id": "component:date-components:rangecalendar",
     "title": "RangeCalendar",
     "page_type": "component",
     "library": "date-components",
-    "url": "https://gravity-ui.com/components/date-components/range-calendar",
+    "url": "https://gravity-ui.com/components/date-components/rangecalendar",
     "breadcrumbs": [
       "date-components",
       "RangeCalendar"
     ],
-    "description": "RangeCalendar renders an interactive calendar for selecting a date range (start and end dates). Extends Calendar with range selection support including hover highlighting.",
+    "description": "RangeCalendar is a powerful, flexible, and user-friendly UI component designed for selecting a range of dates. It can be controlled if you set value property, or uncontrolled otherwise.",
     "section_ids": [
-      "component:date-components:range-calendar:overview",
-      "component:date-components:range-calendar:props",
-      "component:date-components:range-calendar:examples"
+      "component:date-components:rangecalendar:description",
+      "component:date-components:rangecalendar:props",
+      "component:date-components:rangecalendar:import",
+      "component:date-components:rangecalendar:examples"
     ]
   },
   {
-    "id": "component:date-components:relative-date-field",
+    "id": "component:date-components:rangedatefield",
+    "title": "RangeDateField",
+    "page_type": "component",
+    "library": "date-components",
+    "url": "https://gravity-ui.com/components/date-components/rangedatefield",
+    "breadcrumbs": [
+      "date-components",
+      "RangeDateField"
+    ],
+    "description": "RangeDateField component from date-components",
+    "section_ids": [
+      "component:date-components:rangedatefield:description",
+      "component:date-components:rangedatefield:props",
+      "component:date-components:rangedatefield:import"
+    ]
+  },
+  {
+    "id": "component:date-components:rangedatepicker",
+    "title": "RangeDatePicker",
+    "page_type": "component",
+    "library": "date-components",
+    "url": "https://gravity-ui.com/components/date-components/rangedatepicker",
+    "breadcrumbs": [
+      "date-components",
+      "RangeDatePicker"
+    ],
+    "description": "RangeDatePicker component from date-components",
+    "section_ids": [
+      "component:date-components:rangedatepicker:description",
+      "component:date-components:rangedatepicker:props",
+      "component:date-components:rangedatepicker:import"
+    ]
+  },
+  {
+    "id": "component:date-components:rangedateselection",
+    "title": "RangeDateSelection",
+    "page_type": "component",
+    "library": "date-components",
+    "url": "https://gravity-ui.com/components/date-components/rangedateselection",
+    "breadcrumbs": [
+      "date-components",
+      "RangeDateSelection"
+    ],
+    "description": "RangeDateSelection component from date-components",
+    "section_ids": [
+      "component:date-components:rangedateselection:description",
+      "component:date-components:rangedateselection:props",
+      "component:date-components:rangedateselection:import"
+    ]
+  },
+  {
+    "id": "component:date-components:relativedatefield",
     "title": "RelativeDateField",
     "page_type": "component",
     "library": "date-components",
-    "url": "https://gravity-ui.com/components/date-components/relative-date-field",
+    "url": "https://gravity-ui.com/components/date-components/relativedatefield",
     "breadcrumbs": [
       "date-components",
       "RelativeDateField"
     ],
-    "description": "RelativeDateField is an input for entering relative date expressions (e.g., 'now-7d') or absolute dates. Parses relative syntax and resolves to actual DateTime values.",
+    "description": "RelativeDateField component is used only for entering relative dates using Grafana-like relative format (e.g. now-1d, now/w). It cannot be used as a normal DateField.",
     "section_ids": [
-      "component:date-components:relative-date-field:overview",
-      "component:date-components:relative-date-field:props",
-      "component:date-components:relative-date-field:examples"
+      "component:date-components:relativedatefield:description",
+      "component:date-components:relativedatefield:props",
+      "component:date-components:relativedatefield:import",
+      "component:date-components:relativedatefield:examples"
     ]
   },
   {
-    "id": "component:date-components:relative-date-picker",
+    "id": "component:date-components:relativedatepicker",
     "title": "RelativeDatePicker",
     "page_type": "component",
     "library": "date-components",
-    "url": "https://gravity-ui.com/components/date-components/relative-date-picker",
+    "url": "https://gravity-ui.com/components/date-components/relativedatepicker",
     "breadcrumbs": [
       "date-components",
       "RelativeDatePicker"
     ],
-    "description": "RelativeDatePicker combines a RelativeDateField input with a Calendar popup. Allows selecting both absolute dates via calendar and entering relative date expressions.",
+    "description": "RelativeDatePicker is almost the same component as DatePicker but it has ability to use relative dates. It can work in two modes: absolute and relative. You can switch it interactively by click on the f(x) button.",
     "section_ids": [
-      "component:date-components:relative-date-picker:overview",
-      "component:date-components:relative-date-picker:props",
-      "component:date-components:relative-date-picker:examples"
+      "component:date-components:relativedatepicker:description",
+      "component:date-components:relativedatepicker:props",
+      "component:date-components:relativedatepicker:import",
+      "component:date-components:relativedatepicker:examples"
+    ]
+  },
+  {
+    "id": "component:date-components:relativerangedatepicker",
+    "title": "RelativeRangeDatePicker",
+    "page_type": "component",
+    "library": "date-components",
+    "url": "https://gravity-ui.com/components/date-components/relativerangedatepicker",
+    "breadcrumbs": [
+      "date-components",
+      "RelativeRangeDatePicker"
+    ],
+    "description": "RelativeRangeDatePicker component from date-components",
+    "section_ids": [
+      "component:date-components:relativerangedatepicker:description",
+      "component:date-components:relativerangedatepicker:props",
+      "component:date-components:relativerangedatepicker:import"
     ]
   }
 ]

@@ -84,6 +84,36 @@
     ]
   },
   {
+    "name": "DefaultVideo",
+    "library": "page-constructor",
+    "import_path": "@gravity-ui/page-constructor",
+    "import_statement": "import {DefaultVideo} from '@gravity-ui/page-constructor';",
+    "props": [
+      {
+        "name": "video",
+        "type": "MediaVideoProps",
+        "required": true
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "customBarControlsClassName",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      }
+    ],
+    "examples": [],
+    "source_file": "page-constructor/src/components/DefaultVideo/DefaultVideo.tsx"
+  },
+  {
     "name": "ErrorWrapper",
     "library": "page-constructor",
     "category": "feedback",
@@ -132,6 +162,50 @@
     "examples": [
       "const [isError, setIsError] = React.useState(true);\n\n<ErrorWrapper\n  text=\"Something went wrong\"\n  buttonText=\"Try again\"\n  isError={isError}\n  handler={() => setIsError(false)}\n>\n  <div>Data loaded successfully!</div>\n</ErrorWrapper>"
     ]
+  },
+  {
+    "name": "ImageBase",
+    "library": "page-constructor",
+    "import_path": "@gravity-ui/page-constructor",
+    "import_statement": "import {ImageBase} from '@gravity-ui/page-constructor';",
+    "props": [
+      {
+        "name": "style",
+        "type": "React.CSSProperties",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "onClick",
+        "type": "React.MouseEventHandler",
+        "required": false
+      },
+      {
+        "name": "onLoad",
+        "type": "React.ReactEventHandler<HTMLDivElement>",
+        "required": false
+      },
+      {
+        "name": "onError",
+        "type": "() => void",
+        "required": false
+      }
+    ],
+    "examples": [],
+    "source_file": "page-constructor/src/components/ImageBase/ImageBase.tsx"
+  },
+  {
+    "name": "Layout",
+    "library": "page-constructor",
+    "import_path": "@gravity-ui/page-constructor",
+    "import_statement": "import {Layout} from '@gravity-ui/page-constructor';",
+    "props": [],
+    "examples": [],
+    "source_file": "page-constructor/src/components/CardBase/CardBase.tsx"
   },
   {
     "name": "Link",
@@ -286,6 +360,116 @@
       }
     ],
     "examples": []
+  },
+  {
+    "name": "Media",
+    "library": "page-constructor",
+    "import_path": "@gravity-ui/page-constructor",
+    "import_statement": "import {Media} from '@gravity-ui/page-constructor';",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "isFullscreenImageCover",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "youtubeClassName",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "autoplay",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "onImageLoad",
+        "type": "() => void",
+        "required": false
+      }
+    ],
+    "examples": [],
+    "source_file": "page-constructor/src/components/Media/Media.tsx"
+  },
+  {
+    "name": "MediaBase",
+    "library": "page-constructor",
+    "import_path": "@gravity-ui/page-constructor",
+    "import_statement": "import {MediaBase} from '@gravity-ui/page-constructor';",
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactElement",
+        "required": true
+      },
+      {
+        "name": "onScroll",
+        "type": "() => void",
+        "required": false
+      }
+    ],
+    "examples": [],
+    "source_file": "page-constructor/src/components/MediaBase/MediaBase.tsx"
+  },
+  {
+    "name": "ReactPlayerBlock",
+    "library": "page-constructor",
+    "import_path": "@gravity-ui/page-constructor",
+    "import_statement": "import {ReactPlayerBlock} from '@gravity-ui/page-constructor';",
+    "props": [
+      {
+        "name": "src",
+        "type": "string | string[]",
+        "required": true
+      },
+      {
+        "name": "previewImgUrl",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "customBarControlsClassName",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "showPreview",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "onClickPreview",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "ratio",
+        "type": "number",
+        "required": false
+      },
+      {
+        "name": "autoRatio",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false
+      }
+    ],
+    "examples": [],
+    "source_file": "page-constructor/src/components/ReactPlayer/ReactPlayer.tsx"
   },
   {
     "name": "Table",

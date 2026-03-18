@@ -1,36 +1,54 @@
 [
   {
-    "id": "component:navigation:action-bar",
+    "id": "component:navigation:actionbar",
     "title": "ActionBar",
     "page_type": "component",
     "library": "navigation",
-    "url": "https://gravity-ui.com/components/navigation/action-bar",
+    "url": "https://gravity-ui.com/components/navigation/actionbar",
     "breadcrumbs": [
       "navigation",
       "ActionBar"
     ],
-    "description": "ActionBar renders a horizontal toolbar with grouped action items. Each group can contain buttons, selects, or custom content. Supports responsive collapsing of items into a dropdown menu.",
+    "description": "ActionBar is a flexible horizontal bar that provides a standardized layout for arranging navigation elements, actions, and informational content within an application. It serves as a container for organizing UI elements like breadcrumbs, buttons, and dropdown menus into defined sections and groups.",
     "section_ids": [
-      "component:navigation:action-bar:overview",
-      "component:navigation:action-bar:props",
-      "component:navigation:action-bar:examples"
+      "component:navigation:actionbar:description",
+      "component:navigation:actionbar:props",
+      "component:navigation:actionbar:import",
+      "component:navigation:actionbar:examples"
     ]
   },
   {
-    "id": "component:navigation:aside-header",
+    "id": "component:navigation:asideheader",
     "title": "AsideHeader",
     "page_type": "component",
     "library": "navigation",
-    "url": "https://gravity-ui.com/components/navigation/aside-header",
+    "url": "https://gravity-ui.com/components/navigation/asideheader",
     "breadcrumbs": [
       "navigation",
       "AsideHeader"
     ],
-    "description": "AsideHeader is a collapsible sidebar navigation component. It renders a logo, menu items with icons and nested items, a panel toggle, and a footer section. Supports compact and expanded modes.",
+    "description": "AsideHeader provides a flexible and customizable navigation experience within your application. Users can easily customize the appearance of the sidebar to match their branding colors and add personalized links and icons.",
     "section_ids": [
-      "component:navigation:aside-header:overview",
-      "component:navigation:aside-header:props",
-      "component:navigation:aside-header:examples"
+      "component:navigation:asideheader:description",
+      "component:navigation:asideheader:props",
+      "component:navigation:asideheader:import"
+    ]
+  },
+  {
+    "id": "component:navigation:content",
+    "title": "Content",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/content",
+    "breadcrumbs": [
+      "navigation",
+      "Content"
+    ],
+    "description": "Content component from navigation",
+    "section_ids": [
+      "component:navigation:content:description",
+      "component:navigation:content:props",
+      "component:navigation:content:import"
     ]
   },
   {
@@ -43,28 +61,29 @@
       "navigation",
       "Footer"
     ],
-    "description": "Footer renders a page footer with logo, navigation links organized in columns, social links, and copyright text. Supports light and dark color themes.",
+    "description": "The page footer component for desktop. Use Footer for the desktop version and MobileFooter for the mobile version.",
     "section_ids": [
-      "component:navigation:footer:overview",
+      "component:navigation:footer:description",
       "component:navigation:footer:props",
+      "component:navigation:footer:import",
       "component:navigation:footer:examples"
     ]
   },
   {
-    "id": "component:navigation:hotkeys-panel",
+    "id": "component:navigation:hotkeyspanel",
     "title": "HotkeysPanel",
     "page_type": "component",
     "library": "navigation",
-    "url": "https://gravity-ui.com/components/navigation/hotkeys-panel",
+    "url": "https://gravity-ui.com/components/navigation/hotkeyspanel",
     "breadcrumbs": [
       "navigation",
       "HotkeysPanel"
     ],
-    "description": "HotkeysPanel renders a side panel listing available keyboard shortcuts grouped by category. Displays each shortcut with its key combination and description.",
+    "description": "A navigation panel for hotkeys documentation. The panel displays a set of hotkeys for your application with a description of their purpose.",
     "section_ids": [
-      "component:navigation:hotkeys-panel:overview",
-      "component:navigation:hotkeys-panel:props",
-      "component:navigation:hotkeys-panel:examples"
+      "component:navigation:hotkeyspanel:description",
+      "component:navigation:hotkeyspanel:props",
+      "component:navigation:hotkeyspanel:import"
     ]
   },
   {
@@ -77,28 +96,45 @@
       "navigation",
       "Logo"
     ],
-    "description": "Logo renders a product or company logo with optional text label. Used as the header element in AsideHeader and MobileHeader navigation components.",
+    "description": "Logo icon is wrapped in UIKit Button, text is wrapped in HTML tag a or div, when passing hasWrapper prop.",
     "section_ids": [
-      "component:navigation:logo:overview",
+      "component:navigation:logo:description",
       "component:navigation:logo:props",
-      "component:navigation:logo:examples"
+      "component:navigation:logo:import"
     ]
   },
   {
-    "id": "component:navigation:mobile-header",
+    "id": "component:navigation:mobileheader",
     "title": "MobileHeader",
     "page_type": "component",
     "library": "navigation",
-    "url": "https://gravity-ui.com/components/navigation/mobile-header",
+    "url": "https://gravity-ui.com/components/navigation/mobileheader",
     "breadcrumbs": [
       "navigation",
       "MobileHeader"
     ],
-    "description": "MobileHeader renders a mobile navigation header with a hamburger menu that opens a full-screen drawer. Supports logo, navigation items, and custom content areas.",
+    "description": "Header for Mobile navigation. MobileHeader provides maintaining Panels except for Modals.",
     "section_ids": [
-      "component:navigation:mobile-header:overview",
-      "component:navigation:mobile-header:props",
-      "component:navigation:mobile-header:examples"
+      "component:navigation:mobileheader:description",
+      "component:navigation:mobileheader:props",
+      "component:navigation:mobileheader:import"
+    ]
+  },
+  {
+    "id": "component:navigation:mobilelogo",
+    "title": "MobileLogo",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/mobilelogo",
+    "breadcrumbs": [
+      "navigation",
+      "MobileLogo"
+    ],
+    "description": "MobileLogo component from navigation",
+    "section_ids": [
+      "component:navigation:mobilelogo:description",
+      "component:navigation:mobilelogo:props",
+      "component:navigation:mobilelogo:import"
     ]
   },
   {
@@ -111,11 +147,29 @@
       "navigation",
       "Settings"
     ],
-    "description": "Settings renders a settings panel with sections and individual setting items. Supports search filtering, custom renderers for setting values, and loading state.",
+    "description": "The Settings component provides layouting functionality of settings panel with features including single-level and two-level grouping of items, filtering of the panel's content by headers of items, and displaying of loading status and content.",
     "section_ids": [
-      "component:navigation:settings:overview",
+      "component:navigation:settings:description",
       "component:navigation:settings:props",
+      "component:navigation:settings:import",
       "component:navigation:settings:examples"
+    ]
+  },
+  {
+    "id": "component:navigation:topalert",
+    "title": "TopAlert",
+    "page_type": "component",
+    "library": "navigation",
+    "url": "https://gravity-ui.com/components/navigation/topalert",
+    "breadcrumbs": [
+      "navigation",
+      "TopAlert"
+    ],
+    "description": "TopAlert component from navigation",
+    "section_ids": [
+      "component:navigation:topalert:description",
+      "component:navigation:topalert:props",
+      "component:navigation:topalert:import"
     ]
   }
 ]

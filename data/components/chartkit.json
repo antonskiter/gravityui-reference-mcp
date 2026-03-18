@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Loader",
+    "library": "chartkit",
+    "import_path": "@gravity-ui/chartkit",
+    "import_statement": "import {Loader} from '@gravity-ui/chartkit';",
+    "props": [],
+    "examples": [],
+    "source_file": "chartkit/src/components/Loader/Loader.tsx"
+  }
+]

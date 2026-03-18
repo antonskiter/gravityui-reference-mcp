@@ -1,0 +1,1267 @@
+[
+  {
+    "id": "component:uikit:accordion",
+    "title": "Accordion",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/accordion",
+    "breadcrumbs": [
+      "uikit",
+      "Accordion"
+    ],
+    "description": "A vertically stacked set of interactive headings that reveal or hide associated sections of content. Supports controlled and uncontrolled modes.",
+    "section_ids": [
+      "component:uikit:accordion:description",
+      "component:uikit:accordion:props",
+      "component:uikit:accordion:import",
+      "component:uikit:accordion:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:actionspanel",
+    "title": "ActionsPanel",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/actionspanel",
+    "breadcrumbs": [
+      "uikit",
+      "ActionsPanel"
+    ],
+    "description": "A floating panel that displays a set of actions, typically used for bulk operations on selected items. Renders at the bottom of a container.",
+    "section_ids": [
+      "component:uikit:actionspanel:description",
+      "component:uikit:actionspanel:props",
+      "component:uikit:actionspanel:import",
+      "component:uikit:actionspanel:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:actiontooltip",
+    "title": "ActionTooltip",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/actiontooltip",
+    "breadcrumbs": [
+      "uikit",
+      "ActionTooltip"
+    ],
+    "description": "A tooltip designed for action triggers such as icon buttons. Displays a title, optional description, and optional keyboard shortcut hotkey.",
+    "section_ids": [
+      "component:uikit:actiontooltip:description",
+      "component:uikit:actiontooltip:props",
+      "component:uikit:actiontooltip:import",
+      "component:uikit:actiontooltip:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:alert",
+    "title": "Alert",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/alert",
+    "breadcrumbs": [
+      "uikit",
+      "Alert"
+    ],
+    "description": "Displays an inline notification or feedback message with optional icon, title, message body, and action buttons. Supports multiple themes and visual variants.",
+    "section_ids": [
+      "component:uikit:alert:description",
+      "component:uikit:alert:props",
+      "component:uikit:alert:import",
+      "component:uikit:alert:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:arrowtoggle",
+    "title": "ArrowToggle",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/arrowtoggle",
+    "breadcrumbs": [
+      "uikit",
+      "ArrowToggle"
+    ],
+    "description": "A simple animated arrow icon that rotates to indicate an open or closed state, commonly used in dropdowns and expandable sections.",
+    "section_ids": [
+      "component:uikit:arrowtoggle:description",
+      "component:uikit:arrowtoggle:props",
+      "component:uikit:arrowtoggle:import",
+      "component:uikit:arrowtoggle:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:avatar",
+    "title": "Avatar",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/avatar",
+    "breadcrumbs": [
+      "uikit",
+      "Avatar"
+    ],
+    "description": "Displays a user avatar using an image, icon, or initials. Supports multiple sizes, themes, shapes, and can be rendered as a button or link.",
+    "section_ids": [
+      "component:uikit:avatar:description",
+      "component:uikit:avatar:props",
+      "component:uikit:avatar:import",
+      "component:uikit:avatar:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:avatarstack",
+    "title": "AvatarStack",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/avatarstack",
+    "breadcrumbs": [
+      "uikit",
+      "AvatarStack"
+    ],
+    "description": "Renders a horizontal stack of overlapping Avatar components. Automatically collapses excess avatars into a count indicator or dots.",
+    "section_ids": [
+      "component:uikit:avatarstack:description",
+      "component:uikit:avatarstack:props",
+      "component:uikit:avatarstack:import",
+      "component:uikit:avatarstack:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:box",
+    "title": "Box",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/box",
+    "breadcrumbs": [
+      "uikit",
+      "Box"
+    ],
+    "description": "Basic block to build other components and for standalone usage as a smart block with build in support of most usable css properties and shortcut `spacing` properties. ```tsx <Box width={300} height={200} spacing={{mb: 2}}> some content </Box> <Box width={300} height={200} > some content </Box> ```",
+    "section_ids": [
+      "component:uikit:box:description",
+      "component:uikit:box:props",
+      "component:uikit:box:import"
+    ]
+  },
+  {
+    "id": "component:uikit:breadcrumbs",
+    "title": "Breadcrumbs",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/breadcrumbs",
+    "breadcrumbs": [
+      "uikit",
+      "Breadcrumbs"
+    ],
+    "description": "Displays a navigation trail showing the user's current location within a hierarchy. Automatically collapses middle items into a popup when there are too many to display.",
+    "section_ids": [
+      "component:uikit:breadcrumbs:description",
+      "component:uikit:breadcrumbs:props",
+      "component:uikit:breadcrumbs:import",
+      "component:uikit:breadcrumbs:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:button",
+    "title": "Button",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/button",
+    "breadcrumbs": [
+      "uikit",
+      "Button"
+    ],
+    "description": "A versatile interactive button component. Supports multiple visual styles, sizes, pin shapes, loading state, and can render as a link.",
+    "section_ids": [
+      "component:uikit:button:description",
+      "component:uikit:button:props",
+      "component:uikit:button:import",
+      "component:uikit:button:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:card",
+    "title": "Card",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/card",
+    "breadcrumbs": [
+      "uikit",
+      "Card"
+    ],
+    "description": "A container component that groups related content with a visual boundary. Supports selection, action, and container types with various visual styles.",
+    "section_ids": [
+      "component:uikit:card:description",
+      "component:uikit:card:props",
+      "component:uikit:card:import",
+      "component:uikit:card:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:checkbox",
+    "title": "Checkbox",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/checkbox",
+    "breadcrumbs": [
+      "uikit",
+      "Checkbox"
+    ],
+    "description": "A form checkbox input that supports controlled and uncontrolled modes, an indeterminate state, and optional label content.",
+    "section_ids": [
+      "component:uikit:checkbox:description",
+      "component:uikit:checkbox:props",
+      "component:uikit:checkbox:import",
+      "component:uikit:checkbox:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:clipboardbutton",
+    "title": "ClipboardButton",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/clipboardbutton",
+    "breadcrumbs": [
+      "uikit",
+      "ClipboardButton"
+    ],
+    "description": "A button that copies a specified text to the clipboard and provides visual feedback via a tooltip that changes on success.",
+    "section_ids": [
+      "component:uikit:clipboardbutton:description",
+      "component:uikit:clipboardbutton:props",
+      "component:uikit:clipboardbutton:import",
+      "component:uikit:clipboardbutton:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:clipboardicon",
+    "title": "ClipboardIcon",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/clipboardicon",
+    "breadcrumbs": [
+      "uikit",
+      "ClipboardIcon"
+    ],
+    "description": "An icon that animates between clipboard and checkmark states to represent the clipboard copy operation status.",
+    "section_ids": [
+      "component:uikit:clipboardicon:description",
+      "component:uikit:clipboardicon:props",
+      "component:uikit:clipboardicon:import",
+      "component:uikit:clipboardicon:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:col",
+    "title": "Col",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/col",
+    "breadcrumbs": [
+      "uikit",
+      "Col"
+    ],
+    "description": "How many columns of you 12-th column layout will take content. Must be used as a child of `Row` component. By default, component takes all available space. If you want to specify static size use `size` prop. ```tsx <Col size=\"6\">some content</Col> ``` If you want responsive column use provide media sizes. ```tsx <Col size={[12, {m: 6}]}>some content</Col> ``` --- Note: you can use empty <Col/> component for spacing: ```tsx <Row> <Col size=\"4\">col 1</Col> <Col/> <Col size=\"4\">col 2</Col> </Row> ``` --- Storybook - https://preview.gravity-ui.com/uikit/?path=/docs/components-layout--docs#col",
+    "section_ids": [
+      "component:uikit:col:description",
+      "component:uikit:col:props",
+      "component:uikit:col:import"
+    ]
+  },
+  {
+    "id": "component:uikit:colorpicker",
+    "title": "ColorPicker",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/colorpicker",
+    "breadcrumbs": [
+      "uikit",
+      "ColorPicker"
+    ],
+    "description": "> The `unstable_ColorPicker` component is an experimental color selection component. The component is unstable, > so it means breaking changes can occur during minor or patch releases. Be aware of that.",
+    "section_ids": [
+      "component:uikit:colorpicker:description",
+      "component:uikit:colorpicker:props",
+      "component:uikit:colorpicker:import"
+    ]
+  },
+  {
+    "id": "component:uikit:container",
+    "title": "Container",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/container",
+    "breadcrumbs": [
+      "uikit",
+      "Container"
+    ],
+    "description": "Center you content in horizontal direction. > In most cases must be one on the page. ```tsx import {Container, Row, Col} from '@gravity-ui/uikit'; <Container masWidth=\"m\"> <Row> <Col> Col 1 </Col> <Col> Col 2 </Col> </Row> </Container> ``` --- Storybook - https://preview.gravity-ui.com/uikit/?path=/docs/layout--playground#container",
+    "section_ids": [
+      "component:uikit:container:description",
+      "component:uikit:container:props",
+      "component:uikit:container:import"
+    ]
+  },
+  {
+    "id": "component:uikit:controllabel",
+    "title": "ControlLabel",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/controllabel",
+    "breadcrumbs": [
+      "uikit",
+      "ControlLabel"
+    ],
+    "description": "Wrap with label for `<Checkbox/>`, `<Radio/>`, `<Switch/>`",
+    "section_ids": [
+      "component:uikit:controllabel:description",
+      "component:uikit:controllabel:props",
+      "component:uikit:controllabel:import"
+    ]
+  },
+  {
+    "id": "component:uikit:copytoclipboard",
+    "title": "CopyToClipboard",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/copytoclipboard",
+    "breadcrumbs": [
+      "uikit",
+      "CopyToClipboard"
+    ],
+    "description": "A headless component that provides clipboard copy functionality via a render prop pattern. Manages copy status and exposes it to the children function.",
+    "section_ids": [
+      "component:uikit:copytoclipboard:description",
+      "component:uikit:copytoclipboard:props",
+      "component:uikit:copytoclipboard:import",
+      "component:uikit:copytoclipboard:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:definitionlist",
+    "title": "DefinitionList",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/definitionlist",
+    "breadcrumbs": [
+      "uikit",
+      "DefinitionList"
+    ],
+    "description": "Displays a structured list of term-definition pairs. Supports vertical and horizontal layouts, responsive mode, and optional copy-to-clipboard per item.",
+    "section_ids": [
+      "component:uikit:definitionlist:description",
+      "component:uikit:definitionlist:props",
+      "component:uikit:definitionlist:import",
+      "component:uikit:definitionlist:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:dialog",
+    "title": "Dialog",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/dialog",
+    "breadcrumbs": [
+      "uikit",
+      "Dialog"
+    ],
+    "description": "A modal dialog with a structured layout of header, body, and footer sections. Built on top of Modal with a close button and standard slot components.",
+    "section_ids": [
+      "component:uikit:dialog:description",
+      "component:uikit:dialog:props",
+      "component:uikit:dialog:import",
+      "component:uikit:dialog:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:disclosure",
+    "title": "Disclosure",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/disclosure",
+    "breadcrumbs": [
+      "uikit",
+      "Disclosure"
+    ],
+    "description": "A collapsible section with a summary trigger and expandable content area. Supports controlled and uncontrolled modes.",
+    "section_ids": [
+      "component:uikit:disclosure:description",
+      "component:uikit:disclosure:props",
+      "component:uikit:disclosure:import",
+      "component:uikit:disclosure:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:divider",
+    "title": "Divider",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/divider",
+    "breadcrumbs": [
+      "uikit",
+      "Divider"
+    ],
+    "description": "A thin horizontal or vertical line used to separate sections of content. Supports an optional label and alignment.",
+    "section_ids": [
+      "component:uikit:divider:description",
+      "component:uikit:divider:props",
+      "component:uikit:divider:import",
+      "component:uikit:divider:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:drawer",
+    "title": "Drawer",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/drawer",
+    "breadcrumbs": [
+      "uikit",
+      "Drawer"
+    ],
+    "description": "A sliding panel that appears from the edge of the screen. Supports left, right, top, and bottom placement, optional resizing, and backdrop dismissal.",
+    "section_ids": [
+      "component:uikit:drawer:description",
+      "component:uikit:drawer:props",
+      "component:uikit:drawer:import",
+      "component:uikit:drawer:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:dropdownmenu",
+    "title": "DropdownMenu",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/dropdownmenu",
+    "breadcrumbs": [
+      "uikit",
+      "DropdownMenu"
+    ],
+    "description": "A button that opens a dropdown menu with a list of actions. Supports nested submenus, icons, disabled items, and a custom switcher trigger.",
+    "section_ids": [
+      "component:uikit:dropdownmenu:description",
+      "component:uikit:dropdownmenu:props",
+      "component:uikit:dropdownmenu:import",
+      "component:uikit:dropdownmenu:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:filepreview",
+    "title": "FilePreview",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/filepreview",
+    "breadcrumbs": [
+      "uikit",
+      "FilePreview"
+    ],
+    "description": "Displays a preview tile for a file with its name, type icon or image thumbnail, and optional action buttons. Used in file upload UIs.",
+    "section_ids": [
+      "component:uikit:filepreview:description",
+      "component:uikit:filepreview:props",
+      "component:uikit:filepreview:import",
+      "component:uikit:filepreview:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:flex",
+    "title": "Flex",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/flex",
+    "breadcrumbs": [
+      "uikit",
+      "Flex"
+    ],
+    "description": "Flexbox model utility component. ```tsx import {Flex, Button} from '@gravity-ui/uikit'; <Flex // take value from theme depends of current media query space > <Button> Button 1 </Button> <Button> Button 2 </Button> </Flex> ``` Use build in media goods via props ```tsx <Flex // space dynamically changes instead of current media query space={{s: '1', m: '5'}} // `flex-direction: column` will be applied to `l`, 'xl', 'xxl' and `xxxl` media queries direction={{'s': 'column', 'm': 'row'}} > {...} </Flex> ``` --- Storybook - https://preview.gravity-ui.com/uikit/?path=/docs/layout--playground#flex",
+    "section_ids": [
+      "component:uikit:flex:description",
+      "component:uikit:flex:props",
+      "component:uikit:flex:import"
+    ]
+  },
+  {
+    "id": "component:uikit:helpmark",
+    "title": "HelpMark",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/helpmark",
+    "breadcrumbs": [
+      "uikit",
+      "HelpMark"
+    ],
+    "description": "A small question mark button that shows a popover with help content when clicked or hovered. Used for inline contextual help.",
+    "section_ids": [
+      "component:uikit:helpmark:description",
+      "component:uikit:helpmark:props",
+      "component:uikit:helpmark:import",
+      "component:uikit:helpmark:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:hotkey",
+    "title": "Hotkey",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/hotkey",
+    "breadcrumbs": [
+      "uikit",
+      "Hotkey"
+    ],
+    "description": "Renders a keyboard shortcut visually as individual key badges. Handles platform-specific key symbols for Mac and PC.",
+    "section_ids": [
+      "component:uikit:hotkey:description",
+      "component:uikit:hotkey:props",
+      "component:uikit:hotkey:import",
+      "component:uikit:hotkey:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:icon",
+    "title": "Icon",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/icon",
+    "breadcrumbs": [
+      "uikit",
+      "Icon"
+    ],
+    "description": "Renders an SVG icon from the Gravity UI icon set. Accepts icon data and supports size, color, and fill/stroke overrides.",
+    "section_ids": [
+      "component:uikit:icon:description",
+      "component:uikit:icon:props",
+      "component:uikit:icon:import",
+      "component:uikit:icon:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:label",
+    "title": "Label",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/label",
+    "breadcrumbs": [
+      "uikit",
+      "Label"
+    ],
+    "description": "A small tag or badge component used to display metadata, statuses, or categories. Supports copy, close, and info interaction types.",
+    "section_ids": [
+      "component:uikit:label:description",
+      "component:uikit:label:props",
+      "component:uikit:label:import",
+      "component:uikit:label:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:link",
+    "title": "Link",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/link",
+    "breadcrumbs": [
+      "uikit",
+      "Link"
+    ],
+    "description": "A styled anchor element for navigation. Supports multiple visual variants and optional visited state styling.",
+    "section_ids": [
+      "component:uikit:link:description",
+      "component:uikit:link:props",
+      "component:uikit:link:import",
+      "component:uikit:link:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:list",
+    "title": "List",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/list",
+    "breadcrumbs": [
+      "uikit",
+      "List"
+    ],
+    "description": "A performant list component supporting virtual scrolling, filtering, sorting, and custom item rendering. Used for long lists and select-like interfaces.",
+    "section_ids": [
+      "component:uikit:list:description",
+      "component:uikit:list:props",
+      "component:uikit:list:import",
+      "component:uikit:list:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:loader",
+    "title": "Loader",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/loader",
+    "breadcrumbs": [
+      "uikit",
+      "Loader"
+    ],
+    "description": "An animated spinner used to indicate a loading state. Comes in three sizes.",
+    "section_ids": [
+      "component:uikit:loader:description",
+      "component:uikit:loader:props",
+      "component:uikit:loader:import",
+      "component:uikit:loader:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:menu",
+    "title": "Menu",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/menu",
+    "breadcrumbs": [
+      "uikit",
+      "Menu"
+    ],
+    "description": "A vertical list of menu items with optional grouping. Provides Menu.Item for individual actions and Menu.Group for labeled sections.",
+    "section_ids": [
+      "component:uikit:menu:description",
+      "component:uikit:menu:props",
+      "component:uikit:menu:import",
+      "component:uikit:menu:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:modal",
+    "title": "Modal",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/modal",
+    "breadcrumbs": [
+      "uikit",
+      "Modal"
+    ],
+    "description": "A base modal overlay component that renders content above the page with a backdrop. Manages focus trapping, scroll locking, and dismiss interactions.",
+    "section_ids": [
+      "component:uikit:modal:description",
+      "component:uikit:modal:props",
+      "component:uikit:modal:import",
+      "component:uikit:modal:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:numberinput",
+    "title": "NumberInput",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/numberinput",
+    "breadcrumbs": [
+      "uikit",
+      "NumberInput"
+    ],
+    "description": "NumberInput allow users to enter numbers into a UI.",
+    "section_ids": [
+      "component:uikit:numberinput:description",
+      "component:uikit:numberinput:props",
+      "component:uikit:numberinput:import",
+      "component:uikit:numberinput:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:overlay",
+    "title": "Overlay",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/overlay",
+    "breadcrumbs": [
+      "uikit",
+      "Overlay"
+    ],
+    "description": "The Overlay component renders an overlay over the parent element with the relative position, i.e., the parent element must have position set to relative.",
+    "section_ids": [
+      "component:uikit:overlay:description",
+      "component:uikit:overlay:props",
+      "component:uikit:overlay:import",
+      "component:uikit:overlay:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:pagination",
+    "title": "Pagination",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/pagination",
+    "breadcrumbs": [
+      "uikit",
+      "Pagination"
+    ],
+    "description": "This component renders pagination.",
+    "section_ids": [
+      "component:uikit:pagination:description",
+      "component:uikit:pagination:props",
+      "component:uikit:pagination:import",
+      "component:uikit:pagination:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:palette",
+    "title": "Palette",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/palette",
+    "breadcrumbs": [
+      "uikit",
+      "Palette"
+    ],
+    "description": "The Palette component is used to display a grid of icons, emojis, reactions, and symbols which you can select or deselect.",
+    "section_ids": [
+      "component:uikit:palette:description",
+      "component:uikit:palette:props",
+      "component:uikit:palette:import",
+      "component:uikit:palette:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:passwordinput",
+    "title": "PasswordInput",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/passwordinput",
+    "breadcrumbs": [
+      "uikit",
+      "PasswordInput"
+    ],
+    "description": "<!--GITHUB_BLOCK-->",
+    "section_ids": [
+      "component:uikit:passwordinput:description",
+      "component:uikit:passwordinput:props",
+      "component:uikit:passwordinput:import"
+    ]
+  },
+  {
+    "id": "component:uikit:pininput",
+    "title": "PinInput",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/pininput",
+    "breadcrumbs": [
+      "uikit",
+      "PinInput"
+    ],
+    "description": "PinInput is a group of inputs to enter sequence of numeric or alphanumeric values quickly. Its most common use case is entering OTP or confirmation codes received through text messages (SMS), emails, or authenticator apps.",
+    "section_ids": [
+      "component:uikit:pininput:description",
+      "component:uikit:pininput:props",
+      "component:uikit:pininput:import",
+      "component:uikit:pininput:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:placeholdercontainer",
+    "title": "PlaceholderContainer",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/placeholdercontainer",
+    "breadcrumbs": [
+      "uikit",
+      "PlaceholderContainer"
+    ],
+    "description": "PlaceholderContainer is a component for displaying content with an image, text content, and action controls.",
+    "section_ids": [
+      "component:uikit:placeholdercontainer:description",
+      "component:uikit:placeholdercontainer:props",
+      "component:uikit:placeholdercontainer:import",
+      "component:uikit:placeholdercontainer:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:popover",
+    "title": "Popover",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/popover",
+    "breadcrumbs": [
+      "uikit",
+      "Popover"
+    ],
+    "description": "The Popover component is technically the Popup with some trigger interactivity built-in. The Popover uses passed ReactElement from children property as a trigger, and opens whenever trigger is hovered or clicked.",
+    "section_ids": [
+      "component:uikit:popover:description",
+      "component:uikit:popover:props",
+      "component:uikit:popover:import",
+      "component:uikit:popover:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:popup",
+    "title": "Popup",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/popup",
+    "breadcrumbs": [
+      "uikit",
+      "Popup"
+    ],
+    "description": "You can use a Popup to display floating content above the page. Technically, it is a wrapper around Floating UI with some default values. To manage Popup visibility, use the open property.",
+    "section_ids": [
+      "component:uikit:popup:description",
+      "component:uikit:popup:props",
+      "component:uikit:popup:import",
+      "component:uikit:popup:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:portal",
+    "title": "Portal",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/portal",
+    "breadcrumbs": [
+      "uikit",
+      "Portal"
+    ],
+    "description": "Portal is a utility component. Basically, it is a simple wrapper around React's createPortal that allows you to render children into a DOM node outside the parent component.",
+    "section_ids": [
+      "component:uikit:portal:description",
+      "component:uikit:portal:props",
+      "component:uikit:portal:import",
+      "component:uikit:portal:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:privatelayoutprovider",
+    "title": "PrivateLayoutProvider",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/privatelayoutprovider",
+    "breadcrumbs": [
+      "uikit",
+      "PrivateLayoutProvider"
+    ],
+    "description": "PrivateLayoutProvider component from uikit",
+    "section_ids": [
+      "component:uikit:privatelayoutprovider:description",
+      "component:uikit:privatelayoutprovider:props",
+      "component:uikit:privatelayoutprovider:import"
+    ]
+  },
+  {
+    "id": "component:uikit:progress",
+    "title": "Progress",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/progress",
+    "breadcrumbs": [
+      "uikit",
+      "Progress"
+    ],
+    "description": "The Progress component shows current operation progress. It can also be divided into sections.",
+    "section_ids": [
+      "component:uikit:progress:description",
+      "component:uikit:progress:props",
+      "component:uikit:progress:import",
+      "component:uikit:progress:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:radio",
+    "title": "Radio",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/radio",
+    "breadcrumbs": [
+      "uikit",
+      "Radio"
+    ],
+    "description": "The Radio component allows the users to select a single option from a list of choices.",
+    "section_ids": [
+      "component:uikit:radio:description",
+      "component:uikit:radio:props",
+      "component:uikit:radio:import",
+      "component:uikit:radio:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:radiogroup",
+    "title": "RadioGroup",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/radiogroup",
+    "breadcrumbs": [
+      "uikit",
+      "RadioGroup"
+    ],
+    "description": "The RadioGroup component is used to create a group where users can select a single option from multiple choices.",
+    "section_ids": [
+      "component:uikit:radiogroup:description",
+      "component:uikit:radiogroup:props",
+      "component:uikit:radiogroup:import",
+      "component:uikit:radiogroup:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:row",
+    "title": "Row",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/row",
+    "breadcrumbs": [
+      "uikit",
+      "Row"
+    ],
+    "description": "Defines the margins between columns (`<Col />`). Required to use with `<Col />` component ```tsx import {Row, Col} from '@gravity-ui/uikit'; <Row space=\"5\"> <Col>col</Col> <Col>col</Col> </Row> ``` --- Storybook - https://preview.gravity-ui.com/uikit/?path=/docs/components-layout--docs#row",
+    "section_ids": [
+      "component:uikit:row:description",
+      "component:uikit:row:props",
+      "component:uikit:row:import"
+    ]
+  },
+  {
+    "id": "component:uikit:segmentedradiogroup",
+    "title": "SegmentedRadioGroup",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/segmentedradiogroup",
+    "breadcrumbs": [
+      "uikit",
+      "SegmentedRadioGroup"
+    ],
+    "description": "The SegmentedRadioGroup component is used to create a group of radio buttons where users can select a single option from multiple choices.",
+    "section_ids": [
+      "component:uikit:segmentedradiogroup:description",
+      "component:uikit:segmentedradiogroup:props",
+      "component:uikit:segmentedradiogroup:import",
+      "component:uikit:segmentedradiogroup:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:select",
+    "title": "Select",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/select",
+    "breadcrumbs": [
+      "uikit",
+      "Select"
+    ],
+    "description": "Select is a control that provides a list of options that a user can select.",
+    "section_ids": [
+      "component:uikit:select:description",
+      "component:uikit:select:props",
+      "component:uikit:select:import",
+      "component:uikit:select:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:sheet",
+    "title": "Sheet",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/sheet",
+    "breadcrumbs": [
+      "uikit",
+      "Sheet"
+    ],
+    "description": "Sheet is a component designed for using in the mobile context as an information or interactive element. You can place content of any size in it, since the internal scrolling and dynamic resizing are supported.",
+    "section_ids": [
+      "component:uikit:sheet:description",
+      "component:uikit:sheet:props",
+      "component:uikit:sheet:import",
+      "component:uikit:sheet:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:skeleton",
+    "title": "Skeleton",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/skeleton",
+    "breadcrumbs": [
+      "uikit",
+      "Skeleton"
+    ],
+    "description": "The Skeleton component displays a placeholder preview of your content before the data gets loaded. This preview is shown in order to reduce the loading time frustration.",
+    "section_ids": [
+      "component:uikit:skeleton:description",
+      "component:uikit:skeleton:props",
+      "component:uikit:skeleton:import",
+      "component:uikit:skeleton:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:slider",
+    "title": "Slider",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/slider",
+    "breadcrumbs": [
+      "uikit",
+      "Slider"
+    ],
+    "description": "The slider is a customizable and responsive React component that allows users to select a single value or a range of values from a specified data set.",
+    "section_ids": [
+      "component:uikit:slider:description",
+      "component:uikit:slider:props",
+      "component:uikit:slider:import",
+      "component:uikit:slider:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:spin",
+    "title": "Spin",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/spin",
+    "breadcrumbs": [
+      "uikit",
+      "Spin"
+    ],
+    "description": "The Spin component displays the loading state (a rotating semicircle) in inline scenarios. Unlike Loader, this component is used to display the loading state in inline scenarios, e.g., in a Button or Label.",
+    "section_ids": [
+      "component:uikit:spin:description",
+      "component:uikit:spin:props",
+      "component:uikit:spin:import",
+      "component:uikit:spin:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:stepper",
+    "title": "Stepper",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/stepper",
+    "breadcrumbs": [
+      "uikit",
+      "Stepper"
+    ],
+    "description": "Stepper conveys progress through numbered steps. It provides a wizard-like workflow. Steppers display progress through a sequence of logical and numbered steps.",
+    "section_ids": [
+      "component:uikit:stepper:description",
+      "component:uikit:stepper:props",
+      "component:uikit:stepper:import",
+      "component:uikit:stepper:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:switch",
+    "title": "Switch",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/switch",
+    "breadcrumbs": [
+      "uikit",
+      "Switch"
+    ],
+    "description": "The Switch component is used to toggle between two states: typically, between on and off, or enabled and disabled.",
+    "section_ids": [
+      "component:uikit:switch:description",
+      "component:uikit:switch:props",
+      "component:uikit:switch:import",
+      "component:uikit:switch:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:table",
+    "title": "Table",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/table",
+    "breadcrumbs": [
+      "uikit",
+      "Table"
+    ],
+    "description": "A Table allows selecting and sorting rows, as well as performing actions on a row.",
+    "section_ids": [
+      "component:uikit:table:description",
+      "component:uikit:table:props",
+      "component:uikit:table:import",
+      "component:uikit:table:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:tablecolumnsetup",
+    "title": "TableColumnSetup",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/tablecolumnsetup",
+    "breadcrumbs": [
+      "uikit",
+      "TableColumnSetup"
+    ],
+    "description": "The TableColumnSetup component provides a user interface for configuring table column visibility and order. It displays a button that opens a popup with a list of available columns, allowing users to show/hide columns and optionally reorder them via drag and drop.",
+    "section_ids": [
+      "component:uikit:tablecolumnsetup:description",
+      "component:uikit:tablecolumnsetup:props",
+      "component:uikit:tablecolumnsetup:import",
+      "component:uikit:tablecolumnsetup:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:text",
+    "title": "Text",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/text",
+    "breadcrumbs": [
+      "uikit",
+      "Text"
+    ],
+    "description": "A component for working with typography. Provides a convenient API for working with mixins of typography and text colors.",
+    "section_ids": [
+      "component:uikit:text:description",
+      "component:uikit:text:props",
+      "component:uikit:text:import",
+      "component:uikit:text:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:textarea",
+    "title": "TextArea",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/textarea",
+    "breadcrumbs": [
+      "uikit",
+      "TextArea"
+    ],
+    "description": "<!--GITHUB_BLOCK-->",
+    "section_ids": [
+      "component:uikit:textarea:description",
+      "component:uikit:textarea:props",
+      "component:uikit:textarea:import"
+    ]
+  },
+  {
+    "id": "component:uikit:textinput",
+    "title": "TextInput",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/textinput",
+    "breadcrumbs": [
+      "uikit",
+      "TextInput"
+    ],
+    "description": "<!--GITHUB_BLOCK-->",
+    "section_ids": [
+      "component:uikit:textinput:description",
+      "component:uikit:textinput:props",
+      "component:uikit:textinput:import"
+    ]
+  },
+  {
+    "id": "component:uikit:toaster",
+    "title": "Toaster",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/toaster",
+    "breadcrumbs": [
+      "uikit",
+      "Toaster"
+    ],
+    "description": "This is a component for adjustable notifications also known as toasts.",
+    "section_ids": [
+      "component:uikit:toaster:description",
+      "component:uikit:toaster:props",
+      "component:uikit:toaster:import",
+      "component:uikit:toaster:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:toc",
+    "title": "Toc",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/toc",
+    "breadcrumbs": [
+      "uikit",
+      "Toc"
+    ],
+    "description": "The Toc component is designed to display a table of contents of the page, namely showing a set items with two levels of hierarchy.",
+    "section_ids": [
+      "component:uikit:toc:description",
+      "component:uikit:toc:props",
+      "component:uikit:toc:import",
+      "component:uikit:toc:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:tooltip",
+    "title": "Tooltip",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/tooltip",
+    "breadcrumbs": [
+      "uikit",
+      "Tooltip"
+    ],
+    "description": "A simple text tip that uses its child node as an anchor. This component accepts only text content and may be an excellent alternative to the browser's title attribute with its small size and long appearance delay.",
+    "section_ids": [
+      "component:uikit:tooltip:description",
+      "component:uikit:tooltip:props",
+      "component:uikit:tooltip:import",
+      "component:uikit:tooltip:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:treeselect",
+    "title": "TreeSelect",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/treeselect",
+    "breadcrumbs": [
+      "uikit",
+      "TreeSelect"
+    ],
+    "description": "TreeSelect component from uikit",
+    "section_ids": [
+      "component:uikit:treeselect:description",
+      "component:uikit:treeselect:props",
+      "component:uikit:treeselect:import"
+    ]
+  },
+  {
+    "id": "component:uikit:user",
+    "title": "User",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/user",
+    "breadcrumbs": [
+      "uikit",
+      "User"
+    ],
+    "description": "This is a general component for displaying a user avatar with an info block. It uses the Avatar component to render the avatar. It can also accept a custom React node as an avatar.",
+    "section_ids": [
+      "component:uikit:user:description",
+      "component:uikit:user:props",
+      "component:uikit:user:import",
+      "component:uikit:user:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:userlabel",
+    "title": "UserLabel",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/userlabel",
+    "breadcrumbs": [
+      "uikit",
+      "UserLabel"
+    ],
+    "description": "The UserLabel component can be used to display users or user-related information.",
+    "section_ids": [
+      "component:uikit:userlabel:description",
+      "component:uikit:userlabel:props",
+      "component:uikit:userlabel:import",
+      "component:uikit:userlabel:examples"
+    ]
+  },
+  {
+    "id": "component:uikit:virtualizer",
+    "title": "Virtualizer",
+    "page_type": "component",
+    "library": "uikit",
+    "url": "https://gravity-ui.com/components/uikit/virtualizer",
+    "breadcrumbs": [
+      "uikit",
+      "Virtualizer"
+    ],
+    "description": "Virtualizer component from uikit",
+    "section_ids": [
+      "component:uikit:virtualizer:description",
+      "component:uikit:virtualizer:props",
+      "component:uikit:virtualizer:import"
+    ]
+  }
+]

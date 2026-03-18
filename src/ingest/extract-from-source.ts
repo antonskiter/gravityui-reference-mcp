@@ -23,6 +23,8 @@ export function extractComponentInfo(source: string): ComponentInfo | null {
   const patterns: RegExp[] = [
     // export const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
     /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*=\s*React\.forwardRef\s*<[^,>]+,\s*([A-Za-z][A-Za-z0-9_]*)\s*>/,
+    // export const Flex = React.forwardRef(function Flex<T...>(props: FlexProps
+    /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*=\s*React\.forwardRef\s*\(\s*function\s+[A-Z][A-Za-z0-9_]*\s*(?:<[^(]*)?\(\s*[\n\r\s]*(?:\{[^}]*\}|[a-z_$][A-Za-z0-9_$]*)\s*:\s*([A-Za-z][A-Za-z0-9_]*)/,
     // export const Alert: React.FC<AlertProps>
     /export\s+const\s+([A-Z][A-Za-z0-9_]*)\s*:\s*React\.(?:FC|FunctionComponent|VFC|ComponentType|ComponentClass)\s*<\s*([A-Za-z][A-Za-z0-9_]*)\s*>/,
     // export function GraphCanvas({...}: GraphProps)
@@ -119,7 +121,7 @@ function extractInterfaceBody(source: string, name: string): string | null {
  * e.g. ({gap = 0, direction = 'row'}: FlexProps)  →  { gap: '0', direction: "'row'" }
  */
 function extractDefaultValues(source: string, propsInterfaceName: string): Record<string, string> {
-  const defaults: Record<string, string> = [];
+  const defaults: Record<string, string> = {};
 
   // Find all function/arrow destructured params typed as propsInterfaceName
   // Pattern: ({...}: PropsName)  or  ({...}: PropsName,

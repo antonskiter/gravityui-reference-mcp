@@ -1,0 +1,19 @@
+[
+  {
+    "id": "component:chartkit:loader",
+    "title": "Loader",
+    "page_type": "component",
+    "library": "chartkit",
+    "url": "https://gravity-ui.com/components/chartkit/loader",
+    "breadcrumbs": [
+      "chartkit",
+      "Loader"
+    ],
+    "description": "Loader component from chartkit",
+    "section_ids": [
+      "component:chartkit:loader:description",
+      "component:chartkit:loader:props",
+      "component:chartkit:loader:import"
+    ]
+  }
+]

@@ -194,6 +194,41 @@
     "examples": []
   },
   {
+    "name": "Content",
+    "library": "navigation",
+    "import_path": "@gravity-ui/navigation",
+    "import_statement": "import {Content} from '@gravity-ui/navigation';",
+    "props": [
+      {
+        "name": "size",
+        "type": "number",
+        "required": true
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "cssSizeVariableName",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "renderContent",
+        "type": "RenderContentType",
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false
+      }
+    ],
+    "examples": [],
+    "source_file": "navigation/src/components/Content/Content.tsx"
+  },
+  {
     "name": "Footer",
     "library": "navigation",
     "category": "navigation",
@@ -544,6 +579,21 @@
     "examples": []
   },
   {
+    "name": "MobileLogo",
+    "library": "navigation",
+    "import_path": "@gravity-ui/navigation",
+    "import_statement": "import {MobileLogo} from '@gravity-ui/navigation';",
+    "props": [
+      {
+        "name": "isExpanded",
+        "type": "boolean",
+        "required": true
+      }
+    ],
+    "examples": [],
+    "source_file": "navigation/src/components/MobileLogo/MobileLogo.tsx"
+  },
+  {
     "name": "Settings",
     "library": "navigation",
     "category": "navigation",
@@ -647,5 +697,14 @@
       "<Settings>\n  <Settings.Page title=\"Appearance\">...</Settings.Page>\n  <Settings.Page title=\"Notifications\">...</Settings.Page>\n</Settings>",
       "<Settings>\n  <Settings.Group groupTitle=\"My service\">\n    <Settings.Page title=\"Appearance\">...</Settings.Page>\n  </Settings.Group>\n</Settings>"
     ]
+  },
+  {
+    "name": "TopAlert",
+    "library": "navigation",
+    "import_path": "@gravity-ui/navigation",
+    "import_statement": "import {TopAlert} from '@gravity-ui/navigation';",
+    "props": [],
+    "examples": [],
+    "source_file": "navigation/src/components/TopAlert/TopAlert.tsx"
   }
 ]

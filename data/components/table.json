@@ -275,5 +275,40 @@
       "import {useReactTable, getCoreRowModel, createColumnHelper} from '@tanstack/react-table';\nimport {BaseTable} from '@gravity-ui/table';\n\nconst columnHelper = createColumnHelper<{name: string; age: number}>();\nconst columns = [\n  columnHelper.accessor('name', {header: 'Name'}),\n  columnHelper.accessor('age', {header: 'Age'}),\n];\n\nfunction MyTable({data}) {\n  const table = useReactTable({\n    data,\n    columns,\n    getCoreRowModel: getCoreRowModel(),\n  });\n  return <BaseTable table={table} />;\n}",
       "<BaseTable table={table} stickyHeader emptyContent={<div>No data</div>} onRowClick={(row) => console.log(row.original)} />"
     ]
+  },
+  {
+    "name": "SortableList",
+    "library": "table",
+    "import_path": "@gravity-ui/table",
+    "import_statement": "import {SortableList} from '@gravity-ui/table';",
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false
+      }
+    ],
+    "examples": [],
+    "source_file": "table/src/components/SortableList/SortableList.tsx"
+  },
+  {
+    "name": "SortableListDndContext",
+    "library": "table",
+    "import_path": "@gravity-ui/table",
+    "import_statement": "import {SortableListDndContext} from '@gravity-ui/table';",
+    "props": [
+      {
+        "name": "modifiers",
+        "type": "Modifier[]",
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false
+      }
+    ],
+    "examples": [],
+    "source_file": "table/src/components/SortableListDndContext/SortableListDndContext.tsx"
   }
 ]

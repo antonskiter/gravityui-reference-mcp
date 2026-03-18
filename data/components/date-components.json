@@ -170,6 +170,28 @@
     ]
   },
   {
+    "name": "CalendarView",
+    "library": "date-components",
+    "import_path": "@gravity-ui/date-components",
+    "import_statement": "import {CalendarView} from '@gravity-ui/date-components';",
+    "props": [
+      {
+        "name": "state",
+        "type": "CalendarState | RangeCalendarState",
+        "required": true
+      },
+      {
+        "name": "size",
+        "type": "CalendarSize",
+        "required": false,
+        "description": "The size of the element. @default m"
+      }
+    ],
+    "examples": [],
+    "source_file": "date-components/src/components/CalendarView/CalendarView.tsx",
+    "description": "The size of the element. @default m"
+  },
+  {
     "name": "DateField",
     "library": "date-components",
     "category": "forms",
@@ -580,6 +602,80 @@
     ]
   },
   {
+    "name": "RangeDateField",
+    "library": "date-components",
+    "import_path": "@gravity-ui/date-components",
+    "import_statement": "import {RangeDateField} from '@gravity-ui/date-components';",
+    "props": [],
+    "examples": [],
+    "source_file": "date-components/src/components/RangeDateField/RangeDateField.tsx"
+  },
+  {
+    "name": "RangeDatePicker",
+    "library": "date-components",
+    "import_path": "@gravity-ui/date-components",
+    "import_statement": "import {RangeDatePicker} from '@gravity-ui/date-components';",
+    "props": [],
+    "examples": [],
+    "source_file": "date-components/src/components/RangeDatePicker/RangeDatePicker.tsx"
+  },
+  {
+    "name": "RangeDateSelection",
+    "library": "date-components",
+    "import_path": "@gravity-ui/date-components",
+    "import_statement": "import {RangeDateSelection} from '@gravity-ui/date-components';",
+    "props": [
+      {
+        "name": "formatTime",
+        "type": "(time: DateTime) => string",
+        "required": false,
+        "description": "Formats time ticks"
+      },
+      {
+        "name": "displayNow",
+        "type": "boolean",
+        "required": false,
+        "description": "Displays now line"
+      },
+      {
+        "name": "draggableRuler",
+        "type": "boolean",
+        "required": false,
+        "description": "Enables dragging ruler"
+      },
+      {
+        "name": "hasScaleButtons",
+        "type": "boolean",
+        "required": false,
+        "description": "Displays buttons to scale selection"
+      },
+      {
+        "name": "scaleButtonsPosition",
+        "type": "'start' | 'end'",
+        "required": false,
+        "description": "Position of scale buttons"
+      },
+      {
+        "name": "renderAdditionalRulerContent",
+        "type": "(props: {",
+        "required": false,
+        "description": "Renders additional svg content in the ruler"
+      },
+      {
+        "name": "interval",
+        "type": "ViewportInterval",
+        "required": true
+      },
+      {
+        "name": "dimensions",
+        "type": "ViewportDimensions",
+        "required": true
+      }
+    ],
+    "examples": [],
+    "source_file": "date-components/src/components/RangeDateSelection/RangeDateSelection.tsx"
+  },
+  {
     "name": "RelativeDateField",
     "library": "date-components",
     "category": "forms",
@@ -795,5 +891,14 @@
       "<RelativeDatePicker />",
       "<RelativeDatePicker hasClear size=\"l\" />"
     ]
+  },
+  {
+    "name": "RelativeRangeDatePicker",
+    "library": "date-components",
+    "import_path": "@gravity-ui/date-components",
+    "import_statement": "import {RelativeRangeDatePicker} from '@gravity-ui/date-components';",
+    "props": [],
+    "examples": [],
+    "source_file": "date-components/src/components/RelativeRangeDatePicker/RelativeRangeDatePicker.tsx"
   }
 ]
