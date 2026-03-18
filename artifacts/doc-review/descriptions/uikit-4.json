@@ -1,0 +1,40 @@
+{
+  "batch_id": "uikit-4",
+  "issues": [
+    {
+      "component": "Portal",
+      "library": "uikit",
+      "severity": "MEDIUM",
+      "issue": "Description states the component is 'a simple wrapper around React's createPortal'. The source uses FloatingPortal from @floating-ui/react, not React.createPortal directly. It also wraps output in a ThemeProvider when the theme is scoped, and renders null when no container is resolved — behaviors not mentioned.",
+      "suggestion": "Portal is a utility component that renders children into a DOM node outside the parent component hierarchy. It uses FloatingPortal internally and respects the active portal container from context. Rendering can be disabled via disablePortal."
+    },
+    {
+      "component": "Table",
+      "library": "uikit",
+      "severity": "MEDIUM",
+      "issue": "Description says 'A Table allows selecting and sorting rows'. The base Table component's props interface has no selection or sorting props. Those features are provided by separate HOC wrappers (e.g., withTableSorting, withTableSelection). The base component supports row click, mouseenter, mouseleave, and mousedown handlers, sticky horizontal scroll, and column configuration.",
+      "suggestion": "Table displays structured data in rows and columns with support for row interaction handlers (click, mouseenter, mouseleave, mousedown), sticky horizontal scroll, configurable column alignment and sticky columns, and an empty-state message."
+    },
+    {
+      "component": "Skeleton",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "Description omits the animation prop, which controls whether the placeholder uses a gradient animation, a pulse animation, or no animation at all. This is the only meaningful customization the component exposes.",
+      "suggestion": "The Skeleton component displays a placeholder preview of content before data loads. The animation style can be set to 'gradient' (default), 'pulse', or 'none'."
+    },
+    {
+      "component": "Switch",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "Description omits the loading prop, which adds a loading state to the switch (visible as an indeterminate animation). This is a distinct third state beyond on/off.",
+      "suggestion": "The Switch component is used to toggle between two states (on/off or enabled/disabled). It also supports a loading state via the loading prop for scenarios where the toggle action triggers an async operation."
+    },
+    {
+      "component": "Slider",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "Description says users select a value 'from a specified data set', implying a discrete pre-defined list. The source shows the component works with a continuous numeric range defined by min, max, and step — not a fixed data set.",
+      "suggestion": "The Slider is a React component that allows users to select a single numeric value or a range of values by dragging a handle along a track. The range is defined by min, max, and step props."
+    }
+  ]
+}

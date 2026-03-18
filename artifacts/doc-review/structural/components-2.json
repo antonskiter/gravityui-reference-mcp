@@ -1,0 +1,118 @@
+{
+  "batch_id": "components-2",
+  "libraries": ["components"],
+  "issues": [
+    {
+      "component": "Reactions",
+      "library": "components",
+      "prop": "readOnly",
+      "issue_type": "default_mismatch",
+      "severity": "MEDIUM",
+      "source_default": null,
+      "json_default": "false",
+      "note": "JSON documents default as 'false' but source has no explicit default in the destructuring; the prop is simply optional with no assigned default value"
+    },
+    {
+      "component": "SharePopover",
+      "library": "components",
+      "prop": "children",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "note": "Prop exists in source (inherited from ShareListProps) and is destructured/passed through, but is absent from JSON props array"
+    },
+    {
+      "component": "SharePopover",
+      "library": "components",
+      "prop": "copyIcon",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "note": "Prop exists in source (inherited from ShareListProps, destructured and passed to ShareList) but is absent from JSON props array"
+    },
+    {
+      "component": "SharePopover",
+      "library": "components",
+      "prop": "copyTitle",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "note": "Prop exists in source (inherited from ShareListProps, destructured and passed to ShareList) but is absent from JSON props array"
+    },
+    {
+      "component": "SharePopover",
+      "library": "components",
+      "prop": "renderCopy",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "note": "Prop exists in source (inherited from ShareListProps, destructured and passed to ShareList) but is absent from JSON props array"
+    },
+    {
+      "component": "SharePopover",
+      "library": "components",
+      "prop": "onClick",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "note": "Prop exists in source (SharePopoverProps.onClick: (event?: React.MouseEvent<HTMLSpanElement>) => void, destructured and called in handleClick) but is absent from JSON props array"
+    },
+    {
+      "component": "SharePopover",
+      "library": "components",
+      "prop": "buttonAriaLabel",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "note": "Prop exists in source (SharePopoverProps.buttonAriaLabel: string, destructured and applied as aria-label on the button) but is absent from JSON props array"
+    },
+    {
+      "component": "SharePopover",
+      "library": "components",
+      "prop": "url",
+      "issue_type": "required_mismatch",
+      "severity": "MEDIUM",
+      "source_required": true,
+      "json_required": false,
+      "note": "Source declares url: string (required) via ShareOptionsData interface inheritance; JSON marks it as required: false"
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "OnboardingMenu",
+      "library": "components",
+      "source_description": "Onboarding menu with progress bar, expandable item list, collapse/complete buttons, and optional close button on hover",
+      "json_description": "A component for managing onboarding presets."
+    },
+    {
+      "component": "PromoSheet",
+      "library": "components",
+      "source_description": "Bottom sheet promo dialog that auto-loads an optional image, shows title/message/action button, and dismisses itself on action or close",
+      "json_description": "A component for displaying a promo dialog informing the user about a new feature in the service's mobile application."
+    },
+    {
+      "component": "Reactions",
+      "library": "components",
+      "source_description": "Emoji/reaction bar with a palette popup for adding reactions, per-reaction tooltip support, configurable size, read-only mode, and fully customizable layout via render props",
+      "json_description": "Component for user reactions (e.g. thumbs up, emoji etc) as in GitHub comments for example."
+    },
+    {
+      "component": "SharePopover",
+      "library": "components",
+      "source_description": "Share popover trigger that opens a list of social sharing options and copy-link button; supports Web Share API, hover or click activation, and full copy-button customization",
+      "json_description": "Sharing component with support for social networks and copy link functionality."
+    },
+    {
+      "component": "StoreBadge",
+      "library": "components",
+      "source_description": "Renders an App Store or Google Play badge as an accessible link or clickable div depending on whether an href is provided, with language-specific badge SVGs",
+      "json_description": "Store Badge can be used to place links to the Google Play and AppStore app stores."
+    },
+    {
+      "component": "Stories",
+      "library": "components",
+      "source_description": "Modal carousel of story slides with keyboard arrow navigation, optional cross-tab sync, and configurable close/next/previous callbacks",
+      "json_description": "Component for displaying stories. It looks like a carousel in a modal with given places to display text and media."
+    },
+    {
+      "component": "StoriesGroup",
+      "library": "components",
+      "source_description": "Modal carousel for grouped stories with a thumbnail preview slider, group/item navigation, and configurable max slider item count",
+      "json_description": "Component for displaying group of stories. It looks like a carousel in a modal with given places to display text and media."
+    }
+  ]
+}

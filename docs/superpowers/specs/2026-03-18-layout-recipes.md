@@ -137,7 +137,7 @@ Section types (in order, all optional except decision + example):
     {
       "type": "example",
       "title": "Responsive direction: column on small screens, row on medium and above",
-      "code": "import {Flex, Card, Text} from '@gravity-ui/uikit';\n\nexport function ResponsiveRow() {\n  return (\n    <Flex direction={{s: 'column', m: 'row'}} gap=\"4\" wrap={true}>\n      <Flex grow={true}>\n        <Card type=\"container\" view=\"outlined\">\n          <Text variant=\"subheader-2\">Primary content</Text>\n        </Card>\n      </Flex>\n      <Flex basis=\"240px\" shrink={false}>\n        <Card type=\"container\" view=\"outlined\">\n          <Text variant=\"subheader-2\">Sidebar</Text>\n        </Card>\n      </Flex>\n    </Flex>\n  );\n}"
+      "code": "import {Flex, Card, Text} from '@gravity-ui/uikit';\n\nexport function ResponsiveRow() {\n  return (\n    <Flex direction={{s: 'column', m: 'row'}} gap=\"4\" wrap={true}>\n      <Flex grow={true}>\n        <Card type=\"container\" view=\"outlined\">\n          <Text variant=\"subheader-2\">Primary content</Text>\n        </Card>\n      </Flex>\n      <Flex basis=\"240px\" shrink={0}>\n        <Card type=\"container\" view=\"outlined\">\n          <Text variant=\"subheader-2\">Sidebar</Text>\n        </Card>\n      </Flex>\n    </Flex>\n  );\n}"
     },
     {
       "type": "avoid",
@@ -424,7 +424,7 @@ Section types (in order, all optional except decision + example):
           "name": "AsideHeader",
           "library": "navigation",
           "usage": "required",
-          "role": "Top-level sidebar navigation shell. Required prop: pinned (boolean). Key props: renderContent (renders the page body area, receives {size} — current sidebar width as a number), renderFooter (bottom sidebar content), menuItems (AsideHeaderItem[]), logo (LogoProps), compact (boolean), hideCollapseButton (boolean)."
+          "role": "Top-level sidebar navigation shell. Required prop: pinned (boolean). Key props: renderContent (renders the page body area, receives {size} — current sidebar width as a number), renderFooter (bottom sidebar content), menuItems (AsideHeaderItem[]), logo (LogoProps), isCompactMode (boolean), hideCollapseButton (boolean)."
         },
         {
           "name": "Container",

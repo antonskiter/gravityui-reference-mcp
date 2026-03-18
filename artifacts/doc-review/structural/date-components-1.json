@@ -1,0 +1,1199 @@
+{
+  "batch_id": "date-components-1",
+  "libraries": ["date-components"],
+  "issues": [
+    {
+      "component": "CalendarView",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "id",
+      "detail": "DomProps 'id' is part of CalendarViewProps interface but absent from data"
+    },
+    {
+      "component": "CalendarView",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "detail": "StyleProps 'className' is part of CalendarViewProps interface but absent from data"
+    },
+    {
+      "component": "CalendarView",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "style",
+      "detail": "StyleProps 'style' is part of CalendarViewProps interface but absent from data"
+    },
+    {
+      "component": "CalendarView",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onFocus",
+      "detail": "FocusEvents 'onFocus' is part of CalendarViewProps interface but absent from data"
+    },
+    {
+      "component": "CalendarView",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onBlur",
+      "detail": "FocusEvents 'onBlur' is part of CalendarViewProps interface but absent from data"
+    },
+    {
+      "component": "DateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "placeholderValue",
+      "detail": "DateFieldBase 'placeholderValue?: DateTime' is in source but absent from data"
+    },
+    {
+      "component": "DateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "errorPlacement",
+      "detail": "Validation 'errorPlacement' (from Validation interface) is in source but absent from data"
+    },
+    {
+      "component": "DateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "name",
+      "detail": "InputDOMProps 'name' is in source but absent from data"
+    },
+    {
+      "component": "DateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "form",
+      "detail": "InputDOMProps 'form' is in source but absent from data"
+    },
+    {
+      "component": "DateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "autoFocus",
+      "detail": "FocusableProps 'autoFocus' is in source but absent from data"
+    },
+    {
+      "component": "DateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onKeyDown",
+      "detail": "KeyboardEvents 'onKeyDown' is in source but absent from data"
+    },
+    {
+      "component": "DateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onKeyUp",
+      "detail": "KeyboardEvents 'onKeyUp' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "autoFocus",
+      "detail": "FocusableProps 'autoFocus' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onFocus",
+      "detail": "FocusableProps 'onFocus' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onBlur",
+      "detail": "FocusableProps 'onBlur' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onKeyDown",
+      "detail": "KeyboardEvents 'onKeyDown' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onKeyUp",
+      "detail": "KeyboardEvents 'onKeyUp' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "name",
+      "detail": "InputDOMProps 'name' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "form",
+      "detail": "InputDOMProps 'form' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "id",
+      "detail": "DomProps 'id' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "style",
+      "detail": "StyleProps 'style' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "open",
+      "detail": "PopupTriggerProps 'open' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "defaultOpen",
+      "detail": "PopupTriggerProps 'defaultOpen' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onOpenChange",
+      "detail": "PopupTriggerProps 'onOpenChange' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "popupClassName",
+      "detail": "PopupStyleProps 'popupClassName' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "popupStyle",
+      "detail": "PopupStyleProps 'popupStyle' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "popupPlacement",
+      "detail": "PopupStyleProps 'popupPlacement' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "popupOffset",
+      "detail": "PopupStyleProps 'popupOffset' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "placeholderValue",
+      "detail": "DateFieldBase 'placeholderValue?: DateTime' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "isDateUnavailable",
+      "detail": "DateFieldBase 'isDateUnavailable' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "errorMessage",
+      "detail": "Validation 'errorMessage' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "errorPlacement",
+      "detail": "Validation 'errorPlacement' is in source but absent from data"
+    },
+    {
+      "component": "DatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "children",
+      "detail": "DatePickerProps 'children?: (props: CalendarCommonProps<T>) => React.ReactNode' is in source but absent from data"
+    },
+    {
+      "component": "RangeCalendar",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "id",
+      "detail": "DomProps 'id' is in CalendarCommonProps but absent from data"
+    },
+    {
+      "component": "RangeCalendar",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "detail": "StyleProps 'className' is in CalendarCommonProps but absent from data"
+    },
+    {
+      "component": "RangeCalendar",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "style",
+      "detail": "StyleProps 'style' is in CalendarCommonProps but absent from data"
+    },
+    {
+      "component": "RangeCalendar",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onFocus",
+      "detail": "FocusEvents 'onFocus' is in CalendarCommonProps but absent from data"
+    },
+    {
+      "component": "RangeCalendar",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onBlur",
+      "detail": "FocusEvents 'onBlur' is in CalendarCommonProps but absent from data"
+    },
+    {
+      "component": "RangeCalendar",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "autoFocus",
+      "detail": "CalendarStateOptionsBase 'autoFocus' is in source but absent from data"
+    },
+    {
+      "component": "RangeCalendar",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "isWeekend",
+      "detail": "CalendarStateOptionsBase 'isWeekend' is in source but absent from data"
+    },
+    {
+      "component": "RangeCalendar",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "focusedValue",
+      "detail": "CalendarStateOptionsBase 'focusedValue' is in source but absent from data"
+    },
+    {
+      "component": "RangeCalendar",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "defaultFocusedValue",
+      "detail": "CalendarStateOptionsBase 'defaultFocusedValue' is in source but absent from data"
+    },
+    {
+      "component": "RangeCalendar",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onFocusUpdate",
+      "detail": "CalendarStateOptionsBase 'onFocusUpdate' is in source but absent from data"
+    },
+    {
+      "component": "RangeCalendar",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "mode",
+      "detail": "CalendarStateOptionsBase 'mode' is in source but absent from data"
+    },
+    {
+      "component": "RangeCalendar",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "defaultMode",
+      "detail": "CalendarStateOptionsBase 'defaultMode' is in source but absent from data"
+    },
+    {
+      "component": "RangeCalendar",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onUpdateMode",
+      "detail": "CalendarStateOptionsBase 'onUpdateMode' is in source but absent from data"
+    },
+    {
+      "component": "RangeCalendar",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "modes",
+      "detail": "CalendarStateOptionsBase 'modes' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "value",
+      "detail": "Data props array is empty; source has full DateFieldProps<RangeValue<DateTime>> including value, defaultValue, onUpdate, minValue, maxValue, etc."
+    },
+    {
+      "component": "RangeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "defaultValue",
+      "detail": "Data props array is empty; DateFieldBase 'defaultValue' is in source"
+    },
+    {
+      "component": "RangeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onUpdate",
+      "detail": "Data props array is empty; ValueBase 'onUpdate' is in source"
+    },
+    {
+      "component": "RangeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "delimiter",
+      "detail": "RangeDateFieldProps-specific 'delimiter?: string' (@default ' — ') is in source but data props array is empty"
+    },
+    {
+      "component": "RangeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "disabled",
+      "detail": "Data props array is empty; InputBase 'disabled' is in source"
+    },
+    {
+      "component": "RangeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "readOnly",
+      "detail": "Data props array is empty; InputBase 'readOnly' is in source"
+    },
+    {
+      "component": "RangeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "size",
+      "detail": "Data props array is empty; TextInputProps 'size' is in source"
+    },
+    {
+      "component": "RangeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "format",
+      "detail": "Data props array is empty; DateFieldBase 'format' is in source"
+    },
+    {
+      "component": "RangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "value",
+      "detail": "Data props array is empty; source has full DatePickerProps<RangeValue<DateTime>> including value, defaultValue, onUpdate, etc."
+    },
+    {
+      "component": "RangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "defaultValue",
+      "detail": "Data props array is empty; DateFieldBase 'defaultValue' is in source"
+    },
+    {
+      "component": "RangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onUpdate",
+      "detail": "Data props array is empty; ValueBase 'onUpdate' is in source"
+    },
+    {
+      "component": "RangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "disabled",
+      "detail": "Data props array is empty; InputBase 'disabled' is in source"
+    },
+    {
+      "component": "RangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "size",
+      "detail": "Data props array is empty; TextInputProps 'size' is in source"
+    },
+    {
+      "component": "RangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "format",
+      "detail": "Data props array is empty; DateFieldBase 'format' is in source"
+    },
+    {
+      "component": "RangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "hasClear",
+      "detail": "Data props array is empty; TextInputProps 'hasClear' is in source"
+    },
+    {
+      "component": "RangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "disablePortal",
+      "detail": "Data props array is empty; DatePickerProps 'disablePortal' is in source"
+    },
+    {
+      "component": "RangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "disableFocusTrap",
+      "detail": "Data props array is empty; DatePickerProps 'disableFocusTrap' is in source"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "prop": "interval",
+      "detail": "Data has 'interval: ViewportInterval' (required) but source has no such prop; this is an internal ruler sub-component prop, not a RangeDateSelectionProps field"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "prop": "dimensions",
+      "detail": "Data has 'dimensions: ViewportDimensions' (required) but source has no such prop; these are internal to renderAdditionalRulerContent callback parameters, not top-level props"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "value",
+      "detail": "RangeDateSelectionOptions 'value?: RangeValue<DateTime>' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "defaultValue",
+      "detail": "RangeDateSelectionOptions 'defaultValue?: RangeValue<DateTime>' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onUpdate",
+      "detail": "RangeDateSelectionOptions 'onUpdate' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "minValue",
+      "detail": "RangeDateSelectionOptions 'minValue?: DateTime' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "maxValue",
+      "detail": "RangeDateSelectionOptions 'maxValue?: DateTime' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "minDuration",
+      "detail": "RangeDateSelectionOptions 'minDuration?: number' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "maxDuration",
+      "detail": "RangeDateSelectionOptions 'maxDuration?: number' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "align",
+      "detail": "RangeDateSelectionOptions 'align?: number' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "placeholderValue",
+      "detail": "RangeDateSelectionOptions 'placeholderValue?: DateTime' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "timeZone",
+      "detail": "RangeDateSelectionOptions 'timeZone?: string' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "numberOfIntervals",
+      "detail": "RangeDateSelectionOptions 'numberOfIntervals?: number' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "placeOnRuler",
+      "detail": "RangeDateSelectionOptions 'placeOnRuler?: number' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "id",
+      "detail": "DomProps 'id' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "detail": "StyleProps 'className' is in source but absent from data"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "style",
+      "detail": "StyleProps 'style' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "roundUp",
+      "detail": "RelativeDateFieldOptions 'roundUp?: boolean' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "errorPlacement",
+      "detail": "Validation 'errorPlacement' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "startContent",
+      "detail": "TextInputExtendProps 'startContent' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "endContent",
+      "detail": "TextInputExtendProps 'endContent' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "name",
+      "detail": "InputDOMProps 'name' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "form",
+      "detail": "InputDOMProps 'form' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "autoFocus",
+      "detail": "FocusableProps 'autoFocus' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onFocus",
+      "detail": "FocusableProps 'onFocus' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onBlur",
+      "detail": "FocusableProps 'onBlur' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onKeyDown",
+      "detail": "KeyboardEvents 'onKeyDown' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onKeyUp",
+      "detail": "KeyboardEvents 'onKeyUp' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "popupClassName",
+      "detail": "PopupStyleProps 'popupClassName' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "popupStyle",
+      "detail": "PopupStyleProps 'popupStyle' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "popupPlacement",
+      "detail": "PopupStyleProps 'popupPlacement' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "popupOffset",
+      "detail": "PopupStyleProps 'popupOffset' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "id",
+      "detail": "DomProps 'id' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDateField",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "style",
+      "detail": "StyleProps 'style' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "roundUp",
+      "detail": "RelativeDatePickerStateOptions 'roundUp?: boolean' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "isDateUnavailable",
+      "detail": "DateFieldBase 'isDateUnavailable' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "format",
+      "detail": "DateFieldBase 'format' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "placeholderValue",
+      "detail": "DateFieldBase 'placeholderValue' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "parseDateFromString",
+      "detail": "DateFieldBase 'parseDateFromString' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "errorMessage",
+      "detail": "Validation 'errorMessage' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "errorPlacement",
+      "detail": "Validation 'errorPlacement' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "minValue",
+      "detail": "DateFieldBase 'minValue' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "maxValue",
+      "detail": "DateFieldBase 'maxValue' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "id",
+      "detail": "DomProps 'id' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "name",
+      "detail": "InputDOMProps 'name' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "form",
+      "detail": "InputDOMProps 'form' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "style",
+      "detail": "StyleProps 'style' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "autoFocus",
+      "detail": "FocusableProps 'autoFocus' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onFocus",
+      "detail": "FocusableProps 'onFocus' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onBlur",
+      "detail": "FocusableProps 'onBlur' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onKeyDown",
+      "detail": "KeyboardEvents 'onKeyDown' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onKeyUp",
+      "detail": "KeyboardEvents 'onKeyUp' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "popupClassName",
+      "detail": "PopupStyleProps 'popupClassName' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "popupStyle",
+      "detail": "PopupStyleProps 'popupStyle' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "popupPlacement",
+      "detail": "PopupStyleProps 'popupPlacement' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "popupOffset",
+      "detail": "PopupStyleProps 'popupOffset' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "children",
+      "detail": "RelativeDatePickerProps 'children?: (props: CalendarProps) => React.ReactNode' is in source but absent from data"
+    },
+    {
+      "component": "RelativeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onOpenChange",
+      "detail": "RelativeDatePickerProps 'onOpenChange?: (open: boolean) => void' is in source but absent from data"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "value",
+      "detail": "Data props array is empty; source RelativeRangeDatePickerProps has extensive prop set including value, defaultValue, onUpdate, timeZone, minValue, maxValue, format, etc."
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "defaultValue",
+      "detail": "Data props array is empty; RelativeRangeDatePickerStateOptions 'defaultValue' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onUpdate",
+      "detail": "Data props array is empty; RelativeRangeDatePickerStateOptions 'onUpdate' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "timeZone",
+      "detail": "Data props array is empty; RelativeRangeDatePickerStateOptions 'timeZone' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "minValue",
+      "detail": "Data props array is empty; RelativeRangeDatePickerStateOptions 'minValue' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "maxValue",
+      "detail": "Data props array is empty; RelativeRangeDatePickerStateOptions 'maxValue' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "format",
+      "detail": "Data props array is empty; RelativeRangeDatePickerProps 'format' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "disabled",
+      "detail": "Data props array is empty; InputBase 'disabled' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "readOnly",
+      "detail": "Data props array is empty; InputBase 'readOnly' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "withApplyButton",
+      "detail": "Data props array is empty; RelativeRangeDatePickerProps 'withApplyButton' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "withZonesList",
+      "detail": "Data props array is empty; RelativeRangeDatePickerProps 'withZonesList' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "withPresets",
+      "detail": "Data props array is empty; RelativeRangeDatePickerProps 'withPresets' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "withHeader",
+      "detail": "Data props array is empty; RelativeRangeDatePickerProps 'withHeader' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onOpenChange",
+      "detail": "Data props array is empty; RelativeRangeDatePickerProps 'onOpenChange' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "renderControl",
+      "detail": "Data props array is empty; RelativeRangeDatePickerProps 'renderControl' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "size",
+      "detail": "Data props array is empty; TextInputProps 'size' is in source"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "popupClassName",
+      "detail": "Data props array is empty; PopupStyleProps 'popupClassName' is in source"
+    },
+    {
+      "component": "CalendarView",
+      "library": "date-components",
+      "type": "required_mismatch",
+      "severity": "MEDIUM",
+      "prop": "state",
+      "detail": "Data marks 'state' as required (correct) but has no description; source doc is present in interface comment"
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "Calendar",
+      "source": "Calendar is a flexible, user-friendly calendar component for React applications. It allows users to view, select, and manage dates with ease. It can be controlled if you set value property, or uncontrolled otherwise.",
+      "data": "Calendar is a flexible, user-friendly calendar component for React applications. It allows users to view, select, and manage dates with ease. It can be controlled if you set value property, or uncontrolled otherwise.",
+      "match": true
+    },
+    {
+      "component": "CalendarView",
+      "source": "No top-level component description in source; CalendarView is the internal rendering layer for Calendar and RangeCalendar, accepting a pre-built state object.",
+      "data": "The size of the element. @default m",
+      "match": false,
+      "note": "Data description is the size prop JSDoc, not a component description"
+    },
+    {
+      "component": "DateField",
+      "source": "DateField component is a versatile and convenient input field specifically designed for date entry in React applications. It can be controlled if you set value property, or uncontrolled otherwise.",
+      "data": "DateField component is a versatile and convenient input field specifically designed for date entry in React applications. It can be controlled if you set value property, or uncontrolled otherwise.",
+      "match": true
+    },
+    {
+      "component": "DatePicker",
+      "source": "DatePicker is a sophisticated, lightweight, and fully customizable component designed to provide intuitive date picking functionality in your React applications. It can be controlled if you set value property, or uncontrolled otherwise.",
+      "data": "DatePicker is a sophisticated, lightweight, and fully customizable component designed to provide intuitive date picking functionality in your React applications. It can be controlled if you set value property, or uncontrolled otherwise.",
+      "match": true
+    },
+    {
+      "component": "RangeCalendar",
+      "source": "RangeCalendar is a powerful, flexible, and user-friendly UI component designed for selecting a range of dates. It can be controlled if you set value property, or uncontrolled otherwise.",
+      "data": "RangeCalendar is a powerful, flexible, and user-friendly UI component designed for selecting a range of dates. It can be controlled if you set value property, or uncontrolled otherwise.",
+      "match": true
+    },
+    {
+      "component": "RangeDateField",
+      "source": "No description in source file; component extends DateFieldProps with an added delimiter prop for range input.",
+      "data": null,
+      "match": false,
+      "note": "Data has no description field"
+    },
+    {
+      "component": "RangeDatePicker",
+      "source": "No description in source file; component is typed as DatePickerProps<RangeValue<DateTime>>.",
+      "data": null,
+      "match": false,
+      "note": "Data has no description field"
+    },
+    {
+      "component": "RangeDateSelection",
+      "source": "No description in source file; component renders a time-range ruler with draggable selection control.",
+      "data": null,
+      "match": false,
+      "note": "Data has no description field"
+    },
+    {
+      "component": "RelativeDateField",
+      "source": "RelativeDateField component is used only for entering relative dates using Grafana-like relative format (e.g. now-1d, now/w). It cannot be used as a normal DateField.",
+      "data": "RelativeDateField component is used only for entering relative dates using Grafana-like relative format (e.g. now-1d, now/w). It cannot be used as a normal DateField.",
+      "match": true
+    },
+    {
+      "component": "RelativeDatePicker",
+      "source": "RelativeDatePicker is almost the same component as DatePicker but it has ability to use relative dates. It can work in two modes: absolute and relative. You can switch it interactively by click on the f(x) button.",
+      "data": "RelativeDatePicker is almost the same component as DatePicker but it has ability to use relative dates. It can work in two modes: absolute and relative. You can switch it interactively by click on the f(x) button.",
+      "match": true
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "source": "No description in source file; component provides a relative/absolute range date picker with optional presets, timezone selector, and apply button.",
+      "data": null,
+      "match": false,
+      "note": "Data has no description field"
+    }
+  ]
+}

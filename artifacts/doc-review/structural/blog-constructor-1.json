@@ -1,0 +1,514 @@
+{
+  "batch_id": "blog-constructor-1",
+  "libraries": ["blog-constructor"],
+  "issues": [
+    {
+      "component": "FeedHeader",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "handleLoadData",
+      "detail": "Prop 'handleLoadData: (props: FetchArgs) => void' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "FeedHeader",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "queryParams",
+      "detail": "Prop 'queryParams: Query' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "FeedHeader",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "tags",
+      "detail": "Prop 'tags?: SelectItem[]' (optional) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "FeedHeader",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "services",
+      "detail": "Prop 'services?: SelectItem[]' (optional) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "FeedHeader",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "title",
+      "detail": "Prop 'title?: string' (optional) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "FeedHeader",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "background",
+      "detail": "Prop 'background' (from HeaderBlockProps, optional) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "FeedHeader",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "offset",
+      "detail": "Prop 'offset' (from HeaderBlockProps, optional, default='default') exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "FeedHeader",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "theme",
+      "detail": "Prop 'theme' (from HeaderBlockProps, optional, default='light') exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "FeedHeader",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "verticalOffset",
+      "detail": "Prop 'verticalOffset' (from HeaderBlockProps, optional, default='l') exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "FeedHeader",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "detail": "Prop 'className?: string' (optional, from ClassNameProps) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "MetaWrapper",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "metaComponent",
+      "detail": "Prop 'metaComponent: JSX.Element' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "MetaWrapper",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "needHelmetWrapper",
+      "detail": "Prop 'needHelmetWrapper: boolean' (required in type, default=false in usage) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Paginator",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "page",
+      "detail": "Prop 'page: number' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Paginator",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "totalItems",
+      "detail": "Prop 'totalItems: number' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Paginator",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "itemsPerPage",
+      "detail": "Prop 'itemsPerPage: number' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Paginator",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "maxPages",
+      "detail": "Prop 'maxPages: number' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Paginator",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onPageChange",
+      "detail": "Prop 'onPageChange: (page: number) => void' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Paginator",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "queryParams",
+      "detail": "Prop 'queryParams: Query' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Paginator",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "pageCountForShowSupportButtons",
+      "detail": "Prop 'pageCountForShowSupportButtons?: number' (optional, default=6) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Paginator",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "detail": "Prop 'className?: string' (optional, from ClassNameProps) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PostCard",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "post",
+      "detail": "Prop 'post: PostData' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PostCard",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "fullWidth",
+      "detail": "Prop 'fullWidth?: boolean' (optional, default=false) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PostCard",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "showTag",
+      "detail": "Prop 'showTag?: boolean' (optional, default=false) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PostCard",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "size",
+      "detail": "Prop 'size?: PostCardSize' (optional, default=PostCardSize.SMALL) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PostCard",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "titleHeadingLevel",
+      "detail": "Prop 'titleHeadingLevel?: PostCardTitleHeadingLevel' (optional, default=PostCardTitleHeadingLevel.H3) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PostCard",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "analyticsEvents",
+      "detail": "Prop 'analyticsEvents?: AnalyticsEventsProp' (optional) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PostInfo",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "postId",
+      "detail": "Prop 'postId: PostData[\"id\"]' (required, type number) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PostInfo",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "readingTime",
+      "detail": "Prop 'readingTime: PostData[\"readingTime\"]' (required, type number | undefined) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PostInfo",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "date",
+      "detail": "Prop 'date: PostData[\"date\"]' (required, type string) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PostInfo",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "theme",
+      "detail": "Prop 'theme?: \"light\" | \"dark\"' (optional, default='light') exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PostInfo",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "detail": "Prop 'qa?: string' (optional, from QAProps) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PostInfo",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "analyticsEventsContainer",
+      "detail": "Prop 'analyticsEventsContainer?: Record<string, AnalyticsEventsProp>' (optional) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Posts",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "containerId",
+      "detail": "Prop 'containerId: string' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Posts",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "currentPage",
+      "detail": "Prop 'currentPage: number' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Posts",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "isShowMoreVisible",
+      "detail": "Prop 'isShowMoreVisible: boolean' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Posts",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "errorShowMore",
+      "detail": "Prop 'errorShowMore: boolean' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Posts",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "postCountOnPage",
+      "detail": "Prop 'postCountOnPage: number' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Posts",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "perPageInQuery",
+      "detail": "Prop 'perPageInQuery: number' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Posts",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "isFetching",
+      "detail": "Prop 'isFetching: boolean' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Posts",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "handleShowMore",
+      "detail": "Prop 'handleShowMore: (value?: React.MouseEvent<...>) => Promise<void> | void' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Posts",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "handlePageChange",
+      "detail": "Prop 'handlePageChange: (value: number) => Promise<void> | void' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Posts",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "queryParams",
+      "detail": "Prop 'queryParams: Query' (required) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Posts",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "postsOnPage",
+      "detail": "Prop 'postsOnPage?: PostData[]' (optional) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Posts",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "pinnedPostOnPage",
+      "detail": "Prop 'pinnedPostOnPage?: PostData' (optional) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Posts",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "pageCountForShowSupportButtons",
+      "detail": "Prop 'pageCountForShowSupportButtons?: number' (optional) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PostsError",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "onButtonClick",
+      "detail": "Prop 'onButtonClick?: () => void | Promise<void>' (optional) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PromptSignIn",
+      "library": "blog-constructor",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "prop": "message",
+      "detail": "Prop 'message' in data JSON does not exist in source interface. PromptSignInProps only has 'onClickSignIn' explicitly plus inherited Partial<PromptProps> fields (text, actions, openTimestamp, openDuration, className, theme)"
+    },
+    {
+      "component": "PromptSignIn",
+      "library": "blog-constructor",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "prop": "title",
+      "detail": "Prop 'title' in data JSON does not exist in source interface. PromptSignInProps only has 'onClickSignIn' explicitly plus inherited Partial<PromptProps> fields (text, actions, openTimestamp, openDuration, className, theme)"
+    },
+    {
+      "component": "PromptSignIn",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "text",
+      "detail": "Prop 'text?: string' inherited from Partial<PromptProps> (default=i18n(Keyset.PromptSignInOnLike)) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PromptSignIn",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "openTimestamp",
+      "detail": "Prop 'openTimestamp?: number' inherited from Partial<PromptProps> exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PromptSignIn",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "openDuration",
+      "detail": "Prop 'openDuration?: number' inherited from Partial<PromptProps> exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "PromptSignIn",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "theme",
+      "detail": "Prop 'theme?: 'grey' | 'beige' | 'white'' inherited from Partial<PromptProps> exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Wrapper",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "paddings",
+      "detail": "Prop 'paddings?: Paddings' (optional, default=DEFAULT_PADDINGS) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Wrapper",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "children",
+      "detail": "Prop 'children?: React.ReactNode' (optional) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Wrapper",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "style",
+      "detail": "Prop 'style?: React.CSSProperties' (optional) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Wrapper",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "detail": "Prop 'className?: string' (optional, from ClassNameProps) exists in source but is absent from data JSON props array"
+    },
+    {
+      "component": "Wrapper",
+      "library": "blog-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "detail": "Prop 'qa?: string' (optional, from QAProps) exists in source but is absent from data JSON props array"
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "FeedHeader",
+      "source_description": null,
+      "data_description": null
+    },
+    {
+      "component": "MetaWrapper",
+      "source_description": "Wrapper on meta data of page. @param needHelmetWrapper - component needs helmet wrapper. @param metaComponent - meta data component. @returns jsx",
+      "data_description": "Wrapper on meta data of page @param needHelmetWrapper - component needs helmet wrapper @param metaComponent - meta data component @returns jsx"
+    },
+    {
+      "component": "Paginator",
+      "source_description": null,
+      "data_description": null
+    },
+    {
+      "component": "PostCard",
+      "source_description": null,
+      "data_description": null
+    },
+    {
+      "component": "PostInfo",
+      "source_description": "Blog post info panel component. @param postId - post id. @param readingTime - post reading time. @param date - post create date. @param theme - theme name. @param qa - test-attr. @param analyticsEventsContainer - a map of records with a single or collection of objects detailing analytics events. @returns jsx",
+      "data_description": "Blog post info panel component @param postId - post id @param readingTime - post reading time @param date - post create date @param theme - theme name @param qa - test-attr @param analyticsEventsContainer - a map of records with a single or collection of objects detailing analytics events @returns jsx"
+    },
+    {
+      "component": "Posts",
+      "source_description": null,
+      "data_description": null
+    },
+    {
+      "component": "PostsError",
+      "source_description": null,
+      "data_description": null
+    },
+    {
+      "component": "Prompt",
+      "source_description": "Popup that appears with text message and button(s) for given `actions`. Features: - Automatically disappears after `openDuration` in milliseconds. - `openTimestamp` (`Date.now()`) resets the visible duration. @returns {JSX|null}",
+      "data_description": "Popup that appears with text message and button(s) for given `actions`. Features: - Automatically disappears after `openDuration` in milliseconds - `openTimestamp` (`Date.now()`) resets the visible duration @returns {JSX|null}"
+    },
+    {
+      "component": "PromptSignIn",
+      "source_description": "Authentication Popup that appears when user action requires login. @returns {JSX|null}",
+      "data_description": "PromptSignIn displays a prompt encouraging unauthenticated users to sign in. It extends the uikit Prompt component with a dedicated sign-in action button. Used in blog contexts to gate interactions like comments or reactions behind authentication."
+    },
+    {
+      "component": "Wrapper",
+      "source_description": null,
+      "data_description": null
+    }
+  ]
+}

@@ -1,0 +1,511 @@
+{
+  "library": "uikit",
+  "component_count": 71,
+  "component_paths": [
+    "src/components",
+    "src/components/layout",
+    "src/components/controls",
+    "src/components/lab"
+  ],
+  "flat_files": false,
+  "components": [
+    {
+      "name": "Accordion",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Accordion/Accordion.tsx"
+    },
+    {
+      "name": "ActionsPanel",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/ActionsPanel/ActionsPanel.tsx"
+    },
+    {
+      "name": "ActionTooltip",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/ActionTooltip/ActionTooltip.tsx"
+    },
+    {
+      "name": "Alert",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Alert/Alert.tsx"
+    },
+    {
+      "name": "ArrowToggle",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/ArrowToggle/ArrowToggle.tsx"
+    },
+    {
+      "name": "Avatar",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Avatar/Avatar.tsx"
+    },
+    {
+      "name": "AvatarStack",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/AvatarStack/AvatarStack.tsx"
+    },
+    {
+      "name": "Box",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/layout/Box/Box.tsx"
+    },
+    {
+      "name": "Breadcrumbs",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Breadcrumbs/Breadcrumbs.tsx"
+    },
+    {
+      "name": "Button",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Button/Button.tsx"
+    },
+    {
+      "name": "Card",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Card/Card.tsx"
+    },
+    {
+      "name": "Checkbox",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Checkbox/Checkbox.tsx"
+    },
+    {
+      "name": "ClipboardButton",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/ClipboardButton/ClipboardButton.tsx"
+    },
+    {
+      "name": "ClipboardIcon",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/ClipboardIcon/ClipboardIcon.tsx"
+    },
+    {
+      "name": "Col",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/layout/Col/Col.tsx"
+    },
+    {
+      "name": "ColorPicker",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/lab/ColorPicker/ColorPicker.tsx"
+    },
+    {
+      "name": "Container",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/layout/Container/Container.tsx"
+    },
+    {
+      "name": "ControlLabel",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/ControlLabel/ControlLabel.tsx"
+    },
+    {
+      "name": "CopyToClipboard",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/CopyToClipboard/CopyToClipboard.tsx"
+    },
+    {
+      "name": "DefinitionList",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/DefinitionList/DefinitionList.tsx"
+    },
+    {
+      "name": "Dialog",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Dialog/Dialog.tsx"
+    },
+    {
+      "name": "Disclosure",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Disclosure/Disclosure.tsx"
+    },
+    {
+      "name": "Divider",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Divider/Divider.tsx"
+    },
+    {
+      "name": "Drawer",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Drawer/components/Drawer.tsx"
+    },
+    {
+      "name": "DropdownMenu",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/DropdownMenu/DropdownMenu.tsx"
+    },
+    {
+      "name": "FilePreview",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/FilePreview/FilePreview.tsx"
+    },
+    {
+      "name": "Flex",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/layout/Flex/Flex.tsx"
+    },
+    {
+      "name": "HelpMark",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/HelpMark/HelpMark.tsx"
+    },
+    {
+      "name": "Hotkey",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Hotkey/Hotkey.tsx"
+    },
+    {
+      "name": "Icon",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Icon/Icon.tsx"
+    },
+    {
+      "name": "Label",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Label/Label.tsx"
+    },
+    {
+      "name": "Link",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Link/Link.tsx"
+    },
+    {
+      "name": "List",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/List/List.tsx"
+    },
+    {
+      "name": "Loader",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Loader/Loader.tsx"
+    },
+    {
+      "name": "Menu",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Menu/Menu.tsx"
+    },
+    {
+      "name": "Modal",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Modal/Modal.tsx"
+    },
+    {
+      "name": "NumberInput",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/NumberInput/NumberInput.tsx"
+    },
+    {
+      "name": "Overlay",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Overlay/Overlay.tsx"
+    },
+    {
+      "name": "Pagination",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Pagination/Pagination.tsx"
+    },
+    {
+      "name": "Palette",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Palette/Palette.tsx"
+    },
+    {
+      "name": "PasswordInput",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/controls/PasswordInput/PasswordInput.tsx"
+    },
+    {
+      "name": "PinInput",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/PinInput/PinInput.tsx"
+    },
+    {
+      "name": "PlaceholderContainer",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/PlaceholderContainer/PlaceholderContainer.tsx"
+    },
+    {
+      "name": "Popover",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Popover/Popover.tsx"
+    },
+    {
+      "name": "Popup",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Popup/Popup.tsx"
+    },
+    {
+      "name": "Portal",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Portal/Portal.tsx"
+    },
+    {
+      "name": "PrivateLayoutProvider",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/layout/LayoutProvider/LayoutProvider.tsx"
+    },
+    {
+      "name": "Progress",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Progress/Progress.tsx"
+    },
+    {
+      "name": "Radio",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Radio/Radio.tsx"
+    },
+    {
+      "name": "RadioGroup",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/RadioGroup/RadioGroup.tsx"
+    },
+    {
+      "name": "Row",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/layout/Row/Row.tsx"
+    },
+    {
+      "name": "SegmentedRadioGroup",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/SegmentedRadioGroup/SegmentedRadioGroup.tsx"
+    },
+    {
+      "name": "Select",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Select/Select.tsx"
+    },
+    {
+      "name": "Sheet",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Sheet/Sheet.tsx"
+    },
+    {
+      "name": "Skeleton",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Skeleton/Skeleton.tsx"
+    },
+    {
+      "name": "Slider",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Slider/Slider.tsx"
+    },
+    {
+      "name": "Spin",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Spin/Spin.tsx"
+    },
+    {
+      "name": "Stepper",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Stepper/Stepper.tsx"
+    },
+    {
+      "name": "Switch",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Switch/Switch.tsx"
+    },
+    {
+      "name": "Table",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Table/Table.tsx"
+    },
+    {
+      "name": "TableColumnSetup",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/TableColumnSetup/TableColumnSetup.tsx"
+    },
+    {
+      "name": "Text",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Text/Text.tsx"
+    },
+    {
+      "name": "TextArea",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/controls/TextArea/TextArea.tsx"
+    },
+    {
+      "name": "TextInput",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/controls/TextInput/TextInput.tsx"
+    },
+    {
+      "name": "Toaster",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Toaster/withToaster.tsx"
+    },
+    {
+      "name": "Toc",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Toc/Toc.tsx"
+    },
+    {
+      "name": "Tooltip",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/Tooltip/Tooltip.tsx"
+    },
+    {
+      "name": "TreeSelect",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/TreeSelect/TreeSelect.tsx"
+    },
+    {
+      "name": "User",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/User/User.tsx"
+    },
+    {
+      "name": "UserLabel",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/UserLabel/UserLabel.tsx"
+    },
+    {
+      "name": "Virtualizer",
+      "library": "uikit",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "src/components/lab/Virtualizer/Virtualizer.tsx"
+    }
+  ],
+  "suggested_batches": 8
+}

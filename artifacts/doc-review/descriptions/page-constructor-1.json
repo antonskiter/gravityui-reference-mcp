@@ -1,0 +1,26 @@
+{
+  "batch_id": "page-constructor-1",
+  "issues": [
+    {
+      "component": "Button",
+      "library": "page-constructor",
+      "severity": "LOW",
+      "issue": "Description omits three of the five special themes (github, scale, monochrome) and omits URL TLD substitution and analytics event tracking, which are key behaviors visible in the source.",
+      "suggestion": "Button component wrapping @gravity-ui/uikit Button with support for special themes (app-store, google-play, github, scale, monochrome), icon/image attachments with left/right positioning, URL TLD substitution, and analytics event tracking."
+    },
+    {
+      "component": "Link",
+      "library": "page-constructor",
+      "severity": "LOW",
+      "issue": "Description lists the four themes correctly but omits that the 'normal' theme renders an optional arrow icon, and omits URL TLD substitution and analytics tracking.",
+      "suggestion": "Link component supporting four themes: 'back' (renders BackLink), 'file-link' and 'underline' (renders FileLink), 'normal' (renders an anchor with optional arrow icon). Supports URL TLD substitution and analytics tracking."
+    },
+    {
+      "component": "Map",
+      "library": "page-constructor",
+      "severity": "LOW",
+      "issue": "Description is vague and omits that GMapProps requires an 'address' prop while YMapProps requires 'markers' and 'id', which are the key structural differences between the two map types.",
+      "suggestion": "Map component that renders either YandexMap (requires 'markers' and 'id') or GoogleMap (requires 'address') based on the MapType from MapsContext."
+    }
+  ]
+}

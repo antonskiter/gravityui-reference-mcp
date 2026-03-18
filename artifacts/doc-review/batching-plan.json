@@ -1,0 +1,289 @@
+{
+  "total_batches": 18,
+  "total_components": 201,
+  "batches": [
+    {
+      "id": "uikit-1",
+      "libraries": ["uikit"],
+      "components": [
+        {"name": "Accordion", "library": "uikit", "source_file": "src/components/Accordion/Accordion.tsx", "source_file_found": true},
+        {"name": "ActionsPanel", "library": "uikit", "source_file": "src/components/ActionsPanel/ActionsPanel.tsx", "source_file_found": true},
+        {"name": "ActionTooltip", "library": "uikit", "source_file": "src/components/ActionTooltip/ActionTooltip.tsx", "source_file_found": true},
+        {"name": "Alert", "library": "uikit", "source_file": "src/components/Alert/Alert.tsx", "source_file_found": true},
+        {"name": "ArrowToggle", "library": "uikit", "source_file": "src/components/ArrowToggle/ArrowToggle.tsx", "source_file_found": true},
+        {"name": "Avatar", "library": "uikit", "source_file": "src/components/Avatar/Avatar.tsx", "source_file_found": true},
+        {"name": "AvatarStack", "library": "uikit", "source_file": "src/components/AvatarStack/AvatarStack.tsx", "source_file_found": true},
+        {"name": "Box", "library": "uikit", "source_file": "src/components/layout/Box/Box.tsx", "source_file_found": true},
+        {"name": "Breadcrumbs", "library": "uikit", "source_file": "src/components/Breadcrumbs/Breadcrumbs.tsx", "source_file_found": true},
+        {"name": "Button", "library": "uikit", "source_file": "src/components/Button/Button.tsx", "source_file_found": true},
+        {"name": "Card", "library": "uikit", "source_file": "src/components/Card/Card.tsx", "source_file_found": true},
+        {"name": "Checkbox", "library": "uikit", "source_file": "src/components/Checkbox/Checkbox.tsx", "source_file_found": true},
+        {"name": "ClipboardButton", "library": "uikit", "source_file": "src/components/ClipboardButton/ClipboardButton.tsx", "source_file_found": true},
+        {"name": "ClipboardIcon", "library": "uikit", "source_file": "src/components/ClipboardIcon/ClipboardIcon.tsx", "source_file_found": true},
+        {"name": "Col", "library": "uikit", "source_file": "src/components/layout/Col/Col.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "uikit-2",
+      "libraries": ["uikit"],
+      "components": [
+        {"name": "ColorPicker", "library": "uikit", "source_file": "src/components/lab/ColorPicker/ColorPicker.tsx", "source_file_found": true},
+        {"name": "Container", "library": "uikit", "source_file": "src/components/layout/Container/Container.tsx", "source_file_found": true},
+        {"name": "ControlLabel", "library": "uikit", "source_file": "src/components/ControlLabel/ControlLabel.tsx", "source_file_found": true},
+        {"name": "CopyToClipboard", "library": "uikit", "source_file": "src/components/CopyToClipboard/CopyToClipboard.tsx", "source_file_found": true},
+        {"name": "DefinitionList", "library": "uikit", "source_file": "src/components/DefinitionList/DefinitionList.tsx", "source_file_found": true},
+        {"name": "Dialog", "library": "uikit", "source_file": "src/components/Dialog/Dialog.tsx", "source_file_found": true},
+        {"name": "Disclosure", "library": "uikit", "source_file": "src/components/Disclosure/Disclosure.tsx", "source_file_found": true},
+        {"name": "Divider", "library": "uikit", "source_file": "src/components/Divider/Divider.tsx", "source_file_found": true},
+        {"name": "Drawer", "library": "uikit", "source_file": "src/components/Drawer/components/Drawer.tsx", "source_file_found": true},
+        {"name": "DropdownMenu", "library": "uikit", "source_file": "src/components/DropdownMenu/DropdownMenu.tsx", "source_file_found": true},
+        {"name": "FilePreview", "library": "uikit", "source_file": "src/components/FilePreview/FilePreview.tsx", "source_file_found": true},
+        {"name": "Flex", "library": "uikit", "source_file": "src/components/layout/Flex/Flex.tsx", "source_file_found": true},
+        {"name": "HelpMark", "library": "uikit", "source_file": "src/components/HelpMark/HelpMark.tsx", "source_file_found": true},
+        {"name": "Hotkey", "library": "uikit", "source_file": "src/components/Hotkey/Hotkey.tsx", "source_file_found": true},
+        {"name": "Icon", "library": "uikit", "source_file": "src/components/Icon/Icon.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "uikit-3",
+      "libraries": ["uikit"],
+      "components": [
+        {"name": "Label", "library": "uikit", "source_file": "src/components/Label/Label.tsx", "source_file_found": true},
+        {"name": "Link", "library": "uikit", "source_file": "src/components/Link/Link.tsx", "source_file_found": true},
+        {"name": "List", "library": "uikit", "source_file": "src/components/List/List.tsx", "source_file_found": true},
+        {"name": "Loader", "library": "uikit", "source_file": "src/components/Loader/Loader.tsx", "source_file_found": true},
+        {"name": "Menu", "library": "uikit", "source_file": "src/components/Menu/Menu.tsx", "source_file_found": true},
+        {"name": "Modal", "library": "uikit", "source_file": "src/components/Modal/Modal.tsx", "source_file_found": true},
+        {"name": "NumberInput", "library": "uikit", "source_file": "src/components/NumberInput/NumberInput.tsx", "source_file_found": true},
+        {"name": "Overlay", "library": "uikit", "source_file": "src/components/Overlay/Overlay.tsx", "source_file_found": true},
+        {"name": "Pagination", "library": "uikit", "source_file": "src/components/Pagination/Pagination.tsx", "source_file_found": true},
+        {"name": "Palette", "library": "uikit", "source_file": "src/components/Palette/Palette.tsx", "source_file_found": true},
+        {"name": "PasswordInput", "library": "uikit", "source_file": "src/components/controls/PasswordInput/PasswordInput.tsx", "source_file_found": true},
+        {"name": "PinInput", "library": "uikit", "source_file": "src/components/PinInput/PinInput.tsx", "source_file_found": true},
+        {"name": "PlaceholderContainer", "library": "uikit", "source_file": "src/components/PlaceholderContainer/PlaceholderContainer.tsx", "source_file_found": true},
+        {"name": "Popover", "library": "uikit", "source_file": "src/components/Popover/Popover.tsx", "source_file_found": true},
+        {"name": "Popup", "library": "uikit", "source_file": "src/components/Popup/Popup.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "uikit-4",
+      "libraries": ["uikit"],
+      "components": [
+        {"name": "Portal", "library": "uikit", "source_file": "src/components/Portal/Portal.tsx", "source_file_found": true},
+        {"name": "PrivateLayoutProvider", "library": "uikit", "source_file": "src/components/layout/LayoutProvider/LayoutProvider.tsx", "source_file_found": true},
+        {"name": "Progress", "library": "uikit", "source_file": "src/components/Progress/Progress.tsx", "source_file_found": true},
+        {"name": "Radio", "library": "uikit", "source_file": "src/components/Radio/Radio.tsx", "source_file_found": true},
+        {"name": "RadioGroup", "library": "uikit", "source_file": "src/components/RadioGroup/RadioGroup.tsx", "source_file_found": true},
+        {"name": "Row", "library": "uikit", "source_file": "src/components/layout/Row/Row.tsx", "source_file_found": true},
+        {"name": "SegmentedRadioGroup", "library": "uikit", "source_file": "src/components/SegmentedRadioGroup/SegmentedRadioGroup.tsx", "source_file_found": true},
+        {"name": "Select", "library": "uikit", "source_file": "src/components/Select/Select.tsx", "source_file_found": true},
+        {"name": "Sheet", "library": "uikit", "source_file": "src/components/Sheet/Sheet.tsx", "source_file_found": true},
+        {"name": "Skeleton", "library": "uikit", "source_file": "src/components/Skeleton/Skeleton.tsx", "source_file_found": true},
+        {"name": "Slider", "library": "uikit", "source_file": "src/components/Slider/Slider.tsx", "source_file_found": true},
+        {"name": "Spin", "library": "uikit", "source_file": "src/components/Spin/Spin.tsx", "source_file_found": true},
+        {"name": "Stepper", "library": "uikit", "source_file": "src/components/Stepper/Stepper.tsx", "source_file_found": true},
+        {"name": "Switch", "library": "uikit", "source_file": "src/components/Switch/Switch.tsx", "source_file_found": true},
+        {"name": "Table", "library": "uikit", "source_file": "src/components/Table/Table.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "uikit-5",
+      "libraries": ["uikit"],
+      "components": [
+        {"name": "TableColumnSetup", "library": "uikit", "source_file": "src/components/TableColumnSetup/TableColumnSetup.tsx", "source_file_found": true},
+        {"name": "Text", "library": "uikit", "source_file": "src/components/Text/Text.tsx", "source_file_found": true},
+        {"name": "TextArea", "library": "uikit", "source_file": "src/components/controls/TextArea/TextArea.tsx", "source_file_found": true},
+        {"name": "TextInput", "library": "uikit", "source_file": "src/components/controls/TextInput/TextInput.tsx", "source_file_found": true},
+        {"name": "Toaster", "library": "uikit", "source_file": "src/components/Toaster/withToaster.tsx", "source_file_found": true},
+        {"name": "Toc", "library": "uikit", "source_file": "src/components/Toc/Toc.tsx", "source_file_found": true},
+        {"name": "Tooltip", "library": "uikit", "source_file": "src/components/Tooltip/Tooltip.tsx", "source_file_found": true},
+        {"name": "TreeSelect", "library": "uikit", "source_file": "src/components/TreeSelect/TreeSelect.tsx", "source_file_found": true},
+        {"name": "User", "library": "uikit", "source_file": "src/components/User/User.tsx", "source_file_found": true},
+        {"name": "UserLabel", "library": "uikit", "source_file": "src/components/UserLabel/UserLabel.tsx", "source_file_found": true},
+        {"name": "Virtualizer", "library": "uikit", "source_file": "src/components/lab/Virtualizer/Virtualizer.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "aikit-1",
+      "libraries": ["aikit"],
+      "components": [
+        {"name": "ActionButton", "library": "aikit", "source_file": "vendor/aikit/src/components/atoms/ActionButton/ActionButton.tsx", "source_file_found": true},
+        {"name": "Alert", "library": "aikit", "source_file": "vendor/aikit/src/components/atoms/Alert/index.tsx", "source_file_found": true},
+        {"name": "BaseMessage", "library": "aikit", "source_file": "vendor/aikit/src/components/molecules/BaseMessage/index.tsx", "source_file_found": true},
+        {"name": "ButtonGroup", "library": "aikit", "source_file": "vendor/aikit/src/components/molecules/ButtonGroup/index.tsx", "source_file_found": true},
+        {"name": "ChatContainer", "library": "aikit", "source_file": "vendor/aikit/src/components/pages/ChatContainer/ChatContainer.tsx", "source_file_found": true},
+        {"name": "ChatContent", "library": "aikit", "source_file": "vendor/aikit/src/components/templates/ChatContent/ChatContent.tsx", "source_file_found": true},
+        {"name": "ChatDate", "library": "aikit", "source_file": "vendor/aikit/src/components/atoms/ChatDate/ChatDate.tsx", "source_file_found": true},
+        {"name": "ContextIndicator", "library": "aikit", "source_file": "vendor/aikit/src/components/atoms/ContextIndicator/index.tsx", "source_file_found": true},
+        {"name": "ContextItem", "library": "aikit", "source_file": "vendor/aikit/src/components/atoms/ContextItem/index.tsx", "source_file_found": true},
+        {"name": "DiffStat", "library": "aikit", "source_file": "vendor/aikit/src/components/atoms/DiffStat/index.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "aikit-2",
+      "libraries": ["aikit"],
+      "components": [
+        {"name": "Disclaimer", "library": "aikit", "source_file": "vendor/aikit/src/components/atoms/Disclaimer/Disclaimer.tsx", "source_file_found": true},
+        {"name": "EmptyContainer", "library": "aikit", "source_file": "vendor/aikit/src/components/templates/EmptyContainer/EmptyContainer.tsx", "source_file_found": true},
+        {"name": "Header", "library": "aikit", "source_file": "vendor/aikit/src/components/organisms/Header/Header.tsx", "source_file_found": true},
+        {"name": "History", "library": "aikit", "source_file": "vendor/aikit/src/components/templates/History/History.tsx", "source_file_found": true},
+        {"name": "IntersectionContainer", "library": "aikit", "source_file": "vendor/aikit/src/components/atoms/IntersectionContainer/IntersectionContainer.tsx", "source_file_found": true},
+        {"name": "Loader", "library": "aikit", "source_file": "vendor/aikit/src/components/atoms/Loader/Loader.tsx", "source_file_found": true},
+        {"name": "MessageBalloon", "library": "aikit", "source_file": "vendor/aikit/src/components/atoms/MessageBalloon/index.tsx", "source_file_found": true},
+        {"name": "PromptInput", "library": "aikit", "source_file": "vendor/aikit/src/components/organisms/PromptInput/PromptInput.tsx", "source_file_found": true},
+        {"name": "PromptInputFooter", "library": "aikit", "source_file": "vendor/aikit/src/components/molecules/PromptInputFooter/PromptInputFooter.tsx", "source_file_found": true},
+        {"name": "PromptInputHeader", "library": "aikit", "source_file": "vendor/aikit/src/components/molecules/PromptInputHeader/PromptInputHeader.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "aikit-3",
+      "libraries": ["aikit"],
+      "components": [
+        {"name": "PromptInputPanel", "library": "aikit", "source_file": "vendor/aikit/src/components/molecules/PromptInputPanel/PromptInputPanel.tsx", "source_file_found": true},
+        {"name": "RatingBlock", "library": "aikit", "source_file": "vendor/aikit/src/components/molecules/RatingBlock/RatingBlock.tsx", "source_file_found": true},
+        {"name": "Shimmer", "library": "aikit", "source_file": "vendor/aikit/src/components/atoms/Shimmer/index.tsx", "source_file_found": true},
+        {"name": "StarRating", "library": "aikit", "source_file": "vendor/aikit/src/components/molecules/StarRating/StarRating.tsx", "source_file_found": true},
+        {"name": "SubmitButton", "library": "aikit", "source_file": "vendor/aikit/src/components/atoms/SubmitButton/SubmitButton.tsx", "source_file_found": true},
+        {"name": "Suggestions", "library": "aikit", "source_file": "vendor/aikit/src/components/molecules/Suggestions/Suggestions.tsx", "source_file_found": true},
+        {"name": "Tabs", "library": "aikit", "source_file": "vendor/aikit/src/components/molecules/Tabs/Tabs.tsx", "source_file_found": true},
+        {"name": "ThinkingMessage", "library": "aikit", "source_file": "vendor/aikit/src/components/organisms/ThinkingMessage/index.tsx", "source_file_found": true},
+        {"name": "ToolFooter", "library": "aikit", "source_file": "vendor/aikit/src/components/molecules/ToolFooter/index.tsx", "source_file_found": true},
+        {"name": "ToolHeader", "library": "aikit", "source_file": "vendor/aikit/src/components/molecules/ToolHeader/index.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "aikit-4",
+      "libraries": ["aikit"],
+      "components": [
+        {"name": "ToolIndicator", "library": "aikit", "source_file": "vendor/aikit/src/components/atoms/ToolIndicator/index.tsx", "source_file_found": true},
+        {"name": "ToolMessage", "library": "aikit", "source_file": "vendor/aikit/src/components/organisms/ToolMessage/index.tsx", "source_file_found": true},
+        {"name": "ToolStatus", "library": "aikit", "source_file": "vendor/aikit/src/components/molecules/ToolStatus/index.tsx", "source_file_found": true},
+        {"name": "UserMessage", "library": "aikit", "source_file": "vendor/aikit/src/components/organisms/UserMessage/index.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "components-1",
+      "libraries": ["components"],
+      "components": [
+        {"name": "AdaptiveTabs", "library": "components", "source_file": "vendor/components/src/components/AdaptiveTabs/AdaptiveTabs.tsx", "source_file_found": true},
+        {"name": "ChangelogDialog", "library": "components", "source_file": "vendor/components/src/components/ChangelogDialog/ChangelogDialog.tsx", "source_file_found": true},
+        {"name": "ConfirmDialog", "library": "components", "source_file": "vendor/components/src/components/ConfirmDialog/ConfirmDialog.tsx", "source_file_found": true},
+        {"name": "CookieConsent", "library": "components", "source_file": "vendor/components/src/components/CookieConsent/CookieConsent.tsx", "source_file_found": true},
+        {"name": "DelayedTextInput", "library": "components", "source_file": "vendor/components/src/components/DelayedTextInput/DelayedTextInput.tsx", "source_file_found": true},
+        {"name": "FormRow", "library": "components", "source_file": "vendor/components/src/components/FormRow/FormRow.tsx", "source_file_found": true},
+        {"name": "Gallery", "library": "components", "source_file": "vendor/components/src/components/Gallery/Gallery.tsx", "source_file_found": true},
+        {"name": "InfiniteScroll", "library": "components", "source_file": "vendor/components/src/components/InfiniteScroll/InfiniteScroll.tsx", "source_file_found": true},
+        {"name": "ItemSelector", "library": "components", "source_file": "vendor/components/src/components/ItemSelector/ItemSelector.tsx", "source_file_found": true},
+        {"name": "Notifications", "library": "components", "source_file": "vendor/components/src/components/Notifications/Notifications.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "components-2",
+      "libraries": ["components"],
+      "components": [
+        {"name": "OnboardingMenu", "library": "components", "source_file": "vendor/components/src/components/OnboardingMenu/OnboardingMenu.tsx", "source_file_found": true},
+        {"name": "PromoSheet", "library": "components", "source_file": "vendor/components/src/components/PromoSheet/PromoSheet.tsx", "source_file_found": true},
+        {"name": "Reactions", "library": "components", "source_file": "vendor/components/src/components/Reactions/Reactions.tsx", "source_file_found": true},
+        {"name": "SharePopover", "library": "components", "source_file": "vendor/components/src/components/SharePopover/SharePopover.tsx", "source_file_found": true},
+        {"name": "StoreBadge", "library": "components", "source_file": "vendor/components/src/components/StoreBadge/StoreBadge.tsx", "source_file_found": true},
+        {"name": "Stories", "library": "components", "source_file": "vendor/components/src/components/Stories/Stories.tsx", "source_file_found": true},
+        {"name": "StoriesGroup", "library": "components", "source_file": "vendor/components/src/components/StoriesGroup/StoriesGroup.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "page-constructor-1",
+      "libraries": ["page-constructor"],
+      "components": [
+        {"name": "Button", "library": "page-constructor", "source_file": "vendor/page-constructor/src/components/Button/Button.tsx", "source_file_found": true},
+        {"name": "DefaultVideo", "library": "page-constructor", "source_file": "vendor/page-constructor/src/components/DefaultVideo/DefaultVideo.tsx", "source_file_found": true},
+        {"name": "ErrorWrapper", "library": "page-constructor", "source_file": "vendor/page-constructor/src/components/ErrorWrapper/ErrorWrapper.tsx", "source_file_found": true},
+        {"name": "ImageBase", "library": "page-constructor", "source_file": "vendor/page-constructor/src/components/ImageBase/ImageBase.tsx", "source_file_found": true},
+        {"name": "Layout", "library": "page-constructor", "source_file": null, "source_file_found": false},
+        {"name": "Link", "library": "page-constructor", "source_file": "vendor/page-constructor/src/components/Link/Link.tsx", "source_file_found": true},
+        {"name": "Map", "library": "page-constructor", "source_file": "vendor/page-constructor/src/components/Map/Map.tsx", "source_file_found": true},
+        {"name": "Media", "library": "page-constructor", "source_file": "vendor/page-constructor/src/components/Media/Media.tsx", "source_file_found": true},
+        {"name": "MediaBase", "library": "page-constructor", "source_file": "vendor/page-constructor/src/components/MediaBase/MediaBase.tsx", "source_file_found": true},
+        {"name": "ReactPlayerBlock", "library": "page-constructor", "source_file": null, "source_file_found": false}
+      ]
+    },
+    {
+      "id": "page-constructor-2",
+      "libraries": ["page-constructor"],
+      "components": [
+        {"name": "Table", "library": "page-constructor", "source_file": "vendor/page-constructor/src/components/Table/Table.tsx", "source_file_found": true},
+        {"name": "Title", "library": "page-constructor", "source_file": "vendor/page-constructor/src/components/Title/Title.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "blog-constructor-1",
+      "libraries": ["blog-constructor"],
+      "components": [
+        {"name": "FeedHeader", "library": "blog-constructor", "source_file": "vendor/blog-constructor/src/components/FeedHeader/FeedHeader.tsx", "source_file_found": true},
+        {"name": "MetaWrapper", "library": "blog-constructor", "source_file": "vendor/blog-constructor/src/components/MetaWrapper/MetaWrapper.tsx", "source_file_found": true},
+        {"name": "Paginator", "library": "blog-constructor", "source_file": "vendor/blog-constructor/src/components/Paginator/Paginator.tsx", "source_file_found": true},
+        {"name": "PostCard", "library": "blog-constructor", "source_file": "vendor/blog-constructor/src/components/PostCard/PostCard.tsx", "source_file_found": true},
+        {"name": "PostInfo", "library": "blog-constructor", "source_file": "vendor/blog-constructor/src/components/PostInfo/PostInfo.tsx", "source_file_found": true},
+        {"name": "Posts", "library": "blog-constructor", "source_file": "vendor/blog-constructor/src/components/Posts/Posts.tsx", "source_file_found": true},
+        {"name": "PostsError", "library": "blog-constructor", "source_file": "vendor/blog-constructor/src/components/PostsError/PostsError.tsx", "source_file_found": true},
+        {"name": "Prompt", "library": "blog-constructor", "source_file": "vendor/blog-constructor/src/components/Prompt/Prompt.tsx", "source_file_found": true},
+        {"name": "PromptSignIn", "library": "blog-constructor", "source_file": "vendor/blog-constructor/src/components/PromptSignIn/PromptSignIn.tsx", "source_file_found": true},
+        {"name": "Wrapper", "library": "blog-constructor", "source_file": "vendor/blog-constructor/src/components/Wrapper/Wrapper.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "date-components-1",
+      "libraries": ["date-components"],
+      "components": [
+        {"name": "Calendar", "library": "date-components", "source_file": "vendor/date-components/src/components/Calendar/Calendar.tsx", "source_file_found": true},
+        {"name": "CalendarView", "library": "date-components", "source_file": "vendor/date-components/src/components/CalendarView/CalendarView.tsx", "source_file_found": true},
+        {"name": "DateField", "library": "date-components", "source_file": "vendor/date-components/src/components/DateField/DateField.tsx", "source_file_found": true},
+        {"name": "DatePicker", "library": "date-components", "source_file": "vendor/date-components/src/components/DatePicker/DatePicker.tsx", "source_file_found": true},
+        {"name": "RangeCalendar", "library": "date-components", "source_file": "vendor/date-components/src/components/RangeCalendar/RangeCalendar.tsx", "source_file_found": true},
+        {"name": "RangeDateField", "library": "date-components", "source_file": "vendor/date-components/src/components/RangeDateField/RangeDateField.tsx", "source_file_found": true},
+        {"name": "RangeDatePicker", "library": "date-components", "source_file": "vendor/date-components/src/components/RangeDatePicker/RangeDatePicker.tsx", "source_file_found": true},
+        {"name": "RangeDateSelection", "library": "date-components", "source_file": "vendor/date-components/src/components/RangeDateSelection/RangeDateSelection.tsx", "source_file_found": true},
+        {"name": "RelativeDateField", "library": "date-components", "source_file": "vendor/date-components/src/components/RelativeDateField/RelativeDateField.tsx", "source_file_found": true},
+        {"name": "RelativeDatePicker", "library": "date-components", "source_file": "vendor/date-components/src/components/RelativeDatePicker/RelativeDatePicker.tsx", "source_file_found": true},
+        {"name": "RelativeRangeDatePicker", "library": "date-components", "source_file": "vendor/date-components/src/components/RelativeRangeDatePicker/RelativeRangeDatePicker.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "navigation-1",
+      "libraries": ["navigation"],
+      "components": [
+        {"name": "ActionBar", "library": "navigation", "source_file": "vendor/navigation/src/components/ActionBar/ActionBar.tsx", "source_file_found": true},
+        {"name": "AsideHeader", "library": "navigation", "source_file": "vendor/navigation/src/components/AsideHeader/AsideHeader.tsx", "source_file_found": true},
+        {"name": "Content", "library": "navigation", "source_file": "vendor/navigation/src/components/Content/Content.tsx", "source_file_found": true},
+        {"name": "Footer", "library": "navigation", "source_file": "vendor/navigation/src/components/Footer/desktop/Footer.tsx", "source_file_found": true},
+        {"name": "HotkeysPanel", "library": "navigation", "source_file": "vendor/navigation/src/components/HotkeysPanel/HotkeysPanel.tsx", "source_file_found": true},
+        {"name": "Logo", "library": "navigation", "source_file": "vendor/navigation/src/components/Logo/Logo.tsx", "source_file_found": true},
+        {"name": "MobileHeader", "library": "navigation", "source_file": "vendor/navigation/src/components/MobileHeader/MobileHeader.tsx", "source_file_found": true},
+        {"name": "MobileLogo", "library": "navigation", "source_file": "vendor/navigation/src/components/MobileLogo/MobileLogo.tsx", "source_file_found": true},
+        {"name": "Settings", "library": "navigation", "source_file": "vendor/navigation/src/components/Settings/Settings.tsx", "source_file_found": true},
+        {"name": "TopAlert", "library": "navigation", "source_file": "vendor/navigation/src/components/TopAlert/TopAlert.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "graph-chartkit-1",
+      "libraries": ["graph", "chartkit"],
+      "components": [
+        {"name": "Block", "library": "graph", "source_file": "vendor/graph/src/react-components/Block.tsx", "source_file_found": true},
+        {"name": "GraphBlockAnchor", "library": "graph", "source_file": null, "source_file_found": false},
+        {"name": "GraphCanvas", "library": "graph", "source_file": "vendor/graph/src/react-components/GraphCanvas.tsx", "source_file_found": true},
+        {"name": "GraphContextProvider", "library": "graph", "source_file": null, "source_file_found": false},
+        {"name": "Loader", "library": "chartkit", "source_file": "vendor/chartkit/src/components/Loader/Loader.tsx", "source_file_found": true}
+      ]
+    },
+    {
+      "id": "table-dashkit-1",
+      "libraries": ["table", "dashkit"],
+      "components": [
+        {"name": "BaseTable", "library": "table", "source_file": "vendor/table/src/components/BaseTable/BaseTable.tsx", "source_file_found": true},
+        {"name": "SortableList", "library": "table", "source_file": "vendor/table/src/components/SortableList/SortableList.tsx", "source_file_found": true},
+        {"name": "SortableListDndContext", "library": "table", "source_file": "vendor/table/src/components/SortableListDndContext/SortableListDndContext.tsx", "source_file_found": true},
+        {"name": "ActionPanel", "library": "dashkit", "source_file": "vendor/dashkit/src/components/ActionPanel/ActionPanel.tsx", "source_file_found": true},
+        {"name": "DashKitDnDWrapper", "library": "dashkit", "source_file": "vendor/dashkit/src/components/DashKitDnDWrapper/DashKitDnDWrapper.tsx", "source_file_found": true}
+      ]
+    }
+  ]
+}

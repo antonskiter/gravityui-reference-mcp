@@ -1,0 +1,19 @@
+{
+  "batch_id": "aikit-2",
+  "issues": [
+    {
+      "component": "History",
+      "library": "aikit",
+      "severity": "LOW",
+      "issue": "The description attributes search, grouping, and action capabilities directly to the History component, but the TSX source shows History is a thin wrapper that renders HistoryList inside a Popup. Those capabilities belong to HistoryList, not History itself.",
+      "suggestion": "A component that wraps HistoryList in a Popup, providing a popover-style surface for displaying the chat history list."
+    },
+    {
+      "component": "MessageBalloon",
+      "library": "aikit",
+      "severity": "LOW",
+      "issue": "The description says 'Visual wrapper for user's message', but the TSX source describes it as a visual wrapper for message content generally, with no restriction to user messages only.",
+      "suggestion": "Visual wrapper component for message content (user or assistant messages)."
+    }
+  ]
+}

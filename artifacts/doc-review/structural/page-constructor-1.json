@@ -1,0 +1,728 @@
+{
+  "batch_id": "page-constructor-1",
+  "libraries": ["page-constructor"],
+  "issues": [
+    {
+      "component": "Layout",
+      "library": "page-constructor",
+      "type": "missing_source",
+      "severity": "HIGH",
+      "message": "Source file not found. Batch input source_file is null. Data entry points to vendor/page-constructor/src/components/CardBase/CardBase.tsx but no Layout component directory exists in vendor/page-constructor/src/components/."
+    },
+    {
+      "component": "ReactPlayerBlock",
+      "library": "page-constructor",
+      "type": "missing_source",
+      "severity": "HIGH",
+      "message": "Source file not found per batch input (source_file: null). Cannot verify props. Note: ReactPlayer.tsx exists at vendor/page-constructor/src/components/ReactPlayer/ReactPlayer.tsx but was not provided for comparison."
+    },
+    {
+      "component": "Button",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "primary",
+      "message": "Prop 'primary' (boolean, optional) exists in ButtonProps source interface but is absent from data JSON."
+    },
+    {
+      "component": "Button",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "target",
+      "message": "Prop 'target' (string, optional) exists in ButtonProps source interface but is absent from data JSON."
+    },
+    {
+      "component": "Button",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "extraProps",
+      "message": "Prop 'extraProps' (UikitButtonProps['extraProps'], optional) exists in ButtonProps source interface but is absent from data JSON."
+    },
+    {
+      "component": "Button",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "message": "Prop 'qa' (string, optional) comes from QAProps which ButtonProps extends via source, but is absent from data JSON."
+    },
+    {
+      "component": "ImageBase",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "src",
+      "message": "Prop 'src' (string, optional) comes from Partial<ImageObjectProps> which ImageBaseProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "ImageBase",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "alt",
+      "message": "Prop 'alt' (string, optional) comes from Partial<ImageObjectProps> which ImageBaseProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "ImageBase",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "fetchPriority",
+      "message": "Prop 'fetchPriority' ('high' | 'low' | 'auto', optional) comes from Partial<ImageObjectProps> which ImageBaseProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Link",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "tabIndex",
+      "message": "Prop 'tabIndex' (number, optional) comes from Tabbable which LinkFullProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Link",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "message": "Prop 'qa' (string, optional) comes from QAProps which LinkFullProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Link",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "extraProps",
+      "message": "Prop 'extraProps' (React.HTMLProps<HTMLAnchorElement>, optional) comes from LinkProps which LinkFullProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Link",
+      "library": "page-constructor",
+      "type": "required_mismatch",
+      "severity": "MEDIUM",
+      "prop": "url",
+      "message": "Prop 'url' is declared as required (url: string, not optional) in LinkProps source interface, but data JSON marks it as required: false."
+    },
+    {
+      "component": "Map",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "className",
+      "message": "Prop 'className' (string, optional) comes from MapBaseProps which both GMapProps and YMapProps extend, but is absent from data JSON."
+    },
+    {
+      "component": "Map",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "markers",
+      "message": "Prop 'markers' (YMapMarker[], required for YMapProps) is in the source union type MapProps but absent from data JSON."
+    },
+    {
+      "component": "Map",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "address",
+      "message": "Prop 'address' (string, required for GMapProps) is documented in data but listed as required: false. Source declares it as required in GMapProps."
+    },
+    {
+      "component": "Map",
+      "library": "page-constructor",
+      "type": "required_mismatch",
+      "severity": "MEDIUM",
+      "prop": "address",
+      "message": "Prop 'address' is required in GMapProps (address: string) but data JSON marks it as required: false."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "image",
+      "message": "Prop 'image' (ImageProps | ImageProps[] | ImageDeviceProps, optional) comes from MediaProps/MediaComponentImageProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "video",
+      "message": "Prop 'video' (MediaVideoProps, optional) comes from MediaProps/MediaComponentVideoProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "youtube",
+      "message": "Prop 'youtube' (string, optional) comes from MediaProps/MediaComponentYoutubeProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "videoIframe",
+      "message": "Prop 'videoIframe' (string, optional) comes from MediaProps/MediaComponentVideoIframeProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "dataLens",
+      "message": "Prop 'dataLens' (DataLensProps, optional) comes from MediaProps/MediaComponentDataLensProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "color",
+      "message": "Prop 'color' (string, optional) comes from MediaProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "height",
+      "message": "Prop 'height' (number, optional) comes from MediaProps/MediaComponentVideoProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "previewImg",
+      "message": "Prop 'previewImg' (string, optional) comes from MediaProps/MediaComponentVideoProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "parallax",
+      "message": "Prop 'parallax' (boolean, optional) comes from MediaComponentImageProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "fullscreen",
+      "message": "Prop 'fullscreen' (boolean, optional) comes from MediaComponentYoutubeProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "animated",
+      "message": "Prop 'animated' (boolean, optional) comes from Animatable/MediaProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "videoMicrodata",
+      "message": "Prop 'videoMicrodata' (object with name/description/duration/uploadDate/contentUrl/thumbnailUrl, optional) comes from MediaProps, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "iframe",
+      "message": "Prop 'iframe' (IframeProps, optional) comes from MediaProps/MediaComponentIframeProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "margins",
+      "message": "Prop 'margins' (boolean, optional) comes from MediaComponentIframeProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "playButton",
+      "message": "Prop 'playButton' (PlayButtonProps, optional) comes from VideoAdditionProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "customBarControlsClassName",
+      "message": "Prop 'customBarControlsClassName' (string, optional) comes from VideoAdditionProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "videoClassName",
+      "message": "Prop 'videoClassName' (string, optional) comes from VideoAdditionProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "playVideo",
+      "message": "Prop 'playVideo' (boolean, optional, default true) comes from VideoAdditionProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "imageClassName",
+      "message": "Prop 'imageClassName' (string, optional) comes from ImageAdditionProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "isBackground",
+      "message": "Prop 'isBackground' (boolean, optional) comes from ImageAdditionProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "qa",
+      "message": "Prop 'qa' (string, optional) comes from QAProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "ratio",
+      "message": "Prop 'ratio' (number | 'auto', optional) comes from MediaComponentVideoProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "disableImageSliderForArrayInput",
+      "message": "Prop 'disableImageSliderForArrayInput' (boolean, optional) comes from MediaComponentImageProps which MediaAllProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "MediaBase",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "direction",
+      "message": "Prop 'direction' ('media-content' | 'content-media', optional, default 'content-media') comes from MediaBaseBlockProps which MediaBaseProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "MediaBase",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "mobileDirection",
+      "message": "Prop 'mobileDirection' ('media-content' | 'content-media', optional, default 'content-media') comes from MediaBaseBlockProps which MediaBaseProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "MediaBase",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "largeMedia",
+      "message": "Prop 'largeMedia' (boolean, optional) comes from MediaBaseBlockProps which MediaBaseProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "MediaBase",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "mediaOnly",
+      "message": "Prop 'mediaOnly' (boolean, optional) comes from MediaBaseBlockProps which MediaBaseProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "MediaBase",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "mediaOnlyColSizes",
+      "message": "Prop 'mediaOnlyColSizes' (GridColumnSizesType, optional, default {all: 12, md: 8}) comes from MediaBaseBlockProps which MediaBaseProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "MediaBase",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "animated",
+      "message": "Prop 'animated' (boolean, optional) comes from Animatable/MediaBaseBlockProps which MediaBaseProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "MediaBase",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "title",
+      "message": "Prop 'title' (TitleItemBaseProps | string, optional) comes from ContentBlockProps via MediaContentProps which MediaBaseBlockProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "MediaBase",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "description",
+      "message": "Prop 'description' (string, optional) comes from MediaContentProps which MediaBaseBlockProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "MediaBase",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "buttons",
+      "message": "Prop 'buttons' (ButtonProps[], optional) comes from ContentBlockProps via MediaContentProps which MediaBaseBlockProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "MediaBase",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "links",
+      "message": "Prop 'links' (LinkProps[], optional) comes from ContentBlockProps via MediaContentProps which MediaBaseBlockProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "MediaBase",
+      "library": "page-constructor",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "prop": "button",
+      "message": "Prop 'button' (ButtonProps, optional, deprecated) comes from MediaContentProps which MediaBaseBlockProps extends, but is absent from data JSON."
+    },
+    {
+      "component": "Anchor",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/Anchor exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "AnimateBlock",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/AnimateBlock exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "Author",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/Author exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "BackLink",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/BackLink exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "BackgroundImage",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/BackgroundImage exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "BackgroundMedia",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/BackgroundMedia exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "BalancedMasonry",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/BalancedMasonry exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "BlockBase",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/BlockBase exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "BrandFooter",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/BrandFooter exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "ButtonTabs",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/ButtonTabs exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "Buttons",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/Buttons exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "CardBase",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/CardBase exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "ContentIcon",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/ContentIcon exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "ContentLabels",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/ContentLabels exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "ContentList",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/ContentList exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "Control",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/Control exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "FileLink",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/FileLink exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "Foldable",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/Foldable exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "FullWidthBackground",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/FullWidthBackground exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "FullscreenImage",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/FullscreenImage exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "FullscreenMedia",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/FullscreenMedia exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "HTML",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/HTML exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "HeaderBreadcrumbs",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/HeaderBreadcrumbs exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "Icon",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/Icon exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "IconWrapper",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/IconWrapper exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "Image",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/Image exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "InnerForm",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/InnerForm exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "Links",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/Links exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "MetaInfo",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/MetaInfo exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "OutsideClick",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/OutsideClick exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "OverflowScroller",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/OverflowScroller exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "RootCn",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/RootCn exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "RouterLink",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/RouterLink exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "ToggleArrow",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/ToggleArrow exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "UnpublishedLabel",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/UnpublishedLabel exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "VideoBlock",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/VideoBlock exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "YFMWrapper",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/YFMWrapper exists but no entry found in data/components/page-constructor.json."
+    },
+    {
+      "component": "YandexForm",
+      "library": "page-constructor",
+      "type": "missing_from_data",
+      "severity": "HIGH",
+      "message": "Component directory vendor/page-constructor/src/components/YandexForm exists but no entry found in data/components/page-constructor.json."
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "Button",
+      "library": "page-constructor",
+      "source_description": "Button component wrapping @gravity-ui/uikit Button with support for special themes (app-store, google-play, github, scale, monochrome), icon/image attachments with left/right positioning, URL TLD substitution, and analytics event tracking.",
+      "data_description": "Button component for page-constructor with support for various themes, sizes, and image/icon attachments. Supports App Store and Google Play platform badges."
+    },
+    {
+      "component": "DefaultVideo",
+      "library": "page-constructor",
+      "source_description": "Forward-ref component rendering a native HTML5 <video> element with optional custom bar controls (mute/play-pause). Accepts a MediaVideoProps video config and exposes the underlying HTMLVideoElement ref.",
+      "data_description": null
+    },
+    {
+      "component": "ErrorWrapper",
+      "library": "page-constructor",
+      "source_description": "Conditional wrapper that shows an error state (message + retry button) when isError is true, or renders its children when false.",
+      "data_description": "The ErrorWrapper component is used to gracefully handle and display local errors in UI sections. When the isError flag is set to true, it shows an error message and an optional retry button. When isError is false, it renders its children content."
+    },
+    {
+      "component": "ImageBase",
+      "library": "page-constructor",
+      "source_description": "Low-level image primitive that delegates to a custom Image component from ImageContext when provided, or falls back to a native <img> tag. Forwards all ImageObjectProps fields plus style, className, onClick, onLoad, onError.",
+      "data_description": null
+    },
+    {
+      "component": "Link",
+      "library": "page-constructor",
+      "source_description": "Link component supporting four themes: 'back' (renders BackLink), 'file-link' and 'underline' (renders FileLink), 'normal' (renders <a> with optional arrow icon). Supports URL TLD substitution and analytics tracking.",
+      "data_description": "Link component for page-constructor with support for various themes including back, file-link, underline, and normal."
+    },
+    {
+      "component": "Map",
+      "library": "page-constructor",
+      "source_description": "Map component that renders either YandexMap or GoogleMap based on the MapType from MapsContext. Accepts MapProps which is a union of GMapProps (requires address) and YMapProps (requires markers and id).",
+      "data_description": "Map component that supports both Yandex Maps and Google Maps based on the MapsContext configuration."
+    },
+    {
+      "component": "Media",
+      "library": "page-constructor",
+      "source_description": "Composite media component that renders one of: image (with parallax/fullscreen support), video (default or player type), YouTube/videoIframe embed, DataLens chart, or Iframe. Supports video microdata injection for SEO.",
+      "data_description": null
+    },
+    {
+      "component": "MediaBase",
+      "library": "page-constructor",
+      "source_description": "Two-column layout block combining a media slot (children, with optional Card sub-component) and a MediaContent text panel. Supports media/content direction, large-media mode, media-only mode, and scroll-triggered animation.",
+      "data_description": null
+    }
+  ]
+}

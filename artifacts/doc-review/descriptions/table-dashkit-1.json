@@ -1,0 +1,33 @@
+{
+  "batch_id": "table-dashkit-1",
+  "issues": [
+    {
+      "component": "SortableList",
+      "library": "table",
+      "severity": "LOW",
+      "issue": "No description exists in the data entry. The component has significant behavior: it wraps items in DnD-kit SortableContext, exposes drag state via SortableListContext, accepts string ID items, optional drag callbacks (onDragStart, onDragEnd), and optional nesting support with configurable offset thresholds.",
+      "suggestion": "Wraps a list of sortable items in DnD-kit SortableContext and exposes drag state via SortableListContext. Accepts string ID items, optional drag callbacks (onDragStart, onDragEnd), and optional nesting support with configurable child offset thresholds. Must be used inside SortableListDndContext."
+    },
+    {
+      "component": "SortableListDndContext",
+      "library": "table",
+      "severity": "LOW",
+      "issue": "No description exists in the data entry. The component has specific, non-obvious behavior: it provides DnD-kit DndContext with PointerSensor, rectIntersection collision detection, and WhileDragging measuring strategy, and optionally accepts dnd-kit modifiers.",
+      "suggestion": "Provides the DnD-kit DndContext configured with PointerSensor, rectIntersection collision detection, and WhileDragging measuring strategy. Optionally accepts dnd-kit modifiers. Acts as the required outer wrapper for SortableList instances."
+    },
+    {
+      "component": "ActionPanel",
+      "library": "dashkit",
+      "severity": "LOW",
+      "issue": "No description exists in the data entry. The component renders a panel of icon+title action items with CSS transition animation (toggleAnimation), disabled/hidden state (disable), per-item custom wrappers (wrapTo), drag-and-drop item props, and QA selectors.",
+      "suggestion": "Renders a panel of icon+title action items. Supports optional CSS transition animation (toggleAnimation), disabled/hidden state (disable), per-item custom wrapper functions (wrapTo), drag-and-drop item props, and QA selectors."
+    },
+    {
+      "component": "DashKitDnDWrapper",
+      "library": "dashkit",
+      "severity": "LOW",
+      "issue": "No description exists in the data entry. The component is a context provider that manages drag state, a transparent drag image preview (overridable via dragImageSrc), and exposes onDragStart/onDragEnd/onDropDragOver callbacks through DashKitDnDContext.",
+      "suggestion": "Context provider that enables drag-and-drop for DashKit. Manages drag state, provides a transparent drag image preview (overridable via dragImageSrc), and exposes onDragStart, onDragEnd, and onDropDragOver callbacks through DashKitDnDContext to child DashKit instances."
+    }
+  ]
+}

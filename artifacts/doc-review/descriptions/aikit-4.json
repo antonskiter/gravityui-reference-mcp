@@ -1,0 +1,33 @@
+{
+  "batch_id": "aikit-4",
+  "issues": [
+    {
+      "component": "ToolIndicator",
+      "library": "aikit",
+      "severity": "LOW",
+      "issue": "Description omits the default fallback behavior: when no status is provided the component defaults to showing the 'info' icon (CircleInfo), not simply 'different icons based on status'.",
+      "suggestion": "A status indicator that renders CircleCheck, CircleXmark, or CircleInfo icons for success/error/info statuses respectively, and a Loader spinner for loading state. Defaults to the info icon when no status is provided."
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "severity": "LOW",
+      "issue": "Description is too vague to distinguish this component from any collapsible container. It omits: the Card+ToolHeader+ToolFooter composition, that body content is only visible when expanded, and that the footer is only rendered in waiting state.",
+      "suggestion": "A card-based tool message that wraps ToolHeader and ToolFooter. Body content is only shown when the card is expanded. The footer is only rendered while in a waiting state (waitingConfirmation or waitingSubmission). Supports auto-collapse on success or cancelled status."
+    },
+    {
+      "component": "ToolStatus",
+      "library": "aikit",
+      "severity": "LOW",
+      "issue": "Description is too vague and misrepresents the rendering logic. It implies text and indicators are shown together for all statuses. In reality: cancelled shows localized text only, success/error/loading delegate to ToolIndicator, and waitingConfirmation/waitingSubmission/undefined render nothing.",
+      "suggestion": "Displays tool execution status: shows a localized 'cancelled' label for cancelled status, delegates to ToolIndicator for success/error/loading states, and renders nothing for waitingConfirmation, waitingSubmission, or undefined status."
+    },
+    {
+      "component": "UserMessage",
+      "library": "aikit",
+      "severity": "LOW",
+      "issue": "Description is near-empty and could apply to any message component. It omits all key behaviors: MessageBalloon container, optional Avatar, timestamp display, action buttons, and markdown rendering support via format='markdown'.",
+      "suggestion": "Renders a user chat message inside a MessageBalloon with an optional Avatar, timestamp, and action buttons. Supports plain text (default) or markdown rendering via MarkdownRenderer when format='markdown'."
+    }
+  ]
+}

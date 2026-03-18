@@ -1,0 +1,26 @@
+{
+  "library": "components",
+  "component_count": 17,
+  "component_paths": ["src/components"],
+  "flat_files": false,
+  "components": [
+    { "name": "AdaptiveTabs", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/AdaptiveTabs/AdaptiveTabs.tsx" },
+    { "name": "ChangelogDialog", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/ChangelogDialog/ChangelogDialog.tsx" },
+    { "name": "ConfirmDialog", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/ConfirmDialog/ConfirmDialog.tsx" },
+    { "name": "CookieConsent", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/CookieConsent/CookieConsent.tsx" },
+    { "name": "DelayedTextInput", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/DelayedTextInput/DelayedTextInput.tsx" },
+    { "name": "FormRow", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/FormRow/FormRow.tsx" },
+    { "name": "Gallery", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/Gallery/Gallery.tsx" },
+    { "name": "InfiniteScroll", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/InfiniteScroll/InfiniteScroll.tsx" },
+    { "name": "ItemSelector", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/ItemSelector/ItemSelector.tsx" },
+    { "name": "Notifications", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/Notifications/Notifications.tsx" },
+    { "name": "OnboardingMenu", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/OnboardingMenu/OnboardingMenu.tsx" },
+    { "name": "PromoSheet", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/PromoSheet/PromoSheet.tsx" },
+    { "name": "Reactions", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/Reactions/Reactions.tsx" },
+    { "name": "SharePopover", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/SharePopover/SharePopover.tsx" },
+    { "name": "StoreBadge", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/StoreBadge/StoreBadge.tsx" },
+    { "name": "Stories", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/Stories/Stories.tsx" },
+    { "name": "StoriesGroup", "library": "components", "data_entry": true, "source_file_found": true, "source_file": "vendor/components/src/components/StoriesGroup/StoriesGroup.tsx" }
+  ],
+  "suggested_batches": 1
+}

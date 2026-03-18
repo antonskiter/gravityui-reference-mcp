@@ -1,0 +1,21 @@
+{
+  "library": "page-constructor",
+  "component_count": 12,
+  "component_paths": ["src/components"],
+  "flat_files": false,
+  "components": [
+    { "name": "Button", "library": "page-constructor", "data_entry": true, "source_file_found": true, "source_file": "vendor/page-constructor/src/components/Button/Button.tsx" },
+    { "name": "DefaultVideo", "library": "page-constructor", "data_entry": true, "source_file_found": true, "source_file": "vendor/page-constructor/src/components/DefaultVideo/DefaultVideo.tsx" },
+    { "name": "ErrorWrapper", "library": "page-constructor", "data_entry": true, "source_file_found": true, "source_file": "vendor/page-constructor/src/components/ErrorWrapper/ErrorWrapper.tsx" },
+    { "name": "ImageBase", "library": "page-constructor", "data_entry": true, "source_file_found": true, "source_file": "vendor/page-constructor/src/components/ImageBase/ImageBase.tsx" },
+    { "name": "Layout", "library": "page-constructor", "data_entry": true, "source_file_found": false, "source_file": null },
+    { "name": "Link", "library": "page-constructor", "data_entry": true, "source_file_found": true, "source_file": "vendor/page-constructor/src/components/Link/Link.tsx" },
+    { "name": "Map", "library": "page-constructor", "data_entry": true, "source_file_found": true, "source_file": "vendor/page-constructor/src/components/Map/Map.tsx" },
+    { "name": "Media", "library": "page-constructor", "data_entry": true, "source_file_found": true, "source_file": "vendor/page-constructor/src/components/Media/Media.tsx" },
+    { "name": "MediaBase", "library": "page-constructor", "data_entry": true, "source_file_found": true, "source_file": "vendor/page-constructor/src/components/MediaBase/MediaBase.tsx" },
+    { "name": "ReactPlayerBlock", "library": "page-constructor", "data_entry": true, "source_file_found": false, "source_file": null },
+    { "name": "Table", "library": "page-constructor", "data_entry": true, "source_file_found": true, "source_file": "vendor/page-constructor/src/components/Table/Table.tsx" },
+    { "name": "Title", "library": "page-constructor", "data_entry": true, "source_file_found": true, "source_file": "vendor/page-constructor/src/components/Title/Title.tsx" }
+  ],
+  "suggested_batches": 2
+}

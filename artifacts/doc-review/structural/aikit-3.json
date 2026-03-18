@@ -1,0 +1,482 @@
+{
+  "batch_id": "aikit-3",
+  "libraries": ["aikit"],
+  "issues": [
+    {
+      "component": "PromptInputPanel",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "children",
+      "message": "Prop 'children' (ReactNode, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "PromptInputPanel",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "className",
+      "message": "Prop 'className' (string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "PromptInputPanel",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "qa",
+      "message": "Prop 'qa' (string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "RatingBlock",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "title",
+      "message": "Prop 'title' (React.ReactNode, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "RatingBlock",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "value",
+      "message": "Prop 'value' (number, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "RatingBlock",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "onChange",
+      "message": "Prop 'onChange' ((rating: number) => void, required) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "RatingBlock",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "size",
+      "message": "Prop 'size' ('s' | 'm' | 'l', optional, default 'l') exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "RatingBlock",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "visible",
+      "message": "Prop 'visible' (boolean, optional, default true) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "RatingBlock",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "className",
+      "message": "Prop 'className' (string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "RatingBlock",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "qa",
+      "message": "Prop 'qa' (string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Shimmer",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "children",
+      "message": "Prop 'children' (React.ReactNode via PropsWithChildren, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Shimmer",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "className",
+      "message": "Prop 'className' (string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Shimmer",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "qa",
+      "message": "Prop 'qa' (string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "StarRating",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "aria-label",
+      "message": "Prop 'aria-label' (string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "StarRating",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "aria-label-star",
+      "message": "Prop 'aria-label-star' ((rating: number) => string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Suggestions",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "items",
+      "message": "Prop 'items' (SuggestionsItem[], required) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Suggestions",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "onClick",
+      "message": "Prop 'onClick' ((content: string, id?: string) => void | Promise<void>, required) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Suggestions",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "title",
+      "message": "Prop 'title' (React.ReactNode, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Suggestions",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "layout",
+      "message": "Prop 'layout' ('grid' | 'list', optional, default 'list') exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Suggestions",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "textAlign",
+      "message": "Prop 'textAlign' ('left' | 'center' | 'right', optional, default 'left') exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Suggestions",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "wrapText",
+      "message": "Prop 'wrapText' (boolean, optional, default false) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Suggestions",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "className",
+      "message": "Prop 'className' (string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Suggestions",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "qa",
+      "message": "Prop 'qa' (string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Tabs",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "items",
+      "message": "Prop 'items' ({id: string; title: string; icon?: React.ReactNode}[], required) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Tabs",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "activeId",
+      "message": "Prop 'activeId' (string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Tabs",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "onSelectItem",
+      "message": "Prop 'onSelectItem' ((id: string) => void, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Tabs",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "onDeleteItem",
+      "message": "Prop 'onDeleteItem' ((id: string) => Promise<void>, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Tabs",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "allowDelete",
+      "message": "Prop 'allowDelete' (boolean, optional, default false) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Tabs",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "className",
+      "message": "Prop 'className' (string, optional, from DOMProps) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Tabs",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "style",
+      "message": "Prop 'style' (React.CSSProperties, optional, from DOMProps) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "Tabs",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "qa",
+      "message": "Prop 'qa' (string, optional, from QAProps) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ThinkingMessage",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "content",
+      "message": "Prop 'content' (string | string[], required) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ThinkingMessage",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "status",
+      "message": "Prop 'status' ('thinking' | 'thought', required) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ThinkingMessage",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "title",
+      "message": "Prop 'title' (string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ThinkingMessage",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "defaultExpanded",
+      "message": "Prop 'defaultExpanded' (boolean, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ThinkingMessage",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "showStatusIndicator",
+      "message": "Prop 'showStatusIndicator' (boolean, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ThinkingMessage",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "onCopyClick",
+      "message": "Prop 'onCopyClick' (() => void, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ThinkingMessage",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "enabledCopy",
+      "message": "Prop 'enabledCopy' (boolean, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ThinkingMessage",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "className",
+      "message": "Prop 'className' (string, optional, from DOMProps) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ThinkingMessage",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "style",
+      "message": "Prop 'style' (React.CSSProperties, optional, from DOMProps) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ThinkingMessage",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "qa",
+      "message": "Prop 'qa' (string, optional, from QAProps) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ToolFooter",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "actions",
+      "message": "Prop 'actions' (Action[], required) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ToolFooter",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "content",
+      "message": "Prop 'content' (React.ReactNode, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ToolFooter",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "showLoader",
+      "message": "Prop 'showLoader' (boolean, optional, default true) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ToolFooter",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "className",
+      "message": "Prop 'className' (string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ToolFooter",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "qa",
+      "message": "Prop 'qa' (string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ToolHeader",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "toolName",
+      "message": "Prop 'toolName' (string, required) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ToolHeader",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "toolIcon",
+      "message": "Prop 'toolIcon' (React.ReactNode, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ToolHeader",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "content",
+      "message": "Prop 'content' (React.ReactNode, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ToolHeader",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "actions",
+      "message": "Prop 'actions' (Action[], optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ToolHeader",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "status",
+      "message": "Prop 'status' (TToolStatus, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ToolHeader",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "className",
+      "message": "Prop 'className' (string, optional) exists in source but is absent from JSON props array"
+    },
+    {
+      "component": "ToolHeader",
+      "library": "aikit",
+      "severity": "HIGH",
+      "type": "missing_prop",
+      "prop": "qa",
+      "message": "Prop 'qa' (string, optional) exists in source but is absent from JSON props array"
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "PromptInputPanel",
+      "source": "PromptInputPanel component displays a panel with custom content",
+      "json": "A simple panel container component that displays custom content."
+    },
+    {
+      "component": "RatingBlock",
+      "source": "RatingBlock - Universal rating block with title and star rating. Can be used for customer satisfaction surveys (CSAT), product reviews, article/video ratings, teacher evaluations, or any feedback collection.",
+      "json": "Universal rating block with title and star rating."
+    },
+    {
+      "component": "Shimmer",
+      "source": "(no JSDoc description in source)",
+      "json": "A loading animation component that creates a shimmer effect over its children."
+    },
+    {
+      "component": "StarRating",
+      "source": "(no top-level JSDoc description in source)",
+      "json": "A star rating component for displaying and collecting user ratings from 1 to 5 stars."
+    },
+    {
+      "component": "SubmitButton",
+      "source": "Submit button component with state management through props. States: disabled, enabled, loading, cancelable (during loading).",
+      "json": "A submit button component with state management through props and send/cancel icon switching."
+    },
+    {
+      "component": "Suggestions",
+      "source": "Suggestions component displays a group of clickable suggestion buttons arranged in either horizontal (grid) or vertical (list) layout",
+      "json": "A Suggestions component displays a group of clickable suggestion buttons arranged in either horizontal (grid) or vertical (list) layout."
+    },
+    {
+      "component": "Tabs",
+      "source": "(no JSDoc description in source)",
+      "json": "Tabs component for switching between sections with optional delete functionality. Built on top of Gravity UI's Label component."
+    },
+    {
+      "component": "ThinkingMessage",
+      "source": "ThinkingMessage component displays AI model's internal reasoning process. Shows a collapsible block with thinking content and a copy button. Displays a loader when the thinking process is still in progress.",
+      "json": "A message component that displays AI thinking process with collapsible content and a status indicator."
+    },
+    {
+      "component": "ToolFooter",
+      "source": "(no JSDoc description in source)",
+      "json": "Footer component for tool messages with action buttons and status message"
+    },
+    {
+      "component": "ToolHeader",
+      "source": "(no JSDoc description in source)",
+      "json": "Header component for tool messages with icon, name, actions, and status indicators"
+    }
+  ]
+}

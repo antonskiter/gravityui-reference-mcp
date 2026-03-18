@@ -1,0 +1,61 @@
+{
+  "batch_id": "uikit-3",
+  "issues": [
+    {
+      "component": "PasswordInput",
+      "library": "uikit",
+      "severity": "MEDIUM",
+      "issue": "The data_description is '<!--GITHUB_BLOCK-->', which is a raw Markdown/HTML comment artifact with no actual description of the component.",
+      "suggestion": "A text input for passwords that includes a reveal/hide toggle button and an optional copy-to-clipboard button. Supports controlled visibility state via revealValue/onRevealValueUpdate and tooltip display for both action buttons."
+    },
+    {
+      "component": "NumberInput",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "The description 'NumberInput allow users to enter numbers into a UI' is accurate but so vague it could describe any numeric field. It omits the component's key behaviors: increment/decrement arrow buttons (hiddenControls), min/max clamping, step and shiftMultiplier support, and optional decimal input (allowDecimal).",
+      "suggestion": "A number input control with increment and decrement arrow buttons. Supports min/max clamping, configurable step (including a shift-key multiplier), and an optional decimal mode. Arrow buttons can be hidden via hiddenControls."
+    },
+    {
+      "component": "Pagination",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "The description 'This component renders pagination' is too vague to be useful. It omits the key props and behaviors: required page/pageSize/onUpdate props, optional total item count, page-size selector (pageSizeOptions), direct page navigation input (showInput), compact mode, and showPages toggle.",
+      "suggestion": "A pagination control that renders previous/next/first navigation buttons and optional page number buttons. Supports a page-size selector, a direct-jump input, and a compact mode that hides button labels."
+    },
+    {
+      "component": "Overlay",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "The description omits the visible prop (which controls whether the overlay is shown) and the background prop (which selects between 'base' and 'float' background styles). It also omits that the component can render children on top of the overlay.",
+      "suggestion": "An overlay that covers the parent element (which must have position: relative). Visibility is controlled via the visible prop. Supports two background styles ('base' or 'float') and can render children on top of the overlay layer."
+    },
+    {
+      "component": "List",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "The description omits drag-and-drop reordering, which is a significant built-in capability (via @hello-pangea/dnd, enabled by the sortable prop). It also omits the loading state with infinite-scroll support (onLoadMore).",
+      "suggestion": "A performant list component supporting virtual scrolling, built-in filtering, drag-and-drop reordering (sortable), and custom item rendering. Supports infinite-scroll loading and is suited for long lists and select-like interfaces."
+    },
+    {
+      "component": "Popover",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "The description says the Popover 'opens whenever trigger is hovered or clicked', implying both interactions are always active simultaneously. In reality, setting trigger='click' disables hover and makes the popover open on click only.",
+      "suggestion": "A Popup with built-in trigger interactivity. By default it opens on hover (with configurable open/close delays and safe-polygon support); setting trigger='click' switches to click-only mode. The children ReactElement (or render function) acts as the trigger."
+    },
+    {
+      "component": "Label",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "The description omits the value prop, which renders a key:value pair display (children : value), and the interactive/disabled/loading state props.",
+      "suggestion": "A small tag or badge component for displaying metadata, statuses, or categories. Supports four types (default, copy, close, info), multiple themes and sizes, an optional icon, a key:value display via the value prop, and interactive/disabled/loading states."
+    },
+    {
+      "component": "Link",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "The description omits the underline prop, which controls whether the link is underlined.",
+      "suggestion": "A styled anchor element for navigation. Supports three visual variants (normal, primary, secondary), optional underline styling, and optional visited state styling via the visitable prop."
+    }
+  ]
+}

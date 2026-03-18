@@ -1,0 +1,40 @@
+{
+  "batch_id": "uikit-2",
+  "issues": [
+    {
+      "component": "ColorPicker",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "The description only notes that the component is experimental/unstable and says nothing about what it actually does. It omits all key behaviors: color selection, HEX(A) value binding, alpha channel support (withAlpha), compact mode, and controlled/uncontrolled open state.",
+      "suggestion": "An experimental color picker that lets users select a color via a popup UI. Supports controlled and uncontrolled value and open state, optional alpha channel (HEXA/RGBA mode with transparency slider), and a compact button-only variant."
+    },
+    {
+      "component": "CopyToClipboard",
+      "library": "uikit",
+      "severity": "MEDIUM",
+      "issue": "The description states the component uses a 'render prop pattern' and 'exposes [status] to the children function', implying children must be a function. The TSX source allows children to be either a plain React.ReactElement or a render-prop function (CopyToClipboardContent). Describing it as render-prop-only misrepresents the API.",
+      "suggestion": "A headless component that provides clipboard copy functionality. Accepts either a plain React element (which must have an onClick handler) or a render-prop function that receives the current copy status ('pending' | 'success' | 'error')."
+    },
+    {
+      "component": "DefinitionList",
+      "library": "uikit",
+      "severity": "MEDIUM",
+      "issue": "The description claims 'optional copy-to-clipboard per item', but DefinitionListProps has no copy-to-clipboard prop and the provided TSX context contains no such feature at the list level.",
+      "suggestion": "Displays a structured list of term-definition pairs. Supports vertical and horizontal layouts, responsive mode, optional max widths for name and content columns, and an optional group label."
+    },
+    {
+      "component": "Drawer",
+      "library": "uikit",
+      "severity": "MEDIUM",
+      "issue": "The description claims the Drawer supports 'backdrop dismissal'. DrawerProps explicitly omits 'onOutsideClick' from the inherited ModalProps, meaning clicking outside the drawer does not trigger dismissal.",
+      "suggestion": "A sliding panel that appears from the edge of the screen. Supports left, right, top, and bottom placement, optional resizing with configurable min/max size, and a hideable backdrop veil."
+    },
+    {
+      "component": "Flex",
+      "library": "uikit",
+      "severity": "LOW",
+      "issue": "The description's code example uses the deprecated 'space' prop (<Flex space>). The TSX source marks 'space' as @deprecated in favor of the native 'gap' prop.",
+      "suggestion": "Replace the example usage of 'space' with 'gap' to reflect current API: <Flex gap=\"2\">."
+    }
+  ]
+}

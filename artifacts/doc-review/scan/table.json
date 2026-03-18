@@ -1,0 +1,30 @@
+{
+  "library": "table",
+  "component_count": 3,
+  "component_paths": ["src/components"],
+  "flat_files": false,
+  "components": [
+    {
+      "name": "BaseTable",
+      "library": "table",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/table/src/components/BaseTable/BaseTable.tsx"
+    },
+    {
+      "name": "SortableList",
+      "library": "table",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/table/src/components/SortableList/SortableList.tsx"
+    },
+    {
+      "name": "SortableListDndContext",
+      "library": "table",
+      "data_entry": true,
+      "source_file_found": true,
+      "source_file": "vendor/table/src/components/SortableListDndContext/SortableListDndContext.tsx"
+    }
+  ],
+  "suggested_batches": 1
+}

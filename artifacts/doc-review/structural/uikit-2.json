@@ -1,0 +1,252 @@
+{
+  "batch_id": "uikit-2",
+  "libraries": ["uikit"],
+  "issues": [
+    {
+      "component": "Container",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'qa' (string, from QAProps) is missing from JSON. TSX destructures it and applies as data-qa attribute."
+    },
+    {
+      "component": "ControlLabel",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "JSON props array is entirely empty. TSX Props type defines: children (React.ReactNode), labelClassName (string), title (string), disabled (boolean, default false), size ('s'|'m'|'l'|'xl', default 'm'), control (React.ReactElement, required), className (string), style (React.CSSProperties), qa (string). All are missing."
+    },
+    {
+      "component": "CopyToClipboard",
+      "library": "uikit",
+      "type": "type_mismatch",
+      "severity": "HIGH",
+      "detail": "JSON types 'children' as '(status: \"pending\" | \"success\" | \"error\") => React.ReactElement' (function-only). TSX allows 'React.ReactElement | CopyToClipboardContent' — a plain React element is also valid."
+    },
+    {
+      "component": "DefinitionList",
+      "library": "uikit",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "detail": "JSON lists 'style' (React.CSSProperties) but DefinitionListProps does not extend DOMProps and has no style property. It extends AriaLabelingProps and QAProps only."
+    },
+    {
+      "component": "DefinitionList",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'groupLabelClassName' (string, optional) is defined in DefinitionListProps in types.ts but absent from JSON."
+    },
+    {
+      "component": "Dialog",
+      "library": "uikit",
+      "type": "type_mismatch",
+      "severity": "HIGH",
+      "detail": "JSON types 'onClose' as '() => void'. TSX signature is '(event: MouseEvent | KeyboardEvent, reason: ModalCloseReason | \"closeButtonClick\") => void'. The event and reason parameters are entirely absent from the JSON type."
+    },
+    {
+      "component": "Dialog",
+      "library": "uikit",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "detail": "JSON lists 'style' (React.CSSProperties) but DialogProps extends AriaLabelingProps and QAProps only — no DOMProps, so no 'style' property exists on the interface."
+    },
+    {
+      "component": "Dialog",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Many props present in DialogProps are absent from JSON: 'modalClassName' (string), 'initialFocus' (ModalProps['initialFocus'] | 'cancel' | 'apply'), 'returnFocus' (ModalProps['returnFocus']), 'disableHeightTransition' (boolean, default false), 'onOpenChange', 'onEscapeKeyDown', 'onEnterKeyDown', 'onOutsideClick', 'onTransitionIn', 'onTransitionInComplete', 'onTransitionOut', 'onTransitionOutComplete', 'container' (HTMLElement)."
+    },
+    {
+      "component": "Disclosure",
+      "library": "uikit",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "detail": "JSON lists 'style' (React.CSSProperties) but DisclosureProps extends QAProps only and has no 'style' property."
+    },
+    {
+      "component": "Disclosure",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'children' (React.ReactNode, optional) is in DisclosureProps but absent from JSON."
+    },
+    {
+      "component": "Drawer",
+      "library": "uikit",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "detail": "JSON lists 'onResizeComplete' but TSX has no such prop. The TSX resize callbacks are 'onResizeStart', 'onResize', and 'onResizeEnd', all typed as OnResizeHandler = (size: number) => void."
+    },
+    {
+      "component": "Drawer",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Props 'onResize' and 'onResizeEnd' (both OnResizeHandler = (size: number) => void) are in DrawerProps but absent from JSON."
+    },
+    {
+      "component": "Drawer",
+      "library": "uikit",
+      "type": "type_mismatch",
+      "severity": "HIGH",
+      "detail": "JSON types 'onResizeStart' as '() => void'. TSX OnResizeHandler is '(size: number) => void' — the size argument is missing from the JSON type."
+    },
+    {
+      "component": "Drawer",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Many inherited ModalProps are in DrawerProps but absent from JSON: 'children' (React.ReactNode), 'contentClassName' (string), 'disableEscapeKeyDown' (boolean), 'initialFocus', 'returnFocus', 'disableBodyScrollLock' (boolean, default false), 'disableVisuallyHiddenDismiss' (boolean), 'floatingRef', 'disablePortal' (boolean), 'keepMounted' (boolean, default false), 'container', 'onTransitionIn', 'onTransitionInComplete', 'onTransitionOut', 'onTransitionOutComplete'."
+    },
+    {
+      "component": "DropdownMenu",
+      "library": "uikit",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "detail": "JSON lists 'style' (React.CSSProperties) but DropdownMenuProps does not extend DOMProps or any interface with a style property."
+    },
+    {
+      "component": "DropdownMenu",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Several props in DropdownMenuProps are absent from JSON: 'switcher' (React.ReactNode, deprecated), 'switcherWrapperClassName' (string), 'defaultSwitcherProps' (ButtonProps), 'defaultSwitcherClassName' (string), 'onSwitcherClick' (React.MouseEventHandler<HTMLElement>), 'menuProps' (Partial<MenuProps>), 'popupProps' (Partial<PopupProps>)."
+    },
+    {
+      "component": "FilePreview",
+      "library": "uikit",
+      "type": "type_mismatch",
+      "severity": "HIGH",
+      "detail": "JSON types 'onClick' as '(file: File) => void'. TSX has 'onClick?: React.MouseEventHandler<HTMLDivElement>' which is '(event: React.MouseEvent<HTMLDivElement>) => void' — receives a mouse event, not the File object."
+    },
+    {
+      "component": "Flex",
+      "library": "uikit",
+      "type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Flex extends BoxProps which contributes 'as' (keyof JSX.IntrinsicElements), 'children' (React.ReactNode), 'className' (string), 'style' (React.CSSProperties), 'spacing' (SpacingProps), 'overflow' ('hidden'|'x'|'y'|'auto'), and standard HTML attributes. None of 'as', 'children', 'className', 'style', or 'spacing' appear in the JSON props array."
+    },
+    {
+      "component": "HelpMark",
+      "library": "uikit",
+      "type": "phantom_prop",
+      "severity": "HIGH",
+      "detail": "JSON lists 'buttonProps' (React.ButtonHTMLAttributes<HTMLButtonElement>) as a prop. TSX has no such prop — HelpMarkProps extends React.ButtonHTMLAttributes<HTMLButtonElement> directly, so button attributes are passed as individual top-level props via ...restProps, not via a buttonProps object."
+    },
+    {
+      "component": "HelpMark",
+      "library": "uikit",
+      "type": "type_mismatch",
+      "severity": "HIGH",
+      "detail": "JSON types 'popoverProps' as 'Partial<PopoverProps>'. TSX has 'Omit<PopoverProps, \"children\">' — the children property is explicitly excluded from the type."
+    },
+    {
+      "component": "Icon",
+      "library": "uikit",
+      "type": "type_mismatch",
+      "severity": "HIGH",
+      "detail": "JSON types 'size' as 'number'. TSX has 'size?: number | string' — string values are also valid."
+    },
+    {
+      "component": "Icon",
+      "library": "uikit",
+      "type": "type_mismatch",
+      "severity": "HIGH",
+      "detail": "JSON types 'color' as 'string'. TSX has 'color?: ColorTextBaseProps[\"color\"]' which is a restricted union of design-system color tokens ('(typeof TEXT_COLORS)[number]'), not a plain CSS string."
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "ColorPicker",
+      "library": "uikit",
+      "tsx_context": "export interface ColorPickerProps {\n  /** Picker size */\n  size?: 's' | 'm' | 'l' | 'xl';\n  /** Color value for controlled state */\n  value?: string;\n  /** Default color value */\n  defaultValue?: string;\n  /** Called when user updates the color manually or via UI. Receives a HEX(A) string. */\n  onUpdate?: (value: string) => void;\n  /** Open popup for controlled state */\n  open?: boolean;\n  /** Open popup by default */\n  defaultOpen?: boolean;\n  /** Open popup handler */\n  onOpenChange?: (open: boolean) => void;\n  /** Enables alpha channel support for HEXA/RGBA mode and transparency slider. */\n  withAlpha?: boolean;\n  /** Render only picker button without value */\n  compact?: boolean;\n  /** Disable picker */\n  disabled?: boolean;\n}",
+      "data_description": "> The `unstable_ColorPicker` component is an experimental color selection component. The component is unstable, > so it means breaking changes can occur during minor or patch releases. Be aware of that."
+    },
+    {
+      "component": "Container",
+      "library": "uikit",
+      "tsx_context": "export interface ContainerProps extends QAProps {\n  style?: React.CSSProperties;\n  /** Use function to define different classes in different media queries */\n  className?: string;\n  children?: React.ReactNode;\n  /** Width of container will never be larger then specified media type width */\n  maxWidth?: MediaType;\n  /** Right and left paddings between content. Take default values during LayoutContext */\n  gutters?: Space | false;\n  /** Space between child Row components. By default takes props via LayoutContext */\n  spaceRow?: Space | MediaPartial<Space>;\n  as?: keyof React.JSX.IntrinsicElements;\n  qa?: string; // from QAProps\n}\n// JSDoc: Center you content in horizontal direction. In most cases must be one on the page.",
+      "data_description": "Center you content in horizontal direction. > In most cases must be one on the page. ```tsx import {Container, Row, Col} from '@gravity-ui/uikit'; <Container masWidth=\"m\"> <Row> <Col> Col 1 </Col> <Col> Col 2 </Col> </Row> </Container> ``` --- Storybook - https://preview.gravity-ui.com/uikit/?path=/docs/layout--playground#container"
+    },
+    {
+      "component": "ControlLabel",
+      "library": "uikit",
+      "tsx_context": "// JSDoc: Wrap with label for <Checkbox/>, <Radio/>, <Switch/>\n// Props from types.ts:\ntype Props = React.PropsWithChildren<{\n  labelClassName?: string;\n  title?: string;\n  disabled?: boolean;\n  size?: 's' | 'm' | 'l' | 'xl';\n  control: React.ReactElement; // required\n}> & DOMProps & QAProps;\n// DOMProps adds: className?: string; style?: React.CSSProperties;\n// QAProps adds: qa?: string;",
+      "data_description": "Wrap with label for `<Checkbox/>`, `<Radio/>`, `<Switch/>`"
+    },
+    {
+      "component": "CopyToClipboard",
+      "library": "uikit",
+      "tsx_context": "// From types.ts:\nexport type CopyToClipboardStatus = 'pending' | 'success' | 'error';\nexport type CopyToClipboardContent = (status: CopyToClipboardStatus) => React.ReactElement;\nexport interface CopyToClipboardProps {\n  text: string | (() => string); // required\n  timeout?: number;\n  /** Child element should have onClick handler to work properly */\n  children: React.ReactElement | CopyToClipboardContent; // required, both forms\n  onCopy?: (text: string, result: boolean) => void;\n}",
+      "data_description": "A headless component that provides clipboard copy functionality via a render prop pattern. Manages copy status and exposes it to the children function."
+    },
+    {
+      "component": "DefinitionList",
+      "library": "uikit",
+      "tsx_context": "// From types.ts:\nexport interface DefinitionListProps extends AriaLabelingProps, QAProps {\n  responsive?: boolean;\n  direction?: 'vertical' | 'horizontal'; // default 'horizontal'\n  nameMaxWidth?: number;\n  contentMaxWidth?: number;\n  className?: string;\n  groupLabelClassName?: string;\n  children: React.ReactNode; // required\n}\n// No 'style' property — does not extend DOMProps",
+      "data_description": "Displays a structured list of term-definition pairs. Supports vertical and horizontal layouts, responsive mode, and optional copy-to-clipboard per item."
+    },
+    {
+      "component": "Dialog",
+      "library": "uikit",
+      "tsx_context": "export interface DialogProps extends AriaLabelingProps, QAProps {\n  open: boolean; // required\n  children: React.ReactNode; // required\n  onClose: (event: MouseEvent | KeyboardEvent, reason: ModalCloseReason | 'closeButtonClick') => void; // required\n  onOpenChange?: ModalProps['onOpenChange'];\n  onEnterKeyDown?: (event: KeyboardEvent) => void;\n  onEscapeKeyDown?: ModalProps['onEscapeKeyDown'];\n  onOutsideClick?: ModalProps['onOutsideClick'];\n  onTransitionIn?: ...; onTransitionInComplete?: ...; onTransitionOut?: ...; onTransitionOutComplete?: ...;\n  className?: string;\n  modalClassName?: string;\n  size?: 's' | 'm' | 'l';\n  container?: HTMLElement;\n  initialFocus?: ModalProps['initialFocus'] | 'cancel' | 'apply';\n  returnFocus?: ModalProps['returnFocus'];\n  contentOverflow?: 'visible' | 'auto'; // default 'visible'\n  disableBodyScrollLock?: boolean; // default false\n  disableEscapeKeyDown?: boolean; // default false\n  disableOutsideClick?: boolean; // default false\n  keepMounted?: boolean; // default false\n  hasCloseButton?: boolean; // default true\n  disableHeightTransition?: boolean; // default false\n}\n// No 'style' — does not extend DOMProps",
+      "data_description": "A modal dialog with a structured layout of header, body, and footer sections. Built on top of Modal with a close button and standard slot components."
+    },
+    {
+      "component": "Disclosure",
+      "library": "uikit",
+      "tsx_context": "export interface DisclosureProps extends QAProps {\n  size?: 'm' | 'l' | 'xl'; // default 'm'\n  disabled?: boolean; // default false\n  defaultExpanded?: boolean; // default false\n  expanded?: boolean;\n  arrowPosition?: 'left' | 'right' | 'start' | 'end'; // default 'start'\n  summary?: React.ReactNode;\n  className?: string;\n  children?: React.ReactNode;\n  keepMounted?: boolean; // default true\n  onUpdate?: (expanded: boolean) => void;\n  onSummaryKeyDown?: (e: React.KeyboardEvent<HTMLButtonElement>) => void;\n}\n// No 'style' — does not extend DOMProps",
+      "data_description": "A collapsible section with a summary trigger and expandable content area. Supports controlled and uncontrolled modes."
+    },
+    {
+      "component": "Divider",
+      "library": "uikit",
+      "tsx_context": "export interface DividerProps extends AriaLabelingProps, DOMProps, QAProps {\n  orientation?: 'vertical' | 'horizontal'; // default 'horizontal'\n  align?: 'start' | 'center' | 'end'; // default 'start'\n  children?: React.ReactNode;\n}\n// DOMProps contributes: className?: string; style?: React.CSSProperties;",
+      "data_description": "A thin horizontal or vertical line used to separate sections of content. Supports an optional label and alignment."
+    },
+    {
+      "component": "Drawer",
+      "library": "uikit",
+      "tsx_context": "// DrawerProps extends Omit<ModalProps, 'disableHeightTransition'|'onClose'|'onEscapeKeyDown'|'onEnterKeyDown'|'onOutsideClick'|'contentOverflow'>\n// Own props:\nplacement?: 'right'|'left'|'top'|'bottom'; // default 'left'\nresizable?: boolean; // default false\nsize?: number | 'auto';\nminSize?: number;\nmaxSize?: number;\nonResizeStart?: (size: number) => void;\nonResize?: (size: number) => void;\nonResizeEnd?: (size: number) => void;\nhideVeil?: boolean; // default false\n// Inherited from ModalProps: open (required), onOpenChange, children, contentClassName,\n// disableEscapeKeyDown, initialFocus, returnFocus, disableBodyScrollLock, disableVisuallyHiddenDismiss,\n// floatingRef, disablePortal, keepMounted, container, className, style, qa,\n// onTransitionIn, onTransitionInComplete, onTransitionOut, onTransitionOutComplete",
+      "data_description": "A sliding panel that appears from the edge of the screen. Supports left, right, top, and bottom placement, optional resizing, and backdrop dismissal."
+    },
+    {
+      "component": "DropdownMenu",
+      "library": "uikit",
+      "tsx_context": "export type DropdownMenuProps<T> = {\n  items?: (DropdownMenuItem<T> | DropdownMenuItem<T>[])[]; \n  icon?: React.ReactNode;\n  open?: boolean;\n  onOpenToggle?: (open: boolean) => void;\n  hideOnScroll?: boolean; // default true\n  size?: 's'|'m'|'l'|'xl'; // default 'm'\n  data?: T;\n  disabled?: boolean;\n  /** @deprecated Use renderSwitcher instead */\n  switcher?: React.ReactNode;\n  renderSwitcher?: (props: SwitcherProps) => React.ReactNode;\n  switcherWrapperClassName?: string;\n  defaultSwitcherProps?: ButtonProps;\n  defaultSwitcherClassName?: string;\n  onSwitcherClick?: React.MouseEventHandler<HTMLElement>;\n  menuProps?: Partial<MenuProps>;\n  popupProps?: Partial<PopupProps>;\n  children?: React.ReactNode;\n};\n// No 'style', 'className', or 'qa' — does not extend DOMProps/QAProps",
+      "data_description": "A button that opens a dropdown menu with a list of actions. Supports nested submenus, icons, disabled items, and a custom switcher trigger."
+    },
+    {
+      "component": "FilePreview",
+      "library": "uikit",
+      "tsx_context": "// Union type: DefaultFilePreviewProps | CompactFilePreviewProps\ninterface FilePreviewBaseProps extends QAProps {\n  className?: string;\n  file: File; // required\n  imageSrc?: string;\n  description?: string;\n  onClick?: React.MouseEventHandler<HTMLDivElement>; // (event: MouseEvent<HTMLDivElement>) => void\n  selected?: boolean;\n}\ninterface DefaultFilePreviewProps extends FilePreviewBaseProps {\n  actions?: FilePreviewAction[];\n  view?: 'default';\n}\ninterface CompactFilePreviewProps extends FilePreviewBaseProps {\n  actions?: never;\n  view: 'compact';\n}",
+      "data_description": "Displays a preview tile for a file with its name, type icon or image thumbnail, and optional action buttons. Used in file upload UIs."
+    },
+    {
+      "component": "Flex",
+      "library": "uikit",
+      "tsx_context": "export interface FlexProps<T extends React.ElementType = 'div'> extends BoxProps<T> {\n  direction?: AdaptiveProp<'flexDirection'>;\n  grow?: true | React.CSSProperties['flexGrow'];\n  basis?: React.CSSProperties['flexBasis'];\n  shrink?: React.CSSProperties['flexShrink'];\n  alignContent?: AdaptiveProp<'justifyContent'>;\n  alignItems?: AdaptiveProp<'alignItems'>;\n  alignSelf?: AdaptiveProp<'alignSelf'>;\n  justifyContent?: AdaptiveProp<'justifyContent'>;\n  justifyItems?: AdaptiveProp<'justifyItems'>;\n  justifySelf?: AdaptiveProp<'justifySelf'>;\n  centerContent?: true;\n  wrap?: true | React.CSSProperties['flexWrap'];\n  inline?: boolean;\n  gap?: Space | MediaPartial<Space>;\n  gapRow?: Space | MediaPartial<Space>;\n  /** @deprecated use native gap */\n  space?: Space | MediaPartial<Space>;\n}\n// BoxProps adds: as?, children?, className?, style?, spacing?, overflow?, qa?, width?, height?, etc.",
+      "data_description": "Flexbox model utility component. ```tsx import {Flex, Button} from '@gravity-ui/uikit'; <Flex space > <Button> Button 1 </Button> <Button> Button 2 </Button> </Flex> ``` Use build in media goods via props ```tsx <Flex space={{s: '1', m: '5'}} direction={{'s': 'column', 'm': 'row'}} > {...} </Flex> ``` --- Storybook - https://preview.gravity-ui.com/uikit/?path=/docs/layout--playground#flex"
+    },
+    {
+      "component": "HelpMark",
+      "library": "uikit",
+      "tsx_context": "export interface HelpMarkProps extends QAProps, React.ButtonHTMLAttributes<HTMLButtonElement> {\n  // TODO BREAKING CHANGE: Consider renaming to \"size\"\n  iconSize?: 's' | 'm' | 'l' | 'xl'; // default 'm'\n  popoverProps?: Omit<PopoverProps, 'children'>;\n  children?: React.ReactNode;\n}\n// Extends React.ButtonHTMLAttributes<HTMLButtonElement> directly — no buttonProps wrapper.\n// All button HTML attributes (onClick, disabled, aria-*, etc.) are top-level props via ...restProps.",
+      "data_description": "A small question mark button that shows a popover with help content when clicked or hovered. Used for inline contextual help."
+    },
+    {
+      "component": "Hotkey",
+      "library": "uikit",
+      "tsx_context": "export interface HotkeyProps extends AriaLabelingProps, DOMProps, QAProps {\n  /**\n   * @example 'mod+a mod+c mod+v'\n   */\n  value: string; // required\n  /** @default light */\n  view?: 'light' | 'dark';\n  platform?: Platform; // 'mac' | 'pc'\n}\n// DOMProps adds: className?: string; style?: React.CSSProperties;",
+      "data_description": "Renders a keyboard shortcut visually as individual key badges. Handles platform-specific key symbols for Mac and PC."
+    },
+    {
+      "component": "Icon",
+      "library": "uikit",
+      "tsx_context": "export interface IconProps extends QAProps, DOMProps {\n  data: IconData; // required — SVGIconData\n  width?: number | string;\n  height?: number | string;\n  size?: number | string; // JSON incorrectly narrows to number only\n  fill?: string; // default 'currentColor'\n  stroke?: string; // default 'none'\n  color?: ColorTextBaseProps['color']; // (typeof TEXT_COLORS)[number], not a plain string\n}",
+      "data_description": "Renders an SVG icon from the Gravity UI icon set. Accepts icon data and supports size, color, and fill/stroke overrides."
+    }
+  ]
+}

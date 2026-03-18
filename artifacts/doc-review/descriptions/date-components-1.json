@@ -1,0 +1,40 @@
+{
+  "batch_id": "date-components-1",
+  "issues": [
+    {
+      "component": "CalendarView",
+      "library": "date-components",
+      "severity": "MEDIUM",
+      "issue": "The data description reads 'The size of the element. @default m', which is JSDoc copied from the size prop — not a component-level description. It describes a prop value rather than what the component does.",
+      "suggestion": "Describe CalendarView as the internal rendering layer for Calendar and RangeCalendar that accepts a pre-built calendar state object and handles the visual presentation of the calendar grid."
+    },
+    {
+      "component": "RangeDateField",
+      "library": "date-components",
+      "severity": "LOW",
+      "issue": "No description is present in the data. The component is a range date input that extends DateFieldProps with an additional delimiter prop for separating the start and end date fields.",
+      "suggestion": "Add a description such as: 'RangeDateField is a date input component for selecting a date range. It renders two date entry fields separated by a configurable delimiter (default \" — \") and supports the same props as DateField including value, format, size, and validation.'"
+    },
+    {
+      "component": "RangeDatePicker",
+      "library": "date-components",
+      "severity": "LOW",
+      "issue": "No description is present in the data. The component is a date picker for selecting a date range, typed as DatePickerProps<RangeValue<DateTime>>.",
+      "suggestion": "Add a description such as: 'RangeDatePicker is a date picker component for selecting a date range. It combines a range date input field with a calendar popup and supports the same props as DatePicker, including value, defaultValue, onUpdate, size, format, hasClear, popup placement, and focus/keyboard event handlers.'"
+    },
+    {
+      "component": "RangeDateSelection",
+      "library": "date-components",
+      "severity": "LOW",
+      "issue": "No description is present in the data. The component renders a time-range ruler with a draggable selection control for selecting a date/time range visually.",
+      "suggestion": "Add a description such as: 'RangeDateSelection is a visual time-range ruler component with a draggable selection control. It supports controlled and uncontrolled value (RangeValue<DateTime>), min/max bounds, min/max duration constraints, timezone, and callbacks for ruler content rendering.'"
+    },
+    {
+      "component": "RelativeRangeDatePicker",
+      "library": "date-components",
+      "severity": "LOW",
+      "issue": "No description is present in the data. The component provides a combined relative/absolute range date picker with optional presets, a timezone selector zone list, and an apply button.",
+      "suggestion": "Add a description such as: 'RelativeRangeDatePicker is a range date picker that supports both absolute and relative date values. It includes optional preset shortcuts (withPresets), a timezone selector (withZonesList), a header (withHeader), and an apply button (withApplyButton), and exposes a customizable trigger via renderControl.'"
+    }
+  ]
+}

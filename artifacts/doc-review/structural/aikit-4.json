@@ -1,0 +1,304 @@
+{
+  "batch_id": "aikit-4",
+  "libraries": ["aikit"],
+  "issues": [
+    {
+      "component": "ToolIndicator",
+      "library": "aikit",
+      "prop": "status",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'status' (optional, 'success'|'error'|'info'|'loading', default 'info') is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolIndicator",
+      "library": "aikit",
+      "prop": "className",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'className' (optional string) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolIndicator",
+      "library": "aikit",
+      "prop": "qa",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'qa' (optional string) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "toolName",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'toolName' (required string) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "toolIcon",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'toolIcon' (optional React.ReactNode) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "footerActions",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'footerActions' (optional Action[]) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "headerActions",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'headerActions' (optional Action[]) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "bodyContent",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'bodyContent' (optional React.ReactNode) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "headerContent",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'headerContent' (optional React.ReactNode) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "footerContent",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'footerContent' (optional React.ReactNode) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "status",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'status' (optional TToolStatus: 'success'|'error'|'loading'|'waitingConfirmation'|'waitingSubmission'|'cancelled') is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "expandable",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'expandable' (optional boolean) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "initialExpanded",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'initialExpanded' (optional boolean) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "autoCollapseOnSuccess",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'autoCollapseOnSuccess' (optional boolean) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "autoCollapseOnCancelled",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'autoCollapseOnCancelled' (optional boolean) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "onAccept",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'onAccept' (optional () => void) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "onReject",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'onReject' (optional () => void) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "className",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'className' (optional string) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "prop": "qa",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'qa' (optional string) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolStatus",
+      "library": "aikit",
+      "prop": "status",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'status' (optional TToolStatus: 'success'|'error'|'loading'|'waitingConfirmation'|'waitingSubmission'|'cancelled') is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolStatus",
+      "library": "aikit",
+      "prop": "className",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'className' (optional string) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "ToolStatus",
+      "library": "aikit",
+      "prop": "qa",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'qa' (optional string) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "UserMessage",
+      "library": "aikit",
+      "prop": "content",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'content' (required React.ReactNode) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "UserMessage",
+      "library": "aikit",
+      "prop": "format",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'format' (optional 'plain'|'markdown', default 'plain') is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "UserMessage",
+      "library": "aikit",
+      "prop": "showAvatar",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'showAvatar' (optional boolean) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "UserMessage",
+      "library": "aikit",
+      "prop": "avatarUrl",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'avatarUrl' (optional string, default '') is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "UserMessage",
+      "library": "aikit",
+      "prop": "transformOptions",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'transformOptions' (optional OptionsType from @diplodoc/transform) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "UserMessage",
+      "library": "aikit",
+      "prop": "shouldParseIncompleteMarkdown",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'shouldParseIncompleteMarkdown' (optional boolean) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "UserMessage",
+      "library": "aikit",
+      "prop": "actions",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'actions' (optional BaseMessageAction[], picked from BaseMessageProps) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "UserMessage",
+      "library": "aikit",
+      "prop": "showActionsOnHover",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'showActionsOnHover' (optional boolean, picked from BaseMessageProps) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "UserMessage",
+      "library": "aikit",
+      "prop": "showTimestamp",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'showTimestamp' (optional boolean, picked from BaseMessageProps) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "UserMessage",
+      "library": "aikit",
+      "prop": "timestamp",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'timestamp' (optional string, default '', picked from BaseMessageProps) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "UserMessage",
+      "library": "aikit",
+      "prop": "className",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'className' (optional string) is absent from data JSON (props is empty array)"
+    },
+    {
+      "component": "UserMessage",
+      "library": "aikit",
+      "prop": "qa",
+      "issue_type": "missing_prop",
+      "severity": "HIGH",
+      "detail": "Prop 'qa' (optional string) is absent from data JSON (props is empty array)"
+    }
+  ],
+  "description_pairs": [
+    {
+      "component": "ToolIndicator",
+      "library": "aikit",
+      "source_description": "Renders a status icon (CircleCheck, CircleXmark, CircleInfo) or a Loader spinner based on the status prop value. Defaults to 'info' icon when no status is provided.",
+      "data_description": "A status indicator component that displays different icons based on the tool execution status. Shows a loader for loading state."
+    },
+    {
+      "component": "ToolMessage",
+      "library": "aikit",
+      "source_description": "Wraps ToolHeader and ToolFooter inside a Card. Uses useToolMessage hook to manage expand/collapse state, header/footer actions, footer content, loader visibility, and waiting state. Body content is only shown when expanded. Footer is only rendered while in waiting state.",
+      "data_description": "Complete tool message component with automatic expand/collapse functionality and status-based behavior"
+    },
+    {
+      "component": "ToolStatus",
+      "library": "aikit",
+      "source_description": "Renders localized 'cancelled' text for cancelled status, delegates to ToolIndicator for success/error/loading statuses, and renders nothing for waitingConfirmation/waitingSubmission or undefined status.",
+      "data_description": "Component for displaying tool status with indicators and localized text"
+    },
+    {
+      "component": "UserMessage",
+      "library": "aikit",
+      "source_description": "Renders a user chat message inside a MessageBalloon with optional Avatar, timestamp, and action buttons. Supports plain text or markdown rendering via MarkdownRenderer when format='markdown'.",
+      "data_description": "Component for rendering user message"
+    }
+  ]
+}

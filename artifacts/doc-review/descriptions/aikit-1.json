@@ -1,0 +1,47 @@
+{
+  "batch_id": "aikit-1",
+  "issues": [
+    {
+      "component": "Alert",
+      "library": "aikit",
+      "severity": "LOW",
+      "issue": "Description omits the required 'text' prop (the primary alert content), the 'variant' options ('default', 'warning', 'error', 'info'), the 'icon' prop, and the 'initialExpanded' prop that controls expandable behavior. The phrase 'indicator of alert's type' is vague and does not convey the supported variants.",
+      "suggestion": "An alert component that displays a text message with an optional variant ('default', 'warning', 'error', 'info'), an optional icon, optional expandable content controlled by 'initialExpanded', and an optional action button."
+    },
+    {
+      "component": "BaseMessage",
+      "library": "aikit",
+      "severity": "LOW",
+      "issue": "Description omits the required 'role' prop ('user', 'assistant', 'system'), the 'userRating' prop (like/dislike feedback), and the 'timestamp'/'showTimestamp' props. These are semantically central to what makes this a chat message component.",
+      "suggestion": "Base wrapper for a chat message that requires a 'role' ('user', 'assistant', or 'system') and 'children', with support for action buttons, like/dislike rating, timestamp display, and hover-triggered actions."
+    },
+    {
+      "component": "ButtonGroup",
+      "library": "aikit",
+      "severity": "LOW",
+      "issue": "Description is too vague — 'Wrapper for buttons group' could describe any container. It omits the key 'orientation' prop that controls horizontal or vertical layout.",
+      "suggestion": "A wrapper component that groups buttons with configurable orientation ('horizontal' or 'vertical', defaulting to horizontal)."
+    },
+    {
+      "component": "ChatDate",
+      "library": "aikit",
+      "severity": "MEDIUM",
+      "issue": "Description claims 'locale support' which is not present in the TSX source — there is no locale prop. It also omits the 'relative' prop, which is a key behavioral feature enabling display of relative dates such as 'today' or 'yesterday'.",
+      "suggestion": "A component that displays formatted dates supporting string, Date, or numeric timestamp input, with options for showing time, a custom dayjs format string, and relative date labels (today, yesterday, etc.)."
+    },
+    {
+      "component": "ContextIndicator",
+      "library": "aikit",
+      "severity": "MEDIUM",
+      "issue": "Description says 'circular progress indicator' — nothing in the TSX source indicates a circular shape. Description also says it only works 'as a percentage (0-100%)' but the component has a discriminated union type: 'type=number' mode requires 'maxContext' and displays an absolute number, while 'type=percent' uses a percentage. The description only reflects one of two modes.",
+      "suggestion": "An indicator that visualizes context usage, supporting two display modes via the required 'type' prop: 'percent' (shows usage as a percentage using 'usedContext') and 'number' (shows absolute usage against 'maxContext'). Supports horizontal or vertical orientation and a reversed layout."
+    },
+    {
+      "component": "ContextItem",
+      "library": "aikit",
+      "severity": "LOW",
+      "issue": "Description 'A label for rendering context' is too vague and does not reflect that the component accepts any ReactNode as content and has an optional 'onClick' handler, making it an interactive element rather than a passive label.",
+      "suggestion": "A component that renders arbitrary content as a context tag, with an optional click handler for interactive behavior."
+    }
+  ]
+}
