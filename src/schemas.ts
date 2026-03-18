@@ -138,8 +138,8 @@ const RecipeCustomPartsSection = z.object({
 
 const RecipeStructureSection = z.object({
   type: z.literal('structure'),
-  tree: z.string().optional(),
-  flow: z.string().optional(),
+  tree: z.union([z.string(), z.array(z.string())]).optional(),
+  flow: z.union([z.string(), z.array(z.string())]).optional(),
 });
 
 const RecipeExampleSection = z.object({
@@ -157,7 +157,8 @@ const RecipeRelatedSection = z.object({
   type: z.literal('related'),
   items: z.array(z.object({
     id: z.string(),
-    why: z.string(),
+    why: z.string().optional(),
+    note: z.string().optional(),
   })),
 });
 

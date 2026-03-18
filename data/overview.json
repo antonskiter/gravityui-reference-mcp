@@ -64,5 +64,16 @@
     "spacing": "Based on a 4px modular grid (--g-spacing-base: 4px). Spacing tokens range from --g-spacing-0 (0px) through --g-spacing-10 (40px), with a half-step at 2px. All spacing values are multiples of the 4px base unit.",
     "theming": "Supports four built-in themes via CSS custom properties: light, dark, light-hc (high contrast), and dark-hc (high contrast). Uses a two-layer color system with private palette values and semantic token aliases. Theme is applied via ThemeProvider and toggled with useTheme hook. Supports system theme detection.",
     "typography": "Uses Inter as the primary sans-serif font with a system font stack fallback (Helvetica Neue, Helvetica, Arial). Monospace uses Menlo, Monaco, Consolas. Provides typography variants: display (4 sizes), header (2 sizes), subheader (3 sizes), body (3 sizes + short), caption (2 sizes), code (3 sizes), and code-inline (3 sizes)."
-  }
+  },
+  "categories": {
+    "actions": "Components that trigger operations — buttons, links, dropdowns, menus",
+    "data-display": "Components for presenting structured data — tables, lists, cards, definition lists",
+    "feedback": "Components for status and user feedback — alerts, toasters, progress bars, spinners",
+    "forms": "Form controls and input components — text fields, selects, checkboxes, date pickers",
+    "layout": "Structural and layout components — flex, grid, dividers, containers",
+    "navigation": "Navigation and routing components — breadcrumbs, tabs, pagination, aside header",
+    "overlays": "Modal surfaces — dialogs, drawers, popovers, tooltips, sheets",
+    "typography": "Text display components — text, label, code, display headings"
+  },
+  "component_categories": {}
 }

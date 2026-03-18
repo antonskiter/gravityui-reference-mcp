@@ -1,20 +1,17 @@
+// src/ingest/run-validate.ts
 import { validateDataDir } from './validate.js';
 
 const result = validateDataDir('data');
 
-if (result.errors.length > 0) {
-  console.error('VALIDATION ERRORS:');
-  for (const err of result.errors) console.error(`  ✗ ${err}`);
-}
-
 if (result.warnings.length > 0) {
-  console.warn('WARNINGS:');
-  for (const warn of result.warnings) console.warn(`  ⚠ ${warn}`);
+  console.log(`Warnings (${result.warnings.length}):`);
+  for (const w of result.warnings) console.log(`  ⚠ ${w}`);
 }
 
-if (result.fatal) {
-  console.error('\nValidation FAILED. Fix errors and retry.');
+if (result.errors.length > 0) {
+  console.log(`\nErrors (${result.errors.length}):`);
+  for (const e of result.errors) console.log(`  ✗ ${e}`);
   process.exit(1);
 } else {
-  console.log(`\nValidation PASSED (${result.warnings.length} warnings).`);
+  console.log(`\n✓ Validation passed (${result.warnings.length} warnings)`);
 }
