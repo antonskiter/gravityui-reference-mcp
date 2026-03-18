@@ -60,6 +60,43 @@ export function loadJsonArray<T extends object>(dataDir: string, collectionName:
   return sortByNameOrId(loadJsonFile<T[]>(filePath, []));
 }
 
+/**
+ * Load component definitions from data/components/, handling both formats:
+ * - Array files: [{name, library, props, ...}, ...]
+ * - Object files: {components: [{name, props, ...}], hooks: [...]}
+ * Injects library from filename and fills missing defaults.
+ */
+function loadComponentDefs(dataDir: string): ComponentDef[] {
+  const dirPath = join(dataDir, 'components');
+  if (!existsSync(dirPath)) return [];
+  const files = readdirSync(dirPath).filter(f => f.endsWith('.json')).sort();
+  const items: ComponentDef[] = [];
+  for (const file of files) {
+    const libId = file.replace(/\.json$/, '');
+    const parsed = loadJsonFile<ComponentDef[] | Record<string, unknown>>(join(dirPath, file), []);
+    if (Array.isArray(parsed)) {
+      for (const item of parsed) {
+        items.push({ ...item, library: item.library || libId, props: item.props ?? [], examples: item.examples ?? [] });
+      }
+    } else if (parsed && typeof parsed === 'object') {
+      const nested = (parsed as Record<string, unknown>).components;
+      if (Array.isArray(nested)) {
+        for (const item of nested as ComponentDef[]) {
+          items.push({
+            ...item,
+            library: item.library || libId,
+            import_path: item.import_path || `@gravity-ui/${libId}`,
+            source_file: item.source_file || '',
+            props: item.props ?? [],
+            examples: item.examples ?? [],
+          });
+        }
+      }
+    }
+  }
+  return items.sort((a, b) => a.name.localeCompare(b.name));
+}
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const DATA_DIR = join(__dirname, "..", "..", "data");
@@ -104,7 +141,7 @@ export function loadData(): LoadedData {
   const tagsByPageId = new Map(Object.entries(tagsRaw));
 
   // Load new extraction data (graceful fallback if not yet extracted)
-  const componentDefs: ComponentDef[] = loadJsonArray<ComponentDef>(DATA_DIR, "components");
+  const componentDefs: ComponentDef[] = loadComponentDefs(DATA_DIR);
   const tokens: TokenSet = loadJsonFile<TokenSet>(join(DATA_DIR, "tokens.json"), { colors: {}, spacing: {}, breakpoints: {}, sizes: {} });
   const categoryMap: CategoryMap = loadJsonFile<CategoryMap>(join(DATA_DIR, "categories.json"), { categories: {}, components: {} });
 
