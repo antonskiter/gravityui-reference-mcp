@@ -87,7 +87,7 @@ export const DesignSystemOverviewSchema = z.object({
 
 export const ComponentTagsSchema = z.record(z.string(), z.array(z.string()));
 
-export const RecipeLevelSchema = z.enum(['foundation', 'molecule', 'organism']);
+export const RecipeLevelSchema = z.enum(['atom', 'foundation', 'molecule', 'organism', 'page']);
 
 export const RecipeComponentItemSchema = z.object({
   name: z.string(),

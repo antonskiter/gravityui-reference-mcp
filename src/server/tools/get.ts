@@ -1,5 +1,5 @@
 import type { LoadedData } from '../loader.js';
-import type { ComponentDef } from '../../types.js';
+import type { ComponentDef, TokenSet, DesignSystemOverview, RecipeDef, LibraryOverviewEntry } from '../../types.js';
 import { pickByLibraryPriority } from './lib-priority.js';
 import { handleSuggestComponent, levenshtein } from './suggest-component.js';
 import { formatGetComponent } from './get-component.js';
@@ -12,13 +12,13 @@ export interface GetInput {
   detail?: 'compact' | 'full';
 }
 
-export type GetOutputType = 'component' | 'recipe' | 'tokens' | 'library' | 'overview' | 'not_found';
-
-export interface GetOutput {
-  type: GetOutputType;
-  data: any;
-  seeAlso?: string[];  // disambiguation hints
-}
+export type GetOutput =
+  | { type: 'component'; data: ComponentDef; seeAlso?: string[] }
+  | { type: 'tokens'; data: Partial<TokenSet> }
+  | { type: 'overview'; data: DesignSystemOverview }
+  | { type: 'recipe'; data: RecipeDef }
+  | { type: 'library'; data: LibraryOverviewEntry }
+  | { type: 'not_found'; data: { name: string; suggestions?: string[] } };
 
 const TOKEN_TOPICS = new Set(['spacing', 'breakpoints', 'sizes', 'colors', 'typography']);
 
@@ -130,7 +130,9 @@ export function formatGet(output: GetOutput, detail: 'compact' | 'full' = 'compa
       return formatLibrary(output.data);
     case 'overview':
       return formatOverview(output.data);
-    default:
-      return `[${output.type}] ${JSON.stringify(output.data).slice(0, 200)}`;
+    default: {
+      const exhaustive: never = output;
+      return `[unknown] ${JSON.stringify(exhaustive).slice(0, 200)}`;
+    }
   }
 }

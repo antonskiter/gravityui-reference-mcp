@@ -2,11 +2,18 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { loadData } from "./loader.js";
+import type { LoadedData } from "./loader.js";
 import { handleFind, formatFind } from "./tools/find.js";
 import { handleGet, formatGet } from "./tools/get.js";
 import { handleList, formatList } from "./tools/list.js";
 
-const data = loadData();
+let data: LoadedData;
+try {
+  data = loadData();
+} catch (e) {
+  console.error(`Server startup failed: ${e}`);
+  process.exit(1);
+}
 
 const server = new McpServer({ name: "gravityui-docs", version: "1.0.0" });
 

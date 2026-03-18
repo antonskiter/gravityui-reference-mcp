@@ -297,7 +297,7 @@
       "import_path": "@gravity-ui/data-source",
       "import_statement": "import {idle} from '@gravity-ui/data-source';",
       "description": "Unique symbol used as a sentinel value for data source params to indicate the query should be skipped (not fetched). Preferred over the deprecated enabled option.",
-      "kind": "constant",
+      "kind": "const",
       "type": "typeof idle (unique symbol)",
       "props": [],
       "examples": [],
