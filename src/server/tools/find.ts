@@ -24,12 +24,13 @@ export function handleFind(data: LoadedData, input: FindInput): FindOutput {
     limit: 10,
   });
 
-  // Filter out low-relevance noise — if top result score is 10x higher than a result, it's noise
-  const topScore = searchResults[0]?.score ?? 0;
-  const minScore = topScore > 0 ? topScore * 0.05 : 0;
+  // Filter low-relevance noise: require minimum absolute score based on query length
+  // Short queries ("button") naturally score high; long gibberish queries score low
+  const queryWords = input.query.trim().split(/\s+/).length;
+  const minAbsoluteScore = queryWords <= 2 ? 1 : queryWords <= 4 ? 3 : 5;
 
   let results = searchResults
-    .filter(sr => sr.score >= minScore)
+    .filter(sr => sr.score >= minAbsoluteScore)
     .map((sr: SearchResult) => {
       const entities = data.entityByName.get(sr.name.toLowerCase());
       const entity = entities?.find(e => !input.library || e.library === sr.library)
