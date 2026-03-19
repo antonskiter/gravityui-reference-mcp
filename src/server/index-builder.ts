@@ -10,10 +10,11 @@ interface IndexDocument {
   description: string;
   keywords: string;
   when_to_use: string;
+  avoid: string;
 }
 
 const FIELDS = ['name', 'description', 'keywords', 'when_to_use'];
-const STORE_FIELDS = ['id', 'entityType', 'library', 'name', 'description'];
+const STORE_FIELDS = ['id', 'entityType', 'library', 'name', 'description', 'when_to_use', 'avoid'];
 const BOOST = { name: 3, keywords: 2, when_to_use: 2, description: 1 };
 
 function entityToDoc(entity: Entity): IndexDocument {
@@ -25,6 +26,7 @@ function entityToDoc(entity: Entity): IndexDocument {
     description: entity.description,
     keywords: entity.keywords.join(' '),
     when_to_use: entity.when_to_use.join(' '),
+    avoid: entity.avoid.join(' '),
   };
 }
 
@@ -51,6 +53,8 @@ export interface SearchResult {
   library: string;
   name: string;
   description: string;
+  when_to_use: string;
+  avoid: string;
   score: number;
 }
 
@@ -72,6 +76,8 @@ export function searchEntities(
     library: r.library as string,
     name: r.name as string,
     description: r.description as string,
+    when_to_use: r.when_to_use as string,
+    avoid: r.avoid as string,
     score: r.score,
   }));
 }
