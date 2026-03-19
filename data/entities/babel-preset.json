@@ -1,0 +1,38 @@
+[
+  {
+    "type": "config-doc",
+    "name": "babel-preset",
+    "library": "babel-preset",
+    "description": "Gravity UI Babel preset that bundles commonly needed transforms for modern JavaScript, TypeScript, and React projects. Includes @babel/preset-env, @babel/preset-react, @babel/preset-typescript, decorator support, and runtime helpers.",
+    "keywords": [
+      "babel",
+      "preset",
+      "transpile",
+      "typescript",
+      "react",
+      "decorators",
+      "es modules",
+      "runtime helpers",
+      "prop-types removal",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Configuring Babel for a Gravity UI or Yandex-ecosystem project",
+      "When you need TypeScript, React JSX, and decorator support in one preset",
+      "Replacing multiple individual Babel presets with a single opinionated preset"
+    ],
+    "avoid": [
+      "Not suitable as-is if you need a radically different babel-preset-env target — pass custom env options instead",
+      "TypeScript support is opt-in (set `typescript: true`) and is disabled by default"
+    ],
+    "import_statement": "",
+    "related": ["tsconfig"],
+    "how_to_use": "Install with `npm install --save-dev @gravity-ui/babel-preset`. Add to `.babelrc`: `{ \"presets\": [[\"@gravity-ui/babel-preset\", { \"env\": {}, \"runtime\": { \"useESModules\": true }, \"typescript\": true, \"react\": { \"runtime\": \"automatic\" } }]] }`.",
+    "options": {
+      "env": "Options passed to @babel/preset-env (default: {})",
+      "runtime": "Options passed to @babel/plugin-transform-runtime (default: {})",
+      "typescript": "Enable @babel/preset-typescript (default: false)",
+      "react": "Options passed to @babel/preset-react (default: {})"
+    }
+  }
+]

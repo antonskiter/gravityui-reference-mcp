@@ -1,0 +1,43 @@
+[
+  {
+    "type": "config-doc",
+    "name": "eslint-config",
+    "library": "eslint-config",
+    "description": "Gravity UI ESLint configuration that enforces the Gravity UI styleguide. Includes TypeScript rules by default and optional configs for Prettier integration, accessibility checks, and import order enforcement.",
+    "keywords": [
+      "eslint",
+      "linting",
+      "code quality",
+      "typescript",
+      "styleguide",
+      "prettier",
+      "a11y",
+      "accessibility",
+      "import order",
+      "react",
+      "flat config"
+    ],
+    "when_to_use": [
+      "Setting up a new Gravity UI project that needs consistent code style",
+      "Adding ESLint to an existing project following the Gravity UI styleguide",
+      "Enforcing TypeScript rules alongside JavaScript linting",
+      "When you need optional a11y or import-order enforcement on top of base rules"
+    ],
+    "avoid": [
+      "Do not use if you have a custom ESLint config already enforcing different style rules — the configs may conflict",
+      "The prettier sub-config requires Prettier to be installed as a peer dependency"
+    ],
+    "import_statement": "",
+    "related": [],
+    "how_to_use": "Install with `npm install --save-dev eslint @gravity-ui/eslint-config`. Create `eslint.config.js` with `import baseConfig from '@gravity-ui/eslint-config'; export default [...baseConfig];`. Optionally spread in `@gravity-ui/eslint-config/prettier`, `@gravity-ui/eslint-config/a11y`, or `@gravity-ui/eslint-config/import-order` for extra rule sets.",
+    "sub_configs": [
+      "@gravity-ui/eslint-config (base + TypeScript)",
+      "@gravity-ui/eslint-config/prettier",
+      "@gravity-ui/eslint-config/a11y",
+      "@gravity-ui/eslint-config/import-order",
+      "@gravity-ui/eslint-config/react",
+      "@gravity-ui/eslint-config/client",
+      "@gravity-ui/eslint-config/server"
+    ]
+  }
+]

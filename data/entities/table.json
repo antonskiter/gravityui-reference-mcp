@@ -1,0 +1,1348 @@
+[
+  {
+    "type": "component",
+    "name": "BaseTable",
+    "library": "table",
+    "description": "A low-level, headless table renderer built on top of TanStack Table v8. Renders a semantic HTML table with full control over every section (thead, tbody, tfoot), supports row virtualization, row reordering via drag-and-drop, column pinning, sticky header/footer, and group headers. All styling and behavior is delegated to the consumer via render props.",
+    "keywords": [
+      "table",
+      "data table",
+      "tanstack table",
+      "headless table",
+      "virtualization",
+      "sorting",
+      "filtering",
+      "grouping",
+      "row selection",
+      "column pinning",
+      "drag reorder",
+      "sticky header",
+      "tree table"
+    ],
+    "when_to_use": [
+      "When you need full control over table markup and styling without the opinionated sizing/alignment layer that Table adds.",
+      "When building custom table compositions that require custom header, footer, or cell rendering.",
+      "When integrating row virtualization for large datasets.",
+      "When implementing drag-and-drop row reordering together with ReorderingProvider."
+    ],
+    "avoid": [
+      "Avoid using directly when a styled table with standard size and alignment variants is sufficient — use Table instead.",
+      "Avoid using without calling useTable first; the `table` prop expects the TanStack Table instance."
+    ],
+    "import_statement": "import { BaseTable } from '@gravity-ui/table';",
+    "related": [
+      "Table",
+      "ReorderingProvider",
+      "SortIndicator",
+      "useTable",
+      "useRowVirtualizer",
+      "useWindowRowVirtualizer",
+      "selectionColumn",
+      "dragHandleColumn",
+      "TreeExpandableCell"
+    ],
+    "props": [
+      {
+        "name": "table",
+        "type": "Table<TData>",
+        "required": true,
+        "description": "The table instance returned from the useTable hook."
+      },
+      {
+        "name": "attributes",
+        "type": "React.TableHTMLAttributes<HTMLTableElement>",
+        "required": false,
+        "description": "HTML attributes for the <table> element."
+      },
+      {
+        "name": "bodyAttributes",
+        "type": "React.HTMLAttributes<HTMLTableSectionElement>",
+        "required": false,
+        "description": "HTML attributes for the <tbody> element."
+      },
+      {
+        "name": "bodyClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the <tbody> element."
+      },
+      {
+        "name": "bodyRef",
+        "type": "React.Ref<HTMLTableSectionElement>",
+        "required": false,
+        "description": "Ref for the <tbody> element."
+      },
+      {
+        "name": "cellAttributes",
+        "type": "React.TdHTMLAttributes<HTMLTableCellElement> | ((cell?: Cell<TData, unknown>) => React.TdHTMLAttributes<HTMLTableCellElement>)",
+        "required": false,
+        "description": "HTML attributes for <td> elements inside <tbody>."
+      },
+      {
+        "name": "cellClassName",
+        "type": "string | ((cell?: Cell<TData, unknown>) => string)",
+        "required": false,
+        "description": "CSS class for <td> elements inside <tbody>."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the <table> element."
+      },
+      {
+        "name": "customFooterRowCount",
+        "type": "number",
+        "required": false,
+        "description": "Used with renderCustomFooterContent to set the correct aria-rowcount."
+      },
+      {
+        "name": "emptyContent",
+        "type": "React.ReactNode | (() => React.ReactNode)",
+        "required": false,
+        "description": "Content displayed when the table has no data rows."
+      },
+      {
+        "name": "footerAttributes",
+        "type": "React.HTMLAttributes<HTMLTableSectionElement>",
+        "required": false,
+        "description": "HTML attributes for the <tfoot> element."
+      },
+      {
+        "name": "footerCellAttributes",
+        "type": "React.ThHTMLAttributes<HTMLTableCellElement> | ((header: Header<TData, TValue>) => React.ThHTMLAttributes<HTMLTableCellElement>)",
+        "required": false,
+        "description": "HTML attributes for <th> elements inside <tfoot>."
+      },
+      {
+        "name": "footerCellClassName",
+        "type": "string | ((header: Header<TData, TValue>) => string)",
+        "required": false,
+        "description": "CSS class for <th> elements inside <tfoot>."
+      },
+      {
+        "name": "footerClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the <tfoot> element."
+      },
+      {
+        "name": "footerRowAttributes",
+        "type": "React.HTMLAttributes<HTMLTableRowElement> | ((footerGroup: HeaderGroup<TData>) => React.HTMLAttributes<HTMLTableRowElement>)",
+        "required": false,
+        "description": "HTML attributes for <tr> elements inside <tfoot>."
+      },
+      {
+        "name": "footerRowClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for <tr> elements inside <tfoot>."
+      },
+      {
+        "name": "getGroupTitle",
+        "type": "(row: Row<TData>) => React.ReactNode",
+        "required": false,
+        "description": "Returns the title for a group header row."
+      },
+      {
+        "name": "getIsCustomRow",
+        "type": "(row: Row<TData>) => boolean",
+        "required": false,
+        "description": "Checks if the row should be rendered using renderCustomRowContent."
+      },
+      {
+        "name": "getIsGroupHeaderRow",
+        "type": "(row: Row<TData>) => boolean",
+        "required": false,
+        "description": "Checks if the row should be rendered as a group header."
+      },
+      {
+        "name": "groupHeaderClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for group header elements."
+      },
+      {
+        "name": "headerAttributes",
+        "type": "React.HTMLAttributes<HTMLTableSectionElement>",
+        "required": false,
+        "description": "HTML attributes for the <thead> element."
+      },
+      {
+        "name": "headerCellAttributes",
+        "type": "React.ThHTMLAttributes<HTMLTableCellElement> | ((header: Header<TData, TValue>, parentHeader?: Header<TData, unknown>) => React.ThHTMLAttributes<HTMLTableCellElement>)",
+        "required": false,
+        "description": "HTML attributes for <th> elements inside <thead>."
+      },
+      {
+        "name": "headerCellClassName",
+        "type": "string | ((header: Header<TData, TValue>, parentHeader?: Header<TData, unknown>) => string)",
+        "required": false,
+        "description": "CSS class for <th> elements inside <thead>."
+      },
+      {
+        "name": "headerClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the <thead> element."
+      },
+      {
+        "name": "headerRowAttributes",
+        "type": "React.HTMLAttributes<HTMLTableRowElement> | ((headerGroup: HeaderGroup<TData>, parentHeaderGroup?: HeaderGroup<TData>) => React.HTMLAttributes<HTMLTableRowElement>)",
+        "required": false,
+        "description": "HTML attributes for <tr> elements inside <thead>."
+      },
+      {
+        "name": "headerRowClassName",
+        "type": "string | ((headerGroup: HeaderGroup<TData>, parentHeaderGroup?: HeaderGroup<TData>) => string)",
+        "required": false,
+        "description": "CSS class for <tr> elements inside <thead>."
+      },
+      {
+        "name": "onRowClick",
+        "type": "(row: Row<TData>, event: React.MouseEvent<HTMLTableRowElement>) => void",
+        "required": false,
+        "description": "Click handler for rows inside <tbody>."
+      },
+      {
+        "name": "renderCustomFooterContent",
+        "type": "(props: {cellClassName: string; footerGroups: HeaderGroup<TData>[]; rowClassName: string; rowIndex: number}) => React.ReactNode",
+        "required": false,
+        "description": "Function to render custom footer content."
+      },
+      {
+        "name": "renderCustomRowContent",
+        "type": "(props: {row: Row<TData>; Cell: React.FunctionComponent<BaseCellProps<TData>>; cellClassName?: string}) => React.ReactNode",
+        "required": false,
+        "description": "Function to render custom rows when getIsCustomRow returns true."
+      },
+      {
+        "name": "renderGroupHeader",
+        "type": "(props: {row: Row<TData>; className?: string; getGroupTitle?: (row: Row<TData>) => React.ReactNode}) => React.ReactNode",
+        "required": false,
+        "description": "Function to override the default rendering of group headers."
+      },
+      {
+        "name": "renderGroupHeaderRowContent",
+        "type": "(props: {row: Row<TData>; Cell: React.FunctionComponent<BaseCellProps<TData>>; cellClassName?: string; getGroupTitle?: (row: Row<TData>) => React.ReactNode}) => React.ReactNode",
+        "required": false,
+        "description": "Function to override the default rendering of the entire group header row."
+      },
+      {
+        "name": "renderHeaderCellContent",
+        "type": "(props: {header: Header<TData, TValue>}) => React.ReactNode",
+        "required": false,
+        "description": "Function to override the default rendering of header cell content."
+      },
+      {
+        "name": "renderResizeHandle",
+        "type": "(props: {header: Header<TData, TValue>; className?: string}) => React.ReactNode",
+        "required": false,
+        "description": "Function to override the default rendering of resize handles."
+      },
+      {
+        "name": "renderSortIndicator",
+        "type": "(props: {header: Header<TData, TValue>; className?: string}) => React.ReactNode",
+        "required": false,
+        "description": "Function to override the default rendering of sort indicators."
+      },
+      {
+        "name": "resizeHandleClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for resize handles in <th> elements."
+      },
+      {
+        "name": "rowAttributes",
+        "type": "React.HTMLAttributes<HTMLTableRowElement> | ((row: Row<TData>) => React.HTMLAttributes<HTMLTableRowElement>)",
+        "required": false,
+        "description": "HTML attributes for <tr> elements inside <tbody>."
+      },
+      {
+        "name": "rowClassName",
+        "type": "string | ((row?: Row<TData>) => string)",
+        "required": false,
+        "description": "CSS class for <tr> elements inside <tbody>."
+      },
+      {
+        "name": "rowVirtualizer",
+        "type": "Virtualizer<TScrollElement, HTMLTableRowElement>",
+        "required": false,
+        "description": "The row virtualizer instance from useRowVirtualizer or useWindowRowVirtualizer."
+      },
+      {
+        "name": "sortIndicatorClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the sort indicator inside <th> elements."
+      },
+      {
+        "name": "stickyFooter",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "description": "Makes the <tfoot> element sticky."
+      },
+      {
+        "name": "stickyHeader",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "description": "Makes the <thead> element sticky."
+      },
+      {
+        "name": "withFooter",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "description": "Determines whether the <tfoot> element should be rendered."
+      },
+      {
+        "name": "withHeader",
+        "type": "boolean",
+        "required": false,
+        "default": true,
+        "description": "Determines whether the <thead> element should be rendered."
+      }
+    ],
+    "examples": [
+      {
+        "title": "Basic table",
+        "code": "import { useTable, BaseTable } from '@gravity-ui/table';\n\nconst table = useTable({ columns, data });\nreturn <BaseTable table={table} />;"
+      },
+      {
+        "title": "Table with row selection",
+        "code": "import { useTable, BaseTable, selectionColumn } from '@gravity-ui/table';\nimport type { ColumnDef } from '@gravity-ui/table';\n\nconst columns: ColumnDef<Item>[] = [selectionColumn as ColumnDef<Item>, ...myColumns];\n\nconst [rowSelection, setRowSelection] = React.useState({});\nconst table = useTable({\n  columns,\n  data,\n  enableRowSelection: true,\n  enableMultiRowSelection: true,\n  onRowSelectionChange: setRowSelection,\n  state: { rowSelection },\n});\nreturn <BaseTable table={table} />;"
+      },
+      {
+        "title": "Virtualized table",
+        "code": "import { useTable, useRowVirtualizer, BaseTable } from '@gravity-ui/table';\n\nconst table = useTable({ columns, data, getRowId: (item) => item.id });\nconst containerRef = React.useRef(null);\nconst rowVirtualizer = useRowVirtualizer({\n  count: table.getRowModel().rows.length,\n  estimateSize: () => 20,\n  overscan: 5,\n  getScrollElement: () => containerRef.current,\n});\nreturn (\n  <div ref={containerRef} style={{ height: '90vh', overflow: 'auto' }}>\n    <BaseTable table={table} rowVirtualizer={rowVirtualizer} stickyHeader />\n  </div>\n);"
+      }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "DragHandle",
+    "library": "table",
+    "description": "A drag handle icon button for table rows that integrates with dnd-kit's useSortable. Renders a grip icon and exposes dnd-kit drag listeners and attributes on the span element. Used inside the dragHandleColumn column definition.",
+    "keywords": [
+      "drag handle",
+      "drag and drop",
+      "row reordering",
+      "sortable",
+      "dnd-kit",
+      "grip icon",
+      "reorder rows"
+    ],
+    "when_to_use": [
+      "When building a custom drag handle cell for row reordering instead of using the pre-built dragHandleColumn constant.",
+      "When you need to customize the drag handle appearance beyond the default grip icon."
+    ],
+    "avoid": [
+      "Avoid using outside of a dnd-kit DndContext and SortableContext — it relies on useSortable internally.",
+      "Avoid using without ReorderingProvider wrapping the table; use dragHandleColumn constant for standard cases."
+    ],
+    "import_statement": "import { DragHandle } from '@gravity-ui/table';",
+    "related": [
+      "ReorderingProvider",
+      "dragHandleColumn",
+      "BaseTable"
+    ],
+    "props": [
+      {
+        "name": "row",
+        "type": "Row<TData>",
+        "required": true,
+        "description": "The TanStack Table row object. Its id is used as the dnd-kit sortable id."
+      }
+    ],
+    "examples": [
+      {
+        "title": "Custom drag handle cell renderer",
+        "code": "import { DragHandle } from '@gravity-ui/table';\nimport type { ColumnDef } from '@gravity-ui/table';\n\nconst myDragHandleColumn: ColumnDef<MyData> = {\n  id: '_drag',\n  header: '',\n  cell: ({ row }) => <DragHandle row={row} />,\n  size: 32,\n};"
+      }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "RangedSelectionCheckbox",
+    "library": "table",
+    "description": "A checkbox component for table row selection that supports shift-click range selection. Wraps the Gravity UI Checkbox and uses useToggleRangeSelectionHandler internally to enable selecting a contiguous range of rows when holding Shift.",
+    "keywords": [
+      "checkbox",
+      "row selection",
+      "range selection",
+      "shift click",
+      "multi select",
+      "table selection",
+      "select rows"
+    ],
+    "when_to_use": [
+      "When you need a selection checkbox in a table cell that supports shift+click to select a range of rows.",
+      "Use inside a custom selection column cell renderer where range selection behavior is required."
+    ],
+    "avoid": [
+      "Avoid using outside of a table cell context — it requires a CellContext prop from TanStack Table.",
+      "Avoid using for simple single-row selection without a table; use Gravity UI Checkbox directly instead."
+    ],
+    "import_statement": "import { RangedSelectionCheckbox } from '@gravity-ui/table';",
+    "related": [
+      "selectionColumn",
+      "useToggleRangeSelectionHandler",
+      "BaseTable"
+    ],
+    "props": [
+      {
+        "name": "cellContext",
+        "type": "CellContext<TData, TValue>",
+        "required": true,
+        "description": "The TanStack Table cell context object, used to determine row selection state and provide table access for range selection."
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether the checkbox is checked."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether the checkbox is disabled."
+      },
+      {
+        "name": "indeterminate",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether the checkbox is in an indeterminate state."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the checkbox root element."
+      }
+    ],
+    "examples": [
+      {
+        "title": "Custom selection column with range selection",
+        "code": "import { RangedSelectionCheckbox } from '@gravity-ui/table';\nimport type { ColumnDef } from '@gravity-ui/table';\n\nconst selectionCol: ColumnDef<MyData> = {\n  id: '_select',\n  cell: (cellContext) => (\n    <RangedSelectionCheckbox\n      checked={cellContext.row.getIsSelected()}\n      disabled={!cellContext.row.getCanSelect()}\n      indeterminate={cellContext.row.getIsSomeSelected()}\n      cellContext={cellContext}\n    />\n  ),\n};"
+      }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ReorderingProvider",
+    "library": "table",
+    "description": "A context provider that enables drag-and-drop row reordering in a table. Wraps children with dnd-kit DndContext and SortableContext, using the table's row ids as sortable items. Supports optional row nesting via drag depth detection.",
+    "keywords": [
+      "drag and drop",
+      "row reordering",
+      "dnd-kit",
+      "sortable",
+      "reorder rows",
+      "drag rows",
+      "nested rows reorder",
+      "table dnd"
+    ],
+    "when_to_use": [
+      "When you need to allow users to reorder table rows by dragging.",
+      "When implementing tree/nested row reordering with drag depth nesting support.",
+      "Wrap BaseTable or Table with this provider along with the dragHandleColumn."
+    ],
+    "avoid": [
+      "Avoid using without the dragHandleColumn or a custom drag handle in the table columns — users need a drag target.",
+      "Avoid nesting multiple ReorderingProviders; use a single provider per table."
+    ],
+    "import_statement": "import { ReorderingProvider } from '@gravity-ui/table';",
+    "related": [
+      "BaseTable",
+      "Table",
+      "DragHandle",
+      "dragHandleColumn",
+      "useDraggableRowDepth"
+    ],
+    "props": [
+      {
+        "name": "table",
+        "type": "Table<TData>",
+        "required": true,
+        "description": "The table instance returned from useTable."
+      },
+      {
+        "name": "onReorder",
+        "type": "SortableListDragResult => void",
+        "required": false,
+        "description": "Callback triggered when a drag ends. Receives drag result with draggedItemKey, baseItemKey, and nesting info."
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "The table component to render inside the dnd context."
+      },
+      {
+        "name": "dndModifiers",
+        "type": "Modifier[]",
+        "required": false,
+        "description": "A list of dnd-kit modifiers to apply to the DndContext."
+      },
+      {
+        "name": "enableNesting",
+        "type": "boolean",
+        "required": false,
+        "description": "Determines whether elements can be nested using drag-and-drop (horizontal drag gesture changes depth)."
+      }
+    ],
+    "examples": [
+      {
+        "title": "Basic row reordering",
+        "code": "import { ReorderingProvider, BaseTable, useTable, dragHandleColumn } from '@gravity-ui/table';\n\nconst [data, setData] = React.useState(originalData);\nconst table = useTable({ columns: [dragHandleColumn, ...cols], data, getRowId: (item) => item.id });\n\nconst handleReorder = ({ draggedItemKey, baseItemKey }) => {\n  setData(prev => {\n    const next = prev.slice();\n    const idx = next.findIndex(item => item.id === draggedItemKey);\n    const [dragged] = next.splice(idx, 1);\n    const insertIdx = next.findIndex(item => item.id === baseItemKey);\n    next.splice(insertIdx + 1, 0, dragged);\n    return next;\n  });\n};\n\nreturn (\n  <ReorderingProvider table={table} onReorder={handleReorder}>\n    <BaseTable table={table} />\n  </ReorderingProvider>\n);"
+      }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "SortIndicator",
+    "library": "table",
+    "description": "A sort direction indicator icon with an ActionTooltip describing the next sort action. Renders the appropriate arrow icon based on the column's current sort state (ascending, descending, or unsorted). Designed to be used inside table header cells.",
+    "keywords": [
+      "sort indicator",
+      "sort direction",
+      "sort icon",
+      "column sort",
+      "ascending",
+      "descending",
+      "table header",
+      "sorting"
+    ],
+    "when_to_use": [
+      "Use inside a custom header cell renderer to display the current sort order for a column.",
+      "Use as the value for BaseTable's renderSortIndicator prop to replace the default sort indicator."
+    ],
+    "avoid": [
+      "Avoid using outside of a TanStack Table header context — it requires a header prop with column sort methods.",
+      "Avoid using for non-table sorting UI; use a standalone icon or button instead."
+    ],
+    "import_statement": "import { SortIndicator } from '@gravity-ui/table';",
+    "related": [
+      "BaseTable",
+      "Table",
+      "useTable"
+    ],
+    "props": [
+      {
+        "name": "header",
+        "type": "Header<TData, TValue>",
+        "required": true,
+        "description": "The TanStack Table header object for the column being sorted."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the sort indicator span element."
+      }
+    ],
+    "examples": [
+      {
+        "title": "Custom sort indicator in header cell",
+        "code": "import { BaseTable, SortIndicator } from '@gravity-ui/table';\n\n<BaseTable\n  table={table}\n  renderSortIndicator={({ header, className }) => (\n    <SortIndicator header={header} className={className} />\n  )}\n/>"
+      }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Table",
+    "library": "table",
+    "description": "A styled table component built on top of BaseTable that adds Gravity UI design tokens for size (s | m), vertical alignment of cells and headers, and interactive row styling. Extends all BaseTable props with size, verticalAlign, headerVerticalAlign, and footerVerticalAlign.",
+    "keywords": [
+      "table",
+      "data table",
+      "gravity ui table",
+      "styled table",
+      "size s",
+      "size m",
+      "vertical align",
+      "interactive rows",
+      "tanstack table",
+      "sorting",
+      "filtering",
+      "row selection"
+    ],
+    "when_to_use": [
+      "Use as the primary table component for most product UIs requiring Gravity UI design consistency.",
+      "When you need built-in size variants (s/m) and vertical alignment without writing custom styles.",
+      "When onRowClick is needed with automatic interactive row styling."
+    ],
+    "avoid": [
+      "Avoid when you need completely custom cell/row markup that conflicts with the applied CSS class modifiers — use BaseTable instead.",
+      "Avoid using without the useTable hook; the table prop is required."
+    ],
+    "import_statement": "import { Table } from '@gravity-ui/table';",
+    "related": [
+      "BaseTable",
+      "useTable",
+      "ReorderingProvider",
+      "TableSettings",
+      "selectionColumn",
+      "dragHandleColumn",
+      "TreeExpandableCell",
+      "ExperimentalRowLink"
+    ],
+    "props": [
+      {
+        "name": "table",
+        "type": "Table<TData>",
+        "required": true,
+        "description": "The table instance returned from useTable."
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm'",
+        "required": false,
+        "default": "'m'",
+        "description": "Table size variant controlling cell padding and row height."
+      },
+      {
+        "name": "verticalAlign",
+        "type": "'top' | 'middle' | 'bottom'",
+        "required": false,
+        "default": "'top'",
+        "description": "Vertical alignment for body cells."
+      },
+      {
+        "name": "headerVerticalAlign",
+        "type": "'top' | 'middle' | 'bottom'",
+        "required": false,
+        "default": "'top'",
+        "description": "Vertical alignment for header cells."
+      },
+      {
+        "name": "footerVerticalAlign",
+        "type": "'top' | 'middle' | 'bottom'",
+        "required": false,
+        "default": "'top'",
+        "description": "Vertical alignment for footer cells."
+      },
+      {
+        "name": "onRowClick",
+        "type": "(row: Row<TData>, event: React.MouseEvent<HTMLTableRowElement>) => void",
+        "required": false,
+        "description": "Click handler for body rows. Automatically applies interactive styling to rows when set."
+      }
+    ],
+    "examples": [
+      {
+        "title": "Basic styled table",
+        "code": "import { Table, useTable } from '@gravity-ui/table';\n\nconst table = useTable({ columns, data });\nreturn <Table table={table} size=\"m\" />;"
+      },
+      {
+        "title": "Table with row click and size S",
+        "code": "import { Table, useTable } from '@gravity-ui/table';\n\nconst table = useTable({ columns, data });\nreturn (\n  <Table\n    table={table}\n    size=\"s\"\n    verticalAlign=\"middle\"\n    onRowClick={(row) => console.log(row.original)}\n  />\n);"
+      }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TableSettings",
+    "library": "table",
+    "description": "A column visibility and order management UI rendered as a gear-icon button that opens a popup. Supports drag-and-drop column reordering (via dnd-kit), column visibility toggles, optional search filtering of columns, and nested column group expansion. Applies changes back to the TanStack Table instance on confirm.",
+    "keywords": [
+      "table settings",
+      "column visibility",
+      "column order",
+      "column management",
+      "gear button",
+      "show hide columns",
+      "reorder columns",
+      "column settings popup",
+      "filterable columns",
+      "nested columns"
+    ],
+    "when_to_use": [
+      "When users need to show/hide or reorder table columns at runtime.",
+      "Embed in a table header cell using getSettingsColumn or getSettingsWithActionsColumn helpers.",
+      "When you have many columns and need search to find them quickly via enableSearch."
+    ],
+    "avoid": [
+      "Avoid when the column set is fixed and users should not modify it.",
+      "Avoid using without useTableSettings to manage visibility and order state — the table instance needs proper state wiring."
+    ],
+    "import_statement": "import { TableSettings } from '@gravity-ui/table';",
+    "related": [
+      "useTableSettings",
+      "getSettingsColumn",
+      "getSettingsWithActionsColumn",
+      "Table",
+      "BaseTable"
+    ],
+    "props": [
+      {
+        "name": "table",
+        "type": "Table<TData>",
+        "required": true,
+        "description": "The table instance returned from useTable."
+      },
+      {
+        "name": "sortable",
+        "type": "boolean",
+        "required": false,
+        "default": true,
+        "description": "Enables drag-and-drop column reordering inside the settings popup."
+      },
+      {
+        "name": "filterable",
+        "type": "boolean",
+        "required": false,
+        "default": true,
+        "description": "Enables column visibility toggles (show/hide checkboxes)."
+      },
+      {
+        "name": "enableSearch",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "description": "Adds a search input to filter columns by name inside the popup."
+      },
+      {
+        "name": "searchPlaceholder",
+        "type": "string",
+        "required": false,
+        "default": "''",
+        "description": "Placeholder text for the search input when enableSearch is true."
+      },
+      {
+        "name": "onSettingsApply",
+        "type": "({visibilityState: VisibilityState; columnOrder: string[]}) => void",
+        "required": false,
+        "description": "Callback fired when the user applies settings, receiving the new visibility and order state."
+      }
+    ],
+    "examples": [
+      {
+        "title": "TableSettings with useTableSettings",
+        "code": "import { useTable, useTableSettings, TableSettings } from '@gravity-ui/table';\n\nconst { state, callbacks } = useTableSettings({\n  initialVisibility: { thirdCol: false },\n  initialOrdering: ['first', 'second', 'third'],\n});\n\nconst table = useTable({ columns, data, state, ...callbacks });\n\nreturn <TableSettings table={table} sortable filterable enableSearch />;"
+      },
+      {
+        "title": "Embedded in column header via getSettingsColumn",
+        "code": "import { useTable, Table, getSettingsColumn } from '@gravity-ui/table';\n\nconst columns = [...myColumns, getSettingsColumn()];\nconst table = useTable({ columns, data });\nreturn <Table table={table} />;"
+      }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TreeExpandableCell",
+    "library": "table",
+    "description": "A cell component that renders a toggle button for expanding or collapsing tree rows. Displays an ArrowToggle icon that reflects the current expanded state of the row, and wraps children (the actual cell content) in a flex container alongside the toggle.",
+    "keywords": [
+      "tree table",
+      "expandable rows",
+      "tree expand",
+      "collapsible rows",
+      "row expand button",
+      "hierarchical data",
+      "nested rows"
+    ],
+    "when_to_use": [
+      "Use inside a cell renderer for the name/primary column of a tree table to provide expand/collapse controls.",
+      "When rendering hierarchical data where rows have sub-rows managed by TanStack Table's expanding feature."
+    ],
+    "avoid": [
+      "Avoid using for flat tables without a tree/nested row structure.",
+      "Avoid using as a standalone expand button outside of a TanStack Table cell context."
+    ],
+    "import_statement": "import { TreeExpandableCell } from '@gravity-ui/table';",
+    "related": [
+      "BaseTable",
+      "Table",
+      "useTable"
+    ],
+    "props": [
+      {
+        "name": "row",
+        "type": "Row<TData>",
+        "required": true,
+        "description": "The TanStack Table row object used to determine expandability and current expanded state."
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "The cell content rendered alongside the expand toggle button."
+      }
+    ],
+    "examples": [
+      {
+        "title": "Tree name column with expandable cell",
+        "code": "import { TreeExpandableCell } from '@gravity-ui/table';\nimport type { ColumnDef } from '@gravity-ui/table';\n\nconst nameColumn: ColumnDef<MyData> = {\n  id: 'name',\n  header: 'Name',\n  cell: ({ row, getValue }) => (\n    <TreeExpandableCell row={row}>\n      {getValue() as string}\n    </TreeExpandableCell>\n  ),\n};"
+      }
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "experimentalUseColumnsAutoSize",
+    "library": "table",
+    "description": "Automatically calculates optimal column widths by measuring header and cell content in an invisible container. Supports React nodes, primitive values, accessorKey/accessorFn columns, user resizing, and predefined widths. Returns auto-sized column definitions and a table instance setter.",
+    "keywords": [
+      "auto size columns",
+      "column width",
+      "auto width",
+      "measure column",
+      "dynamic column width",
+      "content width",
+      "column resizing",
+      "experimental"
+    ],
+    "when_to_use": [
+      "When column widths should adapt to content without manual configuration.",
+      "When combining with column resizing so user-resized widths are preserved.",
+      "For tables where content width varies significantly across rows."
+    ],
+    "avoid": [
+      "Avoid using on tables with extremely large datasets without adjusting sampleSize — measuring is expensive.",
+      "This hook is experimental; avoid using in production if API stability is required."
+    ],
+    "import_statement": "import { experimentalUseColumnsAutoSize } from '@gravity-ui/table';",
+    "related": [
+      "useTable",
+      "BaseTable",
+      "Table"
+    ],
+    "signature": "function experimentalUseColumnsAutoSize<TData>(props: UseColumnsAutoSizeProps<TData>): { columnWidths: Record<string, number>; setTableInstance: (table: ReturnType<typeof useTable<TData>>) => void; columnsWithAutoSizes: ColumnDef<TData>[]; isMeasuring: boolean; }",
+    "parameters": [
+      {
+        "name": "columns",
+        "type": "ColumnDef<TData>[]",
+        "required": true,
+        "description": "The column definitions for your table."
+      },
+      {
+        "name": "options",
+        "type": "UseColumnsAutoSizeOptions",
+        "required": false,
+        "description": "Configuration: minWidth (50), maxWidth (500), padding (16), headerPadding (24), sampleSize (100), measureHeaderText (true), respectExistingWidths (true), respectResizedWidths (true)."
+      },
+      {
+        "name": "renderElementForMeasure",
+        "type": "(element?: ReactNode) => JSX.Element",
+        "required": false,
+        "description": "Custom renderer wrapping measured elements — use to inject context providers (e.g. Redux Provider)."
+      }
+    ],
+    "return_type": "{ columnWidths: Record<string, number>; setTableInstance: (table) => void; columnsWithAutoSizes: ColumnDef<TData>[]; isMeasuring: boolean; }"
+  },
+  {
+    "type": "hook",
+    "name": "useDraggableRowDepth",
+    "library": "table",
+    "description": "Computes the visual depth and first-child status of a row being dragged in a nested/tree reordering scenario. Reads the SortableListContext to determine the current drag position and horizontal offset mode (child, parent, or next-child), returning the depth the row would land at if dropped.",
+    "keywords": [
+      "drag depth",
+      "nested drag",
+      "tree reordering",
+      "row depth",
+      "dnd nesting",
+      "draggable row"
+    ],
+    "when_to_use": [
+      "Use inside a custom draggable row renderer when building tree reordering with visual depth feedback.",
+      "When you need to show a preview of the row's new nesting level during drag."
+    ],
+    "avoid": [
+      "Avoid using for flat (non-nested) tables where row depth is always 0.",
+      "Avoid using outside of a ReorderingProvider context — it depends on SortableListContext."
+    ],
+    "import_statement": "import { useDraggableRowDepth } from '@gravity-ui/table';",
+    "related": [
+      "ReorderingProvider",
+      "BaseTable"
+    ],
+    "signature": "function useDraggableRowDepth<TData>(options: UseDraggableRowDepthOptions<TData>): { depth: number; isFirstChild: boolean; }",
+    "parameters": [
+      {
+        "name": "row",
+        "type": "Row<TData>",
+        "required": true,
+        "description": "The row being dragged."
+      },
+      {
+        "name": "table",
+        "type": "Table<TData>",
+        "required": true,
+        "description": "The table instance."
+      },
+      {
+        "name": "isDragging",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether this row is currently being dragged."
+      }
+    ],
+    "return_type": "{ depth: number; isFirstChild: boolean; }"
+  },
+  {
+    "type": "hook",
+    "name": "useRowVirtualizer",
+    "library": "table",
+    "description": "A thin wrapper around TanStack Virtual's useVirtualizer for virtualizing table rows inside a scroll container element. Returns a virtualizer instance to pass to BaseTable or Table via the rowVirtualizer prop.",
+    "keywords": [
+      "row virtualization",
+      "virtual scroll",
+      "large table",
+      "tanstack virtual",
+      "performance",
+      "windowed rendering",
+      "scroll container"
+    ],
+    "when_to_use": [
+      "When rendering tables with hundreds or thousands of rows where DOM performance is a concern.",
+      "When the scroll container is a specific DOM element (not the window) — use useWindowRowVirtualizer for window-level scrolling."
+    ],
+    "avoid": [
+      "Avoid using for small datasets (< ~100 rows) where virtualization overhead is unnecessary.",
+      "Do not use when the scroll container is the browser window — use useWindowRowVirtualizer instead."
+    ],
+    "import_statement": "import { useRowVirtualizer } from '@gravity-ui/table';",
+    "related": [
+      "useWindowRowVirtualizer",
+      "BaseTable",
+      "Table"
+    ],
+    "signature": "function useRowVirtualizer<TScrollElement extends Element>(options: UseRowVirtualizerOptions<TScrollElement>): Virtualizer<TScrollElement, HTMLTableRowElement>",
+    "parameters": [
+      {
+        "name": "options",
+        "type": "UseRowVirtualizerOptions<TScrollElement>",
+        "required": true,
+        "description": "TanStack Virtual useVirtualizer options: count, estimateSize, getScrollElement, overscan, etc."
+      }
+    ],
+    "return_type": "Virtualizer<TScrollElement, HTMLTableRowElement>"
+  },
+  {
+    "type": "hook",
+    "name": "useTable",
+    "library": "table",
+    "description": "A wrapper around TanStack Table's useReactTable that pre-configures sensible defaults for all feature flags (sorting, filtering, grouping, expanding, selection, column pinning, resizing). Automatically wires the appropriate row/sort/filter/group models based on which features are enabled.",
+    "keywords": [
+      "table hook",
+      "tanstack table",
+      "useReactTable",
+      "table instance",
+      "sorting",
+      "filtering",
+      "grouping",
+      "row selection",
+      "column pinning",
+      "column resizing",
+      "expanding"
+    ],
+    "when_to_use": [
+      "Use as the primary way to create a table instance for all table components in this library.",
+      "When you need a TanStack Table instance with Gravity UI table's extended ColumnDef type that supports withNestingStyles and showTreeDepthIndicators."
+    ],
+    "avoid": [
+      "Avoid calling useReactTable directly — useTable provides correct defaults and extended types.",
+      "Avoid setting getCoreRowModel manually unless you have a custom model; it is provided by default."
+    ],
+    "import_statement": "import { useTable } from '@gravity-ui/table';",
+    "related": [
+      "BaseTable",
+      "Table",
+      "useTableSettings",
+      "useRowVirtualizer",
+      "useWindowRowVirtualizer"
+    ],
+    "signature": "function useTable<TData>(options: UseTableOptions<TData>): Table<TData>",
+    "parameters": [
+      {
+        "name": "options",
+        "type": "UseTableOptions<TData>",
+        "required": true,
+        "description": "All TanStack Table options with Gravity UI's extended ColumnDef type. Feature flags default to false. getCoreRowModel is optional."
+      }
+    ],
+    "return_type": "Table<TData>"
+  },
+  {
+    "type": "hook",
+    "name": "useTableSettings",
+    "library": "table",
+    "description": "Manages column visibility and column order state for use with TableSettings and useTable. Returns the state object and callbacks to wire into useTable's state and event handlers, with optional callbacks for external persistence.",
+    "keywords": [
+      "table settings",
+      "column visibility",
+      "column order",
+      "column ordering",
+      "show hide columns",
+      "settings state",
+      "persistent columns"
+    ],
+    "when_to_use": [
+      "Use alongside TableSettings component to manage which columns are visible and in what order.",
+      "When you need to persist column visibility or order changes via onVisibilityChange / onOrderingChange callbacks."
+    ],
+    "avoid": [
+      "Avoid using without passing the returned state and callbacks to useTable — the table instance must be aware of these states.",
+      "Avoid using when column visibility and order are static and never changed by users."
+    ],
+    "import_statement": "import { useTableSettings } from '@gravity-ui/table';",
+    "related": [
+      "TableSettings",
+      "useTable",
+      "getSettingsColumn"
+    ],
+    "signature": "function useTableSettings(options?: UseTableSettingsOptions): { state: { columnVisibility: VisibilityState; columnOrder: string[] }; callbacks: { onColumnVisibilityChange: (value: Updater<VisibilityState>) => void; onColumnOrderChange: (value: Updater<string[]>) => void; } }",
+    "parameters": [
+      {
+        "name": "initialOrdering",
+        "type": "string[]",
+        "required": false,
+        "description": "Initial column order array."
+      },
+      {
+        "name": "initialVisibility",
+        "type": "VisibilityState",
+        "required": false,
+        "description": "Initial column visibility state (record of columnId -> boolean)."
+      },
+      {
+        "name": "onOrderingChange",
+        "type": "(ordering: string[]) => void",
+        "required": false,
+        "description": "Callback fired when column order changes."
+      },
+      {
+        "name": "onVisibilityChange",
+        "type": "(visibility: VisibilityState) => void",
+        "required": false,
+        "description": "Callback fired when column visibility changes."
+      }
+    ],
+    "return_type": "{ state: { columnVisibility: VisibilityState; columnOrder: string[] }; callbacks: { onColumnVisibilityChange, onColumnOrderChange } }"
+  },
+  {
+    "type": "hook",
+    "name": "useToggleRangeSelectionHandler",
+    "library": "table",
+    "description": "Returns a checkbox onChange handler that supports shift+click range selection for table rows. When shift is held and a previous row was selected, all rows in the range are toggled. Falls back to single row toggle for nested tables or when shift is not held.",
+    "keywords": [
+      "range selection",
+      "shift click",
+      "multi select",
+      "row selection",
+      "checkbox handler",
+      "select range",
+      "toggle selection"
+    ],
+    "when_to_use": [
+      "Use inside a custom selection cell renderer when you want shift+click range selection behavior.",
+      "Used internally by RangedSelectionCheckbox — use that component instead for most cases."
+    ],
+    "avoid": [
+      "Avoid using outside of a table cell context — it requires a CellContext from TanStack Table.",
+      "Avoid using for tree/nested tables — range selection is automatically disabled for tables with sub-rows."
+    ],
+    "import_statement": "import { useToggleRangeSelectionHandler } from '@gravity-ui/table';",
+    "related": [
+      "RangedSelectionCheckbox",
+      "selectionColumn",
+      "BaseTable"
+    ],
+    "signature": "function useToggleRangeSelectionHandler<TData, TValue>(cellContext: CellContext<TData, TValue>): (event: React.ChangeEvent<HTMLInputElement>) => void",
+    "parameters": [
+      {
+        "name": "cellContext",
+        "type": "CellContext<TData, TValue>",
+        "required": true,
+        "description": "The TanStack Table cell context from the cell renderer."
+      }
+    ],
+    "return_type": "(event: React.ChangeEvent<HTMLInputElement>) => void"
+  },
+  {
+    "type": "hook",
+    "name": "useWindowRowVirtualizer",
+    "library": "table",
+    "description": "A thin wrapper around TanStack Virtual's useWindowVirtualizer for virtualizing table rows when the scroll container is the browser window. Returns a virtualizer instance to pass to BaseTable or Table via the rowVirtualizer prop.",
+    "keywords": [
+      "window virtualization",
+      "row virtualization",
+      "virtual scroll",
+      "window scroll",
+      "large table",
+      "tanstack virtual",
+      "performance"
+    ],
+    "when_to_use": [
+      "When the page itself scrolls (not a fixed-height container) and you need row virtualization.",
+      "For full-page table layouts where the browser window is the scroll container."
+    ],
+    "avoid": [
+      "Avoid using when the scroll container is a specific DOM element — use useRowVirtualizer instead.",
+      "Avoid using for small datasets where virtualization is unnecessary."
+    ],
+    "import_statement": "import { useWindowRowVirtualizer } from '@gravity-ui/table';",
+    "related": [
+      "useRowVirtualizer",
+      "BaseTable",
+      "Table"
+    ],
+    "signature": "function useWindowRowVirtualizer(options: UseWindowRowVirtualizerOptions): Virtualizer<Window, HTMLTableRowElement>",
+    "parameters": [
+      {
+        "name": "options",
+        "type": "UseWindowRowVirtualizerOptions",
+        "required": true,
+        "description": "TanStack Virtual useWindowVirtualizer options: count, estimateSize, overscan, etc."
+      }
+    ],
+    "return_type": "Virtualizer<Window, HTMLTableRowElement>"
+  },
+  {
+    "type": "utility",
+    "name": "dragHandleColumn",
+    "library": "table",
+    "description": "A pre-built TanStack Table column definition for a drag handle cell. Renders a DragHandle component in each body cell and has a blank header. Has a fixed size of 32px and sets hideInSettings: true in meta so it does not appear in TableSettings.",
+    "keywords": [
+      "drag handle column",
+      "row reordering",
+      "dnd column",
+      "column definition",
+      "drag and drop",
+      "reorder column"
+    ],
+    "when_to_use": [
+      "Prepend to your columns array when enabling row reordering with ReorderingProvider.",
+      "When you want a standard drag handle without building a custom column definition."
+    ],
+    "avoid": [
+      "Avoid using without wrapping the table in ReorderingProvider — the drag handle will not function.",
+      "Avoid using when row reordering is not needed."
+    ],
+    "import_statement": "import { dragHandleColumn } from '@gravity-ui/table';",
+    "related": [
+      "ReorderingProvider",
+      "DragHandle",
+      "selectionColumn",
+      "getActionsColumn"
+    ],
+    "signature": "const dragHandleColumn: ColumnDef<unknown>",
+    "parameters": [],
+    "return_type": "ColumnDef<unknown>",
+    "kind": "const"
+  },
+  {
+    "type": "utility",
+    "name": "getActionsColumn",
+    "library": "table",
+    "description": "Returns a TanStack Table column definition that renders a row actions menu (ellipsis button with dropdown) in each body cell. Accepts getRowActions for menu item configuration or renderRowActions for fully custom rendering. The column id defaults to '_actions' and is hidden from TableSettings.",
+    "keywords": [
+      "actions column",
+      "row actions",
+      "context menu",
+      "kebab menu",
+      "ellipsis menu",
+      "column definition",
+      "row menu"
+    ],
+    "when_to_use": [
+      "When each table row needs contextual actions (edit, delete, etc.) in a dropdown menu.",
+      "Use getRowActions for standard action items or renderRowActions for custom action UI."
+    ],
+    "avoid": [
+      "Avoid using when actions are inline in regular cells rather than a separate actions column.",
+      "Avoid passing both getRowActions and renderRowActions — prefer one approach."
+    ],
+    "import_statement": "import { getActionsColumn, ACTIONS_COLUMN_ID } from '@gravity-ui/table';",
+    "related": [
+      "getSettingsWithActionsColumn",
+      "getSettingsColumn",
+      "Table",
+      "BaseTable"
+    ],
+    "signature": "function getActionsColumn<TValue>(columnId?: string, options: TableActionsSettings<TValue>): ColumnDef<TValue>",
+    "parameters": [
+      {
+        "name": "columnId",
+        "type": "string",
+        "required": false,
+        "description": "Custom column id. Defaults to ACTIONS_COLUMN_ID ('_actions')."
+      },
+      {
+        "name": "options",
+        "type": "TableActionsSettings<TValue>",
+        "required": true,
+        "description": "getRowActions, renderRowActions, and rowActionsSize configuration."
+      }
+    ],
+    "return_type": "ColumnDef<TValue>",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "getSettingsColumn",
+    "library": "table",
+    "description": "Returns a TanStack Table column definition that renders the TableSettings gear button in the header cell. Used to embed column settings management directly in the table header. The column has a fixed size of 44px and is hidden from the settings popup itself.",
+    "keywords": [
+      "settings column",
+      "column settings",
+      "gear button",
+      "column visibility",
+      "column order",
+      "column definition",
+      "header settings"
+    ],
+    "when_to_use": [
+      "When you want the TableSettings popup trigger to live inside the table's last header cell.",
+      "Append to your columns array to get a standard settings column without manual column definition."
+    ],
+    "avoid": [
+      "Avoid using without useTableSettings to manage the visibility/order state that TableSettings applies.",
+      "Avoid when the settings button should live outside the table header."
+    ],
+    "import_statement": "import { getSettingsColumn, SETTINGS_COLUMN_ID } from '@gravity-ui/table';",
+    "related": [
+      "TableSettings",
+      "useTableSettings",
+      "getSettingsWithActionsColumn",
+      "getActionsColumn"
+    ],
+    "signature": "function getSettingsColumn<TData>(columnId?: string, options?: TableSettingsOptions): ColumnDef<TData>",
+    "parameters": [
+      {
+        "name": "columnId",
+        "type": "string",
+        "required": false,
+        "description": "Custom column id. Defaults to SETTINGS_COLUMN_ID ('_settings')."
+      },
+      {
+        "name": "options",
+        "type": "TableSettingsOptions",
+        "required": false,
+        "description": "Options passed to the TableSettings component: sortable, filterable, enableSearch, searchPlaceholder."
+      }
+    ],
+    "return_type": "ColumnDef<TData>",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "getSettingsWithActionsColumn",
+    "library": "table",
+    "description": "Returns a combined TanStack Table column definition that shows the TableSettings gear button in the header and a row actions menu in the body cells. Combines getSettingsColumn and getActionsColumn into a single 44px column to save horizontal space.",
+    "keywords": [
+      "settings and actions column",
+      "combined column",
+      "gear button actions",
+      "column settings",
+      "row actions",
+      "column definition"
+    ],
+    "when_to_use": [
+      "When you need both column settings management and row actions in the same column to conserve table width.",
+      "Use as a single column instead of separate getSettingsColumn and getActionsColumn when space is limited."
+    ],
+    "avoid": [
+      "Avoid using when settings and actions UI would be confusing in a single column — consider separate columns.",
+      "Avoid using without the actions options; use getSettingsColumn alone if no row actions are needed."
+    ],
+    "import_statement": "import { getSettingsWithActionsColumn, SETTINGS_WITH_ACTIONS_COLUMN_ID } from '@gravity-ui/table';",
+    "related": [
+      "getSettingsColumn",
+      "getActionsColumn",
+      "TableSettings",
+      "Table",
+      "BaseTable"
+    ],
+    "signature": "function getSettingsWithActionsColumn<TData>(columnId?: string, options: { actions: TableActionsSettings<TData>; settings?: TableSettingsOptions }): ColumnDef<TData>",
+    "parameters": [
+      {
+        "name": "columnId",
+        "type": "string",
+        "required": false,
+        "description": "Custom column id. Defaults to SETTINGS_WITH_ACTIONS_COLUMN_ID ('_settings-with-actions')."
+      },
+      {
+        "name": "options.actions",
+        "type": "TableActionsSettings<TData>",
+        "required": true,
+        "description": "Row actions configuration: getRowActions, renderRowActions, rowActionsSize."
+      },
+      {
+        "name": "options.settings",
+        "type": "TableSettingsOptions",
+        "required": false,
+        "description": "TableSettings options: sortable, filterable, enableSearch, searchPlaceholder."
+      }
+    ],
+    "return_type": "ColumnDef<TData>",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "getVirtualRowRangeExtractor",
+    "library": "table",
+    "description": "Returns a custom range extractor function for TanStack Virtual that ensures pinned rows and the currently dragging row remain in the rendered range during virtualization. Pass to useRowVirtualizer's rangeExtractor option.",
+    "keywords": [
+      "virtual range extractor",
+      "row virtualization",
+      "pinned rows",
+      "dragging row",
+      "row range",
+      "tanstack virtual"
+    ],
+    "when_to_use": [
+      "When using row virtualization together with row pinning or drag-and-drop reordering, to keep those rows visible.",
+      "Pass to useRowVirtualizer({ rangeExtractor: getVirtualRowRangeExtractor(...) })."
+    ],
+    "avoid": [
+      "Avoid using when row pinning and drag reordering are not used alongside virtualization."
+    ],
+    "import_statement": "import { getVirtualRowRangeExtractor } from '@gravity-ui/table';",
+    "related": [
+      "useRowVirtualizer",
+      "useWindowRowVirtualizer",
+      "ReorderingProvider"
+    ],
+    "signature": "function getVirtualRowRangeExtractor(...args: unknown[]): (range: Range) => number[]",
+    "parameters": [],
+    "return_type": "(range: Range) => number[]",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "selectionColumn",
+    "library": "table",
+    "description": "A pre-built TanStack Table column definition for row selection. Renders a SelectionCheckbox in the header (select all) and a RangedSelectionCheckbox in each body cell (individual row selection with shift+click range support). Has a fixed size of 32px and is hidden from TableSettings.",
+    "keywords": [
+      "selection column",
+      "row selection",
+      "checkbox column",
+      "select all",
+      "multi select",
+      "column definition",
+      "select rows"
+    ],
+    "when_to_use": [
+      "Prepend to your columns array when enabling row selection in a table.",
+      "Provides select-all header checkbox and per-row checkboxes with range selection out of the box."
+    ],
+    "avoid": [
+      "Avoid using without enabling enableRowSelection in useTable options — checkboxes will be disabled.",
+      "Avoid using for single-select scenarios where radio-button behavior is preferred."
+    ],
+    "import_statement": "import { selectionColumn } from '@gravity-ui/table';",
+    "related": [
+      "RangedSelectionCheckbox",
+      "useToggleRangeSelectionHandler",
+      "dragHandleColumn",
+      "BaseTable"
+    ],
+    "signature": "const selectionColumn: ColumnDef<unknown>",
+    "parameters": [],
+    "return_type": "ColumnDef<unknown>",
+    "kind": "const"
+  }
+]

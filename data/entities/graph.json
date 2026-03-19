@@ -1,0 +1,807 @@
+[
+  {
+    "type": "component",
+    "name": "GraphBlock",
+    "library": "graph",
+    "description": "Base block component for rendering an HTML block via React inside the graph canvas. Creates a correctly positioned container for a graph block, updates geometry and z-index when state changes, and hides the canvas block once the React version renders.",
+    "keywords": [
+      "block",
+      "graph block",
+      "html block",
+      "node",
+      "canvas block",
+      "react block",
+      "block container",
+      "graph node",
+      "custom block",
+      "block wrapper"
+    ],
+    "when_to_use": [
+      "When rendering custom HTML/React content inside a graph block",
+      "When you need rich interactive UI inside a node (buttons, inputs, rich text)",
+      "As the wrapper component inside the renderBlock callback of GraphCanvas"
+    ],
+    "avoid": [
+      "Do not use outside of the renderBlock callback — block context requires an active graph instance",
+      "Do not use for purely canvas-rendered blocks at low zoom — GraphBlock only activates at detailed zoom level"
+    ],
+    "import_statement": "import { GraphBlock } from '@gravity-ui/graph'",
+    "related": ["GraphCanvas", "GraphBlockAnchor", "useGraph", "useBlockState"],
+    "props": [
+      {
+        "name": "block",
+        "type": "T extends TBlock",
+        "required": true,
+        "description": "Block instance from the graph store."
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Content to render inside the block wrapper."
+      },
+      {
+        "name": "graph",
+        "type": "Graph",
+        "required": true,
+        "description": "Graph instance providing context for block state."
+      },
+      {
+        "name": "autoHideCanvas",
+        "type": "boolean",
+        "required": false,
+        "description": "Automatically hides the canvas block when the React block renders. Defaults to true."
+      },
+      {
+        "name": "canvasVisible",
+        "type": "boolean",
+        "required": false,
+        "description": "Manually controls canvas block visibility when autoHideCanvas is false."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "CSS class applied to the inner wrapper div."
+      },
+      {
+        "name": "containerClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class applied to the outer container div that handles position and size."
+      }
+    ],
+    "examples": [
+      "<GraphBlock graph={graph} block={block}>\n  <div>Block name: {block.name}</div>\n  <button onClick={() => console.log('clicked')}>Click me</button>\n</GraphBlock>",
+      "// With custom class names\n<GraphBlock\n  graph={graph}\n  block={block}\n  className=\"my-block-wrapper\"\n  containerClassName=\"my-block-container\"\n>\n  <CustomBlockContent block={block} />\n</GraphBlock>",
+      "// Manual canvas visibility control\n<GraphBlock\n  graph={graph}\n  block={block}\n  autoHideCanvas={false}\n  canvasVisible={false}\n>\n  <div>{block.name}</div>\n</GraphBlock>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "GraphBlockAnchor",
+    "library": "graph",
+    "description": "Renders an anchor (connection point) for a graph block as a React component. Synchronizes position with the canvas anchor state and applies selection and raised states automatically.",
+    "keywords": [
+      "anchor",
+      "connection point",
+      "port",
+      "block anchor",
+      "graph anchor",
+      "connector",
+      "edge point",
+      "link point",
+      "input",
+      "output"
+    ],
+    "when_to_use": [
+      "When rendering custom HTML anchors/ports on a GraphBlock",
+      "When you need interactive or styled connection points on a node",
+      "Inside a renderBlock callback alongside GraphBlock"
+    ],
+    "avoid": [
+      "Do not use outside of a GraphBlock — anchor position is relative to the parent block geometry",
+      "Do not manually set anchor position via CSS; the component uses CSS variables to synchronize with canvas coordinates"
+    ],
+    "import_statement": "import { GraphBlockAnchor } from '@gravity-ui/graph'",
+    "related": ["GraphBlock", "GraphCanvas", "useBlockAnchorState"],
+    "props": [
+      {
+        "name": "anchor",
+        "type": "TAnchor",
+        "required": true,
+        "description": "Anchor data object from the block's anchors array."
+      },
+      {
+        "name": "graph",
+        "type": "Graph",
+        "required": true,
+        "description": "Graph instance used to look up anchor state."
+      },
+      {
+        "name": "position",
+        "type": "'absolute' | 'fixed'",
+        "required": true,
+        "description": "Positioning mode for the anchor element."
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode | ((anchorState: AnchorState) => React.ReactNode)",
+        "required": false,
+        "description": "Static content or a render-prop function that receives the current anchor state."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class for the anchor container."
+      }
+    ],
+    "examples": [
+      "<GraphBlockAnchor graph={graph} anchor={anchor} position=\"fixed\">\n  <div className=\"anchor-dot\" />\n</GraphBlockAnchor>",
+      "// Render prop for state-aware styling\n<GraphBlockAnchor graph={graph} anchor={anchor} position=\"fixed\">\n  {(state) => (\n    <div className={state.$selected.value ? 'selected' : ''} />\n  )}\n</GraphBlockAnchor>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "GraphCanvas",
+    "library": "graph",
+    "description": "Main React container component for the graph. Attaches a Graph instance to the DOM, sets up the ReactLayer for HTML block rendering, wires CSS color variables, and forwards graph events via callback props.",
+    "keywords": [
+      "graph canvas",
+      "graph container",
+      "graph wrapper",
+      "graph root",
+      "canvas",
+      "flow canvas",
+      "diagram canvas",
+      "graph react",
+      "render block",
+      "graph entry point"
+    ],
+    "when_to_use": [
+      "As the top-level component for rendering any graph",
+      "When you have a Graph instance created via useGraph and want to mount it into the React tree",
+      "When you need to pass graph event callbacks (click, drag, selection) declaratively"
+    ],
+    "avoid": [
+      "Do not nest multiple GraphCanvas instances — each manages its own Graph DOM attachment",
+      "Do not use without a Graph instance; always pair with useGraph"
+    ],
+    "import_statement": "import { GraphCanvas } from '@gravity-ui/graph'",
+    "related": ["useGraph", "GraphBlock", "GraphBlockAnchor", "GraphLayer", "GraphPortal"],
+    "props": [
+      {
+        "name": "graph",
+        "type": "Graph",
+        "required": true,
+        "description": "Graph instance to mount; typically obtained from useGraph."
+      },
+      {
+        "name": "blockListClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class forwarded to the block list layer."
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Additional React content rendered inside the graph wrapper (e.g., GraphPortal, GraphLayer)."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the outermost wrapper div."
+      },
+      {
+        "name": "click",
+        "type": "(data, event) => void",
+        "required": false,
+        "description": "Called when the graph canvas is clicked."
+      },
+      {
+        "name": "dblclick",
+        "type": "(data, event) => void",
+        "required": false,
+        "description": "Called on double-click."
+      },
+      {
+        "name": "onBlockChange",
+        "type": "(data, event) => void",
+        "required": false,
+        "description": "Called when a block's state changes."
+      },
+      {
+        "name": "onBlockDrag",
+        "type": "(data, event) => void",
+        "required": false,
+        "description": "Called while a block is being dragged."
+      },
+      {
+        "name": "onBlockDragEnd",
+        "type": "(data, event) => void",
+        "required": false,
+        "description": "Called when a block drag ends."
+      },
+      {
+        "name": "onBlockDragStart",
+        "type": "(data, event) => void",
+        "required": false,
+        "description": "Called when a block drag starts."
+      },
+      {
+        "name": "onBlockSelectionChange",
+        "type": "(data, event) => void",
+        "required": false,
+        "description": "Called when block selection changes."
+      },
+      {
+        "name": "onCameraChange",
+        "type": "(data, event) => void",
+        "required": false,
+        "description": "Called on camera pan or zoom."
+      },
+      {
+        "name": "onConnectionSelectionChange",
+        "type": "(data, event) => void",
+        "required": false,
+        "description": "Called when connection selection changes."
+      },
+      {
+        "name": "onStateChanged",
+        "type": "(data, event) => void",
+        "required": false,
+        "description": "Called when the graph's lifecycle state changes."
+      },
+      {
+        "name": "reactLayerRef",
+        "type": "React.MutableRefObject<ReactLayer | null>",
+        "required": false,
+        "description": "Ref to access the internal ReactLayer instance."
+      },
+      {
+        "name": "renderBlock",
+        "type": "(graph: Graph, block: TBlock) => React.ReactNode",
+        "required": false,
+        "description": "Render function called for each visible block; return a GraphBlock element."
+      }
+    ],
+    "examples": [
+      "const { graph } = useGraph({});\nreturn (\n  <GraphCanvas\n    graph={graph}\n    renderBlock={(g, block) => (\n      <GraphBlock graph={g} block={block}>\n        {block.name}\n      </GraphBlock>\n    )}\n  />\n);",
+      "// With event callbacks\n<GraphCanvas\n  graph={graph}\n  renderBlock={renderBlock}\n  onBlockDragEnd={({ blocks }) => savePositions(blocks)}\n  onBlockSelectionChange={({ selectedBlockIds }) => setSelected(selectedBlockIds)}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "GraphLayer",
+    "library": "graph",
+    "description": "Declarative React component that adds an existing Layer class to the graph. Exposes the layer instance via a ref. Renders no visible DOM — it is a side-effect component used inside GraphCanvas children.",
+    "keywords": [
+      "graph layer",
+      "layer",
+      "custom layer",
+      "declarative layer",
+      "canvas layer",
+      "graph extension",
+      "layer component",
+      "plugin layer"
+    ],
+    "when_to_use": [
+      "When you want to add a custom Layer class to the graph declaratively inside JSX",
+      "When you need a ref to the layer instance for imperative access",
+      "As an alternative to the useLayer hook when working in a component that already has GraphCanvas as ancestor"
+    ],
+    "avoid": [
+      "Do not use outside of GraphCanvas — it reads graph from GraphContext and will throw without a provider",
+      "Prefer useLayer when you need the layer instance during render (e.g., in the same component)"
+    ],
+    "import_statement": "import { GraphLayer } from '@gravity-ui/graph'",
+    "related": ["GraphCanvas", "GraphPortal", "useLayer", "useGraph"],
+    "props": [
+      {
+        "name": "layer",
+        "type": "Constructor<Layer>",
+        "required": true,
+        "description": "Layer class constructor to instantiate and add to the graph."
+      },
+      {
+        "name": "props",
+        "type": "LayerPublicProps<TLayer>",
+        "required": false,
+        "description": "Custom props forwarded to the layer constructor (exclude graph, camera, root, emitter)."
+      },
+      {
+        "name": "ref",
+        "type": "React.Ref<LayerInstance>",
+        "required": false,
+        "description": "Ref to access the created layer instance."
+      }
+    ],
+    "examples": [
+      "const layerRef = useRef(null);\nreturn (\n  <GraphCanvas graph={graph} renderBlock={renderBlock}>\n    <GraphLayer layer={DevToolsLayer} props={{ showRuler: true }} ref={layerRef} />\n  </GraphCanvas>\n);"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "GraphPortal",
+    "library": "graph",
+    "description": "Declarative component for creating an HTML layer inside the graph using a React Portal. Renders children into a managed Layer HTML element without requiring a custom Layer class, supporting camera-following overlays.",
+    "keywords": [
+      "graph portal",
+      "portal",
+      "html overlay",
+      "graph overlay",
+      "layer portal",
+      "custom ui overlay",
+      "graph ui",
+      "z-index layer",
+      "camera follow"
+    ],
+    "when_to_use": [
+      "When you need to render arbitrary React UI inside the graph layer stack",
+      "When you want a floating overlay that optionally follows the camera",
+      "As an alternative to writing a full custom Layer class for simple HTML overlays"
+    ],
+    "avoid": [
+      "Do not use outside of GraphCanvas — it reads graph from GraphContext",
+      "Do not use for block-level rendering — use GraphBlock inside renderBlock instead"
+    ],
+    "import_statement": "import { GraphPortal } from '@gravity-ui/graph'",
+    "related": ["GraphCanvas", "GraphLayer", "useGraph"],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode | ((layer: GraphPortalLayer, graph: Graph) => React.ReactNode)",
+        "required": true,
+        "description": "Content to render in the portal, or a render-prop function receiving layer and graph."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "CSS class added to the layer HTML element."
+      },
+      {
+        "name": "transformByCameraPosition",
+        "type": "boolean",
+        "required": false,
+        "description": "When true, the portal layer follows camera pan and zoom. Defaults to false."
+      },
+      {
+        "name": "zIndex",
+        "type": "number",
+        "required": false,
+        "description": "Z-index for the portal layer. Defaults to 100."
+      }
+    ],
+    "examples": [
+      "<GraphCanvas graph={graph} renderBlock={renderBlock}>\n  <GraphPortal zIndex={200}>\n    <div style={{ position: 'absolute', top: 10, left: 10 }}>\n      <h3>Custom Overlay</h3>\n    </div>\n  </GraphPortal>\n</GraphCanvas>",
+      "// Render prop with access to layer and graph\n<GraphPortal transformByCameraPosition={true}>\n  {(layer, graph) => (\n    <div onClick={() => layer.hide()}>\n      Blocks: {graph.api.getBlocks().length}\n    </div>\n  )}\n</GraphPortal>"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useBlockAnchorState",
+    "library": "graph",
+    "description": "Returns the reactive AnchorState for a given anchor on a block. Subscribes to signal updates so the component re-renders when the anchor state changes.",
+    "keywords": [
+      "anchor state",
+      "block anchor",
+      "anchor hook",
+      "connection point state",
+      "port state",
+      "anchor reactive"
+    ],
+    "when_to_use": [
+      "When you need to read anchor selection, position, or other state reactively in a React component",
+      "Inside a custom GraphBlockAnchor implementation"
+    ],
+    "avoid": [
+      "Do not use for block-level state — use useBlockState instead"
+    ],
+    "import_statement": "import { useBlockAnchorState } from '@gravity-ui/graph'",
+    "related": ["useBlockState", "GraphBlockAnchor", "useSignal"],
+    "signature": "useBlockAnchorState(graph: Graph, anchor: TAnchor): AnchorState | undefined",
+    "parameters": [
+      { "name": "graph", "type": "Graph", "description": "Graph instance." },
+      { "name": "anchor", "type": "TAnchor", "description": "Anchor object whose state to subscribe to." }
+    ],
+    "return_type": "AnchorState | undefined"
+  },
+  {
+    "type": "hook",
+    "name": "useBlockState",
+    "library": "graph",
+    "description": "Returns the reactive BlockState for a given block ID or block object. Subscribes to signal updates and triggers re-renders when the block state changes.",
+    "keywords": [
+      "block state",
+      "reactive block",
+      "block hook",
+      "graph block state",
+      "block signal",
+      "block store"
+    ],
+    "when_to_use": [
+      "When you need to access block geometry, selection, or other reactive state in a React component",
+      "Inside a custom block renderer alongside GraphBlock"
+    ],
+    "avoid": [
+      "Do not use outside a Graph context — the graph's rootStore must be initialized"
+    ],
+    "import_statement": "import { useBlockState } from '@gravity-ui/graph'",
+    "related": ["useBlockAnchorState", "GraphBlock", "useSignal"],
+    "signature": "useBlockState<T extends TBlock>(graph: Graph, block: T | T['id']): BlockState | undefined",
+    "parameters": [
+      { "name": "graph", "type": "Graph", "description": "Graph instance." },
+      { "name": "block", "type": "T | T['id']", "description": "Block object or block ID." }
+    ],
+    "return_type": "BlockState | undefined"
+  },
+  {
+    "type": "hook",
+    "name": "useComputedSignal",
+    "library": "graph",
+    "description": "Subscribes to a derived (computed) signal created from a compute function and dependency list. Re-renders the component whenever the computed signal value changes.",
+    "keywords": [
+      "computed signal",
+      "derived signal",
+      "reactive computed",
+      "signal hook",
+      "preact signal",
+      "derived state"
+    ],
+    "when_to_use": [
+      "When you need to derive a value from one or more signals and keep it reactive",
+      "As a more flexible alternative to useSignal when the signal itself is not stable"
+    ],
+    "avoid": [
+      "Do not use for simple static values — use useMemo instead",
+      "Avoid heavy computations in the compute function; it runs on every signal change"
+    ],
+    "import_statement": "import { useComputedSignal } from '@gravity-ui/graph'",
+    "related": ["useSignal", "useSignalEffect"],
+    "signature": "useComputedSignal<T>(compute: () => T, deps: DependencyList): T",
+    "parameters": [
+      { "name": "compute", "type": "() => T", "description": "Function that reads signals and returns a derived value." },
+      { "name": "deps", "type": "DependencyList", "description": "React dependency array that recreates the computed signal when changed." }
+    ],
+    "return_type": "T"
+  },
+  {
+    "type": "hook",
+    "name": "useElk",
+    "library": "graph",
+    "description": "Runs an ELK (Eclipse Layout Kernel) graph layout computation and returns the converted result as blocks and connections compatible with the graph library. Handles async loading state and cancellation on re-runs.",
+    "keywords": [
+      "elk",
+      "graph layout",
+      "auto layout",
+      "elkjs",
+      "layout engine",
+      "automatic graph layout",
+      "hierarchical layout",
+      "dagre alternative"
+    ],
+    "when_to_use": [
+      "When you want automatic graph layout using ELK (hierarchical, force-directed, etc.)",
+      "When converting an ELK node graph into block/connection entities for the graph library"
+    ],
+    "avoid": [
+      "Do not use without an initialized ELK instance — the caller must supply the elk argument",
+      "Not suitable for real-time interactive layout — ELK is async and best for initial placement"
+    ],
+    "import_statement": "import { useElk } from '@gravity-ui/graph'",
+    "related": ["useGraph"],
+    "signature": "useElk(config: ElkNode, elk: ELK, args?: ElkLayoutArguments & { onError?: (e: Error) => void }): { result: ConverterResult | null; isLoading: boolean }",
+    "parameters": [
+      { "name": "config", "type": "ElkNode", "description": "ELK node configuration describing the graph topology." },
+      { "name": "elk", "type": "ELK", "description": "ELK instance (from elkjs)." },
+      { "name": "args", "type": "ElkLayoutArguments & { onError?: (e: Error) => void }", "description": "Optional layout arguments and error callback." }
+    ],
+    "return_type": "{ result: ConverterResult | null; isLoading: boolean }"
+  },
+  {
+    "type": "hook",
+    "name": "useGraph",
+    "library": "graph",
+    "description": "Creates and manages a Graph instance for use in React. Returns the graph and a set of stable API methods for setting entities, updating settings, managing layers, and controlling zoom. Automatically cleans up the graph on unmount.",
+    "keywords": [
+      "use graph",
+      "graph hook",
+      "create graph",
+      "graph instance",
+      "graph api",
+      "graph setup",
+      "graph initialization",
+      "graph lifecycle",
+      "react graph",
+      "graph state"
+    ],
+    "when_to_use": [
+      "To create and control a Graph instance inside a React component",
+      "As the primary entry point before rendering GraphCanvas",
+      "When you need access to graph API methods like setEntities, zoomTo, start"
+    ],
+    "avoid": [
+      "Do not call multiple times for the same graph — the hook memoizes by config.graph reference",
+      "Do not pass new object literals as config on each render without useMemo — settings will update on every render"
+    ],
+    "import_statement": "import { useGraph } from '@gravity-ui/graph'",
+    "related": ["GraphCanvas", "useLayer", "useGraphEvent"],
+    "signature": "useGraph(config: HookGraphParams): { graph: Graph; api: PublicGraphApi; setSettings, start, stop, setViewConfiguration, addLayer, setEntities, updateEntities, zoomTo }",
+    "parameters": [
+      { "name": "config", "type": "HookGraphParams", "description": "Configuration including settings, layers, viewConfiguration, and an optional existing graph instance." }
+    ],
+    "return_type": "{ graph: Graph; api: PublicGraphApi; setSettings: (s) => void; start: () => void; stop: () => void; setViewConfiguration: (v) => void; addLayer: (ctor, props) => Layer; setEntities: (entities) => void; updateEntities: (entities) => void; zoomTo: (target, config?) => void }"
+  },
+  {
+    "type": "hook",
+    "name": "useGraphEvent",
+    "library": "graph",
+    "description": "Subscribes to a single graph event and calls the provided callback when it fires. Supports optional debouncing via scheduler frame intervals. Automatically unsubscribes on unmount.",
+    "keywords": [
+      "graph event",
+      "event hook",
+      "subscribe event",
+      "graph listener",
+      "event subscription",
+      "camera change",
+      "block select",
+      "block drag"
+    ],
+    "when_to_use": [
+      "When you need to react to a specific graph event in a React component",
+      "For camera changes, block interactions, or state transitions"
+    ],
+    "avoid": [
+      "Do not use for many events at once — use useGraphEvents for bulk subscriptions",
+      "Do not pass unstable callbacks without useFn or useCallback — it will resubscribe on each render"
+    ],
+    "import_statement": "import { useGraphEvent } from '@gravity-ui/graph'",
+    "related": ["useGraphEvents", "useGraph", "GraphCanvas"],
+    "signature": "useGraphEvent<Event extends keyof GraphEventsDefinitions>(graph: Graph | null, event: Event, cb: (data, event) => void, debounceParams?: object): void",
+    "parameters": [
+      { "name": "graph", "type": "Graph | null", "description": "Graph instance to subscribe to." },
+      { "name": "event", "type": "keyof GraphEventsDefinitions", "description": "Event name to subscribe to." },
+      { "name": "cb", "type": "(data, event) => void", "description": "Callback invoked on each event." },
+      { "name": "debounceParams", "type": "{ priority?, frameInterval?, frameTimeout? }", "description": "Optional scheduler-based debounce options." }
+    ],
+    "return_type": "void"
+  },
+  {
+    "type": "hook",
+    "name": "useGraphEvents",
+    "library": "graph",
+    "description": "Subscribes to multiple graph events at once using a callback map. Each key corresponds to a TGraphEventCallbacks key and maps to the underlying graph event. Automatically cleans up on unmount.",
+    "keywords": [
+      "graph events",
+      "multiple events",
+      "event callbacks",
+      "graph callbacks",
+      "bulk event subscription"
+    ],
+    "when_to_use": [
+      "When passing multiple event callbacks to a graph in one call",
+      "Inside GraphCanvas-like wrappers that accept a spread of callback props"
+    ],
+    "avoid": [
+      "Do not reconstruct the events object on every render without memoization — causes constant resubscription"
+    ],
+    "import_statement": "import { useGraphEvents } from '@gravity-ui/graph'",
+    "related": ["useGraphEvent", "GraphCanvas"],
+    "signature": "useGraphEvents(graph: Graph | null, events: Partial<TGraphEventCallbacks>): void",
+    "parameters": [
+      { "name": "graph", "type": "Graph | null", "description": "Graph instance to subscribe to." },
+      { "name": "events", "type": "Partial<TGraphEventCallbacks>", "description": "Map of event callback functions." }
+    ],
+    "return_type": "void"
+  },
+  {
+    "type": "hook",
+    "name": "useLayer",
+    "library": "graph",
+    "description": "Adds a Layer class to the graph and returns the layer instance. Automatically initializes when the graph is ready and detaches the layer on unmount. Uses deep equality to update layer props without unnecessary re-initialization.",
+    "keywords": [
+      "layer hook",
+      "add layer",
+      "graph layer",
+      "custom layer",
+      "layer management",
+      "layer lifecycle",
+      "canvas layer",
+      "graph plugin"
+    ],
+    "when_to_use": [
+      "When you need to add a custom Layer to the graph from a React component",
+      "When you want automatic layer cleanup tied to component lifecycle"
+    ],
+    "avoid": [
+      "Do not pass graph, camera, root, or emitter in props — these are auto-provided",
+      "Do not use when the layer is needed only declaratively inside GraphCanvas children — use GraphLayer component instead"
+    ],
+    "import_statement": "import { useLayer } from '@gravity-ui/graph'",
+    "related": ["GraphLayer", "GraphCanvas", "useGraph"],
+    "signature": "useLayer<T extends Constructor<Layer>>(graph: Graph | null, layerCtor: T, props: LayerPublicProps<T>): InstanceType<T> | null",
+    "parameters": [
+      { "name": "graph", "type": "Graph | null", "description": "Graph instance to add the layer to." },
+      { "name": "layerCtor", "type": "Constructor<Layer>", "description": "Layer class constructor." },
+      { "name": "props", "type": "LayerPublicProps<T>", "description": "Custom props for the layer (excluding internal props)." }
+    ],
+    "return_type": "InstanceType<T> | null"
+  },
+  {
+    "type": "hook",
+    "name": "useSceneChange",
+    "library": "graph",
+    "description": "Calls the provided function whenever the visible scene changes — either via camera movement or block position updates. Uses scheduler debouncing for high-priority updates and subscribes to both camera-change events and hitTest updates.",
+    "keywords": [
+      "scene change",
+      "camera change",
+      "viewport update",
+      "scene update",
+      "graph repaint",
+      "scene hook"
+    ],
+    "when_to_use": [
+      "When you need to respond to any visible change in the graph viewport (pan, zoom, block move)",
+      "For updating overlays or external UI that mirrors the graph viewport"
+    ],
+    "avoid": [
+      "Do not use for block-specific updates — use useBlockState or useSignal instead"
+    ],
+    "import_statement": "import { useSceneChange } from '@gravity-ui/graph'",
+    "related": ["useGraphEvent", "useGraph"],
+    "signature": "useSceneChange(graph: Graph, fn: () => void): void",
+    "parameters": [
+      { "name": "graph", "type": "Graph", "description": "Graph instance to observe." },
+      { "name": "fn", "type": "() => void", "description": "Callback invoked on any scene change." }
+    ],
+    "return_type": "void"
+  },
+  {
+    "type": "hook",
+    "name": "useSchedulerDebounce",
+    "library": "graph",
+    "description": "Returns a debounced version of a function that delays execution until both a minimum number of animation frames and an optional timeout have elapsed. Automatically cancels on unmount.",
+    "keywords": [
+      "scheduler debounce",
+      "debounce hook",
+      "frame debounce",
+      "animation frame debounce",
+      "scheduler hook",
+      "performance debounce"
+    ],
+    "when_to_use": [
+      "When you need to debounce a handler tied to the graph scheduler's frame cycle",
+      "For expensive updates triggered by frequent events like mouse move or camera change"
+    ],
+    "avoid": [
+      "Do not use for non-scheduler logic — prefer standard lodash debounce for time-only debouncing"
+    ],
+    "import_statement": "import { useSchedulerDebounce } from '@gravity-ui/graph'",
+    "related": ["useSchedulerThrottle", "useScheduledTask", "useGraphEvent"],
+    "signature": "useSchedulerDebounce<T extends (...args) => void>(fn: T, options: TDebounceOptions): T & { cancel(): void }",
+    "parameters": [
+      { "name": "fn", "type": "T", "description": "Function to debounce." },
+      { "name": "options", "type": "TDebounceOptions", "description": "Options: priority, frameInterval, frameTimeout." }
+    ],
+    "return_type": "T & { cancel(): void }"
+  },
+  {
+    "type": "hook",
+    "name": "useScheduledTask",
+    "library": "graph",
+    "description": "Schedules a task for one-time execution after the specified number of animation frames. Automatically cancels the scheduled task on unmount.",
+    "keywords": [
+      "scheduled task",
+      "frame task",
+      "scheduler hook",
+      "deferred execution",
+      "animation frame task"
+    ],
+    "when_to_use": [
+      "When you need to defer a one-time action to a future animation frame",
+      "For post-render tasks that must happen after the scheduler cycle"
+    ],
+    "avoid": [
+      "Do not use for repeating tasks — use useSchedulerDebounce or useSchedulerThrottle"
+    ],
+    "import_statement": "import { useScheduledTask } from '@gravity-ui/graph'",
+    "related": ["useSchedulerDebounce", "useSchedulerThrottle"],
+    "signature": "useScheduledTask<T extends (...args: unknown[]) => void>(fn: T, options: Omit<TScheduleOptions, 'once'>): void",
+    "parameters": [
+      { "name": "fn", "type": "T", "description": "Task function to schedule." },
+      { "name": "options", "type": "Omit<TScheduleOptions, 'once'>", "description": "Options: priority, frameInterval." }
+    ],
+    "return_type": "void"
+  },
+  {
+    "type": "hook",
+    "name": "useSchedulerThrottle",
+    "library": "graph",
+    "description": "Returns a throttled version of a function that limits execution to at most once per specified frame interval and timeout. Unlike debounce, executes immediately on the first call. Automatically cancels on unmount.",
+    "keywords": [
+      "scheduler throttle",
+      "throttle hook",
+      "frame throttle",
+      "animation frame throttle",
+      "rate limit",
+      "performance throttle"
+    ],
+    "when_to_use": [
+      "When you want to rate-limit a handler to fire at most once per N frames",
+      "For real-time interactions where the first response should be immediate but subsequent calls throttled"
+    ],
+    "avoid": [
+      "Do not use when you want to wait for the last call — use useSchedulerDebounce instead"
+    ],
+    "import_statement": "import { useSchedulerThrottle } from '@gravity-ui/graph'",
+    "related": ["useSchedulerDebounce", "useScheduledTask"],
+    "signature": "useSchedulerThrottle<T extends (...args) => void>(fn: T, options: TDebounceOptions): T & { cancel(): void }",
+    "parameters": [
+      { "name": "fn", "type": "T", "description": "Function to throttle." },
+      { "name": "options", "type": "TDebounceOptions", "description": "Options: priority, frameInterval, frameTimeout." }
+    ],
+    "return_type": "T & { cancel(): void }"
+  },
+  {
+    "type": "hook",
+    "name": "useSignal",
+    "library": "graph",
+    "description": "Subscribes a React component to a Preact signal and returns its current value. Re-renders the component whenever the signal value changes, using useSyncExternalStore for safe concurrent-mode access.",
+    "keywords": [
+      "signal hook",
+      "preact signal",
+      "reactive signal",
+      "signal subscribe",
+      "use signal",
+      "signal value",
+      "reactive state"
+    ],
+    "when_to_use": [
+      "When you need to read a graph signal value and re-render on change",
+      "For block geometry, selection state, or any other signal exposed by the graph store"
+    ],
+    "avoid": [
+      "Do not use with unstable signal references — ensure the signal object is stable across renders"
+    ],
+    "import_statement": "import { useSignal } from '@gravity-ui/graph'",
+    "related": ["useComputedSignal", "useSignalEffect"],
+    "signature": "useSignal<T>(signal: Signal<T>): T",
+    "parameters": [
+      { "name": "signal", "type": "Signal<T>", "description": "Preact signal to subscribe to." }
+    ],
+    "return_type": "T"
+  },
+  {
+    "type": "hook",
+    "name": "useSignalEffect",
+    "library": "graph",
+    "description": "Runs an effect function reactively whenever any signals read inside it change. Similar to Preact's effect() but integrated with React's useEffect and dependency list for controlling when the effect is recreated.",
+    "keywords": [
+      "signal effect",
+      "reactive effect",
+      "signal side effect",
+      "preact effect",
+      "use signal effect"
+    ],
+    "when_to_use": [
+      "When you need to apply side effects (DOM mutations, style updates) in response to signal changes",
+      "Inside block components that update CSS variables based on geometry signals"
+    ],
+    "avoid": [
+      "Do not use for derived values that need to be returned — use useComputedSignal instead",
+      "Avoid reading non-signal reactive state inside the effect function"
+    ],
+    "import_statement": "import { useSignalEffect } from '@gravity-ui/graph'",
+    "related": ["useSignal", "useComputedSignal"],
+    "signature": "useSignalEffect(effectFn: () => void, deps: DependencyList): void",
+    "parameters": [
+      { "name": "effectFn", "type": "() => void", "description": "Effect function that reads signals; re-runs when signals change." },
+      { "name": "deps", "type": "DependencyList", "description": "React dependency array that recreates the effect subscription." }
+    ],
+    "return_type": "void"
+  }
+]

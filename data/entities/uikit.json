@@ -1,0 +1,5912 @@
+[
+  {
+    "type": "component",
+    "name": "Accordion",
+    "library": "uikit",
+    "description": "Displays a list of collapsible items where users can expand or collapse content sections. Supports single or multiple open items simultaneously.",
+    "keywords": [
+      "accordion",
+      "collapse",
+      "expand",
+      "collapsible",
+      "disclosure",
+      "section",
+      "panel",
+      "toggle",
+      "faq"
+    ],
+    "when_to_use": [
+      "Presenting grouped content that users can expand on demand",
+      "FAQ sections",
+      "Settings panels with optional detail views"
+    ],
+    "avoid": [
+      "When all content should always be visible (use plain sections)",
+      "For navigation trees (use TreeList)",
+      "When tabs are more appropriate"
+    ],
+    "import_statement": "import {Accordion} from '@gravity-ui/uikit';",
+    "related": [
+      "Disclosure",
+      "Toc"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Accordion.Item components"
+      },
+      {
+        "name": "arrowPosition",
+        "type": "'start' | 'end'",
+        "required": false,
+        "default": "'end'",
+        "description": "Position of the arrow toggle"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string | string[]",
+        "required": false,
+        "description": "Initial expanded item(s) for uncontrolled usage"
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Allow multiple items open simultaneously"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(value: string | string[]) => void",
+        "required": false,
+        "description": "Callback when expanded state changes"
+      },
+      {
+        "name": "size",
+        "type": "'m' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Size of accordion items"
+      },
+      {
+        "name": "value",
+        "type": "string | string[]",
+        "required": false,
+        "description": "Controlled expanded item value(s)"
+      },
+      {
+        "name": "view",
+        "type": "'solid' | 'top-bottom'",
+        "required": false,
+        "default": "'solid'",
+        "description": "Visual style"
+      }
+    ],
+    "examples": [
+      "<Accordion>\n  <Accordion.Item value=\"a\"><Accordion.Summary>Section</Accordion.Summary>Content</Accordion.Item>\n</Accordion>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ActionsPanel",
+    "library": "uikit",
+    "description": "Renders multiple action buttons in a row with an overflow dropdown for items that do not fit. Used for bulk actions in table or list selection contexts.",
+    "keywords": [
+      "actions panel",
+      "toolbar",
+      "bulk actions",
+      "overflow menu",
+      "selection toolbar",
+      "buttons bar"
+    ],
+    "when_to_use": [
+      "Bulk action toolbars in tables or lists",
+      "Showing selected item count with available actions"
+    ],
+    "avoid": [
+      "For navigation menus (use Menu)",
+      "For single-item actions (use DropdownMenu)"
+    ],
+    "import_statement": "import {ActionsPanel} from '@gravity-ui/uikit';",
+    "related": [
+      "Button",
+      "DropdownMenu",
+      "Table"
+    ],
+    "props": [
+      {
+        "name": "actions",
+        "type": "ActionsPanelItem[]",
+        "required": true,
+        "description": "Action button configurations"
+      },
+      {
+        "name": "maxRowActions",
+        "type": "number",
+        "required": false,
+        "description": "Max visible actions before overflow menu"
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "description": "Dismiss handler"
+      },
+      {
+        "name": "renderNote",
+        "type": "() => React.ReactNode",
+        "required": false,
+        "description": "Custom note (e.g. selection count)"
+      }
+    ],
+    "examples": [
+      "<ActionsPanel actions={[{id: 'del', text: 'Delete', handler: () => {}}]} renderNote={() => '3 selected'} onClose={() => {}} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ActionTooltip",
+    "library": "uikit",
+    "description": "A tooltip variant for labeling icon buttons with an optional description and keyboard shortcut. Provides accessible labeling for icon-only interactive elements.",
+    "keywords": [
+      "tooltip",
+      "icon button label",
+      "hotkey",
+      "keyboard shortcut",
+      "accessibility",
+      "action label"
+    ],
+    "when_to_use": [
+      "Labeling icon-only buttons for accessibility",
+      "Showing keyboard shortcuts alongside button labels"
+    ],
+    "avoid": [
+      "For general hover info on non-interactive elements (use Tooltip)",
+      "For long descriptive content (use Popover)"
+    ],
+    "import_statement": "import {ActionTooltip} from '@gravity-ui/uikit';",
+    "related": [
+      "Tooltip",
+      "Popover",
+      "Button",
+      "Hotkey"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactElement",
+        "required": true,
+        "description": "Anchor element (usually an icon button)"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": "Tooltip title text"
+      },
+      {
+        "name": "closeDelay",
+        "type": "number",
+        "required": false,
+        "description": "Ms to delay hiding after hover ends"
+      },
+      {
+        "name": "description",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Optional additional description"
+      },
+      {
+        "name": "hotkey",
+        "type": "string",
+        "required": false,
+        "description": "Keyboard shortcut (e.g. 'mod+s')"
+      },
+      {
+        "name": "openDelay",
+        "type": "number",
+        "required": false,
+        "description": "Ms to delay showing after hover begins"
+      },
+      {
+        "name": "placement",
+        "type": "PopupPlacement",
+        "required": false,
+        "description": "Tooltip placement"
+      }
+    ],
+    "examples": [
+      "<ActionTooltip title=\"Save\" hotkey=\"mod+s\"><Button view=\"flat\"><Icon data={Save} /></Button></ActionTooltip>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Alert",
+    "library": "uikit",
+    "description": "Displays inline status messages with themed styling for info, success, warning, danger, and other states. Supports optional close button, action buttons, and icon customization.",
+    "keywords": [
+      "alert",
+      "notification",
+      "banner",
+      "warning",
+      "error",
+      "info",
+      "success",
+      "danger",
+      "status message"
+    ],
+    "when_to_use": [
+      "Inline status messages within page content",
+      "Form validation summaries",
+      "Contextual warnings near related content"
+    ],
+    "avoid": [
+      "Transient toast notifications (use Toaster)",
+      "Blocking confirmations (use Dialog)"
+    ],
+    "import_statement": "import {Alert} from '@gravity-ui/uikit';",
+    "related": [
+      "Toaster",
+      "Dialog",
+      "Progress"
+    ],
+    "props": [
+      {
+        "name": "actions",
+        "type": "AlertAction[]",
+        "required": false,
+        "description": "Action buttons inside the alert"
+      },
+      {
+        "name": "align",
+        "type": "'center' | 'baseline'",
+        "required": false,
+        "description": "Vertical alignment of content"
+      },
+      {
+        "name": "corners",
+        "type": "'rounded' | 'square'",
+        "required": false,
+        "default": "'rounded'",
+        "description": "Corner style"
+      },
+      {
+        "name": "icon",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom icon"
+      },
+      {
+        "name": "layout",
+        "type": "'vertical' | 'horizontal'",
+        "required": false,
+        "default": "'horizontal'",
+        "description": "Layout direction"
+      },
+      {
+        "name": "message",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Body text"
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "description": "Close button handler"
+      },
+      {
+        "name": "theme",
+        "type": "'normal' | 'info' | 'success' | 'warning' | 'danger' | 'utility' | 'clear'",
+        "required": false,
+        "default": "'normal'",
+        "description": "Color theme"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Bold title text"
+      },
+      {
+        "name": "view",
+        "type": "'filled' | 'outlined'",
+        "required": false,
+        "default": "'filled'",
+        "description": "Fill style"
+      }
+    ],
+    "examples": [
+      "<Alert theme=\"warning\" title=\"Unsaved changes\" message=\"Changes will be lost.\" onClose={() => {}} />",
+      "<Alert theme=\"danger\" title=\"Error\" message=\"Request failed.\" actions={[{text: 'Retry', handler: () => {}}]} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ArrowToggle",
+    "library": "uikit",
+    "description": "A chevron arrow icon that rotates to indicate directional or expand/collapse state. Used inside collapsible triggers, dropdowns, and tree nodes.",
+    "keywords": [
+      "arrow",
+      "chevron",
+      "toggle",
+      "expand",
+      "collapse",
+      "caret",
+      "direction indicator"
+    ],
+    "when_to_use": [
+      "Visually indicating collapse/expand state",
+      "Inside custom dropdown triggers"
+    ],
+    "avoid": [
+      "As standalone clickable element (needs a Button wrapper)"
+    ],
+    "import_statement": "import {ArrowToggle} from '@gravity-ui/uikit';",
+    "related": [
+      "Disclosure",
+      "Accordion",
+      "Icon"
+    ],
+    "props": [
+      {
+        "name": "direction",
+        "type": "'top' | 'right' | 'bottom' | 'left'",
+        "required": false,
+        "default": "'bottom'",
+        "description": "Direction the arrow points"
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "description": "Icon size in pixels"
+      }
+    ],
+    "examples": [
+      "<ArrowToggle direction={isOpen ? 'top' : 'bottom'} size={16} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Avatar",
+    "library": "uikit",
+    "description": "Displays a user avatar as an image, icon, or text initials. Supports multiple sizes, themes, shapes (circle/square), and custom colors.",
+    "keywords": [
+      "avatar",
+      "user photo",
+      "profile picture",
+      "initials",
+      "icon avatar",
+      "user image",
+      "thumbnail",
+      "profile"
+    ],
+    "when_to_use": [
+      "Representing users in lists, headers, comments",
+      "In User or UserLabel components",
+      "Profile indicators in navigation"
+    ],
+    "avoid": [
+      "For general image display (use img tag)"
+    ],
+    "import_statement": "import {Avatar} from '@gravity-ui/uikit';",
+    "related": [
+      "User",
+      "UserLabel",
+      "AvatarStack"
+    ],
+    "props": [
+      {
+        "name": "backgroundColor",
+        "type": "string",
+        "required": false,
+        "description": "Custom background color"
+      },
+      {
+        "name": "borderColor",
+        "type": "string",
+        "required": false,
+        "description": "Custom border color"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "description": "Custom text/icon color"
+      },
+      {
+        "name": "fallbackImgUrl",
+        "type": "string",
+        "required": false,
+        "description": "Fallback image URL if main fails"
+      },
+      {
+        "name": "icon",
+        "type": "IconData",
+        "required": false,
+        "description": "Icon for icon-type avatar"
+      },
+      {
+        "name": "imgUrl",
+        "type": "string",
+        "required": false,
+        "description": "Image URL for photo avatar"
+      },
+      {
+        "name": "shape",
+        "type": "'circle' | 'square'",
+        "required": false,
+        "default": "'circle'",
+        "description": "Avatar shape"
+      },
+      {
+        "name": "size",
+        "type": "'3xs' | '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Avatar size"
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "description": "Text to display as initials"
+      },
+      {
+        "name": "theme",
+        "type": "'normal' | 'brand'",
+        "required": false,
+        "default": "'normal'",
+        "description": "Color theme"
+      },
+      {
+        "name": "view",
+        "type": "'filled' | 'outlined'",
+        "required": false,
+        "default": "'filled'",
+        "description": "Fill style"
+      }
+    ],
+    "examples": [
+      "<Avatar imgUrl=\"https://example.com/photo.jpg\" size=\"m\" />",
+      "<Avatar text=\"John Doe\" theme=\"brand\" size=\"l\" />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "AvatarStack",
+    "library": "uikit",
+    "description": "Displays a horizontal stack of overlapping Avatar components with a counter or dots indicator when items exceed the maximum visible count.",
+    "keywords": [
+      "avatar stack",
+      "user group",
+      "multiple users",
+      "overlap avatars",
+      "group display",
+      "team members"
+    ],
+    "when_to_use": [
+      "Showing a group of users compactly",
+      "Team member displays in cards or headers"
+    ],
+    "avoid": [
+      "When individual user identity matters (show full User components)"
+    ],
+    "import_statement": "import {AvatarStack} from '@gravity-ui/uikit';",
+    "related": [
+      "Avatar",
+      "User"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Avatar components to stack"
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "description": "Maximum avatars visible before overflow indicator"
+      },
+      {
+        "name": "moreVariant",
+        "type": "'counter' | 'dots'",
+        "required": false,
+        "default": "'counter'",
+        "description": "Style of overflow indicator"
+      },
+      {
+        "name": "overlapSize",
+        "type": "'s' | 'm' | 'l'",
+        "required": false,
+        "default": "'m'",
+        "description": "Overlap amount between avatars"
+      },
+      {
+        "name": "renderMore",
+        "type": "(count: number) => React.ReactNode",
+        "required": false,
+        "description": "Custom overflow indicator renderer"
+      }
+    ],
+    "examples": [
+      "<AvatarStack max={3}>\n  <Avatar text=\"Alice\" />\n  <Avatar text=\"Bob\" />\n  <Avatar text=\"Carol\" />\n</AvatarStack>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Box",
+    "library": "uikit",
+    "description": "A polymorphic layout block with built-in CSS property shortcuts for width, height, position, overflow, and spacing. Serves as the foundation for layout composition.",
+    "keywords": [
+      "box",
+      "layout",
+      "block",
+      "container",
+      "spacing",
+      "margin",
+      "padding",
+      "polymorphic",
+      "div wrapper"
+    ],
+    "when_to_use": [
+      "Applying layout CSS properties with spacing system",
+      "Building custom layout compositions"
+    ],
+    "avoid": [
+      "For flex layouts (use Flex)",
+      "For grid layouts (use Row/Col)"
+    ],
+    "import_statement": "import {Box} from '@gravity-ui/uikit';",
+    "related": [
+      "Flex",
+      "Container",
+      "Row",
+      "Col"
+    ],
+    "props": [
+      {
+        "name": "as",
+        "type": "React.ElementType",
+        "required": false,
+        "default": "'div'",
+        "description": "HTML element or component to render as"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Child content"
+      },
+      {
+        "name": "height",
+        "type": "React.CSSProperties['height']",
+        "required": false,
+        "description": "CSS height"
+      },
+      {
+        "name": "maxHeight",
+        "type": "React.CSSProperties['maxHeight']",
+        "required": false,
+        "description": "CSS max-height"
+      },
+      {
+        "name": "maxWidth",
+        "type": "React.CSSProperties['maxWidth']",
+        "required": false,
+        "description": "CSS max-width"
+      },
+      {
+        "name": "minHeight",
+        "type": "React.CSSProperties['minHeight']",
+        "required": false,
+        "description": "CSS min-height"
+      },
+      {
+        "name": "minWidth",
+        "type": "React.CSSProperties['minWidth']",
+        "required": false,
+        "description": "CSS min-width"
+      },
+      {
+        "name": "overflow",
+        "type": "'hidden' | 'x' | 'y' | 'auto'",
+        "required": false,
+        "description": "Overflow behavior"
+      },
+      {
+        "name": "position",
+        "type": "React.CSSProperties['position']",
+        "required": false,
+        "description": "CSS position"
+      },
+      {
+        "name": "spacing",
+        "type": "SpacingProps",
+        "required": false,
+        "description": "Spacing shortcuts: m, mx, my, mt, mb, ml, mr, p, px, py, pt, pb, pl, pr"
+      },
+      {
+        "name": "width",
+        "type": "React.CSSProperties['width']",
+        "required": false,
+        "description": "CSS width"
+      }
+    ],
+    "examples": [
+      "<Box width={300} height={200} spacing={{mb: 2}}>content</Box>",
+      "<Box as=\"section\" overflow=\"hidden\" spacing={{p: 4}}>content</Box>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Breadcrumbs",
+    "library": "uikit",
+    "description": "Navigation showing the current page's position in a hierarchy. Automatically collapses middle items into a dropdown when space is limited.",
+    "keywords": [
+      "breadcrumbs",
+      "navigation",
+      "hierarchy",
+      "path",
+      "trail",
+      "wayfinding",
+      "page location",
+      "back navigation"
+    ],
+    "when_to_use": [
+      "Page location within deep navigation hierarchies",
+      "Quick navigation back to parent pages",
+      "Admin panels with nested pages"
+    ],
+    "avoid": [
+      "Flat navigation (use Tabs or Menu)",
+      "Step-by-step processes (use Stepper)"
+    ],
+    "import_statement": "import {Breadcrumbs} from '@gravity-ui/uikit';",
+    "related": [
+      "Toc",
+      "Stepper",
+      "Link"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Breadcrumbs.Item components"
+      },
+      {
+        "name": "endContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content after the breadcrumbs"
+      },
+      {
+        "name": "onAction",
+        "type": "(key: Key) => void",
+        "required": false,
+        "description": "Breadcrumb item click callback"
+      },
+      {
+        "name": "popupPlacement",
+        "type": "PopupPlacement",
+        "required": false,
+        "description": "Overflow popup placement"
+      },
+      {
+        "name": "separator",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom separator between items"
+      },
+      {
+        "name": "showRoot",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Always show root item when collapsed"
+      }
+    ],
+    "examples": [
+      "<Breadcrumbs>\n  <Breadcrumbs.Item href=\"/\">Home</Breadcrumbs.Item>\n  <Breadcrumbs.Item href=\"/settings\">Settings</Breadcrumbs.Item>\n  <Breadcrumbs.Item>Profile</Breadcrumbs.Item>\n</Breadcrumbs>"
+    ]
+  },
+  {
+    "type": "token-set",
+    "name": "breakpoints",
+    "library": "uikit",
+    "description": "Default responsive breakpoints used by the layout system (Container, Row, Col, Flex). Values represent minimum viewport widths in pixels for each breakpoint.",
+    "keywords": [
+      "breakpoints",
+      "responsive",
+      "media query",
+      "viewport",
+      "layout breakpoints",
+      "screen sizes"
+    ],
+    "when_to_use": [
+      "Reference when building responsive layouts with layout components",
+      "Override via LayoutProvider to customize breakpoints"
+    ],
+    "avoid": [
+      "Hardcoding pixel values; use the Space scale or breakpoint names instead"
+    ],
+    "import_statement": "import {DEFAULT_LAYOUT_THEME} from '@gravity-ui/uikit';",
+    "related": [
+      "Container",
+      "Flex",
+      "Col",
+      "Row"
+    ],
+    "values": {
+      "xs": 0,
+      "s": 576,
+      "m": 768,
+      "l": 1080,
+      "xl": 1200,
+      "xxl": 1400,
+      "xxxl": 1920
+    }
+  },
+  {
+    "type": "component",
+    "name": "Button",
+    "library": "uikit",
+    "description": "A versatile button that renders as a button, anchor, or custom element. Supports multiple visual variants, sizes, loading and disabled states, and icon slots.",
+    "keywords": [
+      "button",
+      "action",
+      "click",
+      "submit",
+      "cta",
+      "link button",
+      "icon button",
+      "loading",
+      "form submit",
+      "primary action"
+    ],
+    "when_to_use": [
+      "Primary, secondary, and tertiary actions",
+      "Form submissions",
+      "Navigation when rendered as anchor",
+      "Icon-only actions"
+    ],
+    "avoid": [
+      "Navigation tabs (use Tabs)",
+      "Toggle switches (use Switch)",
+      "Radio-like selections (use SegmentedRadioGroup)"
+    ],
+    "import_statement": "import {Button} from '@gravity-ui/uikit';",
+    "related": [
+      "ClipboardButton",
+      "SegmentedRadioGroup",
+      "Link"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Button label and/or icon content"
+      },
+      {
+        "name": "component",
+        "type": "React.ElementType",
+        "required": false,
+        "description": "Custom element type to render as"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables interaction"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Renders as anchor with this href"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Shows loading spinner"
+      },
+      {
+        "name": "pin",
+        "type": "string",
+        "required": false,
+        "default": "'round-round'",
+        "description": "Corner shape (e.g. 'brick-round')"
+      },
+      {
+        "name": "selected",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Active/selected state"
+      },
+      {
+        "name": "size",
+        "type": "'xs' | 's' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Button size"
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'action' | 'outlined' | 'outlined-info' | 'outlined-danger' | 'outlined-warning' | 'outlined-success' | 'outlined-utility' | 'flat' | 'flat-info' | 'flat-danger' | 'flat-warning' | 'flat-success' | 'flat-utility' | 'raised' | 'flat-secondary' | 'normal-contrast' | 'outlined-contrast' | 'flat-contrast'",
+        "required": false,
+        "default": "'normal'",
+        "description": "Visual style variant"
+      },
+      {
+        "name": "width",
+        "type": "'auto' | 'max'",
+        "required": false,
+        "description": "Width behavior"
+      }
+    ],
+    "examples": [
+      "<Button view=\"action\" size=\"m\">Submit</Button>",
+      "<Button view=\"outlined-danger\" onClick={handleDelete}>Delete</Button>",
+      "<Button href=\"/docs\" view=\"flat\">Docs</Button>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Card",
+    "library": "uikit",
+    "description": "A surface container for grouping related content. Supports container, action, and selection types with various visual themes and views.",
+    "keywords": [
+      "card",
+      "container",
+      "surface",
+      "panel",
+      "tile",
+      "selectable",
+      "content block",
+      "clickable card"
+    ],
+    "when_to_use": [
+      "Grouping related content visually",
+      "Selectable items in grids or lists",
+      "Clickable action cards"
+    ],
+    "avoid": [
+      "Full-page layouts (use Container/Flex)",
+      "Inline text decoration (use Label)"
+    ],
+    "import_statement": "import {Card} from '@gravity-ui/uikit';",
+    "related": [
+      "PlaceholderContainer",
+      "Label"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Card content"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Disables interaction"
+      },
+      {
+        "name": "onClick",
+        "type": "React.MouseEventHandler",
+        "required": false,
+        "description": "Click handler for action/selection types"
+      },
+      {
+        "name": "selected",
+        "type": "boolean",
+        "required": false,
+        "description": "Selected state for selection type"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l'",
+        "required": false,
+        "default": "'m'",
+        "description": "Card padding size"
+      },
+      {
+        "name": "theme",
+        "type": "'normal' | 'info' | 'success' | 'warning' | 'danger' | 'utility'",
+        "required": false,
+        "default": "'normal'",
+        "description": "Color theme"
+      },
+      {
+        "name": "type",
+        "type": "'container' | 'action' | 'selection'",
+        "required": false,
+        "default": "'container'",
+        "description": "Interaction type"
+      },
+      {
+        "name": "view",
+        "type": "'clear' | 'outlined' | 'filled' | 'raised'",
+        "required": false,
+        "default": "'outlined'",
+        "description": "Visual fill style"
+      }
+    ],
+    "examples": [
+      "<Card view=\"outlined\" size=\"m\"><p>Content</p></Card>",
+      "<Card type=\"selection\" selected={isSelected} onClick={toggle}>Item</Card>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Checkbox",
+    "library": "uikit",
+    "description": "A checkbox input with checked, unchecked, indeterminate, and disabled states. Supports controlled and uncontrolled modes.",
+    "keywords": [
+      "checkbox",
+      "check",
+      "boolean input",
+      "multi-select",
+      "form control",
+      "indeterminate",
+      "toggle"
+    ],
+    "when_to_use": [
+      "Multi-value form selection",
+      "Boolean option toggling",
+      "Bulk row selection in tables"
+    ],
+    "avoid": [
+      "Single on/off toggles (use Switch)",
+      "Mutually exclusive options (use Radio or RadioGroup)"
+    ],
+    "import_statement": "import {Checkbox} from '@gravity-ui/uikit';",
+    "related": [
+      "Switch",
+      "Radio",
+      "RadioGroup"
+    ],
+    "props": [
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": "Controlled checked state"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Label content"
+      },
+      {
+        "name": "content",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Label content (alternative to children)"
+      },
+      {
+        "name": "controlProps",
+        "type": "React.InputHTMLAttributes<HTMLInputElement>",
+        "required": false,
+        "description": "Underlying input props"
+      },
+      {
+        "name": "controlRef",
+        "type": "React.Ref<HTMLInputElement>",
+        "required": false,
+        "description": "Ref to underlying input"
+      },
+      {
+        "name": "defaultChecked",
+        "type": "boolean",
+        "required": false,
+        "description": "Initial state for uncontrolled usage"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables interaction"
+      },
+      {
+        "name": "indeterminate",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Indeterminate (mixed) state"
+      },
+      {
+        "name": "onChange",
+        "type": "Function",
+        "required": false,
+        "description": "Change event handler"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(checked: boolean) => void",
+        "required": false,
+        "description": "Callback with new value"
+      },
+      {
+        "name": "size",
+        "type": "'m' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Checkbox size"
+      }
+    ],
+    "examples": [
+      "<Checkbox checked={isChecked} onUpdate={setChecked}>Accept terms</Checkbox>",
+      "<Checkbox indeterminate>Partial selection</Checkbox>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ClipboardButton",
+    "library": "uikit",
+    "description": "A ready-to-use button that copies text to the clipboard with success/error tooltip feedback. Combines CopyToClipboard and ClipboardIcon.",
+    "keywords": [
+      "copy button",
+      "clipboard",
+      "copy to clipboard",
+      "copy text",
+      "copy feedback"
+    ],
+    "when_to_use": [
+      "Code blocks, API keys, URLs needing clipboard copy",
+      "Any copy action with visual feedback"
+    ],
+    "avoid": [
+      "When you need custom copy UI (use CopyToClipboard directly)"
+    ],
+    "import_statement": "import {ClipboardButton} from '@gravity-ui/uikit';",
+    "related": [
+      "CopyToClipboard",
+      "ClipboardIcon"
+    ],
+    "props": [
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "description": "Text to copy to clipboard"
+      },
+      {
+        "name": "hasTooltip",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Show tooltip with status"
+      },
+      {
+        "name": "timeout",
+        "type": "number",
+        "required": false,
+        "description": "Ms before status resets"
+      },
+      {
+        "name": "tooltipInitialText",
+        "type": "string",
+        "required": false,
+        "description": "Tooltip in pending state"
+      },
+      {
+        "name": "tooltipSuccessText",
+        "type": "string",
+        "required": false,
+        "description": "Tooltip on successful copy"
+      }
+    ],
+    "examples": [
+      "<ClipboardButton text=\"npm install @gravity-ui/uikit\" />",
+      "<ClipboardButton text={apiKey} tooltipSuccessText=\"Copied!\" size=\"s\" />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ClipboardIcon",
+    "library": "uikit",
+    "description": "An icon that changes based on clipboard status (pending/success/error). Used as a visual indicator inside CopyToClipboard render functions.",
+    "keywords": [
+      "clipboard icon",
+      "copy icon",
+      "status icon",
+      "copy feedback indicator"
+    ],
+    "when_to_use": [
+      "Inside custom clipboard copy components as a child of CopyToClipboard"
+    ],
+    "avoid": [
+      "As standalone component (use ClipboardButton instead)"
+    ],
+    "import_statement": "import {ClipboardIcon} from '@gravity-ui/uikit';",
+    "related": [
+      "CopyToClipboard",
+      "ClipboardButton"
+    ],
+    "props": [
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "description": "Icon size in pixels"
+      },
+      {
+        "name": "status",
+        "type": "'pending' | 'success' | 'error'",
+        "required": false,
+        "description": "Current clipboard status"
+      }
+    ],
+    "examples": [
+      "<CopyToClipboard text=\"copy me\">\n  {(status) => <ClipboardIcon size={16} status={status} />}\n</CopyToClipboard>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Col",
+    "library": "uikit",
+    "description": "A responsive column for 12-column grid layouts. Must be used inside a Row component. Supports responsive sizing per breakpoint.",
+    "keywords": [
+      "column",
+      "grid",
+      "layout col",
+      "responsive",
+      "12-column grid",
+      "breakpoint column"
+    ],
+    "when_to_use": [
+      "Building responsive grid layouts inside Row"
+    ],
+    "avoid": [
+      "Outside Row components",
+      "Flex-based layouts (use Flex)"
+    ],
+    "import_statement": "import {Col} from '@gravity-ui/uikit';",
+    "related": [
+      "Row",
+      "Container",
+      "Flex",
+      "Box"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Column content"
+      },
+      {
+        "name": "size",
+        "type": "ColSize | [ColSize | undefined, MediaPartial<ColSize>] | MediaPartial<ColSize>",
+        "required": false,
+        "description": "Column span 1-12 or responsive size object"
+      }
+    ],
+    "examples": [
+      "<Row space=\"4\"><Col size=\"6\">Left</Col><Col size=\"6\">Right</Col></Row>",
+      "<Col size={[12, {m: 6, l: 4}]}>Responsive col</Col>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Container",
+    "library": "uikit",
+    "description": "Centers page content horizontally with configurable gutters and optional maximum width. Typically used once per page as the root layout wrapper.",
+    "keywords": [
+      "container",
+      "layout wrapper",
+      "max width",
+      "centered content",
+      "gutters",
+      "page wrapper"
+    ],
+    "when_to_use": [
+      "Root layout wrapper for page content",
+      "Constraining content width on large screens"
+    ],
+    "avoid": [
+      "Repeated card containers (use Card or Box)",
+      "Small components"
+    ],
+    "import_statement": "import {Container} from '@gravity-ui/uikit';",
+    "related": [
+      "Row",
+      "Col",
+      "Flex",
+      "Box"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Container content"
+      },
+      {
+        "name": "as",
+        "type": "keyof React.JSX.IntrinsicElements",
+        "required": false,
+        "default": "'div'",
+        "description": "HTML element type"
+      },
+      {
+        "name": "gutters",
+        "type": "Space | false",
+        "required": false,
+        "description": "Horizontal padding (theme default if unset)"
+      },
+      {
+        "name": "maxWidth",
+        "type": "'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl'",
+        "required": false,
+        "description": "Max width constraint by breakpoint"
+      },
+      {
+        "name": "spaceRow",
+        "type": "Space | MediaPartial<Space>",
+        "required": false,
+        "description": "Vertical space between child Row components"
+      }
+    ],
+    "examples": [
+      "<Container maxWidth=\"l\"><Row><Col size=\"12\">Content</Col></Row></Container>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "CopyToClipboard",
+    "library": "uikit",
+    "description": "A headless wrapper that copies text to the clipboard and exposes operation status (pending/success/error) to its render-function children.",
+    "keywords": [
+      "copy",
+      "clipboard",
+      "copy text",
+      "render prop",
+      "headless copy",
+      "status feedback"
+    ],
+    "when_to_use": [
+      "Building custom copy UI with status feedback"
+    ],
+    "avoid": [
+      "When pre-built copy button is sufficient (use ClipboardButton)"
+    ],
+    "import_statement": "import {CopyToClipboard} from '@gravity-ui/uikit';",
+    "related": [
+      "ClipboardButton",
+      "ClipboardIcon"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "(status: CopyToClipboardStatus) => React.ReactElement",
+        "required": true,
+        "description": "Render function receiving clipboard status"
+      },
+      {
+        "name": "text",
+        "type": "string | (() => string)",
+        "required": true,
+        "description": "Text to copy or function returning text"
+      },
+      {
+        "name": "onCopy",
+        "type": "Function",
+        "required": false,
+        "description": "Callback after copy attempt"
+      },
+      {
+        "name": "timeout",
+        "type": "number",
+        "required": false,
+        "description": "Ms before status resets to pending"
+      }
+    ],
+    "examples": [
+      "<CopyToClipboard text=\"Hello\" timeout={1500}>\n  {(status) => <Button>{status === 'success' ? 'Copied!' : 'Copy'}</Button>}\n</CopyToClipboard>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "DefinitionList",
+    "library": "uikit",
+    "description": "Renders term-definition pairs in a structured list with optional copy, note, and separator styling. Supports horizontal and vertical layouts.",
+    "keywords": [
+      "definition list",
+      "key value",
+      "term definition",
+      "properties list",
+      "metadata",
+      "dl"
+    ],
+    "when_to_use": [
+      "Displaying entity properties or metadata",
+      "Key-value pairs in detail views",
+      "Technical specifications"
+    ],
+    "avoid": [
+      "Tabular data with multiple columns (use Table)",
+      "Navigation items (use Menu)"
+    ],
+    "import_statement": "import {DefinitionList} from '@gravity-ui/uikit';",
+    "related": [
+      "Table",
+      "Card"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "DefinitionList.Item components"
+      },
+      {
+        "name": "contentMaxWidth",
+        "type": "number",
+        "required": false,
+        "description": "Max width of the value column in pixels"
+      },
+      {
+        "name": "direction",
+        "type": "'horizontal' | 'vertical'",
+        "required": false,
+        "default": "'horizontal'",
+        "description": "Layout direction of pairs"
+      },
+      {
+        "name": "nameMaxWidth",
+        "type": "number",
+        "required": false,
+        "description": "Max width of the term column in pixels"
+      },
+      {
+        "name": "responsive",
+        "type": "boolean",
+        "required": false,
+        "description": "Enables responsive width behavior"
+      }
+    ],
+    "examples": [
+      "<DefinitionList>\n  <DefinitionList.Item name=\"Status\">Active</DefinitionList.Item>\n  <DefinitionList.Item name=\"Created\">Jan 1, 2024</DefinitionList.Item>\n</DefinitionList>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Dialog",
+    "library": "uikit",
+    "description": "A modal overlay for important user interactions requiring focused attention or a decision. Supports Header, Body, Footer subcomponents with focus management.",
+    "keywords": [
+      "dialog",
+      "modal",
+      "overlay",
+      "confirm",
+      "form modal",
+      "popup",
+      "attention",
+      "blocking"
+    ],
+    "when_to_use": [
+      "Confirmations before destructive actions",
+      "Complex forms requiring focused attention",
+      "Multi-step overlay flows"
+    ],
+    "avoid": [
+      "Simple notifications (use Toaster)",
+      "Non-blocking info (use Alert or Tooltip)",
+      "Mobile bottom sheets (use Sheet)"
+    ],
+    "import_statement": "import {Dialog} from '@gravity-ui/uikit';",
+    "related": [
+      "Modal",
+      "Sheet",
+      "Drawer"
+    ],
+    "props": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Controls dialog visibility"
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": true,
+        "description": "Called when dialog should close"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Dialog content"
+      },
+      {
+        "name": "contentOverflow",
+        "type": "'visible' | 'auto'",
+        "required": false,
+        "description": "Content overflow behavior"
+      },
+      {
+        "name": "disableEscapeKeyDown",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables Escape key close"
+      },
+      {
+        "name": "disableOutsideClick",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables backdrop click close"
+      },
+      {
+        "name": "hasCloseButton",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Shows close icon button"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Keeps in DOM when closed"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l'",
+        "required": false,
+        "default": "'m'",
+        "description": "Dialog width"
+      }
+    ],
+    "examples": [
+      "<Dialog open={isOpen} onClose={() => setIsOpen(false)}>\n  <Dialog.Header caption=\"Confirm\" />\n  <Dialog.Body>Are you sure?</Dialog.Body>\n  <Dialog.Footer onClickButtonApply={handleOk} onClickButtonCancel={() => setIsOpen(false)} textButtonApply=\"OK\" />\n</Dialog>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Disclosure",
+    "library": "uikit",
+    "description": "A single collapsible section with summary and details subcomponents. Simpler than Accordion, for standalone expandable content blocks.",
+    "keywords": [
+      "disclosure",
+      "collapse",
+      "expand",
+      "details",
+      "summary",
+      "collapsible section",
+      "spoiler",
+      "toggle"
+    ],
+    "when_to_use": [
+      "Single standalone expandable blocks",
+      "Hidden advanced settings",
+      "Optional additional information"
+    ],
+    "avoid": [
+      "Multiple related sections (use Accordion)",
+      "Navigation dropdowns (use DropdownMenu)"
+    ],
+    "import_statement": "import {Disclosure} from '@gravity-ui/uikit';",
+    "related": [
+      "Accordion",
+      "ArrowToggle"
+    ],
+    "props": [
+      {
+        "name": "arrowPosition",
+        "type": "'start' | 'end'",
+        "required": false,
+        "default": "'end'",
+        "description": "Arrow position"
+      },
+      {
+        "name": "defaultExpanded",
+        "type": "boolean",
+        "required": false,
+        "description": "Initial expanded state"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables interaction"
+      },
+      {
+        "name": "expanded",
+        "type": "boolean",
+        "required": false,
+        "description": "Controlled expanded state"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Keep content in DOM when collapsed"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(expanded: boolean) => void",
+        "required": false,
+        "description": "Callback when state changes"
+      },
+      {
+        "name": "size",
+        "type": "'m' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Component size"
+      },
+      {
+        "name": "summary",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Summary content when not using Disclosure.Summary"
+      }
+    ],
+    "examples": [
+      "<Disclosure summary=\"Advanced options\">Hidden settings</Disclosure>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Divider",
+    "library": "uikit",
+    "description": "A horizontal or vertical separator line, optionally containing text or icon content centered in the line.",
+    "keywords": [
+      "divider",
+      "separator",
+      "hr",
+      "horizontal rule",
+      "vertical separator",
+      "section divider"
+    ],
+    "when_to_use": [
+      "Separating content sections visually",
+      "Between list items or menu groups",
+      "Labeled section separators"
+    ],
+    "avoid": [
+      "Spacing only (use Box spacing props)",
+      "When semantic separation is not needed"
+    ],
+    "import_statement": "import {Divider} from '@gravity-ui/uikit';",
+    "related": [
+      "Menu"
+    ],
+    "props": [
+      {
+        "name": "align",
+        "type": "'start' | 'center' | 'end'",
+        "required": false,
+        "default": "'center'",
+        "description": "Alignment of embedded content"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Optional content embedded in the line"
+      },
+      {
+        "name": "orientation",
+        "type": "'horizontal' | 'vertical'",
+        "required": false,
+        "default": "'horizontal'",
+        "description": "Divider direction"
+      }
+    ],
+    "examples": [
+      "<Divider />",
+      "<Divider orientation=\"vertical\" />",
+      "<Divider align=\"start\">Section</Divider>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Drawer",
+    "library": "uikit",
+    "description": "A sliding panel that appears from any screen edge. Supports resizable panels with configurable min/max sizes and optional backdrop.",
+    "keywords": [
+      "drawer",
+      "sidebar",
+      "slide panel",
+      "side sheet",
+      "off-canvas",
+      "navigation panel",
+      "filter panel"
+    ],
+    "when_to_use": [
+      "Secondary navigation or detail panels",
+      "Desktop filter panels",
+      "Context panels that should not block main content"
+    ],
+    "avoid": [
+      "Mobile bottom sheets (use Sheet)",
+      "Blocking confirmations (use Dialog)"
+    ],
+    "import_statement": "import {Drawer} from '@gravity-ui/uikit';",
+    "related": [
+      "Sheet",
+      "Dialog",
+      "Modal"
+    ],
+    "props": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Controls drawer visibility"
+      },
+      {
+        "name": "onOpenChange",
+        "type": "(open: boolean) => void",
+        "required": true,
+        "description": "Callback when open state changes"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Drawer content"
+      },
+      {
+        "name": "disableOutsideClick",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disable close on outside click"
+      },
+      {
+        "name": "hideVeil",
+        "type": "boolean",
+        "required": false,
+        "description": "Hide the backdrop"
+      },
+      {
+        "name": "maxSize",
+        "type": "number",
+        "required": false,
+        "description": "Max size when resizable"
+      },
+      {
+        "name": "minSize",
+        "type": "number",
+        "required": false,
+        "description": "Min size when resizable"
+      },
+      {
+        "name": "placement",
+        "type": "'left' | 'right' | 'top' | 'bottom'",
+        "required": false,
+        "default": "'right'",
+        "description": "Edge to slide from"
+      },
+      {
+        "name": "resizable",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Allows user resizing"
+      },
+      {
+        "name": "size",
+        "type": "number | string",
+        "required": false,
+        "description": "Initial drawer size"
+      }
+    ],
+    "examples": [
+      "<Drawer open={isOpen} onOpenChange={setIsOpen} placement=\"right\"><p>Content</p></Drawer>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "DropdownMenu",
+    "library": "uikit",
+    "description": "A dropdown menu triggered by a button. Supports grouped items, submenus, icons, and custom trigger rendering.",
+    "keywords": [
+      "dropdown",
+      "dropdown menu",
+      "context menu",
+      "action menu",
+      "popup menu",
+      "submenu",
+      "overflow menu"
+    ],
+    "when_to_use": [
+      "Action menus with many options",
+      "Context menus on rows or cards",
+      "Navigation dropdowns"
+    ],
+    "avoid": [
+      "Simple single-select (use Select)",
+      "Primary visible actions (use ActionsPanel)"
+    ],
+    "import_statement": "import {DropdownMenu} from '@gravity-ui/uikit';",
+    "related": [
+      "Menu",
+      "Select",
+      "ActionsPanel"
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "DropdownMenuItem[] | DropdownMenuItem[][]",
+        "required": false,
+        "description": "Menu items or grouped arrays"
+      },
+      {
+        "name": "defaultSwitcherProps",
+        "type": "ButtonProps",
+        "required": false,
+        "description": "Props for default switcher button"
+      },
+      {
+        "name": "onOpenToggle",
+        "type": "(isOpen: boolean) => void",
+        "required": false,
+        "description": "Open state change callback"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "description": "Controlled open state"
+      },
+      {
+        "name": "popupPlacement",
+        "type": "PopupPlacement",
+        "required": false,
+        "description": "Menu popup placement"
+      },
+      {
+        "name": "renderSwitcher",
+        "type": "(props: SwitcherProps) => React.ReactElement",
+        "required": false,
+        "description": "Custom trigger renderer"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "description": "Menu items size"
+      },
+      {
+        "name": "switcher",
+        "type": "React.ReactElement",
+        "required": false,
+        "description": "Custom trigger element"
+      }
+    ],
+    "examples": [
+      "<DropdownMenu items={[\n  {text: 'Edit', action: () => {}},\n  {text: 'Delete', action: () => {}, theme: 'danger'},\n]} />",
+      "<DropdownMenu items={[[{text: 'Group 1'}], [{text: 'Group 2'}]]} switcher={<Button>Actions</Button>} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "FileDropZone",
+    "library": "uikit",
+    "description": "A drag-and-drop file upload zone with configurable accept types, title, description, and upload button. Supports compound component pattern for custom layouts.",
+    "keywords": [
+      "file upload",
+      "drag drop",
+      "dropzone",
+      "file input",
+      "upload area",
+      "file picker",
+      "drag and drop"
+    ],
+    "when_to_use": [
+      "File upload interfaces with drag-and-drop"
+    ],
+    "avoid": [
+      "Simple file input (use Button with input type=file)"
+    ],
+    "import_statement": "import {FileDropZone} from '@gravity-ui/uikit';",
+    "related": [
+      "FilePreview"
+    ],
+    "props": [
+      {
+        "name": "accept",
+        "type": "string[]",
+        "required": false,
+        "description": "Allowed MIME types"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(files: File[]) => void",
+        "required": false,
+        "description": "Callback with dropped files"
+      },
+      {
+        "name": "buttonText",
+        "type": "string",
+        "required": false,
+        "description": "Upload button label"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "description": "Description text"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Disables file upload"
+      },
+      {
+        "name": "errorMessage",
+        "type": "string",
+        "required": false,
+        "description": "Error message to display"
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "description": "Allow multiple files"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Drop zone title text"
+      }
+    ],
+    "examples": [
+      "<FileDropZone accept={['image/*']} onUpdate={(files) => setFiles(files)} multiple />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "FilePreview",
+    "library": "uikit",
+    "description": "Displays a preview card for a File object with file type icon, name, description, and hover-revealed action buttons.",
+    "keywords": [
+      "file preview",
+      "attachment",
+      "file card",
+      "file thumbnail",
+      "document preview",
+      "uploaded file"
+    ],
+    "when_to_use": [
+      "Showing uploaded files before submission",
+      "File attachment lists",
+      "Document management"
+    ],
+    "avoid": [
+      "File upload initiation (use FileDropZone)"
+    ],
+    "import_statement": "import {FilePreview} from '@gravity-ui/uikit';",
+    "related": [
+      "FileDropZone"
+    ],
+    "props": [
+      {
+        "name": "file",
+        "type": "File",
+        "required": true,
+        "description": "The File object to preview"
+      },
+      {
+        "name": "actions",
+        "type": "FilePreviewAction[]",
+        "required": false,
+        "default": "[]",
+        "description": "Actions shown on hover"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Container CSS class"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "description": "Description below file name"
+      },
+      {
+        "name": "imageSrc",
+        "type": "string",
+        "required": false,
+        "description": "Image preview URL"
+      },
+      {
+        "name": "onClick",
+        "type": "Function",
+        "required": false,
+        "description": "Container click handler"
+      },
+      {
+        "name": "selected",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Highlight as selected"
+      },
+      {
+        "name": "view",
+        "type": "'default' | 'compact'",
+        "required": false,
+        "default": "'default'",
+        "description": "Display mode"
+      }
+    ],
+    "examples": [
+      "<FilePreview file={file} actions={[{icon: <Icon data={Xmark} />, title: 'Remove', onClick: onRemove}]} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Flex",
+    "library": "uikit",
+    "description": "A flexbox layout utility component with responsive media query support. Extends Box with flex-specific props for direction, alignment, wrapping, and gap.",
+    "keywords": [
+      "flex",
+      "flexbox",
+      "layout",
+      "alignment",
+      "gap",
+      "direction",
+      "responsive layout",
+      "row column"
+    ],
+    "when_to_use": [
+      "Flexible one-dimensional layouts",
+      "Aligning and spacing children",
+      "Responsive direction changes"
+    ],
+    "avoid": [
+      "12-column grids (use Row/Col)",
+      "Simple div wrappers (use Box)"
+    ],
+    "import_statement": "import {Flex} from '@gravity-ui/uikit';",
+    "related": [
+      "Box",
+      "Row",
+      "Col",
+      "Container"
+    ],
+    "props": [
+      {
+        "name": "alignItems",
+        "type": "AdaptiveProp<'alignItems'>",
+        "required": false,
+        "description": "CSS align-items (responsive)"
+      },
+      {
+        "name": "as",
+        "type": "React.ElementType",
+        "required": false,
+        "default": "'div'",
+        "description": "Element type"
+      },
+      {
+        "name": "basis",
+        "type": "React.CSSProperties['flexBasis']",
+        "required": false,
+        "description": "CSS flex-basis"
+      },
+      {
+        "name": "centerContent",
+        "type": "true",
+        "required": false,
+        "description": "Shortcut: justify+align center"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Child elements"
+      },
+      {
+        "name": "direction",
+        "type": "AdaptiveProp<'flexDirection'>",
+        "required": false,
+        "description": "CSS flex-direction (responsive)"
+      },
+      {
+        "name": "gap",
+        "type": "Space | MediaPartial<Space>",
+        "required": false,
+        "description": "Column gap via space scale"
+      },
+      {
+        "name": "gapRow",
+        "type": "Space | MediaPartial<Space>",
+        "required": false,
+        "description": "Row gap via space scale"
+      },
+      {
+        "name": "grow",
+        "type": "true | React.CSSProperties['flexGrow']",
+        "required": false,
+        "description": "CSS flex-grow"
+      },
+      {
+        "name": "inline",
+        "type": "boolean",
+        "required": false,
+        "description": "Use display: inline-flex"
+      },
+      {
+        "name": "justifyContent",
+        "type": "AdaptiveProp<'justifyContent'>",
+        "required": false,
+        "description": "CSS justify-content (responsive)"
+      },
+      {
+        "name": "shrink",
+        "type": "React.CSSProperties['flexShrink']",
+        "required": false,
+        "description": "CSS flex-shrink"
+      },
+      {
+        "name": "wrap",
+        "type": "true | React.CSSProperties['flexWrap']",
+        "required": false,
+        "description": "CSS flex-wrap (true = 'wrap')"
+      }
+    ],
+    "examples": [
+      "<Flex gap={4} alignItems=\"center\"><Button>A</Button><Button>B</Button></Flex>",
+      "<Flex direction={{s: 'column', m: 'row'}} gap={4}>responsive</Flex>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "HelpMark",
+    "library": "uikit",
+    "description": "A question-mark icon button that opens a Popover with contextual help text. Used for inline help tooltips next to form fields or labels.",
+    "keywords": [
+      "help",
+      "tooltip",
+      "question mark",
+      "hint",
+      "info icon",
+      "contextual help",
+      "help popover"
+    ],
+    "when_to_use": [
+      "Inline help next to form fields or labels",
+      "Explaining complex settings or terms"
+    ],
+    "avoid": [
+      "For long documentation (use a link instead)",
+      "When help is always visible (use a plain text hint)"
+    ],
+    "import_statement": "import {HelpMark} from '@gravity-ui/uikit';",
+    "related": [
+      "Popover",
+      "Tooltip",
+      "ActionTooltip"
+    ],
+    "props": [
+      {
+        "name": "iconSize",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "description": "Size of the help icon"
+      },
+      {
+        "name": "popoverProps",
+        "type": "PopoverProps",
+        "required": false,
+        "description": "Props forwarded to the internal Popover"
+      }
+    ],
+    "examples": [
+      "<HelpMark>This field accepts ISO date format</HelpMark>",
+      "<HelpMark iconSize=\"m\" popoverProps={{placement: 'right'}}>Help text</HelpMark>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Hotkey",
+    "library": "uikit",
+    "description": "Displays keyboard shortcuts with platform-appropriate key symbols (Cmd on Mac, Ctrl on PC). Supports light and dark view modes.",
+    "keywords": [
+      "hotkey",
+      "keyboard shortcut",
+      "keybinding",
+      "shortcut display",
+      "kbd",
+      "key combination"
+    ],
+    "when_to_use": [
+      "Displaying keyboard shortcuts in tooltips or documentation",
+      "Inside ActionTooltip for shortcut hints"
+    ],
+    "avoid": [
+      "For interactive keyboard handling (use event listeners)"
+    ],
+    "import_statement": "import {Hotkey} from '@gravity-ui/uikit';",
+    "related": [
+      "ActionTooltip"
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Shortcut string (e.g. 'mod+s', 'ctrl+shift+p')"
+      },
+      {
+        "name": "platform",
+        "type": "'pc' | 'mac'",
+        "required": false,
+        "description": "Override platform detection"
+      },
+      {
+        "name": "view",
+        "type": "'light' | 'dark'",
+        "required": false,
+        "description": "Color scheme"
+      }
+    ],
+    "examples": [
+      "<Hotkey value=\"mod+s\" />",
+      "<Hotkey value=\"ctrl+shift+p\" view=\"dark\" />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Icon",
+    "library": "uikit",
+    "description": "An SVG icon wrapper component. Renders IconData (from @gravity-ui/icons) as an accessible inline SVG with configurable size, fill, and stroke.",
+    "keywords": [
+      "icon",
+      "svg",
+      "image",
+      "glyph",
+      "symbol",
+      "gravity icons",
+      "icon wrapper"
+    ],
+    "when_to_use": [
+      "Rendering any Gravity UI icon from @gravity-ui/icons",
+      "Custom SVG icons via IconData format"
+    ],
+    "avoid": [
+      "For avatar images (use Avatar)",
+      "For decorative images (use img tag)"
+    ],
+    "import_statement": "import {Icon} from '@gravity-ui/uikit';",
+    "related": [
+      "Button",
+      "Label"
+    ],
+    "props": [
+      {
+        "name": "data",
+        "type": "IconData",
+        "required": true,
+        "description": "Icon definition (SVG data)"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "description": "Icon color"
+      },
+      {
+        "name": "fill",
+        "type": "string",
+        "required": false,
+        "default": "'currentColor'",
+        "description": "SVG fill attribute"
+      },
+      {
+        "name": "height",
+        "type": "number | string",
+        "required": false,
+        "description": "Icon height (overrides size)"
+      },
+      {
+        "name": "size",
+        "type": "number | string",
+        "required": false,
+        "description": "Icon size in pixels"
+      },
+      {
+        "name": "stroke",
+        "type": "string",
+        "required": false,
+        "description": "SVG stroke attribute"
+      },
+      {
+        "name": "width",
+        "type": "number | string",
+        "required": false,
+        "description": "Icon width (overrides size)"
+      }
+    ],
+    "examples": [
+      "<Icon data={Gear} size={16} />",
+      "<Icon data={CheckMark} size={20} color=\"green\" />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Label",
+    "library": "uikit",
+    "description": "A compact badge or tag for highlighting metadata, statuses, or key-value pairs. Supports copy, close, and info interaction types with multiple visual themes.",
+    "keywords": [
+      "label",
+      "badge",
+      "tag",
+      "chip",
+      "status badge",
+      "pill",
+      "metadata label",
+      "key value badge"
+    ],
+    "when_to_use": [
+      "Showing status, category, or metadata tags",
+      "Highlighting key-value info inline",
+      "Closable/removable tags in filters"
+    ],
+    "avoid": [
+      "For long text content (use Text or Alert)",
+      "For navigation (use Tabs)"
+    ],
+    "import_statement": "import {Label} from '@gravity-ui/uikit';",
+    "related": [
+      "UserLabel",
+      "Text",
+      "Alert"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Label text content"
+      },
+      {
+        "name": "copyText",
+        "type": "string",
+        "required": false,
+        "description": "Text to copy (enables copy type behavior)"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables interaction"
+      },
+      {
+        "name": "icon",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Icon before the label text"
+      },
+      {
+        "name": "interactive",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Enables hover/click styles"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Shows loading state"
+      },
+      {
+        "name": "onCloseClick",
+        "type": "React.MouseEventHandler",
+        "required": false,
+        "description": "Close button handler (enables close type)"
+      },
+      {
+        "name": "size",
+        "type": "'xxs' | 'xs' | 's' | 'm'",
+        "required": false,
+        "default": "'s'",
+        "description": "Label size"
+      },
+      {
+        "name": "theme",
+        "type": "'normal' | 'info' | 'success' | 'warning' | 'danger' | 'utility' | 'unknown' | 'clear'",
+        "required": false,
+        "default": "'normal'",
+        "description": "Color theme"
+      },
+      {
+        "name": "type",
+        "type": "'default' | 'copy' | 'close' | 'info'",
+        "required": false,
+        "default": "'default'",
+        "description": "Interaction type"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Key part for key:value display"
+      }
+    ],
+    "examples": [
+      "<Label theme=\"success\">Active</Label>",
+      "<Label theme=\"danger\" type=\"close\" onCloseClick={onRemove}>Error</Label>",
+      "<Label value=\"env\">production</Label>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Link",
+    "library": "uikit",
+    "description": "A styled text link for navigation. Supports multiple visual views and visited state. Intended for inline text navigation links.",
+    "keywords": [
+      "link",
+      "anchor",
+      "href",
+      "text link",
+      "navigation link",
+      "hyperlink"
+    ],
+    "when_to_use": [
+      "Inline text links within content",
+      "Navigation links in sentences or descriptions"
+    ],
+    "avoid": [
+      "Primary CTA buttons (use Button with href)",
+      "Navigation tabs (use Tabs)"
+    ],
+    "import_statement": "import {Link} from '@gravity-ui/uikit';",
+    "related": [
+      "Button",
+      "Text"
+    ],
+    "props": [
+      {
+        "name": "href",
+        "type": "string",
+        "required": true,
+        "description": "Link URL"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Link text content"
+      },
+      {
+        "name": "target",
+        "type": "string",
+        "required": false,
+        "description": "Link target (_blank, etc.)"
+      },
+      {
+        "name": "underline",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Show text underline"
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'primary' | 'secondary'",
+        "required": false,
+        "default": "'normal'",
+        "description": "Visual style"
+      },
+      {
+        "name": "visitable",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Enable visited state styling"
+      }
+    ],
+    "examples": [
+      "<Text>Read the <Link href=\"/docs\">documentation</Link> for more details.</Text>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "List",
+    "library": "uikit",
+    "description": "A virtualized scrollable list with built-in filtering, sorting, and keyboard navigation. Renders large item collections efficiently.",
+    "keywords": [
+      "list",
+      "virtualized list",
+      "scrollable list",
+      "filterable list",
+      "sortable list",
+      "item list"
+    ],
+    "when_to_use": [
+      "Large lists of items needing virtualization",
+      "Filterable/searchable item collections",
+      "Sortable item lists"
+    ],
+    "avoid": [
+      "Small static lists (use ul/li or Menu)",
+      "Structured tabular data (use Table)"
+    ],
+    "import_statement": "import {List} from '@gravity-ui/uikit';",
+    "related": [
+      "Table",
+      "TreeList",
+      "Menu"
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "T[]",
+        "required": true,
+        "description": "Array of items to render"
+      },
+      {
+        "name": "activeItemIndex",
+        "type": "number",
+        "required": false,
+        "description": "Index of currently active item"
+      },
+      {
+        "name": "filterable",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Show filter input"
+      },
+      {
+        "name": "filterItem",
+        "type": "(filter: string, item: T) => boolean",
+        "required": false,
+        "description": "Custom filter function"
+      },
+      {
+        "name": "itemHeight",
+        "type": "number | ((item: T) => number)",
+        "required": false,
+        "description": "Item row height"
+      },
+      {
+        "name": "itemsHeight",
+        "type": "number | ((items: T[]) => number)",
+        "required": false,
+        "description": "Total list height"
+      },
+      {
+        "name": "onItemClick",
+        "type": "(item: T, index: number, fromKeyboard?: boolean) => void",
+        "required": false,
+        "description": "Item click handler"
+      },
+      {
+        "name": "onSortEnd",
+        "type": "(params: {oldIndex: number, newIndex: number}) => void",
+        "required": false,
+        "description": "Sort completion handler"
+      },
+      {
+        "name": "renderItem",
+        "type": "(item: T, isActive: boolean, itemIndex: number) => React.ReactNode",
+        "required": false,
+        "description": "Custom item renderer"
+      },
+      {
+        "name": "selectedItemIndex",
+        "type": "number",
+        "required": false,
+        "description": "Index of selected item"
+      },
+      {
+        "name": "sortable",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Enable drag-and-drop sorting"
+      }
+    ],
+    "examples": [
+      "<List\n  items={['Alice', 'Bob', 'Carol']}\n  renderItem={(item) => <span>{item}</span>}\n  onItemClick={(item) => console.log(item)}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Loader",
+    "library": "uikit",
+    "description": "A global loading indicator showing animated bars. Used for page-level or dialog-level loading states. Unlike Spin, this is not for inline/button use.",
+    "keywords": [
+      "loader",
+      "loading",
+      "spinner",
+      "progress indicator",
+      "page loading",
+      "loading state"
+    ],
+    "when_to_use": [
+      "Page-level loading states",
+      "Dialog content loading",
+      "Full-section loading placeholders"
+    ],
+    "avoid": [
+      "Inline or button loading (use Spin)",
+      "Loading overlays on specific elements (use Overlay with Loader inside)"
+    ],
+    "import_statement": "import {Loader} from '@gravity-ui/uikit';",
+    "related": [
+      "Spin",
+      "Overlay",
+      "Skeleton"
+    ],
+    "props": [
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l'",
+        "required": false,
+        "default": "'m'",
+        "description": "Loader size"
+      }
+    ],
+    "examples": [
+      "<Loader size=\"m\" />",
+      "<Box position=\"relative\"><Overlay visible={loading}><Loader /></Overlay><Content /></Box>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Menu",
+    "library": "uikit",
+    "description": "A list of action items with optional icons, groups, and interactive states. Used as the content inside dropdowns, context menus, and navigation panels.",
+    "keywords": [
+      "menu",
+      "action list",
+      "navigation list",
+      "context menu items",
+      "dropdown items",
+      "menu group"
+    ],
+    "when_to_use": [
+      "Content inside DropdownMenu or Popup",
+      "Navigation lists in sidebars",
+      "Action lists with icons"
+    ],
+    "avoid": [
+      "Standalone navigation (use proper nav element)",
+      "Tables of data (use Table)"
+    ],
+    "import_statement": "import {Menu} from '@gravity-ui/uikit';",
+    "related": [
+      "DropdownMenu",
+      "Popup",
+      "List"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Menu.Item and Menu.Group components"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Menu item size"
+      }
+    ],
+    "examples": [
+      "<Menu size=\"m\">\n  <Menu.Group label=\"Actions\">\n    <Menu.Item iconStart={<Icon data={Pencil} />} onClick={onEdit}>Edit</Menu.Item>\n    <Menu.Item theme=\"danger\" onClick={onDelete}>Delete</Menu.Item>\n  </Menu.Group>\n</Menu>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Modal",
+    "library": "uikit",
+    "description": "A low-level modal overlay for pop-up windows. Provides backdrop, focus trap, portal rendering, and escape key handling. Use Dialog for pre-built layouts.",
+    "keywords": [
+      "modal",
+      "overlay",
+      "popup",
+      "focus trap",
+      "backdrop",
+      "portal",
+      "lightbox"
+    ],
+    "when_to_use": [
+      "Building custom overlay content not covered by Dialog",
+      "Image lightboxes or media overlays"
+    ],
+    "avoid": [
+      "For standard confirm/form dialogs (use Dialog)",
+      "For mobile sheets (use Sheet)"
+    ],
+    "import_statement": "import {Modal} from '@gravity-ui/uikit';",
+    "related": [
+      "Dialog",
+      "Sheet",
+      "Drawer",
+      "Portal"
+    ],
+    "props": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Controls modal visibility"
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": true,
+        "description": "Close handler"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Modal content"
+      },
+      {
+        "name": "autoFocus",
+        "type": "boolean",
+        "required": false,
+        "description": "Auto-focus first focusable element"
+      },
+      {
+        "name": "container",
+        "type": "HTMLElement",
+        "required": false,
+        "description": "DOM element to mount into"
+      },
+      {
+        "name": "contentOverflow",
+        "type": "'visible' | 'auto'",
+        "required": false,
+        "description": "Content overflow behavior"
+      },
+      {
+        "name": "disableEscapeKeyDown",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disable Escape close"
+      },
+      {
+        "name": "disableOutsideClick",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disable backdrop close"
+      },
+      {
+        "name": "focusTrap",
+        "type": "boolean",
+        "required": false,
+        "description": "Trap focus inside modal"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Keep in DOM when closed"
+      }
+    ],
+    "examples": [
+      "<Modal open={isOpen} onClose={() => setIsOpen(false)}><div>Custom modal content</div></Modal>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "NumberInput",
+    "library": "uikit",
+    "description": "A numeric text input with increment/decrement controls, min/max bounds, step, and decimal support. Inherits TextInput appearance with view, size, and pin props.",
+    "keywords": [
+      "number input",
+      "numeric",
+      "counter",
+      "spinner",
+      "increment",
+      "decrement",
+      "quantity input",
+      "numeric field"
+    ],
+    "when_to_use": [
+      "Numeric value entry with bounds",
+      "Quantity selectors",
+      "Age or measurement inputs"
+    ],
+    "avoid": [
+      "Free text input (use TextInput)",
+      "Large range selection (use Slider)"
+    ],
+    "import_statement": "import {NumberInput} from '@gravity-ui/uikit';",
+    "related": [
+      "TextInput",
+      "Slider"
+    ],
+    "props": [
+      {
+        "name": "allowDecimal",
+        "type": "boolean",
+        "required": false,
+        "description": "Allow decimal values"
+      },
+      {
+        "name": "defaultValue",
+        "type": "number",
+        "required": false,
+        "description": "Initial value for uncontrolled"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Disables interaction"
+      },
+      {
+        "name": "endContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content after the input"
+      },
+      {
+        "name": "errorMessage",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Validation error message"
+      },
+      {
+        "name": "errorPlacement",
+        "type": "'outside' | 'inside'",
+        "required": false,
+        "default": "'outside'",
+        "description": "Error message placement"
+      },
+      {
+        "name": "hasClear",
+        "type": "boolean",
+        "required": false,
+        "description": "Show clear button"
+      },
+      {
+        "name": "hiddenControls",
+        "type": "boolean",
+        "required": false,
+        "description": "Hide increment/decrement buttons"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Label to the left of input"
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "description": "Maximum allowed value"
+      },
+      {
+        "name": "min",
+        "type": "number",
+        "required": false,
+        "description": "Minimum allowed value"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(value: number | null) => void",
+        "required": false,
+        "description": "Callback with new numeric value"
+      },
+      {
+        "name": "pin",
+        "type": "string",
+        "required": false,
+        "default": "'round-round'",
+        "description": "Border corner shape"
+      },
+      {
+        "name": "shiftMultiplier",
+        "type": "number",
+        "required": false,
+        "description": "Step multiplier when Shift held"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Input size"
+      },
+      {
+        "name": "startContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content before the input"
+      },
+      {
+        "name": "step",
+        "type": "number",
+        "required": false,
+        "default": "1",
+        "description": "Increment/decrement step"
+      },
+      {
+        "name": "validationState",
+        "type": "'invalid'",
+        "required": false,
+        "description": "Validation state"
+      },
+      {
+        "name": "value",
+        "type": "number | null",
+        "required": false,
+        "description": "Controlled value"
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'clear'",
+        "required": false,
+        "default": "'normal'",
+        "description": "Input appearance"
+      }
+    ],
+    "examples": [
+      "<NumberInput min={0} max={100} step={5} value={quantity} onUpdate={setQuantity} />",
+      "<NumberInput min={1} label=\"Count\" allowDecimal={false} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Overlay",
+    "library": "uikit",
+    "description": "Renders a semi-transparent overlay over the parent element (which must have position: relative). Used to show loading state while preserving layout.",
+    "keywords": [
+      "overlay",
+      "loading overlay",
+      "backdrop",
+      "cover",
+      "blocking layer",
+      "content overlay"
+    ],
+    "when_to_use": [
+      "Showing loading state over specific content sections",
+      "Preserving layout during async data fetching"
+    ],
+    "avoid": [
+      "Full-page modals (use Dialog or Modal)",
+      "Non-loading overlays (use Modal)"
+    ],
+    "import_statement": "import {Overlay} from '@gravity-ui/uikit';",
+    "related": [
+      "Loader",
+      "Skeleton",
+      "Modal"
+    ],
+    "props": [
+      {
+        "name": "background",
+        "type": "'base' | 'float'",
+        "required": false,
+        "default": "'base'",
+        "description": "Background color style"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content shown in overlay (usually Loader)"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "CSS class"
+      },
+      {
+        "name": "visible",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Overlay visibility"
+      }
+    ],
+    "examples": [
+      "<Box position=\"relative\">\n  <Content />\n  <Overlay visible={loading}><Loader /></Overlay>\n</Box>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Pagination",
+    "library": "uikit",
+    "description": "Page navigation controls with configurable page size options, page number input, and compact mode. Supports controlled and uncontrolled modes.",
+    "keywords": [
+      "pagination",
+      "paging",
+      "page navigation",
+      "page size",
+      "page selector",
+      "next previous"
+    ],
+    "when_to_use": [
+      "Navigating through paginated data sets",
+      "Table or list pagination controls"
+    ],
+    "avoid": [
+      "Infinite scroll scenarios (use IntersectionObserver)",
+      "Small item counts that all fit on screen"
+    ],
+    "import_statement": "import {Pagination} from '@gravity-ui/uikit';",
+    "related": [
+      "Table"
+    ],
+    "props": [
+      {
+        "name": "page",
+        "type": "number",
+        "required": true,
+        "description": "Current page number"
+      },
+      {
+        "name": "pageSize",
+        "type": "number",
+        "required": true,
+        "description": "Items per page"
+      },
+      {
+        "name": "total",
+        "type": "number",
+        "required": true,
+        "description": "Total number of items"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(page: number, pageSize: number) => void",
+        "required": true,
+        "description": "Page change callback"
+      },
+      {
+        "name": "compact",
+        "type": "boolean",
+        "required": false,
+        "description": "Compact display mode"
+      },
+      {
+        "name": "pageSizeOptions",
+        "type": "number[]",
+        "required": false,
+        "description": "Available page size options"
+      },
+      {
+        "name": "showInput",
+        "type": "boolean",
+        "required": false,
+        "description": "Show page number input"
+      },
+      {
+        "name": "showPages",
+        "type": "boolean",
+        "required": false,
+        "description": "Show page number buttons"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "description": "Control size"
+      }
+    ],
+    "examples": [
+      "<Pagination page={currentPage} pageSize={20} total={items.length} onUpdate={(p, ps) => {setPage(p); setPageSize(ps);}} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Palette",
+    "library": "uikit",
+    "description": "Displays a grid of selectable icons, emojis, reactions, or symbols. Supports multi-select, disabled states, and configurable column counts.",
+    "keywords": [
+      "palette",
+      "emoji picker",
+      "reaction picker",
+      "icon picker",
+      "color palette",
+      "grid select",
+      "emoji grid"
+    ],
+    "when_to_use": [
+      "Emoji or reaction pickers",
+      "Icon selection grids",
+      "Color or symbol selectors"
+    ],
+    "avoid": [
+      "For dropdown selects (use Select)",
+      "For long option lists (use List)"
+    ],
+    "import_statement": "import {Palette} from '@gravity-ui/uikit';",
+    "related": [
+      "Select"
+    ],
+    "props": [
+      {
+        "name": "options",
+        "type": "PaletteOption[]",
+        "required": false,
+        "default": "[]",
+        "description": "Array of palette items"
+      },
+      {
+        "name": "value",
+        "type": "string[]",
+        "required": false,
+        "description": "Controlled selected values"
+      },
+      {
+        "name": "columns",
+        "type": "number",
+        "required": false,
+        "default": "6",
+        "description": "Number of columns in grid"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string[]",
+        "required": false,
+        "description": "Initial selected values"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables all options"
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Allow multi-select"
+      },
+      {
+        "name": "onBlur",
+        "type": "Function",
+        "required": false,
+        "description": "Blur event handler"
+      },
+      {
+        "name": "onFocus",
+        "type": "Function",
+        "required": false,
+        "description": "Focus event handler"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(value: string[]) => void",
+        "required": false,
+        "description": "Selection change callback"
+      },
+      {
+        "name": "size",
+        "type": "'xs' | 's' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Item size"
+      }
+    ],
+    "examples": [
+      "<Palette\n  options={[\n    {content: '😎', value: 'cool'},\n    {content: '🎉', value: 'party'},\n  ]}\n  onUpdate={(selected) => setReactions(selected)}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PasswordInput",
+    "library": "uikit",
+    "description": "A TextInput variant for passwords with reveal toggle and copy buttons. Inherits all TextInput props except type.",
+    "keywords": [
+      "password input",
+      "password field",
+      "reveal password",
+      "show password",
+      "sensitive input",
+      "password copy"
+    ],
+    "when_to_use": [
+      "Password entry fields",
+      "Sensitive information inputs with reveal toggle"
+    ],
+    "avoid": [
+      "Non-sensitive text (use TextInput)"
+    ],
+    "import_statement": "import {PasswordInput} from '@gravity-ui/uikit';",
+    "related": [
+      "TextInput",
+      "TextArea"
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Controlled input value"
+      },
+      {
+        "name": "hideCopyButton",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Hide the copy button"
+      },
+      {
+        "name": "hideRevealButton",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Hide the reveal button"
+      },
+      {
+        "name": "onRevealValueUpdate",
+        "type": "Function",
+        "required": false,
+        "description": "Callback when reveal state changes"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(value: string) => void",
+        "required": false,
+        "description": "Value change callback"
+      },
+      {
+        "name": "revealValue",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Controlled password visibility"
+      },
+      {
+        "name": "showCopyTooltip",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Show tooltip on copy button"
+      },
+      {
+        "name": "showRevealTooltip",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Show tooltip on reveal button"
+      }
+    ],
+    "examples": [
+      "<PasswordInput value={password} onUpdate={setPassword} />",
+      "<PasswordInput hideCopyButton hideRevealButton placeholder=\"Enter password\" />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PinInput",
+    "library": "uikit",
+    "description": "A group of character inputs for entering PINs, OTPs, or verification codes. Auto-advances focus on input and supports numeric or alphanumeric modes.",
+    "keywords": [
+      "pin input",
+      "otp",
+      "verification code",
+      "one time password",
+      "sms code",
+      "auth code",
+      "pin code"
+    ],
+    "when_to_use": [
+      "OTP or SMS verification code entry",
+      "PIN input for authentication",
+      "Confirmation codes"
+    ],
+    "avoid": [
+      "Regular text input (use TextInput)",
+      "Password fields (use PasswordInput)"
+    ],
+    "import_statement": "import {PinInput} from '@gravity-ui/uikit';",
+    "related": [
+      "TextInput",
+      "PasswordInput"
+    ],
+    "props": [
+      {
+        "name": "apiRef",
+        "type": "React.RefObject",
+        "required": false,
+        "description": "Ref to component API (focus method)"
+      },
+      {
+        "name": "autoFocus",
+        "type": "boolean",
+        "required": false,
+        "description": "Focus first input on mount"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string[]",
+        "required": false,
+        "description": "Initial value for uncontrolled"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Disables all inputs"
+      },
+      {
+        "name": "errorMessage",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Validation error message"
+      },
+      {
+        "name": "length",
+        "type": "number",
+        "required": false,
+        "default": "4",
+        "description": "Number of input fields"
+      },
+      {
+        "name": "mask",
+        "type": "boolean",
+        "required": false,
+        "description": "Mask values like a password field"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(value: string[]) => void",
+        "required": false,
+        "description": "Fires when any input changes"
+      },
+      {
+        "name": "onUpdateComplete",
+        "type": "(value: string[]) => void",
+        "required": false,
+        "description": "Fires when all inputs are filled"
+      },
+      {
+        "name": "otp",
+        "type": "boolean",
+        "required": false,
+        "description": "Enable autocomplete one-time-code"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Input placeholder character"
+      },
+      {
+        "name": "responsive",
+        "type": "boolean",
+        "required": false,
+        "description": "Distribute parent width evenly"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Input size"
+      },
+      {
+        "name": "type",
+        "type": "'numeric' | 'alphanumeric'",
+        "required": false,
+        "default": "'numeric'",
+        "description": "Allowed character types"
+      },
+      {
+        "name": "validationState",
+        "type": "'invalid'",
+        "required": false,
+        "description": "Validation state"
+      },
+      {
+        "name": "value",
+        "type": "string[]",
+        "required": false,
+        "description": "Controlled value"
+      }
+    ],
+    "examples": [
+      "<PinInput length={6} type=\"numeric\" otp onUpdateComplete={handleOtp} />",
+      "<PinInput length={4} validationState=\"invalid\" errorMessage=\"Incorrect PIN\" />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PlaceholderContainer",
+    "library": "uikit",
+    "description": "An empty state container with image, title, description, and action buttons. Used for zero-data states, error pages, and onboarding prompts.",
+    "keywords": [
+      "placeholder",
+      "empty state",
+      "zero state",
+      "no data",
+      "onboarding",
+      "error page",
+      "illustration"
+    ],
+    "when_to_use": [
+      "Empty state pages or sections",
+      "No-results feedback",
+      "Error page layouts",
+      "Onboarding prompts"
+    ],
+    "avoid": [
+      "When data is present (unnecessary wrapper)",
+      "For alert messages (use Alert)"
+    ],
+    "import_statement": "import {PlaceholderContainer} from '@gravity-ui/uikit';",
+    "related": [
+      "Card",
+      "Alert"
+    ],
+    "props": [
+      {
+        "name": "actions",
+        "type": "PlaceholderContainerActionProps[] | React.ReactNode",
+        "required": false,
+        "description": "Action buttons or custom node"
+      },
+      {
+        "name": "align",
+        "type": "'center' | 'left'",
+        "required": false,
+        "default": "'center'",
+        "description": "Content horizontal alignment"
+      },
+      {
+        "name": "content",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom content (replaces title/description)"
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "description": "Description text"
+      },
+      {
+        "name": "direction",
+        "type": "'row' | 'column'",
+        "required": false,
+        "default": "'row'",
+        "description": "Layout direction"
+      },
+      {
+        "name": "image",
+        "type": "PlaceholderContainerImageNodeProps | PlaceholderContainerImageProps",
+        "required": false,
+        "description": "Image: {src, alt} or React node"
+      },
+      {
+        "name": "maxWidth",
+        "type": "number | string",
+        "required": false,
+        "description": "Override container max-width"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'promo'",
+        "required": false,
+        "default": "'l'",
+        "description": "Component size"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Title text"
+      }
+    ],
+    "examples": [
+      "<PlaceholderContainer\n  title=\"No results found\"\n  description=\"Try different search terms\"\n  image={<NoResultsIllustration />}\n  actions={[{text: 'Clear filters', view: 'normal', onClick: clearFilters}]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Popover",
+    "library": "uikit",
+    "description": "A floating content panel anchored to a trigger element. Supports hover/click trigger modes, arrow, delay, and safe polygon for mouse movement. Built on Popup.",
+    "keywords": [
+      "popover",
+      "floating panel",
+      "hover popup",
+      "tooltip with rich content",
+      "info popup",
+      "anchored overlay"
+    ],
+    "when_to_use": [
+      "Rich hover information panels",
+      "Click-triggered floating content",
+      "Feature descriptions or onboarding hints"
+    ],
+    "avoid": [
+      "Simple text tooltips (use Tooltip)",
+      "Modal confirmations (use Dialog)"
+    ],
+    "import_statement": "import {Popover} from '@gravity-ui/uikit';",
+    "related": [
+      "Tooltip",
+      "Popup",
+      "HelpMark"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactElement | Function",
+        "required": true,
+        "description": "Anchor element"
+      },
+      {
+        "name": "content",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Popover content"
+      },
+      {
+        "name": "delay",
+        "type": "number | [number, number]",
+        "required": false,
+        "description": "Open/close delay in ms"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Prevents popover from opening"
+      },
+      {
+        "name": "enableSafePolygon",
+        "type": "boolean",
+        "required": false,
+        "description": "Prevents close when moving mouse to popover"
+      },
+      {
+        "name": "hasArrow",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Show arrow pointing to anchor"
+      },
+      {
+        "name": "middlewares",
+        "type": "Middleware[]",
+        "required": false,
+        "description": "Floating UI middleware array"
+      },
+      {
+        "name": "modal",
+        "type": "boolean",
+        "required": false,
+        "description": "Trap focus inside popover"
+      },
+      {
+        "name": "onOpenChange",
+        "type": "(open: boolean) => void",
+        "required": false,
+        "description": "Open state change callback"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "description": "Controlled open state"
+      },
+      {
+        "name": "placement",
+        "type": "PopupPlacement",
+        "required": false,
+        "default": "'bottom'",
+        "description": "Popover placement"
+      },
+      {
+        "name": "trigger",
+        "type": "'click'",
+        "required": false,
+        "description": "Trigger mode (default: hover+focus)"
+      }
+    ],
+    "examples": [
+      "<Popover content={<div>Rich content here</div>}>\n  <Button>Hover me</Button>\n</Popover>",
+      "<Popover content={info} trigger=\"click\" placement=\"bottom-start\">\n  <Icon data={InfoCircle} />\n</Popover>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Popup",
+    "library": "uikit",
+    "description": "A low-level floating content wrapper built on Floating UI. Provides positioning, anchor attachment, and portal rendering for building custom overlay components.",
+    "keywords": [
+      "popup",
+      "floating",
+      "overlay",
+      "positioned element",
+      "floating ui",
+      "anchored popup",
+      "tooltip base"
+    ],
+    "when_to_use": [
+      "Building custom floating UI components",
+      "When Popover or Tooltip do not match requirements"
+    ],
+    "avoid": [
+      "Simple tooltips (use Tooltip)",
+      "Rich hover panels (use Popover)",
+      "For confirmations (use Dialog)"
+    ],
+    "import_statement": "import {Popup} from '@gravity-ui/uikit';",
+    "related": [
+      "Popover",
+      "Tooltip",
+      "Modal"
+    ],
+    "props": [
+      {
+        "name": "anchorElement",
+        "type": "HTMLElement | VirtualElement | null",
+        "required": false,
+        "description": "Element to position popup relative to"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Controls popup visibility"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Popup content"
+      },
+      {
+        "name": "disablePortal",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Render inline instead of portal"
+      },
+      {
+        "name": "hasArrow",
+        "type": "boolean",
+        "required": false,
+        "description": "Show positioning arrow"
+      },
+      {
+        "name": "keepMounted",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Keep in DOM when closed"
+      },
+      {
+        "name": "modal",
+        "type": "boolean",
+        "required": false,
+        "description": "Trap focus inside popup"
+      },
+      {
+        "name": "offset",
+        "type": "number",
+        "required": false,
+        "description": "Offset from anchor in pixels"
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "description": "Close handler"
+      },
+      {
+        "name": "placement",
+        "type": "PopupPlacement",
+        "required": false,
+        "default": "'bottom'",
+        "description": "Placement relative to anchor"
+      },
+      {
+        "name": "returnFocus",
+        "type": "boolean",
+        "required": false,
+        "description": "Return focus on close"
+      },
+      {
+        "name": "strategy",
+        "type": "'absolute' | 'fixed'",
+        "required": false,
+        "default": "'absolute'",
+        "description": "CSS position strategy"
+      }
+    ],
+    "examples": [
+      "<Popup anchorElement={triggerRef.current} open={isOpen} onClose={() => setIsOpen(false)}>\n  <Menu><Menu.Item>Option 1</Menu.Item></Menu>\n</Popup>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Portal",
+    "library": "uikit",
+    "description": "A wrapper around React.createPortal that renders children into a DOM node outside the current component tree. Defaults to document.body.",
+    "keywords": [
+      "portal",
+      "createPortal",
+      "DOM portal",
+      "render outside",
+      "teleport"
+    ],
+    "when_to_use": [
+      "Rendering floating elements outside parent DOM context",
+      "Avoiding z-index stacking issues"
+    ],
+    "avoid": [
+      "When rendering in-place is fine",
+      "Unnecessary portal wrapping of static content"
+    ],
+    "import_statement": "import {Portal} from '@gravity-ui/uikit';",
+    "related": [
+      "Modal",
+      "Popup",
+      "Tooltip"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content to portal"
+      },
+      {
+        "name": "container",
+        "type": "HTMLElement",
+        "required": false,
+        "default": "document.body",
+        "description": "Target DOM element"
+      },
+      {
+        "name": "disablePortal",
+        "type": "boolean",
+        "required": false,
+        "description": "Render inline when true"
+      }
+    ],
+    "examples": [
+      "<Portal><div className=\"floating-panel\">Rendered in body</div></Portal>",
+      "<Portal container={customRoot}>Custom container content</Portal>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Progress",
+    "library": "uikit",
+    "description": "A horizontal progress bar displaying a value from 0-100. Supports themed colors, text labels (on size m), composite stacks, and color stop breakpoints.",
+    "keywords": [
+      "progress",
+      "progress bar",
+      "loading bar",
+      "percentage",
+      "completion",
+      "step indicator",
+      "gauge"
+    ],
+    "when_to_use": [
+      "File upload progress",
+      "Task completion indicators",
+      "Multi-segment composite progress bars"
+    ],
+    "avoid": [
+      "Step-by-step wizard progress (use Stepper)",
+      "Circular loading indicators (use Spin)"
+    ],
+    "import_statement": "import {Progress} from '@gravity-ui/uikit';",
+    "related": [
+      "Spin",
+      "Loader",
+      "Stepper"
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "number",
+        "required": false,
+        "description": "Current progress value (0-100)"
+      },
+      {
+        "name": "colorStops",
+        "type": "ProgressColorStop[]",
+        "required": false,
+        "description": "Color breakpoints for value ranges"
+      },
+      {
+        "name": "colorStopsTitle",
+        "type": "ProgressColorStopTitle",
+        "required": false,
+        "description": "Tooltip titles per color stop"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "description": "Animated indeterminate loading state"
+      },
+      {
+        "name": "size",
+        "type": "'xs' | 's' | 'm'",
+        "required": false,
+        "default": "'m'",
+        "description": "Bar height size"
+      },
+      {
+        "name": "stack",
+        "type": "ProgressStackedItem[]",
+        "required": false,
+        "description": "Array for multi-segment composite bar"
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "description": "Text label (only visible at size m)"
+      },
+      {
+        "name": "theme",
+        "type": "'default' | 'warning' | 'info' | 'success' | 'danger' | 'misc'",
+        "required": false,
+        "default": "'default'",
+        "description": "Bar color theme"
+      }
+    ],
+    "examples": [
+      "<Progress value={65} theme=\"success\" size=\"m\" text=\"65%\" />",
+      "<Progress stack={[{value: 40, theme: 'success'}, {value: 20, theme: 'warning'}]} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Radio",
+    "library": "uikit",
+    "description": "A single radio button input. Usually used inside RadioGroup for mutually exclusive option sets. Supports controlled and uncontrolled modes with label content.",
+    "keywords": [
+      "radio",
+      "radio button",
+      "single select",
+      "option",
+      "form control",
+      "mutually exclusive"
+    ],
+    "when_to_use": [
+      "Inside RadioGroup for exclusive option selection",
+      "Single boolean option (when Checkbox does not fit)"
+    ],
+    "avoid": [
+      "Multiple independent options (use Checkbox)",
+      "Use standalone outside RadioGroup only when building custom grouping"
+    ],
+    "import_statement": "import {Radio} from '@gravity-ui/uikit';",
+    "related": [
+      "RadioGroup",
+      "Checkbox",
+      "SegmentedRadioGroup"
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Radio button value"
+      },
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": "Controlled checked state"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Label content"
+      },
+      {
+        "name": "content",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Label content (alternative to children)"
+      },
+      {
+        "name": "controlRef",
+        "type": "React.Ref<HTMLInputElement>",
+        "required": false,
+        "description": "Ref to underlying input"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables the radio"
+      },
+      {
+        "name": "onChange",
+        "type": "Function",
+        "required": false,
+        "description": "Change event handler"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(checked: boolean) => void",
+        "required": false,
+        "description": "Callback with new value"
+      },
+      {
+        "name": "size",
+        "type": "'m' | 'l'",
+        "required": false,
+        "default": "'m'",
+        "description": "Radio size"
+      }
+    ],
+    "examples": [
+      "<RadioGroup value={selected} onUpdate={setSelected}>\n  <Radio value=\"a\">Option A</Radio>\n  <Radio value=\"b\">Option B</Radio>\n</RadioGroup>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "RadioGroup",
+    "library": "uikit",
+    "description": "A group of Radio buttons for mutually exclusive selection. Supports horizontal/vertical layout, options array, and nested Radio subcomponents.",
+    "keywords": [
+      "radio group",
+      "radio buttons",
+      "mutually exclusive",
+      "single select",
+      "option group",
+      "form control"
+    ],
+    "when_to_use": [
+      "Mutually exclusive option selection in forms",
+      "Settings with limited options"
+    ],
+    "avoid": [
+      "Multiple independent selections (use Checkbox)",
+      "When options look better as tabs (use SegmentedRadioGroup)"
+    ],
+    "import_statement": "import {RadioGroup} from '@gravity-ui/uikit';",
+    "related": [
+      "Radio",
+      "Checkbox",
+      "SegmentedRadioGroup"
+    ],
+    "props": [
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "description": "Initial value for uncontrolled"
+      },
+      {
+        "name": "direction",
+        "type": "'horizontal' | 'vertical'",
+        "required": false,
+        "default": "'horizontal'",
+        "description": "Layout direction"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables all radios"
+      },
+      {
+        "name": "onChange",
+        "type": "Function",
+        "required": false,
+        "description": "Change event handler"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(value: string) => void",
+        "required": false,
+        "description": "Value change callback"
+      },
+      {
+        "name": "options",
+        "type": "RadioGroupOption[]",
+        "required": false,
+        "description": "Options array (alternative to children)"
+      },
+      {
+        "name": "size",
+        "type": "'m' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Radio size"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Controlled selected value"
+      }
+    ],
+    "examples": [
+      "<RadioGroup value={val} onUpdate={setVal} direction=\"vertical\">\n  <RadioGroup.Option value=\"opt1\">Option 1</RadioGroup.Option>\n  <RadioGroup.Option value=\"opt2\">Option 2</RadioGroup.Option>\n</RadioGroup>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Row",
+    "library": "uikit",
+    "description": "Defines margins between Col components in a 12-column grid layout. Must wrap Col components and accepts space and spaceRow for gap control.",
+    "keywords": [
+      "row",
+      "grid row",
+      "layout row",
+      "column wrapper",
+      "grid system",
+      "responsive grid"
+    ],
+    "when_to_use": [
+      "Wrapping Col components in a grid layout",
+      "Setting consistent gaps between columns"
+    ],
+    "avoid": [
+      "Without Col children",
+      "For flex layouts (use Flex)"
+    ],
+    "import_statement": "import {Row} from '@gravity-ui/uikit';",
+    "related": [
+      "Col",
+      "Container",
+      "Flex"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Col components"
+      },
+      {
+        "name": "space",
+        "type": "Space | MediaPartial<Space>",
+        "required": false,
+        "description": "Horizontal and vertical gap between columns"
+      },
+      {
+        "name": "spaceRow",
+        "type": "Space | MediaPartial<Space>",
+        "required": false,
+        "description": "Override vertical gap when columns wrap"
+      }
+    ],
+    "examples": [
+      "<Row space=\"4\">\n  <Col size=\"8\">Main</Col>\n  <Col size=\"4\">Sidebar</Col>\n</Row>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "SegmentedRadioGroup",
+    "library": "uikit",
+    "description": "A group of mutually exclusive options styled as a segmented button strip. Visually similar to tabs but functions as radio buttons.",
+    "keywords": [
+      "segmented control",
+      "radio group",
+      "button group",
+      "toggle buttons",
+      "tab-like",
+      "mutually exclusive",
+      "segment"
+    ],
+    "when_to_use": [
+      "Compact option selection with 2-5 choices",
+      "View mode switches (grid/list)",
+      "Filter toggles"
+    ],
+    "avoid": [
+      "More than 5-6 options (use Select or RadioGroup)",
+      "Long option labels (use RadioGroup)"
+    ],
+    "import_statement": "import {SegmentedRadioGroup} from '@gravity-ui/uikit';",
+    "related": [
+      "RadioGroup",
+      "Radio",
+      "Tabs"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "SegmentedRadioGroup.Option components"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "description": "Initial value for uncontrolled"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables all options"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": false,
+        "description": "HTML name attribute"
+      },
+      {
+        "name": "onBlur",
+        "type": "Function",
+        "required": false,
+        "description": "Blur event handler"
+      },
+      {
+        "name": "onChange",
+        "type": "Function",
+        "required": false,
+        "description": "Change event handler"
+      },
+      {
+        "name": "onFocus",
+        "type": "Function",
+        "required": false,
+        "description": "Focus event handler"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(value: string) => void",
+        "required": false,
+        "description": "Value change callback"
+      },
+      {
+        "name": "options",
+        "type": "SegmentedRadioGroupOptionProps[]",
+        "required": false,
+        "description": "Options array"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Control size"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Controlled selected value"
+      },
+      {
+        "name": "width",
+        "type": "'auto' | 'max'",
+        "required": false,
+        "description": "Width behavior"
+      }
+    ],
+    "examples": [
+      "<SegmentedRadioGroup value={view} onUpdate={setView}>\n  <SegmentedRadioGroup.Option value=\"grid\">Grid</SegmentedRadioGroup.Option>\n  <SegmentedRadioGroup.Option value=\"list\">List</SegmentedRadioGroup.Option>\n</SegmentedRadioGroup>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Select",
+    "library": "uikit",
+    "description": "A feature-rich dropdown select component supporting single and multi-select, filtering, grouped options, and custom rendering. Replaces native select elements.",
+    "keywords": [
+      "select",
+      "dropdown select",
+      "combobox",
+      "multi-select",
+      "filterable select",
+      "option picker",
+      "dropdown"
+    ],
+    "when_to_use": [
+      "Dropdown selection from a list of options",
+      "Multi-value selection",
+      "Filterable/searchable option lists"
+    ],
+    "avoid": [
+      "2-3 options (use SegmentedRadioGroup or RadioGroup)",
+      "Navigation dropdowns (use DropdownMenu)"
+    ],
+    "import_statement": "import {Select} from '@gravity-ui/uikit';",
+    "related": [
+      "SegmentedRadioGroup",
+      "DropdownMenu",
+      "TreeSelect"
+    ],
+    "props": [
+      {
+        "name": "options",
+        "type": "SelectOption[]",
+        "required": false,
+        "description": "Array of options or use Select.Option children"
+      },
+      {
+        "name": "value",
+        "type": "string[]",
+        "required": false,
+        "description": "Controlled selected values"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string[]",
+        "required": false,
+        "description": "Initial values for uncontrolled"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Disables the select"
+      },
+      {
+        "name": "errorMessage",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Validation error message"
+      },
+      {
+        "name": "filterable",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Enable search filtering"
+      },
+      {
+        "name": "hasClear",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Show clear button"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Label inside the control"
+      },
+      {
+        "name": "multiple",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Allow multi-select"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(value: string[]) => void",
+        "required": false,
+        "description": "Value change callback"
+      },
+      {
+        "name": "pin",
+        "type": "string",
+        "required": false,
+        "description": "Border corner shape"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Placeholder text when no value"
+      },
+      {
+        "name": "renderControl",
+        "type": "Function",
+        "required": false,
+        "description": "Custom trigger renderer"
+      },
+      {
+        "name": "renderFilter",
+        "type": "Function",
+        "required": false,
+        "description": "Custom filter input renderer"
+      },
+      {
+        "name": "renderOption",
+        "type": "Function",
+        "required": false,
+        "description": "Custom option renderer"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Control size"
+      },
+      {
+        "name": "validationState",
+        "type": "'invalid'",
+        "required": false,
+        "description": "Validation state"
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'clear'",
+        "required": false,
+        "default": "'normal'",
+        "description": "Appearance"
+      }
+    ],
+    "examples": [
+      "<Select\n  options={[{value: 'a', content: 'Option A'}, {value: 'b', content: 'Option B'}]}\n  value={selected}\n  onUpdate={setSelected}\n  placeholder=\"Choose...\"\n/>",
+      "<Select multiple filterable placeholder=\"Select tags\">\n  <Select.Option value=\"1\">Tag 1</Select.Option>\n  <Select.Option value=\"2\">Tag 2</Select.Option>\n</Select>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Sheet",
+    "library": "uikit",
+    "description": "A mobile bottom sheet component that slides up from the bottom. Supports drag-to-dismiss, dynamic resizing, scrollable content, and hash-based URL state.",
+    "keywords": [
+      "sheet",
+      "bottom sheet",
+      "mobile drawer",
+      "slide up",
+      "swipeable",
+      "modal sheet",
+      "mobile overlay"
+    ],
+    "when_to_use": [
+      "Mobile context menus and action sheets",
+      "Mobile form overlays",
+      "Content drawers on small screens"
+    ],
+    "avoid": [
+      "Desktop side panels (use Drawer)",
+      "Blocking dialogs (use Dialog)"
+    ],
+    "import_statement": "import {Sheet} from '@gravity-ui/uikit';",
+    "related": [
+      "Drawer",
+      "Dialog",
+      "Modal"
+    ],
+    "props": [
+      {
+        "name": "visible",
+        "type": "boolean",
+        "required": true,
+        "description": "Controls sheet visibility"
+      },
+      {
+        "name": "onClose",
+        "type": "Function",
+        "required": false,
+        "description": "Close event handler"
+      },
+      {
+        "name": "allowHideOnContentScroll",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Allow swipe-down when content at top"
+      },
+      {
+        "name": "alwaysFullHeight",
+        "type": "boolean",
+        "required": false,
+        "description": "Always use maximum height"
+      },
+      {
+        "name": "container",
+        "type": "HTMLElement",
+        "required": false,
+        "default": "document.body",
+        "description": "Portal target element"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for content area"
+      },
+      {
+        "name": "disablePortal",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Render inline"
+      },
+      {
+        "name": "hideTopBar",
+        "type": "boolean",
+        "required": false,
+        "description": "Hide the swipe handle bar"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "default": "'modal'",
+        "description": "Hash used in URL"
+      },
+      {
+        "name": "maxContentHeightCoefficient",
+        "type": "number",
+        "required": false,
+        "default": "0.9",
+        "description": "Max height ratio (0-1)"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Sheet title text"
+      }
+    ],
+    "examples": [
+      "<Sheet visible={isOpen} onClose={() => setIsOpen(false)} title=\"Options\">\n  <Menu>\n    <Menu.Item>Share</Menu.Item>\n    <Menu.Item>Delete</Menu.Item>\n  </Menu>\n</Sheet>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Skeleton",
+    "library": "uikit",
+    "description": "A loading placeholder that mimics the shape of content before it loads. Supports gradient and pulse animation styles.",
+    "keywords": [
+      "skeleton",
+      "loading placeholder",
+      "content placeholder",
+      "shimmer",
+      "loading skeleton",
+      "ghost"
+    ],
+    "when_to_use": [
+      "Showing content shape while data loads",
+      "Preventing layout shift during async loads"
+    ],
+    "avoid": [
+      "Simple spinners (use Spin or Loader)",
+      "After content loads (remove from DOM)"
+    ],
+    "import_statement": "import {Skeleton} from '@gravity-ui/uikit';",
+    "related": [
+      "Loader",
+      "Spin",
+      "Overlay"
+    ],
+    "props": [
+      {
+        "name": "animation",
+        "type": "'gradient' | 'pulse' | 'none'",
+        "required": false,
+        "description": "Animation type"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Custom CSS class for sizing/shape"
+      },
+      {
+        "name": "style",
+        "type": "React.CSSProperties",
+        "required": false,
+        "description": "Inline styles for sizing"
+      }
+    ],
+    "examples": [
+      "<Skeleton style={{width: 200, height: 20}} />",
+      "<Skeleton className={styles.titleSkeleton} animation=\"pulse\" />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Slider",
+    "library": "uikit",
+    "description": "A range slider for selecting a value or range. Supports marks, custom tooltips, start point visualization, and discrete values via null step.",
+    "keywords": [
+      "slider",
+      "range slider",
+      "input range",
+      "value picker",
+      "range picker",
+      "min max slider"
+    ],
+    "when_to_use": [
+      "Numeric range selection with visual feedback",
+      "Volume or brightness controls",
+      "Price range filters"
+    ],
+    "avoid": [
+      "Precise numeric entry (use NumberInput)",
+      "Small option sets (use SegmentedRadioGroup)"
+    ],
+    "import_statement": "import {Slider} from '@gravity-ui/uikit';",
+    "related": [
+      "NumberInput",
+      "Progress"
+    ],
+    "props": [
+      {
+        "name": "defaultValue",
+        "type": "number | [number, number]",
+        "required": false,
+        "description": "Initial value (number for single, tuple for range)"
+      },
+      {
+        "name": "value",
+        "type": "number | [number, number]",
+        "required": false,
+        "description": "Controlled value"
+      },
+      {
+        "name": "inverted",
+        "type": "boolean",
+        "required": false,
+        "description": "Fill from right instead of left"
+      },
+      {
+        "name": "marks",
+        "type": "number | SliderMark[]",
+        "required": false,
+        "description": "Tick marks on the track"
+      },
+      {
+        "name": "marksFormat",
+        "type": "(value: number) => string",
+        "required": false,
+        "description": "Format function for mark labels"
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "default": "100",
+        "description": "Maximum value"
+      },
+      {
+        "name": "min",
+        "type": "number",
+        "required": false,
+        "default": "0",
+        "description": "Minimum value"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(value: number | [number, number]) => void",
+        "required": false,
+        "description": "Value change callback"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Slider size"
+      },
+      {
+        "name": "startPoint",
+        "type": "number",
+        "required": false,
+        "description": "Visual fill origin point"
+      },
+      {
+        "name": "step",
+        "type": "number | null",
+        "required": false,
+        "default": "1",
+        "description": "Step size (null for discrete marks only)"
+      },
+      {
+        "name": "tooltipDisplay",
+        "type": "'off' | 'on' | 'auto'",
+        "required": false,
+        "default": "'auto'",
+        "description": "When to show value tooltip"
+      },
+      {
+        "name": "tooltipFormat",
+        "type": "(value: number) => string",
+        "required": false,
+        "description": "Format tooltip value"
+      },
+      {
+        "name": "validationState",
+        "type": "'invalid'",
+        "required": false,
+        "description": "Validation state"
+      }
+    ],
+    "examples": [
+      "<Slider min={0} max={100} value={volume} onUpdate={setVolume} />",
+      "<Slider defaultValue={[20, 80]} min={0} max={100} marks={5} />"
+    ]
+  },
+  {
+    "type": "token-set",
+    "name": "spacing",
+    "library": "uikit",
+    "description": "The spacing scale used by Box, Flex, and the spacing() utility. The base unit is 4px. Space values are multipliers: space 1 = 4px, space 4 = 16px, space 10 = 40px.",
+    "keywords": [
+      "spacing",
+      "space scale",
+      "margin",
+      "padding",
+      "gap",
+      "layout spacing",
+      "design tokens"
+    ],
+    "when_to_use": [
+      "Setting consistent spacing via spacing props on Box/Flex",
+      "Using the spacing() utility for CSS class generation"
+    ],
+    "avoid": [
+      "Arbitrary pixel values; use the scale for consistency"
+    ],
+    "import_statement": "import {spacing} from '@gravity-ui/uikit';",
+    "related": [
+      "Box",
+      "Flex"
+    ],
+    "values": {
+      "0": "0px",
+      "1": "4px",
+      "2": "8px",
+      "3": "12px",
+      "4": "16px",
+      "5": "20px",
+      "6": "24px",
+      "7": "28px",
+      "8": "32px",
+      "9": "36px",
+      "10": "40px",
+      "base-unit": "4px",
+      "0.5": "2px"
+    }
+  },
+  {
+    "type": "component",
+    "name": "Spin",
+    "library": "uikit",
+    "description": "A small inline rotating spinner for loading states within components. Unlike Loader, Spin is used in inline contexts such as buttons and labels.",
+    "keywords": [
+      "spin",
+      "spinner",
+      "loading",
+      "rotating",
+      "inline loading",
+      "button loading",
+      "small spinner"
+    ],
+    "when_to_use": [
+      "Inside Button loading state",
+      "Inline loading indicators next to text",
+      "Inside Label components"
+    ],
+    "avoid": [
+      "Page-level loading (use Loader)",
+      "Loading overlays (use Overlay with Loader)"
+    ],
+    "import_statement": "import {Spin} from '@gravity-ui/uikit';",
+    "related": [
+      "Loader",
+      "Skeleton",
+      "Button"
+    ],
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Custom CSS class"
+      },
+      {
+        "name": "size",
+        "type": "'xs' | 's' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Spinner size"
+      },
+      {
+        "name": "style",
+        "type": "React.CSSProperties",
+        "required": false,
+        "description": "Custom inline styles"
+      }
+    ],
+    "examples": [
+      "<Spin size=\"s\" />",
+      "<Button loading><Spin size=\"xs\" /> Loading...</Button>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Stepper",
+    "library": "uikit",
+    "description": "Displays progress through numbered wizard steps. Supports view states (idle/error/success) per step, custom icons, separator customization, and click navigation.",
+    "keywords": [
+      "stepper",
+      "wizard",
+      "steps",
+      "progress steps",
+      "multi-step",
+      "numbered steps",
+      "workflow"
+    ],
+    "when_to_use": [
+      "Multi-step form wizards",
+      "Onboarding flows",
+      "Process status with sequential steps"
+    ],
+    "avoid": [
+      "Page breadcrumb navigation (use Breadcrumbs)",
+      "Tab navigation (use Tabs)",
+      "Progress percentage (use Progress)"
+    ],
+    "import_statement": "import {Stepper} from '@gravity-ui/uikit';",
+    "related": [
+      "Breadcrumbs",
+      "Progress"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactElement<StepperItemProps>",
+        "required": false,
+        "description": "Stepper.Item components"
+      },
+      {
+        "name": "onUpdate",
+        "type": "Function",
+        "required": false,
+        "description": "Step click callback"
+      },
+      {
+        "name": "separator",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom separator between steps"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l'",
+        "required": false,
+        "default": "'s'",
+        "description": "Step size"
+      },
+      {
+        "name": "value",
+        "type": "number | string",
+        "required": false,
+        "description": "Currently active step id"
+      }
+    ],
+    "examples": [
+      "<Stepper value={currentStep} onUpdate={setStep}>\n  <Stepper.Item>Step 1</Stepper.Item>\n  <Stepper.Item view=\"success\">Step 2</Stepper.Item>\n  <Stepper.Item disabled>Step 3</Stepper.Item>\n</Stepper>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Switch",
+    "library": "uikit",
+    "description": "A toggle switch for binary on/off states. Supports controlled/uncontrolled modes, loading state, indeterminate state, and label content.",
+    "keywords": [
+      "switch",
+      "toggle",
+      "on off",
+      "toggle switch",
+      "binary",
+      "boolean toggle",
+      "enable disable"
+    ],
+    "when_to_use": [
+      "Immediate on/off settings without a save step",
+      "Feature flags and preferences"
+    ],
+    "avoid": [
+      "Multi-value selections (use Checkbox or RadioGroup)",
+      "When change needs confirmation (use Checkbox + save button)"
+    ],
+    "import_statement": "import {Switch} from '@gravity-ui/uikit';",
+    "related": [
+      "Checkbox",
+      "Radio"
+    ],
+    "props": [
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "description": "Controlled on/off state"
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Label content"
+      },
+      {
+        "name": "content",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Label content (alternative to children)"
+      },
+      {
+        "name": "controlProps",
+        "type": "React.InputHTMLAttributes<HTMLInputElement>",
+        "required": false,
+        "description": "Underlying input props"
+      },
+      {
+        "name": "controlRef",
+        "type": "React.Ref<HTMLInputElement>",
+        "required": false,
+        "description": "Ref to underlying input"
+      },
+      {
+        "name": "defaultChecked",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Initial state for uncontrolled"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables interaction"
+      },
+      {
+        "name": "indeterminate",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Indeterminate state"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Loading state"
+      },
+      {
+        "name": "onBlur",
+        "type": "Function",
+        "required": false,
+        "description": "Blur event handler"
+      },
+      {
+        "name": "onChange",
+        "type": "Function",
+        "required": false,
+        "description": "Change event handler"
+      },
+      {
+        "name": "onFocus",
+        "type": "Function",
+        "required": false,
+        "description": "Focus event handler"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(checked: boolean) => void",
+        "required": false,
+        "description": "Callback with new state"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l'",
+        "required": false,
+        "default": "'m'",
+        "description": "Switch size"
+      }
+    ],
+    "examples": [
+      "<Switch checked={isEnabled} onUpdate={setEnabled}>Enable feature</Switch>",
+      "<Switch defaultChecked size=\"l\">Dark mode</Switch>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Table",
+    "library": "uikit",
+    "description": "A data table with column configuration, row selection, sorting, settings, copy, and action HOCs. Supports sticky scroll, row click handlers, and empty state message.",
+    "keywords": [
+      "table",
+      "data table",
+      "grid",
+      "rows",
+      "columns",
+      "sortable table",
+      "selectable table",
+      "data grid"
+    ],
+    "when_to_use": [
+      "Structured data display with multiple columns",
+      "Sortable and filterable data sets",
+      "Tables with row actions or bulk selection"
+    ],
+    "avoid": [
+      "Simple key-value pairs (use DefinitionList)",
+      "Small static lists (use List or Menu)"
+    ],
+    "import_statement": "import {Table} from '@gravity-ui/uikit';",
+    "related": [
+      "DefinitionList",
+      "List",
+      "TableColumnSetup",
+      "Pagination"
+    ],
+    "props": [
+      {
+        "name": "columns",
+        "type": "TableColumnConfig[]",
+        "required": true,
+        "description": "Column configuration array"
+      },
+      {
+        "name": "data",
+        "type": "any[]",
+        "required": true,
+        "description": "Array of row data objects"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Table CSS class"
+      },
+      {
+        "name": "edgePadding",
+        "type": "boolean",
+        "required": false,
+        "description": "Horizontal padding for edge cells"
+      },
+      {
+        "name": "emptyMessage",
+        "type": "string",
+        "required": false,
+        "default": "'No data'",
+        "description": "Message when data is empty"
+      },
+      {
+        "name": "getRowClassNames",
+        "type": "(item: any, index: number) => string[]",
+        "required": false,
+        "description": "Row CSS classes function"
+      },
+      {
+        "name": "getRowDescriptor",
+        "type": "(item: any, index: number) => DescriptorType",
+        "required": false,
+        "description": "Row descriptor for id/disabled/interactive/classNames"
+      },
+      {
+        "name": "getRowId",
+        "type": "string | ((item: any, index: number) => string)",
+        "required": false,
+        "description": "Row ID field name or function"
+      },
+      {
+        "name": "isRowDisabled",
+        "type": "(item: any, index: number) => boolean",
+        "required": false,
+        "description": "Row disabled condition"
+      },
+      {
+        "name": "onRowClick",
+        "type": "(item: any, index: number, event: React.MouseEvent) => void",
+        "required": false,
+        "description": "Row click handler"
+      },
+      {
+        "name": "stickyHorizontalScroll",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Sticky horizontal scroll bar"
+      },
+      {
+        "name": "stickyHorizontalScrollBreakpoint",
+        "type": "number",
+        "required": false,
+        "default": "0",
+        "description": "Sticky scroll threshold"
+      },
+      {
+        "name": "verticalAlign",
+        "type": "'top' | 'middle'",
+        "required": false,
+        "description": "Vertical cell content alignment"
+      }
+    ],
+    "examples": [
+      "const columns = [\n  {id: 'name', name: 'Name'},\n  {id: 'status', name: 'Status'},\n];\n<Table data={items} columns={columns} onRowClick={(item) => console.log(item)} />",
+      "const MyTable = withTableSorting(withTableSelection(Table));\n<MyTable data={data} columns={columns} getRowId=\"id\" selectedIds={selected} onSelectionChange={setSelected} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TableColumnSetup",
+    "library": "uikit",
+    "description": "A popup UI for configuring table column visibility and order. Shows a button that opens a list of columns users can show/hide and optionally reorder via drag and drop.",
+    "keywords": [
+      "table settings",
+      "column visibility",
+      "column toggle",
+      "column reorder",
+      "table configuration",
+      "show hide columns"
+    ],
+    "when_to_use": [
+      "Tables where users need to configure visible columns",
+      "Standalone column management trigger"
+    ],
+    "avoid": [
+      "When columns are always fixed"
+    ],
+    "import_statement": "import {TableColumnSetup} from '@gravity-ui/uikit';",
+    "related": [
+      "Table"
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "TableColumnSetupItem[]",
+        "required": true,
+        "description": "Column items with id, title, selected, required"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(items: TableColumnSetupItem[]) => void",
+        "required": true,
+        "description": "Items change callback"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disable the switcher"
+      },
+      {
+        "name": "getItemTitle",
+        "type": "(item: TableColumnSetupItem) => React.ReactNode",
+        "required": false,
+        "description": "Custom title renderer"
+      },
+      {
+        "name": "hideApplyButton",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Apply immediately vs on Apply button"
+      },
+      {
+        "name": "popupPlacement",
+        "type": "PopupPlacement",
+        "required": false,
+        "description": "Popup placement"
+      },
+      {
+        "name": "popupWidth",
+        "type": "number | 'fit'",
+        "required": false,
+        "description": "Popup width"
+      },
+      {
+        "name": "renderSwitcher",
+        "type": "(props: SwitcherProps) => React.ReactElement",
+        "required": false,
+        "description": "Custom trigger button renderer"
+      },
+      {
+        "name": "showStatus",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Show selected/total count in button"
+      },
+      {
+        "name": "sortable",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Enable drag-and-drop column reordering"
+      }
+    ],
+    "examples": [
+      "<TableColumnSetup\n  items={columns.map(c => ({id: c.id, title: c.name, selected: visible.includes(c.id)}))}\n  onUpdate={handleColumnsUpdate}\n  sortable\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Text",
+    "library": "uikit",
+    "description": "A typography component for rendering text with design system variants, semantic colors, overflow handling, and polymorphic element support.",
+    "keywords": [
+      "text",
+      "typography",
+      "body text",
+      "heading",
+      "caption",
+      "display text",
+      "font variant",
+      "ellipsis text"
+    ],
+    "when_to_use": [
+      "Any text content requiring design system typography",
+      "Text with overflow ellipsis or color semantics",
+      "Headings, captions, and body text"
+    ],
+    "avoid": [
+      "Purely layout wrapping (use Box)",
+      "Interactive text (use Link or Button)"
+    ],
+    "import_statement": "import {Text} from '@gravity-ui/uikit';",
+    "related": [
+      "Link"
+    ],
+    "props": [
+      {
+        "name": "as",
+        "type": "React.ElementType<any>",
+        "required": false,
+        "description": "Overrides the rendered HTML element"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Text content"
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": false,
+        "description": "Semantic text color (primary, secondary, complementary, info, positive, warning, danger, utility, etc.)"
+      },
+      {
+        "name": "ellipsis",
+        "type": "boolean",
+        "required": false,
+        "description": "Truncate overflow with ellipsis"
+      },
+      {
+        "name": "ellipsisLines",
+        "type": "number",
+        "required": false,
+        "description": "Number of lines before clipping"
+      },
+      {
+        "name": "variant",
+        "type": "string",
+        "required": false,
+        "default": "'body-1'",
+        "description": "Typography variant (body-1, body-2, body-3, caption-1, caption-2, display-1 through display-4, header-1, header-2, subheader-1 through subheader-3, code-1 through code-3)"
+      },
+      {
+        "name": "whiteSpace",
+        "type": "'nowrap' | 'break-spaces'",
+        "required": false,
+        "description": "CSS white-space property"
+      },
+      {
+        "name": "wordBreak",
+        "type": "'break-all' | 'break-word'",
+        "required": false,
+        "description": "CSS word-break property"
+      }
+    ],
+    "examples": [
+      "<Text variant=\"body-1\">Regular body text</Text>",
+      "<Text variant=\"display-2\" as=\"h1\">Page Title</Text>",
+      "<Text variant=\"caption-2\" color=\"secondary\" ellipsis>Truncated secondary text that is too long</Text>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TextArea",
+    "library": "uikit",
+    "description": "A multi-line text input with auto-height, min/max rows, clear button, and validation state. Supports normal and clear views.",
+    "keywords": [
+      "textarea",
+      "multi-line input",
+      "text field",
+      "comment input",
+      "description input",
+      "resizable textarea"
+    ],
+    "when_to_use": [
+      "Multi-line text entry (descriptions, comments, notes)",
+      "Long-form user input"
+    ],
+    "avoid": [
+      "Single-line inputs (use TextInput)",
+      "Code editing (use a code editor)"
+    ],
+    "import_statement": "import {TextArea} from '@gravity-ui/uikit';",
+    "related": [
+      "TextInput",
+      "PasswordInput"
+    ],
+    "props": [
+      {
+        "name": "autoComplete",
+        "type": "boolean | string",
+        "required": false,
+        "description": "Autocomplete attribute"
+      },
+      {
+        "name": "autoFocus",
+        "type": "boolean",
+        "required": false,
+        "description": "Auto-focus on mount"
+      },
+      {
+        "name": "controlProps",
+        "type": "React.TextareaHTMLAttributes<HTMLTextAreaElement>",
+        "required": false,
+        "description": "Underlying textarea HTML props"
+      },
+      {
+        "name": "controlRef",
+        "type": "React.Ref<HTMLTextAreaElement>",
+        "required": false,
+        "description": "Ref to textarea element"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "description": "Initial value for uncontrolled"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables interaction"
+      },
+      {
+        "name": "errorMessage",
+        "type": "string",
+        "required": false,
+        "description": "Error message"
+      },
+      {
+        "name": "hasClear",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Show clear button"
+      },
+      {
+        "name": "maxRows",
+        "type": "number",
+        "required": false,
+        "description": "Max auto-height rows"
+      },
+      {
+        "name": "minRows",
+        "type": "number",
+        "required": false,
+        "description": "Min auto-height rows"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(value: string) => void",
+        "required": false,
+        "description": "Value change callback"
+      },
+      {
+        "name": "pin",
+        "type": "string",
+        "required": false,
+        "default": "'round-round'",
+        "description": "Border corner shape"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Placeholder text"
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Read-only state"
+      },
+      {
+        "name": "rows",
+        "type": "number",
+        "required": false,
+        "description": "Fixed row count (disables auto-height)"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Input size"
+      },
+      {
+        "name": "validationState",
+        "type": "'invalid'",
+        "required": false,
+        "description": "Validation state"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Controlled value"
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'clear'",
+        "required": false,
+        "default": "'normal'",
+        "description": "Visual style"
+      }
+    ],
+    "examples": [
+      "<TextArea value={text} onUpdate={setText} minRows={3} maxRows={10} placeholder=\"Enter description\" />",
+      "<TextArea rows={4} controlProps={{style: {resize: 'both'}}} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TextInput",
+    "library": "uikit",
+    "description": "A single-line text input field with optional label, start/end content, clear button, and validation state. The primary text form control in the design system.",
+    "keywords": [
+      "text input",
+      "input field",
+      "text field",
+      "form input",
+      "search input",
+      "text control",
+      "input"
+    ],
+    "when_to_use": [
+      "Single-line text form fields",
+      "Search inputs",
+      "Any text data entry"
+    ],
+    "avoid": [
+      "Multi-line text (use TextArea)",
+      "Numeric input (use NumberInput)",
+      "Passwords (use PasswordInput)"
+    ],
+    "import_statement": "import {TextInput} from '@gravity-ui/uikit';",
+    "related": [
+      "TextArea",
+      "NumberInput",
+      "PasswordInput"
+    ],
+    "props": [
+      {
+        "name": "autoComplete",
+        "type": "boolean | string",
+        "required": false,
+        "description": "Autocomplete attribute"
+      },
+      {
+        "name": "autoFocus",
+        "type": "boolean",
+        "required": false,
+        "description": "Auto-focus on mount"
+      },
+      {
+        "name": "controlProps",
+        "type": "React.InputHTMLAttributes<HTMLInputElement>",
+        "required": false,
+        "description": "Underlying input HTML props"
+      },
+      {
+        "name": "controlRef",
+        "type": "React.Ref<HTMLInputElement>",
+        "required": false,
+        "description": "Ref to input element"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "description": "Initial value for uncontrolled"
+      },
+      {
+        "name": "disabled",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Disables interaction"
+      },
+      {
+        "name": "endContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content after the input and clear button"
+      },
+      {
+        "name": "errorMessage",
+        "type": "string",
+        "required": false,
+        "description": "Error message text"
+      },
+      {
+        "name": "errorPlacement",
+        "type": "'outside' | 'inside'",
+        "required": false,
+        "default": "'outside'",
+        "description": "Error message placement"
+      },
+      {
+        "name": "hasClear",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Show clear button"
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Label to the left of input"
+      },
+      {
+        "name": "note",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Element below bottom-right corner"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(value: string) => void",
+        "required": false,
+        "description": "Value change callback"
+      },
+      {
+        "name": "pin",
+        "type": "string",
+        "required": false,
+        "default": "'round-round'",
+        "description": "Border corner shape"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Placeholder text"
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Read-only state"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Input size"
+      },
+      {
+        "name": "startContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content before the label and input"
+      },
+      {
+        "name": "type",
+        "type": "'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url'",
+        "required": false,
+        "description": "HTML input type"
+      },
+      {
+        "name": "validationState",
+        "type": "'invalid'",
+        "required": false,
+        "description": "Validation state"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Controlled value"
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'clear'",
+        "required": false,
+        "default": "'normal'",
+        "description": "Visual style"
+      }
+    ],
+    "examples": [
+      "<TextInput value={name} onUpdate={setName} placeholder=\"Enter name\" size=\"m\" />",
+      "<TextInput label=\"Search\" hasClear startContent={<Icon data={Magnifier} />} validationState=\"invalid\" errorMessage=\"Required\" />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Toaster",
+    "library": "uikit",
+    "description": "A notification toast system with ToasterProvider context, useToaster hook, and imperative Toaster class API. Supports themed toasts with actions, auto-dismiss, and updates.",
+    "keywords": [
+      "toaster",
+      "toast",
+      "notification",
+      "snackbar",
+      "alert toast",
+      "in-app notification",
+      "auto dismiss"
+    ],
+    "when_to_use": [
+      "Transient operation feedback (save success, error)",
+      "Non-blocking status notifications",
+      "Background operation completion notices"
+    ],
+    "avoid": [
+      "Blocking confirmations (use Dialog)",
+      "Persistent inline messages (use Alert)"
+    ],
+    "import_statement": "import {Toaster, ToasterComponent, ToasterProvider, useToaster} from '@gravity-ui/uikit';",
+    "related": [
+      "Alert",
+      "Dialog"
+    ],
+    "props": [
+      {
+        "name": "name",
+        "type": "string",
+        "required": true,
+        "description": "Unique toast name (add method)"
+      },
+      {
+        "name": "actions",
+        "type": "ToastAction[]",
+        "required": false,
+        "description": "Action buttons in the toast"
+      },
+      {
+        "name": "autoHiding",
+        "type": "number | false",
+        "required": false,
+        "default": "5000",
+        "description": "Auto-hide delay in ms (false = no auto-hide)"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "CSS class"
+      },
+      {
+        "name": "content",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Toast body content"
+      },
+      {
+        "name": "isClosable",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Show close button"
+      },
+      {
+        "name": "renderIcon",
+        "type": "(toastProps: ToastProps) => ReactNode",
+        "required": false,
+        "description": "Custom icon renderer"
+      },
+      {
+        "name": "theme",
+        "type": "'normal' | 'info' | 'success' | 'warning' | 'danger' | 'utility'",
+        "required": false,
+        "default": "'normal'",
+        "description": "Toast color theme"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Toast title text"
+      }
+    ],
+    "examples": [
+      "// Setup in app root:\n<ToasterProvider toaster={toaster}><App /><ToasterComponent /></ToasterProvider>\n\n// In component:\nconst {add} = useToaster();\nadd({name: 'save-ok', title: 'Saved', theme: 'success', autoHiding: 3000});"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Toc",
+    "library": "uikit",
+    "description": "A table of contents component showing two levels of page hierarchy. Items can be links or clickable buttons with an active item indicator.",
+    "keywords": [
+      "table of contents",
+      "toc",
+      "page outline",
+      "anchor navigation",
+      "document navigation",
+      "in-page nav"
+    ],
+    "when_to_use": [
+      "In-page navigation for long documentation or articles",
+      "Section outlines in sidebars"
+    ],
+    "avoid": [
+      "Main navigation (use Menu)",
+      "Breadcrumbs-style paths (use Breadcrumbs)"
+    ],
+    "import_statement": "import {Toc} from '@gravity-ui/uikit';",
+    "related": [
+      "Breadcrumbs",
+      "Accordion"
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "TocItem[]",
+        "required": false,
+        "description": "TOC items with value, content, href, and optional child items"
+      },
+      {
+        "name": "onUpdate",
+        "type": "Function",
+        "required": false,
+        "description": "Item click callback"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Currently active item value"
+      }
+    ],
+    "examples": [
+      "<Toc\n  value={activeSection}\n  onUpdate={setActiveSection}\n  items={[\n    {value: 'intro', content: 'Introduction'},\n    {value: 'usage', content: 'Usage', items: [{value: 'props', content: 'Props'}]},\n  ]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Tooltip",
+    "library": "uikit",
+    "description": "A simple text tooltip that appears on hover/focus over its anchor element. A lightweight alternative to browser title attribute with proper styling and delay control.",
+    "keywords": [
+      "tooltip",
+      "hover text",
+      "title hint",
+      "accessibility tooltip",
+      "text hint",
+      "simple tooltip"
+    ],
+    "when_to_use": [
+      "Labeling icon buttons (role='label')",
+      "Adding hover hints to elements with existing text (role='tooltip')",
+      "Simple text descriptions"
+    ],
+    "avoid": [
+      "Rich content with interactive elements (use Popover)",
+      "Always-visible descriptions (use plain text)"
+    ],
+    "import_statement": "import {Tooltip} from '@gravity-ui/uikit';",
+    "related": [
+      "ActionTooltip",
+      "Popover",
+      "HelpMark"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactElement | Function",
+        "required": true,
+        "description": "Anchor element accepting ref"
+      },
+      {
+        "name": "content",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Tooltip text content"
+      },
+      {
+        "name": "closeDelay",
+        "type": "number",
+        "required": false,
+        "default": "0",
+        "description": "Ms to delay hiding"
+      },
+      {
+        "name": "container",
+        "type": "HTMLElement",
+        "required": false,
+        "default": "document.body",
+        "description": "Portal container"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Prevents tooltip opening"
+      },
+      {
+        "name": "disablePortal",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Render inline"
+      },
+      {
+        "name": "offset",
+        "type": "number",
+        "required": false,
+        "default": "4",
+        "description": "Offset from anchor"
+      },
+      {
+        "name": "onOpenChange",
+        "type": "Function",
+        "required": false,
+        "description": "Open state callback"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "description": "Controlled open state"
+      },
+      {
+        "name": "openDelay",
+        "type": "number",
+        "required": false,
+        "default": "1000",
+        "description": "Ms to delay showing"
+      },
+      {
+        "name": "placement",
+        "type": "PopupPlacement",
+        "required": false,
+        "default": "'bottom'",
+        "description": "Tooltip placement"
+      },
+      {
+        "name": "role",
+        "type": "'tooltip' | 'label'",
+        "required": false,
+        "default": "'tooltip'",
+        "description": "Accessibility role"
+      },
+      {
+        "name": "trigger",
+        "type": "'focus'",
+        "required": false,
+        "description": "Override trigger (default: hover+focus)"
+      }
+    ],
+    "examples": [
+      "<Tooltip content=\"Click to copy\">\n  <Button view=\"flat\"><Icon data={Copy} /></Button>\n</Tooltip>",
+      "<Tooltip content=\"Save file\" role=\"label\" openDelay={200}>\n  <Button view=\"flat\"><Icon data={FloppyDisk} /></Button>\n</Tooltip>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "User",
+    "library": "uikit",
+    "description": "Displays a user avatar with a text info block showing name and description. Wraps Avatar for the avatar slot with flexible sizing.",
+    "keywords": [
+      "user",
+      "user card",
+      "user info",
+      "profile",
+      "avatar with name",
+      "user display",
+      "contact"
+    ],
+    "when_to_use": [
+      "Showing user identity with name and description",
+      "Author or assignee displays",
+      "User profile cells in tables"
+    ],
+    "avoid": [
+      "Avatar-only displays (use Avatar directly)",
+      "User tags/chips (use UserLabel)"
+    ],
+    "import_statement": "import {User} from '@gravity-ui/uikit';",
+    "related": [
+      "Avatar",
+      "UserLabel",
+      "AvatarStack"
+    ],
+    "props": [
+      {
+        "name": "avatar",
+        "type": "AvatarProps | string | React.ReactElement",
+        "required": false,
+        "description": "Avatar configuration, image URL, or custom React element"
+      },
+      {
+        "name": "description",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Description text below the name"
+      },
+      {
+        "name": "name",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "User name"
+      },
+      {
+        "name": "size",
+        "type": "'3xs' | '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Component size"
+      }
+    ],
+    "examples": [
+      "<User\n  avatar={{text: 'John Smith', theme: 'brand'}}\n  name=\"John Smith\"\n  description=\"john@example.com\"\n  size=\"l\"\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "UserLabel",
+    "library": "uikit",
+    "description": "A compact label chip for displaying users, emails, or generic entries with an avatar. Supports click and close interactions.",
+    "keywords": [
+      "user label",
+      "user chip",
+      "user tag",
+      "email tag",
+      "person chip",
+      "user pill",
+      "assignee tag"
+    ],
+    "when_to_use": [
+      "User/email tags in multi-select fields",
+      "Closable user chips in filter bars",
+      "Compact person representation"
+    ],
+    "avoid": [
+      "Full user profile displays (use User)",
+      "Generic non-user labels (use Label)"
+    ],
+    "import_statement": "import {UserLabel} from '@gravity-ui/uikit';",
+    "related": [
+      "User",
+      "Avatar",
+      "Label"
+    ],
+    "props": [
+      {
+        "name": "avatar",
+        "type": "AvatarProps | string | React.ReactElement",
+        "required": false,
+        "description": "Avatar (only for type='person')"
+      },
+      {
+        "name": "description",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "User description"
+      },
+      {
+        "name": "onClick",
+        "type": "Function",
+        "required": false,
+        "description": "Click handler"
+      },
+      {
+        "name": "onCloseClick",
+        "type": "Function",
+        "required": false,
+        "description": "Close button handler"
+      },
+      {
+        "name": "size",
+        "type": "'3xs' | '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'s'",
+        "description": "Label size"
+      },
+      {
+        "name": "text",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Visible label text"
+      },
+      {
+        "name": "type",
+        "type": "'person' | 'email' | 'empty'",
+        "required": false,
+        "default": "'person'",
+        "description": "Avatar display type"
+      },
+      {
+        "name": "view",
+        "type": "'outlined' | 'clear'",
+        "required": false,
+        "default": "'outlined'",
+        "description": "Visual style"
+      }
+    ],
+    "examples": [
+      "<UserLabel type=\"person\" text=\"Alice\" onCloseClick={onRemove} />",
+      "<UserLabel type=\"email\" text=\"alice@example.com\" />"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useToaster",
+    "library": "uikit",
+    "description": "Returns toast management methods (add, update, remove, removeAll) from the ToasterProvider context. The primary way to show toasts from React components.",
+    "keywords": [
+      "useToaster",
+      "toast hook",
+      "notification hook",
+      "add toast",
+      "show notification"
+    ],
+    "when_to_use": [
+      "Triggering toast notifications from React components",
+      "Managing toast lifecycle"
+    ],
+    "avoid": [
+      "Outside React components (use the Toaster instance directly)"
+    ],
+    "import_statement": "import {useToaster} from '@gravity-ui/uikit';",
+    "related": [
+      "Toaster"
+    ],
+    "signature": "useToaster(): { add: (toast: ToastOptions) => void; update: (name: string, options: Partial<ToastOptions>) => void; remove: (name: string) => void; removeAll: () => void; has: (name: string) => boolean; }",
+    "return_type": "ToasterAPI",
+    "parameters": [],
+    "examples": [
+      "const {add, remove} = useToaster();\nadd({name: 'save-success', title: 'Saved', theme: 'success', autoHiding: 3000});\nremove('save-success');"
+    ]
+  }
+]

@@ -1,0 +1,450 @@
+[
+  {
+    "type": "asset",
+    "name": "AccessDenied",
+    "library": "illustrations",
+    "description": "SVG illustration component for access denied / permission error states. Supports all four Gravity UI themes (light, dark, light-hc, dark-hc) via CSS custom properties.",
+    "keywords": [
+      "access denied",
+      "forbidden",
+      "403",
+      "permission",
+      "error state",
+      "illustration",
+      "empty state",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Displaying an empty state when a user lacks permission to view a resource"
+    ],
+    "avoid": [
+      "Generic error states — use InternalError for 500-type errors instead"
+    ],
+    "import_statement": "import { AccessDenied } from '@gravity-ui/illustrations';",
+    "related": ["NotFound", "InternalError", "UnableToDisplay"],
+    "category": "error",
+    "props": []
+  },
+  {
+    "type": "asset",
+    "name": "Bucket",
+    "library": "illustrations",
+    "description": "SVG illustration component representing a storage bucket resource.",
+    "keywords": [
+      "bucket",
+      "storage",
+      "s3",
+      "object storage",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Representing an empty bucket state or storage-related entity pages"
+    ],
+    "avoid": [],
+    "import_statement": "import { Bucket } from '@gravity-ui/illustrations';",
+    "related": ["Disk", "Database", "Snapshot"],
+    "category": "resource"
+  },
+  {
+    "type": "asset",
+    "name": "Chart",
+    "library": "illustrations",
+    "description": "SVG illustration component representing a chart or data visualization resource.",
+    "keywords": [
+      "chart",
+      "graph",
+      "visualization",
+      "analytics",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Empty states for chart or analytics pages"
+    ],
+    "avoid": [],
+    "import_statement": "import { Chart } from '@gravity-ui/illustrations';",
+    "related": ["Database", "Feature"],
+    "category": "resource"
+  },
+  {
+    "type": "asset",
+    "name": "Database",
+    "library": "illustrations",
+    "description": "SVG illustration component representing a database resource.",
+    "keywords": [
+      "database",
+      "db",
+      "storage",
+      "sql",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Empty states for database or data store pages"
+    ],
+    "avoid": [],
+    "import_statement": "import { Database } from '@gravity-ui/illustrations';",
+    "related": ["Bucket", "Disk"],
+    "category": "resource"
+  },
+  {
+    "type": "asset",
+    "name": "Detail",
+    "library": "illustrations",
+    "description": "SVG illustration component for detail or information views.",
+    "keywords": [
+      "detail",
+      "info",
+      "information",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Empty states for detail or info panels"
+    ],
+    "avoid": [],
+    "import_statement": "import { Detail } from '@gravity-ui/illustrations';",
+    "related": ["Feature"],
+    "category": "resource"
+  },
+  {
+    "type": "asset",
+    "name": "Disk",
+    "library": "illustrations",
+    "description": "SVG illustration component representing a disk or block storage resource.",
+    "keywords": [
+      "disk",
+      "block storage",
+      "volume",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Empty states for disk, volume, or block storage pages"
+    ],
+    "avoid": [],
+    "import_statement": "import { Disk } from '@gravity-ui/illustrations';",
+    "related": ["Bucket", "Database", "Snapshot"],
+    "category": "resource"
+  },
+  {
+    "type": "asset",
+    "name": "Feature",
+    "library": "illustrations",
+    "description": "SVG illustration component representing a product feature or capability.",
+    "keywords": [
+      "feature",
+      "product",
+      "capability",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Empty states or onboarding pages that highlight a feature"
+    ],
+    "avoid": [],
+    "import_statement": "import { Feature } from '@gravity-ui/illustrations';",
+    "related": ["Project"],
+    "category": "resource"
+  },
+  {
+    "type": "asset",
+    "name": "Folder",
+    "library": "illustrations",
+    "description": "SVG illustration component representing a folder or directory resource.",
+    "keywords": [
+      "folder",
+      "directory",
+      "files",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Empty states for file system, directory, or project folder pages"
+    ],
+    "avoid": [],
+    "import_statement": "import { Folder } from '@gravity-ui/illustrations';",
+    "related": ["Project", "Bucket"],
+    "category": "resource"
+  },
+  {
+    "type": "asset",
+    "name": "History",
+    "library": "illustrations",
+    "description": "SVG illustration component representing history, audit logs, or time-based records.",
+    "keywords": [
+      "history",
+      "audit",
+      "log",
+      "timeline",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Empty states for history, audit trail, or activity log pages"
+    ],
+    "avoid": [],
+    "import_statement": "import { History } from '@gravity-ui/illustrations';",
+    "related": ["Queue"],
+    "category": "resource"
+  },
+  {
+    "type": "asset",
+    "name": "Identity",
+    "library": "illustrations",
+    "description": "SVG illustration component representing an identity, user, or account resource.",
+    "keywords": [
+      "identity",
+      "user",
+      "account",
+      "iam",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Empty states for IAM, user management, or account pages"
+    ],
+    "avoid": [],
+    "import_statement": "import { Identity } from '@gravity-ui/illustrations';",
+    "related": ["AccessDenied"],
+    "category": "resource"
+  },
+  {
+    "type": "asset",
+    "name": "InternalError",
+    "library": "illustrations",
+    "description": "SVG illustration component for internal server error (500) states.",
+    "keywords": [
+      "internal error",
+      "500",
+      "server error",
+      "error state",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Displaying an empty state when a server-side error occurred"
+    ],
+    "avoid": [
+      "Permission errors — use AccessDenied instead",
+      "Not found pages — use NotFound instead"
+    ],
+    "import_statement": "import { InternalError } from '@gravity-ui/illustrations';",
+    "related": ["AccessDenied", "NotFound", "UnableToDisplay"],
+    "category": "error"
+  },
+  {
+    "type": "asset",
+    "name": "Network",
+    "library": "illustrations",
+    "description": "SVG illustration component representing a network or connectivity resource.",
+    "keywords": [
+      "network",
+      "connectivity",
+      "infrastructure",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Empty states for network, VPC, or connectivity-related pages"
+    ],
+    "avoid": [],
+    "import_statement": "import { Network } from '@gravity-ui/illustrations';",
+    "related": ["VirtualMachine"],
+    "category": "resource"
+  },
+  {
+    "type": "asset",
+    "name": "NoSearchResults",
+    "library": "illustrations",
+    "description": "SVG illustration component for empty search result states.",
+    "keywords": [
+      "no results",
+      "search",
+      "empty search",
+      "not found",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Displaying when a search query returns zero results"
+    ],
+    "avoid": [
+      "Page not found (404) — use NotFound instead"
+    ],
+    "import_statement": "import { NoSearchResults } from '@gravity-ui/illustrations';",
+    "related": ["NotFound"],
+    "category": "empty-state"
+  },
+  {
+    "type": "asset",
+    "name": "NotFound",
+    "library": "illustrations",
+    "description": "SVG illustration component for 404 / resource not found error states. Uses Gravity UI CSS tokens for theming.",
+    "keywords": [
+      "not found",
+      "404",
+      "missing",
+      "error state",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Displaying when a requested resource or page does not exist"
+    ],
+    "avoid": [
+      "Access denied scenarios — use AccessDenied instead"
+    ],
+    "import_statement": "import { NotFound } from '@gravity-ui/illustrations';",
+    "related": ["AccessDenied", "InternalError", "NoSearchResults"],
+    "category": "error"
+  },
+  {
+    "type": "asset",
+    "name": "Project",
+    "library": "illustrations",
+    "description": "SVG illustration component representing a project or workspace resource.",
+    "keywords": [
+      "project",
+      "workspace",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Empty states for project listing or workspace pages"
+    ],
+    "avoid": [],
+    "import_statement": "import { Project } from '@gravity-ui/illustrations';",
+    "related": ["Folder", "Feature"],
+    "category": "resource"
+  },
+  {
+    "type": "asset",
+    "name": "Queue",
+    "library": "illustrations",
+    "description": "SVG illustration component representing a message queue or task queue resource.",
+    "keywords": [
+      "queue",
+      "message queue",
+      "tasks",
+      "jobs",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Empty states for queue, job, or message broker pages"
+    ],
+    "avoid": [],
+    "import_statement": "import { Queue } from '@gravity-ui/illustrations';",
+    "related": ["History"],
+    "category": "resource"
+  },
+  {
+    "type": "asset",
+    "name": "Snapshot",
+    "library": "illustrations",
+    "description": "SVG illustration component representing a disk snapshot or backup resource.",
+    "keywords": [
+      "snapshot",
+      "backup",
+      "restore",
+      "disk",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Empty states for snapshot or backup management pages"
+    ],
+    "avoid": [],
+    "import_statement": "import { Snapshot } from '@gravity-ui/illustrations';",
+    "related": ["Disk", "Bucket"],
+    "category": "resource"
+  },
+  {
+    "type": "asset",
+    "name": "SuccessOperation",
+    "library": "illustrations",
+    "description": "SVG illustration component for successful operation or completion states.",
+    "keywords": [
+      "success",
+      "complete",
+      "done",
+      "confirmation",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Celebrating completion of an operation or onboarding step"
+    ],
+    "avoid": [],
+    "import_statement": "import { SuccessOperation } from '@gravity-ui/illustrations';",
+    "related": ["InternalError"],
+    "category": "status"
+  },
+  {
+    "type": "asset",
+    "name": "Template",
+    "library": "illustrations",
+    "description": "SVG illustration component representing a template resource.",
+    "keywords": [
+      "template",
+      "blueprint",
+      "starter",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Empty states for template galleries or blueprint pages"
+    ],
+    "avoid": [],
+    "import_statement": "import { Template } from '@gravity-ui/illustrations';",
+    "related": ["Feature", "Project"],
+    "category": "resource"
+  },
+  {
+    "type": "asset",
+    "name": "UnableToDisplay",
+    "library": "illustrations",
+    "description": "SVG illustration component for states where content exists but cannot be rendered (e.g. unsupported format, render error).",
+    "keywords": [
+      "unable to display",
+      "render error",
+      "unsupported",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Showing when data exists but cannot be displayed due to format or rendering constraints"
+    ],
+    "avoid": [
+      "Server errors — use InternalError instead",
+      "Missing resources — use NotFound instead"
+    ],
+    "import_statement": "import { UnableToDisplay } from '@gravity-ui/illustrations';",
+    "related": ["InternalError", "NotFound"],
+    "category": "error"
+  },
+  {
+    "type": "asset",
+    "name": "VirtualMachine",
+    "library": "illustrations",
+    "description": "SVG illustration component representing a virtual machine or compute instance resource.",
+    "keywords": [
+      "virtual machine",
+      "vm",
+      "compute",
+      "instance",
+      "cloud",
+      "illustration",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Empty states for virtual machine or compute instance pages"
+    ],
+    "avoid": [],
+    "import_statement": "import { VirtualMachine } from '@gravity-ui/illustrations';",
+    "related": ["Network", "Disk"],
+    "category": "resource"
+  }
+]

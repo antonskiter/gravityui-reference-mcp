@@ -1,0 +1,730 @@
+[
+  {
+    "type": "component",
+    "name": "AccordeonCard",
+    "library": "dynamic-forms",
+    "description": "A collapsible accordion card component used as a layout element in dynamic forms. Renders a header with a toggle chevron and an animated body section that expands or collapses. Supports custom header actions, always-open mode, and configurable title sizes.",
+    "keywords": ["accordion", "collapsible", "card", "expandable", "toggle", "layout", "form section", "chevron", "open", "close"],
+    "when_to_use": [
+      "When grouping form fields inside a collapsible card with a visible header",
+      "When embedding form sections that can be toggled open or closed by the user",
+      "When using the 'accordeon_card' layout type in dynamicConfig"
+    ],
+    "avoid": [
+      "Do not use directly as an input component — it is a layout wrapper",
+      "Avoid when a non-collapsible section is preferred; use Card or Section instead"
+    ],
+    "import_statement": "import { AccordeonCard } from '@gravity-ui/dynamic-forms'",
+    "related": ["Card", "SimpleVerticalAccordeon", "TogglerCard"],
+    "props": [
+      { "name": "children", "type": "React.ReactNode", "required": true, "description": "Content rendered inside the accordion body." },
+      { "name": "name", "type": "string", "required": true, "description": "Identifier used for QA attributes on the toggle button." },
+      { "name": "header", "type": "React.ReactNode", "required": true, "description": "Content displayed in the accordion header." },
+      { "name": "alwaysOpen", "type": "boolean", "required": false, "description": "When true the body is always expanded and the toggle button is hidden." },
+      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class for the root element." },
+      { "name": "classNameBody", "type": "string", "required": false, "description": "Additional CSS class for the body element." },
+      { "name": "description", "type": "string", "required": false, "description": "Optional description rendered as HTML inside the header." },
+      { "name": "headerActionsTemplate", "type": "React.ReactNode", "required": false, "description": "Extra content rendered in the header actions area alongside the toggle button." },
+      { "name": "ignoreHeaderToggle", "type": "boolean", "required": false, "description": "When true clicking the header does not toggle the body." },
+      { "name": "onToggle", "type": "(value: boolean) => void", "required": false, "description": "Callback fired when the open state changes." },
+      { "name": "open", "type": "boolean", "required": false, "description": "Controlled open state of the accordion." },
+      { "name": "titleSize", "type": "'s' | 'm'", "required": false, "description": "Size of the title text; defaults to 'm'." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ArrayBase",
+    "library": "dynamic-forms",
+    "description": "A built-in array input component that renders each item using the spec's item sub-spec and an add-item button. Supports vertical or right-aligned add button positioning and optional item prefix labels between items. Used as the 'base' array input type in dynamicConfig.",
+    "keywords": ["array", "list", "add item", "dynamic list", "form array", "repeatable fields", "items", "add button"],
+    "when_to_use": [
+      "When rendering an array of repeated form fields specified by ArraySpec",
+      "When the viewSpec.type is 'base' for an array field"
+    ],
+    "avoid": [
+      "Do not use when a tabular layout is needed — use TableArrayInput instead",
+      "Do not use for multi-select from an enum — use MultiSelect instead"
+    ],
+    "import_statement": "import { ArrayBase } from '@gravity-ui/dynamic-forms'",
+    "related": ["TableArrayInput", "MultiSelect", "CheckboxGroup"]
+  },
+  {
+    "type": "component",
+    "name": "Card",
+    "library": "dynamic-forms",
+    "description": "A collapsible card with a header, optional title, description tooltip, and action slot. Built on top of GravityUI Card and Popover. Supports always-open mode, disabling header toggle, and empty-body detection to auto-hide the card border.",
+    "keywords": ["card", "collapsible", "section", "container", "form card", "toggle", "layout", "header", "actions"],
+    "when_to_use": [
+      "When displaying a titled, collapsible container for a group of form fields",
+      "When used as the layout component inside CardOneOf"
+    ],
+    "avoid": [
+      "Do not use as an input — it is a layout/container component",
+      "Avoid when a simple non-card section is needed — use Section or Row instead"
+    ],
+    "import_statement": "import { Card } from '@gravity-ui/dynamic-forms'",
+    "related": ["AccordeonCard", "CardOneOf", "Section"],
+    "props": [
+      { "name": "children", "type": "React.ReactNode", "required": true, "description": "Content rendered inside the card body." },
+      { "name": "name", "type": "string", "required": true, "description": "Identifier used for QA attributes." },
+      { "name": "actions", "type": "React.ReactNode", "required": false, "description": "Action elements rendered in the header right area." },
+      { "name": "alwaysOpen", "type": "boolean", "required": false, "description": "When true the card is permanently expanded." },
+      { "name": "checkEmptyBody", "type": "boolean", "required": false, "description": "When true detects an empty body and applies empty-body styling." },
+      { "name": "description", "type": "string", "required": false, "description": "HTML description rendered via HelpMark tooltip." },
+      { "name": "disableHeaderToggle", "type": "boolean", "required": false, "description": "Prevents clicking the header from toggling the body." },
+      { "name": "onToggle", "type": "(value: boolean) => void", "required": false, "description": "Callback fired when the open state changes." },
+      { "name": "open", "type": "boolean", "required": false, "description": "Controlled open state." },
+      { "name": "title", "type": "string | React.ReactNode", "required": false, "description": "Title content for the card header; string titles receive ellipsis truncation and a tooltip." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "CardOneOf",
+    "library": "dynamic-forms",
+    "description": "An object input component that combines the useOneOf toggler with a Card layout. Used for oneOf fields that need a card container with a header toggler and optional remove button when inside an array. Automatically opens when a validation error occurs inside the card body.",
+    "keywords": ["oneof", "card", "object", "mutually exclusive", "toggler", "select type", "object input", "form card"],
+    "when_to_use": [
+      "When the viewSpec.type is 'card_oneof' for an object field",
+      "When a oneOf field should be displayed inside a collapsible card"
+    ],
+    "avoid": [
+      "Do not use when a flat or inline oneOf is preferred — use OneOf or OneOfFlat instead"
+    ],
+    "import_statement": "import { CardOneOf } from '@gravity-ui/dynamic-forms'",
+    "related": ["OneOf", "OneOfFlat", "Card", "useOneOf"]
+  },
+  {
+    "type": "component",
+    "name": "Checkbox",
+    "library": "dynamic-forms",
+    "description": "A boolean input component that wraps GravityUI Checkbox. Registered as the 'base' boolean input type in dynamicConfig. Reads and writes boolean values via the dynamic-forms field integration.",
+    "keywords": ["checkbox", "boolean", "toggle", "tick", "boolean input", "check", "form checkbox"],
+    "when_to_use": [
+      "When the viewSpec.type is 'base' for a boolean field",
+      "When a standard checkbox is needed for a true/false field"
+    ],
+    "avoid": [
+      "Do not use for toggle-style UI — use Switch instead",
+      "Do not use for multi-select from an array — use CheckboxGroup instead"
+    ],
+    "import_statement": "import { Checkbox } from '@gravity-ui/dynamic-forms'",
+    "related": ["Switch", "CheckboxGroup"]
+  },
+  {
+    "type": "component",
+    "name": "CheckboxGroup",
+    "library": "dynamic-forms",
+    "description": "An array input component that renders a group of checkboxes derived from the spec's enum values. Supports horizontal or vertical placement controlled by viewSpec.checkboxGroupParams.placement. Stores the selected values as an array.",
+    "keywords": ["checkbox group", "multi select", "array input", "enum", "checkboxes", "multiple choice", "form checkboxes"],
+    "when_to_use": [
+      "When the viewSpec.type is 'checkbox_group' for an array field with an enum",
+      "When users need to select multiple values from a fixed list using checkboxes"
+    ],
+    "avoid": [
+      "Do not use when single-select from an enum is needed — use RadioGroup or Select instead",
+      "Do not use when no enum is defined on the spec"
+    ],
+    "import_statement": "import { CheckboxGroup } from '@gravity-ui/dynamic-forms'",
+    "related": ["RadioGroup", "MultiSelect", "Checkbox"]
+  },
+  {
+    "type": "component",
+    "name": "DateInput",
+    "library": "dynamic-forms",
+    "description": "A string input component that integrates GravityUI DatePicker for date/time selection. Supports multiple output formats: ISO string, custom format string, 'date_time', 'date', or 'timestamp' (seconds/nanos). Reads timezone and format from viewSpec.dateInput.",
+    "keywords": ["date", "time", "date picker", "datetime", "date input", "calendar", "date field", "timestamp"],
+    "when_to_use": [
+      "When the viewSpec.type is 'date_input' for a string field",
+      "When the field stores a date or datetime as a string or timestamp object"
+    ],
+    "avoid": [
+      "Do not use for plain text fields — use Text instead",
+      "Avoid when the field type is not string"
+    ],
+    "import_statement": "import { DateInput } from '@gravity-ui/dynamic-forms'",
+    "related": ["Text", "TextArea"]
+  },
+  {
+    "type": "component",
+    "name": "DynamicField",
+    "library": "dynamic-forms",
+    "description": "The main entry point for rendering a dynamic form field backed by React Final Form. Accepts a field name, a Spec describing the field schema, and a DynamicFormConfig mapping spec types to input and layout components. Provides context for config, Monaco editor, search, shared state, and mutators to all child components.",
+    "keywords": ["dynamic form", "form field", "json schema form", "spec", "config", "final form", "dynamic field", "form renderer"],
+    "when_to_use": [
+      "When embedding a JSON-schema-driven form field inside a React Final Form",
+      "When rendering any dynamic form field specified by a Spec"
+    ],
+    "avoid": [
+      "Do not use outside of a React Final Form context",
+      "Do not use when a read-only value display is needed — use DynamicView instead"
+    ],
+    "import_statement": "import { DynamicField } from '@gravity-ui/dynamic-forms'",
+    "related": ["DynamicView", "dynamicConfig", "dynamicViewConfig"],
+    "props": [
+      { "name": "name", "type": "string", "required": true, "description": "Final Form field name used to bind the field to form state." },
+      { "name": "spec", "type": "Spec", "required": true, "description": "JSON schema spec describing the field type, validation rules, and view configuration." },
+      { "name": "config", "type": "DynamicFormConfig", "required": true, "description": "Configuration object mapping spec types to input and layout components." },
+      { "name": "destroyOnUnregister", "type": "boolean", "required": false, "description": "Whether to destroy the field value when the component unmounts; defaults to true." },
+      { "name": "generateRandomValue", "type": "(spec: StringSpec) => string", "required": false, "description": "Function that generates a random value for string fields with the generate button enabled." },
+      { "name": "Monaco", "type": "React.ComponentType<MonacoEditorProps>", "required": false, "description": "Monaco editor component to use for monaco_input fields." },
+      { "name": "mutators", "type": "DynamicFormMutators", "required": false, "description": "External mutator functions injected into the form context." },
+      { "name": "search", "type": "string | ((spec: Spec, input: FieldValue, name: string) => boolean)", "required": false, "description": "Search string or function for filtering visible fields." },
+      { "name": "shared", "type": "Record<string, any>", "required": false, "description": "Shared state object available to all child components via context." },
+      { "name": "storeSubscriber", "type": "(store: FieldValue) => void", "required": false, "description": "Callback that receives the current field store on every change." },
+      { "name": "withoutInsertFFDebounce", "type": "boolean", "required": false, "description": "Disables debouncing when syncing values into React Final Form." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "DynamicView",
+    "library": "dynamic-forms",
+    "description": "The main entry point for rendering a read-only display of form values driven by a Spec and a DynamicViewConfig. Mirrors the structure of DynamicField but shows values rather than editable inputs. Supports an optional custom Link component for link-type fields.",
+    "keywords": ["dynamic view", "read only", "value display", "json schema view", "spec view", "form view", "preview", "value renderer"],
+    "when_to_use": [
+      "When displaying a read-only overview of values that were collected with DynamicField",
+      "When a value preview driven by a Spec is needed without any editing capability"
+    ],
+    "avoid": [
+      "Do not use when the user needs to edit the values — use DynamicField instead"
+    ],
+    "import_statement": "import { DynamicView } from '@gravity-ui/dynamic-forms'",
+    "related": ["DynamicField", "dynamicViewConfig"],
+    "props": [
+      { "name": "config", "type": "DynamicViewConfig", "required": true, "description": "Configuration object mapping spec types to view and layout components." },
+      { "name": "spec", "type": "Spec", "required": true, "description": "JSON schema spec describing the structure and view configuration." },
+      { "name": "value", "type": "FormValue", "required": true, "description": "The value to display." },
+      { "name": "Link", "type": "React.ComponentType<{value: FormValue; link: Spec['viewSpec']['link']}>", "required": false, "description": "Custom component for rendering link-type fields." },
+      { "name": "Monaco", "type": "React.ComponentType<MonacoEditorProps>", "required": false, "description": "Monaco editor component for monaco_input view fields." },
+      { "name": "shared", "type": "Record<string, any>", "required": false, "description": "Shared state object available to all child view components." },
+      { "name": "showLayoutDescription", "type": "boolean", "required": false, "description": "When true layout descriptions are shown in view layouts." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "FileInput",
+    "library": "dynamic-forms",
+    "description": "A string input component that renders a file upload button. Reads the selected file using a FileReader with a configurable readAsMethod and stores the result as a string value. Supports accept filter and an inline reset button.",
+    "keywords": ["file upload", "file input", "upload button", "file reader", "file picker", "string input", "attachment"],
+    "when_to_use": [
+      "When the viewSpec.type is 'file_input' for a string field",
+      "When the user needs to upload a file whose contents are stored as a string in the form"
+    ],
+    "avoid": [
+      "Do not use for plain text entry — use Text or TextArea instead"
+    ],
+    "import_statement": "import { FileInput } from '@gravity-ui/dynamic-forms'",
+    "related": ["Text", "TextArea"]
+  },
+  {
+    "type": "component",
+    "name": "Group",
+    "library": "dynamic-forms",
+    "description": "A layout component derived from Section that renders a titled section with left-side indentation via GroupIndent. Exported in two size variants: Group (medium title) and Group2 (small title). Used as the 'group' and 'group2' layout types in dynamicConfig.",
+    "keywords": ["group", "indented section", "layout", "group indent", "form group", "section", "indented layout"],
+    "when_to_use": [
+      "When the viewSpec.layout is 'group' or 'group2' for any field type",
+      "When a titled section with left indentation of child fields is needed"
+    ],
+    "avoid": [
+      "Do not use when indentation is not wanted — use Section or Row instead"
+    ],
+    "import_statement": "import { Group, Group2 } from '@gravity-ui/dynamic-forms'",
+    "related": ["Section", "Row", "GroupIndent"]
+  },
+  {
+    "type": "component",
+    "name": "GroupIndent",
+    "library": "dynamic-forms",
+    "description": "A simple layout utility component that adds a left-side visual indentation to its children. Used internally by Group and OneOf to visually nest sub-fields under a parent.",
+    "keywords": ["indent", "group indent", "nested fields", "visual indent", "layout helper", "nesting"],
+    "when_to_use": [
+      "When sub-fields should be visually indented under a parent field or section"
+    ],
+    "avoid": [
+      "Avoid using directly when a full section or group layout is appropriate"
+    ],
+    "import_statement": "import { GroupIndent } from '@gravity-ui/dynamic-forms'",
+    "related": ["Group", "OneOf", "Section"]
+  },
+  {
+    "type": "component",
+    "name": "MonacoInput",
+    "library": "dynamic-forms",
+    "description": "A string input component that embeds a Monaco code editor with an optional dialog expand button. Reads language, fontSize, and other display options from viewSpec.monacoParams. Requires a Monaco editor component to be passed either via the DynamicField Monaco prop or the component's own MonacoComponent prop.",
+    "keywords": ["monaco", "code editor", "json editor", "yaml editor", "code input", "syntax highlighting", "monaco editor", "string input"],
+    "when_to_use": [
+      "When the viewSpec.type is 'monaco_input' for a string field",
+      "When a code or structured text editor with syntax highlighting is needed"
+    ],
+    "avoid": [
+      "Do not use without providing a Monaco editor component — renders nothing if missing",
+      "Do not use for plain single-line text — use Text instead"
+    ],
+    "import_statement": "import { MonacoInput } from '@gravity-ui/dynamic-forms'",
+    "related": ["TextArea", "Text"]
+  },
+  {
+    "type": "component",
+    "name": "MultiOneOf",
+    "library": "dynamic-forms",
+    "description": "An object input that renders a multi-select dropdown to choose multiple active sub-properties simultaneously. Each selected property renders its Controller inline below the selector. Supports optional GroupIndent via the withoutIndent prop. The flat variant MultiOneOfFlat removes the indentation.",
+    "keywords": ["multi oneof", "multi select object", "multiple properties", "object input", "multi select", "grouped fields", "conditional fields"],
+    "when_to_use": [
+      "When the viewSpec.type is 'multi_oneof' or 'multi_oneof_flat' for an object field",
+      "When multiple sub-properties of an object can be enabled simultaneously via a multi-select"
+    ],
+    "avoid": [
+      "Do not use when only one sub-property can be active at a time — use OneOf instead"
+    ],
+    "import_statement": "import { MultiOneOf, MultiOneOfFlat } from '@gravity-ui/dynamic-forms'",
+    "related": ["OneOf", "MultiSelect", "ObjectBase"]
+  },
+  {
+    "type": "component",
+    "name": "MultiSelect",
+    "library": "dynamic-forms",
+    "description": "An array input component that renders a multi-select dropdown populated from the spec's enum values. Converts between the internal array format and string arrays using transformArrIn/transformArrOut helpers. Used as the 'select' array input type in dynamicConfig.",
+    "keywords": ["multi select", "multiple selection", "array input", "enum", "dropdown", "select multiple", "checkboxes select"],
+    "when_to_use": [
+      "When the viewSpec.type is 'select' for an array field with an enum",
+      "When users need to select multiple values from a dropdown"
+    ],
+    "avoid": [
+      "Do not use for single-select — use Select instead",
+      "Do not use when checkbox-style multi-select is preferred — use CheckboxGroup instead"
+    ],
+    "import_statement": "import { MultiSelect } from '@gravity-ui/dynamic-forms'",
+    "related": ["Select", "CheckboxGroup", "ArrayBase"]
+  },
+  {
+    "type": "component",
+    "name": "NumberWithScale",
+    "library": "dynamic-forms",
+    "description": "A string input component that pairs a text input with a scale unit selector (e.g. bytes/KB/MB). Stores the value in the base unit defined by defaultType in viewSpec.sizeParams. Automatically converts the displayed value when the scale dropdown changes.",
+    "keywords": ["number with scale", "unit selector", "size input", "byte size", "unit conversion", "scale", "numeric input with unit"],
+    "when_to_use": [
+      "When the viewSpec.type is 'number_with_scale' for a string field",
+      "When the field stores a numeric value in a base unit but the user should be able to view and enter it in scaled units"
+    ],
+    "avoid": [
+      "Do not use when no sizeParams are defined in the spec — the component returns null",
+      "Do not use for plain number input without a scale — use NumInput instead"
+    ],
+    "import_statement": "import { NumberWithScale } from '@gravity-ui/dynamic-forms'",
+    "related": ["NumInput", "Text"]
+  },
+  {
+    "type": "component",
+    "name": "NumInput",
+    "library": "dynamic-forms",
+    "description": "A number input component that wraps GravityUI NumberInput. Registered as the 'base' number input type in dynamicConfig. Handles null-to-undefined conversion and passes min/max constraints from the spec.",
+    "keywords": ["number input", "numeric", "integer", "float", "number field", "numeric input"],
+    "when_to_use": [
+      "When the viewSpec.type is 'base' for a number field",
+      "When a standard numeric input is needed"
+    ],
+    "avoid": [
+      "Do not use for numbers stored as strings with a scale unit — use NumberWithScale instead"
+    ],
+    "import_statement": "import { NumInput } from '@gravity-ui/dynamic-forms'",
+    "related": ["NumberWithScale", "Text"]
+  },
+  {
+    "type": "component",
+    "name": "ObjectBase",
+    "library": "dynamic-forms",
+    "description": "An object input component that iterates over the spec's properties and renders a Controller for each one. Supports an optional inline rendering mode via ObjectInline for side-by-side fields. Respects viewSpec.order and viewSpec.delimiter for layout control. Shows an add button when the object value is undefined.",
+    "keywords": ["object input", "object fields", "properties", "nested object", "form object", "field group", "inline object"],
+    "when_to_use": [
+      "When the viewSpec.type is 'base' or 'inline' for an object field",
+      "When a form section needs to render all properties of an ObjectSpec"
+    ],
+    "avoid": [
+      "Do not use when a oneOf/multi-oneof selection pattern is needed — use OneOf or MultiOneOf instead"
+    ],
+    "import_statement": "import { ObjectBase, ObjectInline } from '@gravity-ui/dynamic-forms'",
+    "related": ["OneOf", "MultiOneOf", "Secret"]
+  },
+  {
+    "type": "component",
+    "name": "OneOf",
+    "library": "dynamic-forms",
+    "description": "An object input component that shows a toggler (radio group, select, checkbox, switch, or card) and renders the sub-spec of only the selected property. The toggler type is chosen automatically based on the number of options and viewSpec.oneOfParams.toggler. The flat variant OneOfFlat removes the GroupIndent wrapper.",
+    "keywords": ["oneof", "mutually exclusive", "toggler", "radio", "select", "object input", "conditional field", "one of"],
+    "when_to_use": [
+      "When the viewSpec.type is 'oneof' or 'oneof_flat' for an object field",
+      "When only one sub-property of an object should be active at a time"
+    ],
+    "avoid": [
+      "Do not use when multiple sub-properties can be active simultaneously — use MultiOneOf instead",
+      "Do not use when a card-based toggler layout is needed — use CardOneOf instead"
+    ],
+    "import_statement": "import { OneOf, OneOfFlat } from '@gravity-ui/dynamic-forms'",
+    "related": ["CardOneOf", "MultiOneOf", "useOneOf"]
+  },
+  {
+    "type": "component",
+    "name": "RadioGroup",
+    "library": "dynamic-forms",
+    "description": "A string input component that renders a GravityUI RadioGroup from the spec's enum values. Supports horizontal or vertical direction via viewSpec.radioGroupParams.direction and per-option disabled state. Used as the 'radio_group' string input type in dynamicConfig.",
+    "keywords": ["radio group", "radio buttons", "enum", "single select", "radio input", "option group"],
+    "when_to_use": [
+      "When the viewSpec.type is 'radio_group' for a string field with an enum",
+      "When a small set of mutually exclusive options should be shown as radio buttons"
+    ],
+    "avoid": [
+      "Do not use for large enums — use Select instead for better UX",
+      "Do not use for multi-select — use CheckboxGroup or MultiSelect instead"
+    ],
+    "import_statement": "import { RadioGroup } from '@gravity-ui/dynamic-forms'",
+    "related": ["Select", "CheckboxGroup", "MultiSelect"]
+  },
+  {
+    "type": "component",
+    "name": "Row",
+    "library": "dynamic-forms",
+    "description": "A horizontal layout component that places the field label on the left and the input on the right. Displays a HelpMark tooltip for layoutDescription. Includes an inline remove button for array items and a GenerateRandomValueButton for string fields that have it enabled. RowVerbose variant shows the description below the input instead of in a tooltip.",
+    "keywords": ["row layout", "label input row", "horizontal layout", "field row", "form row", "label", "layout"],
+    "when_to_use": [
+      "When the viewSpec.layout is 'row' or 'row_verbose' for any field type",
+      "When a classic label-left input-right form row layout is needed"
+    ],
+    "avoid": [
+      "Do not use when a vertical section layout is preferred — use Section instead"
+    ],
+    "import_statement": "import { Row, RowVerbose } from '@gravity-ui/dynamic-forms'",
+    "related": ["Section", "Column", "Transparent"]
+  },
+  {
+    "type": "component",
+    "name": "Secret",
+    "library": "dynamic-forms",
+    "description": "An object input component designed for secret/credential fields. It expects the object spec to have a 'raw' property and renders only that sub-field with its layout forced to 'transparent'. Used as the 'secret' object input type in dynamicConfig.",
+    "keywords": ["secret", "password field", "credential", "sensitive data", "hidden value", "object input"],
+    "when_to_use": [
+      "When the viewSpec.type is 'secret' for an object field that wraps a sensitive value under a 'raw' property"
+    ],
+    "avoid": [
+      "Do not use for a plain password text field — use Text with viewSpec.type='password' instead",
+      "Do not use when there is no 'raw' property in the object spec"
+    ],
+    "import_statement": "import { Secret } from '@gravity-ui/dynamic-forms'",
+    "related": ["Text", "ObjectBase"]
+  },
+  {
+    "type": "component",
+    "name": "Section",
+    "library": "dynamic-forms",
+    "description": "A vertical layout component that renders a titled section header above the field content. Available in multiple variants: Section (medium title), Section2 (small title), SectionWithSubtitle (description as subtitle), SectionWithSubtitle2, Group (with GroupIndent), Group2. Wraps children in ErrorWrapper for form validation feedback.",
+    "keywords": ["section", "titled layout", "vertical layout", "form section", "header", "layout", "group"],
+    "when_to_use": [
+      "When the viewSpec.layout is 'section', 'section2', 'group', or 'group2'",
+      "When a field or group of fields needs a visible title header above the inputs"
+    ],
+    "avoid": [
+      "Do not use when a side-by-side label-input layout is needed — use Row instead"
+    ],
+    "import_statement": "import { Section, Section2, SectionWithSubtitle, SectionWithSubtitle2, Group, Group2 } from '@gravity-ui/dynamic-forms'",
+    "related": ["Row", "Column", "Group", "Transparent"]
+  },
+  {
+    "type": "component",
+    "name": "Select",
+    "library": "dynamic-forms",
+    "description": "A string input component that renders a GravityUI Select populated from the spec's enum values. Automatically enables filtering when there are more than 9 options. Supports custom options and meta text for each option via selectParams. Used as the 'select' string input type in dynamicConfig.",
+    "keywords": ["select", "dropdown", "enum", "single select", "option list", "combobox", "string input"],
+    "when_to_use": [
+      "When the viewSpec.type is 'select' for a string field with an enum",
+      "When a single-value selection from a list is needed"
+    ],
+    "avoid": [
+      "Do not use for multi-select — use MultiSelect instead",
+      "Do not use for radio button style — use RadioGroup for small enums instead"
+    ],
+    "import_statement": "import { Select } from '@gravity-ui/dynamic-forms'",
+    "related": ["MultiSelect", "RadioGroup", "CheckboxGroup"]
+  },
+  {
+    "type": "component",
+    "name": "Switch",
+    "library": "dynamic-forms",
+    "description": "A boolean input component that wraps GravityUI Switch. Registered as the 'switch' boolean input type in dynamicConfig. Reads and writes boolean values via the dynamic-forms field integration.",
+    "keywords": ["switch", "toggle", "boolean", "on off", "boolean input", "switch input"],
+    "when_to_use": [
+      "When the viewSpec.type is 'switch' for a boolean field",
+      "When a toggle switch UI is preferred over a checkbox for a boolean value"
+    ],
+    "avoid": [
+      "Do not use for checkbox-style UI — use Checkbox instead"
+    ],
+    "import_statement": "import { Switch } from '@gravity-ui/dynamic-forms'",
+    "related": ["Checkbox"]
+  },
+  {
+    "type": "component",
+    "name": "TableArrayInput",
+    "library": "dynamic-forms",
+    "description": "An array input component that renders items in a GravityUI Table. Each row corresponds to an array item and each column corresponds to an object property defined in viewSpec.table. Requires items to be an ObjectSpec and table column definitions to be provided. Supports column widths and description tooltips per column.",
+    "keywords": ["table", "array table", "tabular input", "data table", "array input", "table rows", "matrix input"],
+    "when_to_use": [
+      "When the viewSpec.type is 'table' for an array field whose items are objects",
+      "When array data should be displayed and edited in a tabular format"
+    ],
+    "avoid": [
+      "Do not use when items are not objects — use ArrayBase instead",
+      "Do not use without viewSpec.table column definitions — the component returns null"
+    ],
+    "import_statement": "import { TableArrayInput } from '@gravity-ui/dynamic-forms'",
+    "related": ["ArrayBase", "MultiSelect"]
+  },
+  {
+    "type": "component",
+    "name": "Text",
+    "library": "dynamic-forms",
+    "description": "A string (or number) input component that renders a GravityUI TextInput or PasswordInput. Used as the 'base' and 'password' string input types in dynamicConfig. Shows a PasswordInput when viewSpec.type is 'password'.",
+    "keywords": ["text input", "string input", "text field", "password", "input", "text", "form input"],
+    "when_to_use": [
+      "When the viewSpec.type is 'base' for a string or number field",
+      "When the viewSpec.type is 'password' for a masked text input"
+    ],
+    "avoid": [
+      "Do not use for multi-line text — use TextArea instead",
+      "Do not use for code editing — use MonacoInput instead"
+    ],
+    "import_statement": "import { Text } from '@gravity-ui/dynamic-forms'",
+    "related": ["TextArea", "MonacoInput", "Select"]
+  },
+  {
+    "type": "component",
+    "name": "TextArea",
+    "library": "dynamic-forms",
+    "description": "A string input component that renders a GravityUI TextArea with 8–20 rows. Used as the 'textarea' string input type in dynamicConfig. Passes through additional TextArea props via inputProps.",
+    "keywords": ["textarea", "multiline", "text area", "string input", "multiline input", "long text"],
+    "when_to_use": [
+      "When the viewSpec.type is 'textarea' for a string field",
+      "When the user needs to enter multi-line text"
+    ],
+    "avoid": [
+      "Do not use for single-line text — use Text instead",
+      "Do not use for code — use MonacoInput instead"
+    ],
+    "import_statement": "import { TextArea } from '@gravity-ui/dynamic-forms'",
+    "related": ["Text", "MonacoInput"]
+  },
+  {
+    "type": "component",
+    "name": "TextContent",
+    "library": "dynamic-forms",
+    "description": "A string independent input that renders static display content derived from viewSpec.textContentParams or viewSpec.layoutDescription. Can render as an Alert, a Label, or plain text with an optional icon. Used as the 'text_content' string input type in dynamicConfig.",
+    "keywords": ["text content", "static content", "alert", "label", "display text", "info box", "read-only content", "announcement"],
+    "when_to_use": [
+      "When the viewSpec.type is 'text_content' for a string field",
+      "When a static informational text, alert, or label should be embedded in the form"
+    ],
+    "avoid": [
+      "Do not use for editable text — use Text or TextArea instead"
+    ],
+    "import_statement": "import { TextContent } from '@gravity-ui/dynamic-forms'",
+    "related": ["Text", "TextArea"]
+  },
+  {
+    "type": "component",
+    "name": "Transparent",
+    "library": "dynamic-forms",
+    "description": "A pass-through layout component that renders children without any visual wrapper. Used as the 'transparent' layout type in dynamicConfig to suppress any layout chrome around a field.",
+    "keywords": ["transparent", "no layout", "pass through", "layout none", "no wrapper", "bare layout"],
+    "when_to_use": [
+      "When the viewSpec.layout is 'transparent'",
+      "When a field should render without any label, title, or container"
+    ],
+    "avoid": [
+      "Do not use when a label or title is needed — use Row or Section instead"
+    ],
+    "import_statement": "import { Transparent } from '@gravity-ui/dynamic-forms'",
+    "related": ["Row", "Section", "Column"]
+  },
+  {
+    "type": "hook",
+    "name": "useErrorChecker",
+    "library": "dynamic-forms",
+    "description": "A hook that automatically opens a collapsible container when the form is submitted and a validation error exists inside it. Accepts the field name, meta object, current open state, and a setOpen callback.",
+    "keywords": ["error checker", "auto open", "validation error", "submit error", "accordion error", "form validation"],
+    "when_to_use": [
+      "When building a collapsible container that should auto-expand on submit errors for fields inside it"
+    ],
+    "avoid": [
+      "Do not use outside of a dynamic-forms form context — it depends on Final Form meta"
+    ],
+    "import_statement": "import { useErrorChecker } from '@gravity-ui/dynamic-forms'",
+    "related": ["CardOneOf", "AccordeonCard"],
+    "signature": "useErrorChecker({ name: string, meta: FieldRenderProps<FieldValue>['meta'], open: boolean, setOpen: (flag: boolean) => void }): void",
+    "parameters": [
+      { "name": "name", "type": "string", "description": "The field name to look for in form error elements." },
+      { "name": "meta", "type": "FieldRenderProps<FieldValue>['meta']", "description": "Final Form meta object providing submitFailed state." },
+      { "name": "open", "type": "boolean", "description": "Current open state of the collapsible container." },
+      { "name": "setOpen", "type": "(flag: boolean) => void", "description": "Callback to change the open state." }
+    ],
+    "return_type": "void"
+  },
+  {
+    "type": "hook",
+    "name": "useOneOf",
+    "library": "dynamic-forms",
+    "description": "A hook that manages the toggler logic for oneOf-style object inputs. Determines the toggler type (radio, select, card, checkbox, or switch) based on the number of options and viewSpec.oneOfParams. Returns the current selected key, spec properties map, the rendered toggler element, and the raw toggler input.",
+    "keywords": ["oneof", "toggler", "radio toggle", "select toggle", "card toggle", "oneOf hook", "mutually exclusive", "object toggler"],
+    "when_to_use": [
+      "When building a custom oneOf input component that needs the toggler logic",
+      "When the built-in OneOf, CardOneOf patterns need to be extended"
+    ],
+    "avoid": [
+      "Do not use for multi-select scenarios — this hook manages single active property selection"
+    ],
+    "import_statement": "import { useOneOf } from '@gravity-ui/dynamic-forms'",
+    "related": ["OneOf", "CardOneOf", "MultiOneOf"],
+    "signature": "useOneOf({ props: ObjectIndependentInputProps, onTogglerChange?: (value: string) => void }): { oneOfValue: string, specProperties: Record<string, Spec>, toggler: React.ReactNode, togglerInput: React.ReactNode }",
+    "parameters": [
+      { "name": "props", "type": "ObjectIndependentInputProps", "description": "The full props of the parent object input component." },
+      { "name": "onTogglerChange", "type": "(value: string) => void", "description": "Optional callback fired when the selected property changes." }
+    ],
+    "return_type": "{ oneOfValue: string, specProperties: Record<string, Spec>, toggler: React.ReactNode, togglerInput: React.ReactNode }"
+  },
+  {
+    "type": "utility",
+    "name": "dynamicConfig",
+    "library": "dynamic-forms",
+    "description": "The default DynamicFormConfig object that maps all built-in input, layout, and validator components to their spec type and viewSpec.type keys. Pass this to DynamicField as the config prop to use all standard form components out of the box.",
+    "keywords": ["dynamic config", "form config", "default config", "config object", "input map", "layout map", "validator map"],
+    "when_to_use": [
+      "When setting up DynamicField with the default set of input and layout components",
+      "As the starting point to extend with custom inputs or layouts"
+    ],
+    "avoid": [
+      "Do not pass to DynamicView — use dynamicViewConfig instead"
+    ],
+    "import_statement": "import { dynamicConfig } from '@gravity-ui/dynamic-forms'",
+    "related": ["DynamicField", "dynamicViewConfig"],
+    "signature": "dynamicConfig: DynamicFormConfig",
+    "parameters": [],
+    "return_type": "DynamicFormConfig",
+    "kind": "const"
+  },
+  {
+    "type": "utility",
+    "name": "dynamicViewConfig",
+    "library": "dynamic-forms",
+    "description": "The default DynamicViewConfig object that maps all built-in view and view-layout components to their spec type and viewSpec.type keys. Pass this to DynamicView as the config prop to use all standard view components out of the box.",
+    "keywords": ["dynamic view config", "view config", "default view config", "config object", "view map", "view layout map"],
+    "when_to_use": [
+      "When setting up DynamicView with the default set of view and layout components"
+    ],
+    "avoid": [
+      "Do not pass to DynamicField — use dynamicConfig instead"
+    ],
+    "import_statement": "import { dynamicViewConfig } from '@gravity-ui/dynamic-forms'",
+    "related": ["DynamicView", "dynamicConfig"],
+    "signature": "dynamicViewConfig: DynamicViewConfig",
+    "parameters": [],
+    "return_type": "DynamicViewConfig",
+    "kind": "const"
+  },
+  {
+    "type": "utility",
+    "name": "getArrayValidator",
+    "library": "dynamic-forms",
+    "description": "A factory function that returns a validator for ArraySpec fields. Validates required, maxLength, and minLength constraints. Accepts optional ignore flags and customErrorMessages to override default error strings.",
+    "keywords": ["array validator", "validator factory", "array validation", "min length", "max length", "required validation"],
+    "when_to_use": [
+      "When registering a custom array validator in a DynamicFormConfig",
+      "When customizing the built-in array validation rules"
+    ],
+    "avoid": [
+      "Do not use for non-array spec types — use the corresponding getXxxValidator instead"
+    ],
+    "import_statement": "import { getArrayValidator } from '@gravity-ui/dynamic-forms'",
+    "related": ["getStringValidator", "getNumberValidator", "getObjectValidator", "getBooleanValidator"],
+    "signature": "getArrayValidator(params?: GetArrayValidatorParams): (spec: ArraySpec, value?: ArrayValue) => string | false",
+    "parameters": [
+      { "name": "params", "type": "GetArrayValidatorParams", "description": "Optional flags to skip specific checks and custom error messages." }
+    ],
+    "return_type": "string | false",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "getBooleanValidator",
+    "library": "dynamic-forms",
+    "description": "A factory function that returns a validator for BooleanSpec fields. Validates the required constraint. Accepts optional ignoreRequiredCheck and customErrorMessages.",
+    "keywords": ["boolean validator", "validator factory", "boolean validation", "required validation"],
+    "when_to_use": [
+      "When registering a custom boolean validator in a DynamicFormConfig"
+    ],
+    "avoid": [],
+    "import_statement": "import { getBooleanValidator } from '@gravity-ui/dynamic-forms'",
+    "related": ["getArrayValidator", "getStringValidator", "getNumberValidator", "getObjectValidator"],
+    "signature": "getBooleanValidator(params?: GetBooleanValidatorParams): (spec: BooleanSpec, value?: boolean) => string | false",
+    "parameters": [
+      { "name": "params", "type": "GetBooleanValidatorParams", "description": "Optional flags and custom error messages." }
+    ],
+    "return_type": "string | false",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "getNumberValidator",
+    "library": "dynamic-forms",
+    "description": "A factory function that returns a validator for NumberSpec fields. Validates required, maximum, minimum, int64 format, leading/trailing spaces, zero-start, and other numeric format rules. Each check can be individually disabled via ignore flags.",
+    "keywords": ["number validator", "validator factory", "number validation", "min max", "integer validation", "numeric format"],
+    "when_to_use": [
+      "When registering a custom number validator in a DynamicFormConfig",
+      "When customizing numeric validation rules such as disabling integer-only check"
+    ],
+    "avoid": [],
+    "import_statement": "import { getNumberValidator } from '@gravity-ui/dynamic-forms'",
+    "related": ["getStringValidator", "getArrayValidator"],
+    "signature": "getNumberValidator(params?: GetNumberValidatorParams): (spec: NumberSpec, value?: string | number) => string | false",
+    "parameters": [
+      { "name": "params", "type": "GetNumberValidatorParams", "description": "Optional ignore flags for each numeric check and custom error messages." }
+    ],
+    "return_type": "string | false",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "getObjectValidator",
+    "library": "dynamic-forms",
+    "description": "A factory function that returns a validator for ObjectSpec fields. Validates the required constraint. Accepts optional ignoreRequiredCheck and customErrorMessages.",
+    "keywords": ["object validator", "validator factory", "object validation", "required validation"],
+    "when_to_use": [
+      "When registering a custom object validator in a DynamicFormConfig"
+    ],
+    "avoid": [],
+    "import_statement": "import { getObjectValidator } from '@gravity-ui/dynamic-forms'",
+    "related": ["getArrayValidator", "getStringValidator", "getBooleanValidator"],
+    "signature": "getObjectValidator(params?: GetObjectValidatorParams): (spec: ObjectSpec, value?: ObjectValue) => string | false",
+    "parameters": [
+      { "name": "params", "type": "GetObjectValidatorParams", "description": "Optional flags and custom error messages." }
+    ],
+    "return_type": "string | false",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "getStringValidator",
+    "library": "dynamic-forms",
+    "description": "A factory function that returns a validator for StringSpec fields. Validates required, maxLength, minLength, pattern (regex), and leading/trailing space rules. Each check can be individually disabled via ignore flags.",
+    "keywords": ["string validator", "validator factory", "string validation", "pattern validation", "regex validation", "min max length"],
+    "when_to_use": [
+      "When registering a custom string validator in a DynamicFormConfig",
+      "When customizing string validation rules such as disabling the pattern check"
+    ],
+    "avoid": [],
+    "import_statement": "import { getStringValidator } from '@gravity-ui/dynamic-forms'",
+    "related": ["getNumberValidator", "getArrayValidator"],
+    "signature": "getStringValidator(params?: GetStringValidatorParams): (spec: StringSpec, value?: string) => string | false",
+    "parameters": [
+      { "name": "params", "type": "GetStringValidatorParams", "description": "Optional ignore flags for each string check and custom error messages." }
+    ],
+    "return_type": "string | false",
+    "kind": "function"
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "type": "config-doc",
+    "name": "webpack-i18n-assets-plugin",
+    "library": "webpack-i18n-assets-plugin",
+    "description": "Webpack 5 plugin that inlines i18n localization texts into production bundles and generates per-locale asset files in a single build pass. Replaces i18n function calls with resolved strings at build time, supporting parameters, pluralization, and custom import/declaration resolvers.",
+    "keywords": [
+      "webpack",
+      "i18n",
+      "localization",
+      "internationalization",
+      "inline translations",
+      "locale assets",
+      "production build",
+      "gravity-i18n",
+      "webpack plugin",
+      "bundle optimization"
+    ],
+    "when_to_use": [
+      "Generating per-locale production JS bundles in a single webpack build",
+      "Inlining i18n strings into the bundle to avoid runtime translation lookups",
+      "Using @gravity-ui/i18n and wanting build-time translation resolution",
+      "When you need per-locale assets manifests for server-side locale-aware static file serving"
+    ],
+    "avoid": [
+      "Only works for production builds — do not rely on it for development-mode translation",
+      "Supports only string literals as i18n keys — template strings and variable keys are not supported",
+      "Requires Webpack 5; Webpack 4 is not supported"
+    ],
+    "import_statement": "import { I18nAssetsPlugin } from '@gravity-ui/webpack-i18n-assets-plugin';",
+    "related": [],
+    "how_to_use": "Install with `npm install -D @gravity-ui/webpack-i18n-assets-plugin`. In webpack.config.js add `new I18nAssetsPlugin({ locales })` to plugins and use `[locale]` in the output filename. Alternatively use `applyPluginToWebpackConfig(config, { locales })` to also attach WebpackAssetsManifest for per-locale manifests. Customize with `importResolver`, `declarationResolver`, and `replacer` options for non-gravity-i18n libraries.",
+    "options": {
+      "locales": "Required. Object mapping locale codes to translation key-value maps.",
+      "importResolver": "Optional. Function to identify which imports are i18n functions.",
+      "declarationResolver": "Optional. Function to identify which variable declarations are i18n helpers.",
+      "replacer": "Optional. Function that returns the replacement string for each i18n call.",
+      "collectUnusedKeys": "Optional boolean. When true, writes unused-keys.json after build (default: false)."
+    }
+  }
+]

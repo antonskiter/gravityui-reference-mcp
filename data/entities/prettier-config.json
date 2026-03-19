@@ -1,0 +1,28 @@
+[
+  {
+    "type": "config-doc",
+    "name": "prettier-config",
+    "library": "prettier-config",
+    "description": "Gravity UI shared Prettier configuration that enforces the Gravity UI code formatting styleguide. Used as a base for consistent formatting across all Gravity UI packages.",
+    "keywords": [
+      "prettier",
+      "code formatting",
+      "styleguide",
+      "formatting config",
+      "auto-format",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Adding Prettier to a new or existing Gravity UI project",
+      "Ensuring consistent code formatting across a monorepo or multiple packages",
+      "Using alongside @gravity-ui/eslint-config/prettier for unified lint + format setup"
+    ],
+    "avoid": [
+      "Do not use if your project requires different Prettier rules than the Gravity UI defaults — the config is opinionated",
+      "Prettier must be installed separately as a peer dependency"
+    ],
+    "import_statement": "",
+    "related": ["eslint-config"],
+    "how_to_use": "Install with `npm install --save-dev prettier @gravity-ui/prettier-config`. Create `.prettierrc.js` at the project root with `module.exports = require('@gravity-ui/prettier-config');`."
+  }
+]

@@ -1,0 +1,225 @@
+[
+  {
+    "type": "component",
+    "name": "FeedHeader",
+    "library": "blog-constructor",
+    "description": "Renders the header section of a blog feed page, including background image, theme, and filter controls (tags, services, search). Integrates with page-constructor's Grid and BackgroundImage for layout.",
+    "keywords": ["blog", "feed", "header", "filter", "tags", "services", "background", "page-constructor", "navigation", "controls"],
+    "when_to_use": ["At the top of a blog listing or feed page", "When users need to filter blog posts by tag or service", "When a themed header with optional background image is required"],
+    "avoid": ["On individual blog post pages — use PostInfo instead", "When no filtering controls are needed — use a plain heading"],
+    "import_statement": "import { FeedHeader } from '@gravity-ui/blog-constructor';",
+    "related": ["Posts", "Search", "Paginator"],
+    "props": [
+      { "name": "title", "type": "string", "required": false, "description": "Header title text" },
+      { "name": "tags", "type": "TagData[]", "required": false, "description": "List of tag filter options" },
+      { "name": "services", "type": "ServiceData[]", "required": false, "description": "List of service filter options" },
+      { "name": "handleLoadData", "type": "(params: Query) => void", "required": false, "description": "Callback fired when filters change" },
+      { "name": "queryParams", "type": "Query", "required": false, "description": "Current active query parameters" },
+      { "name": "background", "type": "ThemedImage", "required": false, "description": "Themed background image config" },
+      { "name": "theme", "type": "'light' | 'dark'", "required": false, "description": "Color theme for the header" },
+      { "name": "offset", "type": "string", "required": false, "description": "Grid offset setting" },
+      { "name": "verticalOffset", "type": "'l' | 'm' | 's'", "required": false, "description": "Vertical spacing offset" },
+      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class name" }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "MetaWrapper",
+    "library": "blog-constructor",
+    "description": "Conditionally wraps meta content in a react-helmet Helmet component for SSR head tag injection. When needHelmetWrapper is false, renders the metaComponent directly.",
+    "keywords": ["meta", "helmet", "seo", "head", "ssr", "server-side rendering", "open graph", "blog", "page meta"],
+    "when_to_use": ["When injecting SEO meta tags for blog post or feed pages", "When you need conditional Helmet wrapping based on environment"],
+    "avoid": ["For non-meta UI content", "When react-helmet is not available in the project"],
+    "import_statement": "import { MetaWrapper } from '@gravity-ui/blog-constructor';",
+    "related": ["PostInfo"],
+    "props": [
+      { "name": "metaComponent", "type": "React.ReactNode", "required": true, "description": "Meta JSX elements to render (e.g. <meta>, <title>)" },
+      { "name": "needHelmetWrapper", "type": "boolean", "required": false, "description": "Whether to wrap content in react-helmet Helmet" }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Paginator",
+    "library": "blog-constructor",
+    "description": "Renders a numbered page navigation bar for blog post listings with optional prev/next navigation buttons. Automatically hides when there is only one page and fires analytics events on page changes.",
+    "keywords": ["pagination", "pager", "page navigation", "blog", "posts list", "next page", "previous page", "page numbers"],
+    "when_to_use": ["At the bottom of a paginated blog post listing", "When post count exceeds itemsPerPage and pagination is needed"],
+    "avoid": ["When using infinite scroll or load-more pattern — use the Posts component's showMore button instead", "When totalItems < itemsPerPage (component renders nothing)"],
+    "import_statement": "import { Paginator } from '@gravity-ui/blog-constructor';",
+    "related": ["Posts"],
+    "props": [
+      { "name": "itemsPerPage", "type": "number", "required": true, "description": "Number of posts displayed per page" },
+      { "name": "totalItems", "type": "number", "required": true, "description": "Total count of all posts" },
+      { "name": "page", "type": "number", "required": true, "description": "Currently active page number (1-indexed)" },
+      { "name": "onPageChange", "type": "(page: number) => void", "required": false, "description": "Callback called with new page number" },
+      { "name": "maxPages", "type": "number", "required": false, "description": "Maximum number of pages to allow" },
+      { "name": "queryParams", "type": "Query", "required": false, "description": "Current URL query params to preserve in page links" },
+      { "name": "pageCountForShowSupportButtons", "type": "number", "required": false, "description": "Minimum page count before prev/next buttons appear (default 6)" },
+      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class name" }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PostCard",
+    "library": "blog-constructor",
+    "description": "Renders a single blog post preview card with image, title, description, tag, date, reading time, and like count. Supports multiple sizes and heading levels for proper document hierarchy.",
+    "keywords": ["blog post", "post card", "article card", "preview", "thumbnail", "like", "reading time", "tag", "card layout"],
+    "when_to_use": ["Inside blog feed or listing pages to display a post summary", "When rendering a grid of post previews", "For suggested/related post sections"],
+    "avoid": ["For full post display — use a post page layout instead", "When post data lacks a URL — the card is not interactive without it"],
+    "import_statement": "import { PostCard } from '@gravity-ui/blog-constructor';",
+    "related": ["Posts", "PostInfo"],
+    "props": [
+      { "name": "post", "type": "PostData", "required": true, "description": "Full post data object" },
+      { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events to fire on card interaction" },
+      { "name": "fullWidth", "type": "boolean", "required": false, "description": "Whether card spans full container width" },
+      { "name": "showTag", "type": "boolean", "required": false, "description": "Whether to display the first post tag" },
+      { "name": "size", "type": "'s' | 'm'", "required": false, "description": "Card size variant (default 's')" },
+      { "name": "titleHeadingLevel", "type": "'h2' | 'h3' | 'h4'", "required": false, "description": "Heading element level for accessibility" }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PostInfo",
+    "library": "blog-constructor",
+    "description": "Displays metadata for a blog post page: publication date, reading time, sharing options, and save/like button. Reads post context and supports custom extra info items via SettingsContext.",
+    "keywords": ["post metadata", "reading time", "publish date", "sharing", "save", "like", "blog post info", "social share"],
+    "when_to_use": ["On a blog post detail page to show post metadata", "When social sharing and save functionality is needed on a post"],
+    "avoid": ["In feed card previews — use SuggestPostInfo or PostCard instead"],
+    "import_statement": "import { PostInfo } from '@gravity-ui/blog-constructor';",
+    "related": ["PostCard"],
+    "props": [
+      { "name": "postId", "type": "number | string", "required": true, "description": "Unique identifier of the post" },
+      { "name": "date", "type": "string", "required": true, "description": "Publication date string" },
+      { "name": "readingTime", "type": "number", "required": true, "description": "Estimated reading time in minutes" },
+      { "name": "theme", "type": "'light' | 'dark'", "required": false, "description": "Color theme for the info bar" },
+      { "name": "analyticsEventsContainer", "type": "Record<string, AnalyticsEventsProp>", "required": false, "description": "Named analytics event configurations" },
+      { "name": "qa", "type": "string", "required": false, "description": "Test QA attribute" }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Posts",
+    "library": "blog-constructor",
+    "description": "Renders a full blog post listing with a grid of PostCard components, an optional pinned post, load-more button, error state, and pagination. Manages loading state visual feedback.",
+    "keywords": ["blog posts list", "post grid", "feed", "load more", "pagination", "pinned post", "fetching", "card layout"],
+    "when_to_use": ["As the main content area of a blog feed page", "When displaying a paginated or infinite-scroll list of blog posts"],
+    "avoid": ["For individual post display", "When only a few posts are shown statically — render PostCard directly"],
+    "import_statement": "import { Posts } from '@gravity-ui/blog-constructor';",
+    "related": ["PostCard", "Paginator", "PostsEmpty", "PostsError"],
+    "props": [
+      { "name": "containerId", "type": "string", "required": true, "description": "HTML id for the posts container element" },
+      { "name": "currentPage", "type": "number", "required": true, "description": "Currently active page number" },
+      { "name": "isShowMoreVisible", "type": "boolean", "required": true, "description": "Whether to show the load-more button" },
+      { "name": "errorShowMore", "type": "boolean", "required": true, "description": "Whether a load-more error occurred" },
+      { "name": "postCountOnPage", "type": "number", "required": true, "description": "Total count of posts for pagination" },
+      { "name": "perPageInQuery", "type": "number", "required": true, "description": "Posts per page for paginator" },
+      { "name": "isFetching", "type": "boolean", "required": true, "description": "Whether posts are currently loading" },
+      { "name": "handleShowMore", "type": "(e?: MouseEvent) => Promise<void> | void", "required": true, "description": "Load-more button click handler" },
+      { "name": "handlePageChange", "type": "(page: number) => Promise<void> | void", "required": true, "description": "Page change handler for paginator" },
+      { "name": "queryParams", "type": "Query", "required": true, "description": "Active URL query params" },
+      { "name": "postsOnPage", "type": "PostData[]", "required": false, "description": "Array of posts to display" },
+      { "name": "pinnedPostOnPage", "type": "PostData", "required": false, "description": "Post to pin at top (shown on page 1 only)" },
+      { "name": "pageCountForShowSupportButtons", "type": "number", "required": false, "description": "Passed to Paginator component" }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PostsEmpty",
+    "library": "blog-constructor",
+    "description": "Renders an empty state message when no blog posts match the current filter or search criteria.",
+    "keywords": ["empty state", "no posts", "no results", "blog", "empty list", "zero results"],
+    "when_to_use": ["When the blog feed has no posts to display after filtering or searching"],
+    "avoid": ["For error states — use PostsError instead"],
+    "import_statement": "import { PostsEmpty } from '@gravity-ui/blog-constructor';",
+    "related": ["Posts", "PostsError"],
+    "props": []
+  },
+  {
+    "type": "component",
+    "name": "PostsError",
+    "library": "blog-constructor",
+    "description": "Renders an error state for blog post loading failures with a retry button. Calls window.location.reload() if no custom handler is provided.",
+    "keywords": ["error state", "load error", "retry", "blog posts", "fetch error", "error message"],
+    "when_to_use": ["When blog post fetching fails and a user-facing error with retry is needed"],
+    "avoid": ["For empty results — use PostsEmpty instead"],
+    "import_statement": "import { PostsError } from '@gravity-ui/blog-constructor';",
+    "related": ["Posts", "PostsEmpty"],
+    "props": [
+      { "name": "onButtonClick", "type": "() => void | Promise<void>", "required": false, "description": "Custom retry handler; defaults to page reload" }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Prompt",
+    "library": "blog-constructor",
+    "description": "A timed tooltip-style popup that displays a message with one or more action buttons. Automatically disappears after openDuration milliseconds and resets its timer when openTimestamp changes.",
+    "keywords": ["prompt", "tooltip popup", "notification", "action buttons", "timed popup", "hover", "blog prompt"],
+    "when_to_use": ["When prompting the user to take an action (e.g. sign in to like a post)", "For transient, auto-dismissing notification messages with CTAs"],
+    "avoid": ["For persistent dialogs or modals — use Modal from uikit instead", "When no timed auto-dismiss behavior is needed"],
+    "import_statement": "import { Prompt } from '@gravity-ui/blog-constructor';",
+    "related": ["PromptSignIn"],
+    "props": [
+      { "name": "text", "type": "string", "required": true, "description": "Prompt message text" },
+      { "name": "actions", "type": "ButtonProps[]", "required": true, "description": "Array of button props for action buttons" },
+      { "name": "openTimestamp", "type": "number", "required": false, "description": "Unix timestamp (ms) when prompt should open; resets timer on change" },
+      { "name": "openDuration", "type": "number", "required": false, "description": "Milliseconds to keep prompt visible before auto-close" },
+      { "name": "theme", "type": "'grey' | 'beige' | 'white'", "required": false, "description": "Visual theme for the prompt container" },
+      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class name" }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PromptSignIn",
+    "library": "blog-constructor",
+    "description": "A pre-configured Prompt that asks unauthenticated users to sign in, typically triggered when they attempt to like a post. Wraps Prompt with default sign-in text and action.",
+    "keywords": ["sign in prompt", "authentication", "login prompt", "like gating", "unauthenticated", "blog", "prompt"],
+    "when_to_use": ["When an action requires authentication and you need to prompt the user to sign in", "On blog post pages where liking requires a logged-in account"],
+    "avoid": ["For general notifications — use Prompt with custom text instead"],
+    "import_statement": "import { PromptSignIn } from '@gravity-ui/blog-constructor';",
+    "related": ["Prompt"],
+    "props": [
+      { "name": "onClickSignIn", "type": "React.EventHandler<React.SyntheticEvent>", "required": false, "description": "Handler called when sign-in button is clicked" },
+      { "name": "text", "type": "string", "required": false, "description": "Override default prompt message" },
+      { "name": "actions", "type": "ButtonProps[]", "required": false, "description": "Override default action buttons" }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Search",
+    "library": "blog-constructor",
+    "description": "A debounced search input component for blog post filtering. Built on uikit TextInput with clear/submit icon and iPhone-safe autofocus behavior.",
+    "keywords": ["search", "search input", "filter", "blog search", "debounce", "text input", "search bar", "clear button"],
+    "when_to_use": ["In blog FeedHeader to enable post filtering by keyword", "When a debounced search-as-you-type input is needed"],
+    "avoid": ["For form submission search — add a submit button separately", "When search should not be debounced"],
+    "import_statement": "import { Search } from '@gravity-ui/blog-constructor';",
+    "related": ["FeedHeader"],
+    "props": [
+      { "name": "initialValue", "type": "string", "required": true, "description": "Initial search input value" },
+      { "name": "onSubmit", "type": "(value: string) => void", "required": true, "description": "Callback fired (debounced) when value changes" },
+      { "name": "value", "type": "string", "required": false, "description": "Controlled external value override" },
+      { "name": "debounce", "type": "number", "required": false, "description": "Debounce delay in ms (default 300)" },
+      { "name": "placeholder", "type": "string", "required": false, "description": "Input placeholder text" },
+      { "name": "size", "type": "'s' | 'm'", "required": false, "description": "Input size variant (default 'm')" },
+      { "name": "autoFocus", "type": "boolean", "required": false, "description": "Whether to autofocus on mount" },
+      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class name" }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Wrapper",
+    "library": "blog-constructor",
+    "description": "A section wrapper component that applies configurable top, bottom, left, and right padding using BEM modifier classes. Used to frame blog page content blocks with consistent spacing.",
+    "keywords": ["wrapper", "section", "padding", "spacing", "layout", "blog", "content block", "container"],
+    "when_to_use": ["To wrap blog content sections with consistent padding", "When standardized vertical/horizontal spacing is required around a block"],
+    "avoid": ["For non-blog UI sections — use layout components from uikit or page-constructor instead"],
+    "import_statement": "import { Wrapper } from '@gravity-ui/blog-constructor';",
+    "related": ["Posts", "FeedHeader"],
+    "props": [
+      { "name": "children", "type": "React.ReactNode", "required": false, "description": "Content to wrap" },
+      { "name": "paddings", "type": "Paddings", "required": false, "description": "Padding configuration with top/bottom/left/right keys" },
+      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class name" },
+      { "name": "qa", "type": "string", "required": false, "description": "Test QA attribute" },
+      { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles" }
+    ]
+  }
+]

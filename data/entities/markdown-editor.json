@@ -1,0 +1,45 @@
+[
+  {
+    "type": "component",
+    "name": "MarkdownEditorView",
+    "library": "markdown-editor",
+    "description": "The main React view component for the Gravity UI markdown editor. Renders a toolbar, WYSIWYG or markup editing area, and optional split-mode preview based on the editor mode. Must be paired with a MarkdownEditorInstance created by useMarkdownEditor.",
+    "keywords": ["markdown editor", "wysiwyg", "markup editor", "yfm", "rich text editor", "prosemirror", "codemirror", "split mode", "toolbar", "editor view"],
+    "when_to_use": ["When building a markdown editor in a React application", "For content authoring interfaces that need both WYSIWYG and raw markdown modes", "When YFM (Yandex Flavored Markdown) support is required"],
+    "avoid": ["Without a useMarkdownEditor instance — the editor prop is required", "For read-only markdown rendering — use @diplodoc/transform or similar instead"],
+    "import_statement": "import { MarkdownEditorView } from '@gravity-ui/markdown-editor';",
+    "related": ["useMarkdownEditor"],
+    "props": [
+      { "name": "editor", "type": "MarkdownEditorInstance", "required": true, "description": "Editor instance created by useMarkdownEditor hook" },
+      { "name": "autofocus", "type": "boolean", "required": false, "description": "Whether to focus the editor on mount" },
+      { "name": "stickyToolbar", "type": "boolean", "required": false, "description": "Whether the toolbar sticks to top when scrolling (default true)" },
+      { "name": "toolbarsPreset", "type": "ToolbarsPreset", "required": false, "description": "Preset configuration for toolbar button sets" },
+      { "name": "wysiwygToolbarConfig", "type": "WToolbarData", "required": false, "description": "Custom WYSIWYG toolbar configuration" },
+      { "name": "markupToolbarConfig", "type": "MToolbarData", "required": false, "description": "Custom markup toolbar configuration" },
+      { "name": "wysiwygHiddenActionsConfig", "type": "WToolbarItemData[]", "required": false, "description": "Hidden action items for WYSIWYG mode" },
+      { "name": "markupHiddenActionsConfig", "type": "MToolbarItemData[]", "required": false, "description": "Hidden action items for markup mode" },
+      { "name": "settingsVisible", "type": "boolean", "required": false, "description": "Whether to show the editor settings panel" },
+      { "name": "enableSubmitInPreview", "type": "boolean", "required": false, "description": "Allow submit action in preview mode" },
+      { "name": "hidePreviewAfterSubmit", "type": "boolean", "required": false, "description": "Hide preview panel after submit" },
+      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class for the editor wrapper" },
+      { "name": "qa", "type": "string", "required": false, "description": "Test QA attribute" }
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useMarkdownEditor",
+    "library": "markdown-editor",
+    "description": "Creates and memoizes a MarkdownEditorInstance that manages editor state, mode switching, extensions, and content serialization. The returned instance is passed to MarkdownEditorView for rendering.",
+    "keywords": ["markdown editor hook", "editor instance", "wysiwyg", "markup mode", "prosemirror", "codemirror", "yfm", "create editor", "extensions"],
+    "when_to_use": ["As the factory for all MarkdownEditorView instances", "When you need programmatic access to editor value, mode, or events"],
+    "avoid": ["Calling inside render loops without stable deps — use useMemo or the deps parameter"],
+    "import_statement": "import { useMarkdownEditor } from '@gravity-ui/markdown-editor';",
+    "related": ["MarkdownEditorView"],
+    "signature": "useMarkdownEditor(props: UseMarkdownEditorProps, deps?: React.DependencyList): MarkdownEditorInstance",
+    "parameters": [
+      { "name": "props", "type": "UseMarkdownEditorProps", "description": "Editor options including md config, initial content, handlers, extensions, preset, and experimental flags" },
+      { "name": "deps", "type": "React.DependencyList", "description": "Optional dependency array that triggers editor recreation when changed (default [])" }
+    ],
+    "return_type": "MarkdownEditorInstance — has getValue(), setValue(), focus(), setMode(), on(), off(), emit() and more"
+  }
+]

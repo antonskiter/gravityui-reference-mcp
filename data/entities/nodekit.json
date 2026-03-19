@@ -1,0 +1,52 @@
+[
+  {
+    "type": "guide",
+    "name": "NodeKit Overview",
+    "library": "nodekit",
+    "description": "NodeKit is a server-side Node.js toolkit that provides a structured foundation for building applications and scripts. It handles application configuration (file-based + env vars), structured logging via pino, OpenTelemetry tracing, Clickhouse telemetry, graceful shutdown signals, and a hierarchical request context system.",
+    "keywords": ["nodekit", "node.js framework", "logging", "pino", "opentelemetry", "tracing", "configuration", "context", "telemetry", "graceful shutdown", "server toolkit"],
+    "when_to_use": ["When building a Node.js service that needs structured logging, distributed tracing, and config management", "As the base layer for ExpressKit-based web services", "When you need a hierarchical request context with log scoping and abort signal propagation"],
+    "avoid": ["In browser/frontend code — this is server-side only", "For simple scripts that don't need logging or tracing infrastructure"],
+    "import_statement": "import { NodeKit } from '@gravity-ui/nodekit';",
+    "related": ["AppContext", "AppError"],
+    "content": "Initialize with `new NodeKit(options?)`. Options include disableDotEnv, configsPath (directory for JSON config files), and a config object to merge. The instance exposes:\n- nodekit.config: merged AppConfig from file configs + env vars + options\n- nodekit.ctx: root AppContext for the application\n- nodekit.utils: redactSensitiveKeys, redactSensitiveHeaders, redactSensitiveQueryParams, isTrueEnvValue\n- nodekit.addShutdownHandler(fn): register async cleanup on SIGTERM/SIGINT\n- nodekit.setupDynamicConfig(namespace, setup): start polling for dynamic config\n\nEnvironment variables: APP_NAME, APP_VERSION, APP_ENV, APP_INSTALLATION, APP_DEV_MODE, APP_LOGGING_LEVEL all map to AppConfig fields."
+  },
+  {
+    "type": "utility",
+    "name": "NodeKit",
+    "library": "nodekit",
+    "description": "The main NodeKit class that bootstraps a Node.js application with config loading, logging, tracing, telemetry, and a root AppContext. Reads dotenv, merges file configs with env vars, initializes pino logger, sets up OpenTelemetry if enabled, and registers SIGTERM/SIGINT shutdown handlers.",
+    "keywords": ["nodekit", "application bootstrap", "node.js", "config", "logging", "tracing", "shutdown handler", "context"],
+    "when_to_use": ["As the entry point for any NodeKit-based application"],
+    "avoid": ["Multiple instances per process — one NodeKit instance per application is the intended pattern"],
+    "import_statement": "import { NodeKit } from '@gravity-ui/nodekit';",
+    "related": ["AppContext"],
+    "signature": "new NodeKit(options?: { disableDotEnv?: boolean; configsPath?: string; config?: AppConfig }): NodeKit",
+    "kind": "class"
+  },
+  {
+    "type": "utility",
+    "name": "AppContext",
+    "library": "nodekit",
+    "description": "A hierarchical request/operation context class that carries config, logger, utils, and tracing spans. Supports child context creation, scoped logging with automatic prefix/postfix, OpenTelemetry span management, abort signal propagation, and key-value parameter storage with inheritable/non-inheritable semantics.",
+    "keywords": ["context", "request context", "logging", "tracing", "span", "abort signal", "child context", "structured logging", "node.js context"],
+    "when_to_use": ["For scoped logging in request handlers — each request gets a child context", "When distributed tracing spans need to be created and linked", "To store per-request metadata (requestId, userId) that propagates to child contexts"],
+    "avoid": ["Sharing one context across concurrent requests — each request must create its own child context"],
+    "import_statement": "import { AppContext } from '@gravity-ui/nodekit';",
+    "related": ["NodeKit", "AppError"],
+    "signature": "new AppContext(name: string, params: ContextInitialParams | ContextParentParams): AppContext",
+    "kind": "class"
+  },
+  {
+    "type": "guide",
+    "name": "AppContext API",
+    "library": "nodekit",
+    "description": "Documents the key methods of AppContext used for request lifecycle management and structured logging in NodeKit applications.",
+    "keywords": ["context api", "log", "logError", "logWarn", "create", "call", "end", "fail", "set", "get", "abort signal", "tracing"],
+    "when_to_use": ["When implementing request handlers that need scoped logging and context propagation"],
+    "avoid": ["Calling end() or fail() multiple times on the same context"],
+    "import_statement": "import type { AppContext } from '@gravity-ui/nodekit';",
+    "related": ["AppContext"],
+    "content": "Key methods:\n- ctx.log(message, extra?): structured info log with prefix\n- ctx.logError(message, error?, extra?): error log, sets span error status\n- ctx.logWarn(message, error?, extra?): warn log\n- ctx.create(name, params?): create a child context\n- ctx.call(name, fn, params?): create child context, run fn, auto-end on completion\n- ctx.end(): mark context as done, end tracing span\n- ctx.fail(error?): log error, abort, end span\n- ctx.set(key, value, {inheritable}): store param on context (inheritable by default)\n- ctx.get(key): retrieve stored param\n- ctx.isEnded(): check if context has ended\n- ctx.getTime(): elapsed ms since context creation\n- ctx.abortSignal: AbortSignal that aborts when ctx.end() is called\n- ctx.getMetadata(): extract traceparent headers for outgoing requests"
+  }
+]

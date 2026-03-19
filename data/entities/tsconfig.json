@@ -1,0 +1,46 @@
+[
+  {
+    "type": "config-doc",
+    "name": "tsconfig",
+    "library": "tsconfig",
+    "description": "Gravity UI shared TypeScript configuration for projects. Enables strict mode, noImplicitReturns, noUnusedLocals, noUnusedParameters, and targets ES2017 with CommonJS modules.",
+    "keywords": [
+      "typescript",
+      "tsconfig",
+      "strict mode",
+      "compiler options",
+      "type checking",
+      "es2017",
+      "commonjs",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Starting a new TypeScript project in the Gravity UI ecosystem",
+      "Ensuring consistent TypeScript compiler options across multiple packages",
+      "Extending a base config that enforces strict type safety"
+    ],
+    "avoid": [
+      "Do not use if your project targets a different ES version or module system than CommonJS — override compilerOptions after extending",
+      "Not suitable for browser-only ESM builds without overriding the module field"
+    ],
+    "import_statement": "",
+    "related": [],
+    "how_to_use": "Install with `npm install --save-dev @gravity-ui/tsconfig`. Create `tsconfig.json` at the project root with `{ \"extends\": \"@gravity-ui/tsconfig/tsconfig.json\" }`. Override individual compilerOptions as needed.",
+    "compiler_options": {
+      "target": "es2017",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "strict": true,
+      "noImplicitReturns": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noFallthroughCasesInSwitch": true,
+      "noEmitOnError": true,
+      "forceConsistentCasingInFileNames": true,
+      "skipLibCheck": true,
+      "experimentalDecorators": true,
+      "allowJs": true
+    }
+  }
+]

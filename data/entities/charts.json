@@ -1,0 +1,20 @@
+[
+  {
+    "type": "component",
+    "name": "Chart",
+    "library": "charts",
+    "description": "A flexible React chart component built on D3 that renders various chart types (line, bar, area, scatter, pie, etc.) using a declarative ChartData configuration. Automatically handles window resize, exposes a reflow imperative handle, and fires onReady/onResize callbacks with current dimensions.",
+    "keywords": ["chart", "d3", "line chart", "bar chart", "area chart", "scatter", "pie chart", "data visualization", "svg", "responsive chart", "gravity ui charts"],
+    "when_to_use": ["When building data visualizations without needing the plugin abstraction of ChartKit", "For direct D3-based chart rendering with full TypeScript types", "When responsive auto-resize behavior is required"],
+    "avoid": ["When Yagr-style canvas-based performance is needed for large timeseries — use Yagr instead", "When chart type is managed through a plugin registry — use ChartKit instead"],
+    "import_statement": "import { Chart } from '@gravity-ui/charts';",
+    "related": [],
+    "props": [
+      { "name": "data", "type": "ChartData", "required": true, "description": "Declarative chart configuration and series data" },
+      { "name": "lang", "type": "string", "required": false, "description": "Locale string for chart text (e.g. 'en', 'ru')" },
+      { "name": "onResize", "type": "(args: { dimensions?: ChartDimentions }) => void", "required": false, "description": "Called on every resize event with current dimensions" },
+      { "name": "onReady", "type": "(args: { dimensions?: ChartDimentions }) => void", "required": false, "description": "Called when chart is fully initialized" }
+    ],
+    "ref": "ChartRef — exposes reflow(options?: ChartReflowOptions) to trigger a manual resize update"
+  }
+]

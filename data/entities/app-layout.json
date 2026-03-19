@@ -1,0 +1,306 @@
+[
+  {
+    "type": "utility",
+    "name": "createRenderFunction",
+    "library": "app-layout",
+    "description": "Creates a server-side HTML render function for Gravity UI applications. Accepts an optional list of plugins to extend head and body content. The returned function accepts RenderParams and produces a complete HTML string.",
+    "keywords": [
+      "ssr",
+      "server-side rendering",
+      "html",
+      "layout",
+      "express",
+      "render",
+      "page layout",
+      "gravity-ui",
+      "app-layout"
+    ],
+    "when_to_use": [
+      "Rendering a full HTML page on the server (Express/Koa/Fastify)",
+      "Adding analytics, theme attributes, or webpack assets via plugins",
+      "Building the HTML shell for a Gravity UI SPA"
+    ],
+    "avoid": [
+      "Client-side usage — this is a Node.js/server-side utility only",
+      "When streaming HTML — use generateRenderContent + renderHeadContent + renderBodyContent instead"
+    ],
+    "import_statement": "import { createRenderFunction } from '@gravity-ui/app-layout';",
+    "related": ["generateRenderContent", "renderHeadContent", "renderBodyContent", "createDefaultPlugins", "createLayoutPlugin", "createGoogleAnalyticsPlugin", "createYandexMetrikaPlugin", "createUikitPlugin", "createRemoteVersionsPlugin"],
+    "signature": "createRenderFunction(plugins?: Plugin[]): RenderFunction",
+    "parameters": [
+      {
+        "name": "plugins",
+        "type": "Plugin[]",
+        "required": false,
+        "description": "Array of plugins that extend the rendered HTML content."
+      }
+    ],
+    "return_type": "RenderFunction",
+    "kind": "function",
+    "examples": [
+      "const renderLayout = createRenderFunction();\napp.get('/', (req, res) => {\n  res.send(renderLayout({ title: 'Home', bodyContent: { root: '<App />' } }));\n});",
+      "const renderLayout = createRenderFunction([\n  createLayoutPlugin({ manifest: 'path/to/assets-manifest.json', publicPath: '/build/' }),\n  createUikitPlugin(),\n]);\nrenderLayout({ title: 'Page', pluginsOptions: { uikit: { theme: 'dark' } } });"
+    ]
+  },
+  {
+    "type": "utility",
+    "name": "createDefaultPlugins",
+    "library": "app-layout",
+    "description": "Creates all built-in app-layout plugins (layout, googleAnalytics, yandexMetrika, uikit, remoteVersions) as a single array for use with createRenderFunction.",
+    "keywords": [
+      "plugins",
+      "layout",
+      "analytics",
+      "metrika",
+      "uikit",
+      "gravity-ui",
+      "app-layout",
+      "convenience"
+    ],
+    "when_to_use": [
+      "Setting up a complete Gravity UI server render with all standard plugins in one call"
+    ],
+    "avoid": [
+      "When only specific plugins are needed — create individual plugins with their factory functions instead"
+    ],
+    "import_statement": "import { createDefaultPlugins } from '@gravity-ui/app-layout';",
+    "related": ["createRenderFunction", "createLayoutPlugin"],
+    "signature": "createDefaultPlugins(options?: { layout?: LayoutInitOptions }): Plugin[]",
+    "parameters": [
+      {
+        "name": "options.layout",
+        "type": "LayoutInitOptions",
+        "required": false,
+        "description": "Options for the layout plugin (e.g. manifest path)."
+      }
+    ],
+    "return_type": "Plugin[]",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "createGoogleAnalyticsPlugin",
+    "library": "app-layout",
+    "description": "Creates a plugin that injects Google Analytics tracking code into the rendered HTML page.",
+    "keywords": [
+      "google analytics",
+      "analytics",
+      "tracking",
+      "ga",
+      "plugin",
+      "gravity-ui",
+      "app-layout"
+    ],
+    "when_to_use": [
+      "Adding Google Analytics to a server-rendered Gravity UI page"
+    ],
+    "avoid": [],
+    "import_statement": "import { createGoogleAnalyticsPlugin } from '@gravity-ui/app-layout';",
+    "related": ["createRenderFunction", "createYandexMetrikaPlugin"],
+    "signature": "createGoogleAnalyticsPlugin(): Plugin",
+    "parameters": [],
+    "return_type": "Plugin",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "createLayoutPlugin",
+    "library": "app-layout",
+    "description": "Creates a plugin that loads scripts and stylesheets from a webpack assets manifest file and injects them into the HTML head.",
+    "keywords": [
+      "webpack",
+      "assets",
+      "manifest",
+      "scripts",
+      "styles",
+      "plugin",
+      "gravity-ui",
+      "app-layout",
+      "bundle"
+    ],
+    "when_to_use": [
+      "Loading webpack-generated JS/CSS bundles into a server-rendered page automatically"
+    ],
+    "avoid": [],
+    "import_statement": "import { createLayoutPlugin } from '@gravity-ui/app-layout';",
+    "related": ["createRenderFunction", "createDefaultPlugins"],
+    "signature": "createLayoutPlugin(initOptions: { manifest: string; publicPath?: string }): Plugin",
+    "parameters": [
+      {
+        "name": "initOptions.manifest",
+        "type": "string",
+        "required": true,
+        "description": "Path to the webpack assets manifest JSON file."
+      },
+      {
+        "name": "initOptions.publicPath",
+        "type": "string",
+        "required": false,
+        "description": "Public path prefix for asset URLs."
+      }
+    ],
+    "return_type": "Plugin",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "createUikitPlugin",
+    "library": "app-layout",
+    "description": "Creates a plugin that adds Gravity UI UIKit body attributes (theme, direction) to the server-rendered HTML body tag.",
+    "keywords": [
+      "uikit",
+      "theme",
+      "dark",
+      "light",
+      "direction",
+      "rtl",
+      "ltr",
+      "gravity-ui",
+      "app-layout",
+      "plugin"
+    ],
+    "when_to_use": [
+      "Applying UIKit theme and text direction to the HTML body server-side",
+      "Preventing flash of unstyled content for dark/light theme"
+    ],
+    "avoid": [],
+    "import_statement": "import { createUikitPlugin } from '@gravity-ui/app-layout';",
+    "related": ["createRenderFunction"],
+    "signature": "createUikitPlugin(): Plugin",
+    "parameters": [],
+    "return_type": "Plugin",
+    "kind": "function",
+    "examples": [
+      "createRenderFunction([createUikitPlugin()])({ title: 'Page', pluginsOptions: { uikit: { theme: 'dark', direction: 'ltr' } } });"
+    ]
+  },
+  {
+    "type": "utility",
+    "name": "createYandexMetrikaPlugin",
+    "library": "app-layout",
+    "description": "Creates a plugin that injects Yandex Metrika analytics counters into the server-rendered HTML page.",
+    "keywords": [
+      "yandex metrika",
+      "analytics",
+      "tracking",
+      "counter",
+      "plugin",
+      "gravity-ui",
+      "app-layout"
+    ],
+    "when_to_use": [
+      "Adding Yandex Metrika counters to a Gravity UI server-rendered application"
+    ],
+    "avoid": [],
+    "import_statement": "import { createYandexMetrikaPlugin } from '@gravity-ui/app-layout';",
+    "related": ["createRenderFunction", "createGoogleAnalyticsPlugin"],
+    "signature": "createYandexMetrikaPlugin(): Plugin",
+    "parameters": [],
+    "return_type": "Plugin",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "createRemoteVersionsPlugin",
+    "library": "app-layout",
+    "description": "Creates a plugin that exposes microfrontend version info via window.__REMOTE_VERSIONS__ for use with module federation and runtime versioning.",
+    "keywords": [
+      "microfrontend",
+      "module federation",
+      "remote versions",
+      "plugin",
+      "gravity-ui",
+      "app-layout",
+      "mfe"
+    ],
+    "when_to_use": [
+      "Injecting remote microfrontend version information into the HTML page for module federation"
+    ],
+    "avoid": [
+      "Monolith applications without module federation — this plugin is a no-op in that context"
+    ],
+    "import_statement": "import { createRemoteVersionsPlugin } from '@gravity-ui/app-layout';",
+    "related": ["createRenderFunction"],
+    "signature": "createRemoteVersionsPlugin(): Plugin",
+    "parameters": [],
+    "return_type": "Plugin",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "generateRenderContent",
+    "library": "app-layout",
+    "description": "Generates the render content object (head scripts, styles, body attributes) from plugins and render params, for use in streaming HTML responses.",
+    "keywords": [
+      "streaming",
+      "ssr",
+      "html",
+      "render content",
+      "gravity-ui",
+      "app-layout",
+      "chunked"
+    ],
+    "when_to_use": [
+      "Streaming HTML responses where head content must be sent before the body is ready"
+    ],
+    "avoid": [
+      "Non-streaming responses — use createRenderFunction instead"
+    ],
+    "import_statement": "import { generateRenderContent } from '@gravity-ui/app-layout';",
+    "related": ["renderHeadContent", "renderBodyContent", "createRenderFunction"],
+    "signature": "generateRenderContent(plugins: Plugin[], params: RenderParams): RenderContent",
+    "parameters": [],
+    "return_type": "RenderContent",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "renderBodyContent",
+    "library": "app-layout",
+    "description": "Renders the HTML body content string from a RenderContent object for use in streaming responses.",
+    "keywords": [
+      "body",
+      "html",
+      "streaming",
+      "ssr",
+      "gravity-ui",
+      "app-layout"
+    ],
+    "when_to_use": [
+      "Rendering the body portion of a streaming HTML response after async data is ready"
+    ],
+    "avoid": [],
+    "import_statement": "import { renderBodyContent } from '@gravity-ui/app-layout';",
+    "related": ["generateRenderContent", "renderHeadContent"],
+    "signature": "renderBodyContent(content: RenderContent): string",
+    "parameters": [],
+    "return_type": "string",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "renderHeadContent",
+    "library": "app-layout",
+    "description": "Renders the HTML head content string (scripts, styles, meta tags) from a RenderContent object for use in streaming responses.",
+    "keywords": [
+      "head",
+      "html",
+      "streaming",
+      "ssr",
+      "gravity-ui",
+      "app-layout",
+      "scripts",
+      "styles"
+    ],
+    "when_to_use": [
+      "Writing the head block of a streaming HTML response before data fetching completes"
+    ],
+    "avoid": [],
+    "import_statement": "import { renderHeadContent } from '@gravity-ui/app-layout';",
+    "related": ["generateRenderContent", "renderBodyContent"],
+    "signature": "renderHeadContent(content: RenderContent): string",
+    "parameters": [],
+    "return_type": "string",
+    "kind": "function"
+  }
+]

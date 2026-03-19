@@ -1,135 +1,44 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { mkdirSync, writeFileSync, rmSync } from 'node:fs';
-import { join } from 'node:path';
-import { tmpdir } from 'node:os';
-import { loadJsonArray, loadJsonFile } from './loader.js';
-import type { RecipeDef } from '../types.js';
+import { describe, it, expect } from "vitest";
+import { loadData } from "./loader.js";
 
-let tmpDir: string;
-
-beforeEach(() => {
-  tmpDir = join(tmpdir(), `loader-test-${Date.now()}-${Math.random().toString(36).slice(2)}`);
-  mkdirSync(tmpDir, { recursive: true });
-});
-
-afterEach(() => {
-  rmSync(tmpDir, { recursive: true, force: true });
-});
-
-describe('loadJsonArray', () => {
-  it('loads from per-library directory, concatenates and sorts by name', () => {
-    const dir = join(tmpDir, 'components');
-    mkdirSync(dir);
-    writeFileSync(join(dir, 'uikit.json'), JSON.stringify([
-      { name: 'TextInput', library: 'uikit' },
-      { name: 'Button', library: 'uikit' },
-    ]));
-    writeFileSync(join(dir, 'aikit.json'), JSON.stringify([
-      { name: 'Alert', library: 'aikit' },
-    ]));
-
-    const result = loadJsonArray<{ name: string; library: string }>(tmpDir, 'components');
-    expect(result).toHaveLength(3);
-    expect(result[0].name).toBe('Alert');
-    expect(result[1].name).toBe('Button');
-    expect(result[2].name).toBe('TextInput');
+describe("loadData", () => {
+  it("loads without throwing", () => {
+    const data = loadData();
+    expect(data).toBeDefined();
   });
 
-  it('falls back to single file when directory does not exist', () => {
-    writeFileSync(join(tmpDir, 'components.json'), JSON.stringify([
-      { name: 'Select', library: 'uikit' },
-      { name: 'Card', library: 'uikit' },
-    ]));
-
-    const result = loadJsonArray<{ name: string; library: string }>(tmpDir, 'components');
-    expect(result).toHaveLength(2);
-    expect(result[0].name).toBe('Card');
-    expect(result[1].name).toBe('Select');
+  it("has entities array", () => {
+    const data = loadData();
+    expect(Array.isArray(data.entities)).toBe(true);
   });
 
-  it('returns empty array when neither directory nor file exists', () => {
-    const result = loadJsonArray<{ name: string }>(tmpDir, 'components');
-    expect(result).toEqual([]);
+  it("builds lookup maps", () => {
+    const data = loadData();
+    expect(data.entityByName).toBeInstanceOf(Map);
+    expect(data.entitiesByLibrary).toBeInstanceOf(Map);
+    expect(data.entitiesByType).toBeInstanceOf(Map);
   });
 
-  it('sorts items by id when name is not present', () => {
-    const dir = join(tmpDir, 'chunks');
-    mkdirSync(dir);
-    writeFileSync(join(dir, 'uikit.json'), JSON.stringify([
-      { id: 'z-chunk', content: 'Z' },
-      { id: 'a-chunk', content: 'A' },
-    ]));
-
-    const result = loadJsonArray<{ id: string; content: string }>(tmpDir, 'chunks');
-    expect(result).toHaveLength(2);
-    expect(result[0].id).toBe('a-chunk');
-    expect(result[1].id).toBe('z-chunk');
+  it("has search index", () => {
+    const data = loadData();
+    expect(data.index).toBeDefined();
   });
 
-  it('ignores non-json files in directory', () => {
-    const dir = join(tmpDir, 'components');
-    mkdirSync(dir);
-    writeFileSync(join(dir, 'uikit.json'), JSON.stringify([{ name: 'Button', library: 'uikit' }]));
-    writeFileSync(join(dir, 'README.md'), '# Docs');
-    writeFileSync(join(dir, '.gitkeep'), '');
-
-    const result = loadJsonArray<{ name: string; library: string }>(tmpDir, 'components');
-    expect(result).toHaveLength(1);
-    expect(result[0].name).toBe('Button');
-  });
-});
-
-describe('loadJsonFile', () => {
-  it('loads and parses a JSON file', () => {
-    const filePath = join(tmpDir, 'data.json');
-    writeFileSync(filePath, JSON.stringify({ key: 'value', count: 42 }));
-
-    const result = loadJsonFile<{ key: string; count: number }>(filePath, { key: '', count: 0 });
-    expect(result.key).toBe('value');
-    expect(result.count).toBe(42);
+  it("has overview", () => {
+    const data = loadData();
+    expect(data.overview).toBeDefined();
+    expect(data.overview.system).toBeDefined();
   });
 
-  it('returns fallback when file does not exist', () => {
-    const filePath = join(tmpDir, 'nonexistent.json');
-    const fallback = { default: true };
-
-    const result = loadJsonFile(filePath, fallback);
-    expect(result).toEqual(fallback);
+  it("loads recipes", () => {
+    const data = loadData();
+    expect(Array.isArray(data.recipes)).toBe(true);
   });
 
-  it('returns fallback when file contains invalid JSON', () => {
-    const filePath = join(tmpDir, 'bad.json');
-    writeFileSync(filePath, 'not valid json {{');
-
-    const fallback = { error: true };
-    const result = loadJsonFile(filePath, fallback);
-    expect(result).toEqual(fallback);
-  });
-
-  it('loads recipes from recipes.json', () => {
-    const recipes = [
-      {
-        id: 'confirmation-dialog',
-        title: 'Confirmation Dialog',
-        description: 'A dialog pattern',
-        level: 'molecule',
-        use_cases: ['confirm delete'],
-        packages: ['@gravity-ui/uikit'],
-        tags: ['confirm'],
-        sections: [],
-      },
-    ];
-    const filePath = join(tmpDir, 'recipes.json');
-    writeFileSync(filePath, JSON.stringify(recipes));
-
-    const result = loadJsonFile<RecipeDef[]>(filePath, []);
-    expect(result).toHaveLength(1);
-    expect(result[0].id).toBe('confirmation-dialog');
-  });
-
-  it('returns empty array when recipes.json does not exist', () => {
-    const filePath = join(tmpDir, 'recipes.json');
-    const result = loadJsonFile<RecipeDef[]>(filePath, []);
-    expect(result).toEqual([]);
+  it("loads entities from entity files", () => {
+    const data = loadData();
+    // We have 33 extracted libraries so far
+    expect(data.entities.length).toBeGreaterThan(0);
+    expect(data.entitiesByLibrary.size).toBeGreaterThan(0);
   });
 });

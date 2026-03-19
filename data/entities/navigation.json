@@ -1,0 +1,1048 @@
+[
+  {
+    "type": "component",
+    "name": "ActionBar",
+    "library": "navigation",
+    "description": "A flexible horizontal bar that provides a standardized layout for arranging navigation elements, actions, and informational content within an application. Serves as a container for organizing UI elements like breadcrumbs, buttons, and dropdown menus into defined sections and groups. Exposes nested sub-components: ActionBar.Section, ActionBar.Group, ActionBar.Item, and ActionBar.Separator.",
+    "keywords": [
+      "action bar",
+      "toolbar",
+      "horizontal bar",
+      "breadcrumbs",
+      "navigation bar",
+      "page header",
+      "top bar",
+      "actions",
+      "section",
+      "group",
+      "layout"
+    ],
+    "when_to_use": [
+      "When building a page-level toolbar with breadcrumbs and action buttons",
+      "When you need to organize navigation elements into primary and secondary sections",
+      "When actions on the right and navigation on the left need to be laid out in a single horizontal bar"
+    ],
+    "avoid": [
+      "Do not use for inline content toolbars unrelated to page-level navigation — use a standalone toolbar or ButtonGroup instead",
+      "Do not use as a main sidebar navigation — use AsideHeader for that"
+    ],
+    "import_statement": "import { ActionBar } from '@gravity-ui/navigation';",
+    "related": ["AsideHeader", "Title"],
+    "props": [
+      {
+        "name": "aria-label",
+        "type": "string",
+        "required": false,
+        "description": "HTML aria-label attribute for accessibility."
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "ActionBar.Section, ActionBar.Group, ActionBar.Item, or ActionBar.Separator children."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "HTML class attribute."
+      },
+      {
+        "name": "style",
+        "type": "React.CSSProperties",
+        "required": false,
+        "description": "HTML style attribute."
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "data-qa HTML attribute used for testing."
+      }
+    ],
+    "examples": [
+      "<ActionBar aria-label=\"Actions bar\">\n  <ActionBar.Section type=\"secondary\">\n    <ActionBar.Group>\n      <ActionBar.Item>\n        <Select value={['main']} options={[{content: 'main', value: 'main'}]} />\n      </ActionBar.Item>\n    </ActionBar.Group>\n  </ActionBar.Section>\n  <ActionBar.Section type=\"primary\">\n    <ActionBar.Group pull=\"left\">\n      <ActionBar.Item>\n        <Breadcrumbs items={[{text: 'Root', action() {}}]} />\n      </ActionBar.Item>\n    </ActionBar.Group>\n    <ActionBar.Group pull=\"right\">\n      <ActionBar.Item>\n        <Button>Action</Button>\n      </ActionBar.Item>\n    </ActionBar.Group>\n  </ActionBar.Section>\n</ActionBar>",
+      "<ActionBar aria-label=\"Actions bar\">\n  <ActionBar.Section>\n    <ActionBar.Group pull=\"right\">\n      <ActionBar.Item><Button>Save</Button></ActionBar.Item>\n      <ActionBar.Separator />\n      <ActionBar.Item><Button>Cancel</Button></ActionBar.Item>\n    </ActionBar.Group>\n  </ActionBar.Section>\n</ActionBar>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "AsideHeader",
+    "library": "navigation",
+    "description": "A flexible and customizable collapsible sidebar navigation component. Provides a robust solution for creating intuitive navigation systems with a logo, top subheader items, a middle menu section, and a footer section. Supports pinned/unpinned states, custom backgrounds, header decoration, menu groups, drawer panels, and an optional top alert banner.",
+    "keywords": [
+      "sidebar",
+      "aside header",
+      "navigation",
+      "collapsible sidebar",
+      "pinned navigation",
+      "menu",
+      "left panel",
+      "drawer",
+      "logo",
+      "footer items",
+      "nav menu",
+      "side navigation"
+    ],
+    "when_to_use": [
+      "When building a desktop application layout that needs a persistent left sidebar navigation",
+      "When you need collapsible navigation with icon-only collapsed state and full expanded state",
+      "When the navigation requires custom branding, logos, and footer items"
+    ],
+    "avoid": [
+      "Do not use for mobile navigation — use MobileHeader instead",
+      "Do not use for tab-style horizontal navigation — use a Tabs component",
+      "If you need faster initial page content render, use PageLayout + PageLayoutAside instead of AsideHeader directly"
+    ],
+    "import_statement": "import { AsideHeader } from '@gravity-ui/navigation';",
+    "related": ["PageLayout", "PageLayoutAside", "AsideFallback", "FooterItem", "MobileHeader", "Logo", "TopAlert"],
+    "props": [
+      {
+        "name": "pinned",
+        "type": "boolean",
+        "required": true,
+        "description": "Navigation visual state. When true, navigation is expanded (pinned open)."
+      },
+      {
+        "name": "logo",
+        "type": "LogoProps",
+        "required": false,
+        "description": "Logo container including icon, title, and click handling."
+      },
+      {
+        "name": "menuItems",
+        "type": "Array<AsideHeaderItem>",
+        "required": false,
+        "description": "Items in the navigation middle section. Defaults to []."
+      },
+      {
+        "name": "subheaderItems",
+        "type": "Array<AsideHeaderItem>",
+        "required": false,
+        "description": "Items in the navigation top section under the Logo."
+      },
+      {
+        "name": "onChangePinned",
+        "type": "(pinned: boolean) => void",
+        "required": false,
+        "description": "Callback called when the navigation visual state changes."
+      },
+      {
+        "name": "renderContent",
+        "type": "(data: {size: number}) => React.ReactNode",
+        "required": false,
+        "description": "Function rendering the main content to the right of the AsideHeader."
+      },
+      {
+        "name": "renderFooter",
+        "type": "(data: {size: number; isExpanded: boolean; isPinned: boolean; asideRef: React.RefObject<HTMLDivElement>}) => React.ReactNode | React.ReactNode[]",
+        "required": false,
+        "description": "Function rendering the navigation bottom section."
+      },
+      {
+        "name": "renderFooterAfter",
+        "type": "(options?: {setCollapseBlocker?: SetCollapseBlocker}) => React.ReactNode",
+        "required": false,
+        "description": "Renders additional content after footer items (e.g. user profile)."
+      },
+      {
+        "name": "panelItems",
+        "type": "Array<DrawerItem>",
+        "required": false,
+        "description": "Items for the Drawer component. Used to show additional information over main content."
+      },
+      {
+        "name": "topAlert",
+        "type": "TopAlert",
+        "required": false,
+        "description": "A container above the navigation based on the uikit Alert component."
+      },
+      {
+        "name": "headerDecoration",
+        "type": "boolean",
+        "required": false,
+        "description": "Color background of the top section with logo and subheader items. Defaults to false."
+      },
+      {
+        "name": "hideCollapseButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Hides the CollapseButton. Defaults to false."
+      },
+      {
+        "name": "isCompactMode",
+        "type": "boolean",
+        "required": false,
+        "description": "When true, menu items use compact height. Defaults to false."
+      },
+      {
+        "name": "customBackground",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom background for the AsideHeader (e.g. image or gradient)."
+      },
+      {
+        "name": "customBackgroundClassName",
+        "type": "string",
+        "required": false,
+        "description": "Overrides default background container styles."
+      },
+      {
+        "name": "collapseTitle",
+        "type": "string",
+        "required": false,
+        "description": "CollapseButton title for collapsing navigation."
+      },
+      {
+        "name": "expandTitle",
+        "type": "string",
+        "required": false,
+        "description": "CollapseButton title for expanding navigation."
+      },
+      {
+        "name": "menuMoreTitle",
+        "type": "string",
+        "required": false,
+        "description": "Title for the additional element when menuItems don't fit."
+      },
+      {
+        "name": "menuGroups",
+        "type": "MenuGroup[]",
+        "required": false,
+        "description": "Menu groups for collapsible sections."
+      },
+      {
+        "name": "defaultMenuGroups",
+        "type": "MenuGroup[]",
+        "required": false,
+        "description": "Default menu groups state."
+      },
+      {
+        "name": "onMenuItemsChanged",
+        "type": "(items: Array<AsideHeaderItem>) => void",
+        "required": false,
+        "description": "Callback called when updating list of menuItems in AllPagesPanel."
+      },
+      {
+        "name": "onMenuGroupsChanged",
+        "type": "(groups: MenuGroup[]) => void",
+        "required": false,
+        "description": "Callback when menu groups collapsed state is updated."
+      },
+      {
+        "name": "onClosePanel",
+        "type": "() => void",
+        "required": false,
+        "description": "Callback called when closing a panel."
+      },
+      {
+        "name": "openModalSubscriber",
+        "type": "((open: boolean) => void) => void",
+        "required": false,
+        "description": "Function that notifies AsideHeader about Modal visibility changes."
+      },
+      {
+        "name": "collapseButtonWrapper",
+        "type": "(defaultButton: React.ReactNode, data: {isExpanded: boolean; onChangePinned?: (pinned: boolean) => void}) => React.ReactNode",
+        "required": false,
+        "description": "Wrapper for CollapseButton allowing customization of the default button appearance."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "HTML class attribute of the Logo."
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "The value passed to data-qa attribute of the AsideHeader container."
+      }
+    ],
+    "examples": [
+      "<AsideHeader\n  logo={{icon: LogoIcon, text: 'My App', href: '/'}}\n  pinned={isPinned}\n  onChangePinned={setIsPinned}\n  menuItems={[\n    {id: 'home', title: 'Home', icon: HomeIcon, current: true, onItemClick: handleClick},\n    {id: 'settings', title: 'Settings', icon: SettingsIcon, onItemClick: handleClick},\n  ]}\n  renderContent={({size}) => <main style={{paddingLeft: size}}>Content</main>}\n/>",
+      "// With custom footer and top alert\n<AsideHeader\n  logo={{icon: LogoIcon, text: 'Service'}}\n  pinned={pinned}\n  topAlert={{theme: 'warning', message: 'Maintenance scheduled', closable: true, onCloseTopAlert: handleClose}}\n  renderFooter={() => <FooterItem icon={UserIcon} title=\"Profile\" />}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "AsideFallback",
+    "library": "navigation",
+    "description": "A placeholder component used as a Suspense fallback while the AsideHeader or PageLayoutAside is loading lazily. Renders a skeleton sidebar of the correct width to prevent layout shift during code splitting.",
+    "keywords": [
+      "fallback",
+      "suspense",
+      "skeleton",
+      "lazy loading",
+      "code splitting",
+      "aside",
+      "layout"
+    ],
+    "when_to_use": [
+      "When using React.lazy to split the AsideHeader/PageLayoutAside into a separate chunk",
+      "When wrapping the aside navigation in a Suspense boundary"
+    ],
+    "avoid": [
+      "Do not use outside of a Suspense boundary",
+      "Do not use when AsideHeader is not lazy-loaded"
+    ],
+    "import_statement": "import { AsideFallback } from '@gravity-ui/navigation';",
+    "related": ["AsideHeader", "PageLayout", "PageLayoutAside"]
+  },
+  {
+    "type": "component",
+    "name": "Footer",
+    "library": "navigation",
+    "description": "The desktop page footer component that renders a logo, menu links, copyright, and an optional overflow button. Supports normal (white background) and clear (transparent, copyright-only) views.",
+    "keywords": [
+      "footer",
+      "page footer",
+      "copyright",
+      "menu links",
+      "logo",
+      "desktop footer",
+      "bottom bar"
+    ],
+    "when_to_use": [
+      "When building desktop page layouts that need a bottom footer with logo, links, and copyright",
+      "When the footer needs to collapse overflow menu items behind a 'more' button"
+    ],
+    "avoid": [
+      "Do not use on mobile layouts — use MobileFooter instead",
+      "Do not use inside the AsideHeader sidebar — use renderFooter/FooterItem for that"
+    ],
+    "import_statement": "import { Footer } from '@gravity-ui/navigation';",
+    "related": ["MobileFooter", "FooterItem", "Logo"],
+    "props": [
+      {
+        "name": "copyright",
+        "type": "string",
+        "required": true,
+        "description": "Copyright text displayed in the footer."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Footer class name."
+      },
+      {
+        "name": "menuItems",
+        "type": "FooterMenuItem[]",
+        "required": false,
+        "description": "List of footer menu items."
+      },
+      {
+        "name": "withDivider",
+        "type": "boolean",
+        "required": false,
+        "description": "Shows a top border on the footer."
+      },
+      {
+        "name": "moreButtonTitle",
+        "type": "string",
+        "required": false,
+        "description": "Title for the overflow 'more' button."
+      },
+      {
+        "name": "onMoreButtonClick",
+        "type": "MouseEventHandler<HTMLElement>",
+        "required": false,
+        "description": "Click handler for the 'more' overflow button."
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'clear'",
+        "required": false,
+        "description": "Footer appearance. 'normal' shows all elements; 'clear' is transparent with copyright only."
+      },
+      {
+        "name": "logo",
+        "type": "LogoProps",
+        "required": false,
+        "description": "Service logo properties."
+      },
+      {
+        "name": "logoWrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "The logo wrapper class name."
+      }
+    ],
+    "examples": [
+      "<Footer\n  copyright={`© ${new Date().getFullYear()} My Service`}\n  withDivider\n  logo={{icon: LogoIcon, iconSize: 24, text: 'My Service'}}\n  menuItems={[\n    {text: 'About', href: '/about'},\n    {text: 'Docs', href: '/docs'},\n  ]}\n/>",
+      "<Footer copyright=\"© 2024 My Service\" view=\"clear\" />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "FooterItem",
+    "library": "navigation",
+    "description": "An individual item component used in the AsideHeader footer section. Provides consistent styling for footer action items including icons, tooltips, and bringForward support for highlighting over modals.",
+    "keywords": [
+      "footer item",
+      "sidebar footer",
+      "navigation item",
+      "icon button",
+      "aside footer",
+      "bring forward"
+    ],
+    "when_to_use": [
+      "When adding items to the AsideHeader renderFooter section",
+      "When you need consistent styling for footer actions like support links, user profile, or settings"
+    ],
+    "avoid": [
+      "Do not use in the main menuItems section of AsideHeader — configure those as AsideHeaderItem objects instead"
+    ],
+    "import_statement": "import { FooterItem } from '@gravity-ui/navigation';",
+    "related": ["AsideHeader", "PageLayoutAside"]
+  },
+  {
+    "type": "component",
+    "name": "HotkeysPanel",
+    "library": "navigation",
+    "description": "A navigation panel that displays a searchable, grouped list of keyboard shortcuts for an application. Renders inside a Drawer component and optionally shows a search input to filter hotkeys by name.",
+    "keywords": [
+      "hotkeys",
+      "keyboard shortcuts",
+      "shortcuts panel",
+      "keybindings",
+      "drawer",
+      "help panel",
+      "key combinations"
+    ],
+    "when_to_use": [
+      "When building a keyboard shortcut reference panel accessible via a hotkey or button",
+      "When you need to present grouped, searchable keyboard shortcuts to users"
+    ],
+    "avoid": [
+      "Do not use to manage hotkey bindings — it is display-only",
+      "Do not use as a general help panel with non-hotkey content"
+    ],
+    "import_statement": "import { HotkeysPanel } from '@gravity-ui/navigation';",
+    "related": ["AsideHeader", "MobileHeader"],
+    "props": [
+      {
+        "name": "hotkeys",
+        "type": "HotkeysGroup<T>[]",
+        "required": true,
+        "description": "List of hotkey groups to display."
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": "Whether the drawer is open."
+      },
+      {
+        "name": "title",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "The panel title."
+      },
+      {
+        "name": "togglePanelHotkey",
+        "type": "string",
+        "required": false,
+        "description": "The hotkey combination that toggles the panel, displayed in the title."
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "description": "Close drawer handler."
+      },
+      {
+        "name": "filterable",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether to show the search input. Defaults to true."
+      },
+      {
+        "name": "filterPlaceholder",
+        "type": "string",
+        "required": false,
+        "description": "Search input placeholder."
+      },
+      {
+        "name": "emptyState",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "No search results placeholder."
+      },
+      {
+        "name": "leftOffset",
+        "type": "number | string",
+        "required": false,
+        "description": "Drawer left offset. Defaults to 0."
+      },
+      {
+        "name": "topOffset",
+        "type": "number | string",
+        "required": false,
+        "description": "Drawer top offset. Defaults to 0."
+      },
+      {
+        "name": "platform",
+        "type": "'pc' | 'mac'",
+        "required": false,
+        "description": "Platform for hotkey display format. Defaults to auto-detect."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Drawer class name."
+      },
+      {
+        "name": "style",
+        "type": "React.CSSProperties",
+        "required": false,
+        "description": "Custom styles for the drawer."
+      },
+      {
+        "name": "container",
+        "type": "HTMLElement",
+        "required": false,
+        "description": "DOM element to render the drawer into."
+      },
+      {
+        "name": "hideVeil",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether to hide the drawer overlay (veil)."
+      }
+    ],
+    "examples": [
+      "<HotkeysPanel\n  open={isPanelOpen}\n  onClose={() => setIsPanelOpen(false)}\n  title=\"Keyboard Shortcuts\"\n  togglePanelHotkey=\"?\"\n  hotkeys={[\n    {\n      title: 'Navigation',\n      items: [\n        {title: 'Go to home', value: 'g h'},\n        {title: 'Go to settings', value: 'g s'},\n      ],\n    },\n  ]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Logo",
+    "library": "navigation",
+    "description": "A logo component used inside the AsideHeader navigation. Renders a clickable icon (wrapped in a button or anchor) with an optional text label that transitions in/out when the sidebar expands or collapses.",
+    "keywords": [
+      "logo",
+      "brand",
+      "icon",
+      "navigation logo",
+      "sidebar logo",
+      "app logo",
+      "brand identity"
+    ],
+    "when_to_use": [
+      "When configuring the logo prop of AsideHeader or PageLayoutAside",
+      "When you need a brand logo with icon, text, and link in the sidebar"
+    ],
+    "avoid": [
+      "Do not use directly in page content — it is designed for AsideHeader sidebar context",
+      "Do not use for logos in the Footer — pass LogoProps to the Footer component directly"
+    ],
+    "import_statement": "import { Logo } from '@gravity-ui/navigation';",
+    "related": ["AsideHeader", "MobileLogo", "Footer"],
+    "props": [
+      {
+        "name": "text",
+        "type": "string | (() => React.ReactNode)",
+        "required": true,
+        "description": "Logo text, displayed only when pinned/expanded. Can be a render function."
+      },
+      {
+        "name": "icon",
+        "type": "IconProps['data']",
+        "required": false,
+        "description": "Icon component data for the logo."
+      },
+      {
+        "name": "iconSrc",
+        "type": "string",
+        "required": false,
+        "description": "HTML src attribute for an img tag icon."
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "URL the logo links to."
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": "HTML target attribute. Defaults to '_self'."
+      },
+      {
+        "name": "onClick",
+        "type": "(event: React.MouseEvent<HTMLElement, MouseEvent>) => void",
+        "required": false,
+        "description": "Callback when the user clicks the logo."
+      },
+      {
+        "name": "iconSize",
+        "type": "number",
+        "required": false,
+        "description": "Width and height of the icon. Defaults to 24."
+      },
+      {
+        "name": "textSize",
+        "type": "number",
+        "required": false,
+        "description": "Text font size. Defaults to 15."
+      },
+      {
+        "name": "wrapper",
+        "type": "(node: React.ReactNode, isExpanded: boolean) => React.ReactNode",
+        "required": false,
+        "description": "Wrapper function wrapping icon and text in two separated containers."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "HTML class attribute."
+      }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "MobileFooter",
+    "library": "navigation",
+    "description": "The mobile page footer component, equivalent to Footer but optimized for mobile viewports. Shares the same props interface as Footer.",
+    "keywords": [
+      "mobile footer",
+      "footer",
+      "mobile navigation",
+      "copyright",
+      "menu links",
+      "bottom bar"
+    ],
+    "when_to_use": [
+      "When building mobile page layouts that need a bottom footer with logo, links, and copyright"
+    ],
+    "avoid": [
+      "Do not use on desktop layouts — use Footer instead"
+    ],
+    "import_statement": "import { MobileFooter } from '@gravity-ui/navigation';",
+    "related": ["Footer", "MobileHeader"]
+  },
+  {
+    "type": "component",
+    "name": "MobileHeader",
+    "library": "navigation",
+    "description": "A mobile navigation header component that renders a burger menu button, logo, and optional side items. Manages a burger menu panel (Drawer), additional custom panel items, and an optional overlap panel. Supports dispatching custom events via CustomEvent on the component's DOM node to open/close panels programmatically.",
+    "keywords": [
+      "mobile header",
+      "burger menu",
+      "mobile navigation",
+      "hamburger menu",
+      "drawer panel",
+      "responsive navigation",
+      "top bar",
+      "mobile layout"
+    ],
+    "when_to_use": [
+      "When building mobile or responsive application layouts that need a top navigation header",
+      "When you need a burger menu with customizable navigation links for mobile users"
+    ],
+    "avoid": [
+      "Do not use on desktop layouts — use AsideHeader for desktop sidebar navigation",
+      "Do not use when you only need a simple top bar without a burger panel"
+    ],
+    "import_statement": "import { MobileHeader } from '@gravity-ui/navigation';",
+    "related": ["AsideHeader", "MobileFooter", "MobileLogo"],
+    "props": [
+      {
+        "name": "logo",
+        "type": "LogoProps",
+        "required": true,
+        "description": "Logo configuration for the mobile header."
+      },
+      {
+        "name": "burgerMenu",
+        "type": "BurgerMenuProps",
+        "required": true,
+        "description": "Configuration for the burger menu panel including items and footer renderer."
+      },
+      {
+        "name": "panelItems",
+        "type": "PanelItemProps[]",
+        "required": false,
+        "description": "Additional panel items rendered as Drawer panels."
+      },
+      {
+        "name": "topAlert",
+        "type": "TopAlertProps",
+        "required": false,
+        "description": "Alert banner above the mobile header."
+      },
+      {
+        "name": "renderContent",
+        "type": "RenderContentType",
+        "required": false,
+        "description": "Function rendering the main content below the header."
+      },
+      {
+        "name": "sideItemRenderContent",
+        "type": "RenderContentType",
+        "required": false,
+        "description": "Renders content in the right side slot of the header (e.g. notifications icon)."
+      },
+      {
+        "name": "onEvent",
+        "type": "(itemName: string, eventName: MobileHeaderEvent) => void",
+        "required": false,
+        "description": "Handles MobileHeader inner events (panel open/close)."
+      },
+      {
+        "name": "onClosePanel",
+        "type": "() => void",
+        "required": false,
+        "description": "Callback called when a panel closes."
+      },
+      {
+        "name": "overlapPanel",
+        "type": "OverlapPanelProps",
+        "required": false,
+        "description": "Configuration for an overlap panel (full-screen overlay)."
+      },
+      {
+        "name": "burgerCloseTitle",
+        "type": "string",
+        "required": false,
+        "description": "Accessibility title for the burger close button."
+      },
+      {
+        "name": "burgerOpenTitle",
+        "type": "string",
+        "required": false,
+        "description": "Accessibility title for the burger open button."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "HTML class attribute."
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "HTML class attribute for the content area."
+      }
+    ],
+    "examples": [
+      "<MobileHeader\n  logo={{icon: LogoIcon, text: 'My App', href: '/'}}\n  burgerMenu={{\n    items: [\n      {id: 'home', title: 'Home', icon: HomeIcon, onItemClick: () => navigate('/')},\n      {id: 'settings', title: 'Settings', icon: SettingsIcon, onItemClick: () => navigate('/settings')},\n    ],\n  }}\n  renderContent={({size}) => <main style={{paddingTop: size}}>Page content</main>}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PageLayout",
+    "library": "navigation",
+    "description": "A layout container that composes the AsideHeader navigation with page content. Manages the pinned state and provides PageLayout.Content as a sub-component. Used as the recommended pattern when content rendering performance matters, enabling lazy loading of the aside navigation separately from the main content.",
+    "keywords": [
+      "page layout",
+      "layout",
+      "aside content",
+      "navigation layout",
+      "page structure",
+      "content area",
+      "sidebar layout"
+    ],
+    "when_to_use": [
+      "When building application layouts where navigation and content should be rendered as independent React trees for performance",
+      "When using React.lazy to code-split the aside navigation"
+    ],
+    "avoid": [
+      "Do not use when you can use AsideHeader with renderContent — PageLayout is for advanced optimization scenarios"
+    ],
+    "import_statement": "import { PageLayout } from '@gravity-ui/navigation';",
+    "related": ["AsideHeader", "PageLayoutAside", "AsideFallback"]
+  },
+  {
+    "type": "component",
+    "name": "PageLayoutAside",
+    "library": "navigation",
+    "description": "The aside panel component used within PageLayout. Accepts the same props as AsideHeader and renders the sidebar navigation. Used together with PageLayout and PageLayout.Content to enable rendering optimization via code splitting.",
+    "keywords": [
+      "page layout aside",
+      "sidebar",
+      "aside panel",
+      "navigation aside",
+      "lazy sidebar",
+      "code split navigation"
+    ],
+    "when_to_use": [
+      "As the aside navigation inside a PageLayout when using React.lazy for sidebar code splitting",
+      "When migrating from AsideHeader to the optimized PageLayout pattern"
+    ],
+    "avoid": [
+      "Do not use outside of a PageLayout context",
+      "Do not use when AsideHeader alone is sufficient"
+    ],
+    "import_statement": "import { PageLayoutAside } from '@gravity-ui/navigation';",
+    "related": ["PageLayout", "AsideHeader", "AsideFallback", "FooterItem"]
+  },
+  {
+    "type": "component",
+    "name": "Settings",
+    "library": "navigation",
+    "description": "A settings panel layout component that provides single-level and two-level grouping of settings pages with built-in filtering by title. Exposes nested sub-components Settings.Group, Settings.Page, Settings.Section, and Settings.Item. Supports both normal (desktop) and mobile views.",
+    "keywords": [
+      "settings",
+      "preferences",
+      "settings panel",
+      "configuration panel",
+      "settings layout",
+      "two-level menu",
+      "filterable settings",
+      "settings page"
+    ],
+    "when_to_use": [
+      "When building an application settings page with multiple categories and items",
+      "When you need searchable, grouped settings with a left menu and right content layout",
+      "When settings need to work in both desktop and mobile views"
+    ],
+    "avoid": [
+      "Do not use for single-setting or single-option forms — use a simple form instead",
+      "Do not use when you need non-standard settings layout not based on title/content pairs"
+    ],
+    "import_statement": "import { Settings } from '@gravity-ui/navigation';",
+    "related": ["AsideHeader", "Title"],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Settings.Group and/or Settings.Page children."
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Settings panel title. Defaults to 'Settings'."
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "description": "Shows loading state."
+      },
+      {
+        "name": "renderLoading",
+        "type": "() => React.ReactNode",
+        "required": false,
+        "description": "Custom content for loading state."
+      },
+      {
+        "name": "renderNotFound",
+        "type": "() => React.ReactNode",
+        "required": false,
+        "description": "Empty panel content when no items match search."
+      },
+      {
+        "name": "initialPage",
+        "type": "string",
+        "required": false,
+        "description": "Initial page in '/groupId/pageId' format."
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'mobile'",
+        "required": false,
+        "description": "Changes view for mobile. Defaults to 'normal'."
+      },
+      {
+        "name": "onPageChange",
+        "type": "(newPage?: string) => void",
+        "required": false,
+        "description": "Page change handler."
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "description": "Settings close handler."
+      },
+      {
+        "name": "filterPlaceholder",
+        "type": "string",
+        "required": false,
+        "description": "Filter placeholder text. Defaults to 'Search settings'."
+      },
+      {
+        "name": "emptyPlaceholder",
+        "type": "string",
+        "required": false,
+        "description": "Filter empty text. Defaults to 'No results found'."
+      }
+    ],
+    "examples": [
+      "<Settings onClose={handleClose}>\n  <Settings.Page title=\"Appearance\">\n    <Settings.Section title=\"Theme\">\n      <Settings.Item title=\"Color scheme\">\n        <Select options={themeOptions} />\n      </Settings.Item>\n    </Settings.Section>\n  </Settings.Page>\n  <Settings.Page title=\"Notifications\">\n    <Settings.Section title=\"Email\">\n      <Settings.Item title=\"Send digests\">\n        <Switch checked={digestEnabled} onUpdate={setDigestEnabled} />\n      </Settings.Item>\n    </Settings.Section>\n  </Settings.Page>\n</Settings>",
+      "<Settings>\n  <Settings.Group groupTitle=\"General\">\n    <Settings.Page title=\"Appearance\">...</Settings.Page>\n  </Settings.Group>\n  <Settings.Group groupTitle=\"Account\">\n    <Settings.Page title=\"Profile\">...</Settings.Page>\n  </Settings.Group>\n</Settings>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Title",
+    "library": "navigation",
+    "description": "A panel title component that renders a subheader-3 heading with an optional close button. Used to provide consistent heading styles for navigation panels and drawers.",
+    "keywords": [
+      "title",
+      "panel title",
+      "heading",
+      "close button",
+      "drawer title",
+      "panel header"
+    ],
+    "when_to_use": [
+      "When adding a title to a navigation panel or drawer that may need a close action",
+      "When you need a consistent heading style matching other navigation components"
+    ],
+    "avoid": [
+      "Do not use for general page headings — use uikit Text or heading tags instead",
+      "Do not use inside Settings — that component manages its own title"
+    ],
+    "import_statement": "import { Title } from '@gravity-ui/navigation';",
+    "related": ["Settings", "HotkeysPanel"],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Title text content."
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "description": "If provided, renders a close (X) button."
+      },
+      {
+        "name": "hasSeparator",
+        "type": "boolean",
+        "required": false,
+        "description": "Adds a horizontal separator below the title."
+      },
+      {
+        "name": "closeTitle",
+        "type": "string",
+        "required": false,
+        "description": "Aria label for the close button."
+      },
+      {
+        "name": "closeIconSize",
+        "type": "number",
+        "required": false,
+        "description": "Size of the close icon. Defaults to 23."
+      }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TopAlert",
+    "library": "navigation",
+    "description": "An alert banner displayed above the AsideHeader or MobileHeader navigation. Based on the uikit Alert component, it supports warning/info/danger themes, custom content via a render function, and optional close behavior. Reading the CSS variable `--gn-top-alert-height` allows layouts to account for the banner height.",
+    "keywords": [
+      "top alert",
+      "banner",
+      "alert",
+      "notification banner",
+      "warning banner",
+      "announcement",
+      "global alert"
+    ],
+    "when_to_use": [
+      "When displaying site-wide announcements, warnings, or call-to-action banners above navigation",
+      "When users need persistent contextual warnings visible on all pages"
+    ],
+    "avoid": [
+      "Do not use for inline or contextual alerts within page content — use uikit Alert directly",
+      "Do not configure directly — pass a TopAlertProps object to the topAlert prop of AsideHeader or MobileHeader"
+    ],
+    "import_statement": "import { TopAlert } from '@gravity-ui/navigation';",
+    "related": ["AsideHeader", "MobileHeader"],
+    "props": [
+      {
+        "name": "alert",
+        "type": "TopAlertProps",
+        "required": false,
+        "description": "Alert configuration object or render function."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "HTML class attribute."
+      },
+      {
+        "name": "mobileView",
+        "type": "boolean",
+        "required": false,
+        "description": "Adapts rendering for mobile layout. Defaults to false."
+      }
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useForwardRef",
+    "library": "navigation",
+    "description": "A utility hook that synchronizes a forwarded ref (callback or object ref) with an internal ref created by useRef. Returns the internal ref object for use within the component.",
+    "keywords": [
+      "forward ref",
+      "ref",
+      "hook",
+      "useRef",
+      "ref forwarding"
+    ],
+    "when_to_use": [
+      "When building components that accept a forwarded ref and also need to use the ref internally"
+    ],
+    "avoid": [
+      "Do not use when React.forwardRef + useRef is sufficient without needing both an internal and external ref simultaneously"
+    ],
+    "import_statement": "import { useForwardRef } from '@gravity-ui/navigation';",
+    "related": ["AsideHeader", "MobileHeader"],
+    "signature": "function useForwardRef<T>(ref: ((instance: T | null) => void) | React.MutableRefObject<T | null> | null, initialValue?: any): React.MutableRefObject<T>",
+    "parameters": [
+      {"name": "ref", "type": "React.ForwardedRef<T>", "description": "The forwarded ref to synchronize."},
+      {"name": "initialValue", "type": "any", "description": "Initial value for the internal ref. Defaults to null."}
+    ],
+    "return_type": "React.MutableRefObject<T>"
+  },
+  {
+    "type": "hook",
+    "name": "useOverflowingHorizontalListItems",
+    "library": "navigation",
+    "description": "A hook that calculates which items in a horizontal list fit within a container and which overflow. Uses ResizeObserver to respond to container size changes and returns separate arrays for visible and hidden items.",
+    "keywords": [
+      "overflow",
+      "horizontal list",
+      "responsive list",
+      "show more",
+      "overflow detection",
+      "resize observer",
+      "visible items",
+      "hidden items"
+    ],
+    "when_to_use": [
+      "When building a horizontal menu or toolbar where items that don't fit should be hidden behind a 'more' button",
+      "When the container can resize and the visible item count needs to update dynamically"
+    ],
+    "avoid": [
+      "Do not use for vertical lists — it measures horizontal widths only",
+      "Do not use when all items should always be visible regardless of space"
+    ],
+    "import_statement": "import { useOverflowingHorizontalListItems } from '@gravity-ui/navigation';",
+    "related": ["Footer", "ActionBar"],
+    "signature": "function useOverflowingHorizontalListItems<ItemType>({ containerRef, items, itemSelector, moreButtonWidth }: UseOverflowingContainerListItemsProps<ItemType>): { visibleItems: ItemType[]; hiddenItems: ItemType[]; measured: boolean }",
+    "parameters": [
+      {"name": "containerRef", "type": "RefObject<HTMLElement>", "description": "Ref to the list container element."},
+      {"name": "items", "type": "ItemType[]", "description": "Array of items to evaluate for overflow."},
+      {"name": "itemSelector", "type": "string", "description": "CSS selector for individual item elements within the container."},
+      {"name": "moreButtonWidth", "type": "number", "description": "Width reserved for the overflow 'more' button. Defaults to 0."}
+    ],
+    "return_type": "{ visibleItems: ItemType[]; hiddenItems: ItemType[]; measured: boolean }"
+  }
+]

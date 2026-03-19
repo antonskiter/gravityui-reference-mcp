@@ -1,0 +1,1601 @@
+[
+  {
+    "type": "component",
+    "name": "Calendar",
+    "library": "date-components",
+    "description": "A flexible calendar component that allows users to view, select, and manage dates. Supports single and multiple date selection, controlled and uncontrolled modes, min/max constraints, unavailable dates, and multiple display modes (days, months, quarters, years).",
+    "keywords": [
+      "calendar",
+      "date picker",
+      "date selection",
+      "single date",
+      "multiple dates",
+      "date range",
+      "month view",
+      "year view",
+      "scheduling",
+      "event calendar",
+      "date input"
+    ],
+    "when_to_use": [
+      "When you need a standalone visual calendar for date selection",
+      "When users need to select a single date or multiple individual dates",
+      "When you need to display and navigate through months, quarters, or years",
+      "When integrating into a booking or scheduling UI without a text input field"
+    ],
+    "avoid": [
+      "Do not use for selecting a date range with start/end — use RangeCalendar instead",
+      "Do not use when you need a text input combined with a popup calendar — use DatePicker instead"
+    ],
+    "import_statement": "import {Calendar} from '@gravity-ui/date-components';",
+    "related": ["RangeCalendar", "DatePicker", "CalendarView"],
+    "props": [
+      {
+        "name": "selectionMode",
+        "type": "'single' | 'multiple'",
+        "required": false,
+        "default": "'single'",
+        "description": "Whether single or multiple selection is enabled."
+      },
+      {
+        "name": "value",
+        "type": "DateTime | DateTime[] | null",
+        "required": false,
+        "description": "The controlled value of the calendar."
+      },
+      {
+        "name": "defaultValue",
+        "type": "DateTime | DateTime[]",
+        "required": false,
+        "description": "The initial value for uncontrolled component."
+      },
+      {
+        "name": "onUpdate",
+        "type": "((value: DateTime | DateTime[]) => void)",
+        "required": false,
+        "description": "Fires when the value is changed."
+      },
+      {
+        "name": "size",
+        "type": "'m' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "The size of the calendar."
+      },
+      {
+        "name": "mode",
+        "type": "'days' | 'months' | 'quarters' | 'years'",
+        "required": false,
+        "description": "Controlled display mode."
+      },
+      {
+        "name": "defaultMode",
+        "type": "'days' | 'months' | 'years'",
+        "required": false,
+        "description": "Initial display mode for uncontrolled component."
+      },
+      {
+        "name": "modes",
+        "type": "Partial<Record<CalendarLayout, boolean>>",
+        "required": false,
+        "default": "{days: true, months: true, quarters: false, years: true}",
+        "description": "Modes available to the user."
+      },
+      {
+        "name": "minValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The minimum allowed date that a user may select."
+      },
+      {
+        "name": "maxValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The maximum allowed date that a user may select."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Indicates that the user cannot interact with the control."
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Whether the calendar value is immutable."
+      },
+      {
+        "name": "focusedValue",
+        "type": "DateTime | null",
+        "required": false,
+        "description": "Controlled focused date in the calendar view."
+      },
+      {
+        "name": "defaultFocusedValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The date that is focused when the calendar first mounts (uncontrolled)."
+      },
+      {
+        "name": "isDateUnavailable",
+        "type": "((date: DateTime) => boolean)",
+        "required": false,
+        "description": "Callback called for each date; if returns true, the date is unavailable."
+      },
+      {
+        "name": "isWeekend",
+        "type": "((date: DateTime) => boolean)",
+        "required": false,
+        "description": "Callback called for each date; if returns true, the date is treated as a weekend."
+      },
+      {
+        "name": "timeZone",
+        "type": "string",
+        "required": false,
+        "description": "Sets the time zone of the value."
+      },
+      {
+        "name": "onUpdateMode",
+        "type": "((value: 'days' | 'months' | 'quarters' | 'years') => void)",
+        "required": false,
+        "description": "Fires when the display mode is changed."
+      },
+      {
+        "name": "onFocusUpdate",
+        "type": "((date: DateTime) => void)",
+        "required": false,
+        "description": "Fires when the focused date changes."
+      },
+      {
+        "name": "autoFocus",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether the calendar should receive focus on mount."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "The wrapper element class name."
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Inline styles for the wrapper element."
+      }
+    ],
+    "examples": [
+      "<Calendar size=\"m\" />",
+      "<Calendar selectionMode=\"multiple\" />",
+      "<Calendar minValue={dateTimeParse('01.01.2024')} maxValue={dateTimeParse('01.01.2025')} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "DateField",
+    "library": "date-components",
+    "description": "A versatile text input field specifically designed for date and time entry. Renders individual editable segments (day, month, year, etc.) within a TextInput, supports format customization, validation states, and optional clear button. Controlled or uncontrolled.",
+    "keywords": [
+      "date input",
+      "date field",
+      "date text input",
+      "date format",
+      "date segment",
+      "form date",
+      "date validation",
+      "datetime input",
+      "time input",
+      "date entry"
+    ],
+    "when_to_use": [
+      "When you need an inline text-style date/time input without a popup calendar",
+      "When building forms that require structured date entry with segment-by-segment editing",
+      "When you need a date input with label, clear button, or validation state",
+      "When you need to compose a date input with adjacent form elements using pin"
+    ],
+    "avoid": [
+      "Do not use for date range input — use RangeDateField instead",
+      "Do not use when you want a popup calendar alongside the input — use DatePicker instead",
+      "Do not use for relative date expressions like 'now-1d' — use RelativeDateField instead"
+    ],
+    "import_statement": "import {DateField} from '@gravity-ui/date-components';",
+    "related": ["DatePicker", "RangeDateField", "RelativeDateField"],
+    "props": [
+      {
+        "name": "value",
+        "type": "DateTime | null",
+        "required": false,
+        "description": "The controlled value."
+      },
+      {
+        "name": "defaultValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The initial value for uncontrolled component."
+      },
+      {
+        "name": "onUpdate",
+        "type": "((value: DateTime | null) => void)",
+        "required": false,
+        "description": "Fires when the value is changed by the user."
+      },
+      {
+        "name": "format",
+        "type": "string",
+        "required": false,
+        "description": "Format of the date when rendered. Uses day.js format tokens."
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "The size of the control."
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'clear'",
+        "required": false,
+        "default": "'normal'",
+        "description": "The visual style of the control."
+      },
+      {
+        "name": "pin",
+        "type": "string",
+        "required": false,
+        "default": "'round-round'",
+        "description": "Corner rounding style for combining with adjacent controls."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Indicates the user cannot interact with the control."
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Whether the component value is immutable."
+      },
+      {
+        "name": "validationState",
+        "type": "'invalid'",
+        "required": false,
+        "description": "Validation state that triggers the error appearance."
+      },
+      {
+        "name": "errorMessage",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Error text displayed below the component."
+      },
+      {
+        "name": "hasClear",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Shows the clear icon button."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Help text rendered to the left of the input."
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Placeholder text shown when no value is set."
+      },
+      {
+        "name": "placeholderValue",
+        "type": "DateTime",
+        "required": false,
+        "default": "today's date at midnight",
+        "description": "Controls default segment values when the user first interacts."
+      },
+      {
+        "name": "minValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The minimum allowed date."
+      },
+      {
+        "name": "maxValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The maximum allowed date."
+      },
+      {
+        "name": "isDateUnavailable",
+        "type": "((date: DateTime) => boolean)",
+        "required": false,
+        "description": "Callback that marks a date as unavailable."
+      },
+      {
+        "name": "timeZone",
+        "type": "string",
+        "required": false,
+        "description": "Sets the time zone of the value."
+      },
+      {
+        "name": "parseDateFromString",
+        "type": "((dateStr: string, format: string, timeZone?: string) => DateTime)",
+        "required": false,
+        "description": "Custom parser function for pasted date strings."
+      },
+      {
+        "name": "startContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content rendered before the label and input."
+      },
+      {
+        "name": "endContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content rendered after the input and clear button."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "The wrapper element class name."
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Inline styles for the wrapper element."
+      }
+    ],
+    "examples": [
+      "<DateField />",
+      "<DateField format=\"LTS\" />",
+      "<DateField hasClear validationState=\"invalid\" errorMessage=\"Required\" />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "DatePicker",
+    "library": "date-components",
+    "description": "A fully-featured date picker combining a DateField text input with a popup Calendar. Supports date and time selection, custom format, validation, mobile-responsive layout, and custom calendar via children render prop. Controlled or uncontrolled.",
+    "keywords": [
+      "date picker",
+      "calendar popup",
+      "date input calendar",
+      "date selector",
+      "datetime picker",
+      "form date picker",
+      "date validation",
+      "date format",
+      "popup calendar",
+      "mobile date picker"
+    ],
+    "when_to_use": [
+      "When users need to type or pick a date from a popup calendar",
+      "When building forms that require both keyboard entry and visual calendar selection",
+      "When you need date/time selection with format control and validation state",
+      "When a mobile-friendly date picker is needed"
+    ],
+    "avoid": [
+      "Do not use for selecting a date range — use RangeDatePicker instead",
+      "Do not use when you need only a calendar without a text input — use Calendar instead",
+      "Do not use for relative date expressions — use RelativeDatePicker instead"
+    ],
+    "import_statement": "import {DatePicker} from '@gravity-ui/date-components';",
+    "related": ["Calendar", "DateField", "RangeDatePicker", "RelativeDatePicker"],
+    "props": [
+      {
+        "name": "value",
+        "type": "DateTime | null",
+        "required": false,
+        "description": "The controlled value."
+      },
+      {
+        "name": "defaultValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The initial value for uncontrolled component."
+      },
+      {
+        "name": "onUpdate",
+        "type": "((value: DateTime | null) => void)",
+        "required": false,
+        "description": "Fires when the value is changed by the user."
+      },
+      {
+        "name": "format",
+        "type": "string",
+        "required": false,
+        "description": "Format of the date when rendered. Uses day.js format tokens."
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "The size of the control."
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'clear'",
+        "required": false,
+        "default": "'normal'",
+        "description": "The visual style of the control."
+      },
+      {
+        "name": "pin",
+        "type": "TextInputPin",
+        "required": false,
+        "default": "'round-round'",
+        "description": "Corner rounding style."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Indicates the user cannot interact with the control."
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Whether the component value is immutable."
+      },
+      {
+        "name": "validationState",
+        "type": "'invalid'",
+        "required": false,
+        "description": "Validation state that triggers the error appearance."
+      },
+      {
+        "name": "errorMessage",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Error text displayed below the component."
+      },
+      {
+        "name": "hasClear",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Shows the clear icon button."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Help text rendered to the left of the input."
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Placeholder text shown when no value is set."
+      },
+      {
+        "name": "placeholderValue",
+        "type": "DateTime",
+        "required": false,
+        "default": "today's date at midnight",
+        "description": "Controls default segment values when the user first interacts."
+      },
+      {
+        "name": "minValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The minimum allowed date."
+      },
+      {
+        "name": "maxValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The maximum allowed date."
+      },
+      {
+        "name": "isDateUnavailable",
+        "type": "((date: DateTime) => boolean)",
+        "required": false,
+        "description": "Callback that marks a date as unavailable."
+      },
+      {
+        "name": "timeZone",
+        "type": "string",
+        "required": false,
+        "description": "Sets the time zone of the value."
+      },
+      {
+        "name": "parseDateFromString",
+        "type": "((dateStr: string, format: string, timeZone?: string) => DateTime)",
+        "required": false,
+        "description": "Custom parser for pasted date strings."
+      },
+      {
+        "name": "children",
+        "type": "((props: CalendarCommonProps<T>) => React.ReactNode)",
+        "required": false,
+        "description": "Render prop for providing a custom calendar component inside the popup."
+      },
+      {
+        "name": "disablePortal",
+        "type": "boolean",
+        "required": false,
+        "description": "Disables portal rendering for the popup."
+      },
+      {
+        "name": "disableFocusTrap",
+        "type": "boolean",
+        "required": false,
+        "description": "Disables focus trap inside the popup."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "The wrapper element class name."
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Inline styles for the wrapper element."
+      }
+    ],
+    "examples": [
+      "<DatePicker />",
+      "<DatePicker format=\"LL\" hasClear />",
+      "<DatePicker minValue={dateTimeParse('01.01.2024')} validationState=\"invalid\" errorMessage=\"Error\" />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "RangeCalendar",
+    "library": "date-components",
+    "description": "A calendar component for selecting a date range with a start and end date. Shares the same display modes and props as Calendar but its value is a RangeValue containing start and end DateTime objects. Controlled or uncontrolled.",
+    "keywords": [
+      "range calendar",
+      "date range",
+      "start end date",
+      "date range picker",
+      "interval selection",
+      "calendar range",
+      "date range selector"
+    ],
+    "when_to_use": [
+      "When users need to visually select a start and end date from a calendar grid",
+      "When building booking or scheduling UIs that require a date range without a text input",
+      "When you need a standalone range calendar component to embed in custom layouts"
+    ],
+    "avoid": [
+      "Do not use for selecting a single date — use Calendar instead",
+      "Do not use when you need a text input with a popup — use RangeDatePicker instead"
+    ],
+    "import_statement": "import {RangeCalendar} from '@gravity-ui/date-components';",
+    "related": ["Calendar", "RangeDatePicker", "RangeDateField"],
+    "props": [
+      {
+        "name": "value",
+        "type": "RangeValue<DateTime> | null",
+        "required": false,
+        "description": "The controlled value as a range with start and end."
+      },
+      {
+        "name": "defaultValue",
+        "type": "RangeValue<DateTime>",
+        "required": false,
+        "description": "The initial value for uncontrolled component."
+      },
+      {
+        "name": "onUpdate",
+        "type": "((value: RangeValue<DateTime>) => void)",
+        "required": false,
+        "description": "Fires when the value changes."
+      },
+      {
+        "name": "size",
+        "type": "'m' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "The size of the calendar."
+      },
+      {
+        "name": "mode",
+        "type": "'days' | 'months' | 'quarters' | 'years'",
+        "required": false,
+        "description": "Controlled display mode."
+      },
+      {
+        "name": "defaultMode",
+        "type": "'days' | 'months' | 'years'",
+        "required": false,
+        "description": "Initial display mode for uncontrolled component."
+      },
+      {
+        "name": "minValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The minimum allowed date."
+      },
+      {
+        "name": "maxValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The maximum allowed date."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Indicates the user cannot interact with the control."
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Whether the calendar value is immutable."
+      },
+      {
+        "name": "focusedValue",
+        "type": "DateTime | null",
+        "required": false,
+        "description": "Controlled focused date in the calendar view."
+      },
+      {
+        "name": "defaultFocusedValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The date focused when the calendar first mounts."
+      },
+      {
+        "name": "isDateUnavailable",
+        "type": "((date: DateTime) => boolean)",
+        "required": false,
+        "description": "Callback that marks a date as unavailable."
+      },
+      {
+        "name": "timeZone",
+        "type": "string",
+        "required": false,
+        "description": "Sets the time zone of the value."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "The wrapper element class name."
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Inline styles for the wrapper element."
+      }
+    ],
+    "examples": [
+      "<RangeCalendar size=\"m\" />",
+      "<RangeCalendar defaultMode=\"months\" />",
+      "<RangeCalendar minValue={dateTimeParse('01.01.2024')} maxValue={dateTimeParse('01.01.2025')} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "RangeDateField",
+    "library": "date-components",
+    "description": "A text input field for entering a date range as start and end values. Renders within a single TextInput with a configurable delimiter between the two date segments. Extends DateField props and accepts RangeValue<DateTime> as its value type.",
+    "keywords": [
+      "range date field",
+      "date range input",
+      "start end date input",
+      "date range text field",
+      "date interval input",
+      "range input"
+    ],
+    "when_to_use": [
+      "When users need to type a date range directly in a text input without a popup",
+      "When building filter UIs that require compact inline range input",
+      "When composing a custom range date picker with a separate calendar component"
+    ],
+    "avoid": [
+      "Do not use when you need a popup calendar alongside the range input — use RangeDatePicker instead",
+      "Do not use for single date input — use DateField instead"
+    ],
+    "import_statement": "import {RangeDateField} from '@gravity-ui/date-components';",
+    "related": ["DateField", "RangeDatePicker", "RangeCalendar"],
+    "props": [
+      {
+        "name": "value",
+        "type": "RangeValue<DateTime> | null",
+        "required": false,
+        "description": "The controlled value as a range with start and end."
+      },
+      {
+        "name": "defaultValue",
+        "type": "RangeValue<DateTime>",
+        "required": false,
+        "description": "The initial value for uncontrolled component."
+      },
+      {
+        "name": "onUpdate",
+        "type": "((value: RangeValue<DateTime> | null) => void)",
+        "required": false,
+        "description": "Fires when the value is changed."
+      },
+      {
+        "name": "delimiter",
+        "type": "string",
+        "required": false,
+        "default": "' — '",
+        "description": "Delimiter separating the start and end parts of the range."
+      },
+      {
+        "name": "format",
+        "type": "string",
+        "required": false,
+        "description": "Format of the date when rendered. Uses day.js format tokens."
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "The size of the control."
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'clear'",
+        "required": false,
+        "default": "'normal'",
+        "description": "The visual style of the control."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Indicates the user cannot interact with the control."
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Whether the component value is immutable."
+      },
+      {
+        "name": "validationState",
+        "type": "'invalid'",
+        "required": false,
+        "description": "Validation state that triggers the error appearance."
+      },
+      {
+        "name": "timeZone",
+        "type": "string",
+        "required": false,
+        "description": "Sets the time zone of the value."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "The wrapper element class name."
+      }
+    ],
+    "examples": [
+      "<RangeDateField />",
+      "<RangeDateField delimiter=\" to \" />",
+      "<RangeDateField format=\"L\" hasClear />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "RangeDatePicker",
+    "library": "date-components",
+    "description": "A date range picker combining a RangeDateField text input with a popup RangeCalendar. Allows users to select start and end dates either by typing or choosing from a calendar popup. Supports time selection, validation, and a custom calendar via children render prop.",
+    "keywords": [
+      "range date picker",
+      "date range picker",
+      "start end date picker",
+      "date interval picker",
+      "range calendar picker",
+      "date range form",
+      "date range selector"
+    ],
+    "when_to_use": [
+      "When users need to select a start and end date via a popup calendar or typed input",
+      "When building filter or report UIs requiring a date range with both typing and visual selection",
+      "When you need date range input with validation and format customization"
+    ],
+    "avoid": [
+      "Do not use for single date selection — use DatePicker instead",
+      "Do not use for relative date ranges like 'last 7 days' — use RelativeRangeDatePicker instead"
+    ],
+    "import_statement": "import {RangeDatePicker} from '@gravity-ui/date-components';",
+    "related": ["RangeDateField", "RangeCalendar", "DatePicker", "RelativeRangeDatePicker"],
+    "props": [
+      {
+        "name": "value",
+        "type": "RangeValue<DateTime> | null",
+        "required": false,
+        "description": "The controlled value as a range with start and end."
+      },
+      {
+        "name": "defaultValue",
+        "type": "RangeValue<DateTime>",
+        "required": false,
+        "description": "The initial value for uncontrolled component."
+      },
+      {
+        "name": "onUpdate",
+        "type": "((value: RangeValue<DateTime> | null) => void)",
+        "required": false,
+        "description": "Fires when the value is changed."
+      },
+      {
+        "name": "format",
+        "type": "string",
+        "required": false,
+        "description": "Format of the date when rendered."
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "The size of the control."
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'clear'",
+        "required": false,
+        "default": "'normal'",
+        "description": "The visual style of the control."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Indicates the user cannot interact with the control."
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Whether the component value is immutable."
+      },
+      {
+        "name": "validationState",
+        "type": "'invalid'",
+        "required": false,
+        "description": "Validation state that triggers the error appearance."
+      },
+      {
+        "name": "errorMessage",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Error text displayed below the component."
+      },
+      {
+        "name": "hasClear",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Shows the clear icon button."
+      },
+      {
+        "name": "minValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The minimum allowed date."
+      },
+      {
+        "name": "maxValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The maximum allowed date."
+      },
+      {
+        "name": "timeZone",
+        "type": "string",
+        "required": false,
+        "description": "Sets the time zone of the value."
+      },
+      {
+        "name": "children",
+        "type": "((props: CalendarCommonProps) => React.ReactNode)",
+        "required": false,
+        "description": "Render prop for a custom calendar component."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "The wrapper element class name."
+      }
+    ],
+    "examples": [
+      "<RangeDatePicker />",
+      "<RangeDatePicker format=\"L\" hasClear />",
+      "<RangeDatePicker minValue={dateTimeParse('01.01.2024')} maxValue={dateTimeParse('01.01.2025')} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "RangeDateSelection",
+    "library": "date-components",
+    "description": "A visual timeline-style range selector that renders a draggable ruler with a selection interval. Users can drag the selection to move or resize it along a continuous time axis. Designed for analytics and monitoring dashboards where users need to zoom and pan time ranges.",
+    "keywords": [
+      "range date selection",
+      "timeline selector",
+      "time range drag",
+      "ruler selection",
+      "time interval drag",
+      "date zoom",
+      "time scrubber",
+      "analytics time range",
+      "monitoring time range",
+      "draggable time range"
+    ],
+    "when_to_use": [
+      "When users need to visually drag and resize a time interval on a continuous timeline",
+      "In analytics, monitoring, or observability dashboards with zoomable time windows",
+      "When you need scale buttons to expand or contract the selected time range"
+    ],
+    "avoid": [
+      "Do not use for standard date/time form input — use DatePicker or RangeDatePicker instead",
+      "Do not use when the primary interaction is typing dates — use RangeDateField instead"
+    ],
+    "import_statement": "import {RangeDateSelection} from '@gravity-ui/date-components';",
+    "related": ["RelativeRangeDatePicker", "RangeDatePicker"],
+    "props": [
+      {
+        "name": "value",
+        "type": "RangeValue<DateTime>",
+        "required": false,
+        "description": "The controlled selection range."
+      },
+      {
+        "name": "defaultValue",
+        "type": "RangeValue<DateTime>",
+        "required": false,
+        "description": "The initial selection range for uncontrolled component."
+      },
+      {
+        "name": "onUpdate",
+        "type": "((value: RangeValue<DateTime>) => void)",
+        "required": false,
+        "description": "Fires when the selection range changes."
+      },
+      {
+        "name": "minValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The minimum allowed date for the selection."
+      },
+      {
+        "name": "maxValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The maximum allowed date for the selection."
+      },
+      {
+        "name": "minDuration",
+        "type": "number",
+        "required": false,
+        "default": "1000 (1 second)",
+        "description": "Minimum duration of the selection in milliseconds."
+      },
+      {
+        "name": "maxDuration",
+        "type": "number",
+        "required": false,
+        "default": "15 years in ms",
+        "description": "Maximum duration of the selection in milliseconds."
+      },
+      {
+        "name": "align",
+        "type": "number",
+        "required": false,
+        "default": "1000 (1 second)",
+        "description": "Alignment of the selection in milliseconds."
+      },
+      {
+        "name": "numberOfIntervals",
+        "type": "number",
+        "required": false,
+        "default": "4",
+        "description": "Number of selection intervals that fit into the ruler."
+      },
+      {
+        "name": "placeOnRuler",
+        "type": "number",
+        "required": false,
+        "default": "0.5",
+        "description": "Relative position of the selection on the ruler (0–1)."
+      },
+      {
+        "name": "timeZone",
+        "type": "string",
+        "required": false,
+        "description": "Time zone used to show values."
+      },
+      {
+        "name": "displayNow",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether to display a 'now' line on the ruler."
+      },
+      {
+        "name": "draggableRuler",
+        "type": "boolean",
+        "required": false,
+        "description": "Enables dragging the entire ruler to pan the view."
+      },
+      {
+        "name": "hasScaleButtons",
+        "type": "boolean",
+        "required": false,
+        "description": "Shows plus/minus buttons for scaling the selection."
+      },
+      {
+        "name": "scaleButtonsPosition",
+        "type": "'start' | 'end'",
+        "required": false,
+        "default": "'start'",
+        "description": "Position of the scale buttons."
+      },
+      {
+        "name": "formatTime",
+        "type": "((time: DateTime) => string)",
+        "required": false,
+        "description": "Custom formatter for time tick labels."
+      },
+      {
+        "name": "renderAdditionalRulerContent",
+        "type": "((props: {interval: ViewportInterval; dimensions: ViewportDimensions}) => React.ReactNode)",
+        "required": false,
+        "description": "Renders additional SVG content inside the ruler."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "The wrapper element class name."
+      }
+    ],
+    "examples": [
+      "<RangeDateSelection />",
+      "<RangeDateSelection displayNow draggableRuler hasScaleButtons />",
+      "<RangeDateSelection minDuration={60000} maxDuration={7 * 24 * 3600000} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "RelativeDateField",
+    "library": "date-components",
+    "description": "A text input field that accepts relative date expressions using Grafana-like syntax (e.g. 'now-1d', 'now/w'). The value is a string formula rather than a DateTime object. An optional popup can display the resolved absolute date on a calendar.",
+    "keywords": [
+      "relative date",
+      "relative date input",
+      "grafana date",
+      "now minus",
+      "date formula",
+      "relative time",
+      "date expression",
+      "analytics date",
+      "dynamic date"
+    ],
+    "when_to_use": [
+      "When users need to enter relative date expressions like 'now-1d' or 'now/M'",
+      "In analytics, monitoring, or Grafana-like UIs where relative time ranges are common",
+      "When the date value needs to be stored as a reusable formula rather than an absolute timestamp"
+    ],
+    "avoid": [
+      "Do not use for absolute date input — use DateField or DatePicker instead",
+      "Do not use for date range input — use RelativeDatePicker with a range or RelativeRangeDatePicker"
+    ],
+    "import_statement": "import {RelativeDateField} from '@gravity-ui/date-components';",
+    "related": ["RelativeDatePicker", "RelativeRangeDatePicker", "DateField"],
+    "props": [
+      {
+        "name": "value",
+        "type": "string | null",
+        "required": false,
+        "description": "The controlled value as a relative date formula string."
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "description": "The initial value for uncontrolled component."
+      },
+      {
+        "name": "onUpdate",
+        "type": "((value: string | null) => void)",
+        "required": false,
+        "description": "Fires when the value is changed."
+      },
+      {
+        "name": "hasTime",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Shows a time field in the popup alongside the calendar."
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "The size of the control."
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'clear'",
+        "required": false,
+        "default": "'normal'",
+        "description": "The visual style of the control."
+      },
+      {
+        "name": "pin",
+        "type": "string",
+        "required": false,
+        "default": "'round-round'",
+        "description": "Corner rounding style."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Indicates the user cannot interact with the control."
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Whether the component value is immutable."
+      },
+      {
+        "name": "validationState",
+        "type": "'invalid'",
+        "required": false,
+        "description": "Validation state that triggers the error appearance."
+      },
+      {
+        "name": "errorMessage",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Error text displayed below the component."
+      },
+      {
+        "name": "hasClear",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Shows the clear icon button."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Help text rendered to the left of the input."
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Placeholder text shown when no value is set."
+      },
+      {
+        "name": "timeZone",
+        "type": "string",
+        "required": false,
+        "description": "Sets the time zone for resolving the relative date."
+      },
+      {
+        "name": "leftContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content rendered before the label and input."
+      },
+      {
+        "name": "rightContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content rendered after the input and clear button."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "The wrapper element class name."
+      }
+    ],
+    "examples": [
+      "<RelativeDateField />",
+      "<RelativeDateField defaultValue=\"now-1d\" hasTime />",
+      "<RelativeDateField placeholder=\"e.g. now-1d\" hasClear />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "RelativeDatePicker",
+    "library": "date-components",
+    "description": "A date picker that supports both absolute and relative date values. Users can switch between absolute mode (behaves like DatePicker) and relative mode (accepts Grafana-like formulas) via a mode toggle button. Value is typed as either a DateTime or a relative string.",
+    "keywords": [
+      "relative date picker",
+      "absolute relative date",
+      "date formula picker",
+      "grafana date picker",
+      "now-1d picker",
+      "dynamic date picker",
+      "analytics date picker",
+      "hybrid date picker"
+    ],
+    "when_to_use": [
+      "When users need to pick either absolute or relative dates from the same field",
+      "In analytics or monitoring dashboards where relative time offsets like 'now-1h' are needed",
+      "When you want a DatePicker extended with Grafana-style relative formula support"
+    ],
+    "avoid": [
+      "Do not use for a simple absolute date picker — use DatePicker instead for less complexity",
+      "Do not use for relative date range selection — use RelativeRangeDatePicker instead"
+    ],
+    "import_statement": "import {RelativeDatePicker} from '@gravity-ui/date-components';",
+    "related": ["DatePicker", "RelativeDateField", "RelativeRangeDatePicker"],
+    "props": [
+      {
+        "name": "value",
+        "type": "Value | null",
+        "required": false,
+        "description": "The controlled value. Value is {type: 'absolute', value: DateTime} or {type: 'relative', value: string}."
+      },
+      {
+        "name": "defaultValue",
+        "type": "Value",
+        "required": false,
+        "description": "The initial value for uncontrolled component."
+      },
+      {
+        "name": "onUpdate",
+        "type": "((value: Value | null) => void)",
+        "required": false,
+        "description": "Fires when the value is changed."
+      },
+      {
+        "name": "format",
+        "type": "string",
+        "required": false,
+        "description": "Format for the absolute date display."
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "The size of the control."
+      },
+      {
+        "name": "view",
+        "type": "'normal' | 'clear'",
+        "required": false,
+        "default": "'normal'",
+        "description": "The visual style of the control."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Indicates the user cannot interact with the control."
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Whether the component value is immutable."
+      },
+      {
+        "name": "validationState",
+        "type": "'invalid'",
+        "required": false,
+        "description": "Validation state that triggers the error appearance."
+      },
+      {
+        "name": "errorMessage",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Error text displayed below the component."
+      },
+      {
+        "name": "hasClear",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Shows the clear icon button."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Help text rendered to the left of the input."
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Placeholder text shown when no value is set."
+      },
+      {
+        "name": "placeholderValue",
+        "type": "DateTime",
+        "required": false,
+        "default": "today's date at midnight",
+        "description": "Controls default segment values when the user first interacts."
+      },
+      {
+        "name": "minValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The minimum allowed absolute date."
+      },
+      {
+        "name": "maxValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The maximum allowed absolute date."
+      },
+      {
+        "name": "isDateUnavailable",
+        "type": "((date: DateTime) => boolean)",
+        "required": false,
+        "description": "Callback that marks a date as unavailable in absolute mode."
+      },
+      {
+        "name": "timeZone",
+        "type": "string",
+        "required": false,
+        "description": "Sets the time zone of the value."
+      },
+      {
+        "name": "children",
+        "type": "((props: CalendarProps) => React.ReactNode)",
+        "required": false,
+        "description": "Render prop for a custom calendar component."
+      },
+      {
+        "name": "onOpenChange",
+        "type": "((open: boolean) => void)",
+        "required": false,
+        "description": "Handler called when the popup open state changes."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "The wrapper element class name."
+      }
+    ],
+    "examples": [
+      "<RelativeDatePicker />",
+      "<RelativeDatePicker defaultValue={{type: 'relative', value: 'now-1d'}} hasClear />",
+      "<RelativeDatePicker format=\"L\" minValue={dateTimeParse('01.01.2024')} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "RelativeRangeDatePicker",
+    "library": "date-components",
+    "description": "A comprehensive date range picker supporting both absolute and relative date values for start and end. Features a dialog with form inputs, preset tabs, timezone selector, and optional apply button. Designed for analytics and monitoring UIs where Grafana-style relative ranges like 'now-1h' to 'now' are standard.",
+    "keywords": [
+      "relative range date picker",
+      "date range picker relative",
+      "grafana time range",
+      "now-1d to now",
+      "analytics date range",
+      "monitoring date range",
+      "time range selector",
+      "preset time range",
+      "timezone date range",
+      "relative absolute date range"
+    ],
+    "when_to_use": [
+      "When users need to select a date range that can be either absolute or relative (e.g. 'last 7 days')",
+      "In analytics and monitoring dashboards with Grafana-style time range controls",
+      "When preset time ranges (last 1h, 1d, 1w) are needed alongside custom input",
+      "When timezone selection is required as part of the range picker"
+    ],
+    "avoid": [
+      "Do not use for simple absolute date range selection — use RangeDatePicker instead",
+      "Do not use for single date picking — use RelativeDatePicker instead"
+    ],
+    "import_statement": "import {RelativeRangeDatePicker} from '@gravity-ui/date-components';",
+    "related": ["RelativeDatePicker", "RangeDatePicker", "RangeDateSelection"],
+    "props": [
+      {
+        "name": "value",
+        "type": "RelativeRangeDatePickerValue | null",
+        "required": false,
+        "description": "The controlled value with start and end, each being absolute or relative."
+      },
+      {
+        "name": "defaultValue",
+        "type": "RelativeRangeDatePickerValue",
+        "required": false,
+        "description": "The initial value for uncontrolled component."
+      },
+      {
+        "name": "onUpdate",
+        "type": "((value: RelativeRangeDatePickerValue | null, timeZone: string) => void)",
+        "required": false,
+        "description": "Fires when the value changes. Receives the new value and current time zone."
+      },
+      {
+        "name": "format",
+        "type": "string",
+        "required": false,
+        "description": "Format for absolute date display."
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "description": "The size of the control."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Indicates the user cannot interact with the control."
+      },
+      {
+        "name": "readOnly",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether the component value is immutable."
+      },
+      {
+        "name": "validationState",
+        "type": "'invalid'",
+        "required": false,
+        "description": "Validation state that triggers the error appearance."
+      },
+      {
+        "name": "errorMessage",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Error text displayed on the control."
+      },
+      {
+        "name": "minValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The minimum allowed date."
+      },
+      {
+        "name": "maxValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "The maximum allowed date."
+      },
+      {
+        "name": "withApplyButton",
+        "type": "boolean",
+        "required": false,
+        "description": "Show an apply button to confirm changes in the dialog."
+      },
+      {
+        "name": "withZonesList",
+        "type": "boolean",
+        "required": false,
+        "description": "Show a timezone selector in the dialog."
+      },
+      {
+        "name": "withPresets",
+        "type": "boolean",
+        "required": false,
+        "description": "Show relative range presets in the dialog."
+      },
+      {
+        "name": "applyPresetsImmediately",
+        "type": "boolean",
+        "required": false,
+        "description": "Apply preset selections immediately without the apply button."
+      },
+      {
+        "name": "withHeader",
+        "type": "boolean",
+        "required": false,
+        "description": "Show a header with docs tooltip in the dialog."
+      },
+      {
+        "name": "presetTabs",
+        "type": "PresetTab[]",
+        "required": false,
+        "description": "Custom preset tabs to replace the default presets."
+      },
+      {
+        "name": "docs",
+        "type": "Preset[]",
+        "required": false,
+        "description": "Custom docs for the picker. Pass an empty array to hide docs."
+      },
+      {
+        "name": "allowNullableValues",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether start or end can be null independently."
+      },
+      {
+        "name": "alwaysShowAsAbsolute",
+        "type": "boolean",
+        "required": false,
+        "description": "Show selected relative values as absolute dates in the control."
+      },
+      {
+        "name": "getRangeTitle",
+        "type": "((value: RangeValue<Value | null> | null, timeZone: string) => string)",
+        "required": false,
+        "description": "Custom formatter for the displayed range title."
+      },
+      {
+        "name": "renderControl",
+        "type": "((props: RelativeRangeDatePickerRenderControlProps) => React.ReactElement)",
+        "required": false,
+        "description": "Render prop for a fully custom trigger control."
+      },
+      {
+        "name": "onOpenChange",
+        "type": "((open: boolean) => void)",
+        "required": false,
+        "description": "Handler called when the dialog open state changes."
+      },
+      {
+        "name": "placeholderValue",
+        "type": "DateTime",
+        "required": false,
+        "description": "Placeholder date for segment defaults."
+      },
+      {
+        "name": "isDateUnavailable",
+        "type": "((date: DateTime) => boolean)",
+        "required": false,
+        "description": "Callback that marks a date as unavailable."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "The wrapper element class name."
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "description": "Inline styles for the wrapper element."
+      }
+    ],
+    "examples": [
+      "<RelativeRangeDatePicker style={{width: 326}} />",
+      "<RelativeRangeDatePicker withPresets withApplyButton withZonesList />",
+      "<RelativeRangeDatePicker defaultValue={{start: {type: 'relative', value: 'now-1d'}, end: {type: 'relative', value: 'now'}}} />"
+    ]
+  }
+]

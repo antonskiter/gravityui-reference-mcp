@@ -1,0 +1,434 @@
+[
+  {
+    "type": "component",
+    "name": "ActionPanel",
+    "library": "dashkit",
+    "description": "Renders a horizontal toolbar of action items that can optionally be dragged onto the dashboard canvas. Supports CSS transition animations on show/hide and integrates with the DnD context for drag-to-add behaviour.",
+    "keywords": [
+      "action panel",
+      "toolbar",
+      "dashboard toolbar",
+      "drag to add",
+      "widget actions",
+      "panel",
+      "add widget",
+      "floating toolbar",
+      "dashkit actions",
+      "edit controls"
+    ],
+    "when_to_use": [
+      "When you need a palette of widget types that users can drag onto the dashboard grid.",
+      "When you want a toolbar of contextual actions shown during dashboard edit mode.",
+      "When you want animated show/hide of an action bar controlled by a boolean flag."
+    ],
+    "avoid": [
+      "Do not use for per-widget overlay controls — use overlayControls prop on DashKit instead.",
+      "Do not use outside a DashKitDnDWrapper when dragProps are configured, otherwise drag events will not propagate."
+    ],
+    "import_statement": "import { ActionPanel } from '@gravity-ui/dashkit';",
+    "related": ["DashKit", "DashKitDnDWrapper"],
+    "props": [
+      {
+        "name": "items",
+        "type": "ActionPanelItem[]",
+        "required": true,
+        "description": "Array of action items to display in the panel."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class applied to the root element."
+      },
+      {
+        "name": "disable",
+        "type": "boolean",
+        "required": false,
+        "description": "When true the panel is hidden (or animated out when toggleAnimation is enabled)."
+      },
+      {
+        "name": "toggleAnimation",
+        "type": "boolean",
+        "required": false,
+        "description": "Enables CSS transition animation when the panel mounts and unmounts."
+      }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "DashKit",
+    "library": "dashkit",
+    "description": "The root dashboard component that renders a responsive, draggable and resizable grid of plugin widgets. Exposes static helpers to register plugins, manage configuration, and reflowlayout, plus instance methods to reload widgets and retrieve item metadata.",
+    "keywords": [
+      "dashboard",
+      "grid layout",
+      "drag and drop",
+      "resizable widgets",
+      "plugin system",
+      "dashkit",
+      "configurable dashboard",
+      "widget grid",
+      "dashboard edit mode",
+      "auto update"
+    ],
+    "when_to_use": [
+      "When building a configurable dashboard where users can rearrange, resize, add and remove widgets.",
+      "When you need a plugin-based widget system where each widget type is registered independently.",
+      "When you require autoupdate polling for widgets at a configurable interval."
+    ],
+    "avoid": [
+      "Do not use when a simple static layout suffices — the plugin registration and Config overhead is not needed for read-only pages.",
+      "Do not nest multiple DashKit instances without wrapping them in a shared DashKitDnDWrapper when cross-group drag-and-drop is needed."
+    ],
+    "import_statement": "import { DashKit } from '@gravity-ui/dashkit';",
+    "related": ["DashKitDnDWrapper", "ActionPanel", "PluginText", "PluginTitle"],
+    "props": [
+      {
+        "name": "config",
+        "type": "Config",
+        "required": true,
+        "description": "Dashboard configuration object containing items, layout, aliases and connections."
+      },
+      {
+        "name": "editMode",
+        "type": "boolean",
+        "required": true,
+        "description": "Enables drag, resize and overlay controls when true."
+      },
+      {
+        "name": "onChange",
+        "type": "(data: { config: Config; itemsStateAndParams: ItemsStateAndParams; groups?: DashKitGroup[] }) => void",
+        "required": false,
+        "description": "Called when the layout or item state changes."
+      },
+      {
+        "name": "context",
+        "type": "ContextProps",
+        "required": false,
+        "description": "Arbitrary context object passed down to every plugin widget."
+      },
+      {
+        "name": "defaultGlobalParams",
+        "type": "GlobalParams",
+        "required": false,
+        "description": "Default parameter values applied to all widgets."
+      },
+      {
+        "name": "draggableHandleClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class that acts as the drag handle; if omitted the whole item is draggable."
+      },
+      {
+        "name": "focusable",
+        "type": "boolean",
+        "required": false,
+        "description": "Makes grid items focusable via keyboard and fires onItemFocus/onItemBlur."
+      },
+      {
+        "name": "globalParams",
+        "type": "GlobalParams",
+        "required": false,
+        "description": "Global parameter overrides merged into each widget's params."
+      },
+      {
+        "name": "groups",
+        "type": "DashKitGroup[]",
+        "required": false,
+        "description": "Optional group definitions that split the grid into independent layout sections."
+      },
+      {
+        "name": "itemsStateAndParams",
+        "type": "ItemsStateAndParams",
+        "required": false,
+        "description": "External state and params map keyed by item id."
+      },
+      {
+        "name": "noOverlay",
+        "type": "boolean",
+        "required": false,
+        "description": "Disables the edit-mode overlay and controls on all items."
+      },
+      {
+        "name": "onCopyFulfill",
+        "type": "(error: null | Error, data?: PreparedCopyItemOptions) => void",
+        "required": false,
+        "description": "Called after a widget copy action completes."
+      },
+      {
+        "name": "onDragStart",
+        "type": "ItemManipulationCallback",
+        "required": false,
+        "description": "Called when a drag operation starts on any grid item."
+      },
+      {
+        "name": "onDrag",
+        "type": "ItemManipulationCallback",
+        "required": false,
+        "description": "Called during an active drag operation."
+      },
+      {
+        "name": "onDragStop",
+        "type": "ItemManipulationCallback",
+        "required": false,
+        "description": "Called when a drag operation ends."
+      },
+      {
+        "name": "onDrop",
+        "type": "(dropProps: ItemDropProps) => void",
+        "required": false,
+        "description": "Called when an external item is dropped onto the grid."
+      },
+      {
+        "name": "onItemBlur",
+        "type": "(item: ConfigItem) => void",
+        "required": false,
+        "description": "Called when a focusable grid item loses focus."
+      },
+      {
+        "name": "onItemEdit",
+        "type": "(item: ConfigItem) => void",
+        "required": false,
+        "description": "Called when the user clicks the settings (edit) overlay control."
+      },
+      {
+        "name": "onItemFocus",
+        "type": "(item: ConfigItem) => void",
+        "required": false,
+        "description": "Called when a focusable grid item receives focus."
+      },
+      {
+        "name": "onItemMountChange",
+        "type": "(item: ConfigItem, state: { isAsync: boolean; isMounted: boolean }) => void",
+        "required": false,
+        "description": "Called when a widget mounts or unmounts."
+      },
+      {
+        "name": "onItemRender",
+        "type": "(item: ConfigItem) => void",
+        "required": false,
+        "description": "Called after a widget finishes rendering (including async load)."
+      },
+      {
+        "name": "onResizeStart",
+        "type": "ItemManipulationCallback",
+        "required": false,
+        "description": "Called when a resize operation starts."
+      },
+      {
+        "name": "onResize",
+        "type": "ItemManipulationCallback",
+        "required": false,
+        "description": "Called during an active resize operation."
+      },
+      {
+        "name": "onResizeStop",
+        "type": "ItemManipulationCallback",
+        "required": false,
+        "description": "Called when a resize operation ends."
+      },
+      {
+        "name": "overlayControls",
+        "type": "Record<string, OverlayControlItem[]> | null",
+        "required": false,
+        "description": "Custom overlay control buttons keyed by plugin type. Pass null to disable all overlay controls."
+      },
+      {
+        "name": "overlayMenuItems",
+        "type": "MenuItem[] | null",
+        "required": false,
+        "description": "Items shown in the overlay dropdown menu. Pass null to disable the menu."
+      },
+      {
+        "name": "getPreparedCopyItemOptions",
+        "type": "(options: PreparedCopyItemOptions) => PreparedCopyItemOptions",
+        "required": false,
+        "description": "Transforms copy options before they are written to localStorage."
+      },
+      {
+        "name": "settings",
+        "type": "SettingsProps",
+        "required": false,
+        "description": "Runtime settings including autoupdateInterval (seconds) and silentLoading flag."
+      }
+    ],
+    "examples": [
+      "// Register plugins once at app startup\nDashKit.registerPlugins(pluginTitle, pluginText);\nDashKit.setSettings({ gridLayout: { margin: [8, 8] } });",
+      "// Basic read-only dashboard\n<DashKit config={config} editMode={false} />;",
+      "// Editable dashboard with change handler\n<DashKit\n  config={config}\n  editMode={true}\n  onChange={({ config }) => setConfig(config)}\n  onItemEdit={(item) => openEditDialog(item)}\n/>;"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "DashKitDnDWrapper",
+    "library": "dashkit",
+    "description": "Context provider that enables drag-and-drop from external sources (e.g. ActionPanel) onto the DashKit grid. Manages shared drag state and exposes callbacks for drag lifecycle events.",
+    "keywords": [
+      "drag and drop",
+      "dnd wrapper",
+      "external drag",
+      "drag context",
+      "drop zone",
+      "dashkit dnd",
+      "drag image",
+      "drag provider",
+      "dashkit drag"
+    ],
+    "when_to_use": [
+      "When you want to drag items from an ActionPanel or external source onto the DashKit grid.",
+      "When multiple DashKit instances need to share a single drag context for cross-grid drops.",
+      "When you need to intercept drop events to preview or constrain where items can be dropped."
+    ],
+    "avoid": [
+      "Do not use when you only need internal grid reordering — DashKit handles that natively without this wrapper.",
+      "Do not wrap components unrelated to the DashKit grid as the context is specific to dashkit drag mechanics."
+    ],
+    "import_statement": "import { DashKitDnDWrapper } from '@gravity-ui/dashkit';",
+    "related": ["DashKit", "ActionPanel"],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactElement",
+        "required": true,
+        "description": "A single React element that will have access to the DnD context (typically wraps both ActionPanel and DashKit)."
+      },
+      {
+        "name": "dragImageSrc",
+        "type": "string",
+        "required": false,
+        "description": "URL of the image shown under the cursor while dragging. Defaults to a transparent 1x1 pixel."
+      },
+      {
+        "name": "onDragEnd",
+        "type": "() => void",
+        "required": false,
+        "description": "Called when the drag operation ends."
+      },
+      {
+        "name": "onDragStart",
+        "type": "(dragProps: ItemDragProps) => void",
+        "required": false,
+        "description": "Called when a drag operation starts, receiving the dragged item's props."
+      },
+      {
+        "name": "onDropDragOver",
+        "type": "(draggedItem: DraggedOverItem, sharedItem: DraggedOverItem | null) => void | boolean",
+        "required": false,
+        "description": "Called while a dragged item is over a drop zone; return false to prevent the drop."
+      }
+    ],
+    "examples": [
+      "<DashKitDnDWrapper onDragStart={(props) => console.log('dragging', props)}>\n  <div>\n    <ActionPanel items={panelItems} />\n    <DashKit config={config} editMode={true} onChange={setConfig} />\n  </div>\n</DashKitDnDWrapper>;"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PluginText",
+    "library": "dashkit",
+    "description": "Built-in DashKit plugin that renders plain or markdown-transformed text inside a dashboard widget. When an apiHandler is provided it fetches rendered HTML asynchronously and shows a loader during the request.",
+    "keywords": [
+      "text widget",
+      "markdown widget",
+      "plugin text",
+      "dashboard text",
+      "yfm",
+      "markdown",
+      "html content",
+      "text plugin",
+      "dashkit plugin"
+    ],
+    "when_to_use": [
+      "When you need a simple text or markdown widget on the dashboard.",
+      "When you want server-side markdown rendering integrated with DashKit's async load lifecycle."
+    ],
+    "avoid": [
+      "Do not use for complex interactive widgets — create a custom plugin instead.",
+      "Do not pass raw user HTML directly; use a safe markdown-to-HTML transform in apiHandler."
+    ],
+    "import_statement": "import pluginText from '@gravity-ui/dashkit/plugins/Text';",
+    "related": ["DashKit", "PluginTitle"],
+    "props": [
+      {
+        "name": "data",
+        "type": "{ text: string } & PluginWidgetProps['data']",
+        "required": true,
+        "description": "Widget data containing the text string to render."
+      },
+      {
+        "name": "apiHandler",
+        "type": "PluginTextApiHandler",
+        "required": false,
+        "description": "Async function that converts raw text to HTML. When omitted the text is rendered as plain text."
+      }
+    ],
+    "examples": [
+      "// Register with markdown support\nimport pluginText from '@gravity-ui/dashkit/plugins';\nDashKit.registerPlugins(\n  pluginText.setSettings({\n    apiHandler: ({ text }) => markdownToHtml(text),\n  })\n);"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PluginTitle",
+    "library": "dashkit",
+    "description": "Built-in DashKit plugin that renders a heading widget with configurable size. Supports standard size tokens ('xl' | 'l' | 'm' | 's' | 'xs') or custom fontSize/lineHeight font params, and can be anchored in a table of contents.",
+    "keywords": [
+      "title widget",
+      "heading widget",
+      "dashboard title",
+      "plugin title",
+      "toc anchor",
+      "heading size",
+      "dashkit plugin",
+      "section header"
+    ],
+    "when_to_use": [
+      "When you need a section heading or label widget on the dashboard.",
+      "When you want the heading to be linkable from a table of contents (showInTOC)."
+    ],
+    "avoid": [
+      "Do not use for rich text content — use PluginText with markdown support instead."
+    ],
+    "import_statement": "import pluginTitle from '@gravity-ui/dashkit/plugins/Title';",
+    "related": ["DashKit", "PluginText"],
+    "props": [
+      {
+        "name": "data",
+        "type": "{ size: PluginTitleSize | TitleFontParams; text: string; showInTOC: boolean } & PluginWidgetProps['data']",
+        "required": true,
+        "description": "Widget data with the text, size and table-of-contents visibility flag."
+      }
+    ],
+    "examples": [
+      "// Register the title plugin\nimport pluginTitle from '@gravity-ui/dashkit/plugins';\nDashKit.registerPlugins(pluginTitle);"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useDnDItemProps",
+    "library": "dashkit",
+    "description": "Returns HTML drag event props for an ActionPanelItem when a DashKitDnDWrapper context is present. Returns null when no DnD context is available or the item has no dragProps.",
+    "keywords": [
+      "drag and drop hook",
+      "dnd item props",
+      "drag props",
+      "action panel drag",
+      "dashkit dnd hook"
+    ],
+    "when_to_use": [
+      "When building a custom ActionPanel item container that needs native HTML5 drag behaviour connected to DashKit's DnD context."
+    ],
+    "avoid": [
+      "Do not call outside a DashKitDnDWrapper — the hook will return null and dragging will be inert."
+    ],
+    "import_statement": "import { useDnDItemProps } from '@gravity-ui/dashkit';",
+    "related": ["ActionPanel", "DashKitDnDWrapper"],
+    "signature": "useDnDItemProps(item: ActionPanelItem): { draggable: true; unselectable: 'on'; onDragStart: DragEventHandler; onDragEnd: DragEventHandler } | null",
+    "parameters": [
+      {
+        "name": "item",
+        "type": "ActionPanelItem",
+        "description": "The action panel item whose dragProps will be used to configure the drag event handlers."
+      }
+    ],
+    "return_type": "DndProps | null"
+  }
+]

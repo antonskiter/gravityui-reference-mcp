@@ -1,0 +1,910 @@
+[
+  {
+    "type": "component",
+    "name": "CheckBoxControl",
+    "library": "dialog-fields",
+    "description": "A checkbox control for use within DFDialog forms. Wraps the Gravity UI Checkbox component and integrates with react-final-form via a normalized value/onChange interface.",
+    "keywords": ["checkbox", "boolean", "toggle", "form field", "dialog field", "checked", "unchecked", "control"],
+    "when_to_use": [
+      "When a dialog form field needs a boolean yes/no toggle",
+      "When registering a custom control of type 'checkbox' in DFDialog fields"
+    ],
+    "avoid": [
+      "Do not use standalone outside DFDialog without the ControlProps interface — use Gravity UI Checkbox directly instead",
+      "Do not use for multi-select scenarios — use SelectControl instead"
+    ],
+    "import_statement": "import { CheckBoxControl } from '@gravity-ui/dialog-fields';",
+    "related": ["TumblerControl", "DFDialog", "RadioButtonControl"],
+    "props": [
+      {
+        "name": "value",
+        "type": "boolean",
+        "required": true,
+        "description": "Current checked state of the checkbox."
+      },
+      {
+        "name": "onChange",
+        "type": "(value: boolean) => void",
+        "required": true,
+        "description": "Callback called with the new boolean value when checkbox state changes."
+      }
+    ],
+    "examples": [
+      "<CheckBoxControl value={isEnabled} onChange={setIsEnabled}>Enable feature</CheckBoxControl>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "CollapsibleSection",
+    "library": "dialog-fields",
+    "description": "A section container with a captioned header that can be collapsed or expanded. Supports optional always-expanded mode and configurable initial collapsed state.",
+    "keywords": ["collapsible", "section", "accordion", "expandable", "collapse", "group", "caption", "toggle"],
+    "when_to_use": [
+      "When grouping related dialog fields under a labelled section that users can hide",
+      "When a form has many fields and some groups should be initially collapsed to reduce visual noise"
+    ],
+    "avoid": [
+      "Do not use for top-level page layout sections — intended for dialog/form grouping",
+      "Do not use when the section must always stay open and has no toggle need — just use a plain div or DFDialog section type instead"
+    ],
+    "import_statement": "import { CollapsibleSection } from '@gravity-ui/dialog-fields';",
+    "related": ["DFDialog"],
+    "props": [
+      {
+        "name": "caption",
+        "type": "string",
+        "required": true,
+        "description": "Header text displayed for the section."
+      },
+      {
+        "name": "alwaysExpanded",
+        "type": "boolean",
+        "required": false,
+        "description": "When true, disables the toggle and the section stays permanently open."
+      },
+      {
+        "name": "captionClassName",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class applied to the caption element."
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Section content."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class applied to the root element."
+      },
+      {
+        "name": "initialCollapsed",
+        "type": "boolean",
+        "required": false,
+        "description": "When true, the section starts in a collapsed state."
+      }
+    ],
+    "examples": [
+      "<CollapsibleSection caption=\"Advanced Settings\" initialCollapsed>\n  <TextControl value={val} onChange={setVal} />\n</CollapsibleSection>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "CustomBlock",
+    "library": "dialog-fields",
+    "description": "A passthrough control that renders arbitrary React content as a dialog field. Allows embedding any ReactNode inside a DFDialog field slot without field binding.",
+    "keywords": ["custom", "block", "arbitrary content", "react node", "embed", "dialog field", "slot", "passthrough"],
+    "when_to_use": [
+      "When a form needs to display non-interactive content or a custom UI widget inside a DFDialog field row",
+      "When building a field of type 'block' in DFDialog fields array"
+    ],
+    "avoid": [
+      "Do not use when the embedded content needs to read or write form values — use a registered custom control via registerDialogControl instead"
+    ],
+    "import_statement": "import { CustomBlock } from '@gravity-ui/dialog-fields';",
+    "related": ["DFDialog"],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Content to render inside the dialog field slot."
+      },
+      {
+        "name": "onChange",
+        "type": "(value: unknown) => void",
+        "required": true,
+        "description": "No-op change handler required by the ControlProps interface."
+      },
+      {
+        "name": "value",
+        "type": "unknown",
+        "required": true,
+        "description": "Unused value binding required by the ControlProps interface."
+      }
+    ],
+    "examples": [
+      "<DFDialog fields={[{ name: 'info', type: 'block', extras: { children: <Alert message=\"Read this carefully\" /> } }]} />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "DFDialog",
+    "library": "dialog-fields",
+    "description": "A form dialog component backed by react-final-form that renders typed field controls in a tabbed or single-page layout. Supports built-in control types (text, checkbox, select, etc.), field-level and form-level validation, visibility conditions, linked fields, collapsible sections, virtualized tabs, and cloneable tabs.",
+    "keywords": ["dialog", "form", "modal", "tabs", "fields", "validation", "react-final-form", "editable", "multi-tab", "form builder"],
+    "when_to_use": [
+      "When building a modal or inline form with multiple typed fields and validation",
+      "When a form needs tabbed navigation between groups of fields",
+      "When fields need to show/hide based on values of other fields",
+      "When form values must be validated at field-level or form-level before submission"
+    ],
+    "avoid": [
+      "Do not use for simple single-field confirmations — use a plain Gravity UI Dialog with a single input",
+      "Do not use when the form state is already managed externally by a non-final-form solution"
+    ],
+    "import_statement": "import { DFDialog } from '@gravity-ui/dialog-fields';",
+    "related": ["CheckBoxControl", "EditableList", "EditableManyLists", "MultiTextControl", "PlainText", "RadioButtonControl", "SelectControl", "TabField", "TabFieldVertical", "TextAreaControl", "TextControl", "TumblerControl", "CollapsibleSection"],
+    "props": [
+      {
+        "name": "fields",
+        "type": "Array<TabbedField<FieldT>> | Array<DialogField<FieldT>>",
+        "required": true,
+        "description": "Field descriptors array. Can be flat (single tab) or an array of tab objects each containing a fields sub-array."
+      },
+      {
+        "name": "onAdd",
+        "type": "(form: FormApi<FormValues>) => Promise<{ validationErrors?: ValidationErrors } | undefined | void>",
+        "required": true,
+        "description": "Called when the Apply button is clicked. Receives the final-form FormApi. Return rejected promise or validationErrors to surface form errors."
+      },
+      {
+        "name": "visible",
+        "type": "boolean",
+        "required": true,
+        "description": "Controls dialog visibility."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class for the root element."
+      },
+      {
+        "name": "disableFormReset",
+        "type": "boolean",
+        "required": false,
+        "description": "When true, the form is not reset after a successful submit."
+      },
+      {
+        "name": "footerProps",
+        "type": "{ hidden?: boolean; textApply?: React.ReactNode; textCancel?: string; content?: React.ReactNode; propsButtonCancel?: DialogFooterProps['propsButtonCancel']; propsButtonApply?: DialogFooterProps['propsButtonApply'] }",
+        "required": false,
+        "description": "Customises the dialog footer: button labels, extra content, or hidden state."
+      },
+      {
+        "name": "formExtras",
+        "type": "Partial<FormProps<FormValues>>",
+        "required": false,
+        "description": "Additional react-final-form FormProps passed directly to the Form component."
+      },
+      {
+        "name": "formId",
+        "type": "string",
+        "required": false,
+        "description": "HTML form id attribute for the underlying form element."
+      },
+      {
+        "name": "headerProps",
+        "type": "{ title?: React.ReactNode; insertAfter?: React.ReactNode; insertBefore?: React.ReactNode }",
+        "required": false,
+        "description": "Dialog header configuration: title and optional content slots."
+      },
+      {
+        "name": "initialValues",
+        "type": "DeepPartial<FormValues>",
+        "required": false,
+        "description": "Initial field values. If omitted, each registered control's getDefaultValue is used."
+      },
+      {
+        "name": "isApplyDisabled",
+        "type": "(values: FormState<FormValues>) => boolean",
+        "required": false,
+        "description": "Callback that disables the Apply button based on current form state."
+      },
+      {
+        "name": "modal",
+        "type": "boolean",
+        "required": false,
+        "description": "When true renders in a modal overlay; when false renders inline."
+      },
+      {
+        "name": "onActiveTabChange",
+        "type": "(tab: string) => void",
+        "required": false,
+        "description": "Called whenever the active tab changes."
+      },
+      {
+        "name": "onClose",
+        "type": "(form: FormApi<FormValues>) => void",
+        "required": false,
+        "description": "Called when the dialog is closed or Cancel is clicked."
+      },
+      {
+        "name": "pristineSubmittable",
+        "type": "boolean",
+        "required": false,
+        "description": "Allows submitting the form even when no fields have been changed."
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l'",
+        "required": false,
+        "description": "Dialog size."
+      },
+      {
+        "name": "validate",
+        "type": "(values: FormValues) => ValidationErrors | Promise<ValidationErrors> | undefined",
+        "required": false,
+        "description": "Form-level validation function. Receives all values and returns an error map."
+      },
+      {
+        "name": "virtualized",
+        "type": "boolean",
+        "required": false,
+        "description": "Enables virtualized rendering for dialogs with very many tabs."
+      },
+      {
+        "name": "waitingMessage",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Message or element shown while the onAdd promise is pending."
+      }
+    ],
+    "examples": [
+      "<DFDialog<FormValues>\n  visible={open}\n  headerProps={{ title: 'Create user' }}\n  onAdd={(form) => {\n    console.log(form.getState().values);\n    return Promise.resolve();\n  }}\n  onClose={() => setOpen(false)}\n  fields={[\n    { name: 'firstName', type: 'text', caption: 'First name', required: true },\n    { name: 'lastName', type: 'text', caption: 'Last name' },\n  ]}\n/>",
+      "<DFDialog<FormValues>\n  visible={open}\n  modal\n  headerProps={{ title: 'Settings' }}\n  onAdd={handleSubmit}\n  fields={[\n    { name: 'tab1', type: 'tab-vertical', title: 'General', fields: [\n      { name: 'name', type: 'text', caption: 'Name' },\n    ]},\n    { name: 'tab2', type: 'tab-vertical', title: 'Advanced', fields: [\n      { name: 'debug', type: 'tumbler', caption: 'Debug mode' },\n    ]},\n  ]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "EditableList",
+    "library": "dialog-fields",
+    "description": "A list of string items where each item can be individually toggled for removal. Supports frozen (read-only) items, custom item renderers, and a show-more/show-less toggle when items exceed a visible count limit.",
+    "keywords": ["editable list", "removable items", "list", "delete items", "toggle remove", "strings list", "form list", "frozen items"],
+    "when_to_use": [
+      "When a dialog field represents a list of existing strings where users can mark items for removal",
+      "When used as the built-in 'editable-list' field type in DFDialog"
+    ],
+    "avoid": [
+      "Do not use when users need to add new items — EditableList only supports removal toggling, not creation",
+      "Do not use for multiple grouped lists — use EditableManyLists instead"
+    ],
+    "import_statement": "import { EditableList } from '@gravity-ui/dialog-fields';",
+    "related": ["EditableManyLists", "DFDialog", "MultiTextControl"],
+    "props": [
+      {
+        "name": "onChange",
+        "type": "(value: Array<EditableListItemType<T>>) => void",
+        "required": true,
+        "description": "Called with the updated items array when an item's removed state is toggled."
+      },
+      {
+        "name": "value",
+        "type": "Array<EditableListItemType<T>>",
+        "required": true,
+        "description": "Current array of list items. Each item has title, optional removed, frozen, and data fields."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class for the root element."
+      },
+      {
+        "name": "frozen",
+        "type": "boolean",
+        "required": false,
+        "description": "When true, all items are read-only and the remove action is hidden."
+      },
+      {
+        "name": "itemClassName",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class applied to each item element."
+      },
+      {
+        "name": "itemRenderer",
+        "type": "(item: EditableListItemType<T>) => React.ReactNode",
+        "required": false,
+        "description": "Custom render function for each item. Defaults to rendering item.title."
+      },
+      {
+        "name": "maxVisibleCount",
+        "type": "number",
+        "required": false,
+        "description": "Maximum number of items to show before a show-all toggle appears."
+      }
+    ],
+    "examples": [
+      "<EditableList\n  value={[\n    { title: 'item-1' },\n    { title: 'item-2', frozen: true },\n  ]}\n  onChange={handleChange}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "EditableManyLists",
+    "library": "dialog-fields",
+    "description": "A grouped editable list component that renders multiple titled EditableList instances side by side. Each group has its own title and array of removable items.",
+    "keywords": ["editable many lists", "grouped list", "multi list", "removable groups", "multi editable list", "form list group"],
+    "when_to_use": [
+      "When a dialog field must display multiple named groups of removable items",
+      "When used as the built-in 'multi-editable-list' field type in DFDialog"
+    ],
+    "avoid": [
+      "Do not use when only a single flat list is needed — use EditableList instead",
+      "Do not use when users need to add new items rather than just remove existing ones"
+    ],
+    "import_statement": "import { EditableManyLists } from '@gravity-ui/dialog-fields';",
+    "related": ["EditableList", "DFDialog"],
+    "props": [
+      {
+        "name": "onChange",
+        "type": "(value: Array<EditableManyListsItemType<T>>) => void",
+        "required": true,
+        "description": "Called with the full updated groups array when any item is toggled."
+      },
+      {
+        "name": "value",
+        "type": "Array<EditableManyListsItemType<T>>",
+        "required": true,
+        "description": "Array of group objects, each with a title string and a data array of EditableListItemType."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class for the root element."
+      },
+      {
+        "name": "itemRenderer",
+        "type": "(item: EditableListItemType<T>) => React.ReactNode",
+        "required": false,
+        "description": "Custom renderer for individual items, passed through to each EditableList."
+      },
+      {
+        "name": "maxVisibleCount",
+        "type": "number",
+        "required": false,
+        "description": "Maximum visible items per list before a show-all toggle appears."
+      },
+      {
+        "name": "titleClassName",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class applied to each group title element."
+      }
+    ],
+    "examples": [
+      "<EditableManyLists\n  value={[\n    { title: 'Admins', data: [{ title: 'alice' }, { title: 'bob' }] },\n    { title: 'Viewers', data: [{ title: 'carol' }] },\n  ]}\n  onChange={handleChange}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "FocusBlurContainer",
+    "library": "dialog-fields",
+    "description": "A container that tracks aggregate focus and blur state across all child elements. Fires onFocus when any child gains focus and onBlur when focus leaves the entire container.",
+    "keywords": ["focus", "blur", "focus container", "focus trap", "aggregate focus", "onBlur", "onFocus", "keyboard"],
+    "when_to_use": [
+      "When a composite input component needs a single onBlur callback that fires only when the user fully leaves the widget (not when tabbing between inner elements)"
+    ],
+    "avoid": [
+      "Do not use for simple single-element inputs — native onBlur is sufficient",
+      "Do not use as a focus trap for accessibility dialogs — use dedicated modal focus-trap utilities"
+    ],
+    "import_statement": "import { FocusBlurContainer } from '@gravity-ui/dialog-fields';",
+    "related": ["MultiTextControl"],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Child elements whose collective focus state is tracked."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class for the root div."
+      },
+      {
+        "name": "onBlur",
+        "type": "() => void",
+        "required": false,
+        "description": "Called when focus leaves all children."
+      },
+      {
+        "name": "onFocus",
+        "type": "() => void",
+        "required": false,
+        "description": "Called when any child gains focus."
+      }
+    ],
+    "examples": [
+      "<FocusBlurContainer onBlur={handleBlur} onFocus={handleFocus}>\n  <TextInput />\n  <Button>Add</Button>\n</FocusBlurContainer>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "MultiTextControl",
+    "library": "dialog-fields",
+    "description": "A tag-input control that lets users type and confirm multiple string values as labelled chips. Items are added on Enter or blur and can be individually removed. Wraps a Gravity UI TextInput with an adjacent LabelsGroup chip display.",
+    "keywords": ["multi text", "tags", "chips", "labels", "multiple values", "tag input", "string array", "add remove items"],
+    "when_to_use": [
+      "When a form field requires an array of user-entered strings (e.g., email list, tags, aliases)",
+      "When used as the built-in 'multi-text' field type in DFDialog"
+    ],
+    "avoid": [
+      "Do not use when items come from a predefined set — use SelectControl with multiple selection instead",
+      "Do not use when order or duplicates must be preserved with special logic"
+    ],
+    "import_statement": "import { MultiTextControl } from '@gravity-ui/dialog-fields';",
+    "related": ["TextControl", "SelectControl", "DFDialog", "EditableList"],
+    "props": [
+      {
+        "name": "onChange",
+        "type": "(value: Array<{ name: string; isDefault?: boolean }>) => void",
+        "required": true,
+        "description": "Called with the updated items array when an item is added or removed."
+      },
+      {
+        "name": "value",
+        "type": "Array<{ name: string; isDefault?: boolean }>",
+        "required": true,
+        "description": "Current array of label objects."
+      },
+      {
+        "name": "error",
+        "type": "string | undefined",
+        "required": false,
+        "description": "Validation error message to display."
+      },
+      {
+        "name": "onBlur",
+        "type": "() => void",
+        "required": false,
+        "description": "Called when focus leaves the entire control."
+      },
+      {
+        "name": "onFocus",
+        "type": "() => void",
+        "required": false,
+        "description": "Called when the control gains focus."
+      }
+    ],
+    "examples": [
+      "<MultiTextControl\n  value={[{ name: 'tag1' }, { name: 'tag2' }]}\n  onChange={setTags}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PlainText",
+    "library": "dialog-fields",
+    "description": "A read-only display control that renders a string value as plain text inside a dialog field row. Shows an optional placeholder when the value is empty.",
+    "keywords": ["plain text", "read only", "display", "static text", "label", "non-editable", "dialog field", "placeholder"],
+    "when_to_use": [
+      "When a dialog field should display a computed or fixed value without allowing edits",
+      "When used as the built-in 'plain' field type in DFDialog"
+    ],
+    "avoid": [
+      "Do not use when the text should be editable — use TextControl instead",
+      "Do not use for long descriptive paragraphs — use CustomBlock with a Text component instead"
+    ],
+    "import_statement": "import { PlainText } from '@gravity-ui/dialog-fields';",
+    "related": ["TextControl", "CustomBlock", "DFDialog"],
+    "props": [
+      {
+        "name": "onChange",
+        "type": "(value: string) => void",
+        "required": true,
+        "description": "No-op change handler required by ControlProps interface."
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "The string value to display."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class for the root element."
+      },
+      {
+        "name": "placeholder",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content shown when value is empty."
+      }
+    ],
+    "examples": [
+      "<PlainText value={user.email} onChange={() => {}} placeholder=\"No email set\" />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "RadioButtonControl",
+    "library": "dialog-fields",
+    "description": "A segmented radio group control for selecting one value from a predefined options list. Wraps the Gravity UI SegmentedRadioGroup and normalizes the onChange interface for use with DFDialog.",
+    "keywords": ["radio", "radio button", "segmented", "options", "single select", "button group", "choice", "form field"],
+    "when_to_use": [
+      "When a dialog field requires selecting exactly one option from a small set of predefined values",
+      "When used as the built-in 'radio' field type in DFDialog"
+    ],
+    "avoid": [
+      "Do not use when the option set is large — use SelectControl for dropdown selection",
+      "Do not use for boolean toggles — use TumblerControl or CheckBoxControl instead"
+    ],
+    "import_statement": "import { RadioButtonControl } from '@gravity-ui/dialog-fields';",
+    "related": ["SelectControl", "TumblerControl", "CheckBoxControl", "DFDialog"],
+    "props": [
+      {
+        "name": "onChange",
+        "type": "(value: string) => void",
+        "required": true,
+        "description": "Called with the new selected value string when selection changes."
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Currently selected value."
+      },
+      {
+        "name": "options",
+        "type": "Array<{ value: string; label: React.ReactNode }>",
+        "required": false,
+        "description": "Array of selectable options. Defaults to empty array."
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "description": "Size of the radio group. Defaults to 'm'."
+      }
+    ],
+    "examples": [
+      "<RadioButtonControl\n  value={mode}\n  onChange={setMode}\n  options={[\n    { value: 'read', label: 'Read' },\n    { value: 'write', label: 'Write' },\n  ]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "SelectControl",
+    "library": "dialog-fields",
+    "description": "A dropdown select control that wraps the Gravity UI Select component and normalizes the onChange callback for use with DFDialog form fields.",
+    "keywords": ["select", "dropdown", "combobox", "options", "single select", "multi select", "form field", "picker"],
+    "when_to_use": [
+      "When a dialog field needs a dropdown list for selecting one or more values from a predefined set",
+      "When used as the built-in 'select' field type in DFDialog"
+    ],
+    "avoid": [
+      "Do not use for small fixed sets of 2-4 options — RadioButtonControl is more discoverable",
+      "Do not use when users need to type arbitrary values — use MultiTextControl instead"
+    ],
+    "import_statement": "import { SelectControl } from '@gravity-ui/dialog-fields';",
+    "related": ["RadioButtonControl", "MultiTextControl", "DFDialog"],
+    "props": [
+      {
+        "name": "onChange",
+        "type": "(value: SelectControlProps['value']) => void",
+        "required": true,
+        "description": "Called with the new selected value(s) array when selection changes."
+      },
+      {
+        "name": "value",
+        "type": "string[]",
+        "required": false,
+        "description": "Currently selected values array."
+      }
+    ],
+    "examples": [
+      "<SelectControl\n  value={selected}\n  onChange={setSelected}\n  options={[\n    { value: 'opt1', content: 'Option 1' },\n    { value: 'opt2', content: 'Option 2' },\n  ]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TabField",
+    "library": "dialog-fields",
+    "description": "A horizontal tab bar component used inside DFDialog for switching between tabbed content panes. Supports cloneable (multiple) tabs with per-tab remove buttons and validation error indicators.",
+    "keywords": ["tabs", "tab bar", "horizontal tabs", "tab navigation", "tab control", "cloneable tabs", "tab field", "dialog tabs"],
+    "when_to_use": [
+      "When DFDialog needs horizontal tab navigation between groups of fields",
+      "Registered as the 'tab' control type inside DFDialog fields to enable tabbed layouts"
+    ],
+    "avoid": [
+      "Do not use directly as a standalone page-level navigation component — use Gravity UI Tabs instead",
+      "Do not use when vertical sidebar navigation is preferred — use TabFieldVertical instead"
+    ],
+    "import_statement": "import { TabField } from '@gravity-ui/dialog-fields';",
+    "related": ["TabFieldVertical", "DFDialog"],
+    "props": [
+      {
+        "name": "setActiveTab",
+        "type": "(activeTab: string) => void",
+        "required": true,
+        "description": "Callback to update the currently active tab by id."
+      },
+      {
+        "name": "tabItems",
+        "type": "Array<TabItem>",
+        "required": true,
+        "description": "Array of tab descriptor objects each with id, name, title, and optional error/removable/multiple flags."
+      },
+      {
+        "name": "activeTab",
+        "type": "string",
+        "required": false,
+        "description": "Id of the currently active tab."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class for the tab bar."
+      },
+      {
+        "name": "onCreateTab",
+        "type": "(fieldName: string, active?: boolean, opts?: { userOptions?: any }) => void",
+        "required": false,
+        "description": "Called when a new cloneable tab should be created."
+      },
+      {
+        "name": "onRemoveTab",
+        "type": "(item: TabItem) => void",
+        "required": false,
+        "description": "Called when a removable cloneable tab's close button is clicked."
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l'",
+        "required": false,
+        "description": "Size of the tab bar."
+      }
+    ],
+    "examples": [
+      "<TabField\n  tabItems={[\n    { id: 'tab1', name: 'tab1', title: 'General' },\n    { id: 'tab2', name: 'tab2', title: 'Advanced' },\n  ]}\n  activeTab={activeTab}\n  setActiveTab={setActiveTab}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TabFieldVertical",
+    "library": "dialog-fields",
+    "description": "A vertical sidebar tab list variant of TabField that renders tabs as a scrollable vertical list using Gravity UI List. Supports sorting, virtualization, and custom item wrapping.",
+    "keywords": ["vertical tabs", "sidebar tabs", "tab list", "vertical navigation", "sortable tabs", "dialog tabs", "tab field vertical"],
+    "when_to_use": [
+      "When DFDialog needs vertical left-side tab navigation between groups of fields",
+      "When the number of tabs is large and a sidebar navigation pattern is more appropriate than a horizontal bar"
+    ],
+    "avoid": [
+      "Do not use for horizontal tab navigation — use TabField instead",
+      "Do not use as a standalone sidebar navigation component — it is coupled to DFDialog internal TabItem data shapes"
+    ],
+    "import_statement": "import { TabFieldVertical } from '@gravity-ui/dialog-fields';",
+    "related": ["TabField", "DFDialog"],
+    "props": [
+      {
+        "name": "setActiveTab",
+        "type": "(activeTab: string) => void",
+        "required": true,
+        "description": "Callback to update the currently active tab by id."
+      },
+      {
+        "name": "tabItems",
+        "type": "Array<TabItem>",
+        "required": true,
+        "description": "Array of tab descriptor objects."
+      },
+      {
+        "name": "activeTab",
+        "type": "string",
+        "required": false,
+        "description": "Id of the currently active tab."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class for the root element."
+      },
+      {
+        "name": "onOrderChanged",
+        "type": "ListProps<any>['onSortEnd']",
+        "required": false,
+        "description": "Called when sortable tabs are reordered."
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l'",
+        "required": false,
+        "description": "Size of each tab row. Defaults to 's'."
+      },
+      {
+        "name": "sortable",
+        "type": "boolean",
+        "required": false,
+        "description": "Enables drag-and-drop sorting of tabs."
+      },
+      {
+        "name": "virtualized",
+        "type": "boolean",
+        "required": false,
+        "description": "Enables virtualized rendering for large tab lists."
+      },
+      {
+        "name": "wrapTo",
+        "type": "(node: React.ReactNode, item: TabItem) => React.ReactNode",
+        "required": false,
+        "description": "Optional wrapper around each tab item node."
+      }
+    ],
+    "examples": [
+      "<TabFieldVertical\n  tabItems={tabs}\n  activeTab={active}\n  setActiveTab={setActive}\n  sortable\n  onOrderChanged={handleReorder}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TextAreaControl",
+    "library": "dialog-fields",
+    "description": "A multi-line text area control that wraps the Gravity UI TextArea component and normalizes the value/onChange interface for use with DFDialog form fields.",
+    "keywords": ["textarea", "multi-line", "text area", "long text", "description", "input", "form field", "rows"],
+    "when_to_use": [
+      "When a dialog field needs multi-line text input (e.g., descriptions, notes, JSON snippets)",
+      "When used as the built-in 'textarea' field type in DFDialog"
+    ],
+    "avoid": [
+      "Do not use for single-line input — use TextControl instead",
+      "Do not use for code with syntax highlighting — use a custom block with a code editor"
+    ],
+    "import_statement": "import { TextAreaControl } from '@gravity-ui/dialog-fields';",
+    "related": ["TextControl", "DFDialog"],
+    "props": [
+      {
+        "name": "onChange",
+        "type": "(value: string) => void",
+        "required": true,
+        "description": "Called with the new string value on each text change."
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Current string value of the text area."
+      },
+      {
+        "name": "error",
+        "type": "string | undefined",
+        "required": false,
+        "description": "Validation error message to display."
+      }
+    ],
+    "examples": [
+      "<TextAreaControl\n  value={description}\n  onChange={setDescription}\n  placeholder=\"Enter description...\"\n  rows={6}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TextControl",
+    "library": "dialog-fields",
+    "description": "A single-line text input control that wraps the Gravity UI TextInput with a clear button and normalizes the value/onChange interface for use with DFDialog form fields.",
+    "keywords": ["text input", "text field", "single line", "input", "form field", "string", "editable", "clear"],
+    "when_to_use": [
+      "When a dialog field needs single-line free-form text input",
+      "When used as the built-in 'text' field type in DFDialog"
+    ],
+    "avoid": [
+      "Do not use for multi-line input — use TextAreaControl instead",
+      "Do not use for entering multiple values — use MultiTextControl instead"
+    ],
+    "import_statement": "import { TextControl } from '@gravity-ui/dialog-fields';",
+    "related": ["TextAreaControl", "MultiTextControl", "DFDialog"],
+    "props": [
+      {
+        "name": "onChange",
+        "type": "(value: string) => void",
+        "required": true,
+        "description": "Called with the new string value on each change."
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Current string value."
+      },
+      {
+        "name": "error",
+        "type": "string | undefined",
+        "required": false,
+        "description": "Validation error message to display."
+      }
+    ],
+    "examples": [
+      "<TextControl value={name} onChange={setName} placeholder=\"Enter name\" />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TumblerControl",
+    "library": "dialog-fields",
+    "description": "A toggle switch control that wraps the Gravity UI Switch component and normalizes the boolean value/onChange interface for DFDialog form fields. Supports optional left and right labels flanking the switch.",
+    "keywords": ["tumbler", "toggle", "switch", "boolean", "on off", "form field", "enable", "disable"],
+    "when_to_use": [
+      "When a dialog field needs an on/off toggle for enabling or disabling a feature",
+      "When used as the built-in 'tumbler' field type in DFDialog"
+    ],
+    "avoid": [
+      "Do not use when the semantics are about agreement or selection — use CheckBoxControl instead",
+      "Do not use for switching between more than two states — use RadioButtonControl instead"
+    ],
+    "import_statement": "import { TumblerControl } from '@gravity-ui/dialog-fields';",
+    "related": ["CheckBoxControl", "RadioButtonControl", "DFDialog"],
+    "props": [
+      {
+        "name": "onChange",
+        "type": "(value: boolean) => void",
+        "required": true,
+        "description": "Called with the new boolean value when the switch is toggled."
+      },
+      {
+        "name": "value",
+        "type": "boolean",
+        "required": true,
+        "description": "Current switch state."
+      },
+      {
+        "name": "labelLeft",
+        "type": "string",
+        "required": false,
+        "description": "Optional label text displayed to the left of the switch."
+      },
+      {
+        "name": "labelRight",
+        "type": "string",
+        "required": false,
+        "description": "Optional label text displayed to the right of the switch."
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l'",
+        "required": false,
+        "description": "Size of the switch. Defaults to 'm'."
+      }
+    ],
+    "examples": [
+      "<TumblerControl value={enabled} onChange={setEnabled} labelLeft=\"Off\" labelRight=\"On\" />"
+    ]
+  },
+  {
+    "type": "utility",
+    "name": "configure",
+    "library": "dialog-fields",
+    "description": "Configures global settings for the dialog-fields library. Currently supports setting the display language ('en' or 'ru') for built-in i18n strings.",
+    "keywords": ["configure", "config", "language", "i18n", "locale", "setup", "initialization"],
+    "when_to_use": [
+      "At application startup to set the language for DFDialog built-in labels and messages"
+    ],
+    "avoid": [
+      "Do not call repeatedly at runtime — intended for one-time app initialization"
+    ],
+    "import_statement": "import { configure } from '@gravity-ui/dialog-fields';",
+    "related": ["DFDialog"],
+    "signature": "configure(config: { lang: 'en' | 'ru' }): void",
+    "parameters": [
+      { "name": "config", "type": "{ lang: 'en' | 'ru' }", "description": "Configuration object. lang sets the display language." }
+    ],
+    "return_type": "void",
+    "kind": "function"
+  }
+]

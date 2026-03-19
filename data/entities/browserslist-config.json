@@ -1,0 +1,31 @@
+[
+  {
+    "type": "config-doc",
+    "name": "browserslist-config",
+    "library": "browserslist-config",
+    "description": "Gravity UI shared Browserslist configuration that targets modern browsers used by Gravity UI packages. Covers last 2 major versions, full ES6 support, Firefox ESR, and excludes dead, Opera Mini, QQ, and UC browsers.",
+    "keywords": [
+      "browserslist",
+      "browser targets",
+      "autoprefixer",
+      "babel-preset-env",
+      "browser compatibility",
+      "es6",
+      "firefox esr",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Configuring browser targets for a Gravity UI project to match the design system's support matrix",
+      "Ensuring consistent autoprefixer and babel-preset-env targets across packages",
+      "When you need a sensible modern browser baseline without configuring queries manually"
+    ],
+    "avoid": [
+      "Do not use if your project must support legacy browsers (IE11, older Safari) — the config excludes dead browsers",
+      "For highly customized audiences, extend rather than replace the config"
+    ],
+    "import_statement": "",
+    "related": ["babel-preset"],
+    "how_to_use": "Install with `npm install --save-dev @gravity-ui/browserslist-config`. Add to `package.json`: `{ \"browserslist\": [\"extends @gravity-ui/browserslist-config\"] }`. Additional browser queries can be appended after the extends entry.",
+    "browser_query": "last 2 major versions and last 2 years and fully supports es6 and >0.05%, not dead, not op_mini all, not and_qq >0, not and_uc >0, Firefox ESR, Chrome >0 and last 2 years and >0.05%, Safari >0 and last 2 years and >0.05%, Firefox >0 and last 2 years and >0.01%"
+  }
+]

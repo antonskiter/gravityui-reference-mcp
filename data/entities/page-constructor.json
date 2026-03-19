@@ -1,0 +1,928 @@
+[
+  {
+    "type": "component",
+    "name": "Anchor",
+    "library": "page-constructor",
+    "description": "Renders an invisible anchor div with an id, used for in-page navigation and scroll-to-section links.",
+    "keywords": ["anchor", "scroll", "navigation", "id", "hash", "in-page", "section"],
+    "when_to_use": ["When you need a named anchor point for in-page links", "When a block needs a scrollable target"],
+    "avoid": ["Do not use as a visible UI element; it renders no visible content"],
+    "import_statement": "import { Anchor } from '@gravity-ui/page-constructor'",
+    "related": ["BlockBase", "HeaderBreadcrumbs"],
+    "props": [
+      { "name": "id", "type": "string", "required": true, "description": "The HTML id for the anchor element." },
+      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "AnimateBlock",
+    "library": "page-constructor",
+    "description": "Wraps content in a scroll-triggered animation container using react-waypoint. Adds CSS animation classes when the block enters the viewport.",
+    "keywords": ["animation", "scroll", "waypoint", "fade", "entrance", "animate", "viewport", "intersection"],
+    "when_to_use": ["When a section should animate in as the user scrolls to it", "When you want entrance animations for page blocks"],
+    "avoid": ["Avoid when animations should always play on mount rather than on scroll", "Avoid when SSR is critical and animation triggers are not needed"],
+    "import_statement": "import { AnimateBlock } from '@gravity-ui/page-constructor'",
+    "related": ["BackgroundMedia"],
+    "props": [
+      { "name": "animate", "type": "boolean", "required": false, "description": "Whether to enable animation; defaults to the AnimateContext value." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class name for the wrapper." },
+      { "name": "offset", "type": "number", "required": false, "description": "Bottom offset in pixels before triggering animation (default 100)." },
+      { "name": "onScroll", "type": "() => void", "required": false, "description": "Callback fired when the block enters the viewport." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles for the wrapper." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Author",
+    "library": "page-constructor",
+    "description": "Displays an author's avatar, name, and optional description. Supports both column and row layout types.",
+    "keywords": ["author", "avatar", "profile", "byline", "person", "bio", "attribution"],
+    "when_to_use": ["When showing post or article authorship", "When displaying a person's avatar and name in a card"],
+    "avoid": ["Avoid for generic user avatars without the authorship context; prefer uikit Avatar instead"],
+    "import_statement": "import { Author } from '@gravity-ui/page-constructor'",
+    "related": ["Image", "MetaInfo"],
+    "props": [
+      { "name": "author", "type": "AuthorProps", "required": true, "description": "Author data object with firstName, secondName, description, and avatar." },
+      { "name": "authorContainerClassName", "type": "string", "required": false, "description": "CSS class for the avatar container." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class for the root element." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "theme", "type": "string", "required": false, "description": "Visual theme." },
+      { "name": "type", "type": "'column' | 'row'", "required": false, "description": "Layout direction (default 'column')." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "BackgroundImage",
+    "library": "page-constructor",
+    "description": "Renders a section with a background image and an optional content overlay. Supports desktop/mobile responsive sources.",
+    "keywords": ["background", "image", "hero", "section", "overlay", "cover", "responsive"],
+    "when_to_use": ["When a section needs a full-bleed background image with content layered on top"],
+    "avoid": ["Avoid for simple inline images; use Image instead"],
+    "import_statement": "import { BackgroundImage } from '@gravity-ui/page-constructor'",
+    "related": ["BackgroundMedia", "Image", "CardBase"],
+    "props": [
+      { "name": "className", "type": "string", "required": false, "description": "CSS class for the outer container." },
+      { "name": "imageClassName", "type": "string", "required": false, "description": "CSS class for the image element." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "src", "type": "string", "required": false, "description": "Fallback image source URL." },
+      { "name": "desktop", "type": "string", "required": false, "description": "Desktop image source URL." },
+      { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles for the container." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "BackgroundMedia",
+    "library": "page-constructor",
+    "description": "Renders a full-width background media container supporting images, video, and parallax effects. Wraps Media in an AnimateBlock.",
+    "keywords": ["background", "media", "video", "parallax", "hero", "section", "animated", "color"],
+    "when_to_use": ["When a page block needs a rich background with image or video and optional parallax", "When combining background color with media"],
+    "avoid": ["Avoid for inline content images; use Media or Image instead"],
+    "import_statement": "import { BackgroundMedia } from '@gravity-ui/page-constructor'",
+    "related": ["AnimateBlock", "Media", "BackgroundImage"],
+    "props": [
+      { "name": "animated", "type": "boolean", "required": false, "description": "Enable scroll-triggered animation." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class for the container." },
+      { "name": "color", "type": "string", "required": false, "description": "Background color." },
+      { "name": "fullWidthMedia", "type": "boolean", "required": false, "description": "Extend media to full container width." },
+      { "name": "mediaClassName", "type": "string", "required": false, "description": "CSS class for the media element." },
+      { "name": "parallax", "type": "boolean", "required": false, "description": "Enable parallax scrolling (default true)." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "video", "type": "MediaVideoProps", "required": false, "description": "Video props (hidden on mobile)." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "BalancedMasonry",
+    "library": "page-constructor",
+    "description": "A masonry layout that balances column heights by distributing children into columns based on their measured heights and responsive breakpoints.",
+    "keywords": ["masonry", "columns", "grid", "balanced", "layout", "responsive", "card grid"],
+    "when_to_use": ["When displaying variable-height cards in a multi-column layout that should look visually balanced"],
+    "avoid": ["Avoid when all items have equal heights; use a regular CSS grid instead", "Avoid in SSR-only contexts where ResizeObserver is not available"],
+    "import_statement": "import { BalancedMasonry } from '@gravity-ui/page-constructor'",
+    "related": ["CardBase"],
+    "props": [
+      { "name": "breakpointCols", "type": "{ [key: number]: number }", "required": true, "description": "Map of max-width breakpoints to column counts." },
+      { "name": "children", "type": "React.ReactNode[]", "required": true, "description": "Items to arrange in columns." },
+      { "name": "className", "type": "string", "required": true, "description": "CSS class for the container." },
+      { "name": "columnClassName", "type": "string", "required": true, "description": "CSS class applied to each column." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "BlockBase",
+    "library": "page-constructor",
+    "description": "Base wrapper for all page blocks that applies standard vertical indentation, optional anchor, and visibility control.",
+    "keywords": ["block", "wrapper", "padding", "indent", "anchor", "visibility", "base"],
+    "when_to_use": ["When building a custom page block that needs standard spacing and optional anchor support"],
+    "avoid": ["Avoid using directly for non-block content; it is intended as a layout primitive for page sections"],
+    "import_statement": "import { BlockBase } from '@gravity-ui/page-constructor'",
+    "related": ["Anchor", "PageConstructor"],
+    "props": [
+      { "name": "anchor", "type": "{ url: string }", "required": false, "description": "Anchor configuration for the block." },
+      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class." },
+      { "name": "indent", "type": "{ top: string, bottom: string }", "required": false, "description": "Custom indentation values." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "resetPaddings", "type": "boolean", "required": false, "description": "Remove default top/bottom padding." },
+      { "name": "visible", "type": "string", "required": false, "description": "Breakpoint visibility." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "BrandFooter",
+    "library": "page-constructor",
+    "description": "Renders a branded footer link to gravity-ui.com with the Gravity UI brand icon and name, theme-aware (light/dark).",
+    "keywords": ["footer", "brand", "gravity-ui", "logo", "attribution", "theme"],
+    "when_to_use": ["When the page is built with PageConstructor and isBranded is true"],
+    "avoid": ["Avoid adding manually unless intentional brand attribution is desired"],
+    "import_statement": "import { BrandFooter } from '@gravity-ui/page-constructor'",
+    "related": ["PageConstructor"],
+    "props": [
+      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Button",
+    "library": "page-constructor",
+    "description": "Page-constructor button component that wraps uikit Button with extended theme support including github, app-store, google-play, and scale variants. Supports optional icon/image.",
+    "keywords": ["button", "cta", "link", "action", "app-store", "google-play", "github", "icon", "theme"],
+    "when_to_use": ["When rendering a CTA button from page content data", "When you need app-store or github-branded buttons"],
+    "avoid": ["Avoid for interactive UI controls outside page content; use @gravity-ui/uikit Button directly instead"],
+    "import_statement": "import { Button } from '@gravity-ui/page-constructor'",
+    "related": ["Buttons", "ButtonTabs", "Link"],
+    "props": [
+      { "name": "text", "type": "string", "required": false, "description": "Button label text." },
+      { "name": "url", "type": "string", "required": false, "description": "URL the button links to." },
+      { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events fired on click." },
+      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class." },
+      { "name": "id", "type": "string", "required": false, "description": "HTML id attribute." },
+      { "name": "img", "type": "string | ButtonImageProps", "required": false, "description": "Optional icon/image configuration." },
+      { "name": "onClick", "type": "React.MouseEventHandler", "required": false, "description": "Click handler." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "size", "type": "string", "required": false, "description": "Button size (default 'l')." },
+      { "name": "theme", "type": "'normal' | 'action' | 'outlined' | 'github' | 'app-store' | 'google-play' | 'scale'", "required": false, "description": "Visual theme (default 'normal')." },
+      { "name": "urlTitle", "type": "string", "required": false, "description": "Title attribute for the link." },
+      { "name": "width", "type": "string", "required": false, "description": "Button width mode." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ButtonTabs",
+    "library": "page-constructor",
+    "description": "Renders a horizontal row of tab buttons with accessible role=tablist. Manages active tab state and fires onSelectTab callbacks.",
+    "keywords": ["tabs", "tab", "navigation", "filter", "switch", "tablist", "button tabs"],
+    "when_to_use": ["When building a tabbed content switcher using button-style tabs"],
+    "avoid": ["Avoid for complex tab panels with mixed content; use uikit Tabs instead"],
+    "import_statement": "import { ButtonTabs } from '@gravity-ui/page-constructor'",
+    "related": ["Button", "Buttons"],
+    "props": [
+      { "name": "items", "type": "ButtonTabsItemProps[]", "required": true, "description": "Tab items array with id and title." },
+      { "name": "activeTab", "type": "string | null", "required": false, "description": "Currently active tab id." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class for the container." },
+      { "name": "getTabContentElementId", "type": "(tabId: string) => string", "required": false, "description": "Returns aria-controls value for a tab." },
+      { "name": "getTabElementId", "type": "(tabId: string) => string", "required": false, "description": "Returns the tab button element id." },
+      { "name": "onSelectTab", "type": "(tabId: string | null, e: React.MouseEvent) => void", "required": false, "description": "Callback when a tab is selected." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "tabSize", "type": "ButtonSize", "required": false, "description": "Size of the tab buttons (default 'l')." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Buttons",
+    "library": "page-constructor",
+    "description": "Renders a list of Button components from an array of ButtonProps, with size derived from content size ('s' | 'l').",
+    "keywords": ["buttons", "cta group", "action list", "button row", "content buttons"],
+    "when_to_use": ["When rendering multiple CTA buttons from page block data"],
+    "avoid": ["Avoid for a single button; use Button directly"],
+    "import_statement": "import { Buttons } from '@gravity-ui/page-constructor'",
+    "related": ["Button", "ButtonTabs"],
+    "props": [
+      { "name": "buttonQa", "type": "string", "required": false, "description": "Test attribute for each button." },
+      { "name": "buttons", "type": "ButtonProps[]", "required": false, "description": "Array of button configurations." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class for the container." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "size", "type": "'s' | 'l'", "required": false, "description": "Content size controlling button size (default 's')." },
+      { "name": "titleId", "type": "string", "required": false, "description": "Id of a title element for aria-describedby." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "CardBase",
+    "library": "page-constructor",
+    "description": "Composite card layout component with Header, Content, and Footer sub-components. Supports border styles and an optional URL that wraps the card in a link.",
+    "keywords": ["card", "layout", "header", "footer", "content", "link card", "border", "shadow"],
+    "when_to_use": ["When building structured cards with distinct header image, content area, and footer", "When a card should be entirely clickable as a link"],
+    "avoid": ["Avoid for simple content without header/footer structure; use a plain div instead"],
+    "import_statement": "import { CardBase } from '@gravity-ui/page-constructor'",
+    "related": ["BackgroundImage", "RouterLink", "BalancedMasonry"],
+    "props": [
+      { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events on card click." },
+      { "name": "bodyClassName", "type": "string", "required": false, "description": "CSS class for the body." },
+      { "name": "border", "type": "'shadow' | 'line' | 'none'", "required": false, "description": "Card border style (default 'shadow')." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class for the root element." },
+      { "name": "contentClassName", "type": "string", "required": false, "description": "CSS class for the content area." },
+      { "name": "extraProps", "type": "React.HTMLAttributes<HTMLElement>", "required": false, "description": "Extra props for the card element." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "target", "type": "React.HTMLAttributeAnchorTarget", "required": false, "description": "Link target attribute." },
+      { "name": "url", "type": "string", "required": false, "description": "If provided, wraps card in a link." },
+      { "name": "urlTitle", "type": "string", "required": false, "description": "Link title attribute." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ContentList",
+    "library": "page-constructor",
+    "description": "Renders a list of items each with an optional icon, title heading, and YFM-formatted text. Heading level adapts to content size.",
+    "keywords": ["list", "features", "icon list", "feature list", "content list", "bullets", "items"],
+    "when_to_use": ["When displaying feature lists or bullet-point sections with optional icons and titles"],
+    "avoid": ["Avoid for simple unordered lists without icons or titles; use plain HTML ul instead"],
+    "import_statement": "import { ContentList } from '@gravity-ui/page-constructor'",
+    "related": ["YFMWrapper", "ContentIcon", "IconWrapper"],
+    "props": [
+      { "name": "list", "type": "ContentListItem[]", "required": false, "description": "Array of list items with icon, title, and text." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "size", "type": "'s' | 'l'", "required": false, "description": "Content size controlling heading level (default 'l')." },
+      { "name": "theme", "type": "string", "required": false, "description": "Visual theme." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Control",
+    "library": "page-constructor",
+    "description": "A small icon-only button with configurable theme and size, used as a toolbar or control action button.",
+    "keywords": ["control", "icon button", "toolbar", "action", "button", "icon"],
+    "when_to_use": ["When you need a small icon-only action button with page-constructor theming"],
+    "avoid": ["Avoid for labeled buttons; use Button instead"],
+    "import_statement": "import { Control } from '@gravity-ui/page-constructor'",
+    "related": ["Button", "ToggleArrow"],
+    "props": [
+      { "name": "icon", "type": "IconData", "required": true, "description": "Icon data from @gravity-ui/icons." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." },
+      { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled state (default false)." },
+      { "name": "iconSize", "type": "number", "required": false, "description": "Icon size in px (default 16)." },
+      { "name": "onClick", "type": "(event: React.MouseEvent) => void", "required": false, "description": "Click handler." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "size", "type": "'xs' | 's' | 'm' | 'l'", "required": false, "description": "Button size (default 's')." },
+      { "name": "theme", "type": "'primary' | 'secondary' | 'link' | 'accent'", "required": false, "description": "Visual theme (default 'primary')." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ErrorWrapper",
+    "library": "page-constructor",
+    "description": "Conditionally renders an error state with a message and retry button, or its children when no error is present.",
+    "keywords": ["error", "fallback", "retry", "error state", "boundary", "error handling"],
+    "when_to_use": ["When wrapping async content that may fail and needs a user-visible error with a retry action"],
+    "avoid": ["Avoid as a general React error boundary; it is not a class-based ErrorBoundary and does not catch render errors"],
+    "import_statement": "import { ErrorWrapper } from '@gravity-ui/page-constructor'",
+    "related": [],
+    "props": [
+      { "name": "buttonText", "type": "string", "required": true, "description": "Label for the retry button." },
+      { "name": "handler", "type": "() => void", "required": true, "description": "Retry callback." },
+      { "name": "isError", "type": "boolean", "required": true, "description": "When true, shows the error UI instead of children." },
+      { "name": "text", "type": "string", "required": true, "description": "Error message text." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "FileLink",
+    "library": "page-constructor",
+    "description": "Renders a downloadable file link with a color-coded extension label (PDF, DOC, XLS, PPT, FIG, ZIP) and link text.",
+    "keywords": ["file", "download", "attachment", "pdf", "doc", "xls", "link", "label", "extension"],
+    "when_to_use": ["When displaying links to downloadable files with visual file-type indicators"],
+    "avoid": ["Avoid for regular navigation links; use Link instead"],
+    "import_statement": "import { FileLink } from '@gravity-ui/page-constructor'",
+    "related": ["Link", "Links"],
+    "props": [
+      { "name": "href", "type": "string", "required": true, "description": "URL of the file to download." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." },
+      { "name": "extraProps", "type": "React.HTMLProps<HTMLAnchorElement>", "required": false, "description": "Extra anchor props." },
+      { "name": "onClick", "type": "() => void", "required": false, "description": "Click handler." },
+      { "name": "tabIndex", "type": "number", "required": false, "description": "Tab index." },
+      { "name": "text", "type": "string", "required": false, "description": "Display text for the link." },
+      { "name": "textSize", "type": "'l' | 'm' | 'sm' | 's' | 'xs'", "required": false, "description": "Text size (default 'm')." },
+      { "name": "theme", "type": "'default' | string", "required": false, "description": "Visual theme (default 'default')." },
+      { "name": "type", "type": "'vertical' | 'horizontal'", "required": false, "description": "Layout type (default 'vertical')." },
+      { "name": "urlTitle", "type": "string", "required": false, "description": "Title attribute." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Foldable",
+    "library": "page-constructor",
+    "description": "An animated collapsible container that smoothly expands and collapses its children using measured content height.",
+    "keywords": ["collapsible", "accordion", "expand", "collapse", "toggle", "animated", "foldable", "disclosure"],
+    "when_to_use": ["When content should be toggled open/closed with a smooth height animation"],
+    "avoid": ["Avoid when CSS-only transitions are sufficient; this component uses JS height measurement"],
+    "import_statement": "import { Foldable } from '@gravity-ui/page-constructor'",
+    "related": ["ToggleArrow", "useHeightCalculator"],
+    "props": [
+      { "name": "isOpened", "type": "boolean", "required": true, "description": "Controls open/closed state." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "FullWidthBackground",
+    "library": "page-constructor",
+    "description": "A class component that dynamically stretches its background to the full browser width, compensating for parent container padding, with support for a rounded theme.",
+    "keywords": ["full width", "background", "bleed", "stretch", "breakout", "edge-to-edge", "layout"],
+    "when_to_use": ["When a section's background must extend to the browser edges while content stays within a grid"],
+    "avoid": ["Avoid in SSR contexts without a client-side resize handler; the width is calculated imperatively in componentDidMount"],
+    "import_statement": "import { FullWidthBackground } from '@gravity-ui/page-constructor'",
+    "related": ["BackgroundMedia", "BackgroundImage"],
+    "props": [
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." },
+      { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles." },
+      { "name": "theme", "type": "'default' | 'rounded'", "required": false, "description": "Visual theme controlling edge rounding (default 'default')." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "FullscreenImage",
+    "library": "page-constructor",
+    "description": "An image that displays a fullscreen expand button and opens a modal lightbox with the full-size image or an image slider.",
+    "keywords": ["fullscreen", "lightbox", "modal", "image", "zoom", "gallery", "slider", "expand"],
+    "when_to_use": ["When images should be viewable in a full-screen overlay", "When displaying an image gallery in a lightbox slider"],
+    "avoid": ["Avoid for images where fullscreen is never needed; use Image for simpler cases"],
+    "import_statement": "import { FullscreenImage } from '@gravity-ui/page-constructor'",
+    "related": ["Image", "FullscreenMedia"],
+    "props": [
+      { "name": "alt", "type": "string", "required": false, "description": "Image alt text." },
+      { "name": "extraProps", "type": "React.HTMLProps<HTMLDivElement>", "required": false, "description": "Extra props for the wrapper div." },
+      { "name": "imageClassName", "type": "string", "required": false, "description": "CSS class for the inline image." },
+      { "name": "imageStyle", "type": "React.CSSProperties", "required": false, "description": "Inline style for the image." },
+      { "name": "modalImageClass", "type": "string", "required": false, "description": "CSS class for the modal image." },
+      { "name": "sliderData", "type": "{ items: ImageProps[]; initialIndex: number }", "required": false, "description": "Slider configuration for the modal." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "FullscreenMedia",
+    "library": "page-constructor",
+    "description": "A render-prop wrapper that adds a fullscreen expand button to any media content, opening it in a modal. On mobile it renders children directly without modal support.",
+    "keywords": ["fullscreen", "modal", "media", "video", "expand", "lightbox", "render prop"],
+    "when_to_use": ["When any media component (video, image) should support fullscreen viewing on desktop"],
+    "avoid": ["Avoid on mobile-only contexts; the component bypasses the modal on mobile"],
+    "import_statement": "import { FullscreenMedia } from '@gravity-ui/page-constructor'",
+    "related": ["FullscreenImage", "Media"],
+    "props": [
+      { "name": "children", "type": "(props?: ChildMediaRenderProps) => JSX.Element", "required": true, "description": "Render prop receiving media class names and fullscreen state." },
+      { "name": "showFullscreenIcon", "type": "boolean", "required": false, "description": "Whether to show the expand icon button (default true)." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "HTML",
+    "library": "page-constructor",
+    "description": "Renders HTML content via dangerouslySetInnerHTML with configurable tag name, and supports optional children positioned before or after the HTML content.",
+    "keywords": ["html", "rich text", "dangerous html", "inner html", "markup", "content", "yfm"],
+    "when_to_use": ["When rendering sanitized HTML strings from a CMS or content pipeline"],
+    "avoid": ["Avoid for untrusted HTML; ensure content is sanitized before passing", "Avoid when React children alone suffice"],
+    "import_statement": "import { HTML } from '@gravity-ui/page-constructor'",
+    "related": ["YFMWrapper"],
+    "props": [
+      { "name": "content", "type": "string", "required": false, "description": "HTML string rendered via dangerouslySetInnerHTML." },
+      { "name": "block", "type": "boolean", "required": false, "description": "Use a block tag wrapper (default false)." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class for the outer wrapper." },
+      { "name": "contentClassName", "type": "string", "required": false, "description": "CSS class for the HTML content element." },
+      { "name": "contentPosition", "type": "'start' | 'end'", "required": false, "description": "Position of the HTML content relative to children (default 'start')." },
+      { "name": "id", "type": "string", "required": false, "description": "HTML id attribute." },
+      { "name": "itemProp", "type": "string", "required": false, "description": "Schema.org itemProp attribute." },
+      { "name": "onlyContent", "type": "boolean", "required": false, "description": "Render only the HTML content without the outer wrapper (default false)." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "tagName", "type": "'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'section' | 'p'", "required": false, "description": "HTML tag to use (default 'span')." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "HeaderBreadcrumbs",
+    "library": "page-constructor",
+    "description": "Renders an accessible breadcrumb navigation (<nav> with <ol>) with analytics event support.",
+    "keywords": ["breadcrumbs", "navigation", "breadcrumb", "path", "nav", "hierarchy"],
+    "when_to_use": ["When showing page hierarchy navigation at the top of a content page"],
+    "avoid": ["Avoid for tab or step navigation; use ButtonTabs or a stepper instead"],
+    "import_statement": "import { HeaderBreadcrumbs } from '@gravity-ui/page-constructor'",
+    "related": ["BackLink", "Anchor"],
+    "props": [
+      { "name": "items", "type": "{ url: string; text: string }[]", "required": true, "description": "Breadcrumb items." },
+      { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events on breadcrumb click." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." },
+      { "name": "theme", "type": "'light' | 'dark'", "required": false, "description": "Visual theme (default 'light')." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "IconWrapper",
+    "library": "page-constructor",
+    "description": "Wraps content with a positioned icon (image URL or Gravity UI icon), placing the icon at a configurable position relative to the content.",
+    "keywords": ["icon", "wrapper", "icon position", "content icon", "layout", "icon content"],
+    "when_to_use": ["When content needs an icon placed at a specific position (top, left, right) alongside it"],
+    "avoid": ["Avoid when no icon is needed; it renders children as a Fragment"],
+    "import_statement": "import { IconWrapper } from '@gravity-ui/page-constructor'",
+    "related": ["ContentList", "Icon"],
+    "props": [
+      { "name": "className", "type": "string", "required": false, "description": "CSS class for the wrapper." },
+      { "name": "gravityIcon", "type": "GravityIconData", "required": false, "description": "Gravity UI icon with position." },
+      { "name": "icon", "type": "IconData", "required": false, "description": "Image-based icon data with value and position." },
+      { "name": "size", "type": "string", "required": false, "description": "Icon size modifier." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Image",
+    "library": "page-constructor",
+    "description": "A responsive image component using <picture> with device-specific sources for mobile/tablet/desktop, optional WebP conversion, and hide-by-device support.",
+    "keywords": ["image", "picture", "responsive", "webp", "srcset", "mobile", "tablet", "desktop", "lazy"],
+    "when_to_use": ["When rendering page content images with responsive device-specific sources", "When WebP optimization should be applied automatically"],
+    "avoid": ["Avoid for simple static images with a single source; use a plain <img> instead"],
+    "import_statement": "import { Image } from '@gravity-ui/page-constructor'",
+    "related": ["ImageBase", "BackgroundImage", "FullscreenImage"],
+    "props": [
+      { "name": "alt", "type": "string", "required": false, "description": "Image alt text." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class for the <img>." },
+      { "name": "containerClassName", "type": "string", "required": false, "description": "CSS class for the <picture> element." },
+      { "name": "desktop", "type": "string", "required": false, "description": "Desktop image URL (also used as fallback src)." },
+      { "name": "disableCompress", "type": "boolean", "required": false, "description": "Disable WebP conversion." },
+      { "name": "fetchPriority", "type": "string", "required": false, "description": "Fetch priority hint." },
+      { "name": "hide", "type": "boolean | { mobile?: boolean; tablet?: boolean; desktop?: boolean }", "required": false, "description": "Hide image on specific devices." },
+      { "name": "loading", "type": "string", "required": false, "description": "Loading attribute (e.g. 'lazy')." },
+      { "name": "mobile", "type": "string", "required": false, "description": "Mobile image URL." },
+      { "name": "onClick", "type": "React.MouseEventHandler", "required": false, "description": "Click handler." },
+      { "name": "onLoad", "type": "React.ReactEventHandler<HTMLDivElement>", "required": false, "description": "Load callback." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "src", "type": "string", "required": false, "description": "Primary image URL." },
+      { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles." },
+      { "name": "tablet", "type": "string", "required": false, "description": "Tablet image URL." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ImageBase",
+    "library": "page-constructor",
+    "description": "Low-level image rendering primitive that delegates to a custom Image component from ImageContext, or falls back to a plain <img> with fetchPriority support.",
+    "keywords": ["image", "base", "primitive", "custom image", "context", "img"],
+    "when_to_use": ["When you need to use the project-level image override from ImageContext", "As the inner image element inside Image or custom image components"],
+    "avoid": ["Avoid using directly when Image or BackgroundImage meets the needs"],
+    "import_statement": "import { ImageBase } from '@gravity-ui/page-constructor'",
+    "related": ["Image"],
+    "props": [
+      { "name": "alt", "type": "string", "required": false, "description": "Image alt text." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." },
+      { "name": "fetchPriority", "type": "string", "required": false, "description": "Fetch priority hint." },
+      { "name": "onClick", "type": "React.MouseEventHandler", "required": false, "description": "Click handler." },
+      { "name": "onError", "type": "() => void", "required": false, "description": "Error callback." },
+      { "name": "onLoad", "type": "React.ReactEventHandler<HTMLDivElement>", "required": false, "description": "Load callback." },
+      { "name": "src", "type": "string", "required": false, "description": "Image URL." },
+      { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "InnerForm",
+    "library": "page-constructor",
+    "description": "Renders either a YandexForm or HubspotForm based on the formData type, reading configuration from FormsContext.",
+    "keywords": ["form", "hubspot", "yandex form", "embed", "contact form", "inner form"],
+    "when_to_use": ["When embedding a form (Yandex or Hubspot) within a page block using FormBlockData"],
+    "avoid": ["Avoid using directly outside of page-constructor form block context; configure via FormsContext"],
+    "import_statement": "import { InnerForm } from '@gravity-ui/page-constructor'",
+    "related": ["YandexForm", "HubspotForm"],
+    "props": [
+      { "name": "formData", "type": "FormBlockData", "required": true, "description": "Form configuration (Yandex or Hubspot)." },
+      { "name": "onContentLoad", "type": "() => void", "required": true, "description": "Callback when the form iframe has loaded." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Link",
+    "library": "page-constructor",
+    "description": "Polymorphic link component that renders as a back-link, file-link, or normal anchor based on the theme prop, with analytics and TLD support.",
+    "keywords": ["link", "anchor", "navigation", "back link", "file link", "arrow link", "url"],
+    "when_to_use": ["When rendering links from page content data with different visual styles (normal, back, file-link)"],
+    "avoid": ["Avoid for router-aware navigation; use RouterLink or a framework link component instead"],
+    "import_statement": "import { Link } from '@gravity-ui/page-constructor'",
+    "related": ["Links", "BackLink", "FileLink", "RouterLink"],
+    "props": [
+      { "name": "url", "type": "string", "required": true, "description": "Link URL." },
+      { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events on click." },
+      { "name": "arrow", "type": "boolean", "required": false, "description": "Show a chevron arrow after the text." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." },
+      { "name": "colorTheme", "type": "'light' | 'dark'", "required": false, "description": "Color theme for 'normal' links (default 'light')." },
+      { "name": "extraProps", "type": "React.HTMLProps<HTMLAnchorElement>", "required": false, "description": "Extra anchor props." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "tabIndex", "type": "number", "required": false, "description": "Tab index." },
+      { "name": "target", "type": "string", "required": false, "description": "Link target attribute." },
+      { "name": "text", "type": "string", "required": false, "description": "Link text." },
+      { "name": "textSize", "type": "'l' | 'm' | 'sm' | 's' | 'xs'", "required": false, "description": "Text size (default 'm')." },
+      { "name": "theme", "type": "'normal' | 'back' | 'file-link' | 'underline'", "required": false, "description": "Visual theme (default 'file-link')." },
+      { "name": "urlTitle", "type": "string", "required": false, "description": "Title attribute." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Links",
+    "library": "page-constructor",
+    "description": "Renders a collection of Link components from an array of LinkProps with size derived from content size.",
+    "keywords": ["links", "link list", "navigation", "content links", "urls"],
+    "when_to_use": ["When rendering multiple links from page block content data"],
+    "avoid": ["Avoid for a single link; use Link directly"],
+    "import_statement": "import { Links } from '@gravity-ui/page-constructor'",
+    "related": ["Link", "Buttons"],
+    "props": [
+      { "name": "className", "type": "string", "required": false, "description": "CSS class for the container." },
+      { "name": "linkQa", "type": "string", "required": false, "description": "Test attribute for each link." },
+      { "name": "links", "type": "LinkProps[]", "required": false, "description": "Array of link configurations." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute for the container." },
+      { "name": "size", "type": "'s' | 'l'", "required": false, "description": "Content size (default 's')." },
+      { "name": "titleId", "type": "string", "required": false, "description": "Id of a title for aria-describedby." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Map",
+    "library": "page-constructor",
+    "description": "Renders a map using either Yandex Maps or Google Maps based on the MapsContext configuration.",
+    "keywords": ["map", "yandex map", "google map", "location", "geo", "embed map"],
+    "when_to_use": ["When displaying an interactive map in a page block, with map type determined by project config"],
+    "avoid": ["Avoid without setting up MapsContext with the correct map type and API keys"],
+    "import_statement": "import { Map } from '@gravity-ui/page-constructor'",
+    "related": [],
+    "props": [
+      { "name": "...MapProps", "type": "YMapProps | GMapProps", "required": false, "description": "Props forwarded to the active map implementation." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Media",
+    "library": "page-constructor",
+    "description": "Universal media container that renders image, video, YouTube iframe, DataLens chart, or custom iframe based on the provided props.",
+    "keywords": ["media", "image", "video", "youtube", "iframe", "datalens", "parallax", "fullscreen"],
+    "when_to_use": ["When rendering content that can be any media type (image, video, YouTube, iframe) based on data"],
+    "avoid": ["Avoid when only a specific media type is needed; use Image or VideoBlock directly for simpler cases"],
+    "import_statement": "import { Media } from '@gravity-ui/page-constructor'",
+    "related": ["Image", "VideoBlock", "ReactPlayer", "BackgroundMedia", "FullscreenMedia"],
+    "props": [
+      { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events." },
+      { "name": "autoplay", "type": "boolean", "required": false, "description": "Autoplay YouTube/iframe video." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class for the container." },
+      { "name": "color", "type": "string", "required": false, "description": "Background color." },
+      { "name": "dataLens", "type": "DataLensProps", "required": false, "description": "DataLens chart configuration." },
+      { "name": "fullscreen", "type": "boolean", "required": false, "description": "Enable fullscreen mode." },
+      { "name": "height", "type": "number", "required": false, "description": "Fixed media height." },
+      { "name": "iframe", "type": "IframeProps", "required": false, "description": "Custom iframe configuration." },
+      { "name": "image", "type": "ImageProps | ImageProps[]", "required": false, "description": "Image configuration." },
+      { "name": "imageClassName", "type": "string", "required": false, "description": "CSS class for the image." },
+      { "name": "isBackground", "type": "boolean", "required": false, "description": "Render as a background." },
+      { "name": "onImageLoad", "type": "() => void", "required": false, "description": "Image load callback." },
+      { "name": "parallax", "type": "boolean", "required": false, "description": "Enable parallax scrolling (default false)." },
+      { "name": "playButton", "type": "PlayButtonProps", "required": false, "description": "Custom play button configuration." },
+      { "name": "previewImg", "type": "string", "required": false, "description": "Preview image for video." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "ratio", "type": "number", "required": false, "description": "Video aspect ratio." },
+      { "name": "video", "type": "MediaVideoProps", "required": false, "description": "HTML5 video configuration." },
+      { "name": "videoIframe", "type": "string", "required": false, "description": "Video iframe URL." },
+      { "name": "videoMicrodata", "type": "VideoMicrodataProps", "required": false, "description": "Schema.org video microdata." },
+      { "name": "youtube", "type": "string", "required": false, "description": "YouTube video ID or URL." },
+      { "name": "youtubeClassName", "type": "string", "required": false, "description": "CSS class for the YouTube iframe." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "MetaInfo",
+    "library": "page-constructor",
+    "description": "Renders a row of meta-info items (dates, tags, etc.) as YFM-formatted text inside an h4 heading.",
+    "keywords": ["meta", "metadata", "date", "tag", "info", "article meta", "post info"],
+    "when_to_use": ["When displaying article or post metadata such as publication date or category tags"],
+    "avoid": ["Avoid for primary headings; it uses h4 semantically for metadata"],
+    "import_statement": "import { MetaInfo } from '@gravity-ui/page-constructor'",
+    "related": ["Author", "YFMWrapper"],
+    "props": [
+      { "name": "items", "type": "string[]", "required": true, "description": "Array of YFM-formatted meta-info strings." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "OutsideClick",
+    "library": "page-constructor",
+    "description": "A class component that detects clicks outside its wrapped content and fires an onOutsideClick callback.",
+    "keywords": ["outside click", "click outside", "dismiss", "close", "dropdown", "overlay"],
+    "when_to_use": ["When a dropdown or overlay should close when clicking outside its bounds"],
+    "avoid": ["Avoid for accessibility-critical dismiss patterns; supplement with keyboard events"],
+    "import_statement": "import { OutsideClick } from '@gravity-ui/page-constructor'",
+    "related": [],
+    "props": [
+      { "name": "onOutsideClick", "type": "() => void", "required": true, "description": "Callback fired on outside click." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." },
+      { "name": "onClick", "type": "() => void", "required": false, "description": "Click handler for the wrapper element." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "OverflowScroller",
+    "library": "page-constructor",
+    "description": "A horizontal scroll container with auto-detecting arrow navigation buttons that appear when content overflows the container width.",
+    "keywords": ["scroll", "overflow", "horizontal scroll", "carousel", "arrows", "scrollable", "tabs overflow"],
+    "when_to_use": ["When a horizontal list of items may overflow and needs arrow-button scrolling"],
+    "avoid": ["Avoid for vertical scrolling or when native scroll is acceptable"],
+    "import_statement": "import { OverflowScroller } from '@gravity-ui/page-constructor'",
+    "related": ["ToggleArrow", "ButtonTabs"],
+    "props": [
+      { "name": "arrowClassName", "type": "string", "required": false, "description": "CSS class for arrow buttons." },
+      { "name": "arrowSize", "type": "number", "required": false, "description": "Size of the arrow icons (default 18)." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class for the scroll container." },
+      { "name": "onScrollEnd", "type": "() => void", "required": false, "description": "Callback after scrolling ends." },
+      { "name": "onScrollStart", "type": "() => void", "required": false, "description": "Callback when scrolling starts." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PageConstructor",
+    "library": "page-constructor",
+    "description": "The root component for rendering a full page from structured JSON content, managing block rendering, navigation, animation, branding, and custom block registration.",
+    "keywords": ["page constructor", "page builder", "cms", "blocks", "page content", "layout", "navigation", "custom blocks"],
+    "when_to_use": ["When rendering a full page from a PageContent data structure", "When building a CMS-driven page with configurable blocks"],
+    "avoid": ["Avoid for partial page sections; use individual block components instead"],
+    "import_statement": "import { PageConstructor } from '@gravity-ui/page-constructor'",
+    "related": ["BlockBase", "BrandFooter", "BackgroundMedia"],
+    "props": [
+      { "name": "content", "type": "PageContent", "required": false, "description": "Page content data including blocks and background." },
+      { "name": "custom", "type": "CustomConfig", "required": false, "description": "Custom block/subblock registrations and decorators." },
+      { "name": "isBranded", "type": "boolean", "required": false, "description": "Show the BrandFooter attribution link." },
+      { "name": "microdata", "type": "{ contentUpdatedDate?: string }", "required": false, "description": "Schema.org microdata for the page." },
+      { "name": "navigation", "type": "NavigationData", "required": false, "description": "Navigation configuration." },
+      { "name": "renderMenu", "type": "() => React.ReactNode", "required": false, "description": "Custom menu render function." },
+      { "name": "shouldRenderBlock", "type": "ShouldRenderBlock", "required": false, "description": "Predicate to conditionally skip rendering blocks." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ReactPlayer",
+    "library": "page-constructor",
+    "description": "A fully-featured video player component wrapping react-player with custom controls, mute/unmute, progress tracking, preview image, autoplay, and analytics.",
+    "keywords": ["video", "player", "react-player", "youtube", "mp4", "autoplay", "mute", "controls", "preview"],
+    "when_to_use": ["When embedding an HTML5 or YouTube video with custom playback controls", "When video needs autoplay-muted, progress tracking, or custom play button UI"],
+    "avoid": ["Avoid for YouTube-embed-only use cases; VideoBlock is simpler", "Avoid for audio-only content"],
+    "import_statement": "import { ReactPlayer } from '@gravity-ui/page-constructor'",
+    "related": ["VideoBlock", "Media"],
+    "props": [
+      { "name": "src", "type": "string | string[]", "required": true, "description": "Video URL(s)." },
+      { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events." },
+      { "name": "ariaLabel", "type": "string", "required": false, "description": "Accessible label for the player." },
+      { "name": "autoRatio", "type": "boolean", "required": false, "description": "Auto-calculate aspect ratio from video metadata." },
+      { "name": "autoplay", "type": "boolean", "required": false, "description": "Autoplay on mount (muted on desktop)." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." },
+      { "name": "contain", "type": "boolean", "required": false, "description": "Use object-fit contain (default true)." },
+      { "name": "controls", "type": "MediaVideoControlsType", "required": false, "description": "Controls type (default, custom, or none)." },
+      { "name": "customBarControlsClassName", "type": "string", "required": false, "description": "CSS class for custom bar controls." },
+      { "name": "customControlsOptions", "type": "object", "required": false, "description": "Options for custom controls." },
+      { "name": "elapsedTime", "type": "number", "required": false, "description": "Seek to this time in seconds." },
+      { "name": "height", "type": "number", "required": false, "description": "Fixed player height." },
+      { "name": "loop", "type": "boolean | { start?: number; end?: number }", "required": false, "description": "Loop playback, optionally within a time range." },
+      { "name": "muted", "type": "boolean", "required": false, "description": "Start muted." },
+      { "name": "playButton", "type": "PlayButtonProps", "required": false, "description": "Custom play button configuration." },
+      { "name": "previewImgUrl", "type": "string", "required": false, "description": "Preview image shown before playback." },
+      { "name": "ratio", "type": "number", "required": false, "description": "Aspect ratio (height/width, default 9/16)." },
+      { "name": "showPreview", "type": "boolean", "required": false, "description": "Show preview externally." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "RouterLink",
+    "library": "page-constructor",
+    "description": "A thin wrapper that renders a router-aware Link from LocationContext if configured, otherwise renders children as a Fragment.",
+    "keywords": ["router", "link", "next.js", "react router", "navigation", "client-side routing"],
+    "when_to_use": ["When a link should use the project's client-side router configured via LocationContext"],
+    "avoid": ["Avoid when server-side or plain anchor navigation is sufficient; use a regular <a> instead"],
+    "import_statement": "import { RouterLink } from '@gravity-ui/page-constructor'",
+    "related": ["Link", "BackLink"],
+    "props": [
+      { "name": "href", "type": "string", "required": true, "description": "The navigation URL." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Table",
+    "library": "page-constructor",
+    "description": "Renders a data table from a 2D content array with optional legend, marker types (disk, tick), and configurable column justification.",
+    "keywords": ["table", "data table", "grid", "comparison", "legend", "marker", "tick", "disk"],
+    "when_to_use": ["When displaying structured tabular data with an optional legend and row/column markers"],
+    "avoid": ["Avoid for complex interactive tables; this is a static presentational component"],
+    "import_statement": "import { Table } from '@gravity-ui/page-constructor'",
+    "related": ["YFMWrapper"],
+    "props": [
+      { "name": "content", "type": "string[][]", "required": true, "description": "2D array of cell values." },
+      { "name": "caption", "type": "string", "required": false, "description": "Table aria-label." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." },
+      { "name": "hideLegend", "type": "boolean", "required": false, "description": "Hide the legend section." },
+      { "name": "justify", "type": "Justify[]", "required": false, "description": "Per-column horizontal alignment." },
+      { "name": "legend", "type": "string[]", "required": false, "description": "Legend labels for marker cells." },
+      { "name": "marker", "type": "'disk' | 'tick'", "required": false, "description": "Marker type for legend cells (default 'disk')." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Title",
+    "library": "page-constructor",
+    "description": "Renders a block title with an optional subtitle, using configurable grid column sizes and justification. Subtitle is rendered as YFM content.",
+    "keywords": ["title", "heading", "subtitle", "section title", "block title", "heading text"],
+    "when_to_use": ["When rendering the title and subtitle of a page block"],
+    "avoid": ["Avoid for inline headings outside of block context; use plain heading tags instead"],
+    "import_statement": "import { Title } from '@gravity-ui/page-constructor'",
+    "related": ["YFMWrapper", "BlockBase"],
+    "props": [
+      { "name": "colJustifyContent", "type": "GridJustifyContent", "required": false, "description": "Justify content for the grid column." },
+      { "name": "colSizes", "type": "GridColumnSizesType", "required": false, "description": "Column sizes (default { all: 12, sm: 8 })." },
+      { "name": "id", "type": "string", "required": false, "description": "HTML id for the container." },
+      { "name": "subtitle", "type": "string", "required": false, "description": "YFM-formatted subtitle text." },
+      { "name": "title", "type": "string | TitleItemProps", "required": false, "description": "Title text or full title configuration object." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ToggleArrow",
+    "library": "page-constructor",
+    "description": "Renders a directional arrow icon that animates between open/closed states, used for accordion toggles and scroll navigation.",
+    "keywords": ["arrow", "chevron", "toggle", "expand", "collapse", "accordion", "icon", "direction"],
+    "when_to_use": ["When an accordion or collapsible element needs a visual arrow indicator", "When a scrollable container needs left/right navigation arrows"],
+    "avoid": ["Avoid for non-toggle arrow decorations; use Icon directly instead"],
+    "import_statement": "import { ToggleArrow } from '@gravity-ui/page-constructor'",
+    "related": ["Foldable", "OverflowScroller"],
+    "props": [
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." },
+      { "name": "iconType", "type": "'navigation' | 'default'", "required": false, "description": "Icon style (default 'default')." },
+      { "name": "open", "type": "boolean", "required": false, "description": "Open state controlling rotation (default false)." },
+      { "name": "size", "type": "number", "required": false, "description": "Icon size in px (default 16)." },
+      { "name": "slow", "type": "boolean", "required": false, "description": "Use slower animation (default false)." },
+      { "name": "thin", "type": "boolean", "required": false, "description": "Use thin icon variant (default false)." },
+      { "name": "type", "type": "'horizontal' | 'vertical'", "required": false, "description": "Arrow direction (default 'horizontal')." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "UnpublishedLabel",
+    "library": "page-constructor",
+    "description": "Displays an 'unpublished' indicator label or inline line marker, used to visually mark content that is not yet published.",
+    "keywords": ["unpublished", "draft", "label", "status", "indicator", "watermark"],
+    "when_to_use": ["When content blocks need a visual indicator that they are unpublished drafts"],
+    "avoid": ["Avoid for status badges in application UI; use uikit Label or Badge instead"],
+    "import_statement": "import { UnpublishedLabel } from '@gravity-ui/page-constructor'",
+    "related": [],
+    "props": [
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." },
+      { "name": "type", "type": "'label' | 'line'", "required": false, "description": "Display style (default 'line')." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "VideoBlock",
+    "library": "page-constructor",
+    "description": "Renders a YouTube or custom iframe video with optional preview image and play button. Handles autoplay with AUTOPLAY_ATTRIBUTES and responsive height.",
+    "keywords": ["video", "youtube", "iframe", "embed", "preview", "play button", "stream", "record"],
+    "when_to_use": ["When embedding a YouTube video or custom iframe video with a preview thumbnail"],
+    "avoid": ["Avoid for HTML5 file-based video; use ReactPlayer instead"],
+    "import_statement": "import { VideoBlock } from '@gravity-ui/page-constructor'",
+    "related": ["ReactPlayer", "Media"],
+    "props": [
+      { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events on preview click." },
+      { "name": "attributes", "type": "Record<string, string>", "required": false, "description": "Extra iframe URL attributes." },
+      { "name": "autoplay", "type": "boolean", "required": false, "description": "Enable autoplay when preview is clicked." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." },
+      { "name": "fullscreen", "type": "boolean", "required": false, "description": "Hide preview in fullscreen mode." },
+      { "name": "height", "type": "number", "required": false, "description": "Fixed video height." },
+      { "name": "id", "type": "string", "required": false, "description": "Iframe id attribute." },
+      { "name": "onImageLoad", "type": "() => void", "required": false, "description": "Preview image load callback." },
+      { "name": "playButton", "type": "React.ReactNode", "required": false, "description": "Custom play button element." },
+      { "name": "playButtonId", "type": "string", "required": false, "description": "Id for the custom play button." },
+      { "name": "previewImg", "type": "string", "required": false, "description": "Preview image URL shown before play." },
+      { "name": "record", "type": "string", "required": false, "description": "YouTube video ID or URL." },
+      { "name": "stream", "type": "string", "required": false, "description": "YouTube live stream channel ID or URL." },
+      { "name": "videoIframe", "type": "string", "required": false, "description": "Custom iframe video URL." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "YFMWrapper",
+    "library": "page-constructor",
+    "description": "Renders YFM (Yandex Flavored Markdown) HTML content via the HTML component, applying yfm CSS class with optional modifiers.",
+    "keywords": ["yfm", "markdown", "rich text", "html", "content", "markup", "diplodoc", "formatted text"],
+    "when_to_use": ["When rendering pre-compiled YFM HTML from a content pipeline", "When page-constructor block text needs consistent YFM styling"],
+    "avoid": ["Avoid for plain strings without YFM markup; use HTML or plain text instead"],
+    "import_statement": "import { YFMWrapper } from '@gravity-ui/page-constructor'",
+    "related": ["HTML", "ContentList", "Title"],
+    "props": [
+      { "name": "content", "type": "string", "required": true, "description": "YFM-compiled HTML string." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class for the wrapper." },
+      { "name": "contentClassName", "type": "string", "required": false, "description": "CSS class applied to the YFM content element." },
+      { "name": "id", "type": "string", "required": false, "description": "HTML id attribute." },
+      { "name": "itemProp", "type": "string", "required": false, "description": "Schema.org itemProp." },
+      { "name": "modifiers", "type": "Modifiers", "required": false, "description": "BEM modifiers applied to the yfm class." },
+      { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
+      { "name": "tagName", "type": "TagName", "required": false, "description": "Outer tag name." }
+    ]
+  },
+  {
+    "type": "component",
+    "name": "YandexForm",
+    "library": "page-constructor",
+    "description": "Embeds a Yandex Forms iframe that auto-sizes, supports locale, theme, custom params, and fires analytics on form submission.",
+    "keywords": ["yandex form", "form", "iframe", "embed", "survey", "feedback", "submission"],
+    "when_to_use": ["When embedding a Yandex Forms survey or contact form in a page block"],
+    "avoid": ["Avoid for Hubspot forms; use HubspotForm instead", "Avoid when Yandex Forms is not configured as the form provider"],
+    "import_statement": "import { YandexForm } from '@gravity-ui/page-constructor'",
+    "related": ["InnerForm"],
+    "props": [
+      { "name": "id", "type": "string", "required": true, "description": "Yandex Forms form ID." },
+      { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events on submit." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class." },
+      { "name": "containerId", "type": "string", "required": false, "description": "Id for the iframe element." },
+      { "name": "customFormOrigin", "type": "string", "required": false, "description": "Custom form origin URL." },
+      { "name": "customFormSection", "type": "string", "required": false, "description": "Custom form section path." },
+      { "name": "headerHeight", "type": "number", "required": false, "description": "Header height offset for scroll after submit." },
+      { "name": "onLoad", "type": "() => void", "required": false, "description": "Callback when iframe has loaded." },
+      { "name": "onSubmit", "type": "() => void", "required": false, "description": "Callback on form submission." },
+      { "name": "params", "type": "Record<string, string>", "required": false, "description": "Extra query parameters for the form URL." },
+      { "name": "theme", "type": "string", "required": false, "description": "Form theme override." }
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useAnalytics",
+    "library": "page-constructor",
+    "description": "Returns an analytics event dispatcher function that sends events via AnalyticsContext. Supports a default event name/target and additional custom events.",
+    "keywords": ["analytics", "events", "tracking", "metrics", "click tracking"],
+    "when_to_use": ["When a component needs to fire analytics events through the page-constructor analytics pipeline"],
+    "avoid": ["Avoid outside of page-constructor component tree where AnalyticsContext is not provided"],
+    "import_statement": "import { useAnalytics } from '@gravity-ui/page-constructor'",
+    "related": ["useMount"],
+    "signature": "useAnalytics(name?: string, target?: string): (e?: AnalyticsEventsProp | null, additionalContext?: Record<string, string>) => void"
+  },
+  {
+    "type": "hook",
+    "name": "useDeviceValue",
+    "library": "page-constructor",
+    "description": "Returns the value appropriate for the current device (mobile/tablet/desktop) from a DeviceSupporting<T> value using the window width from WindowWidthContext.",
+    "keywords": ["responsive", "device", "mobile", "tablet", "desktop", "breakpoint", "device value"],
+    "when_to_use": ["When a prop or value needs to differ per device breakpoint"],
+    "avoid": ["Avoid when a CSS-only media query solution is sufficient"],
+    "import_statement": "import { useDeviceValue } from '@gravity-ui/page-constructor'",
+    "related": ["useWindowBreakpoint"],
+    "signature": "useDeviceValue<T>(value: DeviceSupporting<T>, inclusive?: boolean): T"
+  },
+  {
+    "type": "hook",
+    "name": "useFocus",
+    "library": "page-constructor",
+    "description": "Tracks hover/focus state on an HTML element, adapting to mobile (pointerdown) vs desktop (mouseenter/mouseleave) events.",
+    "keywords": ["focus", "hover", "mouse", "pointer", "mobile", "focus state"],
+    "when_to_use": ["When a component needs to know if the user is hovering or focusing an element, with mobile-aware detection"],
+    "avoid": ["Avoid for keyboard focus tracking; this hook is pointer/hover focused"],
+    "import_statement": "import { useFocus } from '@gravity-ui/page-constructor'",
+    "related": [],
+    "signature": "useFocus(element?: HTMLElement): { hasFocus: boolean; setFocus: () => void; unsetFocus: () => void }"
+  },
+  {
+    "type": "hook",
+    "name": "useHeightCalculator",
+    "library": "page-constructor",
+    "description": "Measures and tracks the offsetHeight of a referenced element, updating on window resize with configurable debounce delay.",
+    "keywords": ["height", "measure", "resize", "layout", "offsetHeight", "dynamic height"],
+    "when_to_use": ["When a component needs to know the pixel height of a child element for animated height transitions"],
+    "avoid": ["Avoid when ResizeObserver is available and preferred over window resize events"],
+    "import_statement": "import { useHeightCalculator } from '@gravity-ui/page-constructor'",
+    "related": ["Foldable"],
+    "signature": "useHeightCalculator(containerRef: React.RefObject<HTMLElement>, options?: { recalculateOnResizeDelay: number }): number | undefined"
+  },
+  {
+    "type": "hook",
+    "name": "useMount",
+    "library": "page-constructor",
+    "description": "Runs an effect only on component mount (empty dependency array), with optional cleanup via the returned unsubscribe function.",
+    "keywords": ["mount", "effect", "on mount", "lifecycle", "useEffect"],
+    "when_to_use": ["When side effects should run exactly once on component mount"],
+    "avoid": ["Avoid when the effect depends on props or state; use useEffect with dependencies instead"],
+    "import_statement": "import { useMount } from '@gravity-ui/page-constructor'",
+    "related": [],
+    "signature": "useMount(handler: () => (() => void) | void): void"
+  },
+  {
+    "type": "hook",
+    "name": "useWindowBreakpoint",
+    "library": "page-constructor",
+    "description": "Returns the current window width breakpoint value from the BREAKPOINTS constant, updating on window resize with debounce.",
+    "keywords": ["breakpoint", "responsive", "window width", "resize", "media", "layout"],
+    "when_to_use": ["When a component needs to react to window breakpoint changes"],
+    "avoid": ["Avoid when CSS media queries alone are sufficient"],
+    "import_statement": "import { useWindowBreakpoint } from '@gravity-ui/page-constructor'",
+    "related": ["useDeviceValue"],
+    "signature": "useWindowBreakpoint(): number"
+  }
+]

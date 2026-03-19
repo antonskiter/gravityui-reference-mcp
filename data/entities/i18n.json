@@ -1,0 +1,94 @@
+[
+  {
+    "type": "utility",
+    "name": "I18N",
+    "library": "i18n",
+    "description": "Lightweight internationalization class for Gravity UI services. Manages keyset-based translation data, supports pluralization via CLDR Plural Rules, template variable substitution, and optional fallback language.",
+    "keywords": [
+      "i18n",
+      "internationalization",
+      "localization",
+      "translation",
+      "keyset",
+      "plural",
+      "locale",
+      "language",
+      "gravity-ui",
+      "l10n"
+    ],
+    "when_to_use": [
+      "Adding multi-language support to a Gravity UI application",
+      "Managing keyset-based translation files per language",
+      "Pluralizing strings based on numeric count",
+      "Using template variable substitution in translated strings"
+    ],
+    "avoid": [
+      "ICU MessageFormat / rich text formatting in React — use @gravity-ui/i18n-react createIntl instead",
+      "Server-side rendering with complex locale configuration — use @gravity-ui/i18n-node instead"
+    ],
+    "import_statement": "import { I18N } from '@gravity-ui/i18n';",
+    "related": ["I18NFn"],
+    "signature": "new I18N(options?: { lang?: string; fallbackLang?: string; data?: Record<string, KeysetData>; logger?: Logger }): I18N",
+    "parameters": [
+      {
+        "name": "options.lang",
+        "type": "string",
+        "required": false,
+        "description": "Target language code (e.g. 'en', 'ru')."
+      },
+      {
+        "name": "options.fallbackLang",
+        "type": "string",
+        "required": false,
+        "description": "Fallback language used when a key is missing in the target language."
+      },
+      {
+        "name": "options.data",
+        "type": "Record<string, KeysetData>",
+        "required": false,
+        "description": "Pre-loaded keysets mapped by language code."
+      },
+      {
+        "name": "options.logger",
+        "type": "Logger",
+        "required": false,
+        "description": "Custom logger for i18n warnings."
+      }
+    ],
+    "return_type": "I18N",
+    "kind": "class",
+    "examples": [
+      "const i18n = new I18N({ lang: 'en', fallbackLang: 'en' });\ni18n.registerKeysets('en', { wizard: { title: 'Wizard' } });\ni18n.i18n('wizard', 'title'); // 'Wizard'",
+      "const i18n = new I18N();\ni18n.setLang('ru');\nconst t = i18n.keyset('myComponent');\nt('label_save'); // returns translated string",
+      "i18n.i18n('label_seconds', { count: 3 }); // pluralized output"
+    ]
+  },
+  {
+    "type": "utility",
+    "name": "I18NFn",
+    "library": "i18n",
+    "description": "TypeScript generic type helper that enables type-safe access to translation keys. Cast i18n.i18n to I18NFn<typeof Keysets> to get autocomplete and compile-time key validation.",
+    "keywords": [
+      "i18n",
+      "typescript",
+      "type-safe",
+      "keyset",
+      "translation keys",
+      "autocomplete",
+      "typed i18n"
+    ],
+    "when_to_use": [
+      "Adding TypeScript type safety to translation key lookups",
+      "Getting IDE autocomplete for keyset keys"
+    ],
+    "avoid": [
+      "Runtime usage — this is a type-only utility, not a function"
+    ],
+    "import_statement": "import type { I18NFn } from '@gravity-ui/i18n';",
+    "related": ["I18N"],
+    "signature": "type I18NFn<T extends Record<string, Record<string, unknown>>> = (keyset: keyof T, key: keyof T[keyof T], params?: Params) => string",
+    "parameters": [],
+    "return_type": "string",
+    "kind": "type"
+  }
+]

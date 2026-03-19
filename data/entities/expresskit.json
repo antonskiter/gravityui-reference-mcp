@@ -1,0 +1,52 @@
+[
+  {
+    "type": "guide",
+    "name": "ExpressKit Overview",
+    "library": "expresskit",
+    "description": "ExpressKit is a lightweight Express.js wrapper that integrates with NodeKit to provide structured request logging, distributed tracing, async middleware/controller support, CSRF protection, CSP headers, language detection, and a declarative route configuration DSL.",
+    "keywords": ["expresskit", "express.js", "node.js", "web server", "middleware", "routes", "csrf", "csp", "logging", "tracing", "auth", "language detection"],
+    "when_to_use": ["When building a NodeKit-integrated Express HTTP server with structured logging and tracing", "For services that need declarative route definitions with built-in auth policy, CSP, and CSRF support"],
+    "avoid": ["For non-NodeKit Express apps — ExpressKit requires a NodeKit instance", "When a minimal Express setup is needed without the full NodeKit stack"],
+    "import_statement": "import { ExpressKit } from '@gravity-ui/expresskit';",
+    "related": ["ExpressKit", "csp"],
+    "content": "Usage pattern:\n```typescript\nconst nodekit = new NodeKit();\nconst app = new ExpressKit(nodekit, routes, setup?);\napp.run(); // starts listening\n```\nRoutes are a Record<string, AppRouteDescription | AppRouteHandler>. Route keys are 'METHOD /path' (e.g. 'GET /api/items'). Setup callback gets express, setupBaseMiddleware, setupParsers, setupRoutes, setupLangMiddleware, setupErrorHandlers for custom ordering.\n\nEach request gets req.ctx (child AppContext) and req.originalContext for the full request span.\nEach route can specify: handler, authPolicy, handlerName, beforeAuth, afterAuth, cspPresets, enableCaching, disableSelfStats."
+  },
+  {
+    "type": "utility",
+    "name": "ExpressKit",
+    "library": "expresskit",
+    "description": "The main ExpressKit class that creates a configured Express application. Automatically sets up base middleware (request ID, logging, compression), language detection, body parsers, routes with auth/CSRF/CSP, and error handlers. Exposes run() to start the HTTP server.",
+    "keywords": ["expresskit", "express app", "web server", "http server", "routes", "middleware setup", "nodekit integration", "auth", "csp", "csrf"],
+    "when_to_use": ["As the HTTP server layer in a NodeKit application"],
+    "avoid": ["Instantiating multiple times per process"],
+    "import_statement": "import { ExpressKit } from '@gravity-ui/expresskit';",
+    "related": ["csp"],
+    "signature": "new ExpressKit(nodekit: NodeKit, routes: AppRoutes, setup?: (params: SetupParams) => void): ExpressKit",
+    "kind": "class"
+  },
+  {
+    "type": "utility",
+    "name": "csp",
+    "library": "expresskit",
+    "description": "A utility object for building Content Security Policy presets. Provides preset factory functions (none, self, inline, eval, nonce, data, dynamic) and references to CSP directive constants and values.",
+    "keywords": ["csp", "content security policy", "security headers", "inline", "nonce", "none", "self", "eval", "directives"],
+    "when_to_use": ["When configuring expressCspPresets in AppConfig to define Content Security Policy for routes or the whole app"],
+    "avoid": ["Calling these at request time — define presets statically in config.ts"],
+    "import_statement": "import { csp } from '@gravity-ui/expresskit';",
+    "related": ["ExpressKit"],
+    "signature": "csp: { directives, values, none(), self(), inline(), eval(), nonce(), data(), dynamic(), makeCspObject() }",
+    "kind": "function"
+  },
+  {
+    "type": "guide",
+    "name": "ExpressKit Route Definition",
+    "library": "expresskit",
+    "description": "Describes how to define routes in ExpressKit using the AppRoutes object, including auth policies, middleware hooks, CSP presets, and handler patterns.",
+    "keywords": ["routes", "route definition", "auth policy", "middleware", "handler", "before auth", "after auth", "csp presets", "mount", "express router"],
+    "when_to_use": ["When defining HTTP routes for an ExpressKit application"],
+    "avoid": ["Using vanilla express.get/post directly — use the routes object for consistent auth and logging"],
+    "import_statement": "import type { AppRoutes, AppRouteDescription, AuthPolicy } from '@gravity-ui/expresskit';",
+    "related": ["ExpressKit"],
+    "content": "AppRoutes is Record<string, AppRouteDescription | AppRouteHandler>.\nRoute key format: 'GET /path', 'POST /api/items', 'mount /prefix'\n\nAppRouteDescription fields:\n- handler: AppRouteHandler — async (req, res) function\n- handlerName?: string — for logging/telemetry\n- authPolicy?: AuthPolicy — 'disabled' | 'redirect' | 'unauthorized'\n- beforeAuth?: AppMiddleware[] — middleware before auth check\n- afterAuth?: AppMiddleware[] — middleware after auth check\n- cspPresets?: CSPPreset — route-specific CSP overrides\n- enableCaching?: boolean — enable cache headers (default false)\n- disableSelfStats?: boolean — skip self-stats telemetry for this route\n\nIn route handlers, req.ctx is the per-request AppContext. Use req.ctx.log(), req.ctx.get(REQUEST_ID_PARAM_NAME), etc.\nFor sub-routers use 'mount /prefix' key with handler: ({router, wrapRouteHandler}) => void."
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "type": "component",
+    "name": "TimelineCanvas",
+    "library": "timeline",
+    "description": "A React component that renders a Timeline instance onto an HTML canvas element. Calls timeline.init() on mount and timeline.destroy() on unmount. The canvas fills 100% of its parent container.",
+    "keywords": ["timeline", "canvas", "gantt", "events timeline", "time visualization", "interactive timeline", "zoom pan", "sections", "markers"],
+    "when_to_use": ["When rendering a Timeline instance in a React application", "As the visual output component paired with useTimeline hook", "For canvas-based timeline visualizations with events, markers, sections, and axes"],
+    "avoid": ["Without a corresponding Timeline instance — always create one with useTimeline or new Timeline() first", "When a DOM-based timeline is preferred over canvas rendering"],
+    "import_statement": "import { TimelineCanvas } from '@gravity-ui/timeline/react';",
+    "related": ["useTimeline", "useTimelineEvent"],
+    "props": [
+      { "name": "timeline", "type": "Timeline<TEvent, TMarker, TSection>", "required": true, "description": "Initialized Timeline instance to render on the canvas" },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class applied to the canvas element" }
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useTimeline",
+    "library": "timeline",
+    "description": "Creates and memoizes a Timeline instance from a configuration object. Returns the timeline, its CanvasApi, and start/stop helpers for manual canvas initialization when not using TimelineCanvas.",
+    "keywords": ["timeline hook", "create timeline", "timeline config", "canvas timeline", "timeline instance", "react hook"],
+    "when_to_use": ["To create a Timeline instance in a React component", "When you need access to the CanvasApi for programmatic updates (setEvents, setMarkers, etc.)", "As the primary factory hook before passing the timeline to TimelineCanvas"],
+    "avoid": ["When only a static display is needed and no API calls are required — new Timeline() directly is also valid"],
+    "import_statement": "import { useTimeline } from '@gravity-ui/timeline/react';",
+    "related": ["TimelineCanvas", "useTimelineEvent"],
+    "signature": "useTimeline<TEvent, TMarker, TSection>(config: TimeLineConfig<TEvent, TMarker, TSection>): { timeline: Timeline, api: CanvasApi, start: (canvas: HTMLCanvasElement) => void, stop: () => void }",
+    "parameters": [
+      { "name": "config", "type": "TimeLineConfig<TEvent, TMarker, TSection>", "description": "Timeline configuration including settings (start, end, axes, events, markers, sections) and optional viewConfiguration" }
+    ],
+    "return_type": "{ timeline: Timeline, api: CanvasApi, start: (canvas) => void, stop: () => void }"
+  },
+  {
+    "type": "utility",
+    "name": "Timeline",
+    "library": "timeline",
+    "description": "The core Timeline class that manages canvas rendering, event/marker/section state, and user interaction (zoom, pan, click). Provides on/off/emit event emitter API and must be initialized with a canvas element via init().",
+    "keywords": ["timeline class", "canvas timeline", "gantt chart", "timeline core", "event emitter", "zoom", "pan", "timeline events", "sections", "markers"],
+    "when_to_use": ["When creating a timeline without React (plain JS/TS usage)", "When fine-grained control over the timeline lifecycle is needed"],
+    "avoid": ["In React applications — prefer useTimeline hook which memoizes the instance"],
+    "import_statement": "import { Timeline } from '@gravity-ui/timeline';",
+    "related": ["TimelineCanvas", "useTimeline"],
+    "signature": "new Timeline<TEvent, TMarker, TSection>(config: TimeLineConfig): Timeline",
+    "kind": "class"
+  }
+]

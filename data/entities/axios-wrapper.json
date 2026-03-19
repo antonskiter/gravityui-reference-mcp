@@ -1,0 +1,66 @@
+[
+  {
+    "type": "utility",
+    "name": "AxiosWrapper",
+    "library": "axios-wrapper",
+    "description": "Base class wrapping Axios that adds automatic cancellation of concurrent requests, CSRF token management, default headers, and optional request/error collection to localStorage. Intended to be subclassed to define application-specific API methods.",
+    "keywords": [
+      "axios",
+      "http",
+      "api client",
+      "cancel",
+      "concurrent requests",
+      "csrf",
+      "request collection",
+      "wrapper",
+      "rest",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Building a typed API client class for a Gravity UI application",
+      "Automatically cancelling in-flight requests when the same endpoint is called again",
+      "Adding CSRF protection to POST/PUT/DELETE requests",
+      "Collecting recent requests and errors for debugging"
+    ],
+    "avoid": [
+      "Direct usage without subclassing — subclass to define domain-specific methods",
+      "Browser-unaware environments without polyfilling cancel tokens"
+    ],
+    "import_statement": "import AxiosWrapper from '@gravity-ui/axios-wrapper';",
+    "related": ["ApiMethodParams", "AxiosWrapperOptions"],
+    "signature": "new AxiosWrapper(options?: AxiosWrapperOptions): AxiosWrapper",
+    "parameters": [
+      {
+        "name": "options.config",
+        "type": "AxiosRequestConfig",
+        "required": false,
+        "description": "Axios instance configuration (baseURL, timeout, etc)."
+      },
+      {
+        "name": "options.collector",
+        "type": "{ collectErrors?: number; collectRequests?: number }",
+        "required": false,
+        "description": "How many recent requests/errors to keep in the collector."
+      },
+      {
+        "name": "options.apiEndpoint",
+        "type": "string",
+        "required": false,
+        "description": "Base API path prefix, defaults to '/api'."
+      },
+      {
+        "name": "options.csrfHeaderName",
+        "type": "string",
+        "required": false,
+        "description": "CSRF token header name, defaults to 'X-CSRF-Token'."
+      }
+    ],
+    "return_type": "AxiosWrapper",
+    "kind": "class",
+    "examples": [
+      "export class API extends AxiosWrapper {\n  getProjects() {\n    return this.get('/projects');\n  }\n}\nconst api = new API({ config: { baseURL: '/api/v2' } });",
+      "// Auto-cancel concurrent requests\napi.get('/search', { q: term }, { concurrentId: 'search' });",
+      "// Set CSRF token after login\napi.setCSRFToken(token);\n// Collect last 10 requests\nconst { errors, requests } = api.getCollectedRequests();"
+    ]
+  }
+]

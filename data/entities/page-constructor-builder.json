@@ -1,0 +1,50 @@
+[
+  {
+    "type": "config-doc",
+    "name": "page-constructor-builder",
+    "library": "page-constructor-builder",
+    "description": "CLI tool for building static HTML pages from YAML configurations using @gravity-ui/page-constructor. Supports custom React components, SCSS, navigation, analytics, favicon, watch mode, and per-locale asset manifests in a single webpack-based build pipeline.",
+    "keywords": [
+      "static site generator",
+      "ssg",
+      "page-constructor",
+      "yaml",
+      "cli",
+      "webpack",
+      "gravity-ui",
+      "react",
+      "static pages",
+      "navigation",
+      "favicon",
+      "custom components"
+    ],
+    "when_to_use": [
+      "Building static HTML pages from YAML content files using the Gravity UI page-constructor block system",
+      "Generating documentation or landing pages without a full SSR framework",
+      "When you need watch mode, custom components, navigation, and analytics in a zero-config static build",
+      "Prototyping pages visually defined in YAML with Gravity UI design tokens"
+    ],
+    "avoid": [
+      "Not suitable for dynamic server-rendered applications — output is purely static HTML",
+      "Requires Node.js >= 18",
+      "Does not support non-literal YAML expressions or dynamic data fetching at build time"
+    ],
+    "import_statement": "",
+    "related": [],
+    "how_to_use": "Install with `npm install @gravity-ui/page-constructor-builder`. Add script `\"build\": \"page-builder build\"` to package.json. Create `page-builder.config.yml` specifying input/output directories, assets, theme, and optional navigation/css/components paths. Create YAML page files under the input directory with `meta` and `blocks` sections using @gravity-ui/page-constructor block types. Run `npm run build`.",
+    "cli_options": {
+      "-i, --input": "Input directory with YAML files (default: ./pages)",
+      "-o, --output": "Output directory (default: ./dist)",
+      "-c, --config": "Config file path (default: ./page-builder.config.yml)",
+      "--css": "Custom CSS/SCSS files to include",
+      "--components": "Custom React components directory",
+      "--navigation": "Navigation YAML file",
+      "--assets": "Static assets directory to copy",
+      "--theme": "light or dark (default: light)",
+      "--base-url": "Base URL for the site",
+      "--minify": "Enable minification",
+      "--source-maps": "Generate source maps",
+      "--watch": "Watch mode"
+    }
+  }
+]
