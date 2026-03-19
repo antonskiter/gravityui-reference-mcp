@@ -147,9 +147,26 @@ function formatRecipe(recipe: RecipeDef, detail: 'compact' | 'full'): string {
 
   for (const section of recipe.sections) {
     if (section.type === 'decision') {
-      if (section.when_to_use.length > 0) {
+      const s = section as Record<string, unknown>;
+      // Real data uses "when"/"not_for", schema defines "when_to_use"/"when_not_to_use"
+      const when = (s.when_to_use as string[] | undefined) ?? (s.when as unknown);
+      const notFor = (s.when_not_to_use as string[] | undefined) ?? (s.not_for as unknown);
+      if (when) {
         lines.push('When to use:');
-        for (const w of section.when_to_use) lines.push(`   - ${w}`);
+        if (Array.isArray(when)) {
+          for (const w of when) lines.push(`   - ${w}`);
+        } else if (typeof when === 'string') {
+          lines.push(`   ${when}`);
+        }
+        lines.push('');
+      }
+      if (notFor && detail === 'full') {
+        lines.push('Not for:');
+        if (Array.isArray(notFor)) {
+          for (const w of notFor) lines.push(`   - ${w}`);
+        } else if (typeof notFor === 'string') {
+          lines.push(`   ${notFor}`);
+        }
         lines.push('');
       }
     }
