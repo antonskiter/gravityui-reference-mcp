@@ -1,6 +1,89 @@
 [
   {
     "type": "component",
+    "name": "BlogConstructorProvider",
+    "library": "blog-constructor",
+    "description": "The root context provider for the blog-constructor library. Wraps children with all necessary contexts: theme, locale, router, mobile state, device info, analytics, and settings. Must be rendered at the top of every blog-constructor component tree.",
+    "keywords": ["provider", "context", "setup", "theme", "locale", "router", "mobile", "analytics", "settings", "blog constructor"],
+    "when_to_use": ["Wrap the root of your blog application to provide all blog-constructor contexts", "Required before using any other blog-constructor component"],
+    "avoid": ["Do not nest multiple BlogConstructorProvider instances — use one at the application root"],
+    "import_statement": "import { BlogConstructorProvider } from '@gravity-ui/blog-constructor';",
+    "related": ["BlogPage", "BlogPostPage"],
+    "props": [
+      { "name": "isMobile", "type": "boolean", "required": false, "description": "Whether the app is rendering in mobile context" },
+      { "name": "locale", "type": "Locale", "required": false, "description": "Locale configuration for i18n" },
+      { "name": "router", "type": "RouterContextProps", "required": false, "description": "Router context for link handling (defaults to empty object)" },
+      { "name": "theme", "type": "ThemeValueType", "required": false, "description": "Color theme value (defaults to DEFAULT_THEME)" },
+      { "name": "device", "type": "DeviceContextProps", "required": false, "description": "Device context properties (defaults to empty object)" },
+      { "name": "analytics", "type": "AnalyticsContextProps", "required": false, "description": "Analytics context for event tracking (defaults to empty object)" },
+      { "name": "settings", "type": "SettingsContextProps", "required": false, "description": "Settings context overrides (defaults to empty object)" },
+      { "name": "children", "type": "React.ReactNode", "required": false, "description": "Child components to wrap with all contexts" }
+    ],
+    "examples": [
+      "<BlogConstructorProvider\n  locale={{ lang: 'en' }}\n  theme=\"light\"\n  router={{ pathname: '/blog', query: {} }}\n  analytics={{ sendEvents: trackEvent }}\n>\n  <BlogPage ... />\n</BlogConstructorProvider>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "BlogPage",
+    "library": "blog-constructor",
+    "description": "A full blog feed page container that composes PageConstructor with blog-specific contexts (feeds, likes, authentication). Renders the page content blocks via page-constructor and overlays PromptSignIn when unauthenticated users try to like a post.",
+    "keywords": ["blog page", "feed page", "blog feed", "page constructor", "posts", "tags", "services", "likes", "full page"],
+    "when_to_use": ["As the top-level component for a blog listing/feed page", "When integrating blog-constructor with a page-constructor page content definition"],
+    "avoid": ["For individual post detail pages — use BlogPostPage instead", "Without wrapping in BlogConstructorProvider"],
+    "import_statement": "import { BlogPage } from '@gravity-ui/blog-constructor';",
+    "related": ["BlogPostPage", "BlogConstructorProvider", "Posts", "FeedHeader"],
+    "props": [
+      { "name": "content", "type": "PageContent", "required": true, "description": "page-constructor PageContent definition for the blog feed page" },
+      { "name": "posts", "type": "PostsProps", "required": true, "description": "Posts data including posts array, optional pinnedPost, and total count" },
+      { "name": "tags", "type": "Tag[]", "required": true, "description": "Available tags for filtering" },
+      { "name": "getPosts", "type": "GetPostsType", "required": true, "description": "Function to fetch posts with updated query parameters" },
+      { "name": "services", "type": "Service[]", "required": false, "description": "Available services for filtering" },
+      { "name": "navigation", "type": "NavigationData", "required": false, "description": "Navigation configuration passed to PageConstructor" },
+      { "name": "hasLikes", "type": "boolean", "required": false, "description": "Whether like functionality is enabled (default false)" },
+      { "name": "toggleLike", "type": "ToggleLikeCallbackType", "required": false, "description": "Callback for toggling post likes" },
+      { "name": "metaData", "type": "MetaProps", "required": false, "description": "SEO meta data for the page" },
+      { "name": "settings", "type": "PageConstructorProviderProps", "required": false, "description": "Settings passed to PageConstructorProvider" },
+      { "name": "custom", "type": "CustomConfig", "required": false, "description": "Custom component map extensions for page-constructor" },
+      { "name": "pageCountForShowSupportButtons", "type": "number", "required": false, "description": "Passed to Paginator for prev/next button visibility" },
+      { "name": "isSignedInUser", "type": "boolean", "required": false, "description": "Whether the current user is signed in (default false)" },
+      { "name": "onClickSignIn", "type": "React.EventHandler<React.SyntheticEvent>", "required": false, "description": "Sign-in handler for unauthenticated like attempts" }
+    ],
+    "examples": [
+      "<BlogConstructorProvider locale={{ lang: 'en' }}>\n  <BlogPage\n    content={pageContent}\n    posts={{ posts, pinnedPost, count: totalCount }}\n    tags={tags}\n    getPosts={fetchPosts}\n    hasLikes\n    toggleLike={handleToggleLike}\n    isSignedInUser={isLoggedIn}\n    onClickSignIn={() => router.push('/signin')}\n  />\n</BlogConstructorProvider>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "BlogPostPage",
+    "library": "blog-constructor",
+    "description": "A full blog post detail page container that composes PageConstructor with post-specific contexts (post data, likes, suggested posts, sharing). Renders the post page content blocks and overlays PromptSignIn when unauthenticated users try to like.",
+    "keywords": ["blog post page", "post detail", "article page", "page constructor", "likes", "suggested posts", "sharing", "breadcrumbs", "full page"],
+    "when_to_use": ["As the top-level component for a blog post detail/article page", "When integrating blog-constructor with a page-constructor PageContent definition for individual posts"],
+    "avoid": ["For blog feed/listing pages — use BlogPage instead", "Without wrapping in BlogConstructorProvider"],
+    "import_statement": "import { BlogPostPage } from '@gravity-ui/blog-constructor';",
+    "related": ["BlogPage", "BlogConstructorProvider", "PostInfo", "PostCard"],
+    "props": [
+      { "name": "content", "type": "PageContent", "required": true, "description": "page-constructor PageContent definition for the post page" },
+      { "name": "post", "type": "PostData", "required": true, "description": "The blog post data" },
+      { "name": "suggestedPosts", "type": "PostData[]", "required": true, "description": "Array of suggested/related posts to display" },
+      { "name": "metaData", "type": "MetaProps", "required": false, "description": "SEO meta data for the post page" },
+      { "name": "likes", "type": "{ hasUserLike?: boolean; likesCount?: number; toggleLike?: ToggleLikeCallbackType }", "required": false, "description": "Like state and toggle callback; omit to hide like functionality" },
+      { "name": "settings", "type": "PageConstructorProviderProps", "required": false, "description": "Settings passed to PageConstructorProvider" },
+      { "name": "navigation", "type": "NavigationData", "required": false, "description": "Navigation configuration passed to PageConstructor" },
+      { "name": "microdata", "type": "PageConstructorProps['microdata']", "required": false, "description": "Structured data microdata configuration" },
+      { "name": "custom", "type": "CustomConfig", "required": false, "description": "Custom component map extensions for page-constructor" },
+      { "name": "shareOptions", "type": "ShareOptions[]", "required": false, "description": "Social sharing options" },
+      { "name": "isSignedInUser", "type": "boolean", "required": false, "description": "Whether the current user is signed in (default false)" },
+      { "name": "onClickSignIn", "type": "React.EventHandler<React.SyntheticEvent>", "required": false, "description": "Sign-in handler for unauthenticated like attempts" },
+      { "name": "breadcrumbs", "type": "HeaderBreadCrumbsProps", "required": false, "description": "Breadcrumb navigation props for the post header" }
+    ],
+    "examples": [
+      "<BlogConstructorProvider locale={{ lang: 'en' }}>\n  <BlogPostPage\n    content={postPageContent}\n    post={post}\n    suggestedPosts={relatedPosts}\n    likes={{\n      hasUserLike: userLiked,\n      likesCount: post.likesCount,\n      toggleLike: handleToggleLike,\n    }}\n    isSignedInUser={isLoggedIn}\n    onClickSignIn={() => router.push('/signin')}\n    breadcrumbs={{ items: [{ text: 'Blog', href: '/blog' }] }}\n  />\n</BlogConstructorProvider>"
+    ]
+  },
+  {
+    "type": "component",
     "name": "FeedHeader",
     "library": "blog-constructor",
     "description": "Renders the header section of a blog feed page, including background image, theme, and filter controls (tags, services, search). Integrates with page-constructor's Grid and BackgroundImage for layout.",

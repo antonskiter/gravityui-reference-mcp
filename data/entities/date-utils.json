@@ -25,7 +25,7 @@
       "Parsing relative expressions like 'now-1d' — use dateTimeParse instead"
     ],
     "import_statement": "import { dateTime } from '@gravity-ui/date-utils';",
-    "related": ["dateTimeParse", "dateTimeUtc", "settings", "duration"],
+    "related": ["dateTimeParse", "dateTimeUtc", "settings", "duration", "isDateTime"],
     "signature": "dateTime(options?: { input?: DateTimeInput; format?: string; timeZone?: string; lang?: string }): DateTime",
     "parameters": [
       {
@@ -123,7 +123,7 @@
       "When time zone awareness is needed — use dateTime with timeZone option instead"
     ],
     "import_statement": "import { dateTimeUtc } from '@gravity-ui/date-utils';",
-    "related": ["dateTime", "dateTimeParse"],
+    "related": ["dateTime", "dateTimeParse", "UtcTimeZone"],
     "signature": "dateTimeUtc(options?: { input?: DateTimeInput; format?: string }): DateTime",
     "parameters": [],
     "return_type": "DateTime",
@@ -168,6 +168,296 @@
   },
   {
     "type": "utility",
+    "name": "expandFormat",
+    "library": "date-utils",
+    "description": "Expands a localized or shorthand date format token (such as 'L', 'LL', 'LT') to its full format string for the current or specified locale. Useful for building locale-aware format strings dynamically.",
+    "keywords": [
+      "format",
+      "locale",
+      "expand",
+      "date format",
+      "localized format",
+      "dayjs",
+      "gravity-ui",
+      "date-utils"
+    ],
+    "when_to_use": [
+      "Resolving shorthand format tokens ('L', 'LL', 'LT', 'LTS') to full format strings for a given locale",
+      "Building dynamic format strings based on user locale"
+    ],
+    "avoid": [
+      "When you already know the full format string — use it directly in dateTime or dateTimeParse"
+    ],
+    "import_statement": "import { expandFormat } from '@gravity-ui/date-utils';",
+    "related": ["dateTime", "settings"],
+    "signature": "expandFormat(format: string, locale?: string): string",
+    "parameters": [
+      {
+        "name": "format",
+        "type": "string",
+        "required": true,
+        "description": "Format token or string to expand (e.g. 'L', 'LL', 'LT')."
+      },
+      {
+        "name": "locale",
+        "type": "string",
+        "required": false,
+        "description": "Locale string to use for expansion. Defaults to the current settings locale."
+      }
+    ],
+    "return_type": "string",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "getTimeZonesList",
+    "library": "date-utils",
+    "description": "Returns an array of all supported IANA time zone identifiers for use in timezone selection UIs.",
+    "keywords": [
+      "timezone",
+      "list",
+      "IANA",
+      "select",
+      "dropdown",
+      "gravity-ui",
+      "date-utils"
+    ],
+    "when_to_use": [
+      "Populating a timezone picker dropdown"
+    ],
+    "avoid": [],
+    "import_statement": "import { getTimeZonesList } from '@gravity-ui/date-utils';",
+    "related": ["guessUserTimeZone", "isValidTimeZone"],
+    "signature": "getTimeZonesList(): string[]",
+    "parameters": [],
+    "return_type": "string[]",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "guessUserTimeZone",
+    "library": "date-utils",
+    "description": "Detects the user's local IANA time zone string using the Intl API (e.g. 'Europe/Berlin').",
+    "keywords": [
+      "timezone",
+      "detect",
+      "user locale",
+      "intl",
+      "IANA",
+      "gravity-ui",
+      "date-utils"
+    ],
+    "when_to_use": [
+      "Initializing a time zone picker with the user's local zone",
+      "Defaulting date displays to the user's system timezone"
+    ],
+    "avoid": [
+      "Server-side rendering where no browser Intl is available — provide a fallback"
+    ],
+    "import_statement": "import { guessUserTimeZone } from '@gravity-ui/date-utils';",
+    "related": ["getTimeZonesList", "isValidTimeZone", "timeZoneOffset"],
+    "signature": "guessUserTimeZone(): string",
+    "parameters": [],
+    "return_type": "string",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "HTML5_INPUT_FORMATS",
+    "library": "date-utils",
+    "description": "Constant array of date format strings compatible with HTML5 input elements (date, datetime-local, time, week, month). Useful for parsing values from HTML form inputs.",
+    "keywords": [
+      "html5",
+      "input formats",
+      "date input",
+      "form",
+      "format",
+      "gravity-ui",
+      "date-utils"
+    ],
+    "when_to_use": [
+      "Passing as the format option when parsing values from native HTML5 date/time inputs"
+    ],
+    "avoid": [],
+    "import_statement": "import { HTML5_INPUT_FORMATS } from '@gravity-ui/date-utils';",
+    "related": ["dateTime", "dateTimeParse"],
+    "signature": "const HTML5_INPUT_FORMATS: string[]",
+    "parameters": [],
+    "return_type": "string[]",
+    "kind": "const"
+  },
+  {
+    "type": "utility",
+    "name": "isDuration",
+    "library": "date-utils",
+    "description": "Type guard that checks whether a value is a Duration instance created by the date-utils library.",
+    "keywords": [
+      "duration",
+      "type guard",
+      "is duration",
+      "gravity-ui",
+      "date-utils"
+    ],
+    "when_to_use": [
+      "Checking whether an unknown value is a Duration before calling duration methods on it"
+    ],
+    "avoid": [],
+    "import_statement": "import { isDuration } from '@gravity-ui/date-utils';",
+    "related": ["duration"],
+    "signature": "isDuration(value: unknown): value is Duration",
+    "parameters": [
+      {
+        "name": "value",
+        "type": "unknown",
+        "required": true,
+        "description": "Value to check."
+      }
+    ],
+    "return_type": "value is Duration",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "isDateTime",
+    "library": "date-utils",
+    "description": "Type guard that checks whether a value is a DateTime instance created by the date-utils library.",
+    "keywords": [
+      "datetime",
+      "type guard",
+      "is datetime",
+      "gravity-ui",
+      "date-utils"
+    ],
+    "when_to_use": [
+      "Checking whether an unknown value is a DateTime before calling DateTime methods on it"
+    ],
+    "avoid": [],
+    "import_statement": "import { isDateTime } from '@gravity-ui/date-utils';",
+    "related": ["dateTime", "dateTimeParse"],
+    "signature": "isDateTime(value: unknown): value is DateTime",
+    "parameters": [
+      {
+        "name": "value",
+        "type": "unknown",
+        "required": true,
+        "description": "Value to check."
+      }
+    ],
+    "return_type": "value is DateTime",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "isLikeRelative",
+    "library": "date-utils",
+    "description": "Checks whether a string looks like a relative date expression (e.g. 'now', 'now-1d', 'now/w'). Does not fully validate the expression — use dateTimeParse for validation.",
+    "keywords": [
+      "relative date",
+      "date math",
+      "now",
+      "check",
+      "gravity-ui",
+      "date-utils"
+    ],
+    "when_to_use": [
+      "Quickly determining if a user-provided date string is relative before parsing",
+      "Branching logic between absolute and relative date handling"
+    ],
+    "avoid": [
+      "Full validation — use dateTimeParse and check for undefined instead"
+    ],
+    "import_statement": "import { isLikeRelative } from '@gravity-ui/date-utils';",
+    "related": ["dateTimeParse", "isValid"],
+    "signature": "isLikeRelative(value: string): boolean",
+    "parameters": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "String to test."
+      }
+    ],
+    "return_type": "boolean",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "isValid",
+    "library": "date-utils",
+    "description": "Checks whether a date input can be successfully parsed into a valid DateTime. Returns false for invalid strings, null, undefined, or unparseable values.",
+    "keywords": [
+      "validate",
+      "valid",
+      "date",
+      "check",
+      "gravity-ui",
+      "date-utils"
+    ],
+    "when_to_use": [
+      "Validating user-supplied date strings before using them",
+      "Form validation for date fields"
+    ],
+    "avoid": [
+      "Validating time zones — use isValidTimeZone instead"
+    ],
+    "import_statement": "import { isValid } from '@gravity-ui/date-utils';",
+    "related": ["dateTimeParse", "isLikeRelative"],
+    "signature": "isValid(input: DateTimeInput | string, options?: { format?: string; timeZone?: string }): boolean",
+    "parameters": [
+      {
+        "name": "input",
+        "type": "DateTimeInput | string",
+        "required": true,
+        "description": "Date input to validate."
+      },
+      {
+        "name": "options.format",
+        "type": "string",
+        "required": false,
+        "description": "Expected format for parsing."
+      },
+      {
+        "name": "options.timeZone",
+        "type": "string",
+        "required": false,
+        "description": "IANA time zone to use during parsing."
+      }
+    ],
+    "return_type": "boolean",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "isValidTimeZone",
+    "library": "date-utils",
+    "description": "Checks whether a given string is a valid IANA time zone identifier.",
+    "keywords": [
+      "timezone",
+      "validate",
+      "IANA",
+      "gravity-ui",
+      "date-utils"
+    ],
+    "when_to_use": [
+      "Validating user-supplied or URL-derived time zone strings before use"
+    ],
+    "avoid": [],
+    "import_statement": "import { isValidTimeZone } from '@gravity-ui/date-utils';",
+    "related": ["guessUserTimeZone", "getTimeZonesList"],
+    "signature": "isValidTimeZone(timeZone: string): boolean",
+    "parameters": [
+      {
+        "name": "timeZone",
+        "type": "string",
+        "required": true,
+        "description": "IANA time zone string to validate."
+      }
+    ],
+    "return_type": "boolean",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
     "name": "settings",
     "library": "date-utils",
     "description": "Global settings singleton for date-utils. Controls active locale, locale loading, and locale customization (e.g. first day of week). Must be configured before rendering date-aware components.",
@@ -202,85 +492,67 @@
   },
   {
     "type": "utility",
-    "name": "guessUserTimeZone",
+    "name": "timeZoneOffset",
     "library": "date-utils",
-    "description": "Detects the user's local IANA time zone string using the Intl API (e.g. 'Europe/Berlin').",
+    "description": "Returns the UTC offset in minutes for a given IANA time zone at a specific point in time. Positive values are east of UTC.",
     "keywords": [
       "timezone",
-      "detect",
-      "user locale",
-      "intl",
+      "offset",
+      "utc offset",
       "IANA",
+      "minutes",
       "gravity-ui",
       "date-utils"
     ],
     "when_to_use": [
-      "Initializing a time zone picker with the user's local zone",
-      "Defaulting date displays to the user's system timezone"
-    ],
-    "avoid": [
-      "Server-side rendering where no browser Intl is available — provide a fallback"
-    ],
-    "import_statement": "import { guessUserTimeZone } from '@gravity-ui/date-utils';",
-    "related": ["getTimeZonesList", "isValidTimeZone", "timeZoneOffset"],
-    "signature": "guessUserTimeZone(): string",
-    "parameters": [],
-    "return_type": "string",
-    "kind": "function"
-  },
-  {
-    "type": "utility",
-    "name": "getTimeZonesList",
-    "library": "date-utils",
-    "description": "Returns an array of all supported IANA time zone identifiers for use in timezone selection UIs.",
-    "keywords": [
-      "timezone",
-      "list",
-      "IANA",
-      "select",
-      "dropdown",
-      "gravity-ui",
-      "date-utils"
-    ],
-    "when_to_use": [
-      "Populating a timezone picker dropdown"
+      "Computing the UTC offset for a time zone at a specific date/time",
+      "Displaying timezone offsets in a timezone picker"
     ],
     "avoid": [],
-    "import_statement": "import { getTimeZonesList } from '@gravity-ui/date-utils';",
-    "related": ["guessUserTimeZone", "isValidTimeZone"],
-    "signature": "getTimeZonesList(): string[]",
-    "parameters": [],
-    "return_type": "string[]",
-    "kind": "function"
-  },
-  {
-    "type": "utility",
-    "name": "isValidTimeZone",
-    "library": "date-utils",
-    "description": "Checks whether a given string is a valid IANA time zone identifier.",
-    "keywords": [
-      "timezone",
-      "validate",
-      "IANA",
-      "gravity-ui",
-      "date-utils"
-    ],
-    "when_to_use": [
-      "Validating user-supplied or URL-derived time zone strings before use"
-    ],
-    "avoid": [],
-    "import_statement": "import { isValidTimeZone } from '@gravity-ui/date-utils';",
-    "related": ["guessUserTimeZone", "getTimeZonesList"],
-    "signature": "isValidTimeZone(timeZone: string): boolean",
+    "import_statement": "import { timeZoneOffset } from '@gravity-ui/date-utils';",
+    "related": ["guessUserTimeZone", "getTimeZonesList", "isValidTimeZone"],
+    "signature": "timeZoneOffset(timeZone: string, date?: DateTimeInput): number",
     "parameters": [
       {
         "name": "timeZone",
         "type": "string",
         "required": true,
-        "description": "IANA time zone string to validate."
+        "description": "IANA time zone identifier."
+      },
+      {
+        "name": "date",
+        "type": "DateTimeInput",
+        "required": false,
+        "description": "Date at which to compute the offset (to handle DST). Defaults to current time."
       }
     ],
-    "return_type": "boolean",
+    "return_type": "number",
     "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "UtcTimeZone",
+    "library": "date-utils",
+    "description": "Constant string representing the UTC time zone identifier ('UTC'). Use this instead of a raw string to avoid typos when passing UTC as a time zone.",
+    "keywords": [
+      "utc",
+      "timezone",
+      "constant",
+      "gravity-ui",
+      "date-utils"
+    ],
+    "when_to_use": [
+      "Passing UTC as a time zone to dateTime, dateTimeParse, or other date-utils functions"
+    ],
+    "avoid": [],
+    "import_statement": "import { UtcTimeZone } from '@gravity-ui/date-utils';",
+    "related": ["dateTimeUtc", "dateTime"],
+    "signature": "const UtcTimeZone: string",
+    "parameters": [],
+    "return_type": "string",
+    "kind": "const",
+    "examples": [
+      "dateTime({ input: date, timeZone: UtcTimeZone }).format('HH:mm');"
+    ]
   }
 ]

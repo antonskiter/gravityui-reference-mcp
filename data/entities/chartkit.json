@@ -8,7 +8,7 @@
     "when_to_use": ["When rendering charts backed by a registered plugin (e.g. YagrPlugin)", "As the primary chart rendering component in dashboards or analytics pages", "When error boundary and loading state handling around charts is needed"],
     "avoid": ["When a specific chart library is needed directly without the plugin abstraction — use Yagr or Chart (charts library) directly", "When no plugin has been registered for the desired chart type"],
     "import_statement": "import { ChartKit } from '@gravity-ui/chartkit';",
-    "related": ["SplitPane"],
+    "related": ["settings"],
     "props": [
       { "name": "type", "type": "ChartKitType", "required": true, "description": "Chart plugin type identifier (e.g. 'yagr', 'd3')" },
       { "name": "data", "type": "ChartKitWidgetData", "required": true, "description": "Plugin-specific chart data and configuration" },
@@ -20,37 +20,18 @@
     ]
   },
   {
-    "type": "component",
-    "name": "SplitPane",
+    "type": "utility",
+    "name": "settings",
     "library": "chartkit",
-    "description": "A draggable split panel component that divides its two children with a moveable resizer handle. Supports vertical and horizontal split orientations, min/max size constraints, and controlled or uncontrolled size.",
-    "keywords": ["split pane", "resizable", "drag resize", "split panel", "two panels", "resizer", "layout", "draggable divider"],
-    "when_to_use": ["When displaying two adjacent content areas that the user should be able to resize (e.g. code + preview, chart + data table)", "For side-by-side editor/preview layouts"],
-    "avoid": ["For static two-column layouts — use CSS flex/grid instead", "When resize interaction is not needed"],
-    "import_statement": "import { SplitPane } from '@gravity-ui/chartkit';",
+    "description": "The singleton ChartKitSettings instance used to configure the ChartKit library globally. Call settings.set() to register plugins, change the display language, or set holiday data. Call settings.get() to read the current value of any setting key.",
+    "keywords": ["settings", "configuration", "plugin registration", "lang", "language", "chartkit config", "setup", "singleton"],
+    "when_to_use": ["At application startup to register chart plugins (e.g. YagrPlugin, D3Plugin)", "When changing the chart display language at runtime", "When reading the current plugin list or language setting"],
+    "avoid": ["Do not mutate the settings object directly — always use settings.set()", "Do not call repeatedly on every render — call once during app initialization"],
+    "import_statement": "import { settings } from '@gravity-ui/chartkit';",
     "related": ["ChartKit"],
-    "props": [
-      { "name": "children", "type": "React.ReactNode", "required": true, "description": "Exactly two child elements to split" },
-      { "name": "split", "type": "'vertical' | 'horizontal'", "required": false, "description": "Split orientation (default 'vertical')" },
-      { "name": "allowResize", "type": "boolean", "required": false, "description": "Whether user can drag to resize (default true)" },
-      { "name": "minSize", "type": "number", "required": false, "description": "Minimum size in px for the primary pane (default 50)" },
-      { "name": "maxSize", "type": "number", "required": false, "description": "Maximum size in px for the primary pane" },
-      { "name": "defaultSize", "type": "number", "required": false, "description": "Initial size in px for the primary pane" },
-      { "name": "size", "type": "number | string", "required": false, "description": "Controlled size of the primary pane" },
-      { "name": "primary", "type": "'first' | 'second'", "required": false, "description": "Which pane has the controlled size (default 'first')" },
-      { "name": "step", "type": "number", "required": false, "description": "Resize snap step in px" },
-      { "name": "onChange", "type": "(size: number) => void", "required": false, "description": "Fires continuously while dragging" },
-      { "name": "onDragStarted", "type": "() => void", "required": false, "description": "Fires when drag begins" },
-      { "name": "onDragFinished", "type": "(size?: number | string) => void", "required": false, "description": "Fires when drag ends" },
-      { "name": "onResizerClick", "type": "React.MouseEventHandler", "required": false, "description": "Click handler on the resizer" },
-      { "name": "onResizerDoubleClick", "type": "React.MouseEventHandler", "required": false, "description": "Double-click handler on the resizer" },
-      { "name": "className", "type": "string", "required": false, "description": "CSS class for the wrapper element" },
-      { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles for the wrapper" },
-      { "name": "paneClassName", "type": "string", "required": false, "description": "CSS class applied to both panes" },
-      { "name": "pane1ClassName", "type": "string", "required": false, "description": "CSS class for pane 1" },
-      { "name": "pane2ClassName", "type": "string", "required": false, "description": "CSS class for pane 2" },
-      { "name": "resizerClassName", "type": "string", "required": false, "description": "CSS class for the resizer handle" },
-      { "name": "resizerStyle", "type": "React.CSSProperties", "required": false, "description": "Inline styles for the resizer" }
+    "signature": "settings.set(updates: Partial<{ plugins: ChartKitPlugin[]; lang: ChartKitLang; extra?: { holidays?: ChartKitHolidays } }>): void\nsettings.get<T extends 'plugins' | 'lang' | 'extra'>(key: T): Settings[T]",
+    "examples": [
+      "import { ChartKit, settings } from '@gravity-ui/chartkit';\nimport { YagrPlugin } from '@gravity-ui/chartkit/build/plugins/yagr';\n\nsettings.set({ plugins: [YagrPlugin], lang: 'en' });\n\n<ChartKit type=\"yagr\" data={yagrData} />"
     ]
   }
 ]

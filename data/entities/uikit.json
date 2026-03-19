@@ -5794,6 +5794,309 @@
   },
   {
     "type": "component",
+    "name": "MobileProvider",
+    "library": "uikit",
+    "description": "Context provider that sets mobile mode and platform for all descendant components. Required for Sheet, mobile-aware components, and useMobile/usePlatform hooks.",
+    "keywords": [
+      "mobile",
+      "mobile provider",
+      "platform",
+      "mobile context",
+      "responsive",
+      "mobile mode"
+    ],
+    "when_to_use": [
+      "Wrapping the app or a section that uses mobile-specific components",
+      "Enabling Sheet, mobile sheets, and mobile-aware behavior",
+      "Providing routing history/location context for mobile components"
+    ],
+    "avoid": [
+      "When all components are desktop-only",
+      "Nesting multiple MobileProviders unnecessarily"
+    ],
+    "import_statement": "import {MobileProvider} from '@gravity-ui/uikit';",
+    "related": [
+      "useMobile",
+      "usePlatform",
+      "Sheet"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "React tree to provide mobile context to"
+      },
+      {
+        "name": "mobile",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Whether mobile mode is active"
+      },
+      {
+        "name": "platform",
+        "type": "Platform",
+        "required": false,
+        "default": "Platform.BROWSER",
+        "description": "Target platform ('browser' | 'ios' | 'android')"
+      },
+      {
+        "name": "useHistory",
+        "type": "() => History",
+        "required": false,
+        "description": "Custom history hook (supports react-router v4/v5)"
+      },
+      {
+        "name": "useLocation",
+        "type": "() => Location",
+        "required": false,
+        "description": "Custom location hook"
+      }
+    ],
+    "examples": [
+      "<MobileProvider mobile={isMobile} platform={Platform.IOS}>\n  <App />\n</MobileProvider>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Tab",
+    "library": "uikit",
+    "description": "An individual tab item rendered as a button, anchor link, or custom component. Must be used inside TabList. Supports icon, counter, and label badge.",
+    "keywords": [
+      "tab",
+      "tab item",
+      "tab button",
+      "tab link",
+      "navigation tab"
+    ],
+    "when_to_use": [
+      "Rendering individual tabs inside a TabList",
+      "Tab navigation with icons, counters, or label badges"
+    ],
+    "avoid": [
+      "Standalone outside TabList",
+      "Complex page navigation (use Breadcrumbs or Menu)"
+    ],
+    "import_statement": "import {Tab} from '@gravity-ui/uikit';",
+    "related": [
+      "TabList",
+      "TabPanel",
+      "TabProvider"
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Unique tab identifier"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Tab label text (falls back to value if omitted)"
+      },
+      {
+        "name": "component",
+        "type": "React.ElementType",
+        "required": false,
+        "description": "Custom element type (not 'a' or 'button')"
+      },
+      {
+        "name": "counter",
+        "type": "number | string",
+        "required": false,
+        "description": "Badge counter displayed inside the tab"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Disables the tab"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "Renders the tab as an anchor with this href"
+      },
+      {
+        "name": "icon",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Icon displayed before the tab label"
+      },
+      {
+        "name": "label",
+        "type": "{ content: React.ReactNode; theme?: LabelProps['theme'] }",
+        "required": false,
+        "description": "Label badge shown after the tab title"
+      }
+    ],
+    "examples": [
+      "<TabList value={active} onUpdate={setActive}>\n  <Tab value=\"overview\">Overview</Tab>\n  <Tab value=\"logs\" icon={<Icon data={Logs} />} counter={42}>Logs</Tab>\n</TabList>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TabList",
+    "library": "uikit",
+    "description": "A container for Tab components that manages selection state, keyboard navigation, and sizing. Can be used standalone or inside a TabProvider for linked TabPanel content.",
+    "keywords": [
+      "tab list",
+      "tabs",
+      "tab bar",
+      "navigation tabs",
+      "tab group"
+    ],
+    "when_to_use": [
+      "Switching between content panels",
+      "Section navigation within a page",
+      "Standalone tab bar without associated panels"
+    ],
+    "avoid": [
+      "When content sections are unrelated (use separate navigation)",
+      "When tabs exceed 7-8 items (consider Select or overflow handling)"
+    ],
+    "import_statement": "import {TabList} from '@gravity-ui/uikit';",
+    "related": [
+      "Tab",
+      "TabPanel",
+      "TabProvider"
+    ],
+    "props": [
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Tab components"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Currently active tab value"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(value: string) => void",
+        "required": false,
+        "description": "Callback when active tab changes"
+      },
+      {
+        "name": "size",
+        "type": "'m' | 'l' | 'xl'",
+        "required": false,
+        "default": "'m'",
+        "description": "Tab list size"
+      },
+      {
+        "name": "activateOnFocus",
+        "type": "boolean",
+        "required": false,
+        "description": "Activate tab on keyboard focus instead of requiring Enter"
+      }
+    ],
+    "examples": [
+      "<TabList value={tab} onUpdate={setTab}>\n  <Tab value=\"one\">One</Tab>\n  <Tab value=\"two\">Two</Tab>\n</TabList>",
+      "<TabProvider value={tab} onUpdate={setTab}>\n  <TabList><Tab value=\"a\">A</Tab></TabList>\n  <TabPanel value=\"a\">Panel A</TabPanel>\n</TabProvider>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TabPanel",
+    "library": "uikit",
+    "description": "A content panel associated with a Tab via a matching value. Hides/shows based on the active tab value provided by TabProvider or TabList context.",
+    "keywords": [
+      "tab panel",
+      "tab content",
+      "tab pane",
+      "tab body",
+      "tabpanel"
+    ],
+    "when_to_use": [
+      "Rendering content for a specific tab inside a TabProvider",
+      "ARIA-compliant tab panels"
+    ],
+    "avoid": [
+      "Without TabProvider (value matching won't work)"
+    ],
+    "import_statement": "import {TabPanel} from '@gravity-ui/uikit';",
+    "related": [
+      "Tab",
+      "TabList",
+      "TabProvider"
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Tab value this panel corresponds to"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Panel content"
+      }
+    ],
+    "examples": [
+      "<TabProvider value={active} onUpdate={setActive}>\n  <TabList>\n    <Tab value=\"a\">Tab A</Tab>\n    <Tab value=\"b\">Tab B</Tab>\n  </TabList>\n  <TabPanel value=\"a\">Content A</TabPanel>\n  <TabPanel value=\"b\">Content B</TabPanel>\n</TabProvider>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TabProvider",
+    "library": "uikit",
+    "description": "Context provider that synchronizes active tab state between a TabList and multiple TabPanel components. Manages a shared id, value, and onUpdate callback.",
+    "keywords": [
+      "tab provider",
+      "tabs context",
+      "tab state",
+      "controlled tabs",
+      "tab group"
+    ],
+    "when_to_use": [
+      "Connecting TabList with one or more TabPanel components",
+      "Sharing tab selection state across disconnected components"
+    ],
+    "avoid": [
+      "When only a TabList is needed with no panels"
+    ],
+    "import_statement": "import {TabProvider} from '@gravity-ui/uikit';",
+    "related": [
+      "Tab",
+      "TabList",
+      "TabPanel"
+    ],
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Controlled active tab value"
+      },
+      {
+        "name": "onUpdate",
+        "type": "(value: string) => void",
+        "required": false,
+        "description": "Callback when active tab changes"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "TabList and TabPanel children"
+      }
+    ],
+    "examples": [
+      "<TabProvider value={tab} onUpdate={setTab}>\n  <TabList>\n    <Tab value=\"settings\">Settings</Tab>\n    <Tab value=\"profile\">Profile</Tab>\n  </TabList>\n  <TabPanel value=\"settings\"><SettingsForm /></TabPanel>\n  <TabPanel value=\"profile\"><ProfileForm /></TabPanel>\n</TabProvider>"
+    ]
+  },
+  {
+    "type": "component",
     "name": "UserLabel",
     "library": "uikit",
     "description": "A compact label chip for displaying users, emails, or generic entries with an avatar. Supports click and close interactions.",
@@ -5907,6 +6210,1121 @@
     "parameters": [],
     "examples": [
       "const {add, remove} = useToaster();\nadd({name: 'save-success', title: 'Saved', theme: 'success', autoHiding: 3000});\nremove('save-success');"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useActionHandlers",
+    "library": "uikit",
+    "description": "Returns an onKeyDown handler that calls the callback when Enter or Spacebar is pressed. Emulates native button keyboard behavior on custom interactive elements.",
+    "keywords": [
+      "keyboard handler",
+      "enter key",
+      "spacebar",
+      "accessibility",
+      "keydown",
+      "interactive element"
+    ],
+    "when_to_use": [
+      "Making custom non-button elements respond to Enter/Spacebar for accessibility",
+      "Adding keyboard activation to div/span clickable elements"
+    ],
+    "avoid": [
+      "On actual <button> elements (already handles keyboard natively)"
+    ],
+    "import_statement": "import {useActionHandlers} from '@gravity-ui/uikit';",
+    "related": [
+      "useFocusWithin"
+    ],
+    "signature": "useActionHandlers<T>(callback?: (...args: any[]) => any): { onKeyDown: React.KeyboardEventHandler<T> }",
+    "return_type": "{ onKeyDown: React.KeyboardEventHandler<T> }",
+    "parameters": [
+      {
+        "name": "callback",
+        "type": "((...args: any[]) => any) | undefined",
+        "description": "Function to invoke when Enter or Spacebar is pressed"
+      }
+    ],
+    "examples": [
+      "const {onKeyDown} = useActionHandlers(handleClick);\nreturn <div role=\"button\" tabIndex={0} onClick={handleClick} onKeyDown={onKeyDown}>Click me</div>;"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useAsyncActionHandler",
+    "library": "uikit",
+    "description": "Wraps an async function to track its loading state. Returns the wrapped handler and an isLoading flag, preventing manual loading state management.",
+    "keywords": [
+      "async action",
+      "loading state",
+      "async handler",
+      "isLoading",
+      "promise handler"
+    ],
+    "when_to_use": [
+      "Button or form submit handlers that trigger async operations",
+      "Tracking loading state of any async function"
+    ],
+    "avoid": [
+      "Synchronous handlers (use direct callbacks)",
+      "Complex multi-step workflows (use dedicated state machines)"
+    ],
+    "import_statement": "import {useAsyncActionHandler} from '@gravity-ui/uikit';",
+    "related": [
+      "useControlledState"
+    ],
+    "signature": "useAsyncActionHandler<Action extends (...args: any[]) => PromiseLike<any>>({ handler }: { handler: Action }): { isLoading: boolean; handler: (...args: Parameters<Action>) => Promise<Awaited<ReturnType<Action>>> }",
+    "return_type": "{ isLoading: boolean; handler: Action }",
+    "parameters": [
+      {
+        "name": "handler",
+        "type": "(...args: any[]) => PromiseLike<any>",
+        "description": "Async function to wrap"
+      }
+    ],
+    "examples": [
+      "const {isLoading, handler: handleSave} = useAsyncActionHandler({handler: saveData});\n<Button loading={isLoading} onClick={handleSave}>Save</Button>"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useCollapseChildren",
+    "library": "uikit",
+    "description": "Measures how many children fit inside a container and returns the visible count. Used to build overflow-collapsing toolbars or breadcrumbs that hide items that don't fit.",
+    "keywords": [
+      "overflow",
+      "collapse children",
+      "visible count",
+      "responsive overflow",
+      "fit children",
+      "overflow menu"
+    ],
+    "when_to_use": [
+      "Building toolbars that collapse overflowing items into a menu",
+      "Breadcrumb or tab overflow handling",
+      "Any container that needs to show as many items as fit"
+    ],
+    "avoid": [
+      "Simple hide/show toggles (use Disclosure)",
+      "Accordion-style collapse (use Accordion)"
+    ],
+    "import_statement": "import {useCollapseChildren} from '@gravity-ui/uikit';",
+    "related": [
+      "useResizeObserver"
+    ],
+    "signature": "useCollapseChildren(props: UseCollapseChildrenProps): { calculated: boolean; recalculate: () => void; visibleCount: number }",
+    "return_type": "{ calculated: boolean; recalculate: () => void; visibleCount: number }",
+    "parameters": [
+      {
+        "name": "containerRef",
+        "type": "React.RefObject<HTMLElement | null>",
+        "description": "Ref to the container element"
+      },
+      {
+        "name": "enabled",
+        "type": "boolean | undefined",
+        "description": "Whether calculation is active (default: true)"
+      },
+      {
+        "name": "preservedRefs",
+        "type": "Array<React.RefObject<HTMLElement | null>> | undefined",
+        "description": "Refs of elements that always count toward the container width but are excluded from the count"
+      },
+      {
+        "name": "minCount",
+        "type": "number | undefined",
+        "description": "Minimum number of visible items (default: 0)"
+      },
+      {
+        "name": "maxCount",
+        "type": "number | undefined",
+        "description": "Maximum number of visible items (default: Infinity)"
+      },
+      {
+        "name": "direction",
+        "type": "'start' | 'end' | undefined",
+        "description": "Which end to collapse from (default: 'end')"
+      },
+      {
+        "name": "gap",
+        "type": "number | undefined",
+        "description": "Gap between items in pixels (default: 0)"
+      },
+      {
+        "name": "childSelector",
+        "type": "string | undefined",
+        "description": "CSS selector for child items (default: '*')"
+      },
+      {
+        "name": "getChildWidth",
+        "type": "((child: HTMLElement) => number) | undefined",
+        "description": "Custom item width measurement function"
+      }
+    ],
+    "examples": [
+      "const containerRef = React.useRef(null);\nconst {visibleCount, calculated} = useCollapseChildren({containerRef, gap: 8});\n// render items.slice(0, visibleCount) + overflow button"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useColorGenerator",
+    "library": "uikit",
+    "description": "Generates a deterministic background color from a seed string (e.g., user name or id). Returns RGB, OKLCH, and a contrasting text color. Respects the current theme.",
+    "keywords": [
+      "color generator",
+      "avatar color",
+      "deterministic color",
+      "seed color",
+      "user color",
+      "background color"
+    ],
+    "when_to_use": [
+      "Generating consistent avatar background colors from user names or IDs",
+      "Assigning unique colors to entities without storing color data"
+    ],
+    "avoid": [
+      "When colors need to be user-customizable (use a color picker)"
+    ],
+    "import_statement": "import {useColorGenerator} from '@gravity-ui/uikit';",
+    "related": [
+      "Avatar"
+    ],
+    "signature": "useColorGenerator({ seed }: { seed: string }): { hash: number; oklch: { l: number; c: number; h: number }; rgb: { r: number; g: number; b: number }; textColor: string }",
+    "return_type": "ColorDetails",
+    "parameters": [
+      {
+        "name": "seed",
+        "type": "string",
+        "description": "Unique attribute to derive the color from (e.g., user name, id, email)"
+      }
+    ],
+    "examples": [
+      "const {rgb, textColor} = useColorGenerator({seed: user.name});\n<Avatar text={user.name} backgroundColor={`rgb(${rgb.r},${rgb.g},${rgb.b})`} color={textColor} />"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useControlledState",
+    "library": "uikit",
+    "description": "Manages controlled and uncontrolled state in a single hook, mirroring React's pattern. Accepts a controlled value and a default value and returns current state plus a setter that calls onUpdate.",
+    "keywords": [
+      "controlled state",
+      "uncontrolled state",
+      "controlled component",
+      "value state",
+      "form state"
+    ],
+    "when_to_use": [
+      "Building components that support both controlled and uncontrolled usage",
+      "Form control internals that need to manage their own state when no value prop is provided"
+    ],
+    "avoid": [
+      "Simple internal state with no external control needed (use useState)"
+    ],
+    "import_statement": "import {useControlledState} from '@gravity-ui/uikit';",
+    "related": [
+      "useAsyncActionHandler"
+    ],
+    "signature": "useControlledState<T, C = T, Args extends any[] = []>(value: T | undefined, defaultValue: T, onUpdate?: (v: C, ...args: Args) => void): [T, (value: C, ...args: Args) => void]",
+    "return_type": "[T, (value: C, ...args: Args) => void]",
+    "parameters": [
+      {
+        "name": "value",
+        "type": "T | undefined",
+        "description": "Controlled value (undefined for uncontrolled)"
+      },
+      {
+        "name": "defaultValue",
+        "type": "T",
+        "description": "Default value for uncontrolled mode"
+      },
+      {
+        "name": "onUpdate",
+        "type": "((v: C, ...args: Args) => void) | undefined",
+        "description": "Callback called when the state changes"
+      }
+    ],
+    "examples": [
+      "const [value, setValue] = useControlledState(props.value, props.defaultValue ?? '', props.onUpdate);"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useFileInput",
+    "library": "uikit",
+    "description": "Shapes props for a hidden file input and a visible trigger element. Returns controlProps for the input and triggerProps (onClick) for the button.",
+    "keywords": [
+      "file input",
+      "file upload",
+      "file picker",
+      "input file",
+      "upload trigger"
+    ],
+    "when_to_use": [
+      "Building custom file upload buttons without using native file inputs directly",
+      "Decoupling the file input from the visible trigger"
+    ],
+    "avoid": [
+      "When drag-and-drop is needed (use FileDropZone)"
+    ],
+    "import_statement": "import {useFileInput} from '@gravity-ui/uikit';",
+    "related": [
+      "FileDropZone"
+    ],
+    "signature": "useFileInput({ onUpdate, onChange }: { onUpdate?: (files: File[]) => void; onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void }): { controlProps: React.InputHTMLAttributes<HTMLInputElement>; triggerProps: { onClick: () => void } }",
+    "return_type": "{ controlProps: React.InputHTMLAttributes<HTMLInputElement>; triggerProps: { onClick: () => void } }",
+    "parameters": [
+      {
+        "name": "onUpdate",
+        "type": "((files: File[]) => void) | undefined",
+        "description": "Callback with the array of selected File objects"
+      },
+      {
+        "name": "onChange",
+        "type": "((event: React.ChangeEvent<HTMLInputElement>) => void) | undefined",
+        "description": "Raw change event callback"
+      }
+    ],
+    "examples": [
+      "const {controlProps, triggerProps} = useFileInput({onUpdate: (files) => setFiles(files)});\nreturn <><input {...controlProps} /><Button {...triggerProps}>Upload</Button></>"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useFocusWithin",
+    "library": "uikit",
+    "description": "Tracks focus within a container element and its descendants. Returns focusWithinProps to spread onto the container. Calls callbacks when focus enters or leaves the subtree.",
+    "keywords": [
+      "focus within",
+      "focus tracking",
+      "focus blur",
+      "focus container",
+      "focus management"
+    ],
+    "when_to_use": [
+      "Closing a dropdown or popup when focus leaves the container",
+      "Highlighting a container when any child is focused",
+      "Accessible widget focus management"
+    ],
+    "avoid": [
+      "Detecting clicks outside (use useOutsideClick)"
+    ],
+    "import_statement": "import {useFocusWithin} from '@gravity-ui/uikit';",
+    "related": [
+      "useOutsideClick"
+    ],
+    "signature": "useFocusWithin<T extends Element>(props: { isDisabled?: boolean; onFocusWithin?: (e: React.FocusEvent<T>) => void; onBlurWithin?: (e: React.FocusEvent<T>) => void; onFocusWithinChange?: (isFocusWithin: boolean) => void }): { focusWithinProps: { onFocus?: Function; onBlur?: Function } }",
+    "return_type": "{ focusWithinProps: { onFocus?: Function; onBlur?: Function } }",
+    "parameters": [
+      {
+        "name": "isDisabled",
+        "type": "boolean | undefined",
+        "description": "Disable all focus tracking"
+      },
+      {
+        "name": "onFocusWithin",
+        "type": "((e: React.FocusEvent<T>) => void) | undefined",
+        "description": "Called when the container or a descendant receives focus"
+      },
+      {
+        "name": "onBlurWithin",
+        "type": "((e: React.FocusEvent<T>) => void) | undefined",
+        "description": "Called when focus leaves the container and all descendants"
+      },
+      {
+        "name": "onFocusWithinChange",
+        "type": "((isFocusWithin: boolean) => void) | undefined",
+        "description": "Called with the current focus-within boolean state"
+      }
+    ],
+    "examples": [
+      "const {focusWithinProps} = useFocusWithin({onBlurWithin: () => setOpen(false)});\nreturn <div {...focusWithinProps}><input /><Dropdown open={open} /></div>;"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useForkRef",
+    "library": "uikit",
+    "description": "Merges multiple React refs into a single ref callback. Useful for combining an external ref with an internal ref on the same element.",
+    "keywords": [
+      "fork ref",
+      "merge refs",
+      "combine refs",
+      "ref callback",
+      "multiple refs"
+    ],
+    "when_to_use": [
+      "Forwarding a ref while also keeping an internal ref to the same element",
+      "Combining library refs with component-internal refs"
+    ],
+    "avoid": [
+      "When only one ref is needed (use it directly)"
+    ],
+    "import_statement": "import {useForkRef} from '@gravity-ui/uikit';",
+    "related": [],
+    "signature": "useForkRef<T>(...refs: Array<React.Ref<T> | undefined>): React.RefCallback<T> | null",
+    "return_type": "React.RefCallback<T> | null",
+    "parameters": [
+      {
+        "name": "...refs",
+        "type": "Array<React.Ref<T> | undefined>",
+        "description": "Two or more refs to merge into one"
+      }
+    ],
+    "examples": [
+      "const internalRef = React.useRef(null);\nconst mergedRef = useForkRef(forwardedRef, internalRef);\nreturn <div ref={mergedRef} />;"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useIntersection",
+    "library": "uikit",
+    "description": "Calls a callback when the target element enters the viewport using IntersectionObserver. Useful for lazy loading and infinite scroll triggers.",
+    "keywords": [
+      "intersection observer",
+      "viewport",
+      "lazy load",
+      "infinite scroll",
+      "visibility"
+    ],
+    "when_to_use": [
+      "Triggering actions when an element scrolls into view",
+      "Infinite scroll sentinels",
+      "Lazy loading images or content"
+    ],
+    "avoid": [
+      "Polling scroll position (use this hook instead)"
+    ],
+    "import_statement": "import {useIntersection} from '@gravity-ui/uikit';",
+    "related": [
+      "useResizeObserver"
+    ],
+    "signature": "useIntersection({ element, options, onIntersect }: { element: Element | null; options?: IntersectionObserverInit; onIntersect?: () => void }): void",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "element",
+        "type": "Element | null",
+        "description": "Element to observe"
+      },
+      {
+        "name": "options",
+        "type": "IntersectionObserverInit | undefined",
+        "description": "IntersectionObserver options (root, threshold, rootMargin)"
+      },
+      {
+        "name": "onIntersect",
+        "type": "(() => void) | undefined",
+        "description": "Callback fired when the element intersects the viewport"
+      }
+    ],
+    "examples": [
+      "const sentinelRef = React.useRef(null);\nuseIntersection({element: sentinelRef.current, onIntersect: loadMore});\nreturn <div ref={sentinelRef} />;"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useLayoutContext",
+    "library": "uikit",
+    "description": "Returns the active media query, theme, and helper functions (isMediaActive, getClosestMediaProps) from the layout context. Requires a ThemeProvider or LayoutProvider ancestor.",
+    "keywords": [
+      "layout context",
+      "media query",
+      "responsive",
+      "breakpoint",
+      "theme",
+      "active media"
+    ],
+    "when_to_use": [
+      "Reading the current breakpoint for adaptive rendering",
+      "Conditionally rendering components based on screen size",
+      "Getting responsive prop values from a breakpoint map"
+    ],
+    "avoid": [
+      "Without a ThemeProvider/LayoutProvider in the tree"
+    ],
+    "import_statement": "import {useLayoutContext} from '@gravity-ui/uikit';",
+    "related": [
+      "useMobile"
+    ],
+    "signature": "useLayoutContext(): { theme: LayoutTheme; activeMediaQuery: MediaType; isMediaActive: (size: MediaType) => boolean; getClosestMediaProps: <T>(map: Partial<Record<MediaType, T>>) => T | undefined }",
+    "return_type": "ComputedMediaContext",
+    "parameters": [],
+    "examples": [
+      "const {activeMediaQuery, isMediaActive} = useLayoutContext();\nreturn isMediaActive('l') ? <DesktopLayout /> : <MobileLayout />;"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useLayoutEffect",
+    "library": "uikit",
+    "description": "A safe version of React.useLayoutEffect that falls back to a no-op on the server (SSR). Use instead of React.useLayoutEffect to avoid SSR warnings.",
+    "keywords": [
+      "layout effect",
+      "useLayoutEffect",
+      "SSR safe",
+      "server side rendering",
+      "effect"
+    ],
+    "when_to_use": [
+      "DOM measurements or mutations that must run synchronously before paint",
+      "SSR-compatible layout effects"
+    ],
+    "avoid": [
+      "For data fetching or non-DOM side effects (use useEffect)"
+    ],
+    "import_statement": "import {useLayoutEffect} from '@gravity-ui/uikit';",
+    "related": [],
+    "signature": "useLayoutEffect(effect: React.EffectCallback, deps?: React.DependencyList): void",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "effect",
+        "type": "React.EffectCallback",
+        "description": "Effect callback, same as React.useLayoutEffect"
+      },
+      {
+        "name": "deps",
+        "type": "React.DependencyList | undefined",
+        "description": "Dependency array"
+      }
+    ],
+    "examples": [
+      "useLayoutEffect(() => {\n  // measure DOM\n}, []);"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useListNavigation",
+    "library": "uikit",
+    "description": "Adds keyboard arrow navigation to a list of items attached to an anchor element. Returns the active item index and controls. Handles Up/Down/PageUp/PageDown/Home/End keys.",
+    "keywords": [
+      "list navigation",
+      "keyboard navigation",
+      "arrow keys",
+      "dropdown navigation",
+      "active index"
+    ],
+    "when_to_use": [
+      "Dropdown menus, comboboxes, or listboxes needing keyboard navigation",
+      "Any list component that needs arrow-key item selection"
+    ],
+    "avoid": [
+      "Non-list interactive patterns (use useActionHandlers for Enter/Space only)"
+    ],
+    "import_statement": "import {useListNavigation} from '@gravity-ui/uikit';",
+    "related": [
+      "useActionHandlers",
+      "useSelect"
+    ],
+    "signature": "useListNavigation<ItemType, AnchorType extends HTMLElement>(props: UseListNavigationProps<ItemType, AnchorType>): { activeItemIndex: number; setActiveItemIndex: React.Dispatch<React.SetStateAction<number>>; reset: () => void }",
+    "return_type": "{ activeItemIndex: number; setActiveItemIndex: Dispatch; reset: () => void }",
+    "parameters": [
+      {
+        "name": "items",
+        "type": "ItemType[]",
+        "description": "Array of list items to navigate"
+      },
+      {
+        "name": "anchorRef",
+        "type": "React.RefObject<AnchorType | null> | undefined",
+        "description": "Ref to the element that receives keydown events"
+      },
+      {
+        "name": "skip",
+        "type": "((item: ItemType) => boolean) | undefined",
+        "description": "Predicate to skip disabled items"
+      },
+      {
+        "name": "pageSize",
+        "type": "number | undefined",
+        "description": "Steps to move on PageUp/PageDown"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean | undefined",
+        "description": "Disables navigation entirely"
+      },
+      {
+        "name": "initialValue",
+        "type": "number | undefined",
+        "description": "Initial active index (default: -1)"
+      }
+    ],
+    "examples": [
+      "const anchorRef = React.useRef(null);\nconst {activeItemIndex} = useListNavigation({items, anchorRef});\nreturn <ul ref={anchorRef} tabIndex={0}>{items.map((item, i) => <li aria-selected={i === activeItemIndex}>{item.label}</li>)}</ul>;"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useMobile",
+    "library": "uikit",
+    "description": "Returns the current mobile boolean from MobileContext. True when MobileProvider is configured with mobile=true.",
+    "keywords": [
+      "mobile",
+      "is mobile",
+      "mobile context",
+      "responsive",
+      "mobile detection"
+    ],
+    "when_to_use": [
+      "Conditionally rendering mobile vs desktop variants",
+      "Reading mobile state set by MobileProvider"
+    ],
+    "avoid": [
+      "Without a MobileProvider ancestor (always returns false)"
+    ],
+    "import_statement": "import {useMobile} from '@gravity-ui/uikit';",
+    "related": [
+      "MobileProvider",
+      "usePlatform"
+    ],
+    "signature": "useMobile(): boolean",
+    "return_type": "boolean",
+    "parameters": [],
+    "examples": [
+      "const isMobile = useMobile();\nreturn isMobile ? <Sheet /> : <Drawer />;"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useOutsideClick",
+    "library": "uikit",
+    "description": "Calls a handler when a mouseup or touchend event occurs outside the referenced element. Used to dismiss popups, dropdowns, and modals on outside click.",
+    "keywords": [
+      "outside click",
+      "click outside",
+      "dismiss",
+      "close on click outside",
+      "mouseup handler"
+    ],
+    "when_to_use": [
+      "Closing dropdowns or popovers when clicking outside",
+      "Detecting touches outside a floating element"
+    ],
+    "avoid": [
+      "For focus-based dismissal (use useFocusWithin with onBlurWithin)"
+    ],
+    "import_statement": "import {useOutsideClick} from '@gravity-ui/uikit';",
+    "related": [
+      "useFocusWithin"
+    ],
+    "signature": "useOutsideClick<K extends HTMLElement>({ ref, handler }: { ref: React.RefObject<K | null>; handler?: (e: MouseEvent | TouchEvent) => void }): void",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "ref",
+        "type": "React.RefObject<HTMLElement | null>",
+        "description": "Ref to the element to consider 'inside'"
+      },
+      {
+        "name": "handler",
+        "type": "((e: MouseEvent | TouchEvent) => void) | undefined",
+        "description": "Callback invoked on outside click/touch"
+      }
+    ],
+    "examples": [
+      "const popupRef = React.useRef(null);\nuseOutsideClick({ref: popupRef, handler: () => setOpen(false)});\nreturn <div ref={popupRef}>{children}</div>;"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "usePlatform",
+    "library": "uikit",
+    "description": "Returns the current Platform value from MobileContext ('browser' | 'ios' | 'android'). Set via MobileProvider.",
+    "keywords": [
+      "platform",
+      "ios",
+      "android",
+      "browser platform",
+      "mobile platform"
+    ],
+    "when_to_use": [
+      "Adapting behavior or rendering for specific mobile platforms",
+      "Platform-specific animations or gestures"
+    ],
+    "avoid": [
+      "Without a MobileProvider ancestor (returns Platform.BROWSER)"
+    ],
+    "import_statement": "import {usePlatform} from '@gravity-ui/uikit';",
+    "related": [
+      "MobileProvider",
+      "useMobile"
+    ],
+    "signature": "usePlatform(): Platform",
+    "return_type": "Platform",
+    "parameters": [],
+    "examples": [
+      "const platform = usePlatform();\nreturn platform === Platform.IOS ? <IOSButton /> : <DefaultButton />;"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "usePortalContainer",
+    "library": "uikit",
+    "description": "Returns the portal container element from PortalContext. Falls back to document.body. Used internally by Popup, Tooltip, and other floating components.",
+    "keywords": [
+      "portal",
+      "portal container",
+      "portal target",
+      "portal context",
+      "render portal"
+    ],
+    "when_to_use": [
+      "Getting the correct portal container when building custom floating elements",
+      "Respecting a custom portal target set by PortalProvider"
+    ],
+    "avoid": [
+      "When rendering inline (no portal needed)"
+    ],
+    "import_statement": "import {usePortalContainer} from '@gravity-ui/uikit';",
+    "related": [
+      "useVirtualElementRef"
+    ],
+    "signature": "usePortalContainer(): HTMLElement | null",
+    "return_type": "HTMLElement | null",
+    "parameters": [],
+    "examples": [
+      "const container = usePortalContainer();\nreturn ReactDOM.createPortal(<MyPopup />, container ?? document.body);"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useResizeObserver",
+    "library": "uikit",
+    "description": "Calls a callback whenever the observed element changes size using ResizeObserver. Falls back to window resize event when ResizeObserver is unavailable.",
+    "keywords": [
+      "resize observer",
+      "element resize",
+      "size change",
+      "responsive element",
+      "resize callback"
+    ],
+    "when_to_use": [
+      "Reacting to element size changes without polling",
+      "Triggering layout recalculation when a container resizes"
+    ],
+    "avoid": [
+      "Viewport size tracking (use useViewportSize instead)"
+    ],
+    "import_statement": "import {useResizeObserver} from '@gravity-ui/uikit';",
+    "related": [
+      "useViewportSize",
+      "useCollapseChildren"
+    ],
+    "signature": "useResizeObserver<T extends Element>({ ref, onResize, box }: { ref: React.RefObject<T | null | undefined> | undefined; onResize: (info: { observer?: ResizeObserver }) => void; box?: ResizeObserverBoxOptions }): void",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "ref",
+        "type": "React.RefObject<Element | null | undefined> | undefined",
+        "description": "Ref to the element to observe"
+      },
+      {
+        "name": "onResize",
+        "type": "(info: { observer?: ResizeObserver }) => void",
+        "description": "Callback invoked when the element's size changes"
+      },
+      {
+        "name": "box",
+        "type": "ResizeObserverBoxOptions | undefined",
+        "description": "Which box model to observe ('border-box', 'content-box', 'device-pixel-content-box')"
+      }
+    ],
+    "examples": [
+      "const ref = React.useRef(null);\nuseResizeObserver({ref, onResize: () => recalculate()});\nreturn <div ref={ref}>{children}</div>;"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useSelect",
+    "library": "uikit",
+    "description": "Core selection logic for Select-like components. Manages open/close state and value selection (single or multiple). Returns handlers and state for building custom select controls.",
+    "keywords": [
+      "select hook",
+      "selection state",
+      "open state",
+      "dropdown select",
+      "value selection"
+    ],
+    "when_to_use": [
+      "Building a custom select or combobox that needs selection and open state management"
+    ],
+    "avoid": [
+      "When the standard Select component suffices (use Select directly)"
+    ],
+    "import_statement": "import {useSelect} from '@gravity-ui/uikit';",
+    "related": [
+      "useListNavigation",
+      "useControlledState"
+    ],
+    "signature": "useSelect<T>(props: UseSelectProps): UseSelectResult<T>",
+    "return_type": "UseSelectResult<T>",
+    "parameters": [
+      {
+        "name": "value",
+        "type": "string[] | undefined",
+        "description": "Controlled selected values"
+      },
+      {
+        "name": "defaultValue",
+        "type": "string[] | undefined",
+        "description": "Default selected values for uncontrolled mode"
+      },
+      {
+        "name": "multiple",
+        "type": "boolean | undefined",
+        "description": "Allow multiple selection"
+      },
+      {
+        "name": "onUpdate",
+        "type": "((value: string[]) => void) | undefined",
+        "description": "Callback when selection changes"
+      },
+      {
+        "name": "open",
+        "type": "boolean | undefined",
+        "description": "Controlled open state"
+      },
+      {
+        "name": "defaultOpen",
+        "type": "boolean | undefined",
+        "description": "Default open state"
+      },
+      {
+        "name": "onClose",
+        "type": "(() => void) | undefined",
+        "description": "Callback when the dropdown closes"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean | undefined",
+        "description": "Prevent selection changes"
+      }
+    ],
+    "examples": [
+      "const {value, isOpen, toggleOpen, handleSelection} = useSelect({defaultValue: [], multiple: false});"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useTimeout",
+    "library": "uikit",
+    "description": "Declarative timeout that fires a callback after ms milliseconds. The timeout is cleared on unmount or when ms/callback change. Passing null or undefined disables the timeout.",
+    "keywords": [
+      "timeout",
+      "setTimeout",
+      "delay",
+      "timer",
+      "declarative timer"
+    ],
+    "when_to_use": [
+      "Auto-dismissing notifications or toasts after a delay",
+      "Debounce-free delayed actions within React lifecycle"
+    ],
+    "avoid": [
+      "When manual control of start/clear is needed (use setTimeout directly)"
+    ],
+    "import_statement": "import {useTimeout} from '@gravity-ui/uikit';",
+    "related": [],
+    "signature": "useTimeout(callback: () => void, ms: number | null | undefined): void",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "callback",
+        "type": "() => void",
+        "description": "Function to call after the timeout"
+      },
+      {
+        "name": "ms",
+        "type": "number | null | undefined",
+        "description": "Delay in milliseconds. Pass null or undefined to disable."
+      }
+    ],
+    "examples": [
+      "useTimeout(() => setVisible(false), autoHide ? 3000 : null);"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useUniqId",
+    "library": "uikit",
+    "description": "Returns a stable unique id string per component instance. Uses React.useId when available, with a fallback for older React versions. Prefixed with the design system namespace.",
+    "keywords": [
+      "unique id",
+      "uniq id",
+      "id generator",
+      "aria id",
+      "label id",
+      "component id"
+    ],
+    "when_to_use": [
+      "Generating unique IDs for aria-labelledby, aria-describedby, htmlFor attributes",
+      "Any place a stable per-instance id is needed"
+    ],
+    "avoid": [
+      "IDs that must be user-controlled (accept id as a prop instead)"
+    ],
+    "import_statement": "import {useUniqId} from '@gravity-ui/uikit';",
+    "related": [
+      "getUniqId"
+    ],
+    "signature": "useUniqId(): string",
+    "return_type": "string",
+    "parameters": [],
+    "examples": [
+      "const id = useUniqId();\nreturn <><label htmlFor={id}>Name</label><input id={id} /></>;"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useViewportSize",
+    "library": "uikit",
+    "description": "Returns the current viewport width and height. Listens to the visual viewport resize event and updates on every change.",
+    "keywords": [
+      "viewport size",
+      "window size",
+      "screen size",
+      "viewport width",
+      "viewport height",
+      "responsive"
+    ],
+    "when_to_use": [
+      "Reading viewport dimensions for custom responsive logic",
+      "Positioning elements relative to the viewport"
+    ],
+    "avoid": [
+      "Element size tracking (use useResizeObserver instead)"
+    ],
+    "import_statement": "import {useViewportSize} from '@gravity-ui/uikit';",
+    "related": [
+      "useResizeObserver",
+      "useLayoutContext"
+    ],
+    "signature": "useViewportSize(): { width?: number; height?: number }",
+    "return_type": "{ width?: number; height?: number }",
+    "parameters": [],
+    "examples": [
+      "const {width, height} = useViewportSize();\nreturn <Text>{width}x{height}</Text>;"
+    ]
+  },
+  {
+    "type": "hook",
+    "name": "useVirtualElementRef",
+    "library": "uikit",
+    "description": "Creates a virtual element ref compatible with @floating-ui/react. The virtual element has a getBoundingClientRect based on the provided rect. Used for positioning popups at arbitrary coordinates.",
+    "keywords": [
+      "virtual element",
+      "floating ui",
+      "popup anchor",
+      "context menu position",
+      "virtual anchor",
+      "coordinates popup"
+    ],
+    "when_to_use": [
+      "Anchoring a Popup or Tooltip to a cursor position or arbitrary coordinates",
+      "Context menus that appear at the right-click position"
+    ],
+    "avoid": [
+      "When anchoring to a real DOM element (pass the element ref directly)"
+    ],
+    "import_statement": "import {useVirtualElementRef} from '@gravity-ui/uikit';",
+    "related": [
+      "usePortalContainer"
+    ],
+    "signature": "useVirtualElementRef(props?: { rect?: { top?: number; right?: number; bottom?: number; left?: number } | null; contextElement?: Element }): React.MutableRefObject<VirtualElement>",
+    "return_type": "React.MutableRefObject<VirtualElement>",
+    "parameters": [
+      {
+        "name": "rect",
+        "type": "{ top?: number; right?: number; bottom?: number; left?: number } | null | undefined",
+        "description": "Position of the virtual element relative to the viewport"
+      },
+      {
+        "name": "contextElement",
+        "type": "Element | undefined",
+        "description": "DOM context element for the virtual element"
+      }
+    ],
+    "examples": [
+      "const anchorRef = useVirtualElementRef({rect: {top: mouseY, left: mouseX, bottom: mouseY, right: mouseX}});\nreturn <Popup anchorRef={anchorRef} open={open}><ContextMenu /></Popup>;"
+    ]
+  },
+  {
+    "type": "utility",
+    "name": "configure",
+    "library": "uikit",
+    "description": "Globally configures the uikit library (lang, fallbackLang). Notifies all active subscribers when called. Call once at app startup before rendering.",
+    "keywords": [
+      "configure",
+      "global config",
+      "language",
+      "lang",
+      "i18n",
+      "localization setup"
+    ],
+    "when_to_use": [
+      "Setting the application language for uikit components at startup",
+      "Switching language dynamically at runtime"
+    ],
+    "avoid": [
+      "Calling on every render (call once at app init)"
+    ],
+    "import_statement": "import {configure} from '@gravity-ui/uikit';",
+    "related": [
+      "getConfig"
+    ],
+    "signature": "configure(newConfig: { lang?: string; fallbackLang?: string }): void",
+    "return_type": "void",
+    "parameters": [
+      {
+        "name": "newConfig",
+        "type": "Partial<{ lang: string; fallbackLang: string }>",
+        "description": "Partial config object to merge into the global config"
+      }
+    ],
+    "examples": [
+      "configure({lang: 'ru'});"
+    ]
+  },
+  {
+    "type": "utility",
+    "name": "getComponentName",
+    "library": "uikit",
+    "description": "Returns the display name of a React component. Checks displayName, then name, and falls back to 'Component'.",
+    "keywords": [
+      "component name",
+      "displayName",
+      "component type name",
+      "debug name"
+    ],
+    "when_to_use": [
+      "Resolving a human-readable name for debugging or error messages",
+      "HOC wrappers that need to preserve or read the inner component name"
+    ],
+    "avoid": [
+      "Production UI rendering (names may be minified)"
+    ],
+    "import_statement": "import {getComponentName} from '@gravity-ui/uikit';",
+    "related": [
+      "getUniqId"
+    ],
+    "signature": "getComponentName<T>(Component: React.ComponentType<T>): string",
+    "return_type": "string",
+    "parameters": [
+      {
+        "name": "Component",
+        "type": "React.ComponentType<T>",
+        "description": "The React component to get the name of"
+      }
+    ],
+    "examples": [
+      "getComponentName(MyComponent); // 'MyComponent'"
+    ]
+  },
+  {
+    "type": "utility",
+    "name": "getConfig",
+    "library": "uikit",
+    "description": "Returns the current global uikit configuration object containing lang and fallbackLang.",
+    "keywords": [
+      "get config",
+      "global config",
+      "language config",
+      "uikit config",
+      "i18n config"
+    ],
+    "when_to_use": [
+      "Reading the current configured language in a component or utility",
+      "Checking the active language setting at runtime"
+    ],
+    "avoid": [
+      "When only setting the config (use configure)"
+    ],
+    "import_statement": "import {getConfig} from '@gravity-ui/uikit';",
+    "related": [
+      "configure"
+    ],
+    "signature": "getConfig(): { lang: string; fallbackLang: string }",
+    "return_type": "{ lang: string; fallbackLang: string }",
+    "parameters": [],
+    "examples": [
+      "const {lang} = getConfig();\nconsole.log('Current language:', lang);"
+    ]
+  },
+  {
+    "type": "utility",
+    "name": "getUniqId",
+    "library": "uikit",
+    "description": "Returns a globally unique string ID prefixed with the design system namespace. Increments a counter on each call. Use useUniqId in React components; use getUniqId outside React.",
+    "keywords": [
+      "unique id",
+      "uniq id",
+      "id generator",
+      "non-react id",
+      "namespace id"
+    ],
+    "when_to_use": [
+      "Generating unique IDs outside of React components (e.g., in utilities or stores)",
+      "Assigning stable IDs to data items"
+    ],
+    "avoid": [
+      "Inside React components (use useUniqId for stability across renders)"
+    ],
+    "import_statement": "import {getUniqId} from '@gravity-ui/uikit';",
+    "related": [
+      "useUniqId"
+    ],
+    "signature": "getUniqId(): string",
+    "return_type": "string",
+    "parameters": [],
+    "examples": [
+      "const id = getUniqId(); // e.g. 'g-uniq-1'"
+    ]
+  },
+  {
+    "type": "utility",
+    "name": "spacing",
+    "library": "uikit",
+    "description": "Generates a space-separated string of CSS class names from margin/padding shorthand props (m, mt, mb, ml, mr, mx, my, p, pt, pb, pl, pr, px, py). Use to apply spacing tokens on non-Box elements.",
+    "keywords": [
+      "spacing utility",
+      "margin",
+      "padding",
+      "spacing classes",
+      "css spacing",
+      "space utility"
+    ],
+    "when_to_use": [
+      "Applying spacing tokens to elements that don't use Box or Flex",
+      "Adding margin/padding CSS classes programmatically",
+      "Combining spacing classes with other classNames"
+    ],
+    "avoid": [
+      "On Box or Flex components (use their m/p props directly)"
+    ],
+    "import_statement": "import {spacing} from '@gravity-ui/uikit';",
+    "related": [
+      "Box",
+      "Flex"
+    ],
+    "signature": "spacing(props: SpacingProps, className?: string): string",
+    "return_type": "string",
+    "parameters": [
+      {
+        "name": "props",
+        "type": "SpacingProps",
+        "description": "Object with spacing prop keys: m, mt, mb, ml, mr, mx, my, p, pt, pb, pl, pr, px, py. Values are Space tokens."
+      },
+      {
+        "name": "className",
+        "type": "string | undefined",
+        "description": "Optional additional class name appended to the result"
+      }
+    ],
+    "examples": [
+      "spacing({mt: 4, px: 2}) // 'g-s-mt_4 g-s-px_2'",
+      "<div className={spacing({mb: 6}, styles.card)}>Content</div>"
     ]
   }
 ]

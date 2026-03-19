@@ -1,5 +1,199 @@
 [
   {
+    "type": "utility",
+    "name": "applyAlpha",
+    "library": "graph",
+    "description": "Applies an alpha (opacity) value to a CSS color string, returning a new rgba color string. Used for rendering semi-transparent graph elements like hovered or dimmed blocks.",
+    "keywords": [
+      "alpha",
+      "opacity",
+      "color",
+      "rgba",
+      "canvas",
+      "graph",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Creating transparent variants of graph theme colors in canvas render methods"
+    ],
+    "avoid": [],
+    "import_statement": "import { applyAlpha } from '@gravity-ui/graph';",
+    "related": ["clearColorCache"],
+    "signature": "applyAlpha(color: string, alpha: number): string",
+    "parameters": [
+      {
+        "name": "color",
+        "type": "string",
+        "required": true,
+        "description": "CSS color string (hex, rgb, rgba, or named)."
+      },
+      {
+        "name": "alpha",
+        "type": "number",
+        "required": true,
+        "description": "Opacity value between 0 and 1."
+      }
+    ],
+    "return_type": "string",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "clearColorCache",
+    "library": "graph",
+    "description": "Clears the internal color parsing cache used by applyAlpha. Call this when theme colors change to ensure subsequent applyAlpha calls use updated values.",
+    "keywords": [
+      "color cache",
+      "clear cache",
+      "theme change",
+      "canvas",
+      "graph",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "After programmatically changing graph colors via graph.setColors(), to avoid stale cached color values"
+    ],
+    "avoid": [],
+    "import_statement": "import { clearColorCache } from '@gravity-ui/graph';",
+    "related": ["applyAlpha"],
+    "signature": "clearColorCache(): void",
+    "parameters": [],
+    "return_type": "void",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "Component",
+    "library": "graph",
+    "description": "Base class for all canvas-rendered components in the graph library. Extends CoreComponent with lifecycle hooks (willMount, willRender, didRender, willUpdateChildren, didUpdateChildren), state/props management via setState/setProps, and context propagation. All graph canvas elements (blocks, connections, layers) extend this class.",
+    "keywords": [
+      "component",
+      "base class",
+      "canvas component",
+      "lifecycle",
+      "state",
+      "props",
+      "context",
+      "graph",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Extending to create custom canvas-rendered graph components",
+      "Understanding the lifecycle and rendering model of graph internals"
+    ],
+    "avoid": [
+      "Using Component directly — extend Layer or GraphComponent for custom extensions",
+      "Calling render() directly — use performRender() to schedule updates",
+      "Setting this.state or this.props directly — use setState() and setProps()"
+    ],
+    "import_statement": "import { Component } from '@gravity-ui/graph';",
+    "related": ["Layer", "GraphComponent"],
+    "signature": "class Component<Props, State, Context> extends CoreComponent",
+    "parameters": [],
+    "return_type": "Component",
+    "kind": "class",
+    "examples": [
+      "class MyLayer extends Layer {\n  protected afterInit(): void {\n    this.onGraphEvent('camera-change', this.handleCamera);\n    super.afterInit();\n  }\n  public render(ctx: CanvasRenderingContext2D): void {\n    this.resetTransform();\n    // draw...\n  }\n}"
+    ]
+  },
+  {
+    "type": "utility",
+    "name": "debounce",
+    "library": "graph",
+    "description": "Scheduler-aware debounce utility from the graph library. Delays function execution until a minimum number of animation frames and an optional timeout have passed since the last call. Returns the debounced function with a cancel() method.",
+    "keywords": [
+      "debounce",
+      "scheduler",
+      "animation frame",
+      "performance",
+      "rate limit",
+      "graph",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Debouncing handlers in Layer classes tied to the graph animation frame cycle",
+      "Delaying expensive canvas operations triggered by frequent events"
+    ],
+    "avoid": [
+      "For time-only debouncing outside the graph context — use lodash debounce instead"
+    ],
+    "import_statement": "import { debounce } from '@gravity-ui/graph';",
+    "related": ["throttle", "schedule", "useSchedulerDebounce"],
+    "signature": "debounce<T extends (...args: unknown[]) => void>(fn: T, options: TDebounceOptions): T & { cancel(): void }",
+    "parameters": [
+      {
+        "name": "fn",
+        "type": "T",
+        "required": true,
+        "description": "Function to debounce."
+      },
+      {
+        "name": "options",
+        "type": "TDebounceOptions",
+        "required": true,
+        "description": "Options: priority (ESchedulerPriority), frameInterval (number of frames), frameTimeout (ms)."
+      }
+    ],
+    "return_type": "T & { cancel(): void }",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "Graph",
+    "library": "graph",
+    "description": "Core graph instance class. Manages the scheduler, camera, layers, stores (blocks, connections, settings), event system, and API. Created directly or via useGraph hook. Provides methods to attach to DOM, start/stop rendering, add layers, set colors/constants, and zoom.",
+    "keywords": [
+      "graph",
+      "graph instance",
+      "core",
+      "canvas",
+      "graph class",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "When you need direct access to the graph instance outside of React (e.g., imperative control)",
+      "Inside custom Layer classes via this.props.graph to access the API, rootStore, or camera"
+    ],
+    "avoid": [
+      "Creating Graph directly in React components — use useGraph hook instead for lifecycle management"
+    ],
+    "import_statement": "import { Graph } from '@gravity-ui/graph';",
+    "related": ["useGraph", "GraphCanvas", "Layer"],
+    "signature": "new Graph(config: TGraphConfig, rootEl?: HTMLDivElement, graphColors?: TGraphColors, graphConstants?: TGraphConstants): Graph",
+    "parameters": [
+      {
+        "name": "config",
+        "type": "TGraphConfig",
+        "required": true,
+        "description": "Graph configuration including blocks, connections, settings, and layers."
+      },
+      {
+        "name": "rootEl",
+        "type": "HTMLDivElement",
+        "required": false,
+        "description": "DOM element to attach the graph to immediately."
+      },
+      {
+        "name": "graphColors",
+        "type": "TGraphColors",
+        "required": false,
+        "description": "Initial color theme overrides."
+      },
+      {
+        "name": "graphConstants",
+        "type": "TGraphConstants",
+        "required": false,
+        "description": "Initial constant overrides."
+      }
+    ],
+    "return_type": "Graph",
+    "kind": "class",
+    "examples": [
+      "const graph = new Graph({ blocks: [], connections: [] });\ngraph.attach(document.getElementById('root'));\ngraph.start();",
+      "// Inside a Layer, access graph API:\nthis.props.graph.rootStore.blocksList.getBlocks();"
+    ]
+  },
+  {
     "type": "component",
     "name": "GraphBlock",
     "library": "graph",
@@ -803,5 +997,120 @@
       { "name": "deps", "type": "DependencyList", "description": "React dependency array that recreates the effect subscription." }
     ],
     "return_type": "void"
+  },
+  {
+    "type": "utility",
+    "name": "Layer",
+    "library": "graph",
+    "description": "Base class for all graph rendering layers. Extends Component with Canvas and HTML element management, camera transform synchronization, event subscription helpers (onGraphEvent, onCanvasEvent, onHtmlEvent, onRootEvent, onSignal), and automatic AbortController cleanup on unmount. All custom graph extensions should extend Layer.",
+    "keywords": [
+      "layer",
+      "custom layer",
+      "canvas layer",
+      "html layer",
+      "graph extension",
+      "layer base class",
+      "graph",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Creating custom rendering layers that add canvas drawing or HTML overlays to the graph",
+      "Adding new interaction behaviors or visual elements via the layer system"
+    ],
+    "avoid": [
+      "Setting up event subscriptions in the constructor — always use afterInit()",
+      "Passing graph, camera, root to addLayer() — these are auto-provided",
+      "Calling render() directly — use performRender()"
+    ],
+    "import_statement": "import { Layer } from '@gravity-ui/graph';",
+    "related": ["Graph", "Component", "useLayer", "GraphLayer"],
+    "signature": "class Layer<Props extends LayerProps, Context extends LayerContext, State> extends Component",
+    "parameters": [],
+    "return_type": "Layer",
+    "kind": "class",
+    "examples": [
+      "class MyLayer extends Layer {\n  constructor(props) {\n    super({ ...props, canvas: { zIndex: 10, respectPixelRatio: true } });\n  }\n  protected afterInit(): void {\n    this.onGraphEvent('camera-change', this.handleCamera);\n    super.afterInit();\n  }\n  public render(ctx: CanvasRenderingContext2D): void {\n    this.resetTransform();\n    ctx.fillStyle = 'red';\n    ctx.fillRect(0, 0, 100, 100);\n  }\n}\n\n// Add via graph\ngraph.addLayer(MyLayer, { myProp: 'value' });"
+    ]
+  },
+  {
+    "type": "utility",
+    "name": "schedule",
+    "library": "graph",
+    "description": "Scheduler-aware one-shot task scheduler from the graph library. Schedules a function to run once after a specified number of animation frames. Returns a cancel function.",
+    "keywords": [
+      "schedule",
+      "scheduler",
+      "animation frame",
+      "deferred",
+      "one-shot",
+      "graph",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Deferring a one-time action to a future animation frame within the graph scheduler"
+    ],
+    "avoid": [
+      "For repeating tasks — use debounce or throttle instead",
+      "For non-scheduler deferred logic — use requestAnimationFrame directly"
+    ],
+    "import_statement": "import { schedule } from '@gravity-ui/graph';",
+    "related": ["debounce", "throttle", "useScheduledTask"],
+    "signature": "schedule(fn: () => void, options: TScheduleOptions): () => void",
+    "parameters": [
+      {
+        "name": "fn",
+        "type": "() => void",
+        "required": true,
+        "description": "Function to schedule."
+      },
+      {
+        "name": "options",
+        "type": "TScheduleOptions",
+        "required": true,
+        "description": "Options: priority (ESchedulerPriority), frameInterval (number of frames to wait)."
+      }
+    ],
+    "return_type": "() => void",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "throttle",
+    "library": "graph",
+    "description": "Scheduler-aware throttle utility from the graph library. Limits function execution to at most once per specified frame interval, executing immediately on the first call. Returns the throttled function with a cancel() method.",
+    "keywords": [
+      "throttle",
+      "scheduler",
+      "animation frame",
+      "rate limit",
+      "performance",
+      "graph",
+      "gravity-ui"
+    ],
+    "when_to_use": [
+      "Rate-limiting canvas handlers where the first call should respond immediately but subsequent calls are throttled"
+    ],
+    "avoid": [
+      "When you want to wait for the last call — use debounce instead"
+    ],
+    "import_statement": "import { throttle } from '@gravity-ui/graph';",
+    "related": ["debounce", "schedule", "useSchedulerThrottle"],
+    "signature": "throttle<T extends (...args: unknown[]) => void>(fn: T, options: TDebounceOptions): T & { cancel(): void }",
+    "parameters": [
+      {
+        "name": "fn",
+        "type": "T",
+        "required": true,
+        "description": "Function to throttle."
+      },
+      {
+        "name": "options",
+        "type": "TDebounceOptions",
+        "required": true,
+        "description": "Options: priority (ESchedulerPriority), frameInterval, frameTimeout."
+      }
+    ],
+    "return_type": "T & { cancel(): void }",
+    "kind": "function"
   }
 ]

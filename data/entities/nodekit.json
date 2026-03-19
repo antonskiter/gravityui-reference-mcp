@@ -38,6 +38,26 @@
     "kind": "class"
   },
   {
+    "type": "utility",
+    "name": "AppError",
+    "library": "nodekit",
+    "description": "A structured error class extending the native Error with optional code, details, and debug fields. Provides AppError.isAppError(e) for type-narrowing and AppError.wrap(error, args) to convert unknown errors into AppError instances while preserving the original stack trace.",
+    "keywords": ["error", "app error", "structured error", "error code", "error details", "error wrapping", "isAppError", "wrap error"],
+    "when_to_use": [
+      "Throwing structured errors from service or controller code that need machine-readable codes",
+      "Wrapping unknown errors from external calls with AppError.wrap() to preserve context",
+      "Type-narrowing in catch blocks with AppError.isAppError()"
+    ],
+    "avoid": [
+      "Using for HTTP-specific errors — set code to an HTTP status and let the error handler format the response",
+      "Throwing AppError without a message — always provide a human-readable message"
+    ],
+    "import_statement": "import { AppError } from '@gravity-ui/nodekit';",
+    "related": ["AppContext", "NodeKit"],
+    "signature": "class AppError<T = {}> extends Error { code?: string | number; details?: T; debug?: object; static isAppError(error: unknown): error is AppError; static wrap(error: unknown, args?: AppErrorWrapArgs): AppError; constructor(message?: string, args?: AppErrorArgs<T>) }",
+    "kind": "class"
+  },
+  {
     "type": "guide",
     "name": "AppContext API",
     "library": "nodekit",
@@ -48,5 +68,79 @@
     "import_statement": "import type { AppContext } from '@gravity-ui/nodekit';",
     "related": ["AppContext"],
     "content": "Key methods:\n- ctx.log(message, extra?): structured info log with prefix\n- ctx.logError(message, error?, extra?): error log, sets span error status\n- ctx.logWarn(message, error?, extra?): warn log\n- ctx.create(name, params?): create a child context\n- ctx.call(name, fn, params?): create child context, run fn, auto-end on completion\n- ctx.end(): mark context as done, end tracing span\n- ctx.fail(error?): log error, abort, end span\n- ctx.set(key, value, {inheritable}): store param on context (inheritable by default)\n- ctx.get(key): retrieve stored param\n- ctx.isEnded(): check if context has ended\n- ctx.getTime(): elapsed ms since context creation\n- ctx.abortSignal: AbortSignal that aborts when ctx.end() is called\n- ctx.getMetadata(): extract traceparent headers for outgoing requests"
+  },
+  {
+    "type": "utility",
+    "name": "initTracing",
+    "library": "nodekit",
+    "description": "Initializes OpenTelemetry distributed tracing for a NodeKit application. Reads tracing configuration from AppConfig (collector endpoint, protocol HTTP/gRPC, sampler, instrumentations) and starts the OpenTelemetry Node SDK. Supports W3C TraceContext, Baggage, and Jaeger propagation formats.",
+    "keywords": ["opentelemetry", "tracing", "distributed tracing", "otlp", "jaeger", "grpc", "http tracing", "span exporter", "sdk", "telemetry init"],
+    "when_to_use": [
+      "Called automatically by NodeKit when appTracingCollectorEndpoint is set in AppConfig",
+      "When manually configuring tracing before the NodeKit instance starts"
+    ],
+    "avoid": [
+      "Calling multiple times per process — initTracing starts the SDK and should be called once",
+      "Calling after the first request is handled — tracing must be initialized before any spans are created"
+    ],
+    "import_statement": "import { initTracing } from '@gravity-ui/nodekit';",
+    "related": ["NodeKit", "AppContext"],
+    "signature": "function initTracing(config: AppConfig, logger: NodeKitLogger): { sdk: NodeSDK; tracingSpanExporter: SpanExporter }",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "NodeKitLogger",
+    "library": "nodekit",
+    "description": "The logger interface used throughout NodeKit. Defines info, error, warn, trace, debug methods that each accept either a plain message string or an (extra: Dict | undefined, message: string) overload for structured logging. The default implementation is PinoLogger backed by the pino library.",
+    "keywords": ["logger", "logging", "pino", "structured logging", "log interface", "info", "error", "warn", "debug", "trace"],
+    "when_to_use": [
+      "Type-hinting custom logger implementations that plug into NodeKit",
+      "Accepting a logger parameter in utilities that need to log without depending on pino directly"
+    ],
+    "avoid": [
+      "Using PinoLogger directly — depend on NodeKitLogger interface for testability",
+      "In request handlers — use ctx.log() / ctx.logError() from AppContext instead"
+    ],
+    "import_statement": "import type { NodeKitLogger } from '@gravity-ui/nodekit';",
+    "related": ["NodeKit", "AppContext"],
+    "signature": "interface NodeKitLogger { info(message: string): void; info(extra: Dict | undefined, message: string): void; error(...): void; warn(...): void; trace(...): void; debug(...): void; }",
+    "kind": "interface"
+  },
+  {
+    "type": "utility",
+    "name": "REQUEST_ID_HEADER",
+    "library": "nodekit",
+    "description": "The HTTP header name used by NodeKit to propagate request IDs between services. Value: `'x-request-id'`. Used when reading or writing the request ID header in incoming/outgoing HTTP calls.",
+    "keywords": ["request id", "x-request-id", "header", "tracing", "correlation id", "request header constant"],
+    "when_to_use": [
+      "Reading or setting the x-request-id header in HTTP clients or middleware",
+      "Forwarding the request ID to downstream services"
+    ],
+    "avoid": [
+      "Hardcoding 'x-request-id' — use this constant to stay consistent with NodeKit"
+    ],
+    "import_statement": "import { REQUEST_ID_HEADER } from '@gravity-ui/nodekit';",
+    "related": ["REQUEST_ID_PARAM_NAME", "AppContext"],
+    "signature": "const REQUEST_ID_HEADER: 'x-request-id'",
+    "kind": "const"
+  },
+  {
+    "type": "utility",
+    "name": "REQUEST_ID_PARAM_NAME",
+    "library": "nodekit",
+    "description": "The AppContext parameter key used to store and retrieve the request ID within a context. Value: `'requestId'`. Use ctx.get(REQUEST_ID_PARAM_NAME) to read the request ID from the current context.",
+    "keywords": ["request id", "requestId", "context param", "param name", "get request id", "correlation id", "context key"],
+    "when_to_use": [
+      "Reading the request ID from ctx with ctx.get(REQUEST_ID_PARAM_NAME) in service or middleware code",
+      "Setting the request ID on ctx with ctx.set(REQUEST_ID_PARAM_NAME, id)"
+    ],
+    "avoid": [
+      "Hardcoding 'requestId' — use this constant for consistent access"
+    ],
+    "import_statement": "import { REQUEST_ID_PARAM_NAME } from '@gravity-ui/nodekit';",
+    "related": ["REQUEST_ID_HEADER", "AppContext"],
+    "signature": "const REQUEST_ID_PARAM_NAME: 'requestId'",
+    "kind": "const"
   }
 ]

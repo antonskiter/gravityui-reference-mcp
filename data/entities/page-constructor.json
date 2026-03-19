@@ -1095,5 +1095,799 @@
     "examples": [
       "const breakpoint = useWindowBreakpoint();\nconst isMobile = breakpoint <= BREAKPOINTS.sm;\n\n<div>{isMobile ? 'Mobile layout' : 'Desktop layout'}</div>"
     ]
+  },
+  {
+    "type": "component",
+    "name": "BackgroundCard",
+    "library": "page-constructor",
+    "description": "A card sub-block with a background image or color overlay, supporting title, text, links, buttons, and optional footer controls. Used inside CardLayoutBlock.",
+    "keywords": ["card", "background", "image", "landing", "feature", "marketing"],
+    "when_to_use": ["When a card needs a background image or color behind its content", "Inside CardLayoutBlock for grid of image-backed cards"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { BackgroundCard } from '@gravity-ui/page-constructor'",
+    "related": ["CardLayoutBlock", "BasicCard", "CardBase", "BackgroundImage"],
+    "props": [
+      { "name": "title", "type": "string", "required": false, "description": "Card heading text." },
+      { "name": "text", "type": "string", "required": false, "description": "Card body text (YFM)." },
+      { "name": "background", "type": "ThemedImage", "required": false, "description": "Background image (theme-aware)." },
+      { "name": "backgroundColor", "type": "string", "required": false, "description": "CSS background-color override." },
+      { "name": "url", "type": "string", "required": false, "description": "Makes the card a link." },
+      { "name": "urlTitle", "type": "string", "required": false, "description": "Accessible title for the card link." },
+      { "name": "border", "type": "'shadow' | 'line' | 'none'", "required": false, "description": "Card border style." },
+      { "name": "theme", "type": "'default' | 'dark'", "required": false, "description": "Text theme." },
+      { "name": "links", "type": "LinkProps[]", "required": false, "description": "Links rendered in the card." },
+      { "name": "buttons", "type": "ButtonProps[]", "required": false, "description": "Buttons rendered in the card." },
+      { "name": "list", "type": "ContentListProps", "required": false, "description": "Bullet list." },
+      { "name": "additionalInfo", "type": "string", "required": false, "description": "Small notice text below main content." },
+      { "name": "paddingBottom", "type": "'s' | 'm' | 'l' | 'xl'", "required": false, "description": "Extra bottom padding variant." },
+      { "name": "size", "type": "'s' | 'm'", "required": false, "description": "Content size." },
+      { "name": "controlPosition", "type": "'content' | 'footer'", "required": false, "description": "Where to render action controls." },
+      { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events." }
+    ],
+    "examples": [
+      "<BackgroundCard\n  title=\"Feature\"\n  text=\"Description text.\"\n  background={{ src: '/path/to/bg.png' }}\n  url=\"/feature\"\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "BannerBlock",
+    "library": "page-constructor",
+    "description": "A full-width marketing banner block that wraps a BannerCard in an AnimateBlock. Displays a title, subtitle, CTA button, and optional background image.",
+    "keywords": ["banner", "cta", "call to action", "hero", "marketing", "promotion", "landing"],
+    "when_to_use": ["When a page needs a prominent banner section with a headline and CTA"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { BannerBlock } from '@gravity-ui/page-constructor'",
+    "related": ["BannerCard", "AnimateBlock", "HeaderBlock"],
+    "props": [
+      { "name": "title", "type": "string", "required": true, "description": "Banner headline (YFM)." },
+      { "name": "subtitle", "type": "string", "required": false, "description": "Secondary text below the title." },
+      { "name": "button", "type": "{ url: string; text: string; target?: string; theme?: string }", "required": false, "description": "CTA button configuration." },
+      { "name": "color", "type": "string | ThemedValue<string>", "required": false, "description": "Background color." },
+      { "name": "theme", "type": "'light' | 'dark'", "required": false, "description": "Text theme (default 'light')." },
+      { "name": "image", "type": "string | ThemedValue<string>", "required": false, "description": "Background image URL." },
+      { "name": "mediaView", "type": "'full' | 'half'", "required": false, "description": "How much of the banner the image covers." },
+      { "name": "animated", "type": "boolean", "required": false, "description": "Animate block on scroll." }
+    ],
+    "examples": [
+      "<BannerBlock\n  title=\"Start for free\"\n  subtitle=\"No credit card required.\"\n  button={{ url: '/signup', text: 'Get started' }}\n  image=\"/path/to/banner-bg.png\"\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "BannerCard",
+    "library": "page-constructor",
+    "description": "The inner card component of BannerBlock. Renders title, subtitle, CTA button, and background image with theme support. Used directly when composing custom banners.",
+    "keywords": ["banner", "card", "cta", "background", "promotion", "marketing"],
+    "when_to_use": ["When embedding a banner card inside a custom layout", "Used internally by BannerBlock"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { BannerCard } from '@gravity-ui/page-constructor'",
+    "related": ["BannerBlock", "BackgroundImage", "Button"],
+    "props": [
+      { "name": "title", "type": "string", "required": true, "description": "Card headline (YFM)." },
+      { "name": "subtitle", "type": "string", "required": false, "description": "Secondary text." },
+      { "name": "button", "type": "{ url?: string; text?: string; target?: string; theme?: string }", "required": false, "description": "CTA button props." },
+      { "name": "color", "type": "string | ThemedValue<string>", "required": false, "description": "Card background color." },
+      { "name": "theme", "type": "'light' | 'dark'", "required": false, "description": "Text theme (default 'light')." },
+      { "name": "image", "type": "string | ThemedValue<string>", "required": false, "description": "Background image." },
+      { "name": "disableCompress", "type": "boolean", "required": false, "description": "Disable image compression." },
+      { "name": "mediaView", "type": "'full' | 'half'", "required": false, "description": "Image coverage." }
+    ],
+    "examples": [
+      "<BannerCard\n  title=\"Try it now\"\n  button={{ url: '/demo', text: 'Request demo' }}\n  image=\"/path/to/bg.png\"\n  theme=\"dark\"\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "BasicCard",
+    "library": "page-constructor",
+    "description": "A simple card sub-block with optional icon, title, text, links, buttons, and list. Wraps content in CardBase. Used inside CardLayoutBlock.",
+    "keywords": ["card", "feature card", "icon card", "basic", "simple card", "landing"],
+    "when_to_use": ["For feature grids and icon-based cards on landing pages", "Inside CardLayoutBlock"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { BasicCard } from '@gravity-ui/page-constructor'",
+    "related": ["CardLayoutBlock", "BackgroundCard", "CardBase", "IconWrapper"],
+    "props": [
+      { "name": "title", "type": "string", "required": false, "description": "Card title." },
+      { "name": "text", "type": "string", "required": false, "description": "Card body (YFM)." },
+      { "name": "icon", "type": "ThemedImage", "required": false, "description": "Icon image (themed)." },
+      { "name": "gravityIcon", "type": "ThemedValue<IconData>", "required": false, "description": "Gravity UI icon data (themed)." },
+      { "name": "iconPosition", "type": "'top' | 'left'", "required": false, "description": "Icon placement (default 'top')." },
+      { "name": "links", "type": "LinkProps[]", "required": false, "description": "Links in the card." },
+      { "name": "buttons", "type": "ButtonProps[]", "required": false, "description": "Buttons in the card." },
+      { "name": "list", "type": "ContentListProps", "required": false, "description": "Bullet list." },
+      { "name": "additionalInfo", "type": "string", "required": false, "description": "Notice text." },
+      { "name": "size", "type": "'s' | 'm'", "required": false, "description": "Content size (default 's')." },
+      { "name": "controlPosition", "type": "'content' | 'footer'", "required": false, "description": "Control placement." },
+      { "name": "url", "type": "string", "required": false, "description": "Makes card clickable." },
+      { "name": "border", "type": "'shadow' | 'line' | 'none'", "required": false, "description": "Border style." }
+    ],
+    "examples": [
+      "<BasicCard\n  title=\"Feature\"\n  text=\"Describe the feature here.\"\n  icon={{ src: '/path/to/icon.svg' }}\n  buttons={[{ text: 'Learn more', url: '/feature' }]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "CardLayoutBlock",
+    "library": "page-constructor",
+    "description": "A grid layout block that arranges child cards (BasicCard, BackgroundCard, etc.) in configurable columns with optional title, description, and background image.",
+    "keywords": ["card grid", "layout", "cards", "grid", "columns", "landing", "features"],
+    "when_to_use": ["When displaying a grid of cards on a landing page", "As the container for BasicCard, BackgroundCard, ImageCard, MediaCard"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { CardLayoutBlock } from '@gravity-ui/page-constructor'",
+    "related": ["BasicCard", "BackgroundCard", "ImageCard", "MediaCard", "LayoutItem"],
+    "props": [
+      { "name": "title", "type": "TitleProps", "required": false, "description": "Block heading." },
+      { "name": "description", "type": "string", "required": false, "description": "Block subtitle." },
+      { "name": "colSizes", "type": "GridColumnSizesType", "required": false, "description": "Column sizes per breakpoint (default all:12, sm:6, md:4)." },
+      { "name": "animated", "type": "boolean", "required": false, "description": "Animate block on scroll." },
+      { "name": "background", "type": "ThemedBackgroundImageProps", "required": false, "description": "Block background image." },
+      { "name": "centered", "type": "boolean", "required": false, "description": "Center the title." },
+      { "name": "children", "type": "React.ReactNode", "required": true, "description": "Card components to display in the grid." }
+    ],
+    "examples": [
+      "<CardLayoutBlock title={{ text: 'Features' }} colSizes={{ all: 12, sm: 6, md: 4 }}>\n  <BasicCard title=\"Feature 1\" text=\"Description\" />\n  <BasicCard title=\"Feature 2\" text=\"Description\" />\n  <BasicCard title=\"Feature 3\" text=\"Description\" />\n</CardLayoutBlock>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "CompaniesBlock",
+    "library": "page-constructor",
+    "description": "Displays a grid of company logos with an optional title and description. Supports themed images for light/dark mode.",
+    "keywords": ["companies", "logos", "partners", "clients", "trusted by", "brands", "landing"],
+    "when_to_use": ["When showcasing partner or client logos on a landing page"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { CompaniesBlock } from '@gravity-ui/page-constructor'",
+    "related": ["Image", "Title", "AnimateBlock"],
+    "props": [
+      { "name": "title", "type": "TitleProps", "required": false, "description": "Block heading." },
+      { "name": "description", "type": "string", "required": false, "description": "Block subtitle." },
+      { "name": "images", "type": "ThemedValue<ImageProps>", "required": true, "description": "Company logo image (themed for light/dark)." },
+      { "name": "animated", "type": "boolean", "required": false, "description": "Animate block on scroll." }
+    ],
+    "examples": [
+      "<CompaniesBlock\n  title={{ text: 'Trusted by' }}\n  images={{ light: { src: '/logos-light.png' }, dark: { src: '/logos-dark.png' } }}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Content",
+    "library": "page-constructor",
+    "description": "A sub-block that renders a structured content block: title, body text (YFM), label list, bullet list, links, buttons, and additional notice text. The core content primitive for most blocks.",
+    "keywords": ["content", "text", "title", "links", "buttons", "list", "yfm", "sub-block"],
+    "when_to_use": ["As the text content area inside blocks like InfoBlock, ContentLayoutBlock, ExtendedFeaturesBlock, QuestionsBlock"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { Content } from '@gravity-ui/page-constructor'",
+    "related": ["Title", "YFMWrapper", "Links", "Buttons", "ContentList"],
+    "props": [
+      { "name": "title", "type": "string | TitleItemProps", "required": false, "description": "Section title." },
+      { "name": "text", "type": "string", "required": false, "description": "Body text (YFM HTML)." },
+      { "name": "additionalInfo", "type": "string", "required": false, "description": "Notice/disclaimer text." },
+      { "name": "size", "type": "'s' | 'm' | 'l'", "required": false, "description": "Content size (default 'l')." },
+      { "name": "links", "type": "LinkProps[]", "required": false, "description": "Links shown below text." },
+      { "name": "buttons", "type": "ButtonProps[]", "required": false, "description": "Buttons shown below text." },
+      { "name": "list", "type": "ContentListProps", "required": false, "description": "Bullet list items." },
+      { "name": "labels", "type": "LabelProps[]", "required": false, "description": "Label tags." },
+      { "name": "colSizes", "type": "GridColumnSizesType", "required": false, "description": "Grid column widths." },
+      { "name": "centered", "type": "boolean", "required": false, "description": "Center-align content." },
+      { "name": "theme", "type": "ContentTheme", "required": false, "description": "Color theme." },
+      { "name": "controlPosition", "type": "'default' | 'bottom'", "required": false, "description": "Where to render controls." }
+    ],
+    "examples": [
+      "<Content\n  title=\"Section heading\"\n  text=\"<p>Body copy goes here.</p>\"\n  buttons={[{ text: 'CTA', url: '/page', theme: 'action' }]}\n  colSizes={{ all: 12, md: 8 }}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ContentLayoutBlock",
+    "library": "page-constructor",
+    "description": "A full-width content layout block for rich editorial sections. Renders a Content sub-block and optional file downloads, with configurable text width and background.",
+    "keywords": ["content", "text layout", "editorial", "file download", "article", "landing"],
+    "when_to_use": ["For editorial text sections with optional downloadable files on a landing page"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { ContentLayoutBlock } from '@gravity-ui/page-constructor'",
+    "related": ["Content", "FileLink", "BackgroundImage"],
+    "props": [
+      { "name": "textContent", "type": "ContentBlockProps", "required": true, "description": "Text content props forwarded to Content sub-block." },
+      { "name": "fileContent", "type": "FileLinkProps[]", "required": false, "description": "Downloadable file links." },
+      { "name": "size", "type": "'s' | 'l'", "required": false, "description": "Content size (default 'l')." },
+      { "name": "textWidth", "type": "'s' | 'm' | 'l'", "required": false, "description": "Column width of the text area (default 'm')." },
+      { "name": "background", "type": "ThemedBackgroundImageProps", "required": false, "description": "Block background image." },
+      { "name": "centered", "type": "boolean", "required": false, "description": "Center-align content." },
+      { "name": "theme", "type": "'default' | 'dark'", "required": false, "description": "Block theme." }
+    ],
+    "examples": [
+      "<ContentLayoutBlock\n  textContent={{\n    title: 'About this product',\n    text: '<p>Detailed description.</p>',\n    buttons: [{ text: 'Learn more', url: '/docs' }]\n  }}\n  textWidth=\"m\"\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Divider",
+    "library": "page-constructor",
+    "description": "A simple horizontal spacer sub-block with configurable size and optional border line. Used between blocks to add visual breathing room.",
+    "keywords": ["divider", "spacer", "separator", "horizontal rule", "spacing"],
+    "when_to_use": ["When vertical spacing or a separator is needed between page blocks"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { Divider } from '@gravity-ui/page-constructor'",
+    "related": ["BlockBase"],
+    "props": [
+      { "name": "size", "type": "'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl'", "required": false, "description": "Vertical size of the spacer (default 'm')." },
+      { "name": "border", "type": "boolean", "required": false, "description": "Show a horizontal border line." }
+    ],
+    "examples": [
+      "<Divider size=\"xl\" />",
+      "<Divider size=\"m\" border />"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ExtendedFeaturesBlock",
+    "library": "page-constructor",
+    "description": "A feature grid block that renders items with icons, titles, text, links, and buttons arranged in configurable columns. Ideal for showcasing product features.",
+    "keywords": ["features", "feature grid", "icons", "product features", "landing", "marketing"],
+    "when_to_use": ["When displaying a grid of product features with icons on a landing page"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { ExtendedFeaturesBlock } from '@gravity-ui/page-constructor'",
+    "related": ["CardLayoutBlock", "Content", "AnimateBlock", "Image"],
+    "props": [
+      { "name": "title", "type": "TitleProps", "required": false, "description": "Block heading." },
+      { "name": "description", "type": "string", "required": false, "description": "Block subtitle." },
+      { "name": "items", "type": "ExtendedFeaturesItem[]", "required": true, "description": "Array of feature items with title, text, icon, links, buttons." },
+      { "name": "colSizes", "type": "GridColumnSizesType", "required": false, "description": "Column widths per breakpoint (default all:12, sm:6, md:4)." },
+      { "name": "animated", "type": "boolean", "required": false, "description": "Animate block on scroll." }
+    ],
+    "examples": [
+      "<ExtendedFeaturesBlock\n  title={{ text: 'Key features' }}\n  items={[\n    { title: 'Fast', text: 'Lorem ipsum.', icon: { src: '/icon.svg' } },\n    { title: 'Secure', text: 'Lorem ipsum.', icon: { src: '/icon2.svg' } }\n  ]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "FilterBlock",
+    "library": "page-constructor",
+    "description": "A filterable card grid block. Renders a tab bar of tags and shows only cards matching the selected tag. Internally uses CardLayoutBlock.",
+    "keywords": ["filter", "tags", "filterable", "card grid", "tabs", "categories", "landing"],
+    "when_to_use": ["When cards on a landing page need to be filtered by category or tag"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { FilterBlock } from '@gravity-ui/page-constructor'",
+    "related": ["CardLayoutBlock", "ButtonTabs", "AnimateBlock"],
+    "props": [
+      { "name": "title", "type": "TitleProps", "required": false, "description": "Block heading." },
+      { "name": "description", "type": "string", "required": false, "description": "Block subtitle." },
+      { "name": "tags", "type": "{ id: string; label: string }[]", "required": false, "description": "Filter tag definitions." },
+      { "name": "allTag", "type": "boolean | string", "required": false, "description": "Show an 'All' tag; pass string for custom label." },
+      { "name": "items", "type": "FilterItem[]", "required": true, "description": "Items with a card and tags[] for filtering." },
+      { "name": "colSizes", "type": "GridColumnSizesType", "required": false, "description": "Card column widths." },
+      { "name": "tagButtonSize", "type": "'s' | 'm' | 'l'", "required": false, "description": "Size of tag buttons." },
+      { "name": "centered", "type": "boolean", "required": false, "description": "Center title and tabs." },
+      { "name": "animated", "type": "boolean", "required": false, "description": "Animate block on scroll." }
+    ],
+    "examples": [
+      "<FilterBlock\n  tags={[{ id: 'web', label: 'Web' }, { id: 'mobile', label: 'Mobile' }]}\n  allTag=\"All\"\n  items={[\n    { tags: ['web'], card: { type: 'basic-card', title: 'Web card' } },\n    { tags: ['mobile'], card: { type: 'basic-card', title: 'Mobile card' } }\n  ]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "FoldableListBlock",
+    "library": "page-constructor",
+    "description": "An accordion/FAQ-style block with a content pane on the left and expandable list items on the right. Each item has a title and collapsible text body.",
+    "keywords": ["accordion", "faq", "collapsible", "expandable", "foldable", "list", "landing"],
+    "when_to_use": ["For FAQ sections or collapsible feature lists on a landing page"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { FoldableListBlock } from '@gravity-ui/page-constructor'",
+    "related": ["QuestionsBlock", "Content"],
+    "props": [
+      { "name": "title", "type": "TitleProps", "required": false, "description": "Left pane heading." },
+      { "name": "text", "type": "string", "required": false, "description": "Left pane body text." },
+      { "name": "additionalInfo", "type": "string", "required": false, "description": "Left pane notice text." },
+      { "name": "links", "type": "LinkProps[]", "required": false, "description": "Links in the left pane." },
+      { "name": "buttons", "type": "ButtonProps[]", "required": false, "description": "Buttons in the left pane." },
+      { "name": "list", "type": "ContentListProps", "required": false, "description": "Bullet list in the left pane." },
+      { "name": "items", "type": "{ title: string; text: string; link?: LinkProps; listStyle?: string }[]", "required": true, "description": "Accordion items." }
+    ],
+    "examples": [
+      "<FoldableListBlock\n  title={{ text: 'Got questions?' }}\n  items={[\n    { title: 'What is this?', text: '<p>It is a great product.</p>' },\n    { title: 'How does billing work?', text: '<p>Monthly subscriptions.</p>' }\n  ]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "FormBlock",
+    "library": "page-constructor",
+    "description": "A two-column block that pairs a content section with an embedded form (Yandex Forms or HubSpot). Supports background images and layout direction.",
+    "keywords": ["form", "contact form", "hubspot", "yandex form", "lead generation", "landing"],
+    "when_to_use": ["When a landing page section combines marketing copy with a lead-capture form"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { FormBlock } from '@gravity-ui/page-constructor'",
+    "related": ["InnerForm", "HubspotForm", "YandexForm", "Content", "BackgroundImage"],
+    "props": [
+      { "name": "formData", "type": "YandexFormProps | HubspotFormProps", "required": false, "description": "Form configuration for Yandex or HubSpot." },
+      { "name": "title", "type": "string", "required": false, "description": "Form column heading." },
+      { "name": "textContent", "type": "ContentBlockProps", "required": false, "description": "Content shown beside the form." },
+      { "name": "direction", "type": "'center' | 'align-start'", "required": false, "description": "Row alignment (default 'center')." },
+      { "name": "background", "type": "ThemedBackgroundImageProps", "required": false, "description": "Block background image." },
+      { "name": "customFormNode", "type": "React.ReactNode", "required": false, "description": "Custom form JSX to render instead of formData." }
+    ],
+    "examples": [
+      "<FormBlock\n  textContent={{\n    title: 'Get in touch',\n    text: '<p>We will respond within 24 hours.</p>'\n  }}\n  formData={{\n    type: 'hubspot',\n    portalId: '123',\n    formId: 'abc-def'\n  }}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "HeaderBlock",
+    "library": "page-constructor",
+    "description": "The primary hero header block for landing pages. Renders a full-width header with title, description, buttons, background media, optional breadcrumbs, and a side image or video.",
+    "keywords": ["header", "hero", "landing", "headline", "title", "cta", "background", "marketing"],
+    "when_to_use": ["As the top-of-page hero section on a landing page", "When a page needs a title with background image/video and CTA buttons"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { HeaderBlock } from '@gravity-ui/page-constructor'",
+    "related": ["HeaderSliderBlock", "Media", "Button", "HeaderBreadcrumbs", "BackgroundMedia"],
+    "props": [
+      { "name": "title", "type": "string", "required": true, "description": "Hero headline (YFM)." },
+      { "name": "overtitle", "type": "string | React.ReactNode", "required": false, "description": "Small text above the title." },
+      { "name": "description", "type": "string", "required": false, "description": "Hero body text (YFM)." },
+      { "name": "buttons", "type": "ButtonProps[]", "required": false, "description": "CTA buttons." },
+      { "name": "image", "type": "ThemedImage", "required": false, "description": "Right-side image (themed)." },
+      { "name": "video", "type": "ThemedValue<MediaVideoProps>", "required": false, "description": "Right-side video." },
+      { "name": "videoIframe", "type": "{ src: string; [key: string]: any }", "required": false, "description": "Embedded YouTube/iframe video." },
+      { "name": "background", "type": "ThemedValue<HeaderBlockBackground>", "required": false, "description": "Background image/video/color." },
+      { "name": "breadcrumbs", "type": "HeaderBreadcrumbsProps", "required": false, "description": "Breadcrumb navigation." },
+      { "name": "width", "type": "'s' | 'm' | 'l'", "required": false, "description": "Content width (default 'm')." },
+      { "name": "theme", "type": "'light' | 'dark'", "required": false, "description": "Text color theme (default 'light')." },
+      { "name": "verticalOffset", "type": "'s' | 'm' | 'l' | 'xl'", "required": false, "description": "Vertical padding variant." },
+      { "name": "centered", "type": "boolean", "required": false, "description": "Center the content." },
+      { "name": "additionalInfo", "type": "string", "required": false, "description": "Notice text below buttons." },
+      { "name": "status", "type": "React.ReactNode", "required": false, "description": "Status badge rendered inside the title." }
+    ],
+    "examples": [
+      "<HeaderBlock\n  title=\"Build faster with our platform\"\n  description=\"Everything you need to ship production-ready apps.\"\n  buttons={[\n    { text: 'Get started', url: '/signup', theme: 'action', size: 'xl' },\n    { text: 'Learn more', url: '/docs', theme: 'outlined', size: 'xl' }\n  ]}\n  background={{ src: '/hero-bg.jpg' }}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "HeaderSliderBlock",
+    "library": "page-constructor",
+    "description": "A slider of HeaderBlock panels. Renders multiple hero headers in a Swiper carousel with optional arrows. Each slide is a full HeaderBlock.",
+    "keywords": ["header slider", "hero carousel", "slider", "hero", "rotating banner", "landing"],
+    "when_to_use": ["When a landing page hero area should cycle through multiple headline messages"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { HeaderSliderBlock } from '@gravity-ui/page-constructor'",
+    "related": ["HeaderBlock", "SliderBlock"],
+    "props": [
+      { "name": "items", "type": "HeaderBlockProps[]", "required": true, "description": "Array of header block configurations for each slide." },
+      { "name": "arrows", "type": "boolean", "required": false, "description": "Show prev/next arrows (hidden on mobile)." },
+      { "name": "dots", "type": "boolean", "required": false, "description": "Show pagination dots." },
+      { "name": "autoplay", "type": "number", "required": false, "description": "Autoplay interval in ms." }
+    ],
+    "examples": [
+      "<HeaderSliderBlock\n  items={[\n    { title: 'Slide 1', description: 'First message.', buttons: [{ text: 'CTA', url: '/' }] },\n    { title: 'Slide 2', description: 'Second message.', buttons: [{ text: 'CTA', url: '/' }] }\n  ]}\n  arrows\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "HubspotForm",
+    "library": "page-constructor",
+    "description": "Embeds a HubSpot form by portalId and formId. Handles theming, mobile context, analytics on submit, and lifecycle hooks (onLoad, onBeforeSubmit, onSubmit).",
+    "keywords": ["hubspot", "form", "embed", "lead generation", "crm", "marketing", "submission"],
+    "when_to_use": ["When embedding a HubSpot marketing form inside a page-constructor page"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { HubspotForm } from '@gravity-ui/page-constructor'",
+    "related": ["FormBlock", "InnerForm", "YandexForm"],
+    "props": [
+      { "name": "portalId", "type": "string", "required": true, "description": "HubSpot portal ID." },
+      { "name": "formId", "type": "string", "required": true, "description": "HubSpot form ID." },
+      { "name": "region", "type": "string", "required": false, "description": "HubSpot region (e.g. 'eu1')." },
+      { "name": "formInstanceId", "type": "string", "required": false, "description": "Unique instance ID for multi-form pages." },
+      { "name": "formClassName", "type": "string", "required": false, "description": "CSS class applied to the form element." },
+      { "name": "className", "type": "string", "required": false, "description": "CSS class for the wrapper." },
+      { "name": "theme", "type": "string", "required": false, "description": "Form theme override." },
+      { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events fired on submit." },
+      { "name": "defaultValues", "type": "Record<string, string>", "required": false, "description": "Pre-filled field values." },
+      { "name": "onLoad", "type": "() => void", "required": false, "description": "Callback when form has loaded." },
+      { "name": "onBeforeLoad", "type": "() => void", "required": false, "description": "Callback before form loads." },
+      { "name": "onBeforeSubmit", "type": "(data: any) => void", "required": false, "description": "Callback before form submits." },
+      { "name": "onSubmit", "type": "(event: any) => void", "required": false, "description": "Callback after successful submission." },
+      { "name": "onSubmitError", "type": "(error: any) => void", "required": false, "description": "Callback on submission error." }
+    ],
+    "examples": [
+      "<HubspotForm\n  portalId=\"12345678\"\n  formId=\"aaaabbbb-cccc-dddd-eeee-ffffffffffff\"\n  onSubmit={() => console.log('submitted')}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "IconsBlock",
+    "library": "page-constructor",
+    "description": "Renders a row of icon+label items with optional links. Each item shows a themed image and text; if a URL is provided the item becomes an anchor link.",
+    "keywords": ["icons", "icon grid", "logos", "links", "technology icons", "landing"],
+    "when_to_use": ["For icon-link grids such as technology logos or social links on a landing page"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { IconsBlock } from '@gravity-ui/page-constructor'",
+    "related": ["Image", "Title", "CompaniesBlock"],
+    "props": [
+      { "name": "title", "type": "TitleProps", "required": false, "description": "Block heading." },
+      { "name": "description", "type": "string", "required": false, "description": "Block subtitle." },
+      { "name": "items", "type": "IconsBlockItemProps[]", "required": true, "description": "Array of { src, text, url?, analyticsEvents? }." },
+      { "name": "size", "type": "'s' | 'm' | 'l'", "required": false, "description": "Item size (default 's')." },
+      { "name": "colSizes", "type": "GridColumnSizesType", "required": false, "description": "Column sizes." }
+    ],
+    "examples": [
+      "<IconsBlock\n  title={{ text: 'Integrations' }}\n  items={[\n    { src: '/icons/react.svg', text: 'React', url: 'https://react.dev' },\n    { src: '/icons/ts.svg', text: 'TypeScript', url: 'https://typescriptlang.org' }\n  ]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ImageCard",
+    "library": "page-constructor",
+    "description": "A card sub-block with a prominent image at the top, followed by optional title, text, links, and buttons. Supports clickable card via url prop.",
+    "keywords": ["card", "image card", "photo card", "media card", "blog card", "landing"],
+    "when_to_use": ["For blog post previews, product image cards, or image+text cards inside CardLayoutBlock"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { ImageCard } from '@gravity-ui/page-constructor'",
+    "related": ["CardLayoutBlock", "BasicCard", "MediaCard", "Content"],
+    "props": [
+      { "name": "image", "type": "ThemedImage", "required": true, "description": "Card image (themed)." },
+      { "name": "title", "type": "string", "required": false, "description": "Card title." },
+      { "name": "text", "type": "string", "required": false, "description": "Card body (YFM)." },
+      { "name": "url", "type": "string", "required": false, "description": "URL — makes card a link." },
+      { "name": "target", "type": "'_blank' | '_self'", "required": false, "description": "Link target." },
+      { "name": "urlTitle", "type": "string", "required": false, "description": "Accessible card title." },
+      { "name": "border", "type": "'shadow' | 'line' | 'none'", "required": false, "description": "Border style (default 'shadow')." },
+      { "name": "direction", "type": "'direct' | 'reverse'", "required": false, "description": "Image position relative to text." },
+      { "name": "enableImageBorderRadius", "type": "boolean", "required": false, "description": "Round the image corners." },
+      { "name": "backgroundColor", "type": "string", "required": false, "description": "Card background color." },
+      { "name": "theme", "type": "'default' | 'dark'", "required": false, "description": "Text theme." },
+      { "name": "size", "type": "'s' | 'm'", "required": false, "description": "Content size." },
+      { "name": "controlPosition", "type": "'content' | 'footer'", "required": false, "description": "Control placement." },
+      { "name": "links", "type": "LinkProps[]", "required": false, "description": "Links." },
+      { "name": "buttons", "type": "ButtonProps[]", "required": false, "description": "Buttons." },
+      { "name": "list", "type": "ContentListProps", "required": false, "description": "Bullet list." },
+      { "name": "additionalInfo", "type": "string", "required": false, "description": "Notice text." },
+      { "name": "margins", "type": "boolean", "required": false, "description": "Add image margins." }
+    ],
+    "examples": [
+      "<ImageCard\n  image={{ src: '/post-thumbnail.png', alt: 'Post' }}\n  title=\"Blog post title\"\n  text=\"<p>Short excerpt.</p>\"\n  url=\"/blog/post-slug\"\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "InfoBlock",
+    "library": "page-constructor",
+    "description": "A two-column info block with a left content area (title, text, buttons) and a right content area (links, list). Supports a background color.",
+    "keywords": ["info", "two column", "text", "links", "marketing", "landing", "info section"],
+    "when_to_use": ["For two-column informational sections on a landing page"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { InfoBlock } from '@gravity-ui/page-constructor'",
+    "related": ["Content", "Button", "Link"],
+    "props": [
+      { "name": "title", "type": "TitleProps", "required": false, "description": "Left column heading (also used as sectionsTitle fallback)." },
+      { "name": "sectionsTitle", "type": "TitleProps", "required": false, "description": "Right column heading." },
+      { "name": "backgroundColor", "type": "string | ThemedValue<string>", "required": false, "description": "Container background color." },
+      { "name": "theme", "type": "'dark' | 'light'", "required": false, "description": "Block theme (default 'dark')." },
+      { "name": "buttons", "type": "ButtonProps[]", "required": false, "description": "Buttons in the left column." },
+      { "name": "links", "type": "LinkProps[]", "required": false, "description": "Links in the right column." },
+      { "name": "leftContent", "type": "ContentBlockProps", "required": false, "description": "Full content override for the left column." },
+      { "name": "rightContent", "type": "ContentBlockProps", "required": false, "description": "Full content override for the right column." }
+    ],
+    "examples": [
+      "<InfoBlock\n  title={{ text: 'About our platform' }}\n  leftContent={{ text: '<p>We help teams ship faster.</p>', buttons: [{ text: 'Docs', url: '/docs' }] }}\n  rightContent={{ links: [{ text: 'Pricing', url: '/pricing', arrow: true }] }}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "LayoutItem",
+    "library": "page-constructor",
+    "description": "A flexible sub-block composing media (image/video), meta info, icon, and content (title, text, links, buttons). Used inside CardLayoutBlock for rich card layouts.",
+    "keywords": ["card", "layout item", "media", "content", "meta", "icon", "landing"],
+    "when_to_use": ["For rich cards combining media and content inside CardLayoutBlock"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { LayoutItem } from '@gravity-ui/page-constructor'",
+    "related": ["CardLayoutBlock", "Content", "Media", "MetaInfo", "IconWrapper"],
+    "props": [
+      { "name": "content", "type": "ContentBlockProps", "required": true, "description": "Text content (title, text, links, buttons, etc.)." },
+      { "name": "media", "type": "ThemedValue<MediaProps>", "required": false, "description": "Media (image/video) shown above content." },
+      { "name": "metaInfo", "type": "MetaInfoItem[]", "required": false, "description": "Meta info row (date, author, tags, etc.)." },
+      { "name": "icon", "type": "ThemedImage", "required": false, "description": "Icon beside content title." },
+      { "name": "border", "type": "'shadow' | 'line' | 'none'", "required": false, "description": "Media border style." },
+      { "name": "fullscreen", "type": "boolean", "required": false, "description": "Enable fullscreen media." },
+      { "name": "contentMargin", "type": "'s' | 'm' | 'l'", "required": false, "description": "Margin between media and content (default 'm')." },
+      { "name": "controlPosition", "type": "'content' | 'footer'", "required": false, "description": "Control placement." },
+      { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events." }
+    ],
+    "examples": [
+      "<LayoutItem\n  media={{ src: '/thumbnail.png' }}\n  content={{\n    title: 'Article title',\n    text: '<p>Summary text.</p>',\n    links: [{ text: 'Read more', url: '/article' }]\n  }}\n  metaInfo={[{ type: 'date', value: '2024-01-01' }]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "MapBlock",
+    "library": "page-constructor",
+    "description": "Embeds a map iframe (e.g. Yandex Maps) inside a page block with a title. The map source is passed as a URL.",
+    "keywords": ["map", "yandex maps", "embed", "iframe", "location", "landing"],
+    "when_to_use": ["When a landing page needs to show a geographic map (office location, event venue)"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { MapBlock } from '@gravity-ui/page-constructor'",
+    "related": ["Map"],
+    "props": [
+      { "name": "title", "type": "string", "required": false, "description": "Block heading." },
+      { "name": "src", "type": "string", "required": true, "description": "Map embed URL." }
+    ],
+    "examples": [
+      "<MapBlock\n  title=\"Our office\"\n  src=\"https://api-maps.yandex.ru/services/constructor/...\"\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "MediaBlock",
+    "library": "page-constructor",
+    "description": "A block for displaying a primary media asset (image or video) with an optional title, description, and border. Starts video playback on scroll.",
+    "keywords": ["media", "video", "image", "landing", "screenshot", "demo", "product"],
+    "when_to_use": ["When a landing page section should highlight a product screenshot, demo video, or hero image"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { MediaBlock } from '@gravity-ui/page-constructor'",
+    "related": ["Media", "MediaBase", "VideoBlock"],
+    "props": [
+      { "name": "media", "type": "ThemedValue<MediaProps>", "required": true, "description": "Media content (image/video, themed)." },
+      { "name": "title", "type": "TitleProps | string", "required": false, "description": "Block heading." },
+      { "name": "description", "type": "string", "required": false, "description": "Block subtitle." },
+      { "name": "border", "type": "'shadow' | 'line' | 'none'", "required": false, "description": "Media border style." },
+      { "name": "disableShadow", "type": "boolean", "required": false, "description": "Disable shadow border." },
+      { "name": "animated", "type": "boolean", "required": false, "description": "Animate block on scroll." }
+    ],
+    "examples": [
+      "<MediaBlock\n  title={{ text: 'See it in action' }}\n  media={{ image: { src: '/demo.png', alt: 'Product demo' } }}\n  border=\"shadow\"\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "MediaCard",
+    "library": "page-constructor",
+    "description": "A card sub-block that wraps a Media component inside a CardBase. Used to display image or video cards in a card grid.",
+    "keywords": ["media card", "image card", "video card", "card", "photo", "landing"],
+    "when_to_use": ["When a grid item should display media (image/video) as a card inside CardLayoutBlock"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { MediaCard } from '@gravity-ui/page-constructor'",
+    "related": ["CardLayoutBlock", "CardBase", "Media", "ImageCard"],
+    "props": [
+      { "name": "border", "type": "'shadow' | 'line' | 'none'", "required": false, "description": "Card border style." },
+      { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events." },
+      { "name": "image", "type": "MediaImageProps", "required": false, "description": "Image to display." },
+      { "name": "video", "type": "MediaVideoProps", "required": false, "description": "Video to display." },
+      { "name": "youtube", "type": "string", "required": false, "description": "YouTube video URL." }
+    ],
+    "examples": [
+      "<MediaCard\n  image={{ src: '/screenshot.png', alt: 'Screenshot' }}\n  border=\"shadow\"\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Navigation",
+    "library": "page-constructor",
+    "description": "The site navigation component for page-constructor pages. Renders a responsive header nav with logo, left/right item groups, desktop dropdown menus, and a mobile sidebar.",
+    "keywords": ["navigation", "header", "nav", "menu", "sidebar", "mobile menu", "logo", "landing"],
+    "when_to_use": ["As the top navigation bar on a page-constructor landing page"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { Navigation } from '@gravity-ui/page-constructor'",
+    "related": ["DesktopNavigation", "MobileNavigation", "NavigationList", "Logo"],
+    "props": [
+      { "name": "logo", "type": "ThemedNavigationLogoData", "required": true, "description": "Logo configuration (src, href, text)." },
+      { "name": "data", "type": "HeaderData", "required": true, "description": "Navigation data: leftItems, rightItems, withBorder, iconSize, etc." },
+      { "name": "mobilePortalContainer", "type": "React.RefObject<HTMLElement>", "required": false, "description": "Container ref for mobile sidebar portal." },
+      { "name": "onSidebarChange", "type": "(isOpen: boolean) => void", "required": false, "description": "Callback when mobile sidebar opens/closes." },
+      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class." }
+    ],
+    "examples": [
+      "<Navigation\n  logo={{ src: '/logo.svg', href: '/', text: 'My Product' }}\n  data={{\n    leftItems: [\n      { type: 'link', text: 'Docs', url: '/docs' },\n      { type: 'link', text: 'Pricing', url: '/pricing' }\n    ],\n    rightItems: [\n      { type: 'button', text: 'Sign up', url: '/signup', theme: 'action' }\n    ],\n    withBorderOnScroll: true\n  }}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PriceCard",
+    "library": "page-constructor",
+    "description": "A pricing card sub-block showing a plan title, price, period, feature list, buttons, and links. Supports themes and background color.",
+    "keywords": ["pricing", "price card", "plan", "subscription", "billing", "landing"],
+    "when_to_use": ["For pricing plan cards on a landing page inside CardLayoutBlock"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { PriceCard } from '@gravity-ui/page-constructor'",
+    "related": ["CardLayoutBlock", "PriceDetailed", "CardBase"],
+    "props": [
+      { "name": "title", "type": "string", "required": true, "description": "Plan name (YFM)." },
+      { "name": "price", "type": "string", "required": false, "description": "Price text." },
+      { "name": "pricePeriod", "type": "string", "required": false, "description": "Billing period (e.g. 'month')." },
+      { "name": "priceDetails", "type": "string", "required": false, "description": "Extra price note." },
+      { "name": "description", "type": "string", "required": false, "description": "Plan description." },
+      { "name": "list", "type": "string[]", "required": false, "description": "Feature list items (checkmark bullets)." },
+      { "name": "buttons", "type": "ButtonProps[]", "required": false, "description": "CTA buttons." },
+      { "name": "links", "type": "LinkProps[]", "required": false, "description": "Links." },
+      { "name": "border", "type": "'shadow' | 'line' | 'none'", "required": false, "description": "Card border style." },
+      { "name": "theme", "type": "'light' | 'dark'", "required": false, "description": "Card theme." },
+      { "name": "backgroundColor", "type": "string", "required": false, "description": "Card background color." }
+    ],
+    "examples": [
+      "<PriceCard\n  title=\"Pro\"\n  price=\"$49\"\n  pricePeriod=\"month\"\n  list={['Unlimited projects', '10GB storage', 'Priority support']}\n  buttons={[{ text: 'Start free trial', url: '/signup/pro', theme: 'action' }]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PriceDetailed",
+    "library": "page-constructor",
+    "description": "A detailed pricing comparison component (deprecated). Renders price descriptions and feature details in combined or separate view layouts. Use PriceCard for new projects.",
+    "keywords": ["pricing", "price comparison", "plans", "features", "billing", "landing"],
+    "when_to_use": ["For legacy pricing comparison tables. Prefer PriceCard for new projects."],
+    "avoid": ["For landing/marketing pages only. Not for application UI. Deprecated — prefer PriceCard."],
+    "import_statement": "import { PriceDetailed } from '@gravity-ui/page-constructor'",
+    "related": ["PriceCard", "CardLayoutBlock"],
+    "props": [
+      { "name": "items", "type": "PriceDetailedItem[]", "required": true, "description": "Array of price items with description and details." },
+      { "name": "priceType", "type": "PriceDetailsType", "required": false, "description": "Type of price details (settings or list)." },
+      { "name": "numberGroupItems", "type": "number", "required": false, "description": "Items per group in combined view (default 1)." },
+      { "name": "description", "type": "PriceDescriptionProps", "required": false, "description": "Description column config." },
+      { "name": "details", "type": "PriceDetailsProps", "required": false, "description": "Details column config." },
+      { "name": "foldable", "type": "boolean", "required": false, "description": "Make details foldable." },
+      { "name": "labelsDefaultText", "type": "Record<string, string>", "required": false, "description": "Default label text." },
+      { "name": "isCombined", "type": "boolean", "required": false, "description": "Use combined view layout." },
+      { "name": "useMixedView", "type": "boolean", "required": false, "description": "Mix list and settings items." },
+      { "name": "border", "type": "'shadow' | 'line' | 'none'", "required": false, "description": "Card border style." }
+    ],
+    "examples": [
+      "// Prefer PriceCard. Legacy usage:\n<PriceDetailed\n  items={[{ description: { title: 'Starter', price: '$0' }, details: [] }]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "PromoFeaturesBlock",
+    "library": "page-constructor",
+    "description": "A masonry grid of feature cards with optional media (image/video). Each card has a title, text, and optional media. Uses BalancedMasonry for column layout.",
+    "keywords": ["promo", "features", "masonry", "grid", "cards", "media", "landing", "marketing"],
+    "when_to_use": ["For promotional feature showcases with mixed-height media cards on a landing page"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { PromoFeaturesBlock } from '@gravity-ui/page-constructor'",
+    "related": ["BalancedMasonry", "ExtendedFeaturesBlock", "Media"],
+    "props": [
+      { "name": "title", "type": "TitleProps", "required": false, "description": "Block heading." },
+      { "name": "description", "type": "string", "required": false, "description": "Block subtitle." },
+      { "name": "items", "type": "{ title: string; text: string; media?: ThemedValue<MediaProps>; theme?: string }[]", "required": true, "description": "Feature card items." },
+      { "name": "theme", "type": "'default' | 'dark'", "required": false, "description": "Block background theme." },
+      { "name": "animated", "type": "boolean", "required": false, "description": "Animate block on scroll (default true)." }
+    ],
+    "examples": [
+      "<PromoFeaturesBlock\n  title={{ text: 'Why choose us' }}\n  items={[\n    { title: 'Fast', text: 'Ships in milliseconds.', media: { image: { src: '/fast.png' } } },\n    { title: 'Reliable', text: '99.9% uptime.' }\n  ]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "QuestionsBlock",
+    "library": "page-constructor",
+    "description": "An FAQ block with a content pane on the left and schema.org-marked-up accordion questions on the right. Supports multiple open items simultaneously.",
+    "keywords": ["faq", "questions", "accordion", "q&a", "help", "landing", "schema.org"],
+    "when_to_use": ["For FAQ sections on landing pages with schema.org markup for SEO"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { QuestionsBlock } from '@gravity-ui/page-constructor'",
+    "related": ["FoldableListBlock", "Content"],
+    "props": [
+      { "name": "title", "type": "TitleProps", "required": false, "description": "Left pane heading." },
+      { "name": "text", "type": "string", "required": false, "description": "Left pane body text." },
+      { "name": "additionalInfo", "type": "string", "required": false, "description": "Left pane notice." },
+      { "name": "links", "type": "LinkProps[]", "required": false, "description": "Links in the left pane." },
+      { "name": "buttons", "type": "ButtonProps[]", "required": false, "description": "Buttons in the left pane." },
+      { "name": "list", "type": "ContentListProps", "required": false, "description": "Bullet list in the left pane." },
+      { "name": "items", "type": "{ title: string; text: string; link?: LinkProps; listStyle?: string; onClick?: (index: number, isOpened: boolean) => void }[]", "required": true, "description": "FAQ items." }
+    ],
+    "examples": [
+      "<QuestionsBlock\n  title={{ text: 'Frequently asked questions' }}\n  items={[\n    { title: 'How do I get started?', text: '<p>Sign up at example.com.</p>' },\n    { title: 'Is there a free plan?', text: '<p>Yes, up to 3 projects.</p>' }\n  ]}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "Quote",
+    "library": "page-constructor",
+    "description": "A testimonial/quote card sub-block. Displays a quote text, logo, author avatar/name, and optional CTA button. Supports light/dark themes and border styles.",
+    "keywords": ["quote", "testimonial", "review", "customer quote", "social proof", "landing"],
+    "when_to_use": ["For customer testimonials, press quotes, or partner endorsements on a landing page"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { Quote } from '@gravity-ui/page-constructor'",
+    "related": ["Author", "CardLayoutBlock", "Image", "Button"],
+    "props": [
+      { "name": "text", "type": "string", "required": false, "description": "Quote text." },
+      { "name": "yfmText", "type": "string", "required": false, "description": "Quote text as YFM HTML (overrides text)." },
+      { "name": "image", "type": "ThemedImage", "required": false, "description": "Decorative image beside the quote." },
+      { "name": "logo", "type": "ThemedImage", "required": false, "description": "Company logo." },
+      { "name": "author", "type": "AuthorItem", "required": false, "description": "Author name, description, and avatar." },
+      { "name": "url", "type": "string", "required": false, "description": "URL for the CTA button." },
+      { "name": "urlTitle", "type": "string", "required": false, "description": "Accessible title for CTA." },
+      { "name": "buttonText", "type": "string", "required": false, "description": "CTA button label." },
+      { "name": "button", "type": "ButtonProps", "required": false, "description": "Full CTA button config (overrides url+buttonText)." },
+      { "name": "theme", "type": "'light' | 'dark'", "required": false, "description": "Text theme (default 'light')." },
+      { "name": "color", "type": "string", "required": false, "description": "Background color." },
+      { "name": "border", "type": "'shadow' | 'line' | 'none'", "required": false, "description": "Card border (default 'shadow')." },
+      { "name": "quoteType", "type": "'chevron' | 'quote'", "required": false, "description": "Quote icon style." }
+    ],
+    "examples": [
+      "<Quote\n  text=\"This product changed how we work.\"\n  author={{ firstName: 'Jane', secondName: 'Doe', description: 'CEO at Acme', avatar: '/avatar.png' }}\n  logo={{ src: '/acme-logo.svg' }}\n  buttonText=\"Read case study\"\n  url=\"/case-studies/acme\"\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "ShareBlock",
+    "library": "page-constructor",
+    "description": "A social sharing block that renders icon buttons for Facebook, Twitter, LinkedIn, VK, and Telegram. Uses the current page URL to generate share links.",
+    "keywords": ["share", "social", "facebook", "twitter", "linkedin", "vk", "telegram", "landing"],
+    "when_to_use": ["At the bottom of an article or blog post to let users share the page on social media"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { ShareBlock } from '@gravity-ui/page-constructor'",
+    "related": ["YFMWrapper"],
+    "props": [
+      { "name": "items", "type": "('facebook' | 'twitter' | 'linkedin' | 'vk' | 'telegram')[]", "required": true, "description": "Social networks to show sharing buttons for." },
+      { "name": "title", "type": "string", "required": false, "description": "Heading above the share buttons (YFM)." }
+    ],
+    "examples": [
+      "<ShareBlock\n  title=\"Share this article\"\n  items={['twitter', 'linkedin', 'facebook']}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "SliderBlock",
+    "library": "page-constructor",
+    "description": "A Swiper-powered carousel block. Renders children as slides with configurable dots, arrows, autoplay, breakpoints, and animation. Built on top of swiper/react.",
+    "keywords": ["slider", "carousel", "swiper", "slides", "autoplay", "gallery", "landing"],
+    "when_to_use": ["When multiple cards or content panels should be navigable as a carousel on a landing page"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { SliderBlock } from '@gravity-ui/page-constructor'",
+    "related": ["HeaderSliderBlock", "AnimateBlock", "Anchor"],
+    "props": [
+      { "name": "children", "type": "React.ReactNode", "required": true, "description": "Slide content — each child becomes one slide." },
+      { "name": "title", "type": "TitleProps | string", "required": false, "description": "Slider heading." },
+      { "name": "description", "type": "string", "required": false, "description": "Slider subtitle." },
+      { "name": "arrows", "type": "boolean", "required": false, "description": "Show prev/next arrow buttons (default true)." },
+      { "name": "dots", "type": "boolean", "required": false, "description": "Show pagination dots (default true)." },
+      { "name": "adaptive", "type": "boolean", "required": false, "description": "Auto-height based on current slide." },
+      { "name": "autoplay", "type": "number", "required": false, "description": "Autoplay interval in ms." },
+      { "name": "slidesToShow", "type": "number | Record<string, number>", "required": false, "description": "Number of slides visible at once." },
+      { "name": "anchorId", "type": "string", "required": false, "description": "Anchor id for in-page navigation." },
+      { "name": "animated", "type": "boolean", "required": false, "description": "Animate on scroll." },
+      { "name": "disclaimer", "type": "{ text: string; size?: string }", "required": false, "description": "Disclaimer text below the slider." },
+      { "name": "initialSlide", "type": "number", "required": false, "description": "Index of the initial active slide (default 0)." }
+    ],
+    "examples": [
+      "<SliderBlock title={{ text: 'Case studies' }} arrows dots slidesToShow={3}>\n  <BasicCard title=\"Case 1\" text=\"Outcome.\" />\n  <BasicCard title=\"Case 2\" text=\"Outcome.\" />\n  <BasicCard title=\"Case 3\" text=\"Outcome.\" />\n</SliderBlock>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TableBlock",
+    "library": "page-constructor",
+    "description": "A block that renders a Table component with a title in a two-column grid. Includes schema.org Table microdata for SEO.",
+    "keywords": ["table", "comparison", "data table", "pricing table", "landing", "features"],
+    "when_to_use": ["For feature comparison or data tables on a landing page with SEO-friendly schema markup"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { TableBlock } from '@gravity-ui/page-constructor'",
+    "related": ["Table"],
+    "props": [
+      { "name": "title", "type": "string", "required": true, "description": "Table section heading (YFM)." },
+      { "name": "table", "type": "TableProps", "required": true, "description": "Table data: legend, rows, caption." }
+    ],
+    "examples": [
+      "<TableBlock\n  title=\"Feature comparison\"\n  table={{\n    legend: ['Feature', 'Free', 'Pro'],\n    rows: [\n      ['Unlimited projects', false, true],\n      ['Priority support', false, true]\n    ]\n  }}\n/>"
+    ]
+  },
+  {
+    "type": "component",
+    "name": "TabsBlock",
+    "library": "page-constructor",
+    "description": "A tabbed content block. Renders a ButtonTabs tab bar and a content panel per tab with media and text. Tabs can show media on the left or right of the content.",
+    "keywords": ["tabs", "tabbed content", "tab panel", "switch", "media tabs", "landing"],
+    "when_to_use": ["When a landing page section should show different content panels selected by a tab bar"],
+    "avoid": ["For landing/marketing pages only. Not for application UI."],
+    "import_statement": "import { TabsBlock } from '@gravity-ui/page-constructor'",
+    "related": ["ButtonTabs", "AnimateBlock", "Content", "Media"],
+    "props": [
+      { "name": "items", "type": "TabsBlockItem[]", "required": true, "description": "Tab items — each has tabName, text, media, links, buttons, etc." },
+      { "name": "title", "type": "TitleProps", "required": false, "description": "Block heading." },
+      { "name": "description", "type": "string", "required": false, "description": "Block subtitle." },
+      { "name": "direction", "type": "'media-content' | 'content-media'", "required": false, "description": "Layout: media left+content right, or reversed (default 'media-content')." },
+      { "name": "contentSize", "type": "'s' | 'm' | 'l'", "required": false, "description": "Content text size (default 's')." },
+      { "name": "centered", "type": "boolean", "required": false, "description": "Center tabs and title." },
+      { "name": "tabsColSizes", "type": "GridColumnSizesType", "required": false, "description": "Column widths for the tab bar." },
+      { "name": "animated", "type": "boolean", "required": false, "description": "Animate block on scroll." }
+    ],
+    "examples": [
+      "<TabsBlock\n  title={{ text: 'How it works' }}\n  items={[\n    {\n      tabName: 'Step 1',\n      title: 'Install',\n      text: '<p>Run npm install.</p>',\n      media: { image: { src: '/step1.png' } }\n    },\n    {\n      tabName: 'Step 2',\n      title: 'Configure',\n      text: '<p>Set your config.</p>',\n      media: { image: { src: '/step2.png' } }\n    }\n  ]}\n/>"
+    ]
   }
 ]

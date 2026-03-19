@@ -584,6 +584,22 @@
     ]
   },
   {
+    "type": "hook",
+    "name": "useGallery",
+    "library": "components",
+    "description": "A React hook that returns the Gallery context, providing openGallery and closeGallery functions along with the current open state. Must be used inside a GalleryProvider.",
+    "keywords": ["gallery", "open gallery", "close gallery", "gallery context", "hook", "lightbox", "media viewer"],
+    "when_to_use": ["When you need to imperatively open the gallery from anywhere inside a GalleryProvider tree", "When you need to read whether the gallery is currently open"],
+    "avoid": ["Do not use outside of a GalleryProvider — the context defaults are no-ops"],
+    "import_statement": "import { useGallery } from '@gravity-ui/components';",
+    "related": ["Gallery", "GalleryProvider"],
+    "signature": "function useGallery(): { openGallery: (items: GalleryItemProps[], initialFileIndex?: number) => void; closeGallery: () => void; open: boolean }",
+    "return_type": "{ openGallery: (items: GalleryItemProps[], initialFileIndex?: number) => void; closeGallery: () => void; open: boolean }",
+    "examples": [
+      "function MediaButton({ images }) {\n  const { openGallery } = useGallery();\n  return (\n    <Button onClick={() => openGallery(images, 0)}>\n      View Images\n    </Button>\n  );\n}"
+    ]
+  },
+  {
     "type": "component",
     "name": "InfiniteScroll",
     "library": "components",

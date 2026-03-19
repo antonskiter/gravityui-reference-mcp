@@ -38,6 +38,133 @@
     "kind": "function"
   },
   {
+    "type": "utility",
+    "name": "AuthPolicy",
+    "library": "expresskit",
+    "description": "An enum that defines the authentication policy for ExpressKit routes. Values: `disabled` (no auth check), `optional` (auth checked but not required), `required` (unauthenticated requests redirected or rejected).",
+    "keywords": ["auth policy", "authentication", "route auth", "access control", "disabled", "optional", "required", "auth guard"],
+    "when_to_use": [
+      "Setting authPolicy on individual AppRouteDescription or globally via AppConfig.appAuthPolicy",
+      "Defining which routes require authentication and which are public"
+    ],
+    "avoid": [
+      "Do not use AuthPolicy values as strings — import the enum to avoid typos"
+    ],
+    "import_statement": "import { AuthPolicy } from '@gravity-ui/expresskit';",
+    "related": ["ExpressKit", "ExpressKit Route Definition"],
+    "signature": "enum AuthPolicy { disabled = 'disabled', optional = 'optional', required = 'required' }",
+    "kind": "enum"
+  },
+  {
+    "type": "utility",
+    "name": "getContract",
+    "library": "expresskit",
+    "description": "Retrieves the RouteContract associated with a given AppRouteHandler. Returns undefined if the handler was not wrapped with withContract. Useful for building OpenAPI/Swagger documentation or validation middleware that inspects route contracts at registration time.",
+    "keywords": ["contract", "route contract", "get contract", "openapi", "schema", "route schema", "validation schema"],
+    "when_to_use": [
+      "Generating API documentation by iterating over registered routes and their contracts",
+      "In middleware or tooling that needs to inspect a route's request/response schema"
+    ],
+    "avoid": [
+      "At request time — contracts are registered once at startup"
+    ],
+    "import_statement": "import { getContract } from '@gravity-ui/expresskit';",
+    "related": ["withContract", "getErrorContract", "withErrorContract"],
+    "signature": "function getContract(handler: AppRouteHandler): RouteContract | undefined",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "getErrorContract",
+    "library": "expresskit",
+    "description": "Retrieves the ErrorContract associated with a given AppErrorHandler. Returns undefined if the handler was not wrapped with withErrorContract. Mirrors getContract for error handlers.",
+    "keywords": ["error contract", "get error contract", "error schema", "error handler schema", "openapi errors"],
+    "when_to_use": [
+      "Generating API error documentation by inspecting registered error handler contracts"
+    ],
+    "avoid": [
+      "At request time — error contracts are registered at startup"
+    ],
+    "import_statement": "import { getErrorContract } from '@gravity-ui/expresskit';",
+    "related": ["withErrorContract", "getContract", "withContract"],
+    "signature": "function getErrorContract(handler: AppErrorHandler): ErrorContract | undefined",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "setLang",
+    "library": "expresskit",
+    "description": "Sets the user language on an AppContext if the language is allowed by AppConfig.appAllowedLangs. Returns true if the language was set, false if it was rejected. Used in middleware or auth handlers to persist the detected language to the request context.",
+    "keywords": ["language", "locale", "set lang", "i18n", "internationalization", "lang detection", "user language", "context lang"],
+    "when_to_use": [
+      "In language detection middleware to store the resolved language on req.ctx",
+      "In auth handlers when language is determined from user profile or Accept-Language header"
+    ],
+    "avoid": [
+      "Do not call outside a request context — setLang requires an AppContext from req.ctx"
+    ],
+    "import_statement": "import { setLang } from '@gravity-ui/expresskit';",
+    "related": ["ExpressKit"],
+    "signature": "function setLang({ lang, ctx }: { lang: string; ctx: AppContext }): boolean",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "ValidationError",
+    "library": "expresskit",
+    "description": "An AppError subclass thrown when Zod request validation fails in withContract. Carries the ZodError instance for detailed field-level error reporting. Caught by the global error handler to return a structured 400 response.",
+    "keywords": ["validation error", "zod error", "request validation", "bad request", "400", "schema validation", "input validation"],
+    "when_to_use": [
+      "Throwing explicitly when manual validation fails inside a withContract handler (manualValidation: true)",
+      "Catching in the AppConfig.appValidationErrorHandler to customize the 400 response format"
+    ],
+    "avoid": [
+      "For business logic errors — use AppError from @gravity-ui/nodekit directly"
+    ],
+    "import_statement": "import { ValidationError } from '@gravity-ui/expresskit';",
+    "related": ["withContract", "getContract"],
+    "signature": "class ValidationError extends AppError { zodError?: ZodError; constructor(message: string, zodError?: ZodError) }",
+    "kind": "class"
+  },
+  {
+    "type": "utility",
+    "name": "withContract",
+    "library": "expresskit",
+    "description": "A higher-order function that wraps an AppRouteHandler with Zod-based request validation and typed response helpers. Registers the RouteContract on the handler for later retrieval with getContract. The returned handler validates request body/params/query/headers against the provided Zod schemas and adds res.sendTyped / res.sendValidated methods for type-safe responses.",
+    "keywords": ["contract", "route contract", "zod validation", "request validation", "response typing", "type safe route", "openapi", "schema validation", "sendTyped", "sendValidated"],
+    "when_to_use": [
+      "Defining routes with strict request and response schemas for type safety and documentation",
+      "When you need automatic request body/params/query validation with Zod",
+      "To generate OpenAPI specs via getContract at build time"
+    ],
+    "avoid": [
+      "For routes without structured schemas — use plain AppRouteHandler",
+      "For error handling contracts — use withErrorContract instead"
+    ],
+    "import_statement": "import { withContract } from '@gravity-ui/expresskit';",
+    "related": ["ValidationError", "getContract", "withErrorContract", "ExpressKit Route Definition"],
+    "signature": "function withContract<TConfig extends RouteContract>(config: TConfig, settings?: WithContractSettings): (handler: (req: ContractRequest<...>, res: ContractResponse<TConfig>) => unknown) => AppRouteHandler",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "withErrorContract",
+    "library": "expresskit",
+    "description": "A higher-order function that wraps an AppErrorHandler with a typed error response helper (res.sendError). Registers the ErrorContract on the handler for retrieval with getErrorContract. The wrapped handler receives a res.sendError method that accepts a status code and typed data matching the ErrorContract schema.",
+    "keywords": ["error contract", "error handler", "typed error response", "sendError", "error schema", "error typing", "express error handler"],
+    "when_to_use": [
+      "Wrapping the global error handler with a typed error response contract",
+      "When error responses need to conform to a documented schema"
+    ],
+    "avoid": [
+      "For route-level contracts — use withContract instead"
+    ],
+    "import_statement": "import { withErrorContract } from '@gravity-ui/expresskit';",
+    "related": ["getErrorContract", "withContract", "ValidationError"],
+    "signature": "function withErrorContract<TConfig extends ErrorContract>(config: TConfig): (handler: (err: Error, req: Request, res: ErrorResponse<TConfig>, next: Function) => unknown) => AppErrorHandler",
+    "kind": "function"
+  },
+  {
     "type": "guide",
     "name": "ExpressKit Route Definition",
     "library": "expresskit",

@@ -629,6 +629,30 @@
   },
   {
     "type": "component",
+    "name": "MobileLogo",
+    "library": "navigation",
+    "description": "A logo component designed for use inside the MobileHeader. Renders a clickable icon and text label as an anchor tag (or wraps them via a custom wrapper function). Unlike the desktop Logo, it does not animate based on sidebar expand state — it always shows both icon and text.",
+    "keywords": ["logo", "mobile logo", "mobile header", "brand", "icon", "navigation logo", "anchor", "app logo"],
+    "when_to_use": ["When building a mobile header and need the brand logo with icon and text as a link", "Inside MobileHeader's logo slot for mobile layouts"],
+    "avoid": ["Do not use in desktop AsideHeader — use Logo instead", "Do not use for logos outside of navigation contexts"],
+    "import_statement": "import { MobileLogo } from '@gravity-ui/navigation';",
+    "related": ["MobileHeader", "Logo"],
+    "props": [
+      { "name": "isExpanded", "type": "boolean", "required": true, "description": "Whether the burger menu is expanded; passed to the wrapper function when used" },
+      { "name": "text", "type": "string | (() => React.ReactNode)", "required": false, "description": "Logo text label or a render function returning React content" },
+      { "name": "icon", "type": "IconProps['data']", "required": false, "description": "Icon component data for the logo icon" },
+      { "name": "iconSrc", "type": "string", "required": false, "description": "HTML src for an img tag logo icon" },
+      { "name": "iconSize", "type": "number", "required": false, "description": "Icon width and height in px (default 32)" },
+      { "name": "textSize", "type": "number", "required": false, "description": "Text font size in px (default 20)" },
+      { "name": "href", "type": "string", "required": false, "description": "URL the logo links to (default '/')" },
+      { "name": "target", "type": "HTMLAttributeAnchorTarget", "required": false, "description": "Anchor target attribute (default '_self')" },
+      { "name": "wrapper", "type": "(node: React.ReactNode, isExpanded: boolean) => React.ReactNode", "required": false, "description": "Custom wrapper replacing the anchor; receives icon+text node and isExpanded" },
+      { "name": "onClick", "type": "(event: React.MouseEvent<HTMLElement>) => void", "required": false, "description": "Click handler" },
+      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" }
+    ]
+  },
+  {
+    "type": "component",
     "name": "MobileHeader",
     "library": "navigation",
     "description": "A mobile navigation header component that renders a burger menu button, logo, and optional side items. Manages a burger menu panel (Drawer), additional custom panel items, and an optional overlap panel. Supports dispatching custom events via CustomEvent on the component's DOM node to open/close panels programmatically.",

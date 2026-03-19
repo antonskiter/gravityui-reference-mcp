@@ -890,7 +890,7 @@
     "type": "utility",
     "name": "configure",
     "library": "dialog-fields",
-    "description": "Configures global settings for the dialog-fields library. Currently supports setting the display language ('en' or 'ru') for built-in i18n strings.",
+    "description": "Configures global settings for the dialog-fields library. Currently supports setting the display language ('en' or 'ru') for built-in i18n strings. Notifies all active subscribeConfigure subscribers after updating.",
     "keywords": ["configure", "config", "language", "i18n", "locale", "setup", "initialization"],
     "when_to_use": [
       "At application startup to set the language for DFDialog built-in labels and messages"
@@ -899,12 +899,56 @@
       "Do not call repeatedly at runtime — intended for one-time app initialization"
     ],
     "import_statement": "import { configure } from '@gravity-ui/dialog-fields';",
-    "related": ["DFDialog"],
+    "related": ["DFDialog", "subscribeConfigure", "getConfig"],
     "signature": "configure(config: { lang: 'en' | 'ru' }): void",
     "parameters": [
       { "name": "config", "type": "{ lang: 'en' | 'ru' }", "description": "Configuration object. lang sets the display language." }
     ],
     "return_type": "void",
     "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "getConfig",
+    "library": "dialog-fields",
+    "description": "Returns the current read-only configuration object for the dialog-fields library, containing the active language setting. The returned object is a Proxy that throws on direct mutation — use configure() to update it.",
+    "keywords": ["config", "get config", "language", "i18n", "locale", "current settings", "read config"],
+    "when_to_use": [
+      "When you need to read the currently active dialog-fields configuration (e.g. the current language)",
+      "Inside a subscribeConfigure callback to access the updated config"
+    ],
+    "avoid": [
+      "Do not mutate the returned object directly — use configure() to apply changes"
+    ],
+    "import_statement": "import { getConfig } from '@gravity-ui/dialog-fields';",
+    "related": ["configure", "subscribeConfigure"],
+    "signature": "getConfig(): { lang: 'en' | 'ru' }",
+    "return_type": "{ lang: 'en' | 'ru' }",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "subscribeConfigure",
+    "library": "dialog-fields",
+    "description": "Registers a subscriber callback that is called immediately with the current config and then on every subsequent configure() call. Returns an unsubscribe function. Useful for frameworks or components that need to reactively update when the language changes.",
+    "keywords": ["subscribe", "config", "observer", "language change", "reactive", "i18n", "callback", "unsubscribe"],
+    "when_to_use": [
+      "When a component or service needs to react to language or config changes at runtime",
+      "When building integrations that must stay in sync with the dialog-fields language setting"
+    ],
+    "avoid": [
+      "Do not forget to call the returned unsubscribe function on cleanup to avoid memory leaks"
+    ],
+    "import_statement": "import { subscribeConfigure } from '@gravity-ui/dialog-fields';",
+    "related": ["configure", "getConfig"],
+    "signature": "subscribeConfigure(subscriber: (config: { lang: 'en' | 'ru' }) => void): () => void",
+    "parameters": [
+      { "name": "subscriber", "type": "(config: { lang: 'en' | 'ru' }) => void", "description": "Callback called immediately with the current config and on each future configure() call" }
+    ],
+    "return_type": "() => void — call to unsubscribe",
+    "kind": "function",
+    "examples": [
+      "const unsubscribe = subscribeConfigure((config) => {\n  setLang(config.lang);\n});\n\n// Later, on component unmount:\nunsubscribe();"
+    ]
   }
 ]

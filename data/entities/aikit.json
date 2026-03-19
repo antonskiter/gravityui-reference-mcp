@@ -517,6 +517,22 @@
   },
   {
     "type": "component",
+    "name": "InlineCitation",
+    "library": "aikit",
+    "description": "An atom component for rendering inline text citations within AI assistant messages. Represents a cited source reference inline in the message body.",
+    "keywords": ["citation", "inline citation", "reference", "source", "quote", "text citation", "ai citation"],
+    "when_to_use": [
+      "Rendering inline citations or source references inside AI message content",
+      "Linking cited sources within MarkdownRenderer or AssistantMessage output"
+    ],
+    "avoid": [
+      "For block-level references or footnotes — compose a custom component"
+    ],
+    "import_statement": "import { InlineCitation } from '@gravity-ui/aikit';",
+    "related": ["AssistantMessage", "MarkdownRenderer"]
+  },
+  {
+    "type": "component",
     "name": "IntersectionContainer",
     "library": "aikit",
     "description": "Wrapper component using the Intersection Observer API to trigger a callback when the element enters the viewport. Used for infinite scroll, lazy loading, or scroll-triggered animations.",
@@ -540,6 +556,23 @@
     "examples": [
       "<IntersectionContainer onIntersect={() => loadPreviousMessages()}>\n  <Loader view=\"loading\" />\n</IntersectionContainer>"
     ]
+  },
+  {
+    "type": "component",
+    "name": "InputContext",
+    "library": "aikit",
+    "description": "A molecule component for managing and displaying context items in the prompt input area. Shows attached context items (files, selections, etc.) with remove actions in the PromptInputHeader.",
+    "keywords": ["input context", "context items", "context management", "attached context", "prompt context", "chat context", "context list"],
+    "when_to_use": [
+      "Displaying context items attached to the current prompt (files, code selections, search results)",
+      "As part of PromptInputHeader to show and allow removal of attached context"
+    ],
+    "avoid": [
+      "Prefer PromptInputHeader which integrates InputContext automatically",
+      "For standalone context indicators — use ContextItem or ContextIndicator directly"
+    ],
+    "import_statement": "import { InputContext } from '@gravity-ui/aikit';",
+    "related": ["ContextItem", "ContextIndicator", "PromptInputHeader", "PromptInput"]
   },
   {
     "type": "component",

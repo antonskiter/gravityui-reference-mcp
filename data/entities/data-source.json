@@ -23,7 +23,7 @@
       "Direct react-query QueryClient usage when data-source patterns are in use — use ClientDataManager methods instead"
     ],
     "import_statement": "import { ClientDataManager } from '@gravity-ui/data-source';",
-    "related": ["DataManagerContext", "DataManagerProvider", "makePlainQueryDataSource", "makeInfiniteQueryDataSource"],
+    "related": ["DataManagerContext", "DataManagerProvider", "makePlainQueryDataSource", "makeInfiniteQueryDataSource", "DataSourceProvider"],
     "signature": "new ClientDataManager(config?: ClientDataManagerConfig): ClientDataManager",
     "parameters": [
       {
@@ -40,6 +40,189 @@
       "await dataManager.invalidateTag('users');",
       "await dataManager.invalidateTags(['user', 'profile']);"
     ]
+  },
+  {
+    "type": "utility",
+    "name": "composeFullKey",
+    "library": "data-source",
+    "description": "Composes a full react-query query key array for a data source, including the source name, its tags, and the composed key string. Used internally by the library to build structured cache keys.",
+    "keywords": [
+      "query key",
+      "cache key",
+      "full key",
+      "tags",
+      "react-query",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "Building a full cache key that includes tags for targeted cache invalidation",
+      "Passing to react-query options directly when composing custom query options"
+    ],
+    "avoid": [
+      "Using as a user-facing key string — prefer composeKey for readable string keys"
+    ],
+    "import_statement": "import { composeFullKey } from '@gravity-ui/data-source';",
+    "related": ["composeKey", "hasTag", "makePlainQueryDataSource"],
+    "signature": "composeFullKey<TDataSource extends AnyDataSource>(dataSource: TDataSource, params: DataSourceParams<TDataSource>): ReadonlyArray<string>",
+    "parameters": [
+      {
+        "name": "dataSource",
+        "type": "AnyDataSource",
+        "required": true,
+        "description": "Data source instance created with makePlainQueryDataSource or makeInfiniteQueryDataSource."
+      },
+      {
+        "name": "params",
+        "type": "DataSourceParams<TDataSource>",
+        "required": true,
+        "description": "Parameters for the query; can be idle."
+      }
+    ],
+    "return_type": "ReadonlyArray<string>",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "composeInfiniteQueryOptions",
+    "library": "data-source",
+    "description": "Composes react-query infinite query observer options from a data source, context, params, and optional overrides. Used internally by useQueryData but available for custom integration with useInfiniteQuery.",
+    "keywords": [
+      "infinite query",
+      "query options",
+      "react-query",
+      "compose",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "When integrating an infinite data source directly with react-query's useInfiniteQuery without useQueryData"
+    ],
+    "avoid": [
+      "In most cases useQueryData handles this — use composeInfiniteQueryOptions only for advanced custom integration"
+    ],
+    "import_statement": "import { composeInfiniteQueryOptions } from '@gravity-ui/data-source';",
+    "related": ["composePlainQueryOptions", "makeInfiniteQueryDataSource", "useQueryData"],
+    "signature": "composeInfiniteQueryOptions(context: DataSourceContext, dataSource: AnyInfiniteQueryDataSource, params: DataSourceParams, options?: Partial<DataSourceOptions>): InfiniteQueryObserverExtendedOptions",
+    "parameters": [
+      {
+        "name": "context",
+        "type": "DataSourceContext",
+        "required": true,
+        "description": "Query data source context (from useQueryContext)."
+      },
+      {
+        "name": "dataSource",
+        "type": "AnyInfiniteQueryDataSource",
+        "required": true,
+        "description": "Infinite query data source."
+      },
+      {
+        "name": "params",
+        "type": "DataSourceParams",
+        "required": true,
+        "description": "Query parameters."
+      },
+      {
+        "name": "options",
+        "type": "Partial<DataSourceOptions>",
+        "required": false,
+        "description": "Optional overrides for query options."
+      }
+    ],
+    "return_type": "InfiniteQueryObserverExtendedOptions",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "composeKey",
+    "library": "data-source",
+    "description": "Composes a stable string cache key for a data source and its params. Returns a human-readable string like 'user(hash)' or 'user:idle' when params is idle.",
+    "keywords": [
+      "cache key",
+      "query key",
+      "string key",
+      "react-query",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "Building a string key for cache lookups or logging",
+      "Checking whether a query key corresponds to a specific data source"
+    ],
+    "avoid": [
+      "Using as the full react-query queryKey — use composeFullKey instead for tag support"
+    ],
+    "import_statement": "import { composeKey } from '@gravity-ui/data-source';",
+    "related": ["composeFullKey", "hasTag"],
+    "signature": "composeKey<TDataSource extends AnyDataSource>(dataSource: TDataSource, params: DataSourceParams<TDataSource>): string",
+    "parameters": [
+      {
+        "name": "dataSource",
+        "type": "AnyDataSource",
+        "required": true,
+        "description": "Data source instance."
+      },
+      {
+        "name": "params",
+        "type": "DataSourceParams<TDataSource>",
+        "required": true,
+        "description": "Query parameters or idle symbol."
+      }
+    ],
+    "return_type": "string",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "composePlainQueryOptions",
+    "library": "data-source",
+    "description": "Composes react-query query observer options from a plain data source, context, params, and optional overrides. Used internally by useQueryData but available for custom integration with useQuery.",
+    "keywords": [
+      "plain query",
+      "query options",
+      "react-query",
+      "compose",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "When integrating a plain data source directly with react-query's useQuery without useQueryData"
+    ],
+    "avoid": [
+      "In most cases useQueryData handles this — use composePlainQueryOptions only for advanced custom integration"
+    ],
+    "import_statement": "import { composePlainQueryOptions } from '@gravity-ui/data-source';",
+    "related": ["composeInfiniteQueryOptions", "makePlainQueryDataSource", "useQueryData"],
+    "signature": "composePlainQueryOptions(context: DataSourceContext, dataSource: AnyPlainQueryDataSource, params: DataSourceParams, options?: Partial<DataSourceOptions>): QueryObserverExtendedOptions",
+    "parameters": [
+      {
+        "name": "context",
+        "type": "DataSourceContext",
+        "required": true,
+        "description": "Query data source context (from useQueryContext)."
+      },
+      {
+        "name": "dataSource",
+        "type": "AnyPlainQueryDataSource",
+        "required": true,
+        "description": "Plain query data source."
+      },
+      {
+        "name": "params",
+        "type": "DataSourceParams",
+        "required": true,
+        "description": "Query parameters."
+      },
+      {
+        "name": "options",
+        "type": "Partial<DataSourceOptions>",
+        "required": false,
+        "description": "Optional overrides for query options."
+      }
+    ],
+    "return_type": "QueryObserverExtendedOptions",
+    "kind": "function"
   },
   {
     "type": "component",
@@ -214,10 +397,11 @@
       "Wrapping the application root to provide DataManager to all descendant components"
     ],
     "avoid": [
-      "Providing multiple DataManagers in nested trees — use a single root provider"
+      "Providing multiple DataManagers in nested trees — use a single root provider",
+      "Use DataSourceProvider instead when using ClientDataManager, as it also sets up QueryClientProvider"
     ],
     "import_statement": "import { DataManagerProvider } from '@gravity-ui/data-source';",
-    "related": ["ClientDataManager", "DataManagerContext", "useDataManager"],
+    "related": ["ClientDataManager", "DataManagerContext", "useDataManager", "DataSourceProvider"],
     "props": [
       {
         "name": "dataManager",
@@ -232,6 +416,197 @@
         "description": "React children."
       }
     ]
+  },
+  {
+    "type": "component",
+    "name": "DataSourceProvider",
+    "library": "data-source",
+    "description": "All-in-one React provider that wraps both QueryClientProvider and DataManagerProvider for a ClientDataManager. Also sets up query normalizer subscription if one is configured. Preferred over DataManagerProvider for most applications.",
+    "keywords": [
+      "provider",
+      "context",
+      "data manager",
+      "react-query",
+      "query client",
+      "normalizer",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "As the single top-level provider when using ClientDataManager",
+      "When a query normalizer is configured on the ClientDataManager"
+    ],
+    "avoid": [
+      "Nesting inside an existing QueryClientProvider — DataSourceProvider creates its own"
+    ],
+    "import_statement": "import { DataSourceProvider } from '@gravity-ui/data-source';",
+    "related": ["ClientDataManager", "DataManagerProvider", "useDataManager"],
+    "props": [
+      {
+        "name": "dataManager",
+        "type": "ClientDataManager",
+        "required": true,
+        "description": "The ClientDataManager instance to provide."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": "React children."
+      }
+    ],
+    "examples": [
+      "const dataManager = new ClientDataManager();\n\nfunction App() {\n  return (\n    <DataSourceProvider dataManager={dataManager}>\n      <MyApp />\n    </DataSourceProvider>\n  );\n}"
+    ]
+  },
+  {
+    "type": "utility",
+    "name": "getError",
+    "library": "data-source",
+    "description": "Returns the first non-null error from an array of query states, or null if all are error-free. Useful for aggregating errors from multiple queries.",
+    "keywords": [
+      "error",
+      "aggregate",
+      "query state",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "Getting the first error from multiple combined query results"
+    ],
+    "avoid": [],
+    "import_statement": "import { getError } from '@gravity-ui/data-source';",
+    "related": ["getStatus", "mergeStatuses", "useQueryResponses"],
+    "signature": "getError<T>(states: { error: T | null }[]): NonNullable<T> | null",
+    "parameters": [
+      {
+        "name": "states",
+        "type": "{ error: T | null }[]",
+        "required": true,
+        "description": "Array of objects with an error field."
+      }
+    ],
+    "return_type": "NonNullable<T> | null",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "getProgressiveRefetch",
+    "library": "data-source",
+    "description": "Creates a refetch interval function that progressively increases the interval between refetches up to a maximum, using exponential backoff. Returns a function compatible with react-query's refetchInterval option.",
+    "keywords": [
+      "refetch interval",
+      "progressive refetch",
+      "exponential backoff",
+      "polling",
+      "react-query",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "Polling an endpoint with increasing delays to reduce server load over time",
+      "Implementing progressive retry logic for long-running background updates"
+    ],
+    "avoid": [
+      "Static polling — use a plain number for refetchInterval instead"
+    ],
+    "import_statement": "import { getProgressiveRefetch } from '@gravity-ui/data-source';",
+    "related": ["makePlainQueryDataSource"],
+    "signature": "getProgressiveRefetch(options: ProgressiveRefetchOptions): RefetchIntervalFunction",
+    "parameters": [
+      {
+        "name": "options.minInterval",
+        "type": "number",
+        "required": true,
+        "description": "Minimum refetch interval in milliseconds (used for the first refetch)."
+      },
+      {
+        "name": "options.maxInterval",
+        "type": "number",
+        "required": true,
+        "description": "Maximum refetch interval in milliseconds."
+      },
+      {
+        "name": "options.multiplier",
+        "type": "number",
+        "required": false,
+        "description": "Exponential multiplier for each successive interval. Defaults to 2."
+      }
+    ],
+    "return_type": "RefetchIntervalFunction",
+    "kind": "function",
+    "examples": [
+      "const dataSource = makePlainQueryDataSource({\n  name: 'status',\n  fetch: skipContext(fetchStatus),\n  options: {\n    refetchInterval: getProgressiveRefetch({ minInterval: 1000, maxInterval: 30000 }),\n  },\n});"
+    ]
+  },
+  {
+    "type": "utility",
+    "name": "getStatus",
+    "library": "data-source",
+    "description": "Returns the merged DataLoaderStatus from an array of query states. Errors take priority over loading, which takes priority over success.",
+    "keywords": [
+      "status",
+      "aggregate",
+      "query state",
+      "loading",
+      "error",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "Computing a single status from multiple combined query results without creating a full useQueryResponses hook"
+    ],
+    "avoid": [],
+    "import_statement": "import { getStatus } from '@gravity-ui/data-source';",
+    "related": ["getError", "mergeStatuses", "useQueryResponses"],
+    "signature": "getStatus(states: { status: DataLoaderStatus }[]): DataLoaderStatus",
+    "parameters": [
+      {
+        "name": "states",
+        "type": "{ status: DataLoaderStatus }[]",
+        "required": true,
+        "description": "Array of objects with a status field."
+      }
+    ],
+    "return_type": "DataLoaderStatus",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "hasTag",
+    "library": "data-source",
+    "description": "Checks whether a query key array contains a specific data source tag. Ignores the first element (source name) and last element (full key string) to match only intermediate tag positions.",
+    "keywords": [
+      "tag",
+      "query key",
+      "cache key",
+      "invalidate",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "Filtering queries during cache invalidation by checking if their key contains a specific tag"
+    ],
+    "avoid": [],
+    "import_statement": "import { hasTag } from '@gravity-ui/data-source';",
+    "related": ["composeFullKey", "composeKey"],
+    "signature": "hasTag(key: DataSourceKey, tag: DataSourceTag): boolean",
+    "parameters": [
+      {
+        "name": "key",
+        "type": "DataSourceKey",
+        "required": true,
+        "description": "Query key array to check."
+      },
+      {
+        "name": "tag",
+        "type": "DataSourceTag",
+        "required": true,
+        "description": "Tag string to search for."
+      }
+    ],
+    "return_type": "boolean",
+    "kind": "function"
   },
   {
     "type": "utility",
@@ -265,6 +640,67 @@
       "const { data } = useQueryData(userDataSource, userId ? { userId } : idle);",
       "// Query won't fire until condition is met, status stays 'success'"
     ]
+  },
+  {
+    "type": "utility",
+    "name": "isAbortable",
+    "library": "data-source",
+    "description": "Type guard that checks whether a value has an AbortSignal-compatible signal property, indicating it can be used with AbortController cancellation.",
+    "keywords": [
+      "abort",
+      "signal",
+      "type guard",
+      "cancellation",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "Checking if a fetch context or request object supports AbortSignal before wiring cancellation"
+    ],
+    "avoid": [],
+    "import_statement": "import { isAbortable } from '@gravity-ui/data-source';",
+    "related": ["isCancellable", "withCancellation"],
+    "signature": "isAbortable(value: unknown): value is { signal: AbortSignal }",
+    "parameters": [
+      {
+        "name": "value",
+        "type": "unknown",
+        "required": true,
+        "description": "Value to check."
+      }
+    ],
+    "return_type": "value is { signal: AbortSignal }",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "isCancellable",
+    "library": "data-source",
+    "description": "Type guard that checks whether a value has a cancel() method, indicating it supports the Cancellable interface used by data-source for request cancellation.",
+    "keywords": [
+      "cancel",
+      "type guard",
+      "cancellation",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "Checking if a fetch result object supports cancel() before wiring AbortSignal cancellation"
+    ],
+    "avoid": [],
+    "import_statement": "import { isCancellable } from '@gravity-ui/data-source';",
+    "related": ["isAbortable", "withCancellation"],
+    "signature": "isCancellable(value: unknown): value is Cancellable",
+    "parameters": [
+      {
+        "name": "value",
+        "type": "unknown",
+        "required": true,
+        "description": "Value to check."
+      }
+    ],
+    "return_type": "value is Cancellable",
+    "kind": "function"
   },
   {
     "type": "utility",
@@ -401,6 +837,78 @@
   },
   {
     "type": "utility",
+    "name": "mergeStatuses",
+    "library": "data-source",
+    "description": "Merges an array of DataLoaderStatus values into a single status. 'error' takes priority, then 'loading', then 'success'.",
+    "keywords": [
+      "status",
+      "merge",
+      "aggregate",
+      "loading",
+      "error",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "Combining loading/error states from multiple queries into a single DataLoader-compatible status"
+    ],
+    "avoid": [],
+    "import_statement": "import { mergeStatuses } from '@gravity-ui/data-source';",
+    "related": ["getStatus", "getError", "useQueryResponses"],
+    "signature": "mergeStatuses(statuses: DataLoaderStatus[]): DataLoaderStatus",
+    "parameters": [
+      {
+        "name": "statuses",
+        "type": "DataLoaderStatus[]",
+        "required": true,
+        "description": "Array of status values to merge."
+      }
+    ],
+    "return_type": "DataLoaderStatus",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "normalizeStatus",
+    "library": "data-source",
+    "description": "Converts react-query's QueryStatus and FetchStatus pair into a single DataLoaderStatus value ('loading' | 'success' | 'error'). Handles the pending+fetching combination that maps to 'loading'.",
+    "keywords": [
+      "status",
+      "normalize",
+      "react-query",
+      "loading",
+      "error",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "Converting raw react-query status values to data-source's DataLoaderStatus for use with DataLoader"
+    ],
+    "avoid": [
+      "When using useQueryData — normalization is handled automatically"
+    ],
+    "import_statement": "import { normalizeStatus } from '@gravity-ui/data-source';",
+    "related": ["mergeStatuses", "getStatus"],
+    "signature": "normalizeStatus(status: QueryStatus, fetchStatus: FetchStatus): DataLoaderStatus",
+    "parameters": [
+      {
+        "name": "status",
+        "type": "QueryStatus",
+        "required": true,
+        "description": "React-query's QueryStatus ('pending' | 'success' | 'error')."
+      },
+      {
+        "name": "fetchStatus",
+        "type": "FetchStatus",
+        "required": true,
+        "description": "React-query's FetchStatus ('fetching' | 'paused' | 'idle')."
+      }
+    ],
+    "return_type": "DataLoaderStatus",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
     "name": "skipContext",
     "library": "data-source",
     "description": "Utility function that wraps an existing fetch function to skip the context and fetchContext arguments automatically prepended by data-source. Allows using plain API functions without modification.",
@@ -462,6 +970,31 @@
     "signature": "useDataManager(): DataManager",
     "parameters": [],
     "return_type": "DataManager"
+  },
+  {
+    "type": "hook",
+    "name": "useQueryContext",
+    "library": "data-source",
+    "description": "React hook that returns the QueryDataSourceContext, which wraps react-query's QueryClient. Used to pass context to composeInfiniteQueryOptions and composePlainQueryOptions for direct react-query integration.",
+    "keywords": [
+      "hook",
+      "query context",
+      "react-query",
+      "query client",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "When manually composing query options with composePlainQueryOptions or composeInfiniteQueryOptions"
+    ],
+    "avoid": [
+      "In normal component data fetching — use useQueryData instead"
+    ],
+    "import_statement": "import { useQueryContext } from '@gravity-ui/data-source';",
+    "related": ["composePlainQueryOptions", "composeInfiniteQueryOptions", "useQueryData"],
+    "signature": "useQueryContext(): QueryDataSourceContext",
+    "parameters": [],
+    "return_type": "QueryDataSourceContext"
   },
   {
     "type": "hook",
@@ -551,6 +1084,66 @@
     ]
   },
   {
+    "type": "hook",
+    "name": "useRefetchAll",
+    "library": "data-source",
+    "description": "React hook that returns a stable callback that calls refetch() on every provided query state. Used to trigger a full refresh of all combined queries at once.",
+    "keywords": [
+      "hook",
+      "refetch",
+      "refresh",
+      "all queries",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "Creating a single 'Refresh All' handler for multiple data sources"
+    ],
+    "avoid": [],
+    "import_statement": "import { useRefetchAll } from '@gravity-ui/data-source';",
+    "related": ["useRefetchErrored", "useQueryResponses", "useQueryData"],
+    "signature": "useRefetchAll(states: { refetch: Function }[]): () => void",
+    "parameters": [
+      {
+        "name": "states",
+        "type": "{ refetch: Function }[]",
+        "required": true,
+        "description": "Array of query result objects that have a refetch method."
+      }
+    ],
+    "return_type": "() => void"
+  },
+  {
+    "type": "hook",
+    "name": "useRefetchErrored",
+    "library": "data-source",
+    "description": "React hook that returns a stable callback that calls refetch() only for query states that have an error. Used as the errorAction for DataLoader when multiple queries are combined.",
+    "keywords": [
+      "hook",
+      "refetch",
+      "retry",
+      "errored queries",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "Creating a 'Retry Failed' handler that selectively refetches only errored queries"
+    ],
+    "avoid": [],
+    "import_statement": "import { useRefetchErrored } from '@gravity-ui/data-source';",
+    "related": ["useRefetchAll", "useQueryResponses", "useQueryData"],
+    "signature": "useRefetchErrored<TError>(states: { error: TError | null; refetch: Function }[]): () => void",
+    "parameters": [
+      {
+        "name": "states",
+        "type": "{ error: TError | null; refetch: Function }[]",
+        "required": true,
+        "description": "Array of query result objects with error and refetch fields."
+      }
+    ],
+    "return_type": "() => void"
+  },
+  {
     "type": "utility",
     "name": "withCancellation",
     "library": "data-source",
@@ -571,7 +1164,7 @@
       "When the underlying fetch already handles AbortSignal natively"
     ],
     "import_statement": "import { withCancellation } from '@gravity-ui/data-source';",
-    "related": ["skipContext", "withCatch"],
+    "related": ["skipContext", "withCatch", "isCancellable", "isAbortable"],
     "signature": "withCancellation(fn: Function): Function",
     "parameters": [
       {
@@ -619,6 +1212,40 @@
       }
     ],
     "return_type": "Function",
+    "kind": "function"
+  },
+  {
+    "type": "utility",
+    "name": "withDataManager",
+    "library": "data-source",
+    "description": "Higher-order component that injects the DataManager from context as a dataManager prop into the wrapped component. Useful for class components or components that need DataManager without hooks.",
+    "keywords": [
+      "HOC",
+      "higher order component",
+      "data manager",
+      "inject",
+      "context",
+      "gravity-ui",
+      "data-source"
+    ],
+    "when_to_use": [
+      "Injecting DataManager into a class component or a component that cannot use hooks directly"
+    ],
+    "avoid": [
+      "In function components — use useDataManager hook instead"
+    ],
+    "import_statement": "import { withDataManager } from '@gravity-ui/data-source';",
+    "related": ["useDataManager", "DataManagerProvider"],
+    "signature": "withDataManager<T>(Component: React.ComponentType<T & WithDataManagerProps>): React.FC<T>",
+    "parameters": [
+      {
+        "name": "Component",
+        "type": "React.ComponentType<T & WithDataManagerProps>",
+        "required": true,
+        "description": "Component to wrap; must accept a dataManager prop."
+      }
+    ],
+    "return_type": "React.FC<T>",
     "kind": "function"
   }
 ]
