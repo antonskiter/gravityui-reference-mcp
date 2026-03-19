@@ -55,8 +55,8 @@ describe('Completeness: Data Coverage', () => {
   });
 
   it('overview has not_for for every library', () => {
-    const missing = data.overview.libraries.filter((l: any) => !l.not_for);
-    if (missing.length > 0) console.log('Libraries without not_for:', missing.map((l: any) => l.id).join(', '));
+    const missing = data.overview.libraries.filter(l => !l.not_for);
+    if (missing.length > 0) console.log('Libraries without not_for:', missing.map(l => l.id).join(', '));
     expect(missing.length).toBe(0);
   });
 });

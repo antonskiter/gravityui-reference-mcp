@@ -201,6 +201,7 @@ export const OverviewSchema = z.object({
     id: z.string(),
     package: z.string(),
     purpose: z.string(),
+    not_for: z.string().optional(),
     component_count: z.number(),
     depends_on: z.array(z.string()).default([]),
     is_peer_dependency_of: z.array(z.string()).default([]),
