@@ -118,7 +118,14 @@ function formatEntity(entity: Entity): string {
   }
 
   if (entity.type === 'recipe') {
-    // decision section is already shown as entity-level when_to_use/avoid
+    const decision = entity.sections.find(s => s.type === 'decision');
+    if (decision && decision.type === 'decision' && decision.choice_matrix.length > 0) {
+      lines.push('When to pick which:');
+      for (const c of decision.choice_matrix) {
+        lines.push(`   ${c.situation} → ${c.component}${c.why ? ` — ${c.why}` : ''}`);
+      }
+      lines.push('');
+    }
     const exampleSections = entity.sections.filter(s => s.type === 'example');
     for (const s of exampleSections) {
       if (s.type === 'example') {
