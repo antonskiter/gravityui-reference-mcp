@@ -25,9 +25,10 @@ export function handleFind(data: LoadedData, input: FindInput): FindOutput {
   });
 
   // Filter low-relevance noise: require minimum absolute score based on query length
-  // Short queries ("button") naturally score high; long gibberish queries score low
+  // Short queries ("button") naturally score high; long gibberish queries score low on each word
+  // MiniSearch scores ~5-15 per matched word, so threshold = 2 * queryWords filters scattered partial matches
   const queryWords = input.query.trim().split(/\s+/).length;
-  const minAbsoluteScore = queryWords <= 2 ? 1 : queryWords <= 4 ? 3 : 5;
+  const minAbsoluteScore = queryWords <= 2 ? 1 : queryWords * 2;
 
   let results = searchResults
     .filter(sr => sr.score >= minAbsoluteScore)
