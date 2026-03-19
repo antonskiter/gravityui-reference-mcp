@@ -13,7 +13,7 @@ interface IndexDocument {
 }
 
 const FIELDS = ['name', 'description', 'keywords', 'when_to_use'];
-const STORE_FIELDS = ['id', 'entityType', 'library', 'name'];
+const STORE_FIELDS = ['id', 'entityType', 'library', 'name', 'description'];
 const BOOST = { name: 3, keywords: 2, when_to_use: 2, description: 1 };
 
 function entityToDoc(entity: Entity): IndexDocument {
@@ -50,6 +50,7 @@ export interface SearchResult {
   entityType: string;
   library: string;
   name: string;
+  description: string;
   score: number;
 }
 
@@ -70,6 +71,7 @@ export function searchEntities(
     entityType: r.entityType as string,
     library: r.library as string,
     name: r.name as string,
+    description: r.description as string,
     score: r.score,
   }));
 }

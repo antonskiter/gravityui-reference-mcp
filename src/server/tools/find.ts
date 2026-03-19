@@ -1,4 +1,4 @@
-import { searchEntities, type SearchResult } from '../index-builder.js';
+import { searchEntities } from '../index-builder.js';
 import type { LoadedData } from '../loader.js';
 
 export interface FindInput {
@@ -24,22 +24,13 @@ export function handleFind(data: LoadedData, input: FindInput): FindOutput {
     limit: 10,
   });
 
-  let results = searchResults
-    .map((sr: SearchResult) => {
-      const entities = data.entityByName.get(sr.name.toLowerCase());
-      const entity = entities?.find(e => e.library === sr.library && e.type === sr.entityType)
-        ?? entities?.find(e => e.library === sr.library)
-        ?? entities?.[0];
-      const description = entity?.description ?? '';
-
-      return {
-        name: sr.name,
-        type: sr.entityType,
-        library: sr.library,
-        description,
-        score: sr.score,
-      };
-    });
+  let results = searchResults.map(sr => ({
+    name: sr.name,
+    type: sr.entityType,
+    library: sr.library,
+    description: sr.description,
+    score: sr.score,
+  }));
 
   if (input.library) {
     results = results.filter(r => r.library === input.library);
