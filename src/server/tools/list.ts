@@ -78,6 +78,17 @@ export function formatList(output: ListOutput): string {
   }
 
   // Filtered entity list
+  if (output.items.length === 0) {
+    const parts: string[] = ['No entities found'];
+    const f = output.filters;
+    if (f.library) parts.push(`library "${f.library}"`);
+    if (f.type) parts.push(`type "${f.type}"`);
+    if (f.category) parts.push(`category "${f.category}"`);
+    return parts.length > 1
+      ? `${parts[0]} for ${parts.slice(1).join(', ')}. Check spelling or try list() to see available options.`
+      : `${parts[0]}. Try list() to see available options.`;
+  }
+
   const lines: string[] = [];
   for (const e of output.items) {
     const lib = e.library ? ` (${e.library})` : '';

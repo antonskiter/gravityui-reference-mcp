@@ -24,20 +24,26 @@ export function handleFind(data: LoadedData, input: FindInput): FindOutput {
     limit: 10,
   });
 
-  let results = searchResults.map((sr: SearchResult) => {
-    const entities = data.entityByName.get(sr.name.toLowerCase());
-    const entity = entities?.find(e => !input.library || e.library === sr.library)
-      ?? entities?.[0];
-    const description = entity?.description ?? '';
+  // Filter out low-relevance noise — if top result score is 10x higher than a result, it's noise
+  const topScore = searchResults[0]?.score ?? 0;
+  const minScore = topScore > 0 ? topScore * 0.05 : 0;
 
-    return {
-      name: sr.name,
-      type: sr.entityType,
-      library: sr.library,
-      description,
-      score: sr.score,
-    };
-  });
+  let results = searchResults
+    .filter(sr => sr.score >= minScore)
+    .map((sr: SearchResult) => {
+      const entities = data.entityByName.get(sr.name.toLowerCase());
+      const entity = entities?.find(e => !input.library || e.library === sr.library)
+        ?? entities?.[0];
+      const description = entity?.description ?? '';
+
+      return {
+        name: sr.name,
+        type: sr.entityType,
+        library: sr.library,
+        description,
+        score: sr.score,
+      };
+    });
 
   if (input.library) {
     results = results.filter(r => r.library === input.library);
