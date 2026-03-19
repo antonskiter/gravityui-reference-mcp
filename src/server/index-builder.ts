@@ -59,7 +59,15 @@ export function searchEntities(
   options?: { type?: string; limit?: number },
 ): SearchResult[] {
   const limit = options?.limit ?? 10;
-  const raw = index.search(query);
+
+  // First try exact + prefix (no fuzzy) for precise results
+  let raw = index.search(query, { fuzzy: false, prefix: true, boost: BOOST });
+
+  // Fallback to fuzzy only if no exact results
+  if (raw.length === 0) {
+    raw = index.search(query, { fuzzy: 0.2, prefix: true, boost: BOOST });
+  }
+
   const filtered = options?.type
     ? raw.filter(r => r.entityType === options.type)
     : raw;
