@@ -21,7 +21,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/webpack-i18n-assets-plugin",
-    "not_for": "Not for development-mode translation. Not for Webpack 4 projects. Only supports string literal i18n keys, not template strings.",
     "depends_on": [],
     "component_count": 0
   },

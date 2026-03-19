@@ -20,7 +20,6 @@
       "@gravity-ui/icons"
     ],
     "package": "@gravity-ui/components",
-    "not_for": "Not a replacement for uikit — extends it with app-level patterns. Not for AI interfaces (use aikit) or navigation shell (use navigation).",
     "depends_on": [
       "@gravity-ui/uikit",
       "@gravity-ui/icons"

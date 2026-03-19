@@ -22,7 +22,6 @@
       "@gravity-ui/icons"
     ],
     "package": "@gravity-ui/dynamic-forms",
-    "not_for": "Not for individual form controls — use uikit for standard forms. Not for dialog-based forms — use @gravity-ui/dialog-fields. Only justified when the form structure itself must be data-driven.",
     "depends_on": [
       "@gravity-ui/uikit",
       "@gravity-ui/icons"

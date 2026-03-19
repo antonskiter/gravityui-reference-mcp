@@ -17,7 +17,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/charts",
-    "not_for": "Not for canvas-based high-performance timeseries — use @gravity-ui/yagr. Not when chart type is managed via a plugin registry — use chartkit.",
     "depends_on": [],
     "component_count": 2
   },

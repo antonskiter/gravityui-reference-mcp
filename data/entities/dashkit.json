@@ -20,7 +20,6 @@
       "@gravity-ui/icons"
     ],
     "package": "@gravity-ui/dashkit",
-    "not_for": "Not for static dashboard layouts — use CSS grid/flex. Not for simple page layouts — the plugin registration overhead is only justified for user-configurable widget grids.",
     "depends_on": [
       "@gravity-ui/uikit",
       "@gravity-ui/icons"

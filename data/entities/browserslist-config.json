@@ -19,7 +19,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/browserslist-config",
-    "not_for": "Not for projects needing IE11 or legacy browser support. Not suitable for highly customized browser audiences without extension.",
     "depends_on": [],
     "component_count": 0
   },

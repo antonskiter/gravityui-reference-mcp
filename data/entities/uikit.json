@@ -19,7 +19,6 @@
       "@gravity-ui/icons"
     ],
     "package": "@gravity-ui/uikit",
-    "not_for": "Not for landing/marketing pages — use page-constructor. Not for AI chat interfaces — use aikit. Not for date pickers — use date-components. Not for advanced virtualized tables — use @gravity-ui/table.",
     "depends_on": [
       "@gravity-ui/icons"
     ],

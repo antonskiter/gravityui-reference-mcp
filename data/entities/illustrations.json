@@ -17,7 +17,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/illustrations",
-    "not_for": "Not for functional UI icons — use @gravity-ui/icons. Not for marketing or landing-page imagery.",
     "depends_on": [],
     "component_count": 0
   },

@@ -17,7 +17,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/icons",
-    "not_for": "Not for illustrations or marketing images — use @gravity-ui/illustrations. Icons are SVG data, not self-contained visual components.",
     "depends_on": [],
     "component_count": 0
   },

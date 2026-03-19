@@ -23,7 +23,6 @@
       "@gravity-ui/date-utils"
     ],
     "package": "@gravity-ui/date-components",
-    "not_for": "Not for date arithmetic or formatting without UI — use @gravity-ui/date-utils. Not for timezone utilities — use @gravity-ui/date-utils.",
     "depends_on": [
       "@gravity-ui/uikit",
       "@gravity-ui/icons",

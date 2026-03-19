@@ -19,7 +19,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/date-utils",
-    "not_for": "Not for rendering date pickers — use @gravity-ui/date-components. Not a React component library — pure utility functions.",
     "depends_on": [],
     "component_count": 0
   },

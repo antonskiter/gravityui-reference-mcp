@@ -17,7 +17,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/timeline",
-    "not_for": "Not for graph/flow diagrams — use @gravity-ui/graph. Not for bar/line/area charts — use chartkit or charts.",
     "depends_on": [],
     "component_count": 1
   },

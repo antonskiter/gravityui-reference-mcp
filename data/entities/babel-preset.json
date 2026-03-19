@@ -19,7 +19,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/babel-preset",
-    "not_for": "Not for projects with radically different browser targets or non-standard decorator proposals without config overrides.",
     "depends_on": [],
     "component_count": 0
   },

@@ -17,7 +17,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/i18n",
-    "not_for": "Not for ICU MessageFormat or React rich-text formatting — use @gravity-ui/i18n-react. Not for SSR with complex locale configs — use @gravity-ui/i18n-node.",
     "depends_on": [],
     "component_count": 0
   },

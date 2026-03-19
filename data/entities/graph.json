@@ -17,7 +17,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/graph",
-    "not_for": "Not for charts or data visualizations — use chartkit/charts/yagr. Not for timeline visualizations — use @gravity-ui/timeline.",
     "depends_on": [],
     "component_count": 5
   },

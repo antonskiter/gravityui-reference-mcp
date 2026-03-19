@@ -22,7 +22,6 @@
       "@gravity-ui/icons"
     ],
     "package": "@gravity-ui/page-constructor",
-    "not_for": "Not for application UI — use uikit. Not for blog pages — use blog-constructor. Not for dynamic server-rendered app pages.",
     "depends_on": [
       "@gravity-ui/uikit",
       "@gravity-ui/icons"

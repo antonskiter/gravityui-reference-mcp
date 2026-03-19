@@ -54,12 +54,11 @@ describe('Completeness: Data Coverage', () => {
     expect(libraryEntities.length).toBeGreaterThanOrEqual(34);
   });
 
-  it('library entities have not_for field', () => {
-    const libraryEntities = data.entities.filter(e => e.type === 'library') as Array<{ type: 'library'; name: string; not_for?: string }>;
-    const missing = libraryEntities.filter(l => !l.not_for);
-    if (missing.length > 0) console.log('Libraries without not_for:', missing.map(l => l.name).join(', '));
-    // Allow at most 2 missing to account for data gaps
-    expect(missing.length).toBeLessThanOrEqual(2);
+  it('library entities have avoid field (except system root)', () => {
+    const libraryEntities = data.entities.filter(e => e.type === 'library') as Array<{ type: 'library'; name: string; library: string; avoid?: string[] }>;
+    const missing = libraryEntities.filter(l => l.library !== 'gravity-ui' && (!l.avoid || l.avoid.length === 0));
+    if (missing.length > 0) console.log('Libraries without avoid:', missing.map(l => l.name).join(', '));
+    expect(missing.length).toBe(0);
   });
 });
 

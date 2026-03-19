@@ -23,7 +23,6 @@
       "@gravity-ui/icons"
     ],
     "package": "@gravity-ui/blog-constructor",
-    "not_for": "Not a general content framework — purpose-built for blog/article list and post pages. Not for application UI or landing pages — use uikit or page-constructor respectively.",
     "depends_on": [
       "@gravity-ui/page-constructor",
       "@gravity-ui/uikit",

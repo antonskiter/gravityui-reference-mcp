@@ -19,7 +19,6 @@
       "@gravity-ui/nodekit"
     ],
     "package": "@gravity-ui/expresskit",
-    "not_for": "Not for browser/frontend code — server-side Node.js only. Not for non-NodeKit Express apps — requires a NodeKit instance.",
     "depends_on": [
       "@gravity-ui/nodekit"
     ],

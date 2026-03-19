@@ -22,7 +22,6 @@
       "@gravity-ui/icons"
     ],
     "package": "@gravity-ui/markdown-editor",
-    "not_for": "Not for read-only markdown rendering — use @diplodoc/transform or similar. Requires a useMarkdownEditor instance — not a drop-in textarea replacement.",
     "depends_on": [
       "@gravity-ui/uikit",
       "@gravity-ui/icons"

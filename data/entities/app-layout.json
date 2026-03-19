@@ -19,7 +19,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/app-layout",
-    "not_for": "Not for client-side rendering — server-side (Node.js) only. Not for streaming-agnostic setups without the plugin API.",
     "depends_on": [],
     "component_count": 0
   },

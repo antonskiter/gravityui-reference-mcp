@@ -21,7 +21,6 @@
       "@gravity-ui/markdown-editor"
     ],
     "package": "@gravity-ui/aikit",
-    "not_for": "Not for general messaging or social chat — purpose-built for AI assistant/LLM interfaces. Not for standard form inputs — use uikit.",
     "depends_on": [
       "@gravity-ui/uikit",
       "@gravity-ui/icons",

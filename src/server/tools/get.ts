@@ -146,13 +146,49 @@ function formatEntity(entity: Entity): string {
     }
   }
 
-  if (entity.type === 'library') {
-    if (entity.not_for) {
-      lines.push(`Not for: ${entity.not_for}`);
+  if (entity.type === 'config-doc') {
+    if (entity.how_to_use) {
+      lines.push(`How to use: ${entity.how_to_use}`);
       lines.push('');
     }
+    if (entity.sub_configs && entity.sub_configs.length > 0) {
+      lines.push('Sub-configs:');
+      for (const sc of entity.sub_configs) lines.push(`   - ${sc}`);
+      lines.push('');
+    }
+  }
+
+  if (entity.type === 'guide') {
+    if (entity.content) {
+      lines.push('Content:');
+      lines.push(entity.content);
+      lines.push('');
+    }
+  }
+
+  if (entity.type === 'asset') {
+    if (entity.category) {
+      lines.push(`Category: ${entity.category}`);
+      lines.push('');
+    }
+  }
+
+  if (entity.type === 'library') {
     if (entity.depends_on.length > 0) {
       lines.push(`Depends on: ${entity.depends_on.join(', ')}`);
+      lines.push('');
+    }
+    if (entity.theming) {
+      lines.push(`Theming: ${entity.theming}`);
+      lines.push('');
+    }
+    if (entity.spacing) {
+      lines.push(`Spacing: ${entity.spacing}`);
+      lines.push('');
+    }
+    if (entity.typography) {
+      lines.push(`Typography: ${entity.typography}`);
+      lines.push('');
     }
   }
 

@@ -19,7 +19,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/eslint-config",
-    "not_for": "Not for projects with conflicting custom ESLint rules. Prettier peer dependency required for the prettier sub-config.",
     "depends_on": [],
     "component_count": 0
   },

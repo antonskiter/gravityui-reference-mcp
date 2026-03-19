@@ -19,7 +19,6 @@
       "@gravity-ui/uikit"
     ],
     "package": "@gravity-ui/chartkit",
-    "not_for": "Not for using a specific chart library directly without the plugin abstraction — use @gravity-ui/charts or @gravity-ui/yagr directly in that case.",
     "depends_on": [
       "@gravity-ui/uikit"
     ],

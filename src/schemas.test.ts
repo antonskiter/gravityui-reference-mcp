@@ -153,7 +153,6 @@ describe('library entity', () => {
       import_statement: "import {Button} from '@gravity-ui/uikit';",
       related: ['navigation'],
       package: '@gravity-ui/uikit',
-      not_for: 'Charts or data visualization',
       depends_on: [],
       is_peer_dependency_of: ['navigation'],
       component_count: 70,

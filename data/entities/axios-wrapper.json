@@ -19,7 +19,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/axios-wrapper",
-    "not_for": "Not for direct use — subclass it to define domain-specific API methods. Not for browser-unaware server environments.",
     "depends_on": [],
     "component_count": 0
   },

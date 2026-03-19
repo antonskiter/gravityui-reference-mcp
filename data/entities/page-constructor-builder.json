@@ -22,7 +22,6 @@
       "@gravity-ui/page-constructor"
     ],
     "package": "@gravity-ui/page-constructor-builder",
-    "not_for": "Not suitable for dynamic server-rendered applications — output is purely static HTML. Not for development-mode translation workflows.",
     "depends_on": [
       "@gravity-ui/page-constructor"
     ],

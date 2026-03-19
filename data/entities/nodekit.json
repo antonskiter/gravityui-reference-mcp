@@ -17,7 +17,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/nodekit",
-    "not_for": "Not for browser/frontend code — server-side Node.js only. Not for simple scripts that do not need logging or tracing infrastructure.",
     "depends_on": [],
     "component_count": 0
   },

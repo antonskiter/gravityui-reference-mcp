@@ -17,7 +17,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/tsconfig",
-    "not_for": "Not for browser-only ESM builds or projects targeting a different ES version without overriding compilerOptions.",
     "depends_on": [],
     "component_count": 0
   },

@@ -19,7 +19,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/data-source",
-    "not_for": "Not a replacement for direct react-query — complements it with conventions for Gravity UI apps. Not for mutation-only patterns without query caching needs.",
     "depends_on": [],
     "component_count": 4
   },

@@ -19,7 +19,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/stylelint-config",
-    "not_for": "Not for projects on older Node.js (<20) or Stylelint (<16.18.0) versions.",
     "depends_on": [],
     "component_count": 0
   },

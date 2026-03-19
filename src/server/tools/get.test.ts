@@ -43,6 +43,37 @@ const hook: Entity = {
   examples: ['const theme = useTheme();'],
 };
 
+const configDoc: Entity = {
+  type: 'config-doc', name: 'eslint-config', library: 'eslint-config',
+  description: 'ESLint config for Gravity UI.',
+  keywords: ['eslint', 'config'],
+  when_to_use: ['Setting up a new project'], avoid: ['Conflicting custom rules'],
+  import_statement: '',
+  related: [],
+  how_to_use: 'Install with npm and add to eslint.config.js.',
+  sub_configs: ['@gravity-ui/eslint-config', '@gravity-ui/eslint-config/prettier'],
+};
+
+const guide: Entity = {
+  type: 'guide', name: 'i18n-react', library: 'i18n',
+  description: 'React bindings for i18n.',
+  keywords: ['i18n', 'react'],
+  when_to_use: ['React components with hooks'], avoid: ['Server-side code'],
+  import_statement: "import { createIntl } from '@gravity-ui/i18n-react';",
+  related: ['I18N', 'i18n-node'],
+  content: 'Use createIntl() for ICU MessageFormat support in React.',
+};
+
+const asset: Entity = {
+  type: 'asset', name: 'AbbrApi', library: 'icons',
+  description: 'API abbreviation icon.',
+  keywords: ['api', 'icon'],
+  when_to_use: ['API documentation'], avoid: [],
+  import_statement: "import {AbbrApi} from '@gravity-ui/icons';",
+  related: ['Code', 'Terminal'],
+  category: 'development',
+};
+
 function makeData(entities: Entity[]): LoadedData {
   const entityByName = new Map<string, Entity[]>();
   for (const e of entities) {
@@ -140,5 +171,46 @@ describe('formatGet', () => {
     const result = handleGet(data, { name: 'Buton' });
     const text = formatGet(result);
     expect(text).toContain('not found');
+  });
+
+  it('formats config-doc with how_to_use and sub_configs', () => {
+    const data = makeData([configDoc]);
+    const result = handleGet(data, { name: 'eslint-config' });
+    const text = formatGet(result);
+    expect(text).toContain('config-doc');
+    expect(text).toContain('How to use:');
+    expect(text).toContain('Sub-configs:');
+    expect(text).toContain('@gravity-ui/eslint-config/prettier');
+    expect(text).toContain('When to use');
+    expect(text).toContain('Avoid');
+  });
+
+  it('formats guide with content', () => {
+    const data = makeData([guide]);
+    const result = handleGet(data, { name: 'i18n-react' });
+    const text = formatGet(result);
+    expect(text).toContain('guide');
+    expect(text).toContain('Content:');
+    expect(text).toContain('createIntl()');
+    expect(text).toContain('When to use');
+  });
+
+  it('formats guide without content field gracefully', () => {
+    const noContent: Entity = { ...guide, content: undefined };
+    const data = makeData([noContent]);
+    const result = handleGet(data, { name: 'i18n-react' });
+    const text = formatGet(result);
+    expect(text).toContain('guide');
+    expect(text).not.toContain('Content:');
+  });
+
+  it('formats asset with category', () => {
+    const data = makeData([asset]);
+    const result = handleGet(data, { name: 'AbbrApi' });
+    const text = formatGet(result);
+    expect(text).toContain('asset');
+    expect(text).toContain('Category: development');
+    expect(text).toContain('import');
+    expect(text).toContain('When to use');
   });
 });

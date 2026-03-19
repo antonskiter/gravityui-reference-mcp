@@ -17,7 +17,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/yagr",
-    "not_for": "Not for SVG/D3-level customization — use @gravity-ui/charts. Not for simple one-off charts without timeseries — use charts. Not when chart type is managed via a plugin registry — use chartkit.",
     "depends_on": [],
     "component_count": 1
   },

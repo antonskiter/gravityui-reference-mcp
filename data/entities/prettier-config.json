@@ -19,7 +19,6 @@
     "import_statement": "",
     "related": [],
     "package": "@gravity-ui/prettier-config",
-    "not_for": "Not for projects with different Prettier rules. Prettier must be installed separately as a peer dependency.",
     "depends_on": [],
     "component_count": 0
   },

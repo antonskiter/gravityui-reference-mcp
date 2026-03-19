@@ -25,8 +25,6 @@ export const ParameterSchema = z.object({
 
 const RecipeDecisionSection = z.object({
   type: z.literal('decision'),
-  when_to_use: z.array(z.string()).default([]),
-  when_not_to_use: z.array(z.string()).default([]),
   choice_matrix: z.array(z.object({
     situation: z.string(),
     component: z.string(),
@@ -75,14 +73,6 @@ const RecipeAvoidSection = z.object({
   items: z.array(z.string()),
 });
 
-const RecipeRelatedSection = z.object({
-  type: z.literal('related'),
-  items: z.array(z.object({
-    id: z.string(),
-    why: z.string().optional(),
-  })),
-});
-
 export const RecipeSectionSchema = z.discriminatedUnion('type', [
   RecipeDecisionSection,
   RecipeSetupSection,
@@ -91,7 +81,6 @@ export const RecipeSectionSchema = z.discriminatedUnion('type', [
   RecipeStructureSection,
   RecipeExampleSection,
   RecipeAvoidSection,
-  RecipeRelatedSection,
 ]);
 
 // ---------------------------------------------------------------------------
@@ -151,6 +140,7 @@ export const ConfigDocEntitySchema = EntityBase.extend({
   type: z.literal('config-doc'),
   how_to_use: z.string().optional(),
   readme: z.string().optional(),
+  sub_configs: z.array(z.string()).optional(),
 });
 
 export const GuideEntitySchema = EntityBase.extend({
@@ -169,10 +159,12 @@ export const LibraryEntitySchema = z.object({
   import_statement: z.string().default(''),
   related: z.array(z.string()).default([]),
   package: z.string().default(''),
-  not_for: z.string().optional(),
   depends_on: z.array(z.string()).default([]),
   is_peer_dependency_of: z.array(z.string()).default([]),
   component_count: z.number().default(0),
+  theming: z.string().optional(),
+  spacing: z.string().optional(),
+  typography: z.string().optional(),
 });
 
 export const RecipeEntitySchema = z.object({

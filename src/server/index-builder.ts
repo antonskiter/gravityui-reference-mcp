@@ -13,9 +13,9 @@ interface IndexDocument {
   avoid: string;
 }
 
-const FIELDS = ['name', 'description', 'keywords', 'when_to_use'];
+const FIELDS = ['name', 'description', 'keywords', 'when_to_use', 'avoid'];
 const STORE_FIELDS = ['id', 'entityType', 'library', 'name', 'description', 'when_to_use', 'avoid'];
-const BOOST = { name: 3, keywords: 2, when_to_use: 2, description: 1 };
+const BOOST = { name: 3, keywords: 2, when_to_use: 2, description: 1, avoid: 1 };
 
 function entityToDoc(entity: Entity): IndexDocument {
   return {

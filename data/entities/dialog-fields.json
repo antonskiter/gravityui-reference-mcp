@@ -22,7 +22,6 @@
       "@gravity-ui/icons"
     ],
     "package": "@gravity-ui/dialog-fields",
-    "not_for": "Not for individual form controls outside dialog context — use uikit form components. Not for simple single-field confirmations — use a plain Dialog with a single input.",
     "depends_on": [
       "@gravity-ui/uikit",
       "@gravity-ui/icons"

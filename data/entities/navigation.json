@@ -20,7 +20,6 @@
       "@gravity-ui/icons"
     ],
     "package": "@gravity-ui/navigation",
-    "not_for": "Not for in-page navigation (tabs, breadcrumbs) — use uikit Tabs and Breadcrumbs. Not for landing pages — use page-constructor.",
     "depends_on": [
       "@gravity-ui/uikit",
       "@gravity-ui/icons"
@@ -790,7 +789,8 @@
         "required": false,
         "description": "Additional CSS class"
       }
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
