@@ -34,9 +34,9 @@
     "sections": [
       {
         "type": "decision",
-        "when": "You need a highly customizable data grid with TanStack Table features (sorting, column visibility, row selection, grouping, virtualization) rendered with Gravity UI styling. BaseTable provides the headless rendering bridge while you control all behavior through TanStack Table APIs.",
-        "not_for": "Simple read-only tables with static columns (use Table from uikit). Key-value pairs (use DefinitionList). Card-based list layouts (use Card with Flex). Spreadsheet-like inline editing (use a dedicated spreadsheet component).",
-        "matrix": [
+        "when_to_use": ["You need a highly customizable data grid with TanStack Table features (sorting, column visibility, row selection, grouping, virtualization) rendered with Gravity UI styling. BaseTable provides the headless rendering bridge while you control all behavior through TanStack Table APIs."],
+        "when_not_to_use": ["Simple read-only tables with static columns (use Table from uikit). Key-value pairs (use DefinitionList). Card-based list layouts (use Card with Flex). Spreadsheet-like inline editing (use a dedicated spreadsheet component)."],
+        "choice_matrix": [
           {
             "situation": "Need full control over sorting, filtering, column visibility, and row models",
             "component": "BaseTable",
@@ -170,15 +170,15 @@
         "items": [
           {
             "id": "data-table",
-            "note": "For simpler tables without TanStack Table, use the data-table recipe with the uikit Table component."
+            "why": "For simpler tables without TanStack Table, use the data-table recipe with the uikit Table component."
           },
           {
             "id": "confirmation-dialog",
-            "note": "Confirm destructive bulk actions (delete selected) with a ConfirmDialog before executing."
+            "why": "Confirm destructive bulk actions (delete selected) with a ConfirmDialog before executing."
           },
           {
             "id": "page-states",
-            "note": "Show Skeleton rows in the BaseTable's emptyContent slot while data is loading from the server."
+            "why": "Show Skeleton rows in the BaseTable's emptyContent slot while data is loading from the server."
           }
         ]
       }
@@ -221,8 +221,8 @@
     "sections": [
       {
         "type": "decision",
-        "when": "You are building a single-page application that needs a persistent sidebar navigation with logo, menu items, and optional footer. AsideHeader provides the desktop shell while MobileHeader covers mobile viewports.",
-        "not_for": "Simple landing pages without navigation (use plain layout). Apps that only need a top horizontal navbar (use a custom header). Embedded widgets or micro-frontends that inherit navigation from a parent shell."
+        "when_to_use": ["You are building a single-page application that needs a persistent sidebar navigation with logo, menu items, and optional footer. AsideHeader provides the desktop shell while MobileHeader covers mobile viewports."],
+        "when_not_to_use": ["Simple landing pages without navigation (use plain layout). Apps that only need a top horizontal navbar (use a custom header). Embedded widgets or micro-frontends that inherit navigation from a parent shell."]
       },
       {
         "type": "setup",
@@ -349,15 +349,15 @@
         "items": [
           {
             "id": "theming-dark-mode",
-            "note": "Add a theme toggle (light/dark/system) in the sidebar footer using the renderFooter prop."
+            "why": "Add a theme toggle (light/dark/system) in the sidebar footer using the renderFooter prop."
           },
           {
             "id": "user-feedback",
-            "note": "Use Toaster for transient feedback messages triggered from navigation actions (e.g. settings saved)."
+            "why": "Use Toaster for transient feedback messages triggered from navigation actions (e.g. settings saved)."
           },
           {
             "id": "search-with-suggestions",
-            "note": "Add a global search bar in the sidebar subheader area using TextInput with autocomplete."
+            "why": "Add a global search bar in the sidebar subheader area using TextInput with autocomplete."
           }
         ]
       }
@@ -392,8 +392,8 @@
     "sections": [
       {
         "type": "decision",
-        "when": "User must explicitly approve or reject a single action. The dialog blocks interaction until resolved.",
-        "not_for": "Multi-step wizards (use Stepper), forms requiring user input beyond a checkbox (use Dialog directly), or non-blocking notifications (use Toaster)."
+        "when_to_use": ["User must explicitly approve or reject a single action. The dialog blocks interaction until resolved."],
+        "when_not_to_use": ["Multi-step wizards (use Stepper), forms requiring user input beyond a checkbox (use Dialog directly), or non-blocking notifications (use Toaster)."]
       },
       {
         "type": "setup",
@@ -477,11 +477,11 @@
         "items": [
           {
             "id": "user-feedback",
-            "note": "After the confirmed action completes, use Toaster to show success or error feedback."
+            "why": "After the confirmed action completes, use Toaster to show success or error feedback."
           },
           {
             "id": "page-states",
-            "note": "If the dialog triggers an async operation, handle loading/error states within the dialog using Button loading prop."
+            "why": "If the dialog triggers an async operation, handle loading/error states within the dialog using Button loading prop."
           }
         ]
       }
@@ -523,8 +523,8 @@
     "sections": [
       {
         "type": "decision",
-        "when": "You need a full application shell with sidebar navigation, page-level actions (breadcrumbs, buttons), and content areas with metric cards and date filtering. The sidebar should be collapsible and support multiple navigation items with icons.",
-        "not_for": "Simple single-page layouts without navigation (use plain div layout). Mobile-first apps (use MobileHeader from navigation). Landing or marketing pages (use page-constructor blocks). Settings panels with grouped options (use Settings from navigation)."
+        "when_to_use": ["You need a full application shell with sidebar navigation, page-level actions (breadcrumbs, buttons), and content areas with metric cards and date filtering. The sidebar should be collapsible and support multiple navigation items with icons."],
+        "when_not_to_use": ["Simple single-page layouts without navigation (use plain div layout). Mobile-first apps (use MobileHeader from navigation). Landing or marketing pages (use page-constructor blocks). Settings panels with grouped options (use Settings from navigation)."]
       },
       {
         "type": "setup",
@@ -660,15 +660,15 @@
         "items": [
           {
             "id": "theming-dark-mode",
-            "note": "Wrap the entire app in ThemeProvider before AsideHeader. The sidebar and all content inherit theme automatically."
+            "why": "Wrap the entire app in ThemeProvider before AsideHeader. The sidebar and all content inherit theme automatically."
           },
           {
             "id": "data-table",
-            "note": "Metric cards often lead to detail tables. Use the data-table recipe for drill-down views."
+            "why": "Metric cards often lead to detail tables. Use the data-table recipe for drill-down views."
           },
           {
             "id": "page-states",
-            "note": "Show Skeleton placeholders inside metric cards and chart areas while dashboard data is loading."
+            "why": "Show Skeleton placeholders inside metric cards and chart areas while dashboard data is loading."
           }
         ]
       }
@@ -707,8 +707,8 @@
     "sections": [
       {
         "type": "decision",
-        "when": "You need a paginated table where users search/filter rows, select items for bulk operations, and trigger per-row actions. Data is loaded from an API or local state and may span many pages.",
-        "not_for": "Simple read-only key-value display (use DefinitionList). Tree/hierarchical data (use TreeSelect). Fewer than 5 items with card-like layout (use Card list). Editable inline cells (use a spreadsheet-like component or custom solution)."
+        "when_to_use": ["You need a paginated table where users search/filter rows, select items for bulk operations, and trigger per-row actions. Data is loaded from an API or local state and may span many pages."],
+        "when_not_to_use": ["Simple read-only key-value display (use DefinitionList). Tree/hierarchical data (use TreeSelect). Fewer than 5 items with card-like layout (use Card list). Editable inline cells (use a spreadsheet-like component or custom solution)."]
       },
       {
         "type": "setup",
@@ -821,15 +821,15 @@
         "items": [
           {
             "id": "confirmation-dialog",
-            "note": "Use ConfirmDialog before executing destructive bulk actions like delete."
+            "why": "Use ConfirmDialog before executing destructive bulk actions like delete."
           },
           {
             "id": "user-feedback",
-            "note": "After bulk actions complete, show a Toaster notification with success or error status."
+            "why": "After bulk actions complete, show a Toaster notification with success or error status."
           },
           {
             "id": "page-states",
-            "note": "When filteredData is empty, consider showing a PlaceholderContainer illustration instead of just the emptyMessage string."
+            "why": "When filteredData is empty, consider showing a PlaceholderContainer illustration instead of just the emptyMessage string."
           }
         ]
       }
@@ -868,8 +868,8 @@
     "sections": [
       {
         "type": "decision",
-        "when": "Users need to select a start and end date to filter data, with quick preset options (last 7 days, last 30 days, this month) and a full calendar for custom ranges.",
-        "not_for": "Selecting a single date (use DatePicker). Selecting a single time without a date (use TimeInput). Always-visible calendar without a popover trigger (use RangeCalendar directly). Date input without a calendar dropdown (use DateField alone)."
+        "when_to_use": ["Users need to select a start and end date to filter data, with quick preset options (last 7 days, last 30 days, this month) and a full calendar for custom ranges."],
+        "when_not_to_use": ["Selecting a single date (use DatePicker). Selecting a single time without a date (use TimeInput). Always-visible calendar without a popover trigger (use RangeCalendar directly). Date input without a calendar dropdown (use DateField alone)."]
       },
       {
         "type": "setup",
@@ -986,11 +986,11 @@
         "items": [
           {
             "id": "data-table",
-            "note": "Use the date range filter above a data table to filter rows by creation date or timestamp."
+            "why": "Use the date range filter above a data table to filter rows by creation date or timestamp."
           },
           {
             "id": "page-states",
-            "note": "Show loading skeleton in the data area while refetching after a date range change."
+            "why": "Show loading skeleton in the data area while refetching after a date range change."
           }
         ]
       }
@@ -1026,8 +1026,8 @@
     "sections": [
       {
         "type": "decision",
-        "when": "Users need to upload files with visual feedback: thumbnails, progress bars, and the ability to remove files before or during upload.",
-        "not_for": "Single-click download links (use Button with href). Pasting rich content into a text editor (use the editor's built-in paste handler). Server-side file import from another system (no UI needed)."
+        "when_to_use": ["Users need to upload files with visual feedback: thumbnails, progress bars, and the ability to remove files before or during upload."],
+        "when_not_to_use": ["Single-click download links (use Button with href). Pasting rich content into a text editor (use the editor's built-in paste handler). Server-side file import from another system (no UI needed)."]
       },
       {
         "type": "setup",
@@ -1175,11 +1175,11 @@
         "items": [
           {
             "id": "confirmation-dialog",
-            "note": "Use a confirmation dialog before removing a file that has already finished uploading."
+            "why": "Use a confirmation dialog before removing a file that has already finished uploading."
           },
           {
             "id": "user-feedback",
-            "note": "Show a Toaster notification when all uploads complete or when an upload fails."
+            "why": "Show a Toaster notification when all uploads complete or when an upload fails."
           }
         ]
       }
@@ -1212,9 +1212,9 @@
     "sections": [
       {
         "type": "decision",
-        "when": "You need a linear (single-axis) arrangement of elements with consistent gaps, optional alignment control, or responsive direction. Flex is the lowest-level layout primitive — reach for it whenever you need to line things up horizontally or vertically.",
-        "not_for": "Multi-column grid layouts with defined column widths (use grid-layout recipe with Row+Col). Page-level shells with sidebars (use page-layout recipe). Spacing/padding on a single element without siblings (use Box spacing prop).",
-        "matrix": [
+        "when_to_use": ["You need a linear (single-axis) arrangement of elements with consistent gaps, optional alignment control, or responsive direction. Flex is the lowest-level layout primitive — reach for it whenever you need to line things up horizontally or vertically."],
+        "when_not_to_use": ["Multi-column grid layouts with defined column widths (use grid-layout recipe with Row+Col). Page-level shells with sidebars (use page-layout recipe). Spacing/padding on a single element without siblings (use Box spacing prop)."],
+        "choice_matrix": [
           {
             "situation": "Horizontal row of buttons with gap between them",
             "component": "Flex",
@@ -1284,15 +1284,15 @@
         "items": [
           {
             "id": "grid-layout",
-            "note": "Use Row+Col when you need 12-column proportional widths instead of single-axis flex."
+            "why": "Use Row+Col when you need 12-column proportional widths instead of single-axis flex."
           },
           {
             "id": "spacing-and-containers",
-            "note": "Use Box for per-element spacing (padding, margin) and Container for page-width constraints."
+            "why": "Use Box for per-element spacing (padding, margin) and Container for page-width constraints."
           },
           {
             "id": "page-layout",
-            "note": "Flex is used inside renderContent to stack the page body sections vertically."
+            "why": "Flex is used inside renderContent to stack the page body sections vertically."
           }
         ]
       }
@@ -1331,8 +1331,8 @@
     "sections": [
       {
         "type": "decision",
-        "when": "You need a multi-field form where each field has its own validation rules (required, format, min length) and error messages must appear inline next to the invalid field. The submit button should be disabled until all fields pass validation.",
-        "not_for": "Single-input inline actions (use TextInput with a Button). Multi-step forms with per-step validation (use the multi-step-wizard recipe). Server-only validation without client-side feedback (still add client-side checks for UX)."
+        "when_to_use": ["You need a multi-field form where each field has its own validation rules (required, format, min length) and error messages must appear inline next to the invalid field. The submit button should be disabled until all fields pass validation."],
+        "when_not_to_use": ["Single-input inline actions (use TextInput with a Button). Multi-step forms with per-step validation (use the multi-step-wizard recipe). Server-only validation without client-side feedback (still add client-side checks for UX)."]
       },
       {
         "type": "setup",
@@ -1445,15 +1445,15 @@
         "items": [
           {
             "id": "multi-step-wizard",
-            "note": "For long forms, split into steps using the multi-step-wizard recipe with per-step validation."
+            "why": "For long forms, split into steps using the multi-step-wizard recipe with per-step validation."
           },
           {
             "id": "confirmation-dialog",
-            "note": "Use a confirmation dialog before submitting destructive form actions (e.g. account deletion)."
+            "why": "Use a confirmation dialog before submitting destructive form actions (e.g. account deletion)."
           },
           {
             "id": "user-feedback",
-            "note": "After successful form submission, show a Toaster notification confirming the action."
+            "why": "After successful form submission, show a Toaster notification confirming the action."
           }
         ]
       }
@@ -1486,9 +1486,9 @@
     "sections": [
       {
         "type": "decision",
-        "when": "You need columns with defined widths based on a 12-column system. Use Row+Col when the relative proportions of columns matter or when columns must reflow across breakpoints.",
-        "not_for": "Simple horizontal alignment where all items share equal, auto-sized space (use Flex). Single-column vertical stacking (use Flex direction column). Content that needs precise CSS Grid (display:grid) features like areas or auto-fill tracks.",
-        "matrix": [
+        "when_to_use": ["You need columns with defined widths based on a 12-column system. Use Row+Col when the relative proportions of columns matter or when columns must reflow across breakpoints."],
+        "when_not_to_use": ["Simple horizontal alignment where all items share equal, auto-sized space (use Flex). Single-column vertical stacking (use Flex direction column). Content that needs precise CSS Grid (display:grid) features like areas or auto-fill tracks."],
+        "choice_matrix": [
           {
             "situation": "Two equal columns",
             "component": "Row + Col size={6}",
@@ -1559,15 +1559,15 @@
         "items": [
           {
             "id": "flex-layout",
-            "note": "Use Flex for single-axis linear arrangements where column proportions don't need to snap to a 12-column grid."
+            "why": "Use Flex for single-axis linear arrangements where column proportions don't need to snap to a 12-column grid."
           },
           {
             "id": "spacing-and-containers",
-            "note": "Wrap the Row in a Container to constrain the total page width and add horizontal gutters."
+            "why": "Wrap the Row in a Container to constrain the total page width and add horizontal gutters."
           },
           {
             "id": "page-layout",
-            "note": "Row+Col is used inside the page content area when a multi-column content grid is needed."
+            "why": "Row+Col is used inside the page content area when a multi-column content grid is needed."
           }
         ]
       }
@@ -1609,8 +1609,8 @@
     "sections": [
       {
         "type": "decision",
-        "when": "You are building a marketing, product, or informational landing page with structured sections (hero, features, CTA). Page-constructor provides themed blocks with built-in responsive grid layout, while uikit Card and Text components handle feature cards. Use PromptSignIn from blog-constructor to gate sections behind authentication.",
-        "not_for": "Application dashboards with dynamic data (use AsideHeader + ActionBar from navigation). Blog post pages with markdown content (use blog-constructor's full blog rendering). Single-component demos or documentation pages (use plain uikit layout)."
+        "when_to_use": ["You are building a marketing, product, or informational landing page with structured sections (hero, features, CTA). Page-constructor provides themed blocks with built-in responsive grid layout, while uikit Card and Text components handle feature cards. Use PromptSignIn from blog-constructor to gate sections behind authentication."],
+        "when_not_to_use": ["Application dashboards with dynamic data (use AsideHeader + ActionBar from navigation). Blog post pages with markdown content (use blog-constructor's full blog rendering). Single-component demos or documentation pages (use plain uikit layout)."]
       },
       {
         "type": "setup",
@@ -1738,15 +1738,15 @@
         "items": [
           {
             "id": "theming-dark-mode",
-            "note": "Landing pages benefit from theme support. Wrap in ThemeProvider so all page-constructor and uikit components respond to light/dark mode."
+            "why": "Landing pages benefit from theme support. Wrap in ThemeProvider so all page-constructor and uikit components respond to light/dark mode."
           },
           {
             "id": "page-states",
-            "note": "If feature data is loaded dynamically, use Skeleton placeholders in the feature cards while loading."
+            "why": "If feature data is loaded dynamically, use Skeleton placeholders in the feature cards while loading."
           },
           {
             "id": "dashboard-layout",
-            "note": "After sign-in from the landing page, route users to a dashboard built with the dashboard-layout recipe."
+            "why": "After sign-in from the landing page, route users to a dashboard built with the dashboard-layout recipe."
           }
         ]
       }
@@ -1786,8 +1786,8 @@
     "sections": [
       {
         "type": "decision",
-        "when": "A task requires the user to complete multiple stages in sequence, where each stage has distinct fields or choices and must be validated before proceeding. A progress indicator (Stepper) shows the user where they are in the flow.",
-        "not_for": "Single-page forms with many fields (use the form-with-validation recipe). Tab-based navigation where users can jump freely between sections (use Tabs). Non-linear flows where steps can be completed in any order (use a checklist pattern)."
+        "when_to_use": ["A task requires the user to complete multiple stages in sequence, where each stage has distinct fields or choices and must be validated before proceeding. A progress indicator (Stepper) shows the user where they are in the flow."],
+        "when_not_to_use": ["Single-page forms with many fields (use the form-with-validation recipe). Tab-based navigation where users can jump freely between sections (use Tabs). Non-linear flows where steps can be completed in any order (use a checklist pattern)."]
       },
       {
         "type": "setup",
@@ -1903,15 +1903,15 @@
         "items": [
           {
             "id": "form-with-validation",
-            "note": "Each wizard step internally uses the same per-field validation pattern as the form-with-validation recipe."
+            "why": "Each wizard step internally uses the same per-field validation pattern as the form-with-validation recipe."
           },
           {
             "id": "confirmation-dialog",
-            "note": "Use a confirmation dialog if the user tries to close the wizard with unsaved progress."
+            "why": "Use a confirmation dialog if the user tries to close the wizard with unsaved progress."
           },
           {
             "id": "page-states",
-            "note": "Show Skeleton or Loader inside a step if it needs to fetch data (e.g. loading available regions) before rendering."
+            "why": "Show Skeleton or Loader inside a step if it needs to fetch data (e.g. loading available regions) before rendering."
           }
         ]
       }
@@ -1946,8 +1946,8 @@
     "sections": [
       {
         "type": "decision",
-        "when": "You are building the top-level page structure of an application that needs both sidebar navigation and a content area with controlled width. This recipe composes AsideHeader (navigation shell) with Container+Flex (content layout).",
-        "not_for": "Layouts inside content sections — use Flex or Row+Col there. Pages without persistent sidebar navigation — use Container+Flex directly. Full navigation shell setup with routing (use app-shell recipe for the navigation concern)."
+        "when_to_use": ["You are building the top-level page structure of an application that needs both sidebar navigation and a content area with controlled width. This recipe composes AsideHeader (navigation shell) with Container+Flex (content layout)."],
+        "when_not_to_use": ["Layouts inside content sections — use Flex or Row+Col there. Pages without persistent sidebar navigation — use Container+Flex directly. Full navigation shell setup with routing (use app-shell recipe for the navigation concern)."]
       },
       {
         "type": "setup",
@@ -2049,19 +2049,19 @@
         "items": [
           {
             "id": "flex-layout",
-            "note": "Used inside renderContent to stack page sections vertically with consistent gaps."
+            "why": "Used inside renderContent to stack page sections vertically with consistent gaps."
           },
           {
             "id": "grid-layout",
-            "note": "Used inside the content area for multi-column layouts within a page section."
+            "why": "Used inside the content area for multi-column layouts within a page section."
           },
           {
             "id": "spacing-and-containers",
-            "note": "Container and Box are the spacing/constraint primitives used inside renderContent."
+            "why": "Container and Box are the spacing/constraint primitives used inside renderContent."
           },
           {
             "id": "app-shell",
-            "note": "Use app-shell for full navigation setup with routing, mobile header, and footer. Use page-layout when you only need the structural content layout pattern."
+            "why": "Use app-shell for full navigation setup with routing, mobile header, and footer. Use page-layout when you only need the structural content layout pattern."
           }
         ]
       }
@@ -2100,9 +2100,9 @@
     "sections": [
       {
         "type": "decision",
-        "when": "A page, panel, or section fetches async data and must show distinct UI for loading, empty, error, and success states.",
-        "not_for": "Inline loading inside a button or label (use Spin directly), optimistic UI updates that skip the loading state, or skeleton-only table rows handled by the table component itself.",
-        "matrix": [
+        "when_to_use": ["A page, panel, or section fetches async data and must show distinct UI for loading, empty, error, and success states."],
+        "when_not_to_use": ["Inline loading inside a button or label (use Spin directly), optimistic UI updates that skip the loading state, or skeleton-only table rows handled by the table component itself."],
+        "choice_matrix": [
           {
             "situation": "Full page is loading for the first time",
             "component": "Skeleton",
@@ -2202,11 +2202,11 @@
         "items": [
           {
             "id": "user-feedback",
-            "note": "After a retry succeeds, use Toaster to confirm the data loaded successfully."
+            "why": "After a retry succeeds, use Toaster to confirm the data loaded successfully."
           },
           {
             "id": "confirmation-dialog",
-            "note": "If the error state offers a destructive fallback action, confirm it with a ConfirmDialog first."
+            "why": "If the error state offers a destructive fallback action, confirm it with a ConfirmDialog first."
           }
         ]
       }
@@ -2245,8 +2245,8 @@
     "sections": [
       {
         "type": "decision",
-        "when": "Users need a search input that shows suggestion results as they type, with keyboard navigation (ArrowUp/Down to select, Enter to confirm, Escape to close). The suggestions are fetched from an API or filtered from a local dataset.",
-        "not_for": "Selecting from a predefined list of options (use Select with filterable prop). Multi-value tag input (use TextInput with labels or a custom tagger). Full-text search results displayed as a page (use a search results page with TextInput at the top, no dropdown)."
+        "when_to_use": ["Users need a search input that shows suggestion results as they type, with keyboard navigation (ArrowUp/Down to select, Enter to confirm, Escape to close). The suggestions are fetched from an API or filtered from a local dataset."],
+        "when_not_to_use": ["Selecting from a predefined list of options (use Select with filterable prop). Multi-value tag input (use TextInput with labels or a custom tagger). Full-text search results displayed as a page (use a search results page with TextInput at the top, no dropdown)."]
       },
       {
         "type": "setup",
@@ -2369,15 +2369,15 @@
         "items": [
           {
             "id": "app-shell",
-            "note": "Place the search input in the app shell sidebar or header for global search access."
+            "why": "Place the search input in the app shell sidebar or header for global search access."
           },
           {
             "id": "page-states",
-            "note": "Show Loader inside the dropdown while fetching, and an empty state when no results match."
+            "why": "Show Loader inside the dropdown while fetching, and an empty state when no results match."
           },
           {
             "id": "data-table",
-            "note": "Use search-with-suggestions as the filter input above a data table for entity filtering."
+            "why": "Use search-with-suggestions as the filter input above a data table for entity filtering."
           }
         ]
       }
@@ -2418,8 +2418,8 @@
     "sections": [
       {
         "type": "decision",
-        "when": "You need a full settings page with multiple categories/pages of options, where each category contains labeled settings with different control types (toggles, dropdowns, radio buttons). The Navigation Settings component provides built-in page navigation, filtering, and layout.",
-        "not_for": "A single form with a few fields (use the form-with-validation recipe). Feature flags managed by a backend system with no user-facing UI. Quick toggles in a toolbar or header (use Switch or DropdownMenu directly). A wizard-like guided setup (use the multi-step-wizard recipe)."
+        "when_to_use": ["You need a full settings page with multiple categories/pages of options, where each category contains labeled settings with different control types (toggles, dropdowns, radio buttons). The Navigation Settings component provides built-in page navigation, filtering, and layout."],
+        "when_not_to_use": ["A single form with a few fields (use the form-with-validation recipe). Feature flags managed by a backend system with no user-facing UI. Quick toggles in a toolbar or header (use Switch or DropdownMenu directly). A wizard-like guided setup (use the multi-step-wizard recipe)."]
       },
       {
         "type": "setup",
@@ -2559,15 +2559,15 @@
         "items": [
           {
             "id": "confirmation-dialog",
-            "note": "Use a ConfirmDialog for the unsaved changes warning instead of window.confirm for a polished experience."
+            "why": "Use a ConfirmDialog for the unsaved changes warning instead of window.confirm for a polished experience."
           },
           {
             "id": "form-with-validation",
-            "note": "If individual settings require validation (e.g. custom domain, API key format), apply the per-field validation pattern from form-with-validation."
+            "why": "If individual settings require validation (e.g. custom domain, API key format), apply the per-field validation pattern from form-with-validation."
           },
           {
             "id": "page-states",
-            "note": "Show a loading state via the Settings loading prop while initial settings data is being fetched from the API."
+            "why": "Show a loading state via the Settings loading prop while initial settings data is being fetched from the API."
           }
         ]
       }
@@ -2601,9 +2601,9 @@
     "sections": [
       {
         "type": "decision",
-        "when": "You need to control the spacing of a single element (padding/margin) or constrain the width of a page section. Box is the spacing primitive; Container is the page-width wrapper.",
-        "not_for": "Gaps between sibling elements (use gap prop on Flex or space prop on Row). Column-based grid layouts (use Row+Col). Sidebar/navigation shells (use page-layout recipe).",
-        "matrix": [
+        "when_to_use": ["You need to control the spacing of a single element (padding/margin) or constrain the width of a page section. Box is the spacing primitive; Container is the page-width wrapper."],
+        "when_not_to_use": ["Gaps between sibling elements (use gap prop on Flex or space prop on Row). Column-based grid layouts (use Row+Col). Sidebar/navigation shells (use page-layout recipe)."],
+        "choice_matrix": [
           {
             "situation": "Section needs uniform padding",
             "component": "Box",
@@ -2668,15 +2668,15 @@
         "items": [
           {
             "id": "flex-layout",
-            "note": "Use Flex gap for spacing between siblings; use Box spacing for padding/margin on a single element."
+            "why": "Use Flex gap for spacing between siblings; use Box spacing for padding/margin on a single element."
           },
           {
             "id": "grid-layout",
-            "note": "Wrap Row+Col layouts in a Container to constrain total page width and add gutters."
+            "why": "Wrap Row+Col layouts in a Container to constrain total page width and add gutters."
           },
           {
             "id": "page-layout",
-            "note": "Container is the direct child of AsideHeader's renderContent, constraining the content region width."
+            "why": "Container is the direct child of AsideHeader's renderContent, constraining the content region width."
           }
         ]
       }
@@ -2713,8 +2713,8 @@
     "sections": [
       {
         "type": "decision",
-        "when": "You are starting a new Gravity UI project, or adding theme switching to an existing one. ThemeProvider must wrap all Gravity UI components — it injects the CSS custom properties (--g-color-*) that every component depends on.",
-        "not_for": "Per-component color overrides (use className or style props instead). Branding that only changes the accent color (override --g-color-base-brand in CSS). Server-side-only pages with no client React tree."
+        "when_to_use": ["You are starting a new Gravity UI project, or adding theme switching to an existing one. ThemeProvider must wrap all Gravity UI components — it injects the CSS custom properties (--g-color-*) that every component depends on."],
+        "when_not_to_use": ["Per-component color overrides (use className or style props instead). Branding that only changes the accent color (override --g-color-base-brand in CSS). Server-side-only pages with no client React tree."]
       },
       {
         "type": "setup",
@@ -2820,11 +2820,11 @@
         "items": [
           {
             "id": "confirmation-dialog",
-            "note": "Dialogs inherit the current theme from ThemeProvider automatically."
+            "why": "Dialogs inherit the current theme from ThemeProvider automatically."
           },
           {
             "id": "user-feedback",
-            "note": "Toaster inherits theme context; no extra setup needed for themed notifications."
+            "why": "Toaster inherits theme context; no extra setup needed for themed notifications."
           }
         ]
       }
@@ -2865,9 +2865,9 @@
     "sections": [
       {
         "type": "decision",
-        "when": "Your application needs to communicate outcomes of user actions (success, error), display persistent warnings or information, or maintain a notification history that users can review later.",
-        "not_for": "Form field validation errors (use TextInput validationState and errorMessage). Confirmation before an action (use ConfirmDialog). Loading states (use Loader or Skeleton). Tooltips for UI explanation (use Popover or HelpMark).",
-        "matrix": [
+        "when_to_use": ["Your application needs to communicate outcomes of user actions (success, error), display persistent warnings or information, or maintain a notification history that users can review later."],
+        "when_not_to_use": ["Form field validation errors (use TextInput validationState and errorMessage). Confirmation before an action (use ConfirmDialog). Loading states (use Loader or Skeleton). Tooltips for UI explanation (use Popover or HelpMark)."],
+        "choice_matrix": [
           {
             "situation": "Action completed successfully or failed (transient, auto-dismissing)",
             "component": "Toaster",
@@ -2988,15 +2988,15 @@
         "items": [
           {
             "id": "confirmation-dialog",
-            "note": "Use a confirmation dialog before destructive actions, then show a toast after the action completes."
+            "why": "Use a confirmation dialog before destructive actions, then show a toast after the action completes."
           },
           {
             "id": "page-states",
-            "note": "Combine Alert with page error states -- show an inline Alert for recoverable errors and PlaceholderContainer for full-page failures."
+            "why": "Combine Alert with page error states -- show an inline Alert for recoverable errors and PlaceholderContainer for full-page failures."
           },
           {
             "id": "app-shell",
-            "note": "Place the notification bell in the app shell header and render inline Alerts at the top of the content area."
+            "why": "Place the notification bell in the app shell header and render inline Alerts at the top of the content area."
           }
         ]
       }

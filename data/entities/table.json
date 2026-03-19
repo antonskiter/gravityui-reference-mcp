@@ -306,18 +306,9 @@
       }
     ],
     "examples": [
-      {
-        "title": "Basic table",
-        "code": "import { useTable, BaseTable } from '@gravity-ui/table';\n\nconst table = useTable({ columns, data });\nreturn <BaseTable table={table} />;"
-      },
-      {
-        "title": "Table with row selection",
-        "code": "import { useTable, BaseTable, selectionColumn } from '@gravity-ui/table';\nimport type { ColumnDef } from '@gravity-ui/table';\n\nconst columns: ColumnDef<Item>[] = [selectionColumn as ColumnDef<Item>, ...myColumns];\n\nconst [rowSelection, setRowSelection] = React.useState({});\nconst table = useTable({\n  columns,\n  data,\n  enableRowSelection: true,\n  enableMultiRowSelection: true,\n  onRowSelectionChange: setRowSelection,\n  state: { rowSelection },\n});\nreturn <BaseTable table={table} />;"
-      },
-      {
-        "title": "Virtualized table",
-        "code": "import { useTable, useRowVirtualizer, BaseTable } from '@gravity-ui/table';\n\nconst table = useTable({ columns, data, getRowId: (item) => item.id });\nconst containerRef = React.useRef(null);\nconst rowVirtualizer = useRowVirtualizer({\n  count: table.getRowModel().rows.length,\n  estimateSize: () => 20,\n  overscan: 5,\n  getScrollElement: () => containerRef.current,\n});\nreturn (\n  <div ref={containerRef} style={{ height: '90vh', overflow: 'auto' }}>\n    <BaseTable table={table} rowVirtualizer={rowVirtualizer} stickyHeader />\n  </div>\n);"
-      }
+      "import { useTable, BaseTable } from '@gravity-ui/table';\n\nconst table = useTable({ columns, data });\nreturn <BaseTable table={table} />;",
+      "import { useTable, BaseTable, selectionColumn } from '@gravity-ui/table';\nimport type { ColumnDef } from '@gravity-ui/table';\n\nconst columns: ColumnDef<Item>[] = [selectionColumn as ColumnDef<Item>, ...myColumns];\n\nconst [rowSelection, setRowSelection] = React.useState({});\nconst table = useTable({\n  columns,\n  data,\n  enableRowSelection: true,\n  enableMultiRowSelection: true,\n  onRowSelectionChange: setRowSelection,\n  state: { rowSelection },\n});\nreturn <BaseTable table={table} />;",
+      "import { useTable, useRowVirtualizer, BaseTable } from '@gravity-ui/table';\n\nconst table = useTable({ columns, data, getRowId: (item) => item.id });\nconst containerRef = React.useRef(null);\nconst rowVirtualizer = useRowVirtualizer({\n  count: table.getRowModel().rows.length,\n  estimateSize: () => 20,\n  overscan: 5,\n  getScrollElement: () => containerRef.current,\n});\nreturn (\n  <div ref={containerRef} style={{ height: '90vh', overflow: 'auto' }}>\n    <BaseTable table={table} rowVirtualizer={rowVirtualizer} stickyHeader />\n  </div>\n);"
     ]
   },
   {
@@ -357,10 +348,7 @@
       }
     ],
     "examples": [
-      {
-        "title": "Custom drag handle cell renderer",
-        "code": "import { DragHandle } from '@gravity-ui/table';\nimport type { ColumnDef } from '@gravity-ui/table';\n\nconst myDragHandleColumn: ColumnDef<MyData> = {\n  id: '_drag',\n  header: '',\n  cell: ({ row }) => <DragHandle row={row} />,\n  size: 32,\n};"
-      }
+      "import { DragHandle } from '@gravity-ui/table';\nimport type { ColumnDef } from '@gravity-ui/table';\n\nconst myDragHandleColumn: ColumnDef<MyData> = {\n  id: '_drag',\n  header: '',\n  cell: ({ row }) => <DragHandle row={row} />,\n  size: 32,\n};"
     ]
   },
   {
@@ -424,10 +412,7 @@
       }
     ],
     "examples": [
-      {
-        "title": "Custom selection column with range selection",
-        "code": "import { RangedSelectionCheckbox } from '@gravity-ui/table';\nimport type { ColumnDef } from '@gravity-ui/table';\n\nconst selectionCol: ColumnDef<MyData> = {\n  id: '_select',\n  cell: (cellContext) => (\n    <RangedSelectionCheckbox\n      checked={cellContext.row.getIsSelected()}\n      disabled={!cellContext.row.getCanSelect()}\n      indeterminate={cellContext.row.getIsSomeSelected()}\n      cellContext={cellContext}\n    />\n  ),\n};"
-      }
+      "import { RangedSelectionCheckbox } from '@gravity-ui/table';\nimport type { ColumnDef } from '@gravity-ui/table';\n\nconst selectionCol: ColumnDef<MyData> = {\n  id: '_select',\n  cell: (cellContext) => (\n    <RangedSelectionCheckbox\n      checked={cellContext.row.getIsSelected()}\n      disabled={!cellContext.row.getCanSelect()}\n      indeterminate={cellContext.row.getIsSomeSelected()}\n      cellContext={cellContext}\n    />\n  ),\n};"
     ]
   },
   {
@@ -495,10 +480,7 @@
       }
     ],
     "examples": [
-      {
-        "title": "Basic row reordering",
-        "code": "import { ReorderingProvider, BaseTable, useTable, dragHandleColumn } from '@gravity-ui/table';\n\nconst [data, setData] = React.useState(originalData);\nconst table = useTable({ columns: [dragHandleColumn, ...cols], data, getRowId: (item) => item.id });\n\nconst handleReorder = ({ draggedItemKey, baseItemKey }) => {\n  setData(prev => {\n    const next = prev.slice();\n    const idx = next.findIndex(item => item.id === draggedItemKey);\n    const [dragged] = next.splice(idx, 1);\n    const insertIdx = next.findIndex(item => item.id === baseItemKey);\n    next.splice(insertIdx + 1, 0, dragged);\n    return next;\n  });\n};\n\nreturn (\n  <ReorderingProvider table={table} onReorder={handleReorder}>\n    <BaseTable table={table} />\n  </ReorderingProvider>\n);"
-      }
+      "import { ReorderingProvider, BaseTable, useTable, dragHandleColumn } from '@gravity-ui/table';\n\nconst [data, setData] = React.useState(originalData);\nconst table = useTable({ columns: [dragHandleColumn, ...cols], data, getRowId: (item) => item.id });\n\nconst handleReorder = ({ draggedItemKey, baseItemKey }) => {\n  setData(prev => {\n    const next = prev.slice();\n    const idx = next.findIndex(item => item.id === draggedItemKey);\n    const [dragged] = next.splice(idx, 1);\n    const insertIdx = next.findIndex(item => item.id === baseItemKey);\n    next.splice(insertIdx + 1, 0, dragged);\n    return next;\n  });\n};\n\nreturn (\n  <ReorderingProvider table={table} onReorder={handleReorder}>\n    <BaseTable table={table} />\n  </ReorderingProvider>\n);"
     ]
   },
   {
@@ -545,10 +527,7 @@
       }
     ],
     "examples": [
-      {
-        "title": "Custom sort indicator in header cell",
-        "code": "import { BaseTable, SortIndicator } from '@gravity-ui/table';\n\n<BaseTable\n  table={table}\n  renderSortIndicator={({ header, className }) => (\n    <SortIndicator header={header} className={className} />\n  )}\n/>"
-      }
+      "import { BaseTable, SortIndicator } from '@gravity-ui/table';\n\n<BaseTable\n  table={table}\n  renderSortIndicator={({ header, className }) => (\n    <SortIndicator header={header} className={className} />\n  )}\n/>"
     ]
   },
   {
@@ -633,14 +612,8 @@
       }
     ],
     "examples": [
-      {
-        "title": "Basic styled table",
-        "code": "import { Table, useTable } from '@gravity-ui/table';\n\nconst table = useTable({ columns, data });\nreturn <Table table={table} size=\"m\" />;"
-      },
-      {
-        "title": "Table with row click and size S",
-        "code": "import { Table, useTable } from '@gravity-ui/table';\n\nconst table = useTable({ columns, data });\nreturn (\n  <Table\n    table={table}\n    size=\"s\"\n    verticalAlign=\"middle\"\n    onRowClick={(row) => console.log(row.original)}\n  />\n);"
-      }
+      "import { Table, useTable } from '@gravity-ui/table';\n\nconst table = useTable({ columns, data });\nreturn <Table table={table} size=\"m\" />;",
+      "import { Table, useTable } from '@gravity-ui/table';\n\nconst table = useTable({ columns, data });\nreturn (\n  <Table\n    table={table}\n    size=\"s\"\n    verticalAlign=\"middle\"\n    onRowClick={(row) => console.log(row.original)}\n  />\n);"
     ]
   },
   {
@@ -720,14 +693,8 @@
       }
     ],
     "examples": [
-      {
-        "title": "TableSettings with useTableSettings",
-        "code": "import { useTable, useTableSettings, TableSettings } from '@gravity-ui/table';\n\nconst { state, callbacks } = useTableSettings({\n  initialVisibility: { thirdCol: false },\n  initialOrdering: ['first', 'second', 'third'],\n});\n\nconst table = useTable({ columns, data, state, ...callbacks });\n\nreturn <TableSettings table={table} sortable filterable enableSearch />;"
-      },
-      {
-        "title": "Embedded in column header via getSettingsColumn",
-        "code": "import { useTable, Table, getSettingsColumn } from '@gravity-ui/table';\n\nconst columns = [...myColumns, getSettingsColumn()];\nconst table = useTable({ columns, data });\nreturn <Table table={table} />;"
-      }
+      "import { useTable, useTableSettings, TableSettings } from '@gravity-ui/table';\n\nconst { state, callbacks } = useTableSettings({\n  initialVisibility: { thirdCol: false },\n  initialOrdering: ['first', 'second', 'third'],\n});\n\nconst table = useTable({ columns, data, state, ...callbacks });\n\nreturn <TableSettings table={table} sortable filterable enableSearch />;",
+      "import { useTable, Table, getSettingsColumn } from '@gravity-ui/table';\n\nconst columns = [...myColumns, getSettingsColumn()];\nconst table = useTable({ columns, data });\nreturn <Table table={table} />;"
     ]
   },
   {
@@ -773,10 +740,7 @@
       }
     ],
     "examples": [
-      {
-        "title": "Tree name column with expandable cell",
-        "code": "import { TreeExpandableCell } from '@gravity-ui/table';\nimport type { ColumnDef } from '@gravity-ui/table';\n\nconst nameColumn: ColumnDef<MyData> = {\n  id: 'name',\n  header: 'Name',\n  cell: ({ row, getValue }) => (\n    <TreeExpandableCell row={row}>\n      {getValue() as string}\n    </TreeExpandableCell>\n  ),\n};"
-      }
+      "import { TreeExpandableCell } from '@gravity-ui/table';\nimport type { ColumnDef } from '@gravity-ui/table';\n\nconst nameColumn: ColumnDef<MyData> = {\n  id: 'name',\n  header: 'Name',\n  cell: ({ row, getValue }) => (\n    <TreeExpandableCell row={row}>\n      {getValue() as string}\n    </TreeExpandableCell>\n  ),\n};"
     ]
   },
   {

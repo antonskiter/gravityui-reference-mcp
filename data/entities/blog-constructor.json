@@ -22,14 +22,8 @@
       { "name": "className", "type": "string", "required": false, "description": "Additional CSS class name" }
     ],
     "examples": [
-      {
-        "title": "Basic feed header with title and tag filters",
-        "code": "<FeedHeader\n  title=\"Blog\"\n  tags={[\n    { id: 'frontend', name: 'Frontend' },\n    { id: 'backend', name: 'Backend' },\n    { id: 'devops', name: 'DevOps' },\n  ]}\n  queryParams={{ tag: 'frontend', page: 1 }}\n  handleLoadData={(params) => router.push({ query: params })}\n/>"
-      },
-      {
-        "title": "Feed header with background image and dark theme",
-        "code": "<FeedHeader\n  title=\"Engineering Blog\"\n  theme=\"dark\"\n  verticalOffset=\"l\"\n  background={{\n    light: { url: '/images/blog-header-bg.jpg' },\n    dark: { url: '/images/blog-header-bg-dark.jpg' },\n  }}\n  services={[\n    { id: 'cloud', name: 'Cloud' },\n    { id: 'platform', name: 'Platform' },\n  ]}\n  handleLoadData={(params) => fetchPosts(params)}\n  queryParams={{}}\n/>"
-      }
+      "<FeedHeader\n  title=\"Blog\"\n  tags={[\n    { id: 'frontend', name: 'Frontend' },\n    { id: 'backend', name: 'Backend' },\n    { id: 'devops', name: 'DevOps' },\n  ]}\n  queryParams={{ tag: 'frontend', page: 1 }}\n  handleLoadData={(params) => router.push({ query: params })}\n/>",
+      "<FeedHeader\n  title=\"Engineering Blog\"\n  theme=\"dark\"\n  verticalOffset=\"l\"\n  background={{\n    light: { url: '/images/blog-header-bg.jpg' },\n    dark: { url: '/images/blog-header-bg-dark.jpg' },\n  }}\n  services={[\n    { id: 'cloud', name: 'Cloud' },\n    { id: 'platform', name: 'Platform' },\n  ]}\n  handleLoadData={(params) => fetchPosts(params)}\n  queryParams={{}}\n/>"
     ]
   },
   {
@@ -47,14 +41,8 @@
       { "name": "needHelmetWrapper", "type": "boolean", "required": false, "description": "Whether to wrap content in react-helmet Helmet" }
     ],
     "examples": [
-      {
-        "title": "SSR with Helmet wrapping enabled",
-        "code": "<MetaWrapper\n  needHelmetWrapper={true}\n  metaComponent={\n    <>\n      <title>How we built our platform | Engineering Blog</title>\n      <meta name=\"description\" content=\"A deep dive into our platform architecture.\" />\n      <meta property=\"og:title\" content=\"How we built our platform\" />\n      <meta property=\"og:image\" content=\"https://example.com/og-image.jpg\" />\n    </>\n  }\n/>"
-      },
-      {
-        "title": "Client-side render without Helmet",
-        "code": "<MetaWrapper\n  needHelmetWrapper={false}\n  metaComponent={\n    <>\n      <meta name=\"description\" content=\"Latest posts from the engineering team.\" />\n    </>\n  }\n/>"
-      }
+      "<MetaWrapper\n  needHelmetWrapper={true}\n  metaComponent={\n    <>\n      <title>How we built our platform | Engineering Blog</title>\n      <meta name=\"description\" content=\"A deep dive into our platform architecture.\" />\n      <meta property=\"og:title\" content=\"How we built our platform\" />\n      <meta property=\"og:image\" content=\"https://example.com/og-image.jpg\" />\n    </>\n  }\n/>",
+      "<MetaWrapper\n  needHelmetWrapper={false}\n  metaComponent={\n    <>\n      <meta name=\"description\" content=\"Latest posts from the engineering team.\" />\n    </>\n  }\n/>"
     ]
   },
   {
@@ -78,14 +66,8 @@
       { "name": "className", "type": "string", "required": false, "description": "Additional CSS class name" }
     ],
     "examples": [
-      {
-        "title": "Basic paginator for a blog listing",
-        "code": "const [page, setPage] = React.useState(1);\n\n<Paginator\n  itemsPerPage={12}\n  totalItems={120}\n  page={page}\n  onPageChange={(newPage) => {\n    setPage(newPage);\n    fetchPosts({ page: newPage });\n  }}\n/>"
-      },
-      {
-        "title": "Paginator preserving URL query params",
-        "code": "<Paginator\n  itemsPerPage={10}\n  totalItems={85}\n  page={currentPage}\n  queryParams={{ tag: 'frontend', service: 'cloud' }}\n  pageCountForShowSupportButtons={4}\n  onPageChange={handlePageChange}\n/>"
-      }
+      "const [page, setPage] = React.useState(1);\n\n<Paginator\n  itemsPerPage={12}\n  totalItems={120}\n  page={page}\n  onPageChange={(newPage) => {\n    setPage(newPage);\n    fetchPosts({ page: newPage });\n  }}\n/>",
+      "<Paginator\n  itemsPerPage={10}\n  totalItems={85}\n  page={currentPage}\n  queryParams={{ tag: 'frontend', service: 'cloud' }}\n  pageCountForShowSupportButtons={4}\n  onPageChange={handlePageChange}\n/>"
     ]
   },
   {
@@ -107,14 +89,8 @@
       { "name": "titleHeadingLevel", "type": "'h2' | 'h3' | 'h4'", "required": false, "description": "Heading element level for accessibility" }
     ],
     "examples": [
-      {
-        "title": "Standard small post card in a feed grid",
-        "code": "<PostCard\n  post={{\n    id: 42,\n    title: 'Building scalable microservices with Go',\n    description: 'A practical guide to splitting monoliths and managing service mesh.',\n    url: '/blog/scalable-microservices-go',\n    image: '/images/posts/microservices.jpg',\n    date: '2024-03-15',\n    readingTime: 8,\n    tags: [{ id: 'backend', name: 'Backend' }],\n    likes: 24,\n    hasUserLike: false,\n  }}\n  showTag\n  size=\"s\"\n  titleHeadingLevel=\"h3\"\n/>"
-      },
-      {
-        "title": "Full-width pinned post card with medium size",
-        "code": "<PostCard\n  post={pinnedPost}\n  fullWidth\n  showTag\n  size=\"m\"\n  titleHeadingLevel=\"h2\"\n/>"
-      }
+      "<PostCard\n  post={{\n    id: 42,\n    title: 'Building scalable microservices with Go',\n    description: 'A practical guide to splitting monoliths and managing service mesh.',\n    url: '/blog/scalable-microservices-go',\n    image: '/images/posts/microservices.jpg',\n    date: '2024-03-15',\n    readingTime: 8,\n    tags: [{ id: 'backend', name: 'Backend' }],\n    likes: 24,\n    hasUserLike: false,\n  }}\n  showTag\n  size=\"s\"\n  titleHeadingLevel=\"h3\"\n/>",
+      "<PostCard\n  post={pinnedPost}\n  fullWidth\n  showTag\n  size=\"m\"\n  titleHeadingLevel=\"h2\"\n/>"
     ]
   },
   {
@@ -136,14 +112,8 @@
       { "name": "qa", "type": "string", "required": false, "description": "Test QA attribute" }
     ],
     "examples": [
-      {
-        "title": "Post info bar on a blog post detail page",
-        "code": "<PostInfo\n  postId={123}\n  date=\"2024-03-15\"\n  readingTime={7}\n  theme=\"light\"\n/>"
-      },
-      {
-        "title": "Post info with analytics events and dark theme",
-        "code": "<PostInfo\n  postId=\"how-we-built-our-platform\"\n  date=\"2024-01-20\"\n  readingTime={12}\n  theme=\"dark\"\n  analyticsEventsContainer={{\n    sharing: [{ name: 'blog_share_click', type: 'default-goal' }],\n    save: [{ name: 'blog_save_click', type: 'default-goal' }],\n  }}\n  qa=\"post-info\"\n/>"
-      }
+      "<PostInfo\n  postId={123}\n  date=\"2024-03-15\"\n  readingTime={7}\n  theme=\"light\"\n/>",
+      "<PostInfo\n  postId=\"how-we-built-our-platform\"\n  date=\"2024-01-20\"\n  readingTime={12}\n  theme=\"dark\"\n  analyticsEventsContainer={{\n    sharing: [{ name: 'blog_share_click', type: 'default-goal' }],\n    save: [{ name: 'blog_save_click', type: 'default-goal' }],\n  }}\n  qa=\"post-info\"\n/>"
     ]
   },
   {
@@ -172,14 +142,8 @@
       { "name": "pageCountForShowSupportButtons", "type": "number", "required": false, "description": "Passed to Paginator component" }
     ],
     "examples": [
-      {
-        "title": "Blog feed with load-more pagination",
-        "code": "<Posts\n  containerId=\"blog-posts\"\n  currentPage={1}\n  postsOnPage={posts}\n  isFetching={false}\n  isShowMoreVisible={hasMore}\n  errorShowMore={false}\n  postCountOnPage={totalPosts}\n  perPageInQuery={12}\n  queryParams={{ tag: 'frontend' }}\n  handleShowMore={async () => {\n    await loadMorePosts();\n  }}\n  handlePageChange={async (page) => {\n    await fetchPage(page);\n  }}\n/>"
-      },
-      {
-        "title": "Blog feed with pinned post and fetching state",
-        "code": "<Posts\n  containerId=\"blog-posts-main\"\n  currentPage={page}\n  postsOnPage={posts}\n  pinnedPostOnPage={featuredPost}\n  isFetching={isFetching}\n  isShowMoreVisible={false}\n  errorShowMore={hasError}\n  postCountOnPage={totalCount}\n  perPageInQuery={10}\n  queryParams={queryParams}\n  handleShowMore={handleShowMore}\n  handlePageChange={handlePageChange}\n/>"
-      }
+      "<Posts\n  containerId=\"blog-posts\"\n  currentPage={1}\n  postsOnPage={posts}\n  isFetching={false}\n  isShowMoreVisible={hasMore}\n  errorShowMore={false}\n  postCountOnPage={totalPosts}\n  perPageInQuery={12}\n  queryParams={{ tag: 'frontend' }}\n  handleShowMore={async () => {\n    await loadMorePosts();\n  }}\n  handlePageChange={async (page) => {\n    await fetchPage(page);\n  }}\n/>",
+      "<Posts\n  containerId=\"blog-posts-main\"\n  currentPage={page}\n  postsOnPage={posts}\n  pinnedPostOnPage={featuredPost}\n  isFetching={isFetching}\n  isShowMoreVisible={false}\n  errorShowMore={hasError}\n  postCountOnPage={totalCount}\n  perPageInQuery={10}\n  queryParams={queryParams}\n  handleShowMore={handleShowMore}\n  handlePageChange={handlePageChange}\n/>"
     ]
   },
   {
@@ -194,14 +158,8 @@
     "related": ["Posts", "PostsError"],
     "props": [],
     "examples": [
-      {
-        "title": "Empty state when no posts match filters",
-        "code": "{posts.length === 0 && !isFetching && <PostsEmpty />}"
-      },
-      {
-        "title": "Inline usage in a conditional render",
-        "code": "function BlogFeed({ posts, isFetching }) {\n  if (!isFetching && posts.length === 0) {\n    return <PostsEmpty />;\n  }\n  return <PostGrid posts={posts} />;\n}"
-      }
+      "{posts.length === 0 && !isFetching && <PostsEmpty />}",
+      "function BlogFeed({ posts, isFetching }) {\n  if (!isFetching && posts.length === 0) {\n    return <PostsEmpty />;\n  }\n  return <PostGrid posts={posts} />;\n}"
     ]
   },
   {
@@ -218,14 +176,8 @@
       { "name": "onButtonClick", "type": "() => void | Promise<void>", "required": false, "description": "Custom retry handler; defaults to page reload" }
     ],
     "examples": [
-      {
-        "title": "Error state with default page reload on retry",
-        "code": "{hasError && <PostsError />}"
-      },
-      {
-        "title": "Error state with custom retry handler",
-        "code": "<PostsError\n  onButtonClick={async () => {\n    setError(false);\n    await fetchPosts(queryParams);\n  }}\n/>"
-      }
+      "{hasError && <PostsError />}",
+      "<PostsError\n  onButtonClick={async () => {\n    setError(false);\n    await fetchPosts(queryParams);\n  }}\n/>"
     ]
   },
   {
@@ -247,14 +199,8 @@
       { "name": "className", "type": "string", "required": false, "description": "Additional CSS class name" }
     ],
     "examples": [
-      {
-        "title": "Timed sign-in prompt triggered on like click",
-        "code": "const [promptTimestamp, setPromptTimestamp] = React.useState(0);\n\n<>\n  <button onClick={() => setPromptTimestamp(Date.now())}>\n    Like\n  </button>\n  <Prompt\n    text=\"Sign in to like this post\"\n    openTimestamp={promptTimestamp}\n    openDuration={4000}\n    theme=\"beige\"\n    actions={[\n      {\n        children: 'Sign in',\n        view: 'action',\n        size: 'l',\n        onClick: () => router.push('/auth/signin'),\n      },\n    ]}\n  />\n</>"
-      },
-      {
-        "title": "Prompt with multiple action buttons and grey theme",
-        "code": "<Prompt\n  text=\"Subscribe to get notified about new posts\"\n  openTimestamp={Date.now()}\n  openDuration={6000}\n  theme=\"grey\"\n  actions={[\n    {\n      children: 'Subscribe',\n      view: 'action',\n      size: 'l',\n      onClick: handleSubscribe,\n    },\n    {\n      children: 'Dismiss',\n      view: 'flat',\n      size: 'l',\n      onClick: handleDismiss,\n    },\n  ]}\n/>"
-      }
+      "const [promptTimestamp, setPromptTimestamp] = React.useState(0);\n\n<>\n  <button onClick={() => setPromptTimestamp(Date.now())}>\n    Like\n  </button>\n  <Prompt\n    text=\"Sign in to like this post\"\n    openTimestamp={promptTimestamp}\n    openDuration={4000}\n    theme=\"beige\"\n    actions={[\n      {\n        children: 'Sign in',\n        view: 'action',\n        size: 'l',\n        onClick: () => router.push('/auth/signin'),\n      },\n    ]}\n  />\n</>",
+      "<Prompt\n  text=\"Subscribe to get notified about new posts\"\n  openTimestamp={Date.now()}\n  openDuration={6000}\n  theme=\"grey\"\n  actions={[\n    {\n      children: 'Subscribe',\n      view: 'action',\n      size: 'l',\n      onClick: handleSubscribe,\n    },\n    {\n      children: 'Dismiss',\n      view: 'flat',\n      size: 'l',\n      onClick: handleDismiss,\n    },\n  ]}\n/>"
     ]
   },
   {
@@ -273,14 +219,8 @@
       { "name": "actions", "type": "ButtonProps[]", "required": false, "description": "Override default action buttons" }
     ],
     "examples": [
-      {
-        "title": "Default sign-in prompt triggered when unauthenticated user clicks like",
-        "code": "const [promptTimestamp, setPromptTimestamp] = React.useState(0);\n\nconst handleLikeClick = () => {\n  if (!isAuthenticated) {\n    setPromptTimestamp(Date.now());\n    return;\n  }\n  toggleLike(postId);\n};\n\n<>\n  <button onClick={handleLikeClick}>Like</button>\n  <PromptSignIn\n    openTimestamp={promptTimestamp}\n    openDuration={5000}\n    onClickSignIn={() => router.push('/auth/signin?next=' + currentPath)}\n  />\n</>"
-      },
-      {
-        "title": "PromptSignIn with custom message text",
-        "code": "<PromptSignIn\n  text=\"You need to be signed in to save this post\"\n  openTimestamp={signInPromptTimestamp}\n  onClickSignIn={handleSignInRedirect}\n/>"
-      }
+      "const [promptTimestamp, setPromptTimestamp] = React.useState(0);\n\nconst handleLikeClick = () => {\n  if (!isAuthenticated) {\n    setPromptTimestamp(Date.now());\n    return;\n  }\n  toggleLike(postId);\n};\n\n<>\n  <button onClick={handleLikeClick}>Like</button>\n  <PromptSignIn\n    openTimestamp={promptTimestamp}\n    openDuration={5000}\n    onClickSignIn={() => router.push('/auth/signin?next=' + currentPath)}\n  />\n</>",
+      "<PromptSignIn\n  text=\"You need to be signed in to save this post\"\n  openTimestamp={signInPromptTimestamp}\n  onClickSignIn={handleSignInRedirect}\n/>"
     ]
   },
   {
@@ -304,14 +244,8 @@
       { "name": "className", "type": "string", "required": false, "description": "Additional CSS class name" }
     ],
     "examples": [
-      {
-        "title": "Search input in a blog feed header",
-        "code": "<Search\n  initialValue={queryParams.search ?? ''}\n  onSubmit={(value) => {\n    updateQueryParams({ search: value, page: 1 });\n  }}\n  placeholder=\"Search posts...\"\n  debounce={400}\n/>"
-      },
-      {
-        "title": "Controlled search with external value and autofocus",
-        "code": "<Search\n  initialValue=\"\"\n  value={searchValue}\n  onSubmit={handleSearchChange}\n  size=\"s\"\n  autoFocus\n  debounce={300}\n/>"
-      }
+      "<Search\n  initialValue={queryParams.search ?? ''}\n  onSubmit={(value) => {\n    updateQueryParams({ search: value, page: 1 });\n  }}\n  placeholder=\"Search posts...\"\n  debounce={400}\n/>",
+      "<Search\n  initialValue=\"\"\n  value={searchValue}\n  onSubmit={handleSearchChange}\n  size=\"s\"\n  autoFocus\n  debounce={300}\n/>"
     ]
   },
   {
@@ -332,14 +266,8 @@
       { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles" }
     ],
     "examples": [
-      {
-        "title": "Blog section with default padding",
-        "code": "<Wrapper>\n  <Posts\n    containerId=\"blog-posts\"\n    currentPage={1}\n    postsOnPage={posts}\n    isFetching={false}\n    isShowMoreVisible={false}\n    errorShowMore={false}\n    postCountOnPage={30}\n    perPageInQuery={10}\n    queryParams={{}}\n    handleShowMore={handleShowMore}\n    handlePageChange={handlePageChange}\n  />\n</Wrapper>"
-      },
-      {
-        "title": "Wrapper with custom padding sizes",
-        "code": "<Wrapper\n  paddings={{ top: 'l', bottom: 'xl', left: 'm', right: 'm' }}\n  qa=\"blog-feed-section\"\n>\n  <FeedHeader\n    title=\"Engineering Blog\"\n    tags={tags}\n    queryParams={queryParams}\n    handleLoadData={handleLoadData}\n  />\n</Wrapper>"
-      }
+      "<Wrapper>\n  <Posts\n    containerId=\"blog-posts\"\n    currentPage={1}\n    postsOnPage={posts}\n    isFetching={false}\n    isShowMoreVisible={false}\n    errorShowMore={false}\n    postCountOnPage={30}\n    perPageInQuery={10}\n    queryParams={{}}\n    handleShowMore={handleShowMore}\n    handlePageChange={handlePageChange}\n  />\n</Wrapper>",
+      "<Wrapper\n  paddings={{ top: 'l', bottom: 'xl', left: 'm', right: 'm' }}\n  qa=\"blog-feed-section\"\n>\n  <FeedHeader\n    title=\"Engineering Blog\"\n    tags={tags}\n    queryParams={queryParams}\n    handleLoadData={handleLoadData}\n  />\n</Wrapper>"
     ]
   }
 ]

@@ -31,7 +31,7 @@ export function validateDataDir(dataDir: string): ValidationResult {
         const raw = JSON.parse(readFileSync(filePath, 'utf-8'));
         const parsed = LibraryEntitiesSchema.safeParse(raw);
         if (!parsed.success) {
-          errors.push(`${file}: schema validation failed — ${parsed.error.issues.map(i => i.message).join(', ')}`);
+          errors.push(`${file}: schema validation failed — ${parsed.error.issues.slice(0, 3).map(i => `[${i.path.join('.')}] ${i.message}`).join('; ')}`);
         } else {
           allEntities.push(...parsed.data);
         }
@@ -67,7 +67,7 @@ export function validateDataDir(dataDir: string): ValidationResult {
       const raw = JSON.parse(readFileSync(recipesPath, 'utf-8'));
       const parsed = z.array(RecipeDefSchema).safeParse(raw);
       if (!parsed.success) {
-        errors.push(`recipes.json: schema validation failed — ${parsed.error.issues.map(i => i.message).join(', ')}`);
+        errors.push(`recipes.json: schema validation failed — ${parsed.error.issues.slice(0, 5).map(i => `[${i.path.join('.')}] ${i.message}`).join('; ')}`);
       }
     } catch (e) {
       errors.push(`recipes.json: failed to parse — ${e}`);

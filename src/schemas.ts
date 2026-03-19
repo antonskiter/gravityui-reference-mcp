@@ -107,8 +107,9 @@ const RecipeDecisionSection = z.object({
   when_to_use: z.array(z.string()).default([]),
   when_not_to_use: z.array(z.string()).default([]),
   choice_matrix: z.array(z.object({
-    option: z.string(),
-    when: z.string(),
+    situation: z.string(),
+    component: z.string(),
+    why: z.string().optional(),
   })).default([]),
 });
 
@@ -138,8 +139,8 @@ const RecipeCustomPartsSection = z.object({
 
 const RecipeStructureSection = z.object({
   type: z.literal('structure'),
-  tree: z.union([z.string(), z.array(z.string())]).optional(),
-  flow: z.union([z.string(), z.array(z.string())]).optional(),
+  tree: z.array(z.string()).optional(),
+  flow: z.array(z.string()).optional(),
 });
 
 const RecipeExampleSection = z.object({
@@ -158,7 +159,6 @@ const RecipeRelatedSection = z.object({
   items: z.array(z.object({
     id: z.string(),
     why: z.string().optional(),
-    note: z.string().optional(),
   })),
 });
 
