@@ -118,19 +118,7 @@ function formatEntity(entity: Entity): string {
   }
 
   if (entity.type === 'recipe') {
-    const decision = entity.sections.find(s => s.type === 'decision');
-    if (decision && decision.type === 'decision') {
-      if (decision.when_to_use.length > 0) {
-        lines.push('When to use:');
-        for (const w of decision.when_to_use) lines.push(`   - ${w}`);
-        lines.push('');
-      }
-      if (decision.when_not_to_use.length > 0) {
-        lines.push('Not for:');
-        for (const w of decision.when_not_to_use) lines.push(`   - ${w}`);
-        lines.push('');
-      }
-    }
+    // decision section is already shown as entity-level when_to_use/avoid
     const exampleSections = entity.sections.filter(s => s.type === 'example');
     for (const s of exampleSections) {
       if (s.type === 'example') {
