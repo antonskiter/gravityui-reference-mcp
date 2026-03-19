@@ -115,20 +115,12 @@ describe('handleGet', () => {
 });
 
 describe('formatGet', () => {
-  it('formats component in compact mode with top 5 props', () => {
+  it('formats component with all props, when_to_use, and avoid', () => {
     const data = makeData([button]);
     const result = handleGet(data, { name: 'Button' });
-    const text = formatGet(result, 'compact');
+    const text = formatGet(result);
     expect(text).toContain('Button');
     expect(text).toContain('import');
-    expect(text).toContain('size');
-    expect(text).toContain('... and 1 more');
-  });
-
-  it('formats component in full mode with all props and when_to_use', () => {
-    const data = makeData([button]);
-    const result = handleGet(data, { name: 'Button' });
-    const text = formatGet(result, 'full');
     expect(text).toContain('When to use');
     expect(text).toContain('Avoid');
     expect(text).toContain('extra');
@@ -137,7 +129,7 @@ describe('formatGet', () => {
   it('formats multiple matches separated by ---', () => {
     const data = makeData([button, buttonNav]);
     const result = handleGet(data, { name: 'Button' });
-    const text = formatGet(result, 'compact');
+    const text = formatGet(result);
     expect(text).toContain('---');
     expect(text).toContain('uikit');
     expect(text).toContain('navigation');

@@ -93,6 +93,8 @@ export function formatList(output: ListOutput): string {
   for (const e of output.items) {
     const lib = e.library ? ` (${e.library})` : '';
     lines.push(`${e.name} [${e.type}]${lib} — ${e.description}`);
+    if (e.when_to_use.length > 0) lines.push(`  Use: ${e.when_to_use.join('; ')}`);
+    if (e.avoid.length > 0) lines.push(`  Avoid: ${e.avoid.join('; ')}`);
   }
   return lines.join('\n');
 }

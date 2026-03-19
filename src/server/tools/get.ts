@@ -1,4 +1,3 @@
-import { searchEntities } from '../index-builder.js';
 import type { LoadedData } from '../loader.js';
 import type { Entity } from '../../schemas.js';
 
@@ -6,7 +5,6 @@ export interface GetInput {
   name: string;
   type?: string;
   library?: string;
-  detail?: 'compact' | 'full';
 }
 
 export type GetOutput =
@@ -36,17 +34,17 @@ export function handleGet(data: LoadedData, input: GetInput): GetOutput {
   return { type: 'not_found', name: input.name.trim(), suggestions };
 }
 
-export function formatGet(output: GetOutput, detail: 'compact' | 'full' = 'compact'): string {
+export function formatGet(output: GetOutput): string {
   if (output.type === 'not_found') {
     return formatNotFound(output.name, output.suggestions);
   }
 
   return output.entities
-    .map(e => formatEntity(e, detail))
+    .map(e => formatEntity(e))
     .join('\n---\n');
 }
 
-function formatEntity(entity: Entity, detail: 'compact' | 'full'): string {
+function formatEntity(entity: Entity): string {
   const lines: string[] = [];
   const lib = entity.library ? ` (${entity.library})` : '';
   lines.push(`${entity.name} [${entity.type}]${lib}`);
@@ -58,23 +56,22 @@ function formatEntity(entity: Entity, detail: 'compact' | 'full'): string {
     lines.push('');
   }
 
-  if (detail === 'full' && entity.when_to_use.length > 0) {
+  if (entity.when_to_use.length > 0) {
     lines.push('When to use:');
     for (const u of entity.when_to_use) lines.push(`   - ${u}`);
     lines.push('');
   }
 
-  if (detail === 'full' && entity.avoid.length > 0) {
+  if (entity.avoid.length > 0) {
     lines.push('Avoid:');
     for (const a of entity.avoid) lines.push(`   - ${a}`);
     lines.push('');
   }
 
   if (entity.type === 'component') {
-    const props = detail === 'compact' ? entity.props.slice(0, 5) : entity.props;
-    if (props.length > 0) {
+    if (entity.props.length > 0) {
       lines.push('Props:');
-      for (const p of props) {
+      for (const p of entity.props) {
         let line = `   ${p.name}`;
         if (p.required) line += ' (required)';
         line += `: ${p.type}`;
@@ -82,15 +79,11 @@ function formatEntity(entity: Entity, detail: 'compact' | 'full'): string {
         if (p.description) line += ` — ${p.description}`;
         lines.push(line);
       }
-      if (detail === 'compact' && entity.props.length > 5) {
-        lines.push(`   ... and ${entity.props.length - 5} more`);
-      }
       lines.push('');
     }
-    const examples = detail === 'compact' ? entity.examples.slice(0, 1) : entity.examples;
-    if (examples.length > 0) {
+    if (entity.examples.length > 0) {
       lines.push('Examples:');
-      for (const ex of examples) {
+      for (const ex of entity.examples) {
         lines.push('```tsx');
         lines.push(ex);
         lines.push('```');
@@ -104,10 +97,9 @@ function formatEntity(entity: Entity, detail: 'compact' | 'full'): string {
       lines.push(`Signature: ${entity.signature}`);
       lines.push('');
     }
-    const examples = detail === 'compact' ? entity.examples.slice(0, 1) : entity.examples;
-    if (examples.length > 0) {
+    if (entity.examples.length > 0) {
       lines.push('Examples:');
-      for (const ex of examples) {
+      for (const ex of entity.examples) {
         lines.push('```tsx');
         lines.push(ex);
         lines.push('```');
@@ -118,34 +110,29 @@ function formatEntity(entity: Entity, detail: 'compact' | 'full'): string {
 
   if (entity.type === 'token-set') {
     const entries = Object.entries(entity.values);
-    const show = detail === 'compact' ? entries.slice(0, 10) : entries;
     lines.push('Values:');
-    for (const [k, v] of show) {
+    for (const [k, v] of entries) {
       lines.push(`   ${k}: ${v}`);
-    }
-    if (detail === 'compact' && entries.length > 10) {
-      lines.push(`   ... and ${entries.length - 10} more`);
     }
     lines.push('');
   }
 
   if (entity.type === 'recipe') {
     const decision = entity.sections.find(s => s.type === 'decision');
-    if (decision && decision.type === 'decision' && decision.when_to_use.length > 0) {
-      lines.push('When to use:');
-      for (const w of decision.when_to_use) lines.push(`   - ${w}`);
-      lines.push('');
-    }
-    if (detail === 'full') {
-      if (decision && decision.type === 'decision' && decision.when_not_to_use.length > 0) {
+    if (decision && decision.type === 'decision') {
+      if (decision.when_to_use.length > 0) {
+        lines.push('When to use:');
+        for (const w of decision.when_to_use) lines.push(`   - ${w}`);
+        lines.push('');
+      }
+      if (decision.when_not_to_use.length > 0) {
         lines.push('Not for:');
         for (const w of decision.when_not_to_use) lines.push(`   - ${w}`);
         lines.push('');
       }
     }
     const exampleSections = entity.sections.filter(s => s.type === 'example');
-    const examples = detail === 'compact' ? exampleSections.slice(0, 1) : exampleSections;
-    for (const s of examples) {
+    for (const s of exampleSections) {
       if (s.type === 'example') {
         lines.push(`Example: ${s.title}`);
         lines.push('```tsx');
@@ -154,15 +141,23 @@ function formatEntity(entity: Entity, detail: 'compact' | 'full'): string {
         lines.push('');
       }
     }
-    if (detail === 'full') {
-      const compSection = entity.sections.find(s => s.type === 'components');
-      if (compSection && compSection.type === 'components') {
-        lines.push('Components:');
-        for (const c of compSection.items) {
-          lines.push(`   ${c.name} (${c.library}) — ${c.role} [${c.usage}]`);
-        }
-        lines.push('');
+    const compSection = entity.sections.find(s => s.type === 'components');
+    if (compSection && compSection.type === 'components') {
+      lines.push('Components:');
+      for (const c of compSection.items) {
+        lines.push(`   ${c.name} (${c.library}) — ${c.role} [${c.usage}]`);
       }
+      lines.push('');
+    }
+  }
+
+  if (entity.type === 'library') {
+    if (entity.not_for) {
+      lines.push(`Not for: ${entity.not_for}`);
+      lines.push('');
+    }
+    if (entity.depends_on.length > 0) {
+      lines.push(`Depends on: ${entity.depends_on.join(', ')}`);
     }
   }
 
