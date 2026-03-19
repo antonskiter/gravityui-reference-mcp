@@ -1,5 +1,29 @@
 [
   {
+    "type": "library",
+    "name": "app-layout",
+    "library": "app-layout",
+    "description": "Server-side HTML render function factory with plugin architecture for injecting scripts, styles, theme attributes, analytics, and microfrontend version info into SSR page shells.",
+    "keywords": [
+      "gravity-ui",
+      "app-layout",
+      "app",
+      "layout"
+    ],
+    "when_to_use": [
+      "Server-side HTML render function factory with plugin architecture for injecting scripts, styles, theme attributes, analytics, and microfrontend version info into SSR page shells"
+    ],
+    "avoid": [
+      "Not for client-side rendering — server-side (Node.js) only. Not for streaming-agnostic setups without the plugin API."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/app-layout",
+    "not_for": "Not for client-side rendering — server-side (Node.js) only. Not for streaming-agnostic setups without the plugin API.",
+    "depends_on": [],
+    "component_count": 0
+  },
+  {
     "type": "utility",
     "name": "createRenderFunction",
     "library": "app-layout",
@@ -25,7 +49,17 @@
       "When streaming HTML — use generateRenderContent + renderHeadContent + renderBodyContent instead"
     ],
     "import_statement": "import { createRenderFunction } from '@gravity-ui/app-layout';",
-    "related": ["generateRenderContent", "renderHeadContent", "renderBodyContent", "createDefaultPlugins", "createLayoutPlugin", "createGoogleAnalyticsPlugin", "createYandexMetrikaPlugin", "createUikitPlugin", "createRemoteVersionsPlugin"],
+    "related": [
+      "generateRenderContent",
+      "renderHeadContent",
+      "renderBodyContent",
+      "createDefaultPlugins",
+      "createLayoutPlugin",
+      "createGoogleAnalyticsPlugin",
+      "createYandexMetrikaPlugin",
+      "createUikitPlugin",
+      "createRemoteVersionsPlugin"
+    ],
     "signature": "createRenderFunction(plugins?: Plugin[]): RenderFunction",
     "parameters": [
       {
@@ -64,7 +98,10 @@
       "When only specific plugins are needed — create individual plugins with their factory functions instead"
     ],
     "import_statement": "import { createDefaultPlugins } from '@gravity-ui/app-layout';",
-    "related": ["createRenderFunction", "createLayoutPlugin"],
+    "related": [
+      "createRenderFunction",
+      "createLayoutPlugin"
+    ],
     "signature": "createDefaultPlugins(options?: { layout?: LayoutInitOptions }): Plugin[]",
     "parameters": [
       {
@@ -96,7 +133,10 @@
     ],
     "avoid": [],
     "import_statement": "import { createGoogleAnalyticsPlugin } from '@gravity-ui/app-layout';",
-    "related": ["createRenderFunction", "createYandexMetrikaPlugin"],
+    "related": [
+      "createRenderFunction",
+      "createYandexMetrikaPlugin"
+    ],
     "signature": "createGoogleAnalyticsPlugin(): Plugin",
     "parameters": [],
     "return_type": "Plugin",
@@ -123,7 +163,10 @@
     ],
     "avoid": [],
     "import_statement": "import { createLayoutPlugin } from '@gravity-ui/app-layout';",
-    "related": ["createRenderFunction", "createDefaultPlugins"],
+    "related": [
+      "createRenderFunction",
+      "createDefaultPlugins"
+    ],
     "signature": "createLayoutPlugin(initOptions: { manifest: string; publicPath?: string }): Plugin",
     "parameters": [
       {
@@ -165,7 +208,9 @@
     ],
     "avoid": [],
     "import_statement": "import { createUikitPlugin } from '@gravity-ui/app-layout';",
-    "related": ["createRenderFunction"],
+    "related": [
+      "createRenderFunction"
+    ],
     "signature": "createUikitPlugin(): Plugin",
     "parameters": [],
     "return_type": "Plugin",
@@ -193,7 +238,10 @@
     ],
     "avoid": [],
     "import_statement": "import { createYandexMetrikaPlugin } from '@gravity-ui/app-layout';",
-    "related": ["createRenderFunction", "createGoogleAnalyticsPlugin"],
+    "related": [
+      "createRenderFunction",
+      "createGoogleAnalyticsPlugin"
+    ],
     "signature": "createYandexMetrikaPlugin(): Plugin",
     "parameters": [],
     "return_type": "Plugin",
@@ -220,7 +268,9 @@
       "Monolith applications without module federation — this plugin is a no-op in that context"
     ],
     "import_statement": "import { createRemoteVersionsPlugin } from '@gravity-ui/app-layout';",
-    "related": ["createRenderFunction"],
+    "related": [
+      "createRenderFunction"
+    ],
     "signature": "createRemoteVersionsPlugin(): Plugin",
     "parameters": [],
     "return_type": "Plugin",
@@ -247,7 +297,11 @@
       "Non-streaming responses — use createRenderFunction instead"
     ],
     "import_statement": "import { generateRenderContent } from '@gravity-ui/app-layout';",
-    "related": ["renderHeadContent", "renderBodyContent", "createRenderFunction"],
+    "related": [
+      "renderHeadContent",
+      "renderBodyContent",
+      "createRenderFunction"
+    ],
     "signature": "generateRenderContent(plugins: Plugin[], params: RenderParams): RenderContent",
     "parameters": [],
     "return_type": "RenderContent",
@@ -271,7 +325,10 @@
     ],
     "avoid": [],
     "import_statement": "import { renderBodyContent } from '@gravity-ui/app-layout';",
-    "related": ["generateRenderContent", "renderHeadContent"],
+    "related": [
+      "generateRenderContent",
+      "renderHeadContent"
+    ],
     "signature": "renderBodyContent(content: RenderContent): string",
     "parameters": [],
     "return_type": "string",
@@ -297,7 +354,10 @@
     ],
     "avoid": [],
     "import_statement": "import { renderHeadContent } from '@gravity-ui/app-layout';",
-    "related": ["generateRenderContent", "renderBodyContent"],
+    "related": [
+      "generateRenderContent",
+      "renderBodyContent"
+    ],
     "signature": "renderHeadContent(content: RenderContent): string",
     "parameters": [],
     "return_type": "string",

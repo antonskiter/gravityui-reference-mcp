@@ -1,5 +1,29 @@
 [
   {
+    "type": "library",
+    "name": "babel-preset",
+    "library": "babel-preset",
+    "description": "Shared Babel preset bundling preset-env, preset-react, preset-typescript, decorator support, and runtime helpers for Gravity UI projects.",
+    "keywords": [
+      "gravity-ui",
+      "babel-preset",
+      "babel",
+      "preset"
+    ],
+    "when_to_use": [
+      "Shared Babel preset bundling preset-env, preset-react, preset-typescript, decorator support, and runtime helpers for Gravity UI projects"
+    ],
+    "avoid": [
+      "Not for projects with radically different browser targets or non-standard decorator proposals without config overrides."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/babel-preset",
+    "not_for": "Not for projects with radically different browser targets or non-standard decorator proposals without config overrides.",
+    "depends_on": [],
+    "component_count": 0
+  },
+  {
     "type": "config-doc",
     "name": "babel-preset",
     "library": "babel-preset",
@@ -26,7 +50,9 @@
       "TypeScript support is opt-in (set `typescript: true`) and is disabled by default"
     ],
     "import_statement": "",
-    "related": ["tsconfig"],
+    "related": [
+      "tsconfig"
+    ],
     "how_to_use": "Install with `npm install --save-dev @gravity-ui/babel-preset`. Add to `.babelrc`: `{ \"presets\": [[\"@gravity-ui/babel-preset\", { \"env\": {}, \"runtime\": { \"useESModules\": true }, \"typescript\": true, \"react\": { \"runtime\": \"automatic\" } }]] }`.",
     "options": {
       "env": "Options passed to @babel/preset-env (default: {})",

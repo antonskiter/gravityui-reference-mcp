@@ -1,5 +1,34 @@
 [
   {
+    "type": "library",
+    "name": "page-constructor-builder",
+    "library": "page-constructor-builder",
+    "description": "CLI tool for building static HTML pages from YAML configurations using @gravity-ui/page-constructor with webpack, watch mode, custom components, navigation, and analytics.",
+    "keywords": [
+      "gravity-ui",
+      "page-constructor-builder",
+      "page",
+      "constructor",
+      "builder"
+    ],
+    "when_to_use": [
+      "CLI tool for building static HTML pages from YAML configurations using @gravity-ui/page-constructor with webpack, watch mode, custom components, navigation, and analytics"
+    ],
+    "avoid": [
+      "Not suitable for dynamic server-rendered applications — output is purely static HTML. Not for development-mode translation workflows."
+    ],
+    "import_statement": "",
+    "related": [
+      "@gravity-ui/page-constructor"
+    ],
+    "package": "@gravity-ui/page-constructor-builder",
+    "not_for": "Not suitable for dynamic server-rendered applications — output is purely static HTML. Not for development-mode translation workflows.",
+    "depends_on": [
+      "@gravity-ui/page-constructor"
+    ],
+    "component_count": 0
+  },
+  {
     "type": "config-doc",
     "name": "page-constructor-builder",
     "library": "page-constructor-builder",

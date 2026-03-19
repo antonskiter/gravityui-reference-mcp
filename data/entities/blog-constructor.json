@@ -1,23 +1,114 @@
 [
   {
+    "type": "library",
+    "name": "blog-constructor",
+    "library": "blog-constructor",
+    "description": "Ready-made blog CMS toolkit providing feed headers, post cards, post metadata, pagination, search, and layout wrappers for building blog listing and detail pages.",
+    "keywords": [
+      "gravity-ui",
+      "blog-constructor",
+      "blog",
+      "constructor"
+    ],
+    "when_to_use": [
+      "Ready-made blog CMS toolkit providing feed headers, post cards, post metadata, pagination, search, and layout wrappers for building blog listing and detail pages"
+    ],
+    "avoid": [
+      "Not a general content framework — purpose-built for blog/article list and post pages. Not for application UI or landing pages — use uikit or page-constructor respectively."
+    ],
+    "import_statement": "",
+    "related": [
+      "@gravity-ui/page-constructor",
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons"
+    ],
+    "package": "@gravity-ui/blog-constructor",
+    "not_for": "Not a general content framework — purpose-built for blog/article list and post pages. Not for application UI or landing pages — use uikit or page-constructor respectively.",
+    "depends_on": [
+      "@gravity-ui/page-constructor",
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons"
+    ],
+    "component_count": 15
+  },
+  {
     "type": "component",
     "name": "BlogConstructorProvider",
     "library": "blog-constructor",
     "description": "The root context provider for the blog-constructor library. Wraps children with all necessary contexts: theme, locale, router, mobile state, device info, analytics, and settings. Must be rendered at the top of every blog-constructor component tree.",
-    "keywords": ["provider", "context", "setup", "theme", "locale", "router", "mobile", "analytics", "settings", "blog constructor"],
-    "when_to_use": ["Wrap the root of your blog application to provide all blog-constructor contexts", "Required before using any other blog-constructor component"],
-    "avoid": ["Do not nest multiple BlogConstructorProvider instances — use one at the application root"],
+    "keywords": [
+      "provider",
+      "context",
+      "setup",
+      "theme",
+      "locale",
+      "router",
+      "mobile",
+      "analytics",
+      "settings",
+      "blog constructor"
+    ],
+    "when_to_use": [
+      "Wrap the root of your blog application to provide all blog-constructor contexts",
+      "Required before using any other blog-constructor component"
+    ],
+    "avoid": [
+      "Do not nest multiple BlogConstructorProvider instances — use one at the application root"
+    ],
     "import_statement": "import { BlogConstructorProvider } from '@gravity-ui/blog-constructor';",
-    "related": ["BlogPage", "BlogPostPage"],
+    "related": [
+      "BlogPage",
+      "BlogPostPage"
+    ],
     "props": [
-      { "name": "isMobile", "type": "boolean", "required": false, "description": "Whether the app is rendering in mobile context" },
-      { "name": "locale", "type": "Locale", "required": false, "description": "Locale configuration for i18n" },
-      { "name": "router", "type": "RouterContextProps", "required": false, "description": "Router context for link handling (defaults to empty object)" },
-      { "name": "theme", "type": "ThemeValueType", "required": false, "description": "Color theme value (defaults to DEFAULT_THEME)" },
-      { "name": "device", "type": "DeviceContextProps", "required": false, "description": "Device context properties (defaults to empty object)" },
-      { "name": "analytics", "type": "AnalyticsContextProps", "required": false, "description": "Analytics context for event tracking (defaults to empty object)" },
-      { "name": "settings", "type": "SettingsContextProps", "required": false, "description": "Settings context overrides (defaults to empty object)" },
-      { "name": "children", "type": "React.ReactNode", "required": false, "description": "Child components to wrap with all contexts" }
+      {
+        "name": "isMobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether the app is rendering in mobile context"
+      },
+      {
+        "name": "locale",
+        "type": "Locale",
+        "required": false,
+        "description": "Locale configuration for i18n"
+      },
+      {
+        "name": "router",
+        "type": "RouterContextProps",
+        "required": false,
+        "description": "Router context for link handling (defaults to empty object)"
+      },
+      {
+        "name": "theme",
+        "type": "ThemeValueType",
+        "required": false,
+        "description": "Color theme value (defaults to DEFAULT_THEME)"
+      },
+      {
+        "name": "device",
+        "type": "DeviceContextProps",
+        "required": false,
+        "description": "Device context properties (defaults to empty object)"
+      },
+      {
+        "name": "analytics",
+        "type": "AnalyticsContextProps",
+        "required": false,
+        "description": "Analytics context for event tracking (defaults to empty object)"
+      },
+      {
+        "name": "settings",
+        "type": "SettingsContextProps",
+        "required": false,
+        "description": "Settings context overrides (defaults to empty object)"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Child components to wrap with all contexts"
+      }
     ],
     "examples": [
       "<BlogConstructorProvider\n  locale={{ lang: 'en' }}\n  theme=\"light\"\n  router={{ pathname: '/blog', query: {} }}\n  analytics={{ sendEvents: trackEvent }}\n>\n  <BlogPage ... />\n</BlogConstructorProvider>"
@@ -28,26 +119,117 @@
     "name": "BlogPage",
     "library": "blog-constructor",
     "description": "A full blog feed page container that composes PageConstructor with blog-specific contexts (feeds, likes, authentication). Renders the page content blocks via page-constructor and overlays PromptSignIn when unauthenticated users try to like a post.",
-    "keywords": ["blog page", "feed page", "blog feed", "page constructor", "posts", "tags", "services", "likes", "full page"],
-    "when_to_use": ["As the top-level component for a blog listing/feed page", "When integrating blog-constructor with a page-constructor page content definition"],
-    "avoid": ["For individual post detail pages — use BlogPostPage instead", "Without wrapping in BlogConstructorProvider"],
+    "keywords": [
+      "blog page",
+      "feed page",
+      "blog feed",
+      "page constructor",
+      "posts",
+      "tags",
+      "services",
+      "likes",
+      "full page"
+    ],
+    "when_to_use": [
+      "As the top-level component for a blog listing/feed page",
+      "When integrating blog-constructor with a page-constructor page content definition"
+    ],
+    "avoid": [
+      "For individual post detail pages — use BlogPostPage instead",
+      "Without wrapping in BlogConstructorProvider"
+    ],
     "import_statement": "import { BlogPage } from '@gravity-ui/blog-constructor';",
-    "related": ["BlogPostPage", "BlogConstructorProvider", "Posts", "FeedHeader"],
+    "related": [
+      "BlogPostPage",
+      "BlogConstructorProvider",
+      "Posts",
+      "FeedHeader"
+    ],
     "props": [
-      { "name": "content", "type": "PageContent", "required": true, "description": "page-constructor PageContent definition for the blog feed page" },
-      { "name": "posts", "type": "PostsProps", "required": true, "description": "Posts data including posts array, optional pinnedPost, and total count" },
-      { "name": "tags", "type": "Tag[]", "required": true, "description": "Available tags for filtering" },
-      { "name": "getPosts", "type": "GetPostsType", "required": true, "description": "Function to fetch posts with updated query parameters" },
-      { "name": "services", "type": "Service[]", "required": false, "description": "Available services for filtering" },
-      { "name": "navigation", "type": "NavigationData", "required": false, "description": "Navigation configuration passed to PageConstructor" },
-      { "name": "hasLikes", "type": "boolean", "required": false, "description": "Whether like functionality is enabled (default false)" },
-      { "name": "toggleLike", "type": "ToggleLikeCallbackType", "required": false, "description": "Callback for toggling post likes" },
-      { "name": "metaData", "type": "MetaProps", "required": false, "description": "SEO meta data for the page" },
-      { "name": "settings", "type": "PageConstructorProviderProps", "required": false, "description": "Settings passed to PageConstructorProvider" },
-      { "name": "custom", "type": "CustomConfig", "required": false, "description": "Custom component map extensions for page-constructor" },
-      { "name": "pageCountForShowSupportButtons", "type": "number", "required": false, "description": "Passed to Paginator for prev/next button visibility" },
-      { "name": "isSignedInUser", "type": "boolean", "required": false, "description": "Whether the current user is signed in (default false)" },
-      { "name": "onClickSignIn", "type": "React.EventHandler<React.SyntheticEvent>", "required": false, "description": "Sign-in handler for unauthenticated like attempts" }
+      {
+        "name": "content",
+        "type": "PageContent",
+        "required": true,
+        "description": "page-constructor PageContent definition for the blog feed page"
+      },
+      {
+        "name": "posts",
+        "type": "PostsProps",
+        "required": true,
+        "description": "Posts data including posts array, optional pinnedPost, and total count"
+      },
+      {
+        "name": "tags",
+        "type": "Tag[]",
+        "required": true,
+        "description": "Available tags for filtering"
+      },
+      {
+        "name": "getPosts",
+        "type": "GetPostsType",
+        "required": true,
+        "description": "Function to fetch posts with updated query parameters"
+      },
+      {
+        "name": "services",
+        "type": "Service[]",
+        "required": false,
+        "description": "Available services for filtering"
+      },
+      {
+        "name": "navigation",
+        "type": "NavigationData",
+        "required": false,
+        "description": "Navigation configuration passed to PageConstructor"
+      },
+      {
+        "name": "hasLikes",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether like functionality is enabled (default false)"
+      },
+      {
+        "name": "toggleLike",
+        "type": "ToggleLikeCallbackType",
+        "required": false,
+        "description": "Callback for toggling post likes"
+      },
+      {
+        "name": "metaData",
+        "type": "MetaProps",
+        "required": false,
+        "description": "SEO meta data for the page"
+      },
+      {
+        "name": "settings",
+        "type": "PageConstructorProviderProps",
+        "required": false,
+        "description": "Settings passed to PageConstructorProvider"
+      },
+      {
+        "name": "custom",
+        "type": "CustomConfig",
+        "required": false,
+        "description": "Custom component map extensions for page-constructor"
+      },
+      {
+        "name": "pageCountForShowSupportButtons",
+        "type": "number",
+        "required": false,
+        "description": "Passed to Paginator for prev/next button visibility"
+      },
+      {
+        "name": "isSignedInUser",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether the current user is signed in (default false)"
+      },
+      {
+        "name": "onClickSignIn",
+        "type": "React.EventHandler<React.SyntheticEvent>",
+        "required": false,
+        "description": "Sign-in handler for unauthenticated like attempts"
+      }
     ],
     "examples": [
       "<BlogConstructorProvider locale={{ lang: 'en' }}>\n  <BlogPage\n    content={pageContent}\n    posts={{ posts, pinnedPost, count: totalCount }}\n    tags={tags}\n    getPosts={fetchPosts}\n    hasLikes\n    toggleLike={handleToggleLike}\n    isSignedInUser={isLoggedIn}\n    onClickSignIn={() => router.push('/signin')}\n  />\n</BlogConstructorProvider>"
@@ -58,25 +240,111 @@
     "name": "BlogPostPage",
     "library": "blog-constructor",
     "description": "A full blog post detail page container that composes PageConstructor with post-specific contexts (post data, likes, suggested posts, sharing). Renders the post page content blocks and overlays PromptSignIn when unauthenticated users try to like.",
-    "keywords": ["blog post page", "post detail", "article page", "page constructor", "likes", "suggested posts", "sharing", "breadcrumbs", "full page"],
-    "when_to_use": ["As the top-level component for a blog post detail/article page", "When integrating blog-constructor with a page-constructor PageContent definition for individual posts"],
-    "avoid": ["For blog feed/listing pages — use BlogPage instead", "Without wrapping in BlogConstructorProvider"],
+    "keywords": [
+      "blog post page",
+      "post detail",
+      "article page",
+      "page constructor",
+      "likes",
+      "suggested posts",
+      "sharing",
+      "breadcrumbs",
+      "full page"
+    ],
+    "when_to_use": [
+      "As the top-level component for a blog post detail/article page",
+      "When integrating blog-constructor with a page-constructor PageContent definition for individual posts"
+    ],
+    "avoid": [
+      "For blog feed/listing pages — use BlogPage instead",
+      "Without wrapping in BlogConstructorProvider"
+    ],
     "import_statement": "import { BlogPostPage } from '@gravity-ui/blog-constructor';",
-    "related": ["BlogPage", "BlogConstructorProvider", "PostInfo", "PostCard"],
+    "related": [
+      "BlogPage",
+      "BlogConstructorProvider",
+      "PostInfo",
+      "PostCard"
+    ],
     "props": [
-      { "name": "content", "type": "PageContent", "required": true, "description": "page-constructor PageContent definition for the post page" },
-      { "name": "post", "type": "PostData", "required": true, "description": "The blog post data" },
-      { "name": "suggestedPosts", "type": "PostData[]", "required": true, "description": "Array of suggested/related posts to display" },
-      { "name": "metaData", "type": "MetaProps", "required": false, "description": "SEO meta data for the post page" },
-      { "name": "likes", "type": "{ hasUserLike?: boolean; likesCount?: number; toggleLike?: ToggleLikeCallbackType }", "required": false, "description": "Like state and toggle callback; omit to hide like functionality" },
-      { "name": "settings", "type": "PageConstructorProviderProps", "required": false, "description": "Settings passed to PageConstructorProvider" },
-      { "name": "navigation", "type": "NavigationData", "required": false, "description": "Navigation configuration passed to PageConstructor" },
-      { "name": "microdata", "type": "PageConstructorProps['microdata']", "required": false, "description": "Structured data microdata configuration" },
-      { "name": "custom", "type": "CustomConfig", "required": false, "description": "Custom component map extensions for page-constructor" },
-      { "name": "shareOptions", "type": "ShareOptions[]", "required": false, "description": "Social sharing options" },
-      { "name": "isSignedInUser", "type": "boolean", "required": false, "description": "Whether the current user is signed in (default false)" },
-      { "name": "onClickSignIn", "type": "React.EventHandler<React.SyntheticEvent>", "required": false, "description": "Sign-in handler for unauthenticated like attempts" },
-      { "name": "breadcrumbs", "type": "HeaderBreadCrumbsProps", "required": false, "description": "Breadcrumb navigation props for the post header" }
+      {
+        "name": "content",
+        "type": "PageContent",
+        "required": true,
+        "description": "page-constructor PageContent definition for the post page"
+      },
+      {
+        "name": "post",
+        "type": "PostData",
+        "required": true,
+        "description": "The blog post data"
+      },
+      {
+        "name": "suggestedPosts",
+        "type": "PostData[]",
+        "required": true,
+        "description": "Array of suggested/related posts to display"
+      },
+      {
+        "name": "metaData",
+        "type": "MetaProps",
+        "required": false,
+        "description": "SEO meta data for the post page"
+      },
+      {
+        "name": "likes",
+        "type": "{ hasUserLike?: boolean; likesCount?: number; toggleLike?: ToggleLikeCallbackType }",
+        "required": false,
+        "description": "Like state and toggle callback; omit to hide like functionality"
+      },
+      {
+        "name": "settings",
+        "type": "PageConstructorProviderProps",
+        "required": false,
+        "description": "Settings passed to PageConstructorProvider"
+      },
+      {
+        "name": "navigation",
+        "type": "NavigationData",
+        "required": false,
+        "description": "Navigation configuration passed to PageConstructor"
+      },
+      {
+        "name": "microdata",
+        "type": "PageConstructorProps['microdata']",
+        "required": false,
+        "description": "Structured data microdata configuration"
+      },
+      {
+        "name": "custom",
+        "type": "CustomConfig",
+        "required": false,
+        "description": "Custom component map extensions for page-constructor"
+      },
+      {
+        "name": "shareOptions",
+        "type": "ShareOptions[]",
+        "required": false,
+        "description": "Social sharing options"
+      },
+      {
+        "name": "isSignedInUser",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether the current user is signed in (default false)"
+      },
+      {
+        "name": "onClickSignIn",
+        "type": "React.EventHandler<React.SyntheticEvent>",
+        "required": false,
+        "description": "Sign-in handler for unauthenticated like attempts"
+      },
+      {
+        "name": "breadcrumbs",
+        "type": "HeaderBreadCrumbsProps",
+        "required": false,
+        "description": "Breadcrumb navigation props for the post header"
+      }
     ],
     "examples": [
       "<BlogConstructorProvider locale={{ lang: 'en' }}>\n  <BlogPostPage\n    content={postPageContent}\n    post={post}\n    suggestedPosts={relatedPosts}\n    likes={{\n      hasUserLike: userLiked,\n      likesCount: post.likesCount,\n      toggleLike: handleToggleLike,\n    }}\n    isSignedInUser={isLoggedIn}\n    onClickSignIn={() => router.push('/signin')}\n    breadcrumbs={{ items: [{ text: 'Blog', href: '/blog' }] }}\n  />\n</BlogConstructorProvider>"
@@ -87,270 +355,828 @@
     "name": "FeedHeader",
     "library": "blog-constructor",
     "description": "Renders the header section of a blog feed page, including background image, theme, and filter controls (tags, services, search). Integrates with page-constructor's Grid and BackgroundImage for layout.",
-    "keywords": ["blog", "feed", "header", "filter", "tags", "services", "background", "page-constructor", "navigation", "controls"],
-    "when_to_use": ["At the top of a blog listing or feed page", "When users need to filter blog posts by tag or service", "When a themed header with optional background image is required"],
-    "avoid": ["On individual blog post pages — use PostInfo instead", "When no filtering controls are needed — use a plain heading"],
+    "keywords": [
+      "blog",
+      "feed",
+      "header",
+      "filter",
+      "tags",
+      "services",
+      "background",
+      "page-constructor",
+      "navigation",
+      "controls"
+    ],
+    "when_to_use": [
+      "At the top of a blog listing or feed page",
+      "When users need to filter blog posts by tag or service",
+      "When a themed header with optional background image is required"
+    ],
+    "avoid": [
+      "On individual blog post pages — use PostInfo instead",
+      "When no filtering controls are needed — use a plain heading"
+    ],
     "import_statement": "import { FeedHeader } from '@gravity-ui/blog-constructor';",
-    "related": ["Posts", "Search", "Paginator"],
+    "related": [
+      "Posts",
+      "Search",
+      "Paginator"
+    ],
     "props": [
-      { "name": "title", "type": "string", "required": false, "description": "Header title text" },
-      { "name": "tags", "type": "TagData[]", "required": false, "description": "List of tag filter options" },
-      { "name": "services", "type": "ServiceData[]", "required": false, "description": "List of service filter options" },
-      { "name": "handleLoadData", "type": "(params: Query) => void", "required": false, "description": "Callback fired when filters change" },
-      { "name": "queryParams", "type": "Query", "required": false, "description": "Current active query parameters" },
-      { "name": "background", "type": "ThemedImage", "required": false, "description": "Themed background image config" },
-      { "name": "theme", "type": "'light' | 'dark'", "required": false, "description": "Color theme for the header" },
-      { "name": "offset", "type": "string", "required": false, "description": "Grid offset setting" },
-      { "name": "verticalOffset", "type": "'l' | 'm' | 's'", "required": false, "description": "Vertical spacing offset" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class name" }
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Header title text"
+      },
+      {
+        "name": "tags",
+        "type": "TagData[]",
+        "required": false,
+        "description": "List of tag filter options"
+      },
+      {
+        "name": "services",
+        "type": "ServiceData[]",
+        "required": false,
+        "description": "List of service filter options"
+      },
+      {
+        "name": "handleLoadData",
+        "type": "(params: Query) => void",
+        "required": false,
+        "description": "Callback fired when filters change"
+      },
+      {
+        "name": "queryParams",
+        "type": "Query",
+        "required": false,
+        "description": "Current active query parameters"
+      },
+      {
+        "name": "background",
+        "type": "ThemedImage",
+        "required": false,
+        "description": "Themed background image config"
+      },
+      {
+        "name": "theme",
+        "type": "'light' | 'dark'",
+        "required": false,
+        "description": "Color theme for the header"
+      },
+      {
+        "name": "offset",
+        "type": "string",
+        "required": false,
+        "description": "Grid offset setting"
+      },
+      {
+        "name": "verticalOffset",
+        "type": "'l' | 'm' | 's'",
+        "required": false,
+        "description": "Vertical spacing offset"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class name"
+      }
     ],
     "examples": [
       "<FeedHeader\n  title=\"Blog\"\n  tags={[\n    { id: 'frontend', name: 'Frontend' },\n    { id: 'backend', name: 'Backend' },\n    { id: 'devops', name: 'DevOps' },\n  ]}\n  queryParams={{ tag: 'frontend', page: 1 }}\n  handleLoadData={(params) => router.push({ query: params })}\n/>",
       "<FeedHeader\n  title=\"Engineering Blog\"\n  theme=\"dark\"\n  verticalOffset=\"l\"\n  background={{\n    light: { url: '/images/blog-header-bg.jpg' },\n    dark: { url: '/images/blog-header-bg-dark.jpg' },\n  }}\n  services={[\n    { id: 'cloud', name: 'Cloud' },\n    { id: 'platform', name: 'Platform' },\n  ]}\n  handleLoadData={(params) => fetchPosts(params)}\n  queryParams={{}}\n/>"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
     "name": "MetaWrapper",
     "library": "blog-constructor",
     "description": "Conditionally wraps meta content in a react-helmet Helmet component for SSR head tag injection. When needHelmetWrapper is false, renders the metaComponent directly.",
-    "keywords": ["meta", "helmet", "seo", "head", "ssr", "server-side rendering", "open graph", "blog", "page meta"],
-    "when_to_use": ["When injecting SEO meta tags for blog post or feed pages", "When you need conditional Helmet wrapping based on environment"],
-    "avoid": ["For non-meta UI content", "When react-helmet is not available in the project"],
+    "keywords": [
+      "meta",
+      "helmet",
+      "seo",
+      "head",
+      "ssr",
+      "server-side rendering",
+      "open graph",
+      "blog",
+      "page meta"
+    ],
+    "when_to_use": [
+      "When injecting SEO meta tags for blog post or feed pages",
+      "When you need conditional Helmet wrapping based on environment"
+    ],
+    "avoid": [
+      "For non-meta UI content",
+      "When react-helmet is not available in the project"
+    ],
     "import_statement": "import { MetaWrapper } from '@gravity-ui/blog-constructor';",
-    "related": ["PostInfo"],
+    "related": [
+      "PostInfo"
+    ],
     "props": [
-      { "name": "metaComponent", "type": "React.ReactNode", "required": true, "description": "Meta JSX elements to render (e.g. <meta>, <title>)" },
-      { "name": "needHelmetWrapper", "type": "boolean", "required": false, "description": "Whether to wrap content in react-helmet Helmet" }
+      {
+        "name": "metaComponent",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Meta JSX elements to render (e.g. <meta>, <title>)"
+      },
+      {
+        "name": "needHelmetWrapper",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether to wrap content in react-helmet Helmet"
+      }
     ],
     "examples": [
       "<MetaWrapper\n  needHelmetWrapper={true}\n  metaComponent={\n    <>\n      <title>How we built our platform | Engineering Blog</title>\n      <meta name=\"description\" content=\"A deep dive into our platform architecture.\" />\n      <meta property=\"og:title\" content=\"How we built our platform\" />\n      <meta property=\"og:image\" content=\"https://example.com/og-image.jpg\" />\n    </>\n  }\n/>",
       "<MetaWrapper\n  needHelmetWrapper={false}\n  metaComponent={\n    <>\n      <meta name=\"description\" content=\"Latest posts from the engineering team.\" />\n    </>\n  }\n/>"
-    ]
+    ],
+    "category": "utility"
   },
   {
     "type": "component",
     "name": "Paginator",
     "library": "blog-constructor",
     "description": "Renders a numbered page navigation bar for blog post listings with optional prev/next navigation buttons. Automatically hides when there is only one page and fires analytics events on page changes.",
-    "keywords": ["pagination", "pager", "page navigation", "blog", "posts list", "next page", "previous page", "page numbers"],
-    "when_to_use": ["At the bottom of a paginated blog post listing", "When post count exceeds itemsPerPage and pagination is needed"],
-    "avoid": ["When using infinite scroll or load-more pattern — use the Posts component's showMore button instead", "When totalItems < itemsPerPage (component renders nothing)"],
+    "keywords": [
+      "pagination",
+      "pager",
+      "page navigation",
+      "blog",
+      "posts list",
+      "next page",
+      "previous page",
+      "page numbers"
+    ],
+    "when_to_use": [
+      "At the bottom of a paginated blog post listing",
+      "When post count exceeds itemsPerPage and pagination is needed"
+    ],
+    "avoid": [
+      "When using infinite scroll or load-more pattern — use the Posts component's showMore button instead",
+      "When totalItems < itemsPerPage (component renders nothing)"
+    ],
     "import_statement": "import { Paginator } from '@gravity-ui/blog-constructor';",
-    "related": ["Posts"],
+    "related": [
+      "Posts"
+    ],
     "props": [
-      { "name": "itemsPerPage", "type": "number", "required": true, "description": "Number of posts displayed per page" },
-      { "name": "totalItems", "type": "number", "required": true, "description": "Total count of all posts" },
-      { "name": "page", "type": "number", "required": true, "description": "Currently active page number (1-indexed)" },
-      { "name": "onPageChange", "type": "(page: number) => void", "required": false, "description": "Callback called with new page number" },
-      { "name": "maxPages", "type": "number", "required": false, "description": "Maximum number of pages to allow" },
-      { "name": "queryParams", "type": "Query", "required": false, "description": "Current URL query params to preserve in page links" },
-      { "name": "pageCountForShowSupportButtons", "type": "number", "required": false, "description": "Minimum page count before prev/next buttons appear (default 6)" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class name" }
+      {
+        "name": "itemsPerPage",
+        "type": "number",
+        "required": true,
+        "description": "Number of posts displayed per page"
+      },
+      {
+        "name": "totalItems",
+        "type": "number",
+        "required": true,
+        "description": "Total count of all posts"
+      },
+      {
+        "name": "page",
+        "type": "number",
+        "required": true,
+        "description": "Currently active page number (1-indexed)"
+      },
+      {
+        "name": "onPageChange",
+        "type": "(page: number) => void",
+        "required": false,
+        "description": "Callback called with new page number"
+      },
+      {
+        "name": "maxPages",
+        "type": "number",
+        "required": false,
+        "description": "Maximum number of pages to allow"
+      },
+      {
+        "name": "queryParams",
+        "type": "Query",
+        "required": false,
+        "description": "Current URL query params to preserve in page links"
+      },
+      {
+        "name": "pageCountForShowSupportButtons",
+        "type": "number",
+        "required": false,
+        "description": "Minimum page count before prev/next buttons appear (default 6)"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class name"
+      }
     ],
     "examples": [
       "const [page, setPage] = React.useState(1);\n\n<Paginator\n  itemsPerPage={12}\n  totalItems={120}\n  page={page}\n  onPageChange={(newPage) => {\n    setPage(newPage);\n    fetchPosts({ page: newPage });\n  }}\n/>",
       "<Paginator\n  itemsPerPage={10}\n  totalItems={85}\n  page={currentPage}\n  queryParams={{ tag: 'frontend', service: 'cloud' }}\n  pageCountForShowSupportButtons={4}\n  onPageChange={handlePageChange}\n/>"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
     "name": "PostCard",
     "library": "blog-constructor",
     "description": "Renders a single blog post preview card with image, title, description, tag, date, reading time, and like count. Supports multiple sizes and heading levels for proper document hierarchy.",
-    "keywords": ["blog post", "post card", "article card", "preview", "thumbnail", "like", "reading time", "tag", "card layout"],
-    "when_to_use": ["Inside blog feed or listing pages to display a post summary", "When rendering a grid of post previews", "For suggested/related post sections"],
-    "avoid": ["For full post display — use a post page layout instead", "When post data lacks a URL — the card is not interactive without it"],
+    "keywords": [
+      "blog post",
+      "post card",
+      "article card",
+      "preview",
+      "thumbnail",
+      "like",
+      "reading time",
+      "tag",
+      "card layout"
+    ],
+    "when_to_use": [
+      "Inside blog feed or listing pages to display a post summary",
+      "When rendering a grid of post previews",
+      "For suggested/related post sections"
+    ],
+    "avoid": [
+      "For full post display — use a post page layout instead",
+      "When post data lacks a URL — the card is not interactive without it"
+    ],
     "import_statement": "import { PostCard } from '@gravity-ui/blog-constructor';",
-    "related": ["Posts", "PostInfo"],
+    "related": [
+      "Posts",
+      "PostInfo"
+    ],
     "props": [
-      { "name": "post", "type": "PostData", "required": true, "description": "Full post data object" },
-      { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events to fire on card interaction" },
-      { "name": "fullWidth", "type": "boolean", "required": false, "description": "Whether card spans full container width" },
-      { "name": "showTag", "type": "boolean", "required": false, "description": "Whether to display the first post tag" },
-      { "name": "size", "type": "'s' | 'm'", "required": false, "description": "Card size variant (default 's')" },
-      { "name": "titleHeadingLevel", "type": "'h2' | 'h3' | 'h4'", "required": false, "description": "Heading element level for accessibility" }
+      {
+        "name": "post",
+        "type": "PostData",
+        "required": true,
+        "description": "Full post data object"
+      },
+      {
+        "name": "analyticsEvents",
+        "type": "AnalyticsEventsProp",
+        "required": false,
+        "description": "Analytics events to fire on card interaction"
+      },
+      {
+        "name": "fullWidth",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether card spans full container width"
+      },
+      {
+        "name": "showTag",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether to display the first post tag"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm'",
+        "required": false,
+        "description": "Card size variant (default 's')"
+      },
+      {
+        "name": "titleHeadingLevel",
+        "type": "'h2' | 'h3' | 'h4'",
+        "required": false,
+        "description": "Heading element level for accessibility"
+      }
     ],
     "examples": [
       "<PostCard\n  post={{\n    id: 42,\n    title: 'Building scalable microservices with Go',\n    description: 'A practical guide to splitting monoliths and managing service mesh.',\n    url: '/blog/scalable-microservices-go',\n    image: '/images/posts/microservices.jpg',\n    date: '2024-03-15',\n    readingTime: 8,\n    tags: [{ id: 'backend', name: 'Backend' }],\n    likes: 24,\n    hasUserLike: false,\n  }}\n  showTag\n  size=\"s\"\n  titleHeadingLevel=\"h3\"\n/>",
       "<PostCard\n  post={pinnedPost}\n  fullWidth\n  showTag\n  size=\"m\"\n  titleHeadingLevel=\"h2\"\n/>"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "component",
     "name": "PostInfo",
     "library": "blog-constructor",
     "description": "Displays metadata for a blog post page: publication date, reading time, sharing options, and save/like button. Reads post context and supports custom extra info items via SettingsContext.",
-    "keywords": ["post metadata", "reading time", "publish date", "sharing", "save", "like", "blog post info", "social share"],
-    "when_to_use": ["On a blog post detail page to show post metadata", "When social sharing and save functionality is needed on a post"],
-    "avoid": ["In feed card previews — use SuggestPostInfo or PostCard instead"],
+    "keywords": [
+      "post metadata",
+      "reading time",
+      "publish date",
+      "sharing",
+      "save",
+      "like",
+      "blog post info",
+      "social share"
+    ],
+    "when_to_use": [
+      "On a blog post detail page to show post metadata",
+      "When social sharing and save functionality is needed on a post"
+    ],
+    "avoid": [
+      "In feed card previews — use SuggestPostInfo or PostCard instead"
+    ],
     "import_statement": "import { PostInfo } from '@gravity-ui/blog-constructor';",
-    "related": ["PostCard"],
+    "related": [
+      "PostCard"
+    ],
     "props": [
-      { "name": "postId", "type": "number | string", "required": true, "description": "Unique identifier of the post" },
-      { "name": "date", "type": "string", "required": true, "description": "Publication date string" },
-      { "name": "readingTime", "type": "number", "required": true, "description": "Estimated reading time in minutes" },
-      { "name": "theme", "type": "'light' | 'dark'", "required": false, "description": "Color theme for the info bar" },
-      { "name": "analyticsEventsContainer", "type": "Record<string, AnalyticsEventsProp>", "required": false, "description": "Named analytics event configurations" },
-      { "name": "qa", "type": "string", "required": false, "description": "Test QA attribute" }
+      {
+        "name": "postId",
+        "type": "number | string",
+        "required": true,
+        "description": "Unique identifier of the post"
+      },
+      {
+        "name": "date",
+        "type": "string",
+        "required": true,
+        "description": "Publication date string"
+      },
+      {
+        "name": "readingTime",
+        "type": "number",
+        "required": true,
+        "description": "Estimated reading time in minutes"
+      },
+      {
+        "name": "theme",
+        "type": "'light' | 'dark'",
+        "required": false,
+        "description": "Color theme for the info bar"
+      },
+      {
+        "name": "analyticsEventsContainer",
+        "type": "Record<string, AnalyticsEventsProp>",
+        "required": false,
+        "description": "Named analytics event configurations"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "Test QA attribute"
+      }
     ],
     "examples": [
       "<PostInfo\n  postId={123}\n  date=\"2024-03-15\"\n  readingTime={7}\n  theme=\"light\"\n/>",
       "<PostInfo\n  postId=\"how-we-built-our-platform\"\n  date=\"2024-01-20\"\n  readingTime={12}\n  theme=\"dark\"\n  analyticsEventsContainer={{\n    sharing: [{ name: 'blog_share_click', type: 'default-goal' }],\n    save: [{ name: 'blog_save_click', type: 'default-goal' }],\n  }}\n  qa=\"post-info\"\n/>"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "component",
     "name": "Posts",
     "library": "blog-constructor",
     "description": "Renders a full blog post listing with a grid of PostCard components, an optional pinned post, load-more button, error state, and pagination. Manages loading state visual feedback.",
-    "keywords": ["blog posts list", "post grid", "feed", "load more", "pagination", "pinned post", "fetching", "card layout"],
-    "when_to_use": ["As the main content area of a blog feed page", "When displaying a paginated or infinite-scroll list of blog posts"],
-    "avoid": ["For individual post display", "When only a few posts are shown statically — render PostCard directly"],
+    "keywords": [
+      "blog posts list",
+      "post grid",
+      "feed",
+      "load more",
+      "pagination",
+      "pinned post",
+      "fetching",
+      "card layout"
+    ],
+    "when_to_use": [
+      "As the main content area of a blog feed page",
+      "When displaying a paginated or infinite-scroll list of blog posts"
+    ],
+    "avoid": [
+      "For individual post display",
+      "When only a few posts are shown statically — render PostCard directly"
+    ],
     "import_statement": "import { Posts } from '@gravity-ui/blog-constructor';",
-    "related": ["PostCard", "Paginator", "PostsEmpty", "PostsError"],
+    "related": [
+      "PostCard",
+      "Paginator",
+      "PostsEmpty",
+      "PostsError"
+    ],
     "props": [
-      { "name": "containerId", "type": "string", "required": true, "description": "HTML id for the posts container element" },
-      { "name": "currentPage", "type": "number", "required": true, "description": "Currently active page number" },
-      { "name": "isShowMoreVisible", "type": "boolean", "required": true, "description": "Whether to show the load-more button" },
-      { "name": "errorShowMore", "type": "boolean", "required": true, "description": "Whether a load-more error occurred" },
-      { "name": "postCountOnPage", "type": "number", "required": true, "description": "Total count of posts for pagination" },
-      { "name": "perPageInQuery", "type": "number", "required": true, "description": "Posts per page for paginator" },
-      { "name": "isFetching", "type": "boolean", "required": true, "description": "Whether posts are currently loading" },
-      { "name": "handleShowMore", "type": "(e?: MouseEvent) => Promise<void> | void", "required": true, "description": "Load-more button click handler" },
-      { "name": "handlePageChange", "type": "(page: number) => Promise<void> | void", "required": true, "description": "Page change handler for paginator" },
-      { "name": "queryParams", "type": "Query", "required": true, "description": "Active URL query params" },
-      { "name": "postsOnPage", "type": "PostData[]", "required": false, "description": "Array of posts to display" },
-      { "name": "pinnedPostOnPage", "type": "PostData", "required": false, "description": "Post to pin at top (shown on page 1 only)" },
-      { "name": "pageCountForShowSupportButtons", "type": "number", "required": false, "description": "Passed to Paginator component" }
+      {
+        "name": "containerId",
+        "type": "string",
+        "required": true,
+        "description": "HTML id for the posts container element"
+      },
+      {
+        "name": "currentPage",
+        "type": "number",
+        "required": true,
+        "description": "Currently active page number"
+      },
+      {
+        "name": "isShowMoreVisible",
+        "type": "boolean",
+        "required": true,
+        "description": "Whether to show the load-more button"
+      },
+      {
+        "name": "errorShowMore",
+        "type": "boolean",
+        "required": true,
+        "description": "Whether a load-more error occurred"
+      },
+      {
+        "name": "postCountOnPage",
+        "type": "number",
+        "required": true,
+        "description": "Total count of posts for pagination"
+      },
+      {
+        "name": "perPageInQuery",
+        "type": "number",
+        "required": true,
+        "description": "Posts per page for paginator"
+      },
+      {
+        "name": "isFetching",
+        "type": "boolean",
+        "required": true,
+        "description": "Whether posts are currently loading"
+      },
+      {
+        "name": "handleShowMore",
+        "type": "(e?: MouseEvent) => Promise<void> | void",
+        "required": true,
+        "description": "Load-more button click handler"
+      },
+      {
+        "name": "handlePageChange",
+        "type": "(page: number) => Promise<void> | void",
+        "required": true,
+        "description": "Page change handler for paginator"
+      },
+      {
+        "name": "queryParams",
+        "type": "Query",
+        "required": true,
+        "description": "Active URL query params"
+      },
+      {
+        "name": "postsOnPage",
+        "type": "PostData[]",
+        "required": false,
+        "description": "Array of posts to display"
+      },
+      {
+        "name": "pinnedPostOnPage",
+        "type": "PostData",
+        "required": false,
+        "description": "Post to pin at top (shown on page 1 only)"
+      },
+      {
+        "name": "pageCountForShowSupportButtons",
+        "type": "number",
+        "required": false,
+        "description": "Passed to Paginator component"
+      }
     ],
     "examples": [
       "<Posts\n  containerId=\"blog-posts\"\n  currentPage={1}\n  postsOnPage={posts}\n  isFetching={false}\n  isShowMoreVisible={hasMore}\n  errorShowMore={false}\n  postCountOnPage={totalPosts}\n  perPageInQuery={12}\n  queryParams={{ tag: 'frontend' }}\n  handleShowMore={async () => {\n    await loadMorePosts();\n  }}\n  handlePageChange={async (page) => {\n    await fetchPage(page);\n  }}\n/>",
       "<Posts\n  containerId=\"blog-posts-main\"\n  currentPage={page}\n  postsOnPage={posts}\n  pinnedPostOnPage={featuredPost}\n  isFetching={isFetching}\n  isShowMoreVisible={false}\n  errorShowMore={hasError}\n  postCountOnPage={totalCount}\n  perPageInQuery={10}\n  queryParams={queryParams}\n  handleShowMore={handleShowMore}\n  handlePageChange={handlePageChange}\n/>"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "component",
     "name": "PostsEmpty",
     "library": "blog-constructor",
     "description": "Renders an empty state message when no blog posts match the current filter or search criteria.",
-    "keywords": ["empty state", "no posts", "no results", "blog", "empty list", "zero results"],
-    "when_to_use": ["When the blog feed has no posts to display after filtering or searching"],
-    "avoid": ["For error states — use PostsError instead"],
+    "keywords": [
+      "empty state",
+      "no posts",
+      "no results",
+      "blog",
+      "empty list",
+      "zero results"
+    ],
+    "when_to_use": [
+      "When the blog feed has no posts to display after filtering or searching"
+    ],
+    "avoid": [
+      "For error states — use PostsError instead"
+    ],
     "import_statement": "import { PostsEmpty } from '@gravity-ui/blog-constructor';",
-    "related": ["Posts", "PostsError"],
+    "related": [
+      "Posts",
+      "PostsError"
+    ],
     "props": [],
     "examples": [
       "{posts.length === 0 && !isFetching && <PostsEmpty />}",
       "function BlogFeed({ posts, isFetching }) {\n  if (!isFetching && posts.length === 0) {\n    return <PostsEmpty />;\n  }\n  return <PostGrid posts={posts} />;\n}"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
     "name": "PostsError",
     "library": "blog-constructor",
     "description": "Renders an error state for blog post loading failures with a retry button. Calls window.location.reload() if no custom handler is provided.",
-    "keywords": ["error state", "load error", "retry", "blog posts", "fetch error", "error message"],
-    "when_to_use": ["When blog post fetching fails and a user-facing error with retry is needed"],
-    "avoid": ["For empty results — use PostsEmpty instead"],
+    "keywords": [
+      "error state",
+      "load error",
+      "retry",
+      "blog posts",
+      "fetch error",
+      "error message"
+    ],
+    "when_to_use": [
+      "When blog post fetching fails and a user-facing error with retry is needed"
+    ],
+    "avoid": [
+      "For empty results — use PostsEmpty instead"
+    ],
     "import_statement": "import { PostsError } from '@gravity-ui/blog-constructor';",
-    "related": ["Posts", "PostsEmpty"],
+    "related": [
+      "Posts",
+      "PostsEmpty"
+    ],
     "props": [
-      { "name": "onButtonClick", "type": "() => void | Promise<void>", "required": false, "description": "Custom retry handler; defaults to page reload" }
+      {
+        "name": "onButtonClick",
+        "type": "() => void | Promise<void>",
+        "required": false,
+        "description": "Custom retry handler; defaults to page reload"
+      }
     ],
     "examples": [
       "{hasError && <PostsError />}",
       "<PostsError\n  onButtonClick={async () => {\n    setError(false);\n    await fetchPosts(queryParams);\n  }}\n/>"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
     "name": "Prompt",
     "library": "blog-constructor",
     "description": "A timed tooltip-style popup that displays a message with one or more action buttons. Automatically disappears after openDuration milliseconds and resets its timer when openTimestamp changes.",
-    "keywords": ["prompt", "tooltip popup", "notification", "action buttons", "timed popup", "hover", "blog prompt"],
-    "when_to_use": ["When prompting the user to take an action (e.g. sign in to like a post)", "For transient, auto-dismissing notification messages with CTAs"],
-    "avoid": ["For persistent dialogs or modals — use Modal from uikit instead", "When no timed auto-dismiss behavior is needed"],
+    "keywords": [
+      "prompt",
+      "tooltip popup",
+      "notification",
+      "action buttons",
+      "timed popup",
+      "hover",
+      "blog prompt"
+    ],
+    "when_to_use": [
+      "When prompting the user to take an action (e.g. sign in to like a post)",
+      "For transient, auto-dismissing notification messages with CTAs"
+    ],
+    "avoid": [
+      "For persistent dialogs or modals — use Modal from uikit instead",
+      "When no timed auto-dismiss behavior is needed"
+    ],
     "import_statement": "import { Prompt } from '@gravity-ui/blog-constructor';",
-    "related": ["PromptSignIn"],
+    "related": [
+      "PromptSignIn"
+    ],
     "props": [
-      { "name": "text", "type": "string", "required": true, "description": "Prompt message text" },
-      { "name": "actions", "type": "ButtonProps[]", "required": true, "description": "Array of button props for action buttons" },
-      { "name": "openTimestamp", "type": "number", "required": false, "description": "Unix timestamp (ms) when prompt should open; resets timer on change" },
-      { "name": "openDuration", "type": "number", "required": false, "description": "Milliseconds to keep prompt visible before auto-close" },
-      { "name": "theme", "type": "'grey' | 'beige' | 'white'", "required": false, "description": "Visual theme for the prompt container" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class name" }
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "description": "Prompt message text"
+      },
+      {
+        "name": "actions",
+        "type": "ButtonProps[]",
+        "required": true,
+        "description": "Array of button props for action buttons"
+      },
+      {
+        "name": "openTimestamp",
+        "type": "number",
+        "required": false,
+        "description": "Unix timestamp (ms) when prompt should open; resets timer on change"
+      },
+      {
+        "name": "openDuration",
+        "type": "number",
+        "required": false,
+        "description": "Milliseconds to keep prompt visible before auto-close"
+      },
+      {
+        "name": "theme",
+        "type": "'grey' | 'beige' | 'white'",
+        "required": false,
+        "description": "Visual theme for the prompt container"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class name"
+      }
     ],
     "examples": [
       "const [promptTimestamp, setPromptTimestamp] = React.useState(0);\n\n<>\n  <button onClick={() => setPromptTimestamp(Date.now())}>\n    Like\n  </button>\n  <Prompt\n    text=\"Sign in to like this post\"\n    openTimestamp={promptTimestamp}\n    openDuration={4000}\n    theme=\"beige\"\n    actions={[\n      {\n        children: 'Sign in',\n        view: 'action',\n        size: 'l',\n        onClick: () => router.push('/auth/signin'),\n      },\n    ]}\n  />\n</>",
       "<Prompt\n  text=\"Subscribe to get notified about new posts\"\n  openTimestamp={Date.now()}\n  openDuration={6000}\n  theme=\"grey\"\n  actions={[\n    {\n      children: 'Subscribe',\n      view: 'action',\n      size: 'l',\n      onClick: handleSubscribe,\n    },\n    {\n      children: 'Dismiss',\n      view: 'flat',\n      size: 'l',\n      onClick: handleDismiss,\n    },\n  ]}\n/>"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
     "name": "PromptSignIn",
     "library": "blog-constructor",
     "description": "A pre-configured Prompt that asks unauthenticated users to sign in, typically triggered when they attempt to like a post. Wraps Prompt with default sign-in text and action.",
-    "keywords": ["sign in prompt", "authentication", "login prompt", "like gating", "unauthenticated", "blog", "prompt"],
-    "when_to_use": ["When an action requires authentication and you need to prompt the user to sign in", "On blog post pages where liking requires a logged-in account"],
-    "avoid": ["For general notifications — use Prompt with custom text instead"],
+    "keywords": [
+      "sign in prompt",
+      "authentication",
+      "login prompt",
+      "like gating",
+      "unauthenticated",
+      "blog",
+      "prompt"
+    ],
+    "when_to_use": [
+      "When an action requires authentication and you need to prompt the user to sign in",
+      "On blog post pages where liking requires a logged-in account"
+    ],
+    "avoid": [
+      "For general notifications — use Prompt with custom text instead"
+    ],
     "import_statement": "import { PromptSignIn } from '@gravity-ui/blog-constructor';",
-    "related": ["Prompt"],
+    "related": [
+      "Prompt"
+    ],
     "props": [
-      { "name": "onClickSignIn", "type": "React.EventHandler<React.SyntheticEvent>", "required": false, "description": "Handler called when sign-in button is clicked" },
-      { "name": "text", "type": "string", "required": false, "description": "Override default prompt message" },
-      { "name": "actions", "type": "ButtonProps[]", "required": false, "description": "Override default action buttons" }
+      {
+        "name": "onClickSignIn",
+        "type": "React.EventHandler<React.SyntheticEvent>",
+        "required": false,
+        "description": "Handler called when sign-in button is clicked"
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "description": "Override default prompt message"
+      },
+      {
+        "name": "actions",
+        "type": "ButtonProps[]",
+        "required": false,
+        "description": "Override default action buttons"
+      }
     ],
     "examples": [
       "const [promptTimestamp, setPromptTimestamp] = React.useState(0);\n\nconst handleLikeClick = () => {\n  if (!isAuthenticated) {\n    setPromptTimestamp(Date.now());\n    return;\n  }\n  toggleLike(postId);\n};\n\n<>\n  <button onClick={handleLikeClick}>Like</button>\n  <PromptSignIn\n    openTimestamp={promptTimestamp}\n    openDuration={5000}\n    onClickSignIn={() => router.push('/auth/signin?next=' + currentPath)}\n  />\n</>",
       "<PromptSignIn\n  text=\"You need to be signed in to save this post\"\n  openTimestamp={signInPromptTimestamp}\n  onClickSignIn={handleSignInRedirect}\n/>"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
     "name": "Search",
     "library": "blog-constructor",
     "description": "A debounced search input component for blog post filtering. Built on uikit TextInput with clear/submit icon and iPhone-safe autofocus behavior.",
-    "keywords": ["search", "search input", "filter", "blog search", "debounce", "text input", "search bar", "clear button"],
-    "when_to_use": ["In blog FeedHeader to enable post filtering by keyword", "When a debounced search-as-you-type input is needed"],
-    "avoid": ["For form submission search — add a submit button separately", "When search should not be debounced"],
+    "keywords": [
+      "search",
+      "search input",
+      "filter",
+      "blog search",
+      "debounce",
+      "text input",
+      "search bar",
+      "clear button"
+    ],
+    "when_to_use": [
+      "In blog FeedHeader to enable post filtering by keyword",
+      "When a debounced search-as-you-type input is needed"
+    ],
+    "avoid": [
+      "For form submission search — add a submit button separately",
+      "When search should not be debounced"
+    ],
     "import_statement": "import { Search } from '@gravity-ui/blog-constructor';",
-    "related": ["FeedHeader"],
+    "related": [
+      "FeedHeader"
+    ],
     "props": [
-      { "name": "initialValue", "type": "string", "required": true, "description": "Initial search input value" },
-      { "name": "onSubmit", "type": "(value: string) => void", "required": true, "description": "Callback fired (debounced) when value changes" },
-      { "name": "value", "type": "string", "required": false, "description": "Controlled external value override" },
-      { "name": "debounce", "type": "number", "required": false, "description": "Debounce delay in ms (default 300)" },
-      { "name": "placeholder", "type": "string", "required": false, "description": "Input placeholder text" },
-      { "name": "size", "type": "'s' | 'm'", "required": false, "description": "Input size variant (default 'm')" },
-      { "name": "autoFocus", "type": "boolean", "required": false, "description": "Whether to autofocus on mount" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class name" }
+      {
+        "name": "initialValue",
+        "type": "string",
+        "required": true,
+        "description": "Initial search input value"
+      },
+      {
+        "name": "onSubmit",
+        "type": "(value: string) => void",
+        "required": true,
+        "description": "Callback fired (debounced) when value changes"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Controlled external value override"
+      },
+      {
+        "name": "debounce",
+        "type": "number",
+        "required": false,
+        "description": "Debounce delay in ms (default 300)"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Input placeholder text"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm'",
+        "required": false,
+        "description": "Input size variant (default 'm')"
+      },
+      {
+        "name": "autoFocus",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether to autofocus on mount"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class name"
+      }
     ],
     "examples": [
       "<Search\n  initialValue={queryParams.search ?? ''}\n  onSubmit={(value) => {\n    updateQueryParams({ search: value, page: 1 });\n  }}\n  placeholder=\"Search posts...\"\n  debounce={400}\n/>",
       "<Search\n  initialValue=\"\"\n  value={searchValue}\n  onSubmit={handleSearchChange}\n  size=\"s\"\n  autoFocus\n  debounce={300}\n/>"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
     "name": "Wrapper",
     "library": "blog-constructor",
     "description": "A section wrapper component that applies configurable top, bottom, left, and right padding using BEM modifier classes. Used to frame blog page content blocks with consistent spacing.",
-    "keywords": ["wrapper", "section", "padding", "spacing", "layout", "blog", "content block", "container"],
-    "when_to_use": ["To wrap blog content sections with consistent padding", "When standardized vertical/horizontal spacing is required around a block"],
-    "avoid": ["For non-blog UI sections — use layout components from uikit or page-constructor instead"],
+    "keywords": [
+      "wrapper",
+      "section",
+      "padding",
+      "spacing",
+      "layout",
+      "blog",
+      "content block",
+      "container"
+    ],
+    "when_to_use": [
+      "To wrap blog content sections with consistent padding",
+      "When standardized vertical/horizontal spacing is required around a block"
+    ],
+    "avoid": [
+      "For non-blog UI sections — use layout components from uikit or page-constructor instead"
+    ],
     "import_statement": "import { Wrapper } from '@gravity-ui/blog-constructor';",
-    "related": ["Posts", "FeedHeader"],
+    "related": [
+      "Posts",
+      "FeedHeader"
+    ],
     "props": [
-      { "name": "children", "type": "React.ReactNode", "required": false, "description": "Content to wrap" },
-      { "name": "paddings", "type": "Paddings", "required": false, "description": "Padding configuration with top/bottom/left/right keys" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class name" },
-      { "name": "qa", "type": "string", "required": false, "description": "Test QA attribute" },
-      { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles" }
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content to wrap"
+      },
+      {
+        "name": "paddings",
+        "type": "Paddings",
+        "required": false,
+        "description": "Padding configuration with top/bottom/left/right keys"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class name"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "Test QA attribute"
+      },
+      {
+        "name": "style",
+        "type": "React.CSSProperties",
+        "required": false,
+        "description": "Inline styles"
+      }
     ],
     "examples": [
       "<Wrapper>\n  <Posts\n    containerId=\"blog-posts\"\n    currentPage={1}\n    postsOnPage={posts}\n    isFetching={false}\n    isShowMoreVisible={false}\n    errorShowMore={false}\n    postCountOnPage={30}\n    perPageInQuery={10}\n    queryParams={{}}\n    handleShowMore={handleShowMore}\n    handlePageChange={handlePageChange}\n  />\n</Wrapper>",
       "<Wrapper\n  paddings={{ top: 'l', bottom: 'xl', left: 'm', right: 'm' }}\n  qa=\"blog-feed-section\"\n>\n  <FeedHeader\n    title=\"Engineering Blog\"\n    tags={tags}\n    queryParams={queryParams}\n    handleLoadData={handleLoadData}\n  />\n</Wrapper>"
-    ]
+    ],
+    "category": "layout"
   }
 ]

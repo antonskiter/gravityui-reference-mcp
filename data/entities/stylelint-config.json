@@ -1,5 +1,29 @@
 [
   {
+    "type": "library",
+    "name": "stylelint-config",
+    "library": "stylelint-config",
+    "description": "Shared Stylelint configuration for CSS/SCSS linting with SCSS support, optional Prettier integration, and CSS property ordering.",
+    "keywords": [
+      "gravity-ui",
+      "stylelint-config",
+      "stylelint",
+      "config"
+    ],
+    "when_to_use": [
+      "Shared Stylelint configuration for CSS/SCSS linting with SCSS support, optional Prettier integration, and CSS property ordering"
+    ],
+    "avoid": [
+      "Not for projects on older Node.js (<20) or Stylelint (<16.18.0) versions."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/stylelint-config",
+    "not_for": "Not for projects on older Node.js (<20) or Stylelint (<16.18.0) versions.",
+    "depends_on": [],
+    "component_count": 0
+  },
+  {
     "type": "config-doc",
     "name": "stylelint-config",
     "library": "stylelint-config",
@@ -24,7 +48,10 @@
       "PostCSS must be installed separately as a peer dependency"
     ],
     "import_statement": "",
-    "related": ["eslint-config", "prettier-config"],
+    "related": [
+      "eslint-config",
+      "prettier-config"
+    ],
     "how_to_use": "Install with `npm install --save-dev stylelint postcss @gravity-ui/stylelint-config`. Create `.stylelintrc` with `{ \"extends\": \"@gravity-ui/stylelint-config\" }`. For Prettier integration add `@gravity-ui/stylelint-config/prettier`. For property ordering add `@gravity-ui/stylelint-config/order`.",
     "sub_configs": [
       "@gravity-ui/stylelint-config (base)",

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
-  EntitySchema, PropDefSchema, RecipeDefSchema,
-  OverviewSchema, type Entity, type PropDef,
+  EntitySchema, PropDefSchema,
+  type Entity, type PropDef,
 } from './schemas.js';
 
 describe('PropDefSchema', () => {
@@ -140,16 +140,57 @@ describe('EntitySchema', () => {
   });
 });
 
-describe('RecipeDefSchema', () => {
-  it('validates a recipe', () => {
-    const result = RecipeDefSchema.safeParse({
-      id: 'confirmation-dialog',
+describe('library entity', () => {
+  it('validates a library entity', () => {
+    const result = EntitySchema.safeParse({
+      type: 'library',
+      name: 'uikit',
+      library: 'uikit',
+      description: 'Core UI component library.',
+      keywords: ['components', 'ui', 'design-system'],
+      when_to_use: ['Building GravityUI-based interfaces'],
+      avoid: ['Do not use for server-side code'],
+      import_statement: "import {Button} from '@gravity-ui/uikit';",
+      related: ['navigation'],
+      package: '@gravity-ui/uikit',
+      not_for: 'Charts or data visualization',
+      depends_on: [],
+      is_peer_dependency_of: ['navigation'],
+      component_count: 70,
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it('validates a library entity with defaults', () => {
+    const result = EntitySchema.safeParse({
+      type: 'library',
+      name: 'date-utils',
+      library: 'date-utils',
+      description: 'Date utility functions.',
+    });
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.keywords).toEqual([]);
+      expect(result.data.component_count).toBe(0);
+      expect(result.data.package).toBe('');
+    }
+  });
+});
+
+describe('recipe entity', () => {
+  it('validates a recipe entity', () => {
+    const result = EntitySchema.safeParse({
+      type: 'recipe',
+      name: 'confirmation-dialog',
       title: 'Confirmation Dialog',
       description: 'Pattern for confirming destructive actions.',
-      level: 'molecule',
-      use_cases: ['Delete confirmation', 'Unsaved changes warning'],
+      library: 'uikit',
+      keywords: ['dialog', 'confirmation', 'modal'],
+      when_to_use: ['Destructive actions requiring confirmation'],
+      avoid: ['Simple info messages'],
       packages: ['@gravity-ui/uikit'],
-      tags: ['dialog', 'confirmation', 'modal'],
+      level: 'molecule',
+      components: [{ name: 'Dialog', library: 'uikit', role: 'Container' }],
       sections: [
         { type: 'decision', when_to_use: ['Destructive actions'], when_not_to_use: ['Simple info'] },
         { type: 'example', title: 'Basic', code: '<Dialog open={open}>...</Dialog>' },
@@ -157,30 +198,19 @@ describe('RecipeDefSchema', () => {
     });
     expect(result.success).toBe(true);
   });
-});
 
-describe('OverviewSchema', () => {
-  it('validates overview with categories', () => {
-    const result = OverviewSchema.safeParse({
-      system: {
-        description: 'Gravity UI is a design system.',
-        theming: 'Supports light and dark themes.',
-      },
-      libraries: [{
-        id: 'uikit',
-        package: '@gravity-ui/uikit',
-        purpose: 'Core components',
-        component_count: 70,
-        depends_on: [],
-        is_peer_dependency_of: ['navigation'],
-      }],
-      categories: {
-        actions: 'Action components like buttons',
-      },
-      component_categories: {
-        Button: 'actions',
-      },
+  it('validates a recipe entity with defaults', () => {
+    const result = EntitySchema.safeParse({
+      type: 'recipe',
+      name: 'simple-form',
+      title: 'Simple Form',
+      description: 'Basic form pattern.',
     });
     expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.library).toBe('');
+      expect(result.data.sections).toEqual([]);
+      expect(result.data.components).toEqual([]);
+    }
   });
 });

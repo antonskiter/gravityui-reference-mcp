@@ -1,5 +1,33 @@
 [
   {
+    "type": "library",
+    "name": "dashkit",
+    "library": "dashkit",
+    "description": "Widget dashboard builder with drag-and-drop resizable grid, plugin widget system, and ActionPanel for adding widgets. For configurable user dashboards with DnD layout.",
+    "keywords": [
+      "gravity-ui",
+      "dashkit"
+    ],
+    "when_to_use": [
+      "Widget dashboard builder with drag-and-drop resizable grid, plugin widget system, and ActionPanel for adding widgets"
+    ],
+    "avoid": [
+      "Not for static dashboard layouts — use CSS grid/flex. Not for simple page layouts — the plugin registration overhead is only justified for user-configurable widget grids."
+    ],
+    "import_statement": "",
+    "related": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons"
+    ],
+    "package": "@gravity-ui/dashkit",
+    "not_for": "Not for static dashboard layouts — use CSS grid/flex. Not for simple page layouts — the plugin registration overhead is only justified for user-configurable widget grids.",
+    "depends_on": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons"
+    ],
+    "component_count": 5
+  },
+  {
     "type": "component",
     "name": "ActionPanel",
     "library": "dashkit",
@@ -26,7 +54,10 @@
       "Do not use outside a DashKitDnDWrapper when dragProps are configured, otherwise drag events will not propagate."
     ],
     "import_statement": "import { ActionPanel } from '@gravity-ui/dashkit';",
-    "related": ["DashKit", "DashKitDnDWrapper"],
+    "related": [
+      "DashKit",
+      "DashKitDnDWrapper"
+    ],
     "props": [
       {
         "name": "items",
@@ -52,7 +83,8 @@
         "required": false,
         "description": "Enables CSS transition animation when the panel mounts and unmounts."
       }
-    ]
+    ],
+    "category": "actions"
   },
   {
     "type": "component",
@@ -81,7 +113,12 @@
       "Do not nest multiple DashKit instances without wrapping them in a shared DashKitDnDWrapper when cross-group drag-and-drop is needed."
     ],
     "import_statement": "import { DashKit } from '@gravity-ui/dashkit';",
-    "related": ["DashKitDnDWrapper", "ActionPanel", "PluginText", "PluginTitle"],
+    "related": [
+      "DashKitDnDWrapper",
+      "ActionPanel",
+      "PluginText",
+      "PluginTitle"
+    ],
     "props": [
       {
         "name": "config",
@@ -256,7 +293,8 @@
       "// Register plugins once at app startup\nDashKit.registerPlugins(pluginTitle, pluginText);\nDashKit.setSettings({ gridLayout: { margin: [8, 8] } });",
       "// Basic read-only dashboard\n<DashKit config={config} editMode={false} />;",
       "// Editable dashboard with change handler\n<DashKit\n  config={config}\n  editMode={true}\n  onChange={({ config }) => setConfig(config)}\n  onItemEdit={(item) => openEditDialog(item)}\n/>;"
-    ]
+    ],
+    "category": "layout"
   },
   {
     "type": "component",
@@ -284,7 +322,10 @@
       "Do not wrap components unrelated to the DashKit grid as the context is specific to dashkit drag mechanics."
     ],
     "import_statement": "import { DashKitDnDWrapper } from '@gravity-ui/dashkit';",
-    "related": ["DashKit", "ActionPanel"],
+    "related": [
+      "DashKit",
+      "ActionPanel"
+    ],
     "props": [
       {
         "name": "children",
@@ -319,7 +360,8 @@
     ],
     "examples": [
       "<DashKitDnDWrapper onDragStart={(props) => console.log('dragging', props)}>\n  <div>\n    <ActionPanel items={panelItems} />\n    <DashKit config={config} editMode={true} onChange={setConfig} />\n  </div>\n</DashKitDnDWrapper>;"
-    ]
+    ],
+    "category": "utility"
   },
   {
     "type": "component",
@@ -346,7 +388,10 @@
       "Do not pass raw user HTML directly; use a safe markdown-to-HTML transform in apiHandler."
     ],
     "import_statement": "import pluginText from '@gravity-ui/dashkit/plugins/Text';",
-    "related": ["DashKit", "PluginTitle"],
+    "related": [
+      "DashKit",
+      "PluginTitle"
+    ],
     "props": [
       {
         "name": "data",
@@ -363,7 +408,8 @@
     ],
     "examples": [
       "// Register with markdown support\nimport pluginText from '@gravity-ui/dashkit/plugins';\nDashKit.registerPlugins(\n  pluginText.setSettings({\n    apiHandler: ({ text }) => markdownToHtml(text),\n  })\n);"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "component",
@@ -388,7 +434,10 @@
       "Do not use for rich text content — use PluginText with markdown support instead."
     ],
     "import_statement": "import pluginTitle from '@gravity-ui/dashkit/plugins/Title';",
-    "related": ["DashKit", "PluginText"],
+    "related": [
+      "DashKit",
+      "PluginText"
+    ],
     "props": [
       {
         "name": "data",
@@ -399,7 +448,8 @@
     ],
     "examples": [
       "// Register the title plugin\nimport pluginTitle from '@gravity-ui/dashkit/plugins';\nDashKit.registerPlugins(pluginTitle);"
-    ]
+    ],
+    "category": "typography"
   },
   {
     "type": "hook",
@@ -420,7 +470,10 @@
       "Do not call outside a DashKitDnDWrapper — the hook will return null and dragging will be inert."
     ],
     "import_statement": "import { useDnDItemProps } from '@gravity-ui/dashkit';",
-    "related": ["ActionPanel", "DashKitDnDWrapper"],
+    "related": [
+      "ActionPanel",
+      "DashKitDnDWrapper"
+    ],
     "signature": "useDnDItemProps(item: ActionPanelItem): { draggable: true; unselectable: 'on'; onDragStart: DragEventHandler; onDragEnd: DragEventHandler } | null",
     "parameters": [
       {

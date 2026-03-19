@@ -1,5 +1,29 @@
 [
   {
+    "type": "library",
+    "name": "eslint-config",
+    "library": "eslint-config",
+    "description": "Shared ESLint flat config enforcing the Gravity UI styleguide with TypeScript rules and optional sub-configs for Prettier, a11y, and import order.",
+    "keywords": [
+      "gravity-ui",
+      "eslint-config",
+      "eslint",
+      "config"
+    ],
+    "when_to_use": [
+      "Shared ESLint flat config enforcing the Gravity UI styleguide with TypeScript rules and optional sub-configs for Prettier, a11y, and import order"
+    ],
+    "avoid": [
+      "Not for projects with conflicting custom ESLint rules. Prettier peer dependency required for the prettier sub-config."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/eslint-config",
+    "not_for": "Not for projects with conflicting custom ESLint rules. Prettier peer dependency required for the prettier sub-config.",
+    "depends_on": [],
+    "component_count": 0
+  },
+  {
     "type": "config-doc",
     "name": "eslint-config",
     "library": "eslint-config",

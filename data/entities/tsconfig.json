@@ -1,5 +1,27 @@
 [
   {
+    "type": "library",
+    "name": "tsconfig",
+    "library": "tsconfig",
+    "description": "Shared TypeScript base configuration with strict mode, noImplicitReturns, noUnusedLocals, ES2017 target, and CommonJS modules.",
+    "keywords": [
+      "gravity-ui",
+      "tsconfig"
+    ],
+    "when_to_use": [
+      "Shared TypeScript base configuration with strict mode, noImplicitReturns, noUnusedLocals, ES2017 target, and CommonJS modules"
+    ],
+    "avoid": [
+      "Not for browser-only ESM builds or projects targeting a different ES version without overriding compilerOptions."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/tsconfig",
+    "not_for": "Not for browser-only ESM builds or projects targeting a different ES version without overriding compilerOptions.",
+    "depends_on": [],
+    "component_count": 0
+  },
+  {
     "type": "config-doc",
     "name": "tsconfig",
     "library": "tsconfig",

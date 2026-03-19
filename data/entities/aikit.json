@@ -1,10 +1,50 @@
 [
   {
+    "type": "library",
+    "name": "aikit",
+    "library": "aikit",
+    "description": "AI chat and assistant interface component library providing chat containers, message bubbles, prompt inputs, tool call displays, rating blocks, and smart scroll hooks.",
+    "keywords": [
+      "gravity-ui",
+      "aikit"
+    ],
+    "when_to_use": [
+      "AI chat and assistant interface component library providing chat containers, message bubbles, prompt inputs, tool call displays, rating blocks, and smart scroll hooks"
+    ],
+    "avoid": [
+      "Not for general messaging or social chat — purpose-built for AI assistant/LLM interfaces. Not for standard form inputs — use uikit."
+    ],
+    "import_statement": "",
+    "related": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons",
+      "@gravity-ui/markdown-editor"
+    ],
+    "package": "@gravity-ui/aikit",
+    "not_for": "Not for general messaging or social chat — purpose-built for AI assistant/LLM interfaces. Not for standard form inputs — use uikit.",
+    "depends_on": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons",
+      "@gravity-ui/markdown-editor"
+    ],
+    "component_count": 40
+  },
+  {
     "type": "component",
     "name": "ActionButton",
     "library": "aikit",
     "description": "Combines a Gravity UI Button with an ActionTooltip, providing a convenient way to add tooltips to action buttons. When no tooltipTitle is provided, it renders as a regular Button without any wrapper.",
-    "keywords": ["button", "tooltip", "action", "icon button", "flat button", "toolbar button", "action tooltip", "button with tooltip", "interactive"],
+    "keywords": [
+      "button",
+      "tooltip",
+      "action",
+      "icon button",
+      "flat button",
+      "toolbar button",
+      "action tooltip",
+      "button with tooltip",
+      "interactive"
+    ],
     "when_to_use": [
       "Toolbar or header action buttons that need tooltips",
       "Icon-only buttons where a tooltip provides context",
@@ -15,29 +55,85 @@
       "Do not use for primary call-to-action buttons — use Button with text instead"
     ],
     "import_statement": "import { ActionButton } from '@gravity-ui/aikit';",
-    "related": ["SubmitButton", "ButtonGroup", "BaseMessage"],
+    "related": [
+      "SubmitButton",
+      "ButtonGroup",
+      "BaseMessage"
+    ],
     "props": [
-      { "name": "children", "type": "React.ReactNode", "required": false, "description": "Button content (icon, text, or any ReactNode)" },
-      { "name": "tooltipTitle", "type": "ActionTooltipProps['title']", "required": false, "description": "Tooltip title text; omit to render button without tooltip" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class for the button" },
-      { "name": "tooltipCloseDelay", "type": "ActionTooltipProps['closeDelay']", "required": false, "description": "Delay before hiding tooltip (ms)" },
-      { "name": "tooltipDisabled", "type": "ActionTooltipProps['disabled']", "required": false, "description": "Disable tooltip display" },
-      { "name": "tooltipOpenDelay", "type": "ActionTooltipProps['openDelay']", "required": false, "description": "Delay before showing tooltip (ms)" },
-      { "name": "tooltipPlacement", "type": "ActionTooltipProps['placement']", "required": false, "description": "Tooltip placement position" },
-      { "name": "wrapperClassName", "type": "string", "required": false, "description": "Additional CSS class for the ActionTooltip wrapper" }
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Button content (icon, text, or any ReactNode)"
+      },
+      {
+        "name": "tooltipTitle",
+        "type": "ActionTooltipProps['title']",
+        "required": false,
+        "description": "Tooltip title text; omit to render button without tooltip"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class for the button"
+      },
+      {
+        "name": "tooltipCloseDelay",
+        "type": "ActionTooltipProps['closeDelay']",
+        "required": false,
+        "description": "Delay before hiding tooltip (ms)"
+      },
+      {
+        "name": "tooltipDisabled",
+        "type": "ActionTooltipProps['disabled']",
+        "required": false,
+        "description": "Disable tooltip display"
+      },
+      {
+        "name": "tooltipOpenDelay",
+        "type": "ActionTooltipProps['openDelay']",
+        "required": false,
+        "description": "Delay before showing tooltip (ms)"
+      },
+      {
+        "name": "tooltipPlacement",
+        "type": "ActionTooltipProps['placement']",
+        "required": false,
+        "description": "Tooltip placement position"
+      },
+      {
+        "name": "wrapperClassName",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class for the ActionTooltip wrapper"
+      }
     ],
     "examples": [
       "<ActionButton tooltipTitle=\"Copy\" view=\"flat\" onClick={handleCopy}>\n  <Icon data={Copy} size={16} />\n</ActionButton>",
       "<ActionButton view=\"outlined\" onClick={handleClick}>Click me</ActionButton>",
       "<ActionButton tooltipTitle=\"Edit\" tooltipPlacement=\"bottom\" view=\"flat\" size=\"l\" onClick={handleEdit}>\n  <Icon data={Pencil} size={16} />\n</ActionButton>"
-    ]
+    ],
+    "category": "actions"
   },
   {
     "type": "component",
     "name": "Alert",
     "library": "aikit",
     "description": "Displays an alert message with an icon indicating its type (default, info, warning, error), an optional action button, and optional collapsible additional content. It provides clear visual feedback for different severity levels in a chat or AI interface.",
-    "keywords": ["alert", "notification", "warning", "error", "info", "message", "status", "collapsible", "retry", "feedback"],
+    "keywords": [
+      "alert",
+      "notification",
+      "warning",
+      "error",
+      "info",
+      "message",
+      "status",
+      "collapsible",
+      "retry",
+      "feedback"
+    ],
     "when_to_use": [
       "Showing errors, warnings, or informational messages in a chat interface",
       "Displaying error details that can be expanded/collapsed",
@@ -48,29 +144,84 @@
       "For inline form validation messages — use native form error patterns"
     ],
     "import_statement": "import { Alert } from '@gravity-ui/aikit';",
-    "related": ["ToolStatus", "ToolIndicator"],
+    "related": [
+      "ToolStatus",
+      "ToolIndicator"
+    ],
     "props": [
-      { "name": "text", "type": "string", "required": true, "description": "Content of the alert" },
-      { "name": "button", "type": "{ content: React.ReactNode; onClick: () => void }", "required": false, "description": "Action button configuration" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "content", "type": "React.ReactNode", "required": false, "description": "Collapsible content displayed below the alert" },
-      { "name": "icon", "type": "React.ReactNode", "required": false, "description": "Custom icon to override the default variant icon" },
-      { "name": "initialExpanded", "type": "boolean", "required": false, "description": "Initial expanded state for collapsible content (default: false)" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "variant", "type": "'default' | 'warning' | 'error' | 'info'", "required": false, "description": "Visual style variant (default: 'default')" }
+      {
+        "name": "text",
+        "type": "string",
+        "required": true,
+        "description": "Content of the alert"
+      },
+      {
+        "name": "button",
+        "type": "{ content: React.ReactNode; onClick: () => void }",
+        "required": false,
+        "description": "Action button configuration"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "content",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Collapsible content displayed below the alert"
+      },
+      {
+        "name": "icon",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom icon to override the default variant icon"
+      },
+      {
+        "name": "initialExpanded",
+        "type": "boolean",
+        "required": false,
+        "description": "Initial expanded state for collapsible content (default: false)"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "variant",
+        "type": "'default' | 'warning' | 'error' | 'info'",
+        "required": false,
+        "description": "Visual style variant (default: 'default')"
+      }
     ],
     "examples": [
       "<Alert text=\"Alert message\" variant=\"default\" />",
       "<Alert text=\"Alert message\" button={{ content: 'Retry', onClick: handleRetry }} variant=\"warning\" />",
       "<Alert text=\"Error occurred\" variant=\"error\" content={<pre>Stack trace...</pre>} initialExpanded={true} />"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
     "name": "AssistantMessage",
     "library": "aikit",
     "description": "Renders an AI assistant message with support for multiple content parts (text, tool calls, thinking), markdown rendering, and action buttons. Built on top of BaseMessage with assistant-role styling and a pluggable message renderer registry.",
-    "keywords": ["assistant message", "ai response", "markdown", "chat message", "message renderer", "multi-part", "tool call", "thinking", "copy", "like"],
+    "keywords": [
+      "assistant message",
+      "ai response",
+      "markdown",
+      "chat message",
+      "message renderer",
+      "multi-part",
+      "tool call",
+      "thinking",
+      "copy",
+      "like"
+    ],
     "when_to_use": [
       "Displaying AI assistant responses in a chat interface",
       "Rendering messages with mixed content types (text + tool calls)",
@@ -81,33 +232,112 @@
       "For tool execution UI — use ToolMessage instead"
     ],
     "import_statement": "import { AssistantMessage } from '@gravity-ui/aikit';",
-    "related": ["UserMessage", "BaseMessage", "MarkdownRenderer", "ToolMessage", "ThinkingMessage", "MessageList"],
+    "related": [
+      "UserMessage",
+      "BaseMessage",
+      "MarkdownRenderer",
+      "ToolMessage",
+      "ThinkingMessage",
+      "MessageList"
+    ],
     "props": [
-      { "name": "content", "type": "string | TMessageContent | TMessageContent[]", "required": true, "description": "Message content as string, single part, or array of parts" },
-      { "name": "actions", "type": "Array<Action>", "required": false, "description": "Array of action buttons (copy, like, retry, etc.)" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "id", "type": "string", "required": false, "description": "Message ID used for generating part keys" },
-      { "name": "messageRendererRegistry", "type": "MessageRendererRegistry", "required": false, "description": "Custom renderer registry merged with the default registry" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "shouldParseIncompleteMarkdown", "type": "boolean", "required": false, "description": "Enable parsing of incomplete markdown during streaming" },
-      { "name": "showActionsOnHover", "type": "boolean", "required": false, "description": "Show action buttons only on hover" },
-      { "name": "showTimestamp", "type": "boolean", "required": false, "description": "Show timestamp in the actions area" },
-      { "name": "timestamp", "type": "string", "required": false, "description": "Message timestamp string" },
-      { "name": "transformOptions", "type": "OptionsType", "required": false, "description": "Options for @diplodoc/transform markdown rendering" },
-      { "name": "userRating", "type": "'like' | 'dislike'", "required": false, "description": "Current user rating; fills like/unlike icons when set" }
+      {
+        "name": "content",
+        "type": "string | TMessageContent | TMessageContent[]",
+        "required": true,
+        "description": "Message content as string, single part, or array of parts"
+      },
+      {
+        "name": "actions",
+        "type": "Array<Action>",
+        "required": false,
+        "description": "Array of action buttons (copy, like, retry, etc.)"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "description": "Message ID used for generating part keys"
+      },
+      {
+        "name": "messageRendererRegistry",
+        "type": "MessageRendererRegistry",
+        "required": false,
+        "description": "Custom renderer registry merged with the default registry"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "shouldParseIncompleteMarkdown",
+        "type": "boolean",
+        "required": false,
+        "description": "Enable parsing of incomplete markdown during streaming"
+      },
+      {
+        "name": "showActionsOnHover",
+        "type": "boolean",
+        "required": false,
+        "description": "Show action buttons only on hover"
+      },
+      {
+        "name": "showTimestamp",
+        "type": "boolean",
+        "required": false,
+        "description": "Show timestamp in the actions area"
+      },
+      {
+        "name": "timestamp",
+        "type": "string",
+        "required": false,
+        "description": "Message timestamp string"
+      },
+      {
+        "name": "transformOptions",
+        "type": "OptionsType",
+        "required": false,
+        "description": "Options for @diplodoc/transform markdown rendering"
+      },
+      {
+        "name": "userRating",
+        "type": "'like' | 'dislike'",
+        "required": false,
+        "description": "Current user rating; fills like/unlike icons when set"
+      }
     ],
     "examples": [
       "<AssistantMessage content=\"Hello! How can I help you?\" />",
       "<AssistantMessage content={{ type: 'text', data: { text: 'Markdown **response**.' } }} actions={[{ type: 'copy', onClick: handleCopy }, { type: 'like', onClick: handleLike }]} showActionsOnHover />",
       "<AssistantMessage content={[{ type: 'text', data: { text: 'First part.' } }, { type: 'tool', data: { toolName: 'Search', status: 'success' } }]} />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "BaseMessage",
     "library": "aikit",
     "description": "Base wrapper component for a chat message that supports rendering action buttons (copy, edit, like, retry, delete) with optional hover visibility and timestamp display. It aligns content and actions based on the message role.",
-    "keywords": ["message wrapper", "base message", "actions", "copy", "edit", "like", "delete", "timestamp", "chat bubble", "role"],
+    "keywords": [
+      "message wrapper",
+      "base message",
+      "actions",
+      "copy",
+      "edit",
+      "like",
+      "delete",
+      "timestamp",
+      "chat bubble",
+      "role"
+    ],
     "when_to_use": [
       "Building custom message types that need standard action button behavior",
       "Wrapping any message content with the standard aikit action toolbar"
@@ -117,29 +347,88 @@
       "Do not add business logic here — keep wrappers thin"
     ],
     "import_statement": "import { BaseMessage } from '@gravity-ui/aikit';",
-    "related": ["AssistantMessage", "UserMessage", "ButtonGroup", "ActionButton", "ChatDate"],
+    "related": [
+      "AssistantMessage",
+      "UserMessage",
+      "ButtonGroup",
+      "ActionButton",
+      "ChatDate"
+    ],
     "props": [
-      { "name": "children", "type": "React.ReactNode", "required": true, "description": "Message content" },
-      { "name": "role", "type": "'user' | 'assistant' | 'system'", "required": true, "description": "Message role that controls alignment and styling" },
-      { "name": "actions", "type": "BaseMessageAction[]", "required": false, "description": "Array of action buttons or ReactNode elements" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "showActionsOnHover", "type": "boolean", "required": false, "description": "Show actions only on hover (default: false)" },
-      { "name": "showTimestamp", "type": "boolean", "required": false, "description": "Show timestamp in actions area" },
-      { "name": "timestamp", "type": "string", "required": false, "description": "Message timestamp" },
-      { "name": "userRating", "type": "'like' | 'dislike'", "required": false, "description": "Current rating — toggles filled like/unlike icons" }
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Message content"
+      },
+      {
+        "name": "role",
+        "type": "'user' | 'assistant' | 'system'",
+        "required": true,
+        "description": "Message role that controls alignment and styling"
+      },
+      {
+        "name": "actions",
+        "type": "BaseMessageAction[]",
+        "required": false,
+        "description": "Array of action buttons or ReactNode elements"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "showActionsOnHover",
+        "type": "boolean",
+        "required": false,
+        "description": "Show actions only on hover (default: false)"
+      },
+      {
+        "name": "showTimestamp",
+        "type": "boolean",
+        "required": false,
+        "description": "Show timestamp in actions area"
+      },
+      {
+        "name": "timestamp",
+        "type": "string",
+        "required": false,
+        "description": "Message timestamp"
+      },
+      {
+        "name": "userRating",
+        "type": "'like' | 'dislike'",
+        "required": false,
+        "description": "Current rating — toggles filled like/unlike icons"
+      }
     ],
     "examples": [
       "<BaseMessage role=\"user\">My message</BaseMessage>",
       "<BaseMessage role=\"assistant\" actions={[{ actionType: 'copy', onClick: handleCopy }]} showActionsOnHover>Assistant response</BaseMessage>"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "ButtonGroup",
     "library": "aikit",
     "description": "A simple flex container for grouping buttons with consistent spacing in horizontal or vertical orientation.",
-    "keywords": ["button group", "toolbar", "action bar", "horizontal buttons", "vertical buttons", "flex container"],
+    "keywords": [
+      "button group",
+      "toolbar",
+      "action bar",
+      "horizontal buttons",
+      "vertical buttons",
+      "flex container"
+    ],
     "when_to_use": [
       "Grouping two or more action buttons together with uniform gap",
       "Building toolbars or action bars in message headers and footers"
@@ -149,24 +438,62 @@
       "When buttons need unequal spacing or complex layout"
     ],
     "import_statement": "import { ButtonGroup } from '@gravity-ui/aikit';",
-    "related": ["ActionButton", "SubmitButton", "BaseMessage", "PromptInputFooter"],
+    "related": [
+      "ActionButton",
+      "SubmitButton",
+      "BaseMessage",
+      "PromptInputFooter"
+    ],
     "props": [
-      { "name": "children", "type": "React.ReactNode", "required": true, "description": "Buttons to render" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "orientation", "type": "'horizontal' | 'vertical'", "required": false, "description": "Layout orientation (default: 'horizontal')" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" }
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Buttons to render"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "orientation",
+        "type": "'horizontal' | 'vertical'",
+        "required": false,
+        "description": "Layout orientation (default: 'horizontal')"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      }
     ],
     "examples": [
       "<ButtonGroup><Button>A</Button><Button>B</Button></ButtonGroup>",
       "<ButtonGroup orientation=\"vertical\"><Button>A</Button><Button>B</Button></ButtonGroup>"
-    ]
+    ],
+    "category": "actions"
   },
   {
     "type": "component",
     "name": "ChatContainer",
     "library": "aikit",
     "description": "Fully assembled chat page component that integrates Header, ChatContent (EmptyContainer/MessageList), PromptInput, Disclaimer, and History into a complete ready-to-use chat UI. Handles state management, chat switching, streaming support, and welcome screen configuration.",
-    "keywords": ["chat", "chat container", "full chat", "ai chat", "complete chat", "chat page", "chat ui", "streaming", "history", "welcome screen", "all in one"],
+    "keywords": [
+      "chat",
+      "chat container",
+      "full chat",
+      "ai chat",
+      "complete chat",
+      "chat page",
+      "chat ui",
+      "streaming",
+      "history",
+      "welcome screen",
+      "all in one"
+    ],
     "when_to_use": [
       "Building a complete AI chat interface with minimal setup",
       "When you need history, input, messages, and header all integrated",
@@ -177,57 +504,254 @@
       "For embedding a minimal chat without history or header"
     ],
     "import_statement": "import { ChatContainer } from '@gravity-ui/aikit';",
-    "related": ["Header", "ChatContent", "MessageList", "PromptInput", "History", "EmptyContainer", "Disclaimer"],
+    "related": [
+      "Header",
+      "ChatContent",
+      "MessageList",
+      "PromptInput",
+      "History",
+      "EmptyContainer",
+      "Disclaimer"
+    ],
     "props": [
-      { "name": "onSendMessage", "type": "(data: TSubmitData) => Promise<void>", "required": true, "description": "Callback when user sends a message" },
-      { "name": "activeChat", "type": "ChatType | null", "required": false, "description": "Currently active chat from history" },
-      { "name": "chats", "type": "ChatType[]", "required": false, "description": "Array of chats for history (default: [])" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "contentClassName", "type": "string", "required": false, "description": "CSS class for the content section" },
-      { "name": "contentProps", "type": "Partial<ChatContentProps>", "required": false, "description": "Props override for ChatContent component" },
-      { "name": "contextItems", "type": "ContextItemConfig[]", "required": false, "description": "Context items displayed in the prompt input header" },
-      { "name": "disclaimerProps", "type": "Partial<DisclaimerProps>", "required": false, "description": "Props override for Disclaimer component" },
-      { "name": "emptyContainerProps", "type": "Partial<EmptyContainerProps>", "required": false, "description": "Props override for EmptyContainer" },
-      { "name": "error", "type": "Error | null", "required": false, "description": "Error state for error display" },
-      { "name": "footerClassName", "type": "string", "required": false, "description": "CSS class for the footer section" },
-      { "name": "headerClassName", "type": "string", "required": false, "description": "CSS class for the header section" },
-      { "name": "headerProps", "type": "Partial<HeaderProps>", "required": false, "description": "Props override for Header component" },
-      { "name": "hideTitleOnEmptyChat", "type": "boolean", "required": false, "description": "Hide header title when chat has no messages (default: false)" },
-      { "name": "historyProps", "type": "Partial<HistoryProps>", "required": false, "description": "Props override for History component" },
-      { "name": "i18nConfig", "type": "ChatContainerI18nConfig", "required": false, "description": "I18n configuration for all text labels" },
-      { "name": "messageListConfig", "type": "MessageListConfig", "required": false, "description": "Default user/assistant actions and loader statuses" },
-      { "name": "messages", "type": "TMessage[]", "required": false, "description": "Array of messages in the current chat (default: [])" },
-      { "name": "onCancel", "type": "() => Promise<void>", "required": false, "description": "Callback when user cancels streaming" },
-      { "name": "onClose", "type": "() => void", "required": false, "description": "Callback when user closes the chat" },
-      { "name": "onCreateChat", "type": "() => void", "required": false, "description": "Callback when user creates a new chat" },
-      { "name": "onDeleteAllChats", "type": "() => Promise<void>", "required": false, "description": "Callback when user deletes all chats" },
-      { "name": "onDeleteChat", "type": "(chat: ChatType) => void", "required": false, "description": "Callback when user deletes a chat" },
-      { "name": "onFold", "type": "(value: 'collapsed' | 'opened') => void", "required": false, "description": "Callback when user folds/unfolds the chat" },
-      { "name": "onRetry", "type": "() => void", "required": false, "description": "Callback to retry after error" },
-      { "name": "onSelectChat", "type": "(chat: ChatType) => void", "required": false, "description": "Callback when user selects a chat from history" },
-      { "name": "promptInputProps", "type": "Partial<PromptInputProps>", "required": false, "description": "Props override for PromptInput component" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "showActionsOnHover", "type": "boolean", "required": false, "description": "Show message actions on hover (default: false)" },
-      { "name": "showClose", "type": "boolean", "required": false, "description": "Show close button in header (default: false)" },
-      { "name": "showFolding", "type": "boolean", "required": false, "description": "Show folding button in header (default: false)" },
-      { "name": "showHistory", "type": "boolean", "required": false, "description": "Show chat history feature (default: true)" },
-      { "name": "showNewChat", "type": "boolean", "required": false, "description": "Show new chat button (default: true)" },
-      { "name": "status", "type": "'submitted' | 'streaming' | 'streaming_loading' | 'ready' | 'error'", "required": false, "description": "Chat status (default: 'ready')" },
-      { "name": "transformOptions", "type": "OptionsType", "required": false, "description": "Transform options for markdown rendering" },
-      { "name": "welcomeConfig", "type": "WelcomeConfig", "required": false, "description": "Welcome screen configuration for empty state" }
+      {
+        "name": "onSendMessage",
+        "type": "(data: TSubmitData) => Promise<void>",
+        "required": true,
+        "description": "Callback when user sends a message"
+      },
+      {
+        "name": "activeChat",
+        "type": "ChatType | null",
+        "required": false,
+        "description": "Currently active chat from history"
+      },
+      {
+        "name": "chats",
+        "type": "ChatType[]",
+        "required": false,
+        "description": "Array of chats for history (default: [])"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "contentClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the content section"
+      },
+      {
+        "name": "contentProps",
+        "type": "Partial<ChatContentProps>",
+        "required": false,
+        "description": "Props override for ChatContent component"
+      },
+      {
+        "name": "contextItems",
+        "type": "ContextItemConfig[]",
+        "required": false,
+        "description": "Context items displayed in the prompt input header"
+      },
+      {
+        "name": "disclaimerProps",
+        "type": "Partial<DisclaimerProps>",
+        "required": false,
+        "description": "Props override for Disclaimer component"
+      },
+      {
+        "name": "emptyContainerProps",
+        "type": "Partial<EmptyContainerProps>",
+        "required": false,
+        "description": "Props override for EmptyContainer"
+      },
+      {
+        "name": "error",
+        "type": "Error | null",
+        "required": false,
+        "description": "Error state for error display"
+      },
+      {
+        "name": "footerClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the footer section"
+      },
+      {
+        "name": "headerClassName",
+        "type": "string",
+        "required": false,
+        "description": "CSS class for the header section"
+      },
+      {
+        "name": "headerProps",
+        "type": "Partial<HeaderProps>",
+        "required": false,
+        "description": "Props override for Header component"
+      },
+      {
+        "name": "hideTitleOnEmptyChat",
+        "type": "boolean",
+        "required": false,
+        "description": "Hide header title when chat has no messages (default: false)"
+      },
+      {
+        "name": "historyProps",
+        "type": "Partial<HistoryProps>",
+        "required": false,
+        "description": "Props override for History component"
+      },
+      {
+        "name": "i18nConfig",
+        "type": "ChatContainerI18nConfig",
+        "required": false,
+        "description": "I18n configuration for all text labels"
+      },
+      {
+        "name": "messageListConfig",
+        "type": "MessageListConfig",
+        "required": false,
+        "description": "Default user/assistant actions and loader statuses"
+      },
+      {
+        "name": "messages",
+        "type": "TMessage[]",
+        "required": false,
+        "description": "Array of messages in the current chat (default: [])"
+      },
+      {
+        "name": "onCancel",
+        "type": "() => Promise<void>",
+        "required": false,
+        "description": "Callback when user cancels streaming"
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "description": "Callback when user closes the chat"
+      },
+      {
+        "name": "onCreateChat",
+        "type": "() => void",
+        "required": false,
+        "description": "Callback when user creates a new chat"
+      },
+      {
+        "name": "onDeleteAllChats",
+        "type": "() => Promise<void>",
+        "required": false,
+        "description": "Callback when user deletes all chats"
+      },
+      {
+        "name": "onDeleteChat",
+        "type": "(chat: ChatType) => void",
+        "required": false,
+        "description": "Callback when user deletes a chat"
+      },
+      {
+        "name": "onFold",
+        "type": "(value: 'collapsed' | 'opened') => void",
+        "required": false,
+        "description": "Callback when user folds/unfolds the chat"
+      },
+      {
+        "name": "onRetry",
+        "type": "() => void",
+        "required": false,
+        "description": "Callback to retry after error"
+      },
+      {
+        "name": "onSelectChat",
+        "type": "(chat: ChatType) => void",
+        "required": false,
+        "description": "Callback when user selects a chat from history"
+      },
+      {
+        "name": "promptInputProps",
+        "type": "Partial<PromptInputProps>",
+        "required": false,
+        "description": "Props override for PromptInput component"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "showActionsOnHover",
+        "type": "boolean",
+        "required": false,
+        "description": "Show message actions on hover (default: false)"
+      },
+      {
+        "name": "showClose",
+        "type": "boolean",
+        "required": false,
+        "description": "Show close button in header (default: false)"
+      },
+      {
+        "name": "showFolding",
+        "type": "boolean",
+        "required": false,
+        "description": "Show folding button in header (default: false)"
+      },
+      {
+        "name": "showHistory",
+        "type": "boolean",
+        "required": false,
+        "description": "Show chat history feature (default: true)"
+      },
+      {
+        "name": "showNewChat",
+        "type": "boolean",
+        "required": false,
+        "description": "Show new chat button (default: true)"
+      },
+      {
+        "name": "status",
+        "type": "'submitted' | 'streaming' | 'streaming_loading' | 'ready' | 'error'",
+        "required": false,
+        "description": "Chat status (default: 'ready')"
+      },
+      {
+        "name": "transformOptions",
+        "type": "OptionsType",
+        "required": false,
+        "description": "Transform options for markdown rendering"
+      },
+      {
+        "name": "welcomeConfig",
+        "type": "WelcomeConfig",
+        "required": false,
+        "description": "Welcome screen configuration for empty state"
+      }
     ],
     "examples": [
       "<ChatContainer messages={messages} onSendMessage={async (data) => { await handleSend(data.content); }} />",
       "<ChatContainer chats={chats} activeChat={activeChat} messages={messages} onSendMessage={handleSend} onSelectChat={setActiveChat} onCreateChat={createChat} />",
       "<ChatContainer messages={[]} onSendMessage={handleSend} welcomeConfig={{ title: 'Welcome!', suggestions: [{ id: '1', title: 'Explain quantum computing' }] }} />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "ChatContent",
     "library": "aikit",
     "description": "Template component that switches between an empty welcome state (EmptyContainer) and a message list (MessageList) based on the view prop. Provides a scrollable content area for the main chat body.",
-    "keywords": ["chat content", "message list", "empty state", "view switching", "chat body", "template", "scrollable"],
+    "keywords": [
+      "chat content",
+      "message list",
+      "empty state",
+      "view switching",
+      "chat body",
+      "template",
+      "scrollable"
+    ],
     "when_to_use": [
       "As the main content area inside a custom chat layout",
       "When you need automatic switching between empty and chat views"
@@ -237,25 +761,65 @@
       "Don't use for displaying other types of content outside a chat context"
     ],
     "import_statement": "import { ChatContent } from '@gravity-ui/aikit';",
-    "related": ["EmptyContainer", "MessageList", "ChatContainer"],
+    "related": [
+      "EmptyContainer",
+      "MessageList",
+      "ChatContainer"
+    ],
     "props": [
-      { "name": "view", "type": "'empty' | 'chat'", "required": true, "description": "Display mode: 'empty' for welcome screen, 'chat' for messages" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "emptyContainerProps", "type": "EmptyContainerProps", "required": false, "description": "Props for EmptyContainer (used when view='empty')" },
-      { "name": "messageListProps", "type": "MessageListProps", "required": false, "description": "Props for MessageList (used when view='chat')" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" }
+      {
+        "name": "view",
+        "type": "'empty' | 'chat'",
+        "required": true,
+        "description": "Display mode: 'empty' for welcome screen, 'chat' for messages"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "emptyContainerProps",
+        "type": "EmptyContainerProps",
+        "required": false,
+        "description": "Props for EmptyContainer (used when view='empty')"
+      },
+      {
+        "name": "messageListProps",
+        "type": "MessageListProps",
+        "required": false,
+        "description": "Props for MessageList (used when view='chat')"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      }
     ],
     "examples": [
       "<ChatContent view=\"empty\" emptyContainerProps={{ title: 'Welcome', suggestions: [...] }} />",
       "<ChatContent view=\"chat\" messageListProps={{ messages: [...], showTimestamp: true }} />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "ChatDate",
     "library": "aikit",
     "description": "Displays a formatted date (and optionally time) using a semantic <time> element. Accepts date strings, Date objects, or timestamps; supports relative display (today, yesterday, N days ago) and custom dayjs format strings.",
-    "keywords": ["date", "time", "timestamp", "chat date", "relative date", "formatted date", "dayjs", "locale", "message date"],
+    "keywords": [
+      "date",
+      "time",
+      "timestamp",
+      "chat date",
+      "relative date",
+      "formatted date",
+      "dayjs",
+      "locale",
+      "message date"
+    ],
     "when_to_use": [
       "Displaying message timestamps in a chat interface",
       "Showing relative dates like 'today' or 'yesterday' in chat history",
@@ -266,28 +830,77 @@
       "For countdown timers — implement custom logic"
     ],
     "import_statement": "import { ChatDate } from '@gravity-ui/aikit';",
-    "related": ["BaseMessage", "History"],
+    "related": [
+      "BaseMessage",
+      "History"
+    ],
     "props": [
-      { "name": "date", "type": "string | Date | number", "required": true, "description": "Date value in ISO string, Date object, or timestamp format" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "format", "type": "string", "required": false, "description": "Custom dayjs format string (default: 'YYYY.MM.DD')" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "relative", "type": "boolean", "required": false, "description": "Display relative dates (today, yesterday, N days ago) (default: false)" },
-      { "name": "showTime", "type": "boolean", "required": false, "description": "Show time along with date (default: false)" },
-      { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles" }
+      {
+        "name": "date",
+        "type": "string | Date | number",
+        "required": true,
+        "description": "Date value in ISO string, Date object, or timestamp format"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "format",
+        "type": "string",
+        "required": false,
+        "description": "Custom dayjs format string (default: 'YYYY.MM.DD')"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "relative",
+        "type": "boolean",
+        "required": false,
+        "description": "Display relative dates (today, yesterday, N days ago) (default: false)"
+      },
+      {
+        "name": "showTime",
+        "type": "boolean",
+        "required": false,
+        "description": "Show time along with date (default: false)"
+      },
+      {
+        "name": "style",
+        "type": "React.CSSProperties",
+        "required": false,
+        "description": "Inline styles"
+      }
     ],
     "examples": [
       "<ChatDate date=\"2024-01-15T10:30:00Z\" />",
       "<ChatDate date={new Date()} relative />",
       "<ChatDate date={1705312200000} showTime format=\"DD/MM/YYYY\" />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "ContextIndicator",
     "library": "aikit",
     "description": "Circular progress indicator that visualizes AI context window usage as a percentage (0–100%). Accepts either a direct percentage or used/max values, and changes color dynamically based on usage level.",
-    "keywords": ["context", "progress", "circular", "usage", "tokens", "context window", "percentage", "indicator", "ai context"],
+    "keywords": [
+      "context",
+      "progress",
+      "circular",
+      "usage",
+      "tokens",
+      "context window",
+      "percentage",
+      "indicator",
+      "ai context"
+    ],
     "when_to_use": [
       "Showing how much of an AI model's context window is consumed",
       "Displaying token or character usage as a visual progress ring"
@@ -297,28 +910,76 @@
       "For percentage displays without visual ring — use plain text"
     ],
     "import_statement": "import { ContextIndicator } from '@gravity-ui/aikit';",
-    "related": ["PromptInputHeader", "ContextItem"],
+    "related": [
+      "PromptInputHeader",
+      "ContextItem"
+    ],
     "props": [
-      { "name": "type", "type": "'percent' | 'number'", "required": true, "description": "Input mode: 'percent' for direct value, 'number' to calculate from used/max" },
-      { "name": "usedContext", "type": "number", "required": true, "description": "For 'percent': value 0–100; for 'number': current usage count" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "maxContext", "type": "number", "required": false, "description": "Maximum context (required when type='number')" },
-      { "name": "orientation", "type": "'horizontal' | 'vertical'", "required": false, "description": "Layout orientation (default: 'horizontal')" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "reversed", "type": "boolean", "required": false, "description": "Reverse order of indicator and value (default: false)" }
+      {
+        "name": "type",
+        "type": "'percent' | 'number'",
+        "required": true,
+        "description": "Input mode: 'percent' for direct value, 'number' to calculate from used/max"
+      },
+      {
+        "name": "usedContext",
+        "type": "number",
+        "required": true,
+        "description": "For 'percent': value 0–100; for 'number': current usage count"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "maxContext",
+        "type": "number",
+        "required": false,
+        "description": "Maximum context (required when type='number')"
+      },
+      {
+        "name": "orientation",
+        "type": "'horizontal' | 'vertical'",
+        "required": false,
+        "description": "Layout orientation (default: 'horizontal')"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "reversed",
+        "type": "boolean",
+        "required": false,
+        "description": "Reverse order of indicator and value (default: false)"
+      }
     ],
     "examples": [
       "<ContextIndicator type=\"percent\" usedContext={75} />",
       "<ContextIndicator type=\"number\" usedContext={750} maxContext={1000} />",
       "<ContextIndicator type=\"percent\" usedContext={50} orientation=\"vertical\" reversed />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "ContextItem",
     "library": "aikit",
     "description": "A small label that represents a context item (file, selection, etc.) with an optional remove button. Used in the prompt input header to display attached context that can be dismissed.",
-    "keywords": ["context item", "label", "tag", "file", "attachment", "removable", "close button", "context"],
+    "keywords": [
+      "context item",
+      "label",
+      "tag",
+      "file",
+      "attachment",
+      "removable",
+      "close button",
+      "context"
+    ],
     "when_to_use": [
       "Displaying removable context items (files, selected text) in the prompt input",
       "Showing tags or labels that can be dismissed by the user"
@@ -328,24 +989,58 @@
       "For filter chips — use Select or CheckboxGroup"
     ],
     "import_statement": "import { ContextItem } from '@gravity-ui/aikit';",
-    "related": ["ContextIndicator", "PromptInputHeader"],
+    "related": [
+      "ContextIndicator",
+      "PromptInputHeader"
+    ],
     "props": [
-      { "name": "content", "type": "React.ReactNode", "required": true, "description": "Content to display inside the label" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "onClick", "type": "() => void", "required": false, "description": "Callback for the close/remove button; omit to hide button" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" }
+      {
+        "name": "content",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Content to display inside the label"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "onClick",
+        "type": "() => void",
+        "required": false,
+        "description": "Callback for the close/remove button; omit to hide button"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      }
     ],
     "examples": [
       "<ContextItem content=\"file.tsx\" onClick={() => removeContext('file.tsx')} />",
       "<ContextItem content=\"Selected text\" />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "DiffStat",
     "library": "aikit",
     "description": "Displays compact diff statistics showing the count of added and deleted lines with color-coded +/- prefixes using a monospace font.",
-    "keywords": ["diff", "git diff", "added", "deleted", "lines changed", "code change", "stat", "green red", "monospace"],
+    "keywords": [
+      "diff",
+      "git diff",
+      "added",
+      "deleted",
+      "lines changed",
+      "code change",
+      "stat",
+      "green red",
+      "monospace"
+    ],
     "when_to_use": [
       "Showing code diff statistics in tool messages or code review UIs",
       "Displaying line addition/deletion counts alongside file names"
@@ -355,25 +1050,63 @@
       "For general numeric display — use plain text"
     ],
     "import_statement": "import { DiffStat } from '@gravity-ui/aikit';",
-    "related": ["ToolMessage", "ToolHeader"],
+    "related": [
+      "ToolMessage",
+      "ToolHeader"
+    ],
     "props": [
-      { "name": "added", "type": "number", "required": true, "description": "Number of added lines" },
-      { "name": "deleted", "type": "number", "required": true, "description": "Number of deleted lines" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles" }
+      {
+        "name": "added",
+        "type": "number",
+        "required": true,
+        "description": "Number of added lines"
+      },
+      {
+        "name": "deleted",
+        "type": "number",
+        "required": true,
+        "description": "Number of deleted lines"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "style",
+        "type": "React.CSSProperties",
+        "required": false,
+        "description": "Inline styles"
+      }
     ],
     "examples": [
       "<DiffStat added={10} deleted={5} />",
       "<DiffStat added={0} deleted={8} />"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "component",
     "name": "Disclaimer",
     "library": "aikit",
     "description": "Displays informational or legal disclaimer text with secondary color styling. Accepts either a text prop or custom children, with configurable typography variant.",
-    "keywords": ["disclaimer", "legal", "notice", "info text", "secondary text", "caption", "fine print", "ai disclaimer"],
+    "keywords": [
+      "disclaimer",
+      "legal",
+      "notice",
+      "info text",
+      "secondary text",
+      "caption",
+      "fine print",
+      "ai disclaimer"
+    ],
     "when_to_use": [
       "Showing AI accuracy or legal disclaimers at the bottom of a chat",
       "Displaying informational notices with secondary styling"
@@ -383,26 +1116,64 @@
       "For prominent error messages — use Alert with variant='error'"
     ],
     "import_statement": "import { Disclaimer } from '@gravity-ui/aikit';",
-    "related": ["ChatContainer", "Alert"],
+    "related": [
+      "ChatContainer",
+      "Alert"
+    ],
     "props": [
-      { "name": "children", "type": "React.ReactNode", "required": false, "description": "Custom content alongside or instead of text" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "text", "type": "string", "required": false, "description": "Disclaimer text to display" },
-      { "name": "variant", "type": "TextProps['variant']", "required": false, "description": "Typography variant (default: 'body-1')" }
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom content alongside or instead of text"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "description": "Disclaimer text to display"
+      },
+      {
+        "name": "variant",
+        "type": "TextProps['variant']",
+        "required": false,
+        "description": "Typography variant (default: 'body-1')"
+      }
     ],
     "examples": [
       "<Disclaimer text=\"AI can make mistakes. Verify important information.\" />",
       "<Disclaimer text=\"Small print\" variant=\"caption-2\" />",
       "<Disclaimer><a href=\"/terms\">Terms of Service</a></Disclaimer>"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
     "name": "EmptyContainer",
     "library": "aikit",
     "description": "Template welcome screen component displayed when no chat messages exist. Shows an optional image, title, description, and clickable suggestion buttons to help users get started.",
-    "keywords": ["empty state", "welcome screen", "suggestions", "no messages", "onboarding", "start chat", "template", "zero state"],
+    "keywords": [
+      "empty state",
+      "welcome screen",
+      "suggestions",
+      "no messages",
+      "onboarding",
+      "start chat",
+      "template",
+      "zero state"
+    ],
     "when_to_use": [
       "As the welcome/empty state in a new chat session",
       "Providing prompt suggestions to help users start a conversation"
@@ -412,33 +1183,113 @@
       "For error states — use Alert instead"
     ],
     "import_statement": "import { EmptyContainer } from '@gravity-ui/aikit';",
-    "related": ["ChatContent", "Suggestions", "ChatContainer"],
+    "related": [
+      "ChatContent",
+      "Suggestions",
+      "ChatContainer"
+    ],
     "props": [
-      { "name": "alignment", "type": "AlignmentConfig", "required": false, "description": "Per-element alignment config (image, title, description)" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "description", "type": "string | React.ReactNode", "required": false, "description": "Description text or custom element" },
-      { "name": "image", "type": "React.ReactNode", "required": false, "description": "Image or icon at the top of the welcome screen" },
-      { "name": "layout", "type": "'grid' | 'list'", "required": false, "description": "Suggestions layout orientation (default: 'grid')" },
-      { "name": "onSuggestionClick", "type": "(content: string, id?: string) => void", "required": false, "description": "Callback when a suggestion is clicked" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "showMore", "type": "() => void", "required": false, "description": "Callback for loading additional suggestions" },
-      { "name": "showMoreText", "type": "string", "required": false, "description": "Custom text for the show more button" },
-      { "name": "suggestionTitle", "type": "string", "required": false, "description": "Title above the suggestions section" },
-      { "name": "suggestions", "type": "SuggestionsItem[]", "required": false, "description": "Array of suggestion items (default: [])" },
-      { "name": "title", "type": "string | React.ReactNode", "required": false, "description": "Welcome screen title" },
-      { "name": "wrapText", "type": "boolean", "required": false, "description": "Enable text wrapping in suggestion buttons (default: false)" }
+      {
+        "name": "alignment",
+        "type": "AlignmentConfig",
+        "required": false,
+        "description": "Per-element alignment config (image, title, description)"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "description",
+        "type": "string | React.ReactNode",
+        "required": false,
+        "description": "Description text or custom element"
+      },
+      {
+        "name": "image",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Image or icon at the top of the welcome screen"
+      },
+      {
+        "name": "layout",
+        "type": "'grid' | 'list'",
+        "required": false,
+        "description": "Suggestions layout orientation (default: 'grid')"
+      },
+      {
+        "name": "onSuggestionClick",
+        "type": "(content: string, id?: string) => void",
+        "required": false,
+        "description": "Callback when a suggestion is clicked"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "showMore",
+        "type": "() => void",
+        "required": false,
+        "description": "Callback for loading additional suggestions"
+      },
+      {
+        "name": "showMoreText",
+        "type": "string",
+        "required": false,
+        "description": "Custom text for the show more button"
+      },
+      {
+        "name": "suggestionTitle",
+        "type": "string",
+        "required": false,
+        "description": "Title above the suggestions section"
+      },
+      {
+        "name": "suggestions",
+        "type": "SuggestionsItem[]",
+        "required": false,
+        "description": "Array of suggestion items (default: [])"
+      },
+      {
+        "name": "title",
+        "type": "string | React.ReactNode",
+        "required": false,
+        "description": "Welcome screen title"
+      },
+      {
+        "name": "wrapText",
+        "type": "boolean",
+        "required": false,
+        "description": "Enable text wrapping in suggestion buttons (default: false)"
+      }
     ],
     "examples": [
       "<EmptyContainer title=\"Welcome to AI Chat\" description=\"Start a conversation\" />",
       "<EmptyContainer title=\"AI Assistant\" suggestions={[{ id: '1', title: 'Explain quantum computing' }]} onSuggestionClick={(content) => sendMessage(content)} />"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
     "name": "Header",
     "library": "aikit",
     "description": "Chat header component with a title, optional icon, base navigation actions (new chat, history, folding, close), and additional custom actions. Supports title positioning (left/center) and i18n tooltips.",
-    "keywords": ["header", "chat header", "navigation", "new chat", "history", "close", "title", "actions", "ai chat header"],
+    "keywords": [
+      "header",
+      "chat header",
+      "navigation",
+      "new chat",
+      "history",
+      "close",
+      "title",
+      "actions",
+      "ai chat header"
+    ],
     "when_to_use": [
       "As the top navigation bar in a chat interface",
       "When you need standard chat controls (history, new chat, close) with tooltip support"
@@ -448,35 +1299,126 @@
       "Use ChatContainer which includes Header for most cases"
     ],
     "import_statement": "import { Header, HeaderAction } from '@gravity-ui/aikit';",
-    "related": ["ChatContainer", "ButtonGroup", "ActionButton", "History"],
+    "related": [
+      "ChatContainer",
+      "ButtonGroup",
+      "ActionButton",
+      "History"
+    ],
     "props": [
-      { "name": "additionalActions", "type": "Action[]", "required": false, "description": "Custom action buttons appearing before base actions (default: [])" },
-      { "name": "baseActions", "type": "HeaderAction[]", "required": false, "description": "Predefined actions: NewChat, History, Folding, Close (default: [])" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "foldingState", "type": "'collapsed' | 'opened'", "required": false, "description": "Current folding state (default: 'opened')" },
-      { "name": "handleClose", "type": "() => void", "required": false, "description": "Handler for close action" },
-      { "name": "handleFolding", "type": "(value: 'collapsed' | 'opened') => void", "required": false, "description": "Handler for folding action" },
-      { "name": "handleHistoryToggle", "type": "() => void", "required": false, "description": "Handler for history toggle action" },
-      { "name": "handleNewChat", "type": "() => void", "required": false, "description": "Handler for new chat action" },
-      { "name": "historyButtonRef", "type": "React.RefObject<HTMLElement>", "required": false, "description": "Ref for history button to anchor popups" },
-      { "name": "icon", "type": "React.ReactNode", "required": false, "description": "Icon to the left of the title" },
-      { "name": "preview", "type": "React.ReactNode", "required": false, "description": "Preview content after the title (e.g. stage badge)" },
-      { "name": "showTitle", "type": "boolean", "required": false, "description": "Whether to show title and preview (default: true)" },
-      { "name": "title", "type": "string", "required": false, "description": "Chat title text" },
-      { "name": "titlePosition", "type": "'left' | 'center'", "required": false, "description": "Title alignment (default: 'left')" },
-      { "name": "withIcon", "type": "boolean", "required": false, "description": "Whether to show the icon area (default: true)" }
+      {
+        "name": "additionalActions",
+        "type": "Action[]",
+        "required": false,
+        "description": "Custom action buttons appearing before base actions (default: [])"
+      },
+      {
+        "name": "baseActions",
+        "type": "HeaderAction[]",
+        "required": false,
+        "description": "Predefined actions: NewChat, History, Folding, Close (default: [])"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "foldingState",
+        "type": "'collapsed' | 'opened'",
+        "required": false,
+        "description": "Current folding state (default: 'opened')"
+      },
+      {
+        "name": "handleClose",
+        "type": "() => void",
+        "required": false,
+        "description": "Handler for close action"
+      },
+      {
+        "name": "handleFolding",
+        "type": "(value: 'collapsed' | 'opened') => void",
+        "required": false,
+        "description": "Handler for folding action"
+      },
+      {
+        "name": "handleHistoryToggle",
+        "type": "() => void",
+        "required": false,
+        "description": "Handler for history toggle action"
+      },
+      {
+        "name": "handleNewChat",
+        "type": "() => void",
+        "required": false,
+        "description": "Handler for new chat action"
+      },
+      {
+        "name": "historyButtonRef",
+        "type": "React.RefObject<HTMLElement>",
+        "required": false,
+        "description": "Ref for history button to anchor popups"
+      },
+      {
+        "name": "icon",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Icon to the left of the title"
+      },
+      {
+        "name": "preview",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Preview content after the title (e.g. stage badge)"
+      },
+      {
+        "name": "showTitle",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether to show title and preview (default: true)"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "description": "Chat title text"
+      },
+      {
+        "name": "titlePosition",
+        "type": "'left' | 'center'",
+        "required": false,
+        "description": "Title alignment (default: 'left')"
+      },
+      {
+        "name": "withIcon",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether to show the icon area (default: true)"
+      }
     ],
     "examples": [
       "<Header title=\"AI Chat\" baseActions={[HeaderAction.NewChat, HeaderAction.History, HeaderAction.Close]} handleNewChat={createChat} handleHistoryToggle={toggleHistory} handleClose={closeChat} />",
       "<Header title=\"Chat\" preview={<Label>Beta</Label>} baseActions={[HeaderAction.Close]} additionalActions={[{ label: 'Settings', onClick: openSettings }]} handleClose={closeChat} />"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
     "name": "History",
     "library": "aikit",
     "description": "Chat history popup component showing a searchable, date-grouped list of past conversations with select and delete capabilities. Supports pagination via button or infinite scroll.",
-    "keywords": ["history", "chat history", "past chats", "conversations", "search", "date grouping", "popup", "pagination", "load more"],
+    "keywords": [
+      "history",
+      "chat history",
+      "past chats",
+      "conversations",
+      "search",
+      "date grouping",
+      "popup",
+      "pagination",
+      "load more"
+    ],
     "when_to_use": [
       "Showing a list of previous conversations in a chat application",
       "Allowing users to switch between past chats with search and grouping"
@@ -486,41 +1428,159 @@
       "Use ChatContainer which integrates History automatically"
     ],
     "import_statement": "import { History } from '@gravity-ui/aikit';",
-    "related": ["Header", "ChatDate", "ChatContainer"],
+    "related": [
+      "Header",
+      "ChatDate",
+      "ChatContainer"
+    ],
     "props": [
-      { "name": "anchorElement", "type": "HTMLElement | null", "required": true, "description": "Anchor element for the popup positioning" },
-      { "name": "chats", "type": "ChatType[]", "required": true, "description": "Array of chat items to display" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "emptyFilteredPlaceholder", "type": "React.ReactNode", "required": false, "description": "Placeholder when search returns no results" },
-      { "name": "emptyPlaceholder", "type": "React.ReactNode", "required": false, "description": "Custom empty state placeholder" },
-      { "name": "filterFunction", "type": "ChatFilterFunction", "required": false, "description": "Custom filter function for search" },
-      { "name": "groupBy", "type": "'date' | 'none'", "required": false, "description": "Group chats by date or flat list (default: 'date')" },
-      { "name": "hasMore", "type": "boolean", "required": false, "description": "Whether more chats can be loaded (default: false)" },
-      { "name": "loadMode", "type": "'full' | 'lazy'", "required": false, "description": "Load mode: button ('full') or scroll ('lazy') (default: 'full')" },
-      { "name": "loading", "type": "boolean", "required": false, "description": "Show loading state (default: false)" },
-      { "name": "onDeleteChat", "type": "(chat: ChatType) => void", "required": false, "description": "Callback when a chat is deleted" },
-      { "name": "onLoadMore", "type": "() => void | OnLoadMoreLazy", "required": false, "description": "Callback to load more chats" },
-      { "name": "onOpenChange", "type": "(open: boolean) => void", "required": false, "description": "Callback when popup state changes" },
-      { "name": "onSelectChat", "type": "(chat: ChatType) => void", "required": false, "description": "Callback when a chat is selected" },
-      { "name": "open", "type": "boolean", "required": false, "description": "Control popup open state (default: false)" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "searchable", "type": "boolean", "required": false, "description": "Enable search functionality (default: true)" },
-      { "name": "selectedChat", "type": "ChatType | null", "required": false, "description": "Currently selected chat (highlighted)" },
-      { "name": "showActions", "type": "boolean", "required": false, "description": "Show delete action on hover (default: true)" },
-      { "name": "size", "type": "'s' | 'm' | 'l' | 'xl'", "required": false, "description": "Size of the list (default: 'm')" },
-      { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles including CSS variable overrides" }
+      {
+        "name": "anchorElement",
+        "type": "HTMLElement | null",
+        "required": true,
+        "description": "Anchor element for the popup positioning"
+      },
+      {
+        "name": "chats",
+        "type": "ChatType[]",
+        "required": true,
+        "description": "Array of chat items to display"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "emptyFilteredPlaceholder",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Placeholder when search returns no results"
+      },
+      {
+        "name": "emptyPlaceholder",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom empty state placeholder"
+      },
+      {
+        "name": "filterFunction",
+        "type": "ChatFilterFunction",
+        "required": false,
+        "description": "Custom filter function for search"
+      },
+      {
+        "name": "groupBy",
+        "type": "'date' | 'none'",
+        "required": false,
+        "description": "Group chats by date or flat list (default: 'date')"
+      },
+      {
+        "name": "hasMore",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether more chats can be loaded (default: false)"
+      },
+      {
+        "name": "loadMode",
+        "type": "'full' | 'lazy'",
+        "required": false,
+        "description": "Load mode: button ('full') or scroll ('lazy') (default: 'full')"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "description": "Show loading state (default: false)"
+      },
+      {
+        "name": "onDeleteChat",
+        "type": "(chat: ChatType) => void",
+        "required": false,
+        "description": "Callback when a chat is deleted"
+      },
+      {
+        "name": "onLoadMore",
+        "type": "() => void | OnLoadMoreLazy",
+        "required": false,
+        "description": "Callback to load more chats"
+      },
+      {
+        "name": "onOpenChange",
+        "type": "(open: boolean) => void",
+        "required": false,
+        "description": "Callback when popup state changes"
+      },
+      {
+        "name": "onSelectChat",
+        "type": "(chat: ChatType) => void",
+        "required": false,
+        "description": "Callback when a chat is selected"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "description": "Control popup open state (default: false)"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "searchable",
+        "type": "boolean",
+        "required": false,
+        "description": "Enable search functionality (default: true)"
+      },
+      {
+        "name": "selectedChat",
+        "type": "ChatType | null",
+        "required": false,
+        "description": "Currently selected chat (highlighted)"
+      },
+      {
+        "name": "showActions",
+        "type": "boolean",
+        "required": false,
+        "description": "Show delete action on hover (default: true)"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l' | 'xl'",
+        "required": false,
+        "description": "Size of the list (default: 'm')"
+      },
+      {
+        "name": "style",
+        "type": "React.CSSProperties",
+        "required": false,
+        "description": "Inline styles including CSS variable overrides"
+      }
     ],
     "examples": [
       "<History chats={chats} anchorElement={anchorRef.current} open={open} onOpenChange={setOpen} onSelectChat={selectChat} />",
       "<History chats={chats} anchorElement={anchorRef.current} open={open} onOpenChange={setOpen} onSelectChat={selectChat} onDeleteChat={deleteChat} hasMore={hasMore} onLoadMore={loadMore} searchable groupBy=\"date\" />"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "component",
     "name": "InlineCitation",
     "library": "aikit",
     "description": "An atom component for rendering inline text citations within AI assistant messages. Represents a cited source reference inline in the message body.",
-    "keywords": ["citation", "inline citation", "reference", "source", "quote", "text citation", "ai citation"],
+    "keywords": [
+      "citation",
+      "inline citation",
+      "reference",
+      "source",
+      "quote",
+      "text citation",
+      "ai citation"
+    ],
     "when_to_use": [
       "Rendering inline citations or source references inside AI message content",
       "Linking cited sources within MarkdownRenderer or AssistantMessage output"
@@ -529,14 +1589,25 @@
       "For block-level references or footnotes — compose a custom component"
     ],
     "import_statement": "import { InlineCitation } from '@gravity-ui/aikit';",
-    "related": ["AssistantMessage", "MarkdownRenderer"]
+    "related": [
+      "AssistantMessage",
+      "MarkdownRenderer"
+    ]
   },
   {
     "type": "component",
     "name": "IntersectionContainer",
     "library": "aikit",
     "description": "Wrapper component using the Intersection Observer API to trigger a callback when the element enters the viewport. Used for infinite scroll, lazy loading, or scroll-triggered animations.",
-    "keywords": ["intersection observer", "infinite scroll", "lazy load", "viewport", "scroll trigger", "load more", "visibility"],
+    "keywords": [
+      "intersection observer",
+      "infinite scroll",
+      "lazy load",
+      "viewport",
+      "scroll trigger",
+      "load more",
+      "visibility"
+    ],
     "when_to_use": [
       "Triggering loading of previous messages when a user scrolls up in MessageList",
       "Implementing infinite scroll or lazy loading patterns"
@@ -546,23 +1617,55 @@
       "For animations based on scroll — use CSS scroll-driven animations"
     ],
     "import_statement": "import { IntersectionContainer } from '@gravity-ui/aikit';",
-    "related": ["MessageList", "Loader"],
+    "related": [
+      "MessageList",
+      "Loader"
+    ],
     "props": [
-      { "name": "children", "type": "React.ReactNode", "required": false, "description": "Content to wrap" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "onIntersect", "type": "() => void", "required": false, "description": "Callback triggered when element enters viewport" },
-      { "name": "options", "type": "IntersectionObserverInit", "required": false, "description": "IntersectionObserver configuration options" }
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content to wrap"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "onIntersect",
+        "type": "() => void",
+        "required": false,
+        "description": "Callback triggered when element enters viewport"
+      },
+      {
+        "name": "options",
+        "type": "IntersectionObserverInit",
+        "required": false,
+        "description": "IntersectionObserver configuration options"
+      }
     ],
     "examples": [
       "<IntersectionContainer onIntersect={() => loadPreviousMessages()}>\n  <Loader view=\"loading\" />\n</IntersectionContainer>"
-    ]
+    ],
+    "category": "utility"
   },
   {
     "type": "component",
     "name": "InputContext",
     "library": "aikit",
     "description": "A molecule component for managing and displaying context items in the prompt input area. Shows attached context items (files, selections, etc.) with remove actions in the PromptInputHeader.",
-    "keywords": ["input context", "context items", "context management", "attached context", "prompt context", "chat context", "context list"],
+    "keywords": [
+      "input context",
+      "context items",
+      "context management",
+      "attached context",
+      "prompt context",
+      "chat context",
+      "context list"
+    ],
     "when_to_use": [
       "Displaying context items attached to the current prompt (files, code selections, search results)",
       "As part of PromptInputHeader to show and allow removal of attached context"
@@ -572,14 +1675,29 @@
       "For standalone context indicators — use ContextItem or ContextIndicator directly"
     ],
     "import_statement": "import { InputContext } from '@gravity-ui/aikit';",
-    "related": ["ContextItem", "ContextIndicator", "PromptInputHeader", "PromptInput"]
+    "related": [
+      "ContextItem",
+      "ContextIndicator",
+      "PromptInputHeader",
+      "PromptInput"
+    ]
   },
   {
     "type": "component",
     "name": "Loader",
     "library": "aikit",
     "description": "Visualizes a loading state with two variants: a three-dot streaming animation (for AI text generation) and a circular spinner (for general loading).",
-    "keywords": ["loader", "loading", "spinner", "streaming", "dots", "animation", "progress", "waiting", "ai loading"],
+    "keywords": [
+      "loader",
+      "loading",
+      "spinner",
+      "streaming",
+      "dots",
+      "animation",
+      "progress",
+      "waiting",
+      "ai loading"
+    ],
     "when_to_use": [
       "Showing streaming text generation with the dots animation",
       "Indicating background loading with the circular spinner",
@@ -590,25 +1708,60 @@
       "For skeleton screens — use Shimmer instead"
     ],
     "import_statement": "import { Loader } from '@gravity-ui/aikit';",
-    "related": ["Shimmer", "ToolStatus", "ToolFooter", "MessageList"],
+    "related": [
+      "Shimmer",
+      "ToolStatus",
+      "ToolFooter",
+      "MessageList"
+    ],
     "props": [
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "size", "type": "'xs' | 's' | 'm'", "required": false, "description": "Size of the loader (default: 's')" },
-      { "name": "view", "type": "'streaming' | 'loading'", "required": false, "description": "Visual style (default: 'streaming')" }
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "size",
+        "type": "'xs' | 's' | 'm'",
+        "required": false,
+        "description": "Size of the loader (default: 's')"
+      },
+      {
+        "name": "view",
+        "type": "'streaming' | 'loading'",
+        "required": false,
+        "description": "Visual style (default: 'streaming')"
+      }
     ],
     "examples": [
       "<Loader />",
       "<Loader view=\"loading\" />",
       "<Loader view=\"loading\" size=\"xs\" />"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
     "name": "MarkdownRenderer",
     "library": "aikit",
     "description": "Renders Yandex Flavored Markdown (YFM) content to HTML using the @diplodoc/transform package. Memoized for performance — only re-renders when content or options change.",
-    "keywords": ["markdown", "yfm", "yandex flavored markdown", "render html", "diplodoc", "rich text", "markdown to html", "code blocks"],
+    "keywords": [
+      "markdown",
+      "yfm",
+      "yandex flavored markdown",
+      "render html",
+      "diplodoc",
+      "rich text",
+      "markdown to html",
+      "code blocks"
+    ],
     "when_to_use": [
       "Rendering AI assistant responses that contain markdown",
       "Displaying documentation or rich text content from YFM sources"
@@ -618,25 +1771,61 @@
       "For user input preview — consider security implications of dangerouslySetInnerHTML"
     ],
     "import_statement": "import { MarkdownRenderer } from '@gravity-ui/aikit';",
-    "related": ["AssistantMessage", "UserMessage"],
+    "related": [
+      "AssistantMessage",
+      "UserMessage"
+    ],
     "props": [
-      { "name": "content", "type": "string", "required": true, "description": "YFM markdown content to render" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "shouldParseIncompleteMarkdown", "type": "boolean", "required": false, "description": "Enable parsing of incomplete markdown during streaming (default: false)" },
-      { "name": "transformOptions", "type": "OptionsType", "required": false, "description": "Options from @diplodoc/transform package" }
+      {
+        "name": "content",
+        "type": "string",
+        "required": true,
+        "description": "YFM markdown content to render"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "shouldParseIncompleteMarkdown",
+        "type": "boolean",
+        "required": false,
+        "description": "Enable parsing of incomplete markdown during streaming (default: false)"
+      },
+      {
+        "name": "transformOptions",
+        "type": "OptionsType",
+        "required": false,
+        "description": "Options from @diplodoc/transform package"
+      }
     ],
     "examples": [
       "<MarkdownRenderer content=\"# Hello\\n\\nThis is **bold** text.\" />",
       "<MarkdownRenderer content={streamingContent} shouldParseIncompleteMarkdown />"
-    ]
+    ],
+    "category": "typography"
   },
   {
     "type": "component",
     "name": "MessageBalloon",
     "library": "aikit",
     "description": "Visual wrapper that renders a styled bubble/balloon for user messages with the info-light background color.",
-    "keywords": ["message balloon", "chat bubble", "user message", "message wrapper", "balloon", "bubble"],
+    "keywords": [
+      "message balloon",
+      "chat bubble",
+      "user message",
+      "message wrapper",
+      "balloon",
+      "bubble"
+    ],
     "when_to_use": [
       "Wrapping user message content in the standard chat bubble style",
       "Building custom user message components that need balloon styling"
@@ -646,22 +1835,51 @@
       "Use UserMessage which includes MessageBalloon for most cases"
     ],
     "import_statement": "import { MessageBalloon } from '@gravity-ui/aikit';",
-    "related": ["UserMessage", "BaseMessage"],
+    "related": [
+      "UserMessage",
+      "BaseMessage"
+    ],
     "props": [
-      { "name": "children", "type": "React.ReactNode", "required": true, "description": "Content of the message" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" }
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Content of the message"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      }
     ],
     "examples": [
       "<MessageBalloon>User question text</MessageBalloon>"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "MessageList",
     "library": "aikit",
     "description": "Renders a scrollable list of chat messages, automatically choosing between UserMessage and AssistantMessage based on message role. Supports smart auto-scrolling during streaming, loading previous messages with IntersectionContainer, error display, rating block, and custom message renderer registries.",
-    "keywords": ["message list", "chat messages", "conversation", "user message", "assistant message", "scroll", "streaming", "actions", "message history"],
+    "keywords": [
+      "message list",
+      "chat messages",
+      "conversation",
+      "user message",
+      "assistant message",
+      "scroll",
+      "streaming",
+      "actions",
+      "message history"
+    ],
     "when_to_use": [
       "Displaying the full conversation thread in a chat interface",
       "When you need streaming-aware smart scrolling and error handling"
@@ -671,39 +1889,148 @@
       "For virtualized very large lists — consider custom virtualization"
     ],
     "import_statement": "import { MessageList } from '@gravity-ui/aikit';",
-    "related": ["AssistantMessage", "UserMessage", "ChatContent", "ChatContainer", "RatingBlock"],
+    "related": [
+      "AssistantMessage",
+      "UserMessage",
+      "ChatContent",
+      "ChatContainer",
+      "RatingBlock"
+    ],
     "props": [
-      { "name": "messages", "type": "TChatMessage[]", "required": true, "description": "Array of messages to render" },
-      { "name": "assistantActions", "type": "DefaultMessageAction<TAssistantMessage>[]", "required": false, "description": "Default actions for assistant messages" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "errorMessage", "type": "AlertProps", "required": false, "description": "Error message config when status='error'" },
-      { "name": "hasPreviousMessages", "type": "boolean", "required": false, "description": "Whether older messages exist for loading (default: false)" },
-      { "name": "loaderStatuses", "type": "ChatStatus[]", "required": false, "description": "Statuses that display the loader (default: ['submitted', 'streaming_loading'])" },
-      { "name": "messageRendererRegistry", "type": "MessageRendererRegistry", "required": false, "description": "Custom message renderer registry" },
-      { "name": "onLoadPreviousMessages", "type": "() => void", "required": false, "description": "Callback to load older messages" },
-      { "name": "onRetry", "type": "() => void", "required": false, "description": "Callback when user clicks retry in error state" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "ratingBlockProps", "type": "RatingBlockProps", "required": false, "description": "Rating block displayed after the message list" },
-      { "name": "shouldParseIncompleteMarkdown", "type": "boolean", "required": false, "description": "Enable parsing of incomplete markdown during streaming" },
-      { "name": "showActionsOnHover", "type": "boolean", "required": false, "description": "Show message actions only on hover" },
-      { "name": "showAvatar", "type": "boolean", "required": false, "description": "Show avatar for user messages" },
-      { "name": "showTimestamp", "type": "boolean", "required": false, "description": "Show message timestamps" },
-      { "name": "status", "type": "'submitted' | 'streaming' | 'streaming_loading' | 'ready' | 'error'", "required": false, "description": "Current chat status" },
-      { "name": "transformOptions", "type": "OptionsType", "required": false, "description": "Options for markdown rendering" },
-      { "name": "userActions", "type": "DefaultMessageAction<TUserMessage>[]", "required": false, "description": "Default actions for user messages" }
+      {
+        "name": "messages",
+        "type": "TChatMessage[]",
+        "required": true,
+        "description": "Array of messages to render"
+      },
+      {
+        "name": "assistantActions",
+        "type": "DefaultMessageAction<TAssistantMessage>[]",
+        "required": false,
+        "description": "Default actions for assistant messages"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "errorMessage",
+        "type": "AlertProps",
+        "required": false,
+        "description": "Error message config when status='error'"
+      },
+      {
+        "name": "hasPreviousMessages",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether older messages exist for loading (default: false)"
+      },
+      {
+        "name": "loaderStatuses",
+        "type": "ChatStatus[]",
+        "required": false,
+        "description": "Statuses that display the loader (default: ['submitted', 'streaming_loading'])"
+      },
+      {
+        "name": "messageRendererRegistry",
+        "type": "MessageRendererRegistry",
+        "required": false,
+        "description": "Custom message renderer registry"
+      },
+      {
+        "name": "onLoadPreviousMessages",
+        "type": "() => void",
+        "required": false,
+        "description": "Callback to load older messages"
+      },
+      {
+        "name": "onRetry",
+        "type": "() => void",
+        "required": false,
+        "description": "Callback when user clicks retry in error state"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "ratingBlockProps",
+        "type": "RatingBlockProps",
+        "required": false,
+        "description": "Rating block displayed after the message list"
+      },
+      {
+        "name": "shouldParseIncompleteMarkdown",
+        "type": "boolean",
+        "required": false,
+        "description": "Enable parsing of incomplete markdown during streaming"
+      },
+      {
+        "name": "showActionsOnHover",
+        "type": "boolean",
+        "required": false,
+        "description": "Show message actions only on hover"
+      },
+      {
+        "name": "showAvatar",
+        "type": "boolean",
+        "required": false,
+        "description": "Show avatar for user messages"
+      },
+      {
+        "name": "showTimestamp",
+        "type": "boolean",
+        "required": false,
+        "description": "Show message timestamps"
+      },
+      {
+        "name": "status",
+        "type": "'submitted' | 'streaming' | 'streaming_loading' | 'ready' | 'error'",
+        "required": false,
+        "description": "Current chat status"
+      },
+      {
+        "name": "transformOptions",
+        "type": "OptionsType",
+        "required": false,
+        "description": "Options for markdown rendering"
+      },
+      {
+        "name": "userActions",
+        "type": "DefaultMessageAction<TUserMessage>[]",
+        "required": false,
+        "description": "Default actions for user messages"
+      }
     ],
     "examples": [
       "<MessageList messages={messages} />",
       "<MessageList messages={messages} status={status} showActionsOnHover userActions={userActions} assistantActions={assistantActions} />",
       "<MessageList messages={messages} hasPreviousMessages onLoadPreviousMessages={loadMore} ratingBlockProps={{ value: rating, onChange: setRating }} />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "PromptInput",
     "library": "aikit",
     "description": "Flexible chat input component supporting simple (minimal) and full (with header and footer) views. Handles text input, keyboard shortcuts (Enter to submit, Shift+Enter for newline), file attachments, suggestion display, expandable panels, and streaming cancel.",
-    "keywords": ["prompt input", "chat input", "textarea", "send button", "submit", "cancel", "streaming", "suggestions", "attachment", "microphone", "context indicator"],
+    "keywords": [
+      "prompt input",
+      "chat input",
+      "textarea",
+      "send button",
+      "submit",
+      "cancel",
+      "streaming",
+      "suggestions",
+      "attachment",
+      "microphone",
+      "context indicator"
+    ],
     "when_to_use": [
       "As the user input area in a chat or AI prompt interface",
       "When you need keyboard shortcuts, status-based button states, and suggestion chips"
@@ -713,36 +2040,127 @@
       "Use ChatContainer which includes PromptInput for most cases"
     ],
     "import_statement": "import { PromptInput } from '@gravity-ui/aikit';",
-    "related": ["SubmitButton", "PromptInputBody", "PromptInputFooter", "PromptInputHeader", "Suggestions", "ChatContainer"],
+    "related": [
+      "SubmitButton",
+      "PromptInputBody",
+      "PromptInputFooter",
+      "PromptInputHeader",
+      "Suggestions",
+      "ChatContainer"
+    ],
     "props": [
-      { "name": "onSend", "type": "(data: TSubmitData) => Promise<void>", "required": true, "description": "Callback when message is sent" },
-      { "name": "bodyProps", "type": "PromptInputBodyConfig", "required": false, "description": "Textarea configuration (placeholder, minRows, maxRows, autoFocus)" },
-      { "name": "bottomPanel", "type": "PromptInputPanelConfig", "required": false, "description": "Expandable bottom panel configuration" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled state (default: false)" },
-      { "name": "footerProps", "type": "PromptInputFooterConfig", "required": false, "description": "Footer configuration (settings, attachment, microphone icons)" },
-      { "name": "headerProps", "type": "PromptInputHeaderConfig", "required": false, "description": "Header configuration (context indicator, context items)" },
-      { "name": "initialValue", "type": "string", "required": false, "description": "Initial textarea value" },
-      { "name": "maxLength", "type": "number", "required": false, "description": "Maximum input length" },
-      { "name": "onCancel", "type": "() => Promise<void>", "required": false, "description": "Callback when streaming is cancelled" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "status", "type": "'submitted' | 'streaming' | 'streaming_loading' | 'ready' | 'error'", "required": false, "description": "Chat status controlling button state (default: 'ready')" },
-      { "name": "suggestionsProps", "type": "PromptInputSuggestionsConfig", "required": false, "description": "Suggestion chips configuration" },
-      { "name": "topPanel", "type": "PromptInputPanelConfig", "required": false, "description": "Expandable top panel configuration" },
-      { "name": "view", "type": "'full' | 'simple'", "required": false, "description": "View variant: 'full' with header/footer, 'simple' minimal (default: 'simple')" }
+      {
+        "name": "onSend",
+        "type": "(data: TSubmitData) => Promise<void>",
+        "required": true,
+        "description": "Callback when message is sent"
+      },
+      {
+        "name": "bodyProps",
+        "type": "PromptInputBodyConfig",
+        "required": false,
+        "description": "Textarea configuration (placeholder, minRows, maxRows, autoFocus)"
+      },
+      {
+        "name": "bottomPanel",
+        "type": "PromptInputPanelConfig",
+        "required": false,
+        "description": "Expandable bottom panel configuration"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Disabled state (default: false)"
+      },
+      {
+        "name": "footerProps",
+        "type": "PromptInputFooterConfig",
+        "required": false,
+        "description": "Footer configuration (settings, attachment, microphone icons)"
+      },
+      {
+        "name": "headerProps",
+        "type": "PromptInputHeaderConfig",
+        "required": false,
+        "description": "Header configuration (context indicator, context items)"
+      },
+      {
+        "name": "initialValue",
+        "type": "string",
+        "required": false,
+        "description": "Initial textarea value"
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "description": "Maximum input length"
+      },
+      {
+        "name": "onCancel",
+        "type": "() => Promise<void>",
+        "required": false,
+        "description": "Callback when streaming is cancelled"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "status",
+        "type": "'submitted' | 'streaming' | 'streaming_loading' | 'ready' | 'error'",
+        "required": false,
+        "description": "Chat status controlling button state (default: 'ready')"
+      },
+      {
+        "name": "suggestionsProps",
+        "type": "PromptInputSuggestionsConfig",
+        "required": false,
+        "description": "Suggestion chips configuration"
+      },
+      {
+        "name": "topPanel",
+        "type": "PromptInputPanelConfig",
+        "required": false,
+        "description": "Expandable top panel configuration"
+      },
+      {
+        "name": "view",
+        "type": "'full' | 'simple'",
+        "required": false,
+        "description": "View variant: 'full' with header/footer, 'simple' minimal (default: 'simple')"
+      }
     ],
     "examples": [
       "<PromptInput onSend={async (data) => { await sendMessage(data.content); }} bodyProps={{ placeholder: 'Type your message...' }} />",
       "<PromptInput view=\"full\" onSend={handleSend} onCancel={handleCancel} status={status} footerProps={{ showAttachment: true, onAttachmentClick: handleAttach }} />",
       "<PromptInput onSend={handleSend} suggestionsProps={{ showSuggestions: true, suggestions: [{ title: 'Write a poem' }] }} />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "PromptInputBody",
     "library": "aikit",
     "description": "Auto-growing textarea body component for the prompt input area. Supports min/max rows, character limit, disabled state, keyboard handling, and custom content replacement.",
-    "keywords": ["textarea", "auto grow", "input body", "prompt textarea", "multi-line input", "chat input", "character limit"],
+    "keywords": [
+      "textarea",
+      "auto grow",
+      "input body",
+      "prompt textarea",
+      "multi-line input",
+      "chat input",
+      "character limit"
+    ],
     "when_to_use": [
       "As the textarea inside a custom prompt input layout",
       "When composing PromptInput from individual parts"
@@ -752,32 +2170,111 @@
       "For single-line inputs — use TextInput from @gravity-ui/uikit"
     ],
     "import_statement": "import { PromptInputBody } from '@gravity-ui/aikit';",
-    "related": ["PromptInput", "PromptInputFooter", "PromptInputHeader"],
+    "related": [
+      "PromptInput",
+      "PromptInputFooter",
+      "PromptInputHeader"
+    ],
     "props": [
-      { "name": "autoFocus", "type": "boolean", "required": false, "description": "Auto focus on mount (default: false)" },
-      { "name": "children", "type": "React.ReactNode", "required": false, "description": "Custom content to replace the default textarea" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "disabledInput", "type": "boolean", "required": false, "description": "Disabled state for the textarea (default: false)" },
-      { "name": "inputClassName", "type": "string", "required": false, "description": "Additional CSS class for the textarea control" },
-      { "name": "maxLength", "type": "number", "required": false, "description": "Maximum character count" },
-      { "name": "maxRows", "type": "number", "required": false, "description": "Maximum rows before scrolling (default: 15)" },
-      { "name": "minRows", "type": "number", "required": false, "description": "Minimum rows (default: 1)" },
-      { "name": "onChange", "type": "(value: string) => void", "required": false, "description": "Change handler" },
-      { "name": "onKeyDown", "type": "(event: React.KeyboardEvent<HTMLTextAreaElement>) => void", "required": false, "description": "Key down handler" },
-      { "name": "placeholder", "type": "string", "required": false, "description": "Placeholder text" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "value", "type": "string", "required": false, "description": "Controlled textarea value" }
+      {
+        "name": "autoFocus",
+        "type": "boolean",
+        "required": false,
+        "description": "Auto focus on mount (default: false)"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom content to replace the default textarea"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "disabledInput",
+        "type": "boolean",
+        "required": false,
+        "description": "Disabled state for the textarea (default: false)"
+      },
+      {
+        "name": "inputClassName",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class for the textarea control"
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "description": "Maximum character count"
+      },
+      {
+        "name": "maxRows",
+        "type": "number",
+        "required": false,
+        "description": "Maximum rows before scrolling (default: 15)"
+      },
+      {
+        "name": "minRows",
+        "type": "number",
+        "required": false,
+        "description": "Minimum rows (default: 1)"
+      },
+      {
+        "name": "onChange",
+        "type": "(value: string) => void",
+        "required": false,
+        "description": "Change handler"
+      },
+      {
+        "name": "onKeyDown",
+        "type": "(event: React.KeyboardEvent<HTMLTextAreaElement>) => void",
+        "required": false,
+        "description": "Key down handler"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "description": "Placeholder text"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "description": "Controlled textarea value"
+      }
     ],
     "examples": [
       "<PromptInputBody value={value} onChange={setValue} placeholder=\"Type your message...\" />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "PromptInputFooter",
     "library": "aikit",
     "description": "Footer section of the prompt input with optional settings, attachment, and microphone action icons plus the SubmitButton. Custom content can be provided while keeping the SubmitButton always visible.",
-    "keywords": ["prompt footer", "submit", "send button", "attachment", "microphone", "settings", "input footer", "chat controls"],
+    "keywords": [
+      "prompt footer",
+      "submit",
+      "send button",
+      "attachment",
+      "microphone",
+      "settings",
+      "input footer",
+      "chat controls"
+    ],
     "when_to_use": [
       "As the footer inside a custom prompt input composition",
       "When you need specific combinations of action icons with the submit button"
@@ -786,30 +2283,98 @@
       "Prefer PromptInput which composes this automatically"
     ],
     "import_statement": "import { PromptInputFooter } from '@gravity-ui/aikit';",
-    "related": ["PromptInput", "SubmitButton", "PromptInputBody", "PromptInputHeader"],
+    "related": [
+      "PromptInput",
+      "SubmitButton",
+      "PromptInputBody",
+      "PromptInputHeader"
+    ],
     "props": [
-      { "name": "submitButton", "type": "SubmitButtonProps", "required": true, "description": "Submit button configuration" },
-      { "name": "buttonSize", "type": "ButtonButtonProps['size']", "required": false, "description": "Size for all action buttons (default: 'm')" },
-      { "name": "children", "type": "React.ReactNode", "required": false, "description": "Custom content; SubmitButton is always rendered" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "onAttachmentClick", "type": "() => void", "required": false, "description": "Attachment icon click handler" },
-      { "name": "onMicrophoneClick", "type": "() => void", "required": false, "description": "Microphone icon click handler" },
-      { "name": "onSettingsClick", "type": "() => void", "required": false, "description": "Settings icon click handler" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "showAttachment", "type": "boolean", "required": false, "description": "Show attachment icon (default: false)" },
-      { "name": "showMicrophone", "type": "boolean", "required": false, "description": "Show microphone icon (default: false)" },
-      { "name": "showSettings", "type": "boolean", "required": false, "description": "Show settings icon (default: false)" }
+      {
+        "name": "submitButton",
+        "type": "SubmitButtonProps",
+        "required": true,
+        "description": "Submit button configuration"
+      },
+      {
+        "name": "buttonSize",
+        "type": "ButtonButtonProps['size']",
+        "required": false,
+        "description": "Size for all action buttons (default: 'm')"
+      },
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom content; SubmitButton is always rendered"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "onAttachmentClick",
+        "type": "() => void",
+        "required": false,
+        "description": "Attachment icon click handler"
+      },
+      {
+        "name": "onMicrophoneClick",
+        "type": "() => void",
+        "required": false,
+        "description": "Microphone icon click handler"
+      },
+      {
+        "name": "onSettingsClick",
+        "type": "() => void",
+        "required": false,
+        "description": "Settings icon click handler"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "showAttachment",
+        "type": "boolean",
+        "required": false,
+        "description": "Show attachment icon (default: false)"
+      },
+      {
+        "name": "showMicrophone",
+        "type": "boolean",
+        "required": false,
+        "description": "Show microphone icon (default: false)"
+      },
+      {
+        "name": "showSettings",
+        "type": "boolean",
+        "required": false,
+        "description": "Show settings icon (default: false)"
+      }
     ],
     "examples": [
       "<PromptInputFooter submitButton={{ onClick: handleSubmit, state: 'enabled' }} showAttachment onAttachmentClick={handleAttach} />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "PromptInputHeader",
     "library": "aikit",
     "description": "Header section of the prompt input displaying removable context items on the left and an optional context indicator on the right. Renders nothing if no content is available.",
-    "keywords": ["prompt header", "context items", "context indicator", "input header", "attached files", "context window"],
+    "keywords": [
+      "prompt header",
+      "context items",
+      "context indicator",
+      "input header",
+      "attached files",
+      "context window"
+    ],
     "when_to_use": [
       "As the header inside a custom prompt input composition",
       "When displaying attached context items or context usage in the input"
@@ -818,25 +2383,66 @@
       "Prefer PromptInput which composes this automatically"
     ],
     "import_statement": "import { PromptInputHeader } from '@gravity-ui/aikit';",
-    "related": ["PromptInput", "ContextItem", "ContextIndicator"],
+    "related": [
+      "PromptInput",
+      "ContextItem",
+      "ContextIndicator"
+    ],
     "props": [
-      { "name": "children", "type": "React.ReactNode", "required": false, "description": "Custom content to replace the default header" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "contextIndicatorProps", "type": "ContextIndicatorProps", "required": false, "description": "Props for the context indicator" },
-      { "name": "contextItems", "type": "ContextItemConfig[]", "required": false, "description": "Array of context items to display (default: [])" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "showContextIndicator", "type": "boolean", "required": false, "description": "Show context indicator (default: false)" }
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Custom content to replace the default header"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "contextIndicatorProps",
+        "type": "ContextIndicatorProps",
+        "required": false,
+        "description": "Props for the context indicator"
+      },
+      {
+        "name": "contextItems",
+        "type": "ContextItemConfig[]",
+        "required": false,
+        "description": "Array of context items to display (default: [])"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "showContextIndicator",
+        "type": "boolean",
+        "required": false,
+        "description": "Show context indicator (default: false)"
+      }
     ],
     "examples": [
       "<PromptInputHeader contextItems={[{ id: '1', content: 'file.tsx', onRemove: () => remove('1') }]} showContextIndicator contextIndicatorProps={{ type: 'percent', usedContext: 75 }} />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "PromptInputPanel",
     "library": "aikit",
     "description": "Simple panel container for displaying custom content inside the prompt input area, used for expandable top/bottom panels.",
-    "keywords": ["panel", "prompt panel", "expandable panel", "input panel", "custom panel"],
+    "keywords": [
+      "panel",
+      "prompt panel",
+      "expandable panel",
+      "input panel",
+      "custom panel"
+    ],
     "when_to_use": [
       "As a content container for custom panels above or below the prompt input",
       "Wrapping custom actions, upgrade prompts, or settings in the input area"
@@ -845,22 +2451,50 @@
       "Prefer PromptInput which manages panels automatically via topPanel/bottomPanel props"
     ],
     "import_statement": "import { PromptInputPanel } from '@gravity-ui/aikit';",
-    "related": ["PromptInput"],
+    "related": [
+      "PromptInput"
+    ],
     "props": [
-      { "name": "children", "type": "React.ReactNode", "required": false, "description": "Panel content" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" }
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Panel content"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      }
     ],
     "examples": [
       "<PromptInputPanel>\n  <span>Upgrade your plan</span>\n  <Button view=\"action\">Upgrade</Button>\n</PromptInputPanel>"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "RatingBlock",
     "library": "aikit",
     "description": "Universal rating block with a title and an integrated 5-star rating component. Suitable for CSAT surveys, product reviews, and AI assistant feedback collection.",
-    "keywords": ["rating", "stars", "csat", "feedback", "survey", "satisfaction", "5 stars", "rate", "review"],
+    "keywords": [
+      "rating",
+      "stars",
+      "csat",
+      "feedback",
+      "survey",
+      "satisfaction",
+      "5 stars",
+      "rate",
+      "review"
+    ],
     "when_to_use": [
       "Collecting user satisfaction ratings for AI assistant responses",
       "Embedding a star rating UI in a chat or feedback form"
@@ -870,27 +2504,73 @@
       "For thumbs up/down — use the like/unlike actions in BaseMessage"
     ],
     "import_statement": "import { RatingBlock } from '@gravity-ui/aikit';",
-    "related": ["StarRating", "MessageList"],
+    "related": [
+      "StarRating",
+      "MessageList"
+    ],
     "props": [
-      { "name": "onChange", "type": "(rating: number) => void", "required": true, "description": "Callback when rating changes" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "size", "type": "'s' | 'm' | 'l'", "required": false, "description": "Star size (default: 'l')" },
-      { "name": "title", "type": "React.ReactNode", "required": false, "description": "Title text or React element (e.g., with links)" },
-      { "name": "value", "type": "number", "required": false, "description": "Current rating value (1–5)" },
-      { "name": "visible", "type": "boolean", "required": false, "description": "Controls visibility (default: true)" }
+      {
+        "name": "onChange",
+        "type": "(rating: number) => void",
+        "required": true,
+        "description": "Callback when rating changes"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l'",
+        "required": false,
+        "description": "Star size (default: 'l')"
+      },
+      {
+        "name": "title",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Title text or React element (e.g., with links)"
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": false,
+        "description": "Current rating value (1–5)"
+      },
+      {
+        "name": "visible",
+        "type": "boolean",
+        "required": false,
+        "description": "Controls visibility (default: true)"
+      }
     ],
     "examples": [
       "<RatingBlock title=\"Rate the response:\" value={rating} onChange={setRating} />",
       "<RatingBlock title={rating <= 2 ? <><span>What went wrong?</span> <a href=\"#\">Survey</a></> : 'Rate:'} value={rating} onChange={setRating} size=\"m\" />"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
     "name": "Shimmer",
     "library": "aikit",
     "description": "Loading skeleton animation component that applies a shimmer gradient effect over its children, indicating that content is being loaded.",
-    "keywords": ["shimmer", "skeleton", "loading animation", "placeholder", "skeleton screen", "content loading"],
+    "keywords": [
+      "shimmer",
+      "skeleton",
+      "loading animation",
+      "placeholder",
+      "skeleton screen",
+      "content loading"
+    ],
     "when_to_use": [
       "Showing a loading placeholder while content is streaming or being fetched",
       "Wrapping text or elements with a shimmer animation during pending states"
@@ -900,22 +2580,50 @@
       "For progress bars — use Loader with view='loading'"
     ],
     "import_statement": "import { Shimmer } from '@gravity-ui/aikit';",
-    "related": ["Loader", "ToolFooter"],
+    "related": [
+      "Loader",
+      "ToolFooter"
+    ],
     "props": [
-      { "name": "children", "type": "React.ReactNode", "required": false, "description": "Content to apply shimmer effect to" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" }
+      {
+        "name": "children",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Content to apply shimmer effect to"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      }
     ],
     "examples": [
       "<Shimmer><div>Loading content...</div></Shimmer>"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
     "name": "StarRating",
     "library": "aikit",
     "description": "Interactive 5-star rating component with hover preview, keyboard navigation, disabled state, and accessibility support. The building block for RatingBlock.",
-    "keywords": ["star rating", "stars", "rating input", "interactive", "hover", "accessible", "keyboard", "5 stars"],
+    "keywords": [
+      "star rating",
+      "stars",
+      "rating input",
+      "interactive",
+      "hover",
+      "accessible",
+      "keyboard",
+      "5 stars"
+    ],
     "when_to_use": [
       "Collecting a 1–5 star rating from users",
       "When you need just the star input without a title block"
@@ -925,29 +2633,81 @@
       "For thumbs up/down — use like/unlike actions"
     ],
     "import_statement": "import { StarRating } from '@gravity-ui/aikit';",
-    "related": ["RatingBlock"],
+    "related": [
+      "RatingBlock"
+    ],
     "props": [
-      { "name": "aria-label", "type": "string", "required": false, "description": "Custom aria-label for the group" },
-      { "name": "aria-label-star", "type": "(rating: number) => string", "required": false, "description": "Custom aria-label formatter for individual stars" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "disabled", "type": "boolean", "required": false, "description": "Disabled state (default: false)" },
-      { "name": "onChange", "type": "(rating: number) => void", "required": false, "description": "Callback when rating changes" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "size", "type": "'s' | 'm' | 'l'", "required": false, "description": "Star icon size (default: 'l')" },
-      { "name": "value", "type": "number", "required": false, "description": "Current rating value (1–5)" }
+      {
+        "name": "aria-label",
+        "type": "string",
+        "required": false,
+        "description": "Custom aria-label for the group"
+      },
+      {
+        "name": "aria-label-star",
+        "type": "(rating: number) => string",
+        "required": false,
+        "description": "Custom aria-label formatter for individual stars"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": "Disabled state (default: false)"
+      },
+      {
+        "name": "onChange",
+        "type": "(rating: number) => void",
+        "required": false,
+        "description": "Callback when rating changes"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l'",
+        "required": false,
+        "description": "Star icon size (default: 'l')"
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": false,
+        "description": "Current rating value (1–5)"
+      }
     ],
     "examples": [
       "<StarRating value={3} onChange={(r) => setRating(r)} />",
       "<StarRating value={4} onChange={handleRating} size=\"m\" />",
       "<StarRating value={2} disabled />"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
     "name": "SubmitButton",
     "library": "aikit",
     "description": "State-driven submit button for chat input that automatically switches icons and tooltips based on state: enabled (arrow up / send), disabled, loading (spinner), and cancelable (stop icon).",
-    "keywords": ["submit button", "send button", "cancel button", "loading state", "chat submit", "stop", "arrow up", "ai chat button"],
+    "keywords": [
+      "submit button",
+      "send button",
+      "cancel button",
+      "loading state",
+      "chat submit",
+      "stop",
+      "arrow up",
+      "ai chat button"
+    ],
     "when_to_use": [
       "As the primary send/cancel button in a chat prompt input",
       "When you need a single button that handles all four input states"
@@ -957,28 +2717,80 @@
       "Prefer PromptInput or PromptInputFooter which include this automatically"
     ],
     "import_statement": "import { SubmitButton } from '@gravity-ui/aikit';",
-    "related": ["PromptInputFooter", "ActionButton"],
+    "related": [
+      "PromptInputFooter",
+      "ActionButton"
+    ],
     "props": [
-      { "name": "onClick", "type": "() => Promise<void>", "required": true, "description": "Click handler (called only in enabled/cancelable states)" },
-      { "name": "state", "type": "'enabled' | 'disabled' | 'loading' | 'cancelable'", "required": true, "description": "Button state controlling icon and behavior" },
-      { "name": "cancelableText", "type": "string", "required": false, "description": "Optional text displayed in cancelable state beside the stop icon" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "size", "type": "'s' | 'm' | 'l'", "required": false, "description": "Button size (default: 'm')" },
-      { "name": "tooltipCancel", "type": "string", "required": false, "description": "Custom tooltip for cancelable state" },
-      { "name": "tooltipSend", "type": "string", "required": false, "description": "Custom tooltip for enabled state" }
+      {
+        "name": "onClick",
+        "type": "() => Promise<void>",
+        "required": true,
+        "description": "Click handler (called only in enabled/cancelable states)"
+      },
+      {
+        "name": "state",
+        "type": "'enabled' | 'disabled' | 'loading' | 'cancelable'",
+        "required": true,
+        "description": "Button state controlling icon and behavior"
+      },
+      {
+        "name": "cancelableText",
+        "type": "string",
+        "required": false,
+        "description": "Optional text displayed in cancelable state beside the stop icon"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "size",
+        "type": "'s' | 'm' | 'l'",
+        "required": false,
+        "description": "Button size (default: 'm')"
+      },
+      {
+        "name": "tooltipCancel",
+        "type": "string",
+        "required": false,
+        "description": "Custom tooltip for cancelable state"
+      },
+      {
+        "name": "tooltipSend",
+        "type": "string",
+        "required": false,
+        "description": "Custom tooltip for enabled state"
+      }
     ],
     "examples": [
       "<SubmitButton state={state} onClick={handleClick} />",
       "<SubmitButton state=\"cancelable\" onClick={cancelStream} cancelableText=\"Stop\" size=\"l\" />"
-    ]
+    ],
+    "category": "actions"
   },
   {
     "type": "component",
     "name": "Suggestions",
     "library": "aikit",
     "description": "Displays a group of clickable suggestion buttons in grid (horizontal) or list (vertical) layout with optional title, icons, and tooltip support.",
-    "keywords": ["suggestions", "prompt suggestions", "quick replies", "clickable chips", "suggestion buttons", "onboarding", "starter prompts"],
+    "keywords": [
+      "suggestions",
+      "prompt suggestions",
+      "quick replies",
+      "clickable chips",
+      "suggestion buttons",
+      "onboarding",
+      "starter prompts"
+    ],
     "when_to_use": [
       "Presenting pre-defined prompt suggestions in a chat interface",
       "Quick action or follow-up suggestion chips in a conversation"
@@ -988,28 +2800,80 @@
       "Prefer EmptyContainer or PromptInput which include Suggestions automatically"
     ],
     "import_statement": "import { Suggestions } from '@gravity-ui/aikit';",
-    "related": ["EmptyContainer", "PromptInput"],
+    "related": [
+      "EmptyContainer",
+      "PromptInput"
+    ],
     "props": [
-      { "name": "items", "type": "SuggestionsItem[]", "required": true, "description": "Array of suggestion items to display" },
-      { "name": "onClick", "type": "(content: string, id?: string) => void | Promise<void>", "required": true, "description": "Callback when a suggestion is clicked" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "layout", "type": "'grid' | 'list'", "required": false, "description": "Layout orientation (default: 'list')" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "textAlign", "type": "'left' | 'center' | 'right'", "required": false, "description": "Text alignment in buttons (default: 'left')" },
-      { "name": "title", "type": "React.ReactNode", "required": false, "description": "Optional title above the suggestions" },
-      { "name": "wrapText", "type": "boolean", "required": false, "description": "Enable text wrapping in buttons (default: false)" }
+      {
+        "name": "items",
+        "type": "SuggestionsItem[]",
+        "required": true,
+        "description": "Array of suggestion items to display"
+      },
+      {
+        "name": "onClick",
+        "type": "(content: string, id?: string) => void | Promise<void>",
+        "required": true,
+        "description": "Callback when a suggestion is clicked"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "layout",
+        "type": "'grid' | 'list'",
+        "required": false,
+        "description": "Layout orientation (default: 'list')"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "textAlign",
+        "type": "'left' | 'center' | 'right'",
+        "required": false,
+        "description": "Text alignment in buttons (default: 'left')"
+      },
+      {
+        "name": "title",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Optional title above the suggestions"
+      },
+      {
+        "name": "wrapText",
+        "type": "boolean",
+        "required": false,
+        "description": "Enable text wrapping in buttons (default: false)"
+      }
     ],
     "examples": [
       "<Suggestions items={[{ id: '1', title: 'Explain quantum computing' }]} onClick={(c) => sendMessage(c)} layout=\"grid\" />",
       "<Suggestions title=\"Try asking:\" items={[{ title: 'Previous', icon: 'left' }, { title: 'Next', icon: 'right' }]} onClick={handleClick} />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "Tabs",
     "library": "aikit",
     "description": "Horizontal tab navigation built on Gravity UI Label components with active state indication, icon support, optional delete functionality, and automatic horizontal scrolling on overflow.",
-    "keywords": ["tabs", "tab navigation", "chat tabs", "sessions", "horizontal scroll", "delete tab", "label tabs"],
+    "keywords": [
+      "tabs",
+      "tab navigation",
+      "chat tabs",
+      "sessions",
+      "horizontal scroll",
+      "delete tab",
+      "label tabs"
+    ],
     "when_to_use": [
       "Navigating between multiple chat sessions or conversation threads",
       "Any tabbed interface that needs delete capability and horizontal overflow scroll"
@@ -1019,28 +2883,80 @@
       "For primary navigation — use Gravity UI's Tabs from @gravity-ui/uikit"
     ],
     "import_statement": "import { Tabs } from '@gravity-ui/aikit';",
-    "related": ["ButtonGroup"],
+    "related": [
+      "ButtonGroup"
+    ],
     "props": [
-      { "name": "items", "type": "Array<{ id: string; title: string; icon?: React.ReactNode }>", "required": true, "description": "Array of tab items" },
-      { "name": "activeId", "type": "string", "required": false, "description": "ID of the currently active tab" },
-      { "name": "allowDelete", "type": "boolean", "required": false, "description": "Show delete buttons on tabs (default: false)" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "onDeleteItem", "type": "(id: string) => Promise<void>", "required": false, "description": "Async callback when delete button is clicked" },
-      { "name": "onSelectItem", "type": "(id: string) => void", "required": false, "description": "Callback when a tab is clicked" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles (supports CSS variable overrides)" }
+      {
+        "name": "items",
+        "type": "Array<{ id: string; title: string; icon?: React.ReactNode }>",
+        "required": true,
+        "description": "Array of tab items"
+      },
+      {
+        "name": "activeId",
+        "type": "string",
+        "required": false,
+        "description": "ID of the currently active tab"
+      },
+      {
+        "name": "allowDelete",
+        "type": "boolean",
+        "required": false,
+        "description": "Show delete buttons on tabs (default: false)"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "onDeleteItem",
+        "type": "(id: string) => Promise<void>",
+        "required": false,
+        "description": "Async callback when delete button is clicked"
+      },
+      {
+        "name": "onSelectItem",
+        "type": "(id: string) => void",
+        "required": false,
+        "description": "Callback when a tab is clicked"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "style",
+        "type": "React.CSSProperties",
+        "required": false,
+        "description": "Inline styles (supports CSS variable overrides)"
+      }
     ],
     "examples": [
       "<Tabs items={[{ id: '1', title: 'Chat 1' }, { id: '2', title: 'Chat 2' }]} activeId={activeId} onSelectItem={setActiveId} />",
       "<Tabs items={tabs} activeId={activeId} onSelectItem={setActiveId} onDeleteItem={deleteTab} allowDelete />"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
     "name": "ThinkingMessage",
     "library": "aikit",
     "description": "Displays an AI model's internal reasoning/thinking process as a collapsible block. Shows a loader when actively thinking and a copy button when the thought is complete.",
-    "keywords": ["thinking", "reasoning", "chain of thought", "collapsible", "ai thinking", "expand collapse", "copy", "thought process"],
+    "keywords": [
+      "thinking",
+      "reasoning",
+      "chain of thought",
+      "collapsible",
+      "ai thinking",
+      "expand collapse",
+      "copy",
+      "thought process"
+    ],
     "when_to_use": [
       "Rendering AI reasoning/chain-of-thought output in a chat",
       "Showing expandable thinking content from models that expose their reasoning"
@@ -1050,29 +2966,86 @@
       "For tool execution details — use ToolMessage"
     ],
     "import_statement": "import { ThinkingMessage } from '@gravity-ui/aikit';",
-    "related": ["AssistantMessage", "ToolMessage"],
+    "related": [
+      "AssistantMessage",
+      "ToolMessage"
+    ],
     "props": [
-      { "name": "content", "type": "string | string[]", "required": true, "description": "Thinking content as string or array of strings" },
-      { "name": "status", "type": "'thinking' | 'thought'", "required": true, "description": "Current thinking status" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "defaultExpanded", "type": "boolean", "required": false, "description": "Initial expanded state (default: true)" },
-      { "name": "enabledCopy", "type": "boolean", "required": false, "description": "Enable default copy logic when thought is complete (default: false)" },
-      { "name": "onCopyClick", "type": "() => void", "required": false, "description": "Custom copy handler (takes priority over enabledCopy)" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "showStatusIndicator", "type": "boolean", "required": false, "description": "Show loader when status is 'thinking' (default: true)" },
-      { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles" }
+      {
+        "name": "content",
+        "type": "string | string[]",
+        "required": true,
+        "description": "Thinking content as string or array of strings"
+      },
+      {
+        "name": "status",
+        "type": "'thinking' | 'thought'",
+        "required": true,
+        "description": "Current thinking status"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "defaultExpanded",
+        "type": "boolean",
+        "required": false,
+        "description": "Initial expanded state (default: true)"
+      },
+      {
+        "name": "enabledCopy",
+        "type": "boolean",
+        "required": false,
+        "description": "Enable default copy logic when thought is complete (default: false)"
+      },
+      {
+        "name": "onCopyClick",
+        "type": "() => void",
+        "required": false,
+        "description": "Custom copy handler (takes priority over enabledCopy)"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "showStatusIndicator",
+        "type": "boolean",
+        "required": false,
+        "description": "Show loader when status is 'thinking' (default: true)"
+      },
+      {
+        "name": "style",
+        "type": "React.CSSProperties",
+        "required": false,
+        "description": "Inline styles"
+      }
     ],
     "examples": [
       "<ThinkingMessage content=\"Analyzing the request...\" status=\"thinking\" />",
       "<ThinkingMessage content={['Step 1: ...', 'Step 2: ...']} status=\"thought\" enabledCopy />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "ToolFooter",
     "library": "aikit",
     "description": "Footer component for tool messages that displays a loading indicator, optional shimmer-wrapped status message, and action buttons (e.g. Accept/Reject). Used inside ToolMessage for waiting states.",
-    "keywords": ["tool footer", "action buttons", "accept reject", "waiting", "confirmation", "tool actions", "loading footer"],
+    "keywords": [
+      "tool footer",
+      "action buttons",
+      "accept reject",
+      "waiting",
+      "confirmation",
+      "tool actions",
+      "loading footer"
+    ],
     "when_to_use": [
       "As the footer inside ToolMessage for waitingConfirmation or waitingSubmission states",
       "When building custom tool card components that need action buttons"
@@ -1081,24 +3054,61 @@
       "Prefer ToolMessage which manages ToolFooter automatically"
     ],
     "import_statement": "import { ToolFooter } from '@gravity-ui/aikit';",
-    "related": ["ToolMessage", "ToolHeader", "ToolStatus"],
+    "related": [
+      "ToolMessage",
+      "ToolHeader",
+      "ToolStatus"
+    ],
     "props": [
-      { "name": "actions", "type": "Action[]", "required": true, "description": "Array of action buttons to display" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "content", "type": "React.ReactNode", "required": false, "description": "Status message to display with loader" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "showLoader", "type": "boolean", "required": false, "description": "Whether to show loading indicator (default: true)" }
+      {
+        "name": "actions",
+        "type": "Action[]",
+        "required": true,
+        "description": "Array of action buttons to display"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "content",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Status message to display with loader"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "showLoader",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether to show loading indicator (default: true)"
+      }
     ],
     "examples": [
       "<ToolFooter content=\"Awaiting confirmation\" actions={[{ label: 'Accept', onClick: accept, view: 'action' }, { label: 'Reject', onClick: reject, view: 'outlined' }]} />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "ToolHeader",
     "library": "aikit",
     "description": "Header component for tool message cards displaying the tool icon, tool name, optional additional content, action buttons, and a status indicator.",
-    "keywords": ["tool header", "tool name", "tool icon", "status", "action buttons", "tool card header"],
+    "keywords": [
+      "tool header",
+      "tool name",
+      "tool icon",
+      "status",
+      "action buttons",
+      "tool card header"
+    ],
     "when_to_use": [
       "As the header inside ToolMessage or a custom tool card component",
       "When building tool execution result cards with icon, name, and actions"
@@ -1107,27 +3117,77 @@
       "Prefer ToolMessage which manages ToolHeader automatically"
     ],
     "import_statement": "import { ToolHeader } from '@gravity-ui/aikit';",
-    "related": ["ToolMessage", "ToolFooter", "ToolStatus", "ToolIndicator"],
+    "related": [
+      "ToolMessage",
+      "ToolFooter",
+      "ToolStatus",
+      "ToolIndicator"
+    ],
     "props": [
-      { "name": "toolName", "type": "string", "required": true, "description": "Name of the tool" },
-      { "name": "actions", "type": "Action[]", "required": false, "description": "Array of action buttons to display on the right" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "content", "type": "React.ReactNode", "required": false, "description": "Additional information displayed after tool name" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "status", "type": "'success' | 'error' | 'loading' | 'cancelled'", "required": false, "description": "Status indicator" },
-      { "name": "toolIcon", "type": "React.ReactNode", "required": false, "description": "Icon displayed next to tool name" }
+      {
+        "name": "toolName",
+        "type": "string",
+        "required": true,
+        "description": "Name of the tool"
+      },
+      {
+        "name": "actions",
+        "type": "Action[]",
+        "required": false,
+        "description": "Array of action buttons to display on the right"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "content",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Additional information displayed after tool name"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "status",
+        "type": "'success' | 'error' | 'loading' | 'cancelled'",
+        "required": false,
+        "description": "Status indicator"
+      },
+      {
+        "name": "toolIcon",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Icon displayed next to tool name"
+      }
     ],
     "examples": [
       "<ToolHeader toolName=\"Search\" toolIcon={<Icon data={Search} size={16} />} status=\"success\" />",
       "<ToolHeader toolName=\"Writing\" actions={[{ label: 'Copy', onClick: copy, icon: <Icon data={Copy} size={16} /> }]} status=\"loading\" />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "ToolIndicator",
     "library": "aikit",
     "description": "Status indicator showing different icons based on tool execution status: CircleCheck (success), CircleXmark (error), CircleInfo (info), or a Loader spinner (loading).",
-    "keywords": ["tool indicator", "status icon", "success", "error", "loading", "info", "status indicator", "tool status"],
+    "keywords": [
+      "tool indicator",
+      "status icon",
+      "success",
+      "error",
+      "loading",
+      "info",
+      "status indicator",
+      "tool status"
+    ],
     "when_to_use": [
       "Showing tool execution status in ToolHeader or ToolStatus",
       "Any context where a small status icon is needed for tool execution"
@@ -1137,24 +3197,54 @@
       "For alert messages — use Alert"
     ],
     "import_statement": "import { ToolIndicator } from '@gravity-ui/aikit';",
-    "related": ["ToolStatus", "ToolHeader", "Loader"],
+    "related": [
+      "ToolStatus",
+      "ToolHeader",
+      "Loader"
+    ],
     "props": [
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "status", "type": "'success' | 'error' | 'info' | 'loading'", "required": false, "description": "Current tool execution status (default: 'info')" }
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "status",
+        "type": "'success' | 'error' | 'info' | 'loading'",
+        "required": false,
+        "description": "Current tool execution status (default: 'info')"
+      }
     ],
     "examples": [
       "<ToolIndicator status=\"success\" />",
       "<ToolIndicator status=\"loading\" />",
       "<ToolIndicator status=\"error\" />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "ToolMessage",
     "library": "aikit",
     "description": "Complete tool message card component with automatic expand/collapse, status-based footer behavior (waitingConfirmation, waitingSubmission), header/body/footer sections, and auto-collapse on success/cancel.",
-    "keywords": ["tool message", "tool call", "function call", "ai tool", "expandable card", "confirm", "reject", "accept", "waiting confirmation"],
+    "keywords": [
+      "tool message",
+      "tool call",
+      "function call",
+      "ai tool",
+      "expandable card",
+      "confirm",
+      "reject",
+      "accept",
+      "waiting confirmation"
+    ],
     "when_to_use": [
       "Rendering AI tool call results or tool execution cards in a chat",
       "Displaying interactive tool states requiring user confirmation or input"
@@ -1164,37 +3254,132 @@
       "For thinking/reasoning blocks — use ThinkingMessage"
     ],
     "import_statement": "import { ToolMessage } from '@gravity-ui/aikit';",
-    "related": ["AssistantMessage", "ToolHeader", "ToolFooter", "ToolStatus", "ThinkingMessage"],
+    "related": [
+      "AssistantMessage",
+      "ToolHeader",
+      "ToolFooter",
+      "ToolStatus",
+      "ThinkingMessage"
+    ],
     "props": [
-      { "name": "toolName", "type": "string", "required": true, "description": "Name of the tool" },
-      { "name": "autoCollapseOnCancelled", "type": "boolean", "required": false, "description": "Auto-collapse when status becomes 'cancelled' (default: false)" },
-      { "name": "autoCollapseOnSuccess", "type": "boolean", "required": false, "description": "Auto-collapse when status becomes 'success' (default: false)" },
-      { "name": "bodyContent", "type": "React.ReactNode", "required": false, "description": "Expandable body content" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "expandable", "type": "boolean", "required": false, "description": "Whether the component can expand/collapse (default: Boolean(bodyContent))" },
-      { "name": "footerActions", "type": "Action[]", "required": false, "description": "Footer action buttons (auto-generated based on status if omitted)" },
-      { "name": "footerContent", "type": "React.ReactNode", "required": false, "description": "Status message in footer (auto-generated based on status if omitted)" },
-      { "name": "headerActions", "type": "Action[]", "required": false, "description": "Header action buttons (default: [])" },
-      { "name": "headerContent", "type": "React.ReactNode", "required": false, "description": "Additional content in header after tool name" },
-      { "name": "initialExpanded", "type": "boolean", "required": false, "description": "Initial expanded state (default: true for waiting statuses)" },
-      { "name": "onAccept", "type": "() => void", "required": false, "description": "Handler for accept action in waitingConfirmation status" },
-      { "name": "onReject", "type": "() => void", "required": false, "description": "Handler for reject action in waitingConfirmation status" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "status", "type": "'success' | 'error' | 'loading' | 'cancelled' | 'waitingConfirmation' | 'waitingSubmission'", "required": false, "description": "Tool execution status" },
-      { "name": "toolIcon", "type": "React.ReactNode", "required": false, "description": "Icon next to tool name" }
+      {
+        "name": "toolName",
+        "type": "string",
+        "required": true,
+        "description": "Name of the tool"
+      },
+      {
+        "name": "autoCollapseOnCancelled",
+        "type": "boolean",
+        "required": false,
+        "description": "Auto-collapse when status becomes 'cancelled' (default: false)"
+      },
+      {
+        "name": "autoCollapseOnSuccess",
+        "type": "boolean",
+        "required": false,
+        "description": "Auto-collapse when status becomes 'success' (default: false)"
+      },
+      {
+        "name": "bodyContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Expandable body content"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "expandable",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether the component can expand/collapse (default: Boolean(bodyContent))"
+      },
+      {
+        "name": "footerActions",
+        "type": "Action[]",
+        "required": false,
+        "description": "Footer action buttons (auto-generated based on status if omitted)"
+      },
+      {
+        "name": "footerContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Status message in footer (auto-generated based on status if omitted)"
+      },
+      {
+        "name": "headerActions",
+        "type": "Action[]",
+        "required": false,
+        "description": "Header action buttons (default: [])"
+      },
+      {
+        "name": "headerContent",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Additional content in header after tool name"
+      },
+      {
+        "name": "initialExpanded",
+        "type": "boolean",
+        "required": false,
+        "description": "Initial expanded state (default: true for waiting statuses)"
+      },
+      {
+        "name": "onAccept",
+        "type": "() => void",
+        "required": false,
+        "description": "Handler for accept action in waitingConfirmation status"
+      },
+      {
+        "name": "onReject",
+        "type": "() => void",
+        "required": false,
+        "description": "Handler for reject action in waitingConfirmation status"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "status",
+        "type": "'success' | 'error' | 'loading' | 'cancelled' | 'waitingConfirmation' | 'waitingSubmission'",
+        "required": false,
+        "description": "Tool execution status"
+      },
+      {
+        "name": "toolIcon",
+        "type": "React.ReactNode",
+        "required": false,
+        "description": "Icon next to tool name"
+      }
     ],
     "examples": [
       "<ToolMessage toolName=\"Search\" status=\"success\" bodyContent={<div>Results...</div>} autoCollapseOnSuccess />",
       "<ToolMessage toolName=\"File Write\" status=\"waitingConfirmation\" bodyContent={<pre>file.tsx</pre>} onAccept={accept} onReject={reject} />",
       "<ToolMessage toolName=\"Form\" status=\"waitingSubmission\" bodyContent={<MyForm />} onAccept={submit} />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "component",
     "name": "ToolStatus",
     "library": "aikit",
     "description": "Compound status component that displays a ToolIndicator icon for success/error/loading states, and localized 'Cancelled' text for the cancelled state.",
-    "keywords": ["tool status", "status display", "cancelled", "success", "error", "loading", "i18n status"],
+    "keywords": [
+      "tool status",
+      "status display",
+      "cancelled",
+      "success",
+      "error",
+      "loading",
+      "i18n status"
+    ],
     "when_to_use": [
       "Displaying tool execution status inside ToolHeader or custom tool components",
       "When you need automatic handling of all status variants including cancelled"
@@ -1203,24 +3388,53 @@
       "Use ToolIndicator directly if you don't need the 'cancelled' text state"
     ],
     "import_statement": "import { ToolStatus } from '@gravity-ui/aikit';",
-    "related": ["ToolIndicator", "ToolHeader", "ToolMessage"],
+    "related": [
+      "ToolIndicator",
+      "ToolHeader",
+      "ToolMessage"
+    ],
     "props": [
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "status", "type": "'success' | 'error' | 'loading' | 'cancelled'", "required": false, "description": "Tool status to display" }
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "status",
+        "type": "'success' | 'error' | 'loading' | 'cancelled'",
+        "required": false,
+        "description": "Tool status to display"
+      }
     ],
     "examples": [
       "<ToolStatus status=\"success\" />",
       "<ToolStatus status=\"cancelled\" />",
       "<ToolStatus status=\"loading\" />"
-    ]
+    ],
+    "category": "ai"
   },
   {
     "type": "hook",
     "name": "useAutoCollapseOnCancelled",
     "library": "aikit",
     "description": "Automatically collapses a tool message panel when its status transitions to 'cancelled'. Accepts an enabled flag, the current tool status, and a setter for the expanded state.",
-    "keywords": ["hook", "tool message", "collapse", "cancelled", "status", "auto collapse", "panel", "expand"],
+    "keywords": [
+      "hook",
+      "tool message",
+      "collapse",
+      "cancelled",
+      "status",
+      "auto collapse",
+      "panel",
+      "expand"
+    ],
     "when_to_use": [
       "Inside a ToolMessage or custom tool panel that should auto-collapse when the operation is cancelled",
       "When building custom tool UI that mirrors ToolMessage collapse behavior"
@@ -1230,12 +3444,28 @@
       "Avoid if you need collapse on multiple status types — write a custom effect instead"
     ],
     "import_statement": "import { useAutoCollapseOnCancelled } from '@gravity-ui/aikit';",
-    "related": ["useAutoCollapseOnSuccess", "useToolMessage", "ToolMessage"],
+    "related": [
+      "useAutoCollapseOnSuccess",
+      "useToolMessage",
+      "ToolMessage"
+    ],
     "signature": "useAutoCollapseOnCancelled(options: { enabled: boolean; status: TToolStatus | undefined; setIsExpanded: (expanded: boolean) => void }): void",
     "parameters": [
-      { "name": "options.enabled", "type": "boolean", "description": "When false the hook is a no-op" },
-      { "name": "options.status", "type": "TToolStatus | undefined", "description": "Current tool status; collapse triggers when value is 'cancelled'" },
-      { "name": "options.setIsExpanded", "type": "(expanded: boolean) => void", "description": "State setter that the hook calls with false on cancel" }
+      {
+        "name": "options.enabled",
+        "type": "boolean",
+        "description": "When false the hook is a no-op"
+      },
+      {
+        "name": "options.status",
+        "type": "TToolStatus | undefined",
+        "description": "Current tool status; collapse triggers when value is 'cancelled'"
+      },
+      {
+        "name": "options.setIsExpanded",
+        "type": "(expanded: boolean) => void",
+        "description": "State setter that the hook calls with false on cancel"
+      }
     ],
     "return_type": "void"
   },
@@ -1244,7 +3474,16 @@
     "name": "useAutoCollapseOnSuccess",
     "library": "aikit",
     "description": "Automatically collapses a tool message panel when its status transitions to 'success'. Mirrors useAutoCollapseOnCancelled but reacts to the success status value.",
-    "keywords": ["hook", "tool message", "collapse", "success", "status", "auto collapse", "panel", "expand"],
+    "keywords": [
+      "hook",
+      "tool message",
+      "collapse",
+      "success",
+      "status",
+      "auto collapse",
+      "panel",
+      "expand"
+    ],
     "when_to_use": [
       "Inside a ToolMessage or custom tool panel that should auto-collapse once the operation succeeds",
       "When building custom tool UI that mirrors ToolMessage success-collapse behavior"
@@ -1254,12 +3493,28 @@
       "Avoid if you need collapse on multiple status types — write a custom effect instead"
     ],
     "import_statement": "import { useAutoCollapseOnSuccess } from '@gravity-ui/aikit';",
-    "related": ["useAutoCollapseOnCancelled", "useToolMessage", "ToolMessage"],
+    "related": [
+      "useAutoCollapseOnCancelled",
+      "useToolMessage",
+      "ToolMessage"
+    ],
     "signature": "useAutoCollapseOnSuccess(options: { enabled: boolean; status: TToolStatus | undefined; setIsExpanded: (expanded: boolean) => void }): void",
     "parameters": [
-      { "name": "options.enabled", "type": "boolean", "description": "When false the hook is a no-op" },
-      { "name": "options.status", "type": "TToolStatus | undefined", "description": "Current tool status; collapse triggers when value is 'success'" },
-      { "name": "options.setIsExpanded", "type": "(expanded: boolean) => void", "description": "State setter that the hook calls with false on success" }
+      {
+        "name": "options.enabled",
+        "type": "boolean",
+        "description": "When false the hook is a no-op"
+      },
+      {
+        "name": "options.status",
+        "type": "TToolStatus | undefined",
+        "description": "Current tool status; collapse triggers when value is 'success'"
+      },
+      {
+        "name": "options.setIsExpanded",
+        "type": "(expanded: boolean) => void",
+        "description": "State setter that the hook calls with false on success"
+      }
     ],
     "return_type": "void"
   },
@@ -1268,7 +3523,17 @@
     "name": "useDateFormatter",
     "library": "aikit",
     "description": "Formats a date value into separate date and time strings using dayjs, with support for custom format strings and relative-date thresholds. Returns validation info, a full-precision date string for tooltips, and the underlying dayjs object.",
-    "keywords": ["hook", "date", "time", "format", "dayjs", "relative date", "timestamp", "chat date", "i18n"],
+    "keywords": [
+      "hook",
+      "date",
+      "time",
+      "format",
+      "dayjs",
+      "relative date",
+      "timestamp",
+      "chat date",
+      "i18n"
+    ],
     "when_to_use": [
       "Formatting message timestamps for display in ChatDate or custom date components",
       "When you need both a short display date and a full date string for a title attribute",
@@ -1279,11 +3544,21 @@
       "Avoid when you only need a plain string format — dayjs().format() is simpler"
     ],
     "import_statement": "import { useDateFormatter } from '@gravity-ui/aikit';",
-    "related": ["ChatDate"],
+    "related": [
+      "ChatDate"
+    ],
     "signature": "useDateFormatter(options: UseDateFormatterOptions): UseDateFormatterResult",
     "parameters": [
-      { "name": "options.date", "type": "string | Date | number", "description": "The date to format" },
-      { "name": "options.format", "type": "string | undefined", "description": "Optional dayjs format string; defaults to 'YYYY.MM.DD' for date and 'HH:mm' for time" }
+      {
+        "name": "options.date",
+        "type": "string | Date | number",
+        "description": "The date to format"
+      },
+      {
+        "name": "options.format",
+        "type": "string | undefined",
+        "description": "Optional dayjs format string; defaults to 'YYYY.MM.DD' for date and 'HH:mm' for time"
+      }
     ],
     "return_type": "UseDateFormatterResult",
     "return_shape": {
@@ -1300,7 +3575,16 @@
     "name": "useScrollPreservation",
     "library": "aikit",
     "description": "Preserves scroll position when older messages are prepended to a scrollable container, preventing the visible content from jumping upward. Uses useLayoutEffect to adjust scrollTop synchronously after render.",
-    "keywords": ["hook", "scroll", "scroll preservation", "chat", "message list", "prepend", "infinite scroll", "layout"],
+    "keywords": [
+      "hook",
+      "scroll",
+      "scroll preservation",
+      "chat",
+      "message list",
+      "prepend",
+      "infinite scroll",
+      "layout"
+    ],
     "when_to_use": [
       "Inside MessageList or a custom chat container when supporting load-more / infinite scroll upward",
       "Any scrollable list where items are prepended at the top and scroll position must be maintained"
@@ -1310,11 +3594,22 @@
       "Avoid when the container is not the direct scroll parent"
     ],
     "import_statement": "import { useScrollPreservation } from '@gravity-ui/aikit';",
-    "related": ["useSmartScroll", "MessageList"],
+    "related": [
+      "useSmartScroll",
+      "MessageList"
+    ],
     "signature": "useScrollPreservation<T extends HTMLElement>(containerRef: RefObject<T>, messagesCount: number): void",
     "parameters": [
-      { "name": "containerRef", "type": "RefObject<T>", "description": "Ref attached to the scrollable container element" },
-      { "name": "messagesCount", "type": "number", "description": "Current total count of messages; the hook responds to increases to detect prepend events" }
+      {
+        "name": "containerRef",
+        "type": "RefObject<T>",
+        "description": "Ref attached to the scrollable container element"
+      },
+      {
+        "name": "messagesCount",
+        "type": "number",
+        "description": "Current total count of messages; the hook responds to increases to detect prepend events"
+      }
     ],
     "return_type": "void"
   },
@@ -1323,7 +3618,16 @@
     "name": "useSmartScroll",
     "library": "aikit",
     "description": "Manages auto-scroll-to-bottom behavior for a chat container, respecting user scroll intent. Automatically scrolls to bottom on mount, new messages, status changes, and DOM mutations during streaming; stops auto-scrolling when the user has scrolled up.",
-    "keywords": ["hook", "scroll", "auto scroll", "smart scroll", "chat", "streaming", "message list", "mutation observer"],
+    "keywords": [
+      "hook",
+      "scroll",
+      "auto scroll",
+      "smart scroll",
+      "chat",
+      "streaming",
+      "message list",
+      "mutation observer"
+    ],
     "when_to_use": [
       "Attaching to the scrollable container inside MessageList or ChatContent",
       "Any chat interface where messages stream in and the view should follow new content unless the user scrolled up",
@@ -1334,12 +3638,28 @@
       "Avoid combining with useScrollPreservation on the same ref without coordination"
     ],
     "import_statement": "import { useSmartScroll } from '@gravity-ui/aikit';",
-    "related": ["useScrollPreservation", "MessageList", "ChatContent"],
+    "related": [
+      "useScrollPreservation",
+      "MessageList",
+      "ChatContent"
+    ],
     "signature": "useSmartScroll<T extends HTMLElement>(options: { isStreaming?: boolean; messagesCount: number; status?: ChatStatus }): UseSmartScrollReturn<T>",
     "parameters": [
-      { "name": "options.isStreaming", "type": "boolean | undefined", "description": "When true a MutationObserver watches the container for DOM changes and scrolls to bottom" },
-      { "name": "options.messagesCount", "type": "number", "description": "Current message count; scroll to bottom fires when this increases" },
-      { "name": "options.status", "type": "ChatStatus | undefined", "description": "Chat status; scroll to bottom fires on status change" }
+      {
+        "name": "options.isStreaming",
+        "type": "boolean | undefined",
+        "description": "When true a MutationObserver watches the container for DOM changes and scrolls to bottom"
+      },
+      {
+        "name": "options.messagesCount",
+        "type": "number",
+        "description": "Current message count; scroll to bottom fires when this increases"
+      },
+      {
+        "name": "options.status",
+        "type": "ChatStatus | undefined",
+        "description": "Chat status; scroll to bottom fires on status change"
+      }
     ],
     "return_type": "UseSmartScrollReturn<T>",
     "return_shape": {
@@ -1352,7 +3672,18 @@
     "name": "useToolMessage",
     "library": "aikit",
     "description": "Encapsulates all stateful logic for ToolMessage: expand/collapse state, auto-collapse on success or cancellation, and assembly of header/footer actions including default accept/reject buttons for confirmation flows.",
-    "keywords": ["hook", "tool message", "expand", "collapse", "tool status", "confirmation", "accept", "reject", "header actions", "footer actions"],
+    "keywords": [
+      "hook",
+      "tool message",
+      "expand",
+      "collapse",
+      "tool status",
+      "confirmation",
+      "accept",
+      "reject",
+      "header actions",
+      "footer actions"
+    ],
     "when_to_use": [
       "Building a custom tool message UI with the same expand/collapse and action logic as ToolMessage",
       "When you need fine-grained control over tool message state outside of the ToolMessage component"
@@ -1362,10 +3693,20 @@
       "Avoid importing useAutoCollapseOnSuccess/useAutoCollapseOnCancelled separately when this hook provides them"
     ],
     "import_statement": "import { useToolMessage } from '@gravity-ui/aikit';",
-    "related": ["ToolMessage", "useAutoCollapseOnSuccess", "useAutoCollapseOnCancelled", "ToolHeader", "ToolFooter"],
+    "related": [
+      "ToolMessage",
+      "useAutoCollapseOnSuccess",
+      "useAutoCollapseOnCancelled",
+      "ToolHeader",
+      "ToolFooter"
+    ],
     "signature": "useToolMessage(options: ToolMessageProps): { isExpanded: boolean; toggleExpanded: () => void; headerActions: Action[]; footerActions: Action[]; footerContent: React.ReactNode | undefined; showLoader: boolean; isWaiting: boolean }",
     "parameters": [
-      { "name": "options", "type": "ToolMessageProps", "description": "Full ToolMessage props object; the hook derives all display state from these props" }
+      {
+        "name": "options",
+        "type": "ToolMessageProps",
+        "description": "Full ToolMessage props object; the hook derives all display state from these props"
+      }
     ],
     "return_type": "{ isExpanded: boolean; toggleExpanded: () => void; headerActions: Action[]; footerActions: Action[]; footerContent: React.ReactNode | undefined; showLoader: boolean; isWaiting: boolean }",
     "return_shape": {
@@ -1383,7 +3724,16 @@
     "name": "UserMessage",
     "library": "aikit",
     "description": "Renders a user message with a styled MessageBalloon wrapper, optional avatar, optional markdown rendering, action buttons, and timestamp support.",
-    "keywords": ["user message", "chat bubble", "avatar", "markdown", "user input", "message balloon", "timestamp", "actions"],
+    "keywords": [
+      "user message",
+      "chat bubble",
+      "avatar",
+      "markdown",
+      "user input",
+      "message balloon",
+      "timestamp",
+      "actions"
+    ],
     "when_to_use": [
       "Displaying user messages in a chat conversation",
       "When you need avatar, markdown support, and action buttons for user-sent messages"
@@ -1393,25 +3743,91 @@
       "Prefer MessageList which renders UserMessage automatically"
     ],
     "import_statement": "import { UserMessage } from '@gravity-ui/aikit';",
-    "related": ["AssistantMessage", "BaseMessage", "MessageBalloon", "MessageList"],
+    "related": [
+      "AssistantMessage",
+      "BaseMessage",
+      "MessageBalloon",
+      "MessageList"
+    ],
     "props": [
-      { "name": "content", "type": "React.ReactNode", "required": true, "description": "Message content (string for plain/markdown, any ReactNode for plain)" },
-      { "name": "actions", "type": "Array<Action>", "required": false, "description": "Array of action buttons" },
-      { "name": "avatarUrl", "type": "string", "required": false, "description": "URL for the user avatar image" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" },
-      { "name": "format", "type": "'plain' | 'markdown'", "required": false, "description": "Content rendering format (default: 'plain')" },
-      { "name": "qa", "type": "string", "required": false, "description": "QA/test identifier" },
-      { "name": "shouldParseIncompleteMarkdown", "type": "boolean", "required": false, "description": "Enable incomplete markdown parsing" },
-      { "name": "showActionsOnHover", "type": "boolean", "required": false, "description": "Show actions only on hover (default: false)" },
-      { "name": "showAvatar", "type": "boolean", "required": false, "description": "Show user avatar (default: false)" },
-      { "name": "showTimestamp", "type": "boolean", "required": false, "description": "Show message timestamp" },
-      { "name": "timestamp", "type": "string", "required": false, "description": "Message timestamp string" },
-      { "name": "transformOptions", "type": "OptionsType", "required": false, "description": "Options for markdown rendering" }
+      {
+        "name": "content",
+        "type": "React.ReactNode",
+        "required": true,
+        "description": "Message content (string for plain/markdown, any ReactNode for plain)"
+      },
+      {
+        "name": "actions",
+        "type": "Array<Action>",
+        "required": false,
+        "description": "Array of action buttons"
+      },
+      {
+        "name": "avatarUrl",
+        "type": "string",
+        "required": false,
+        "description": "URL for the user avatar image"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      },
+      {
+        "name": "format",
+        "type": "'plain' | 'markdown'",
+        "required": false,
+        "description": "Content rendering format (default: 'plain')"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "QA/test identifier"
+      },
+      {
+        "name": "shouldParseIncompleteMarkdown",
+        "type": "boolean",
+        "required": false,
+        "description": "Enable incomplete markdown parsing"
+      },
+      {
+        "name": "showActionsOnHover",
+        "type": "boolean",
+        "required": false,
+        "description": "Show actions only on hover (default: false)"
+      },
+      {
+        "name": "showAvatar",
+        "type": "boolean",
+        "required": false,
+        "description": "Show user avatar (default: false)"
+      },
+      {
+        "name": "showTimestamp",
+        "type": "boolean",
+        "required": false,
+        "description": "Show message timestamp"
+      },
+      {
+        "name": "timestamp",
+        "type": "string",
+        "required": false,
+        "description": "Message timestamp string"
+      },
+      {
+        "name": "transformOptions",
+        "type": "OptionsType",
+        "required": false,
+        "description": "Options for markdown rendering"
+      }
     ],
     "examples": [
       "<UserMessage content=\"Hello, how are you?\" />",
       "<UserMessage content=\"**Bold question**\" format=\"markdown\" showAvatar avatarUrl=\"/avatar.png\" />",
       "<UserMessage content=\"My message\" actions={[{ type: 'edit', onClick: handleEdit }]} showActionsOnHover showTimestamp timestamp={message.timestamp} />"
-    ]
+    ],
+    "category": "ai"
   }
 ]

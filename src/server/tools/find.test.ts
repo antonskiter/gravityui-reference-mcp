@@ -1,17 +1,23 @@
 import { describe, it, expect } from 'vitest';
 import { handleFind, formatFind } from './find.js';
 import { buildSearchIndex } from '../index-builder.js';
-import type { Entity, RecipeDef } from '../../schemas.js';
+import type { Entity } from '../../schemas.js';
 import type { LoadedData } from '../loader.js';
 
-function makeData(entities: Entity[], recipes: RecipeDef[] = []): LoadedData {
-  const index = buildSearchIndex(entities, recipes);
+function makeData(entities: Entity[]): LoadedData {
+  const entityByName = new Map<string, Entity[]>();
+  for (const e of entities) {
+    const key = e.name.toLowerCase();
+    const list = entityByName.get(key) ?? [];
+    list.push(e);
+    entityByName.set(key, list);
+  }
   return {
-    entities, index, recipes,
-    entityByName: new Map(), entitiesByLibrary: new Map(),
+    entities,
+    entityByName,
+    entitiesByLibrary: new Map(),
     entitiesByType: new Map(),
-    overview: { system: { description: '' }, libraries: [], categories: {}, component_categories: {} },
-    recipeById: new Map(recipes.map(r => [r.id, r])),
+    index: buildSearchIndex(entities),
   };
 }
 
@@ -28,6 +34,17 @@ const entities: Entity[] = [
     description: 'Pick a date.', keywords: ['date', 'calendar'],
     when_to_use: ['Select dates'], avoid: [],
     import_statement: '', related: [], props: [], examples: [],
+  },
+  {
+    type: 'recipe', name: 'date-form', library: '',
+    description: 'Form with a date picker.', keywords: ['form', 'date'],
+    when_to_use: ['Build date input forms'], avoid: [],
+    import_statement: '', related: [],
+    title: 'Date Form',
+    level: 'molecule',
+    packages: [],
+    components: [],
+    sections: [],
   },
 ];
 
@@ -47,18 +64,33 @@ describe('handleFind', () => {
 
   it('filters by type', () => {
     const data = makeData(entities);
-    const result = handleFind(data, { query: 'button', type: 'hook' });
-    expect(result.results.every(r => r.type === 'hook' || r.type === 'recipe')).toBe(true);
+    const result = handleFind(data, { query: 'button', type: 'component' });
+    expect(result.results.every(r => r.type === 'component')).toBe(true);
+  });
+
+  it('filters by library', () => {
+    const data = makeData(entities);
+    const result = handleFind(data, { query: 'date', library: 'date-components' });
+    expect(result.results.every(r => r.library === 'date-components')).toBe(true);
+  });
+
+  it('finds recipes through normal search', () => {
+    const data = makeData(entities);
+    const result = handleFind(data, { query: 'date form' });
+    const recipeResult = result.results.find(r => r.type === 'recipe');
+    expect(recipeResult).toBeDefined();
   });
 });
 
 describe('formatFind', () => {
-  it('formats results as plain text', () => {
+  it('formats results as Name [type] (library) — description', () => {
     const data = makeData(entities);
     const result = handleFind(data, { query: 'button' });
     const text = formatFind(result);
     expect(text).toContain('Button');
-    expect(text).toContain('uikit');
+    expect(text).toContain('[component]');
+    expect(text).toContain('(uikit)');
+    expect(text).toContain('—');
   });
 
   it('formats empty results', () => {

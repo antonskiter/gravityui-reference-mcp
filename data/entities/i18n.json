@@ -1,5 +1,27 @@
 [
   {
+    "type": "library",
+    "name": "i18n",
+    "library": "i18n",
+    "description": "Lightweight keyset-based internationalization class with pluralization, template variable substitution, and TypeScript type-safe key access.",
+    "keywords": [
+      "gravity-ui",
+      "i18n"
+    ],
+    "when_to_use": [
+      "Lightweight keyset-based internationalization class with pluralization, template variable substitution, and TypeScript type-safe key access"
+    ],
+    "avoid": [
+      "Not for ICU MessageFormat or React rich-text formatting — use @gravity-ui/i18n-react. Not for SSR with complex locale configs — use @gravity-ui/i18n-node."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/i18n",
+    "not_for": "Not for ICU MessageFormat or React rich-text formatting — use @gravity-ui/i18n-react. Not for SSR with complex locale configs — use @gravity-ui/i18n-node.",
+    "depends_on": [],
+    "component_count": 0
+  },
+  {
     "type": "utility",
     "name": "I18N",
     "library": "i18n",
@@ -27,7 +49,9 @@
       "Server-side rendering with complex locale configuration — use @gravity-ui/i18n-node instead"
     ],
     "import_statement": "import { I18N } from '@gravity-ui/i18n';",
-    "related": ["I18NFn"],
+    "related": [
+      "I18NFn"
+    ],
     "signature": "new I18N(options?: { lang?: string; fallbackLang?: string; data?: Record<string, KeysetData>; logger?: Logger }): I18N",
     "parameters": [
       {
@@ -85,7 +109,9 @@
       "Runtime usage — this is a type-only utility, not a function"
     ],
     "import_statement": "import type { I18NFn } from '@gravity-ui/i18n';",
-    "related": ["I18N"],
+    "related": [
+      "I18N"
+    ],
     "signature": "type I18NFn<T extends Record<string, Record<string, unknown>>> = (keyset: keyof T, key: keyof T[keyof T], params?: Params) => string",
     "parameters": [],
     "return_type": "string",
@@ -96,21 +122,57 @@
     "name": "i18n-react",
     "library": "i18n",
     "description": "React bindings for Gravity UI i18n. Provides createIntl() for ICU MessageFormat, React components for rich text formatting, and hooks for accessing translations in React components. Part of the @gravity-ui/i18n monorepo.",
-    "keywords": ["i18n", "react", "intl", "ICU", "MessageFormat", "rich text", "translation", "hooks"],
-    "when_to_use": ["Using i18n in React components with hooks", "Rich text formatting with ICU MessageFormat", "React-specific translation patterns"],
-    "avoid": ["Server-side code — use @gravity-ui/i18n-node instead", "Simple keyset lookups without React — use @gravity-ui/i18n directly"],
+    "keywords": [
+      "i18n",
+      "react",
+      "intl",
+      "ICU",
+      "MessageFormat",
+      "rich text",
+      "translation",
+      "hooks"
+    ],
+    "when_to_use": [
+      "Using i18n in React components with hooks",
+      "Rich text formatting with ICU MessageFormat",
+      "React-specific translation patterns"
+    ],
+    "avoid": [
+      "Server-side code — use @gravity-ui/i18n-node instead",
+      "Simple keyset lookups without React — use @gravity-ui/i18n directly"
+    ],
     "import_statement": "import { createIntl } from '@gravity-ui/i18n-react';",
-    "related": ["I18N", "i18n-node"]
+    "related": [
+      "I18N",
+      "i18n-node"
+    ]
   },
   {
     "type": "guide",
     "name": "i18n-node",
     "library": "i18n",
     "description": "Server-side Node.js bindings for Gravity UI i18n. Provides createIntl() optimized for server rendering, locale detection from request headers, and integration with NodeKit/ExpressKit. Part of the @gravity-ui/i18n monorepo.",
-    "keywords": ["i18n", "node", "server", "SSR", "locale", "intl", "server-side rendering"],
-    "when_to_use": ["Server-side rendering with locale detection", "NodeKit/ExpressKit request-scoped translations", "API response localization"],
-    "avoid": ["Client-side React code — use @gravity-ui/i18n-react instead"],
+    "keywords": [
+      "i18n",
+      "node",
+      "server",
+      "SSR",
+      "locale",
+      "intl",
+      "server-side rendering"
+    ],
+    "when_to_use": [
+      "Server-side rendering with locale detection",
+      "NodeKit/ExpressKit request-scoped translations",
+      "API response localization"
+    ],
+    "avoid": [
+      "Client-side React code — use @gravity-ui/i18n-react instead"
+    ],
     "import_statement": "import { createIntl } from '@gravity-ui/i18n-node';",
-    "related": ["I18N", "i18n-react"]
+    "related": [
+      "I18N",
+      "i18n-react"
+    ]
   }
 ]

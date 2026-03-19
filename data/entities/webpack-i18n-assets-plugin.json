@@ -1,5 +1,31 @@
 [
   {
+    "type": "library",
+    "name": "webpack-i18n-assets-plugin",
+    "library": "webpack-i18n-assets-plugin",
+    "description": "Webpack 5 plugin that inlines i18n translation strings into production bundles and generates per-locale asset files in a single build pass.",
+    "keywords": [
+      "gravity-ui",
+      "webpack-i18n-assets-plugin",
+      "webpack",
+      "i18n",
+      "assets",
+      "plugin"
+    ],
+    "when_to_use": [
+      "Webpack 5 plugin that inlines i18n translation strings into production bundles and generates per-locale asset files in a single build pass"
+    ],
+    "avoid": [
+      "Not for development-mode translation. Not for Webpack 4 projects. Only supports string literal i18n keys, not template strings."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/webpack-i18n-assets-plugin",
+    "not_for": "Not for development-mode translation. Not for Webpack 4 projects. Only supports string literal i18n keys, not template strings.",
+    "depends_on": [],
+    "component_count": 0
+  },
+  {
     "type": "config-doc",
     "name": "webpack-i18n-assets-plugin",
     "library": "webpack-i18n-assets-plugin",

@@ -24,21 +24,16 @@ describe("loadData", () => {
     expect(data.index).toBeDefined();
   });
 
-  it("has overview", () => {
-    const data = loadData();
-    expect(data.overview).toBeDefined();
-    expect(data.overview.system).toBeDefined();
-  });
-
-  it("loads recipes", () => {
-    const data = loadData();
-    expect(Array.isArray(data.recipes)).toBe(true);
-  });
-
   it("loads entities from entity files", () => {
     const data = loadData();
-    // We have 33 extracted libraries so far
     expect(data.entities.length).toBeGreaterThan(0);
     expect(data.entitiesByLibrary.size).toBeGreaterThan(0);
+  });
+
+  it("entityByName uses lowercase keys", () => {
+    const data = loadData();
+    for (const key of data.entityByName.keys()) {
+      expect(key).toBe(key.toLowerCase());
+    }
   });
 });

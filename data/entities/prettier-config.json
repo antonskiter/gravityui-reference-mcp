@@ -1,5 +1,29 @@
 [
   {
+    "type": "library",
+    "name": "prettier-config",
+    "library": "prettier-config",
+    "description": "Shared Prettier formatting configuration enforcing the Gravity UI code style for consistent formatting across all packages.",
+    "keywords": [
+      "gravity-ui",
+      "prettier-config",
+      "prettier",
+      "config"
+    ],
+    "when_to_use": [
+      "Shared Prettier formatting configuration enforcing the Gravity UI code style for consistent formatting across all packages"
+    ],
+    "avoid": [
+      "Not for projects with different Prettier rules. Prettier must be installed separately as a peer dependency."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/prettier-config",
+    "not_for": "Not for projects with different Prettier rules. Prettier must be installed separately as a peer dependency.",
+    "depends_on": [],
+    "component_count": 0
+  },
+  {
     "type": "config-doc",
     "name": "prettier-config",
     "library": "prettier-config",
@@ -22,7 +46,9 @@
       "Prettier must be installed separately as a peer dependency"
     ],
     "import_statement": "",
-    "related": ["eslint-config"],
+    "related": [
+      "eslint-config"
+    ],
     "how_to_use": "Install with `npm install --save-dev prettier @gravity-ui/prettier-config`. Create `.prettierrc.js` at the project root with `module.exports = require('@gravity-ui/prettier-config');`."
   }
 ]

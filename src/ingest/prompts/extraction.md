@@ -10,7 +10,22 @@ You receive a library name and paths to its source files. Read them all.
 
 One JSON array of Entity objects. Output as a fenced code block.
 
+The **first item** in the array MUST be a `library` entity describing the library itself. All other entities follow alphabetically.
+
 ## Entity Types
+
+### library
+
+One per library — always the first entry in the output array.
+
+- `name`: human-readable library name (e.g. "UIKit")
+- `library`: short id without @-prefix (e.g. "uikit")
+- `package`: full npm package name (e.g. "@gravity-ui/uikit")
+- `description`: 2-4 sentences describing the library's purpose and main offering
+- `not_for`: one sentence describing what this library is NOT suited for (or omit if not applicable)
+- `depends_on`: array of npm package names this library requires as peer dependencies
+- `is_peer_dependency_of`: array of library short ids that depend on this library
+- `component_count`: count of component entities extracted for this library
 
 ### component
 For each React component:

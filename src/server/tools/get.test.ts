@@ -13,24 +13,50 @@ const button: Entity = {
   props: [
     { name: 'size', type: "'s' | 'm' | 'l'", required: false, default: "'m'", description: 'Size' },
     { name: 'view', type: "'normal' | 'action'", required: false, description: 'Visual style' },
+    { name: 'loading', type: 'boolean', required: false, description: 'Loading state' },
+    { name: 'disabled', type: 'boolean', required: false, description: 'Disabled state' },
+    { name: 'onClick', type: '() => void', required: false, description: 'Click handler' },
+    { name: 'extra', type: 'string', required: false, description: 'Extra prop' },
   ],
   examples: ['<Button size="m">Click</Button>'],
+};
+
+const buttonNav: Entity = {
+  type: 'component', name: 'Button', library: 'navigation',
+  description: 'Navigation button.', keywords: ['button'],
+  when_to_use: [], avoid: [],
+  import_statement: "import {Button} from '@gravity-ui/navigation';",
+  related: [],
+  props: [],
+  examples: [],
+};
+
+const hook: Entity = {
+  type: 'hook', name: 'useTheme', library: 'uikit',
+  description: 'Access theme.', keywords: ['theme'],
+  when_to_use: [], avoid: [],
+  import_statement: "import {useTheme} from '@gravity-ui/uikit';",
+  related: [],
+  signature: 'useTheme(): Theme',
+  return_type: 'Theme',
+  parameters: [],
+  examples: ['const theme = useTheme();'],
 };
 
 function makeData(entities: Entity[]): LoadedData {
   const entityByName = new Map<string, Entity[]>();
   for (const e of entities) {
-    const list = entityByName.get(e.name) ?? [];
+    const key = e.name.toLowerCase();
+    const list = entityByName.get(key) ?? [];
     list.push(e);
-    entityByName.set(e.name, list);
+    entityByName.set(key, list);
   }
   return {
-    entities, entityByName,
+    entities,
+    entityByName,
     entitiesByLibrary: new Map(),
     entitiesByType: new Map(),
-    index: buildSearchIndex(entities, []),
-    overview: { system: { description: 'Gravity UI' }, libraries: [], categories: {}, component_categories: {} },
-    recipes: [], recipeById: new Map(),
+    index: buildSearchIndex(entities),
   };
 }
 
@@ -38,30 +64,41 @@ describe('handleGet', () => {
   it('finds entity by exact name', () => {
     const data = makeData([button]);
     const result = handleGet(data, { name: 'Button' });
-    expect(result.type).toBe('entity');
+    expect(result.type).toBe('found');
   });
 
   it('finds entity case-insensitive', () => {
     const data = makeData([button]);
     const result = handleGet(data, { name: 'button' });
-    expect(result.type).toBe('entity');
+    expect(result.type).toBe('found');
   });
 
-  it('returns overview for "overview"', () => {
-    const data = makeData([button]);
-    const result = handleGet(data, { name: 'overview' });
-    expect(result.type).toBe('overview');
+  it('returns all matches when multiple libraries share a name', () => {
+    const data = makeData([button, buttonNav]);
+    const result = handleGet(data, { name: 'Button' });
+    expect(result.type).toBe('found');
+    if (result.type === 'found') {
+      expect(result.entities).toHaveLength(2);
+    }
   });
 
-  it('returns recipe by id', () => {
-    const data = makeData([]);
-    data.recipeById.set('date-form', {
-      id: 'date-form', title: 'Date Form', description: 'Form with dates.',
-      level: 'molecule', use_cases: [], packages: [], tags: [], sections: [],
-    });
-    data.recipes.push(data.recipeById.get('date-form')!);
-    const result = handleGet(data, { name: 'date-form' });
-    expect(result.type).toBe('recipe');
+  it('filters by library', () => {
+    const data = makeData([button, buttonNav]);
+    const result = handleGet(data, { name: 'Button', library: 'uikit' });
+    expect(result.type).toBe('found');
+    if (result.type === 'found') {
+      expect(result.entities).toHaveLength(1);
+      expect(result.entities[0].library).toBe('uikit');
+    }
+  });
+
+  it('filters by type', () => {
+    const data = makeData([button, hook]);
+    const result = handleGet(data, { name: 'useTheme', type: 'hook' });
+    expect(result.type).toBe('found');
+    if (result.type === 'found') {
+      expect(result.entities[0].type).toBe('hook');
+    }
   });
 
   it('returns not_found with suggestions for unknown', () => {
@@ -69,22 +106,47 @@ describe('handleGet', () => {
     const result = handleGet(data, { name: 'Buton' });
     expect(result.type).toBe('not_found');
   });
+
+  it('returns not_found when type filter eliminates all matches', () => {
+    const data = makeData([button]);
+    const result = handleGet(data, { name: 'Button', type: 'hook' });
+    expect(result.type).toBe('not_found');
+  });
 });
 
 describe('formatGet', () => {
-  it('formats component in compact mode', () => {
+  it('formats component in compact mode with top 5 props', () => {
     const data = makeData([button]);
     const result = handleGet(data, { name: 'Button' });
     const text = formatGet(result, 'compact');
     expect(text).toContain('Button');
     expect(text).toContain('import');
+    expect(text).toContain('size');
+    expect(text).toContain('... and 1 more');
   });
 
-  it('formats component in full mode', () => {
+  it('formats component in full mode with all props and when_to_use', () => {
     const data = makeData([button]);
     const result = handleGet(data, { name: 'Button' });
     const text = formatGet(result, 'full');
     expect(text).toContain('When to use');
     expect(text).toContain('Avoid');
+    expect(text).toContain('extra');
+  });
+
+  it('formats multiple matches separated by ---', () => {
+    const data = makeData([button, buttonNav]);
+    const result = handleGet(data, { name: 'Button' });
+    const text = formatGet(result, 'compact');
+    expect(text).toContain('---');
+    expect(text).toContain('uikit');
+    expect(text).toContain('navigation');
+  });
+
+  it('formats not_found with suggestions', () => {
+    const data = makeData([button]);
+    const result = handleGet(data, { name: 'Buton' });
+    const text = formatGet(result);
+    expect(text).toContain('not found');
   });
 });

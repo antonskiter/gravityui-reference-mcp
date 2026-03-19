@@ -1,5 +1,37 @@
 [
   {
+    "type": "library",
+    "name": "date-components",
+    "library": "date-components",
+    "description": "Date picker and calendar components: Calendar, DatePicker, DateField, RangeCalendar, RangeDatePicker, RelativeDatePicker, and related range/relative variants. uikit does not include date selection components.",
+    "keywords": [
+      "gravity-ui",
+      "date-components",
+      "date",
+      "components"
+    ],
+    "when_to_use": [
+      "Date picker and calendar components: Calendar, DatePicker, DateField, RangeCalendar, RangeDatePicker, RelativeDatePicker, and related range/relative variants"
+    ],
+    "avoid": [
+      "Not for date arithmetic or formatting without UI — use @gravity-ui/date-utils. Not for timezone utilities — use @gravity-ui/date-utils."
+    ],
+    "import_statement": "",
+    "related": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons",
+      "@gravity-ui/date-utils"
+    ],
+    "package": "@gravity-ui/date-components",
+    "not_for": "Not for date arithmetic or formatting without UI — use @gravity-ui/date-utils. Not for timezone utilities — use @gravity-ui/date-utils.",
+    "depends_on": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons",
+      "@gravity-ui/date-utils"
+    ],
+    "component_count": 10
+  },
+  {
     "type": "component",
     "name": "Calendar",
     "library": "date-components",
@@ -28,7 +60,11 @@
       "Do not use when you need a text input combined with a popup calendar — use DatePicker instead"
     ],
     "import_statement": "import {Calendar} from '@gravity-ui/date-components';",
-    "related": ["RangeCalendar", "DatePicker", "CalendarView"],
+    "related": [
+      "RangeCalendar",
+      "DatePicker",
+      "CalendarView"
+    ],
     "props": [
       {
         "name": "selectionMode",
@@ -172,7 +208,8 @@
       "<Calendar size=\"m\" />",
       "<Calendar selectionMode=\"multiple\" />",
       "<Calendar minValue={dateTimeParse('01.01.2024')} maxValue={dateTimeParse('01.01.2025')} />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -203,7 +240,11 @@
       "Do not use for relative date expressions like 'now-1d' — use RelativeDateField instead"
     ],
     "import_statement": "import {DateField} from '@gravity-ui/date-components';",
-    "related": ["DatePicker", "RangeDateField", "RelativeDateField"],
+    "related": [
+      "DatePicker",
+      "RangeDateField",
+      "RelativeDateField"
+    ],
     "props": [
       {
         "name": "value",
@@ -361,7 +402,8 @@
       "<DateField />",
       "<DateField format=\"LTS\" />",
       "<DateField hasClear validationState=\"invalid\" errorMessage=\"Required\" />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -392,7 +434,12 @@
       "Do not use for relative date expressions — use RelativeDatePicker instead"
     ],
     "import_statement": "import {DatePicker} from '@gravity-ui/date-components';",
-    "related": ["Calendar", "DateField", "RangeDatePicker", "RelativeDatePicker"],
+    "related": [
+      "Calendar",
+      "DateField",
+      "RangeDatePicker",
+      "RelativeDatePicker"
+    ],
     "props": [
       {
         "name": "value",
@@ -556,7 +603,8 @@
       "<DatePicker />",
       "<DatePicker format=\"LL\" hasClear />",
       "<DatePicker minValue={dateTimeParse('01.01.2024')} validationState=\"invalid\" errorMessage=\"Error\" />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -582,7 +630,11 @@
       "Do not use when you need a text input with a popup — use RangeDatePicker instead"
     ],
     "import_statement": "import {RangeCalendar} from '@gravity-ui/date-components';",
-    "related": ["Calendar", "RangeDatePicker", "RangeDateField"],
+    "related": [
+      "Calendar",
+      "RangeDatePicker",
+      "RangeDateField"
+    ],
     "props": [
       {
         "name": "value",
@@ -688,7 +740,8 @@
       "<RangeCalendar size=\"m\" />",
       "<RangeCalendar defaultMode=\"months\" />",
       "<RangeCalendar minValue={dateTimeParse('01.01.2024')} maxValue={dateTimeParse('01.01.2025')} />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -713,7 +766,11 @@
       "Do not use for single date input — use DateField instead"
     ],
     "import_statement": "import {RangeDateField} from '@gravity-ui/date-components';",
-    "related": ["DateField", "RangeDatePicker", "RangeCalendar"],
+    "related": [
+      "DateField",
+      "RangeDatePicker",
+      "RangeCalendar"
+    ],
     "props": [
       {
         "name": "value",
@@ -797,7 +854,8 @@
       "<RangeDateField />",
       "<RangeDateField delimiter=\" to \" />",
       "<RangeDateField format=\"L\" hasClear />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -823,7 +881,12 @@
       "Do not use for relative date ranges like 'last 7 days' — use RelativeRangeDatePicker instead"
     ],
     "import_statement": "import {RangeDatePicker} from '@gravity-ui/date-components';",
-    "related": ["RangeDateField", "RangeCalendar", "DatePicker", "RelativeRangeDatePicker"],
+    "related": [
+      "RangeDateField",
+      "RangeCalendar",
+      "DatePicker",
+      "RelativeRangeDatePicker"
+    ],
     "props": [
       {
         "name": "value",
@@ -931,7 +994,8 @@
       "<RangeDatePicker />",
       "<RangeDatePicker format=\"L\" hasClear />",
       "<RangeDatePicker minValue={dateTimeParse('01.01.2024')} maxValue={dateTimeParse('01.01.2025')} />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -960,7 +1024,10 @@
       "Do not use when the primary interaction is typing dates — use RangeDateField instead"
     ],
     "import_statement": "import {RangeDateSelection} from '@gravity-ui/date-components';",
-    "related": ["RelativeRangeDatePicker", "RangeDatePicker"],
+    "related": [
+      "RelativeRangeDatePicker",
+      "RangeDatePicker"
+    ],
     "props": [
       {
         "name": "value",
@@ -1081,7 +1148,8 @@
       "<RangeDateSelection />",
       "<RangeDateSelection displayNow draggableRuler hasScaleButtons />",
       "<RangeDateSelection minDuration={60000} maxDuration={7 * 24 * 3600000} />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -1109,7 +1177,11 @@
       "Do not use for date range input — use RelativeDatePicker with a range or RelativeRangeDatePicker"
     ],
     "import_statement": "import {RelativeDateField} from '@gravity-ui/date-components';",
-    "related": ["RelativeDatePicker", "RelativeRangeDatePicker", "DateField"],
+    "related": [
+      "RelativeDatePicker",
+      "RelativeRangeDatePicker",
+      "DateField"
+    ],
     "props": [
       {
         "name": "value",
@@ -1231,7 +1303,8 @@
       "<RelativeDateField />",
       "<RelativeDateField defaultValue=\"now-1d\" hasTime />",
       "<RelativeDateField placeholder=\"e.g. now-1d\" hasClear />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -1258,7 +1331,11 @@
       "Do not use for relative date range selection — use RelativeRangeDatePicker instead"
     ],
     "import_statement": "import {RelativeDatePicker} from '@gravity-ui/date-components';",
-    "related": ["DatePicker", "RelativeDateField", "RelativeRangeDatePicker"],
+    "related": [
+      "DatePicker",
+      "RelativeDateField",
+      "RelativeRangeDatePicker"
+    ],
     "props": [
       {
         "name": "value",
@@ -1397,7 +1474,8 @@
       "<RelativeDatePicker />",
       "<RelativeDatePicker defaultValue={{type: 'relative', value: 'now-1d'}} hasClear />",
       "<RelativeDatePicker format=\"L\" minValue={dateTimeParse('01.01.2024')} />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -1427,7 +1505,11 @@
       "Do not use for single date picking — use RelativeDatePicker instead"
     ],
     "import_statement": "import {RelativeRangeDatePicker} from '@gravity-ui/date-components';",
-    "related": ["RelativeDatePicker", "RangeDatePicker", "RangeDateSelection"],
+    "related": [
+      "RelativeDatePicker",
+      "RangeDatePicker",
+      "RangeDateSelection"
+    ],
     "props": [
       {
         "name": "value",
@@ -1596,6 +1678,7 @@
       "<RelativeRangeDatePicker style={{width: 326}} />",
       "<RelativeRangeDatePicker withPresets withApplyButton withZonesList />",
       "<RelativeRangeDatePicker defaultValue={{start: {type: 'relative', value: 'now-1d'}, end: {type: 'relative', value: 'now'}}} />"
-    ]
+    ],
+    "category": "forms"
   }
 ]

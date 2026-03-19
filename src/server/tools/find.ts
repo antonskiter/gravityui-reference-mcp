@@ -4,6 +4,7 @@ import type { LoadedData } from '../loader.js';
 export interface FindInput {
   query: string;
   type?: string;
+  library?: string;
 }
 
 export interface FindOutput {
@@ -23,12 +24,11 @@ export function handleFind(data: LoadedData, input: FindInput): FindOutput {
     limit: 10,
   });
 
-  const results = searchResults.map(sr => {
-    // Look up full entity or recipe for description
-    const entities = data.entityByName.get(sr.name);
-    const entity = entities?.[0];
-    const recipe = data.recipeById.get(sr.id.replace('recipe:', ''));
-    const description = entity?.description ?? recipe?.description ?? '';
+  let results = searchResults.map((sr: SearchResult) => {
+    const entities = data.entityByName.get(sr.name.toLowerCase());
+    const entity = entities?.find(e => !input.library || e.library === sr.library)
+      ?? entities?.[0];
+    const description = entity?.description ?? '';
 
     return {
       name: sr.name,
@@ -39,6 +39,10 @@ export function handleFind(data: LoadedData, input: FindInput): FindOutput {
     };
   });
 
+  if (input.library) {
+    results = results.filter(r => r.library === input.library);
+  }
+
   return { query: input.query, results };
 }
 
@@ -47,12 +51,10 @@ export function formatFind(output: FindOutput): string {
     return `No results for "${output.query}".`;
   }
 
-  const lines: string[] = [`Results for "${output.query}":\n`];
+  const lines: string[] = [];
   for (const r of output.results) {
     const lib = r.library ? ` (${r.library})` : '';
-    lines.push(`[${r.type}] ${r.name}${lib}`);
-    lines.push(`   ${r.description}`);
-    lines.push('');
+    lines.push(`${r.name} [${r.type}]${lib} — ${r.description}`);
   }
   return lines.join('\n');
 }

@@ -1,0 +1,34 @@
+[
+  {
+    "type": "library",
+    "name": "Gravity UI",
+    "library": "gravity-ui",
+    "description": "Gravity UI is a comprehensive open-source design system and component ecosystem built by Yandex for production-grade web applications. It provides a unified visual language across a large suite of React libraries covering UI primitives, navigation, data visualization, forms, editors, dashboards, AI chat interfaces, server-side tooling, and developer tooling configs. All components share a consistent theming model, spacing scale, and typography system based on CSS custom properties.",
+    "keywords": [
+      "design system",
+      "gravity ui",
+      "yandex",
+      "react",
+      "theming",
+      "spacing",
+      "typography"
+    ],
+    "when_to_use": [
+      "Building web applications with consistent design language",
+      "Using React component ecosystem by Yandex"
+    ],
+    "avoid": [],
+    "import_statement": "",
+    "related": [
+      "uikit",
+      "icons",
+      "components"
+    ],
+    "package": "",
+    "depends_on": [],
+    "component_count": 0,
+    "theming": "Theming is controlled via the ThemeProvider component from @gravity-ui/uikit. Four built-in themes are supported: light, dark, light-hc (high contrast), and dark-hc. Themes are applied as data attributes on the root element and all CSS tokens (colors, shadows, borders) are resolved via CSS custom properties (--g-color-*, --g-text-*, etc.), enabling runtime switching without page reload.",
+    "spacing": "Spacing uses a 4px base unit scale exposed as CSS custom properties (--g-spacing-*). Components accept semantic size props ('xs', 's', 'm', 'l', 'xl') that map to the scale. Layout primitives (Box, Flex, Container, Row, Col) accept spacing shorthand props that reference the same tokens.",
+    "typography": "Typography is managed via the Text component and CSS custom properties (--g-text-*). Pre-defined text variants cover display, header (subheader-1 through subheader-3), body, caption, and code styles. Font family, weight, size, and line-height are all token-driven. The system supports both LTR and RTL text directions via the ThemeProvider direction prop."
+  }
+]

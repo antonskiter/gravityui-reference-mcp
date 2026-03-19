@@ -1,34 +1,134 @@
 [
   {
+    "type": "library",
+    "name": "chartkit",
+    "library": "chartkit",
+    "description": "Unified chart wrapper component with plugin registry, error boundary, and loading fallback. Default entry point for charts — wraps @gravity-ui/charts (D3/SVG) and @gravity-ui/yagr (canvas timeseries) via the plugin system.",
+    "keywords": [
+      "gravity-ui",
+      "chartkit"
+    ],
+    "when_to_use": [
+      "Unified chart wrapper component with plugin registry, error boundary, and loading fallback"
+    ],
+    "avoid": [
+      "Not for using a specific chart library directly without the plugin abstraction — use @gravity-ui/charts or @gravity-ui/yagr directly in that case."
+    ],
+    "import_statement": "",
+    "related": [
+      "@gravity-ui/uikit"
+    ],
+    "package": "@gravity-ui/chartkit",
+    "not_for": "Not for using a specific chart library directly without the plugin abstraction — use @gravity-ui/charts or @gravity-ui/yagr directly in that case.",
+    "depends_on": [
+      "@gravity-ui/uikit"
+    ],
+    "component_count": 1
+  },
+  {
     "type": "component",
     "name": "ChartKit",
     "library": "chartkit",
     "description": "A plugin-based React component that renders any chart type registered via the ChartKit settings system. Accepts a chart type and data object, delegates rendering to the appropriate plugin renderer (e.g. Yagr, D3, Highcharts), and wraps output in an error boundary with a loading fallback.",
-    "keywords": ["chart", "chartkit", "visualization", "plugin", "yagr", "highcharts", "d3", "data visualization", "graph", "timeseries"],
-    "when_to_use": ["When rendering charts backed by a registered plugin (e.g. YagrPlugin)", "As the primary chart rendering component in dashboards or analytics pages", "When error boundary and loading state handling around charts is needed"],
-    "avoid": ["When a specific chart library is needed directly without the plugin abstraction — use Yagr or Chart (charts library) directly", "When no plugin has been registered for the desired chart type"],
+    "keywords": [
+      "chart",
+      "chartkit",
+      "visualization",
+      "plugin",
+      "yagr",
+      "highcharts",
+      "d3",
+      "data visualization",
+      "graph",
+      "timeseries"
+    ],
+    "when_to_use": [
+      "When rendering charts backed by a registered plugin (e.g. YagrPlugin)",
+      "As the primary chart rendering component in dashboards or analytics pages",
+      "When error boundary and loading state handling around charts is needed"
+    ],
+    "avoid": [
+      "When a specific chart library is needed directly without the plugin abstraction — use Yagr or Chart (charts library) directly",
+      "When no plugin has been registered for the desired chart type"
+    ],
     "import_statement": "import { ChartKit } from '@gravity-ui/chartkit';",
-    "related": ["settings"],
+    "related": [
+      "settings"
+    ],
     "props": [
-      { "name": "type", "type": "ChartKitType", "required": true, "description": "Chart plugin type identifier (e.g. 'yagr', 'd3')" },
-      { "name": "data", "type": "ChartKitWidgetData", "required": true, "description": "Plugin-specific chart data and configuration" },
-      { "name": "id", "type": "string", "required": false, "description": "Unique chart instance ID; auto-generated if omitted" },
-      { "name": "isMobile", "type": "boolean", "required": false, "description": "Enables mobile layout optimizations" },
-      { "name": "renderPluginLoader", "type": "() => React.ReactNode", "required": false, "description": "Custom loading placeholder renderer" },
-      { "name": "onError", "type": "(error: Error) => void", "required": false, "description": "Error boundary callback" },
-      { "name": "renderError", "type": "(error: Error) => React.ReactNode", "required": false, "description": "Custom error display renderer" }
-    ]
+      {
+        "name": "type",
+        "type": "ChartKitType",
+        "required": true,
+        "description": "Chart plugin type identifier (e.g. 'yagr', 'd3')"
+      },
+      {
+        "name": "data",
+        "type": "ChartKitWidgetData",
+        "required": true,
+        "description": "Plugin-specific chart data and configuration"
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": false,
+        "description": "Unique chart instance ID; auto-generated if omitted"
+      },
+      {
+        "name": "isMobile",
+        "type": "boolean",
+        "required": false,
+        "description": "Enables mobile layout optimizations"
+      },
+      {
+        "name": "renderPluginLoader",
+        "type": "() => React.ReactNode",
+        "required": false,
+        "description": "Custom loading placeholder renderer"
+      },
+      {
+        "name": "onError",
+        "type": "(error: Error) => void",
+        "required": false,
+        "description": "Error boundary callback"
+      },
+      {
+        "name": "renderError",
+        "type": "(error: Error) => React.ReactNode",
+        "required": false,
+        "description": "Custom error display renderer"
+      }
+    ],
+    "category": "data-display"
   },
   {
     "type": "utility",
     "name": "settings",
     "library": "chartkit",
     "description": "The singleton ChartKitSettings instance used to configure the ChartKit library globally. Call settings.set() to register plugins, change the display language, or set holiday data. Call settings.get() to read the current value of any setting key.",
-    "keywords": ["settings", "configuration", "plugin registration", "lang", "language", "chartkit config", "setup", "singleton"],
-    "when_to_use": ["At application startup to register chart plugins (e.g. YagrPlugin, D3Plugin)", "When changing the chart display language at runtime", "When reading the current plugin list or language setting"],
-    "avoid": ["Do not mutate the settings object directly — always use settings.set()", "Do not call repeatedly on every render — call once during app initialization"],
+    "keywords": [
+      "settings",
+      "configuration",
+      "plugin registration",
+      "lang",
+      "language",
+      "chartkit config",
+      "setup",
+      "singleton"
+    ],
+    "when_to_use": [
+      "At application startup to register chart plugins (e.g. YagrPlugin, D3Plugin)",
+      "When changing the chart display language at runtime",
+      "When reading the current plugin list or language setting"
+    ],
+    "avoid": [
+      "Do not mutate the settings object directly — always use settings.set()",
+      "Do not call repeatedly on every render — call once during app initialization"
+    ],
     "import_statement": "import { settings } from '@gravity-ui/chartkit';",
-    "related": ["ChartKit"],
+    "related": [
+      "ChartKit"
+    ],
     "signature": "settings.set(updates: Partial<{ plugins: ChartKitPlugin[]; lang: ChartKitLang; extra?: { holidays?: ChartKitHolidays } }>): void\nsettings.get<T extends 'plugins' | 'lang' | 'extra'>(key: T): Settings[T]",
     "examples": [
       "import { ChartKit, settings } from '@gravity-ui/chartkit';\nimport { YagrPlugin } from '@gravity-ui/chartkit/build/plugins/yagr';\n\nsettings.set({ plugins: [YagrPlugin], lang: 'en' });\n\n<ChartKit type=\"yagr\" data={yagrData} />"

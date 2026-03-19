@@ -15,10 +15,11 @@ server.tool(
   'find',
   'Search GravityUI components, hooks, tokens, assets, recipes by intent. Use when you need to discover what exists.',
   { query: z.string().describe('What you are looking for, e.g. "date picker", "sidebar navigation", "form validation"'),
-    type: z.string().optional().describe('Filter by entity type: component, hook, token-set, asset, utility, config-doc, guide') },
+    type: z.string().optional().describe('Filter by entity type: component, hook, token-set, asset, utility, config-doc, guide'),
+    library: z.string().optional().describe('Library id: uikit, navigation, date-components, etc.') },
   (args) => {
     try {
-      const result = handleFind(data, { query: args.query, type: args.type });
+      const result = handleFind(data, { query: args.query, type: args.type, library: args.library });
       return { content: [{ type: 'text', text: formatFind(result) }] };
     } catch (e) {
       return { content: [{ type: 'text', text: `Error: ${e}` }], isError: true };
@@ -30,10 +31,12 @@ server.tool(
   'get',
   'Get detailed info about a specific component, hook, recipe, or "overview" for the whole design system. Use after find.',
   { name: z.string().describe('Entity name (e.g. "Button", "useTheme"), recipe id (e.g. "confirmation-dialog"), or "overview"'),
+    type: z.string().optional().describe('Filter by entity type: component, hook, token-set, asset, utility, config-doc, guide'),
+    library: z.string().optional().describe('Library id: uikit, navigation, date-components, etc.'),
     detail: z.enum(['compact', 'full']).optional().describe('Level of detail. compact (default) = top props + 1 example. full = everything.') },
   (args) => {
     try {
-      const result = handleGet(data, { name: args.name, detail: args.detail ?? 'compact' });
+      const result = handleGet(data, { name: args.name, type: args.type, library: args.library, detail: args.detail ?? 'compact' });
       return { content: [{ type: 'text', text: formatGet(result, args.detail ?? 'compact') }] };
     } catch (e) {
       return { content: [{ type: 'text', text: `Error: ${e}` }], isError: true };

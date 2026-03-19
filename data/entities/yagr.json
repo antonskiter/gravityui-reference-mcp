@@ -1,40 +1,146 @@
 [
   {
+    "type": "library",
+    "name": "yagr",
+    "library": "yagr",
+    "description": "Canvas-based high-performance timeseries chart renderer built on uPlot. Use for real-time or large-dataset timeseries visualizations without ChartKit plugin overhead.",
+    "keywords": [
+      "gravity-ui",
+      "yagr"
+    ],
+    "when_to_use": [
+      "Canvas-based high-performance timeseries chart renderer built on uPlot"
+    ],
+    "avoid": [
+      "Not for SVG/D3-level customization — use @gravity-ui/charts. Not for simple one-off charts without timeseries — use charts. Not when chart type is managed via a plugin registry — use chartkit."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/yagr",
+    "not_for": "Not for SVG/D3-level customization — use @gravity-ui/charts. Not for simple one-off charts without timeseries — use charts. Not when chart type is managed via a plugin registry — use chartkit.",
+    "depends_on": [],
+    "component_count": 1
+  },
+  {
     "type": "component",
     "name": "YagrReact",
     "library": "yagr",
     "description": "A React wrapper for the Yagr canvas-based high-performance chart renderer (built on uPlot). Initializes a Yagr instance on mount, supports dynamic config updates or hard resets, and exposes the underlying Yagr instance and DOM element via ref.",
-    "keywords": ["yagr", "timeseries", "canvas chart", "uplot", "high performance chart", "line chart", "area chart", "column chart", "real-time", "react chart"],
-    "when_to_use": ["For high-performance timeseries charts with large datasets", "When canvas-based rendering is preferred over SVG/DOM", "For real-time updating charts with frequent data changes", "When stacked areas, plot lines, or configurable legends are needed"],
-    "avoid": ["For simple one-off charts without timeseries — use Chart from @gravity-ui/charts instead", "When you need SVG output or D3-level customization"],
-    "import_statement": "import YagrReact from '@gravity-ui/yagr/react';",
-    "related": ["useTooltipState"],
-    "props": [
-      { "name": "id", "type": "string", "required": true, "description": "Unique HTML id for the chart container div" },
-      { "name": "config", "type": "MinimalValidConfig", "required": true, "description": "Yagr chart configuration object (timeline, series, axes, scales, etc.)" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class for the chart wrapper" },
-      { "name": "update", "type": "'dynamic' | 'hard'", "required": false, "description": "Update strategy when config changes: dynamic (default) keeps zoom state, hard fully reinitializes" },
-      { "name": "debug", "type": "{ filename: string }", "required": false, "description": "Debug config: enables Ctrl+Shift+Click to download chart as PNG" },
-      { "name": "onChartInited", "type": "(chart: Yagr, meta: YagrMeta) => void", "required": false, "description": "Fires when chart instance is created" },
-      { "name": "onChartLoad", "type": "(chart: Yagr, meta: YagrMeta) => void", "required": false, "description": "Fires after chart has finished drawing" },
-      { "name": "onSelect", "type": "(from: number, to: number) => void", "required": false, "description": "Fires on every range selection with start/end timestamps" }
+    "keywords": [
+      "yagr",
+      "timeseries",
+      "canvas chart",
+      "uplot",
+      "high performance chart",
+      "line chart",
+      "area chart",
+      "column chart",
+      "real-time",
+      "react chart"
     ],
-    "ref": "YagrReactRef — exposes yagr() to get the Yagr instance and domElement() to get the chart div"
+    "when_to_use": [
+      "For high-performance timeseries charts with large datasets",
+      "When canvas-based rendering is preferred over SVG/DOM",
+      "For real-time updating charts with frequent data changes",
+      "When stacked areas, plot lines, or configurable legends are needed"
+    ],
+    "avoid": [
+      "For simple one-off charts without timeseries — use Chart from @gravity-ui/charts instead",
+      "When you need SVG output or D3-level customization"
+    ],
+    "import_statement": "import YagrReact from '@gravity-ui/yagr/react';",
+    "related": [
+      "useTooltipState"
+    ],
+    "props": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "description": "Unique HTML id for the chart container div"
+      },
+      {
+        "name": "config",
+        "type": "MinimalValidConfig",
+        "required": true,
+        "description": "Yagr chart configuration object (timeline, series, axes, scales, etc.)"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class for the chart wrapper"
+      },
+      {
+        "name": "update",
+        "type": "'dynamic' | 'hard'",
+        "required": false,
+        "description": "Update strategy when config changes: dynamic (default) keeps zoom state, hard fully reinitializes"
+      },
+      {
+        "name": "debug",
+        "type": "{ filename: string }",
+        "required": false,
+        "description": "Debug config: enables Ctrl+Shift+Click to download chart as PNG"
+      },
+      {
+        "name": "onChartInited",
+        "type": "(chart: Yagr, meta: YagrMeta) => void",
+        "required": false,
+        "description": "Fires when chart instance is created"
+      },
+      {
+        "name": "onChartLoad",
+        "type": "(chart: Yagr, meta: YagrMeta) => void",
+        "required": false,
+        "description": "Fires after chart has finished drawing"
+      },
+      {
+        "name": "onSelect",
+        "type": "(from: number, to: number) => void",
+        "required": false,
+        "description": "Fires on every range selection with start/end timestamps"
+      }
+    ],
+    "ref": "YagrReactRef — exposes yagr() to get the Yagr instance and domElement() to get the chart div",
+    "category": "data-display"
   },
   {
     "type": "hook",
     "name": "useTooltipState",
     "library": "yagr",
     "description": "Connects a custom tooltip component to a Yagr chart's tooltip plugin events. Subscribes to render and show events and calls tooltip.onChange(data) with the latest tooltip handler data.",
-    "keywords": ["tooltip", "yagr tooltip", "custom tooltip", "chart tooltip", "tooltip state", "hook"],
-    "when_to_use": ["When building a custom React tooltip overlay for a YagrReact chart", "When you need to sync tooltip visibility/content with React state"],
-    "avoid": ["When using Yagr's built-in tooltip renderer — this hook is only for custom React tooltips"],
+    "keywords": [
+      "tooltip",
+      "yagr tooltip",
+      "custom tooltip",
+      "chart tooltip",
+      "tooltip state",
+      "hook"
+    ],
+    "when_to_use": [
+      "When building a custom React tooltip overlay for a YagrReact chart",
+      "When you need to sync tooltip visibility/content with React state"
+    ],
+    "avoid": [
+      "When using Yagr's built-in tooltip renderer — this hook is only for custom React tooltips"
+    ],
     "import_statement": "import { useTooltipState } from '@gravity-ui/yagr/react';",
-    "related": ["YagrReact"],
+    "related": [
+      "YagrReact"
+    ],
     "signature": "useTooltipState(yagrRef: React.MutableRefObject<YagrReactRef | null>, tooltipRef: React.RefObject<{ onChange: (data: TooltipHandlerData) => void }>): void",
     "parameters": [
-      { "name": "yagrRef", "type": "React.MutableRefObject<YagrReactRef | null>", "description": "Ref to the YagrReact component instance" },
-      { "name": "tooltipRef", "type": "React.RefObject<{ onChange: (data: TooltipHandlerData) => void }>", "description": "Ref to the custom tooltip component with an onChange method" }
+      {
+        "name": "yagrRef",
+        "type": "React.MutableRefObject<YagrReactRef | null>",
+        "description": "Ref to the YagrReact component instance"
+      },
+      {
+        "name": "tooltipRef",
+        "type": "React.RefObject<{ onChange: (data: TooltipHandlerData) => void }>",
+        "description": "Ref to the custom tooltip component with an onChange method"
+      }
     ],
     "return_type": "void"
   }

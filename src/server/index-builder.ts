@@ -1,6 +1,6 @@
 // src/server/index-builder.ts
 import MiniSearch from 'minisearch';
-import type { Entity, RecipeDef } from '../schemas.js';
+import type { Entity } from '../schemas.js';
 
 interface IndexDocument {
   id: string;
@@ -28,19 +28,7 @@ function entityToDoc(entity: Entity): IndexDocument {
   };
 }
 
-function recipeToDoc(recipe: RecipeDef): IndexDocument {
-  return {
-    id: `recipe:${recipe.id}`,
-    entityType: 'recipe',
-    library: '',
-    name: recipe.title,
-    description: recipe.description,
-    keywords: recipe.tags.join(' '),
-    when_to_use: recipe.use_cases.join(' '),
-  };
-}
-
-export function buildSearchIndex(entities: Entity[], recipes: RecipeDef[]): MiniSearch {
+export function buildSearchIndex(entities: Entity[]): MiniSearch {
   const ms = new MiniSearch<IndexDocument>({
     fields: FIELDS,
     storeFields: STORE_FIELDS,
@@ -48,18 +36,12 @@ export function buildSearchIndex(entities: Entity[], recipes: RecipeDef[]): Mini
   });
   // Deduplicate by id before indexing
   const seen = new Set<string>();
-  const entityDocs = entities.map(entityToDoc).filter(d => {
+  const docs = entities.map(entityToDoc).filter(d => {
     if (seen.has(d.id)) return false;
     seen.add(d.id);
     return true;
   });
-  const recipeDocs = recipes.map(recipeToDoc).filter(d => {
-    if (seen.has(d.id)) return false;
-    seen.add(d.id);
-    return true;
-  });
-  ms.addAll(entityDocs);
-  ms.addAll(recipeDocs);
+  ms.addAll(docs);
   return ms;
 }
 

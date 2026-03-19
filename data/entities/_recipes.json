@@ -1,21 +1,10 @@
 [
   {
-    "id": "advanced-data-grid",
-    "title": "Advanced Data Grid with TanStack Table",
+    "type": "recipe",
+    "name": "advanced-data-grid",
+    "library": "",
     "description": "A feature-rich data grid built on BaseTable from @gravity-ui/table with TanStack Table integration. Supports sortable columns, column visibility toggling via TableColumnSetup, row selection with Checkbox, pagination, and a bulk actions toolbar. Ideal for complex admin interfaces that need headless table control with Gravity UI styling.",
-    "level": "organism",
-    "use_cases": [
-      "build a data grid with sortable columns and custom cell renderers",
-      "let users show/hide and reorder columns via a column setup popup",
-      "select rows with checkboxes and perform bulk operations via ActionsPanel",
-      "paginate large server-side datasets with configurable page sizes",
-      "integrate TanStack Table features (grouping, virtualization, resize) with Gravity UI components"
-    ],
-    "packages": [
-      "@gravity-ui/table",
-      "@gravity-ui/uikit"
-    ],
-    "tags": [
+    "keywords": [
       "table",
       "data-grid",
       "tanstack",
@@ -31,11 +20,41 @@
       "admin",
       "grid"
     ],
+    "when_to_use": [
+      "You need a highly customizable data grid with TanStack Table features (sorting, column visibility, row selection, grouping, virtualization) rendered with Gravity UI styling. BaseTable provides the headless rendering bridge while you control all behavior through TanStack Table APIs."
+    ],
+    "avoid": [
+      "Simple read-only tables with static columns (use Table from uikit). Key-value pairs (use DefinitionList). Card-based list layouts (use Card with Flex). Spreadsheet-like inline editing (use a dedicated spreadsheet component)."
+    ],
+    "import_statement": "",
+    "related": [
+      "data-table",
+      "confirmation-dialog",
+      "page-states"
+    ],
+    "title": "Advanced Data Grid with TanStack Table",
+    "level": "organism",
+    "packages": [
+      "@gravity-ui/table",
+      "@gravity-ui/uikit"
+    ],
+    "components": [
+      "BaseTable",
+      "TableColumnSetup",
+      "Pagination",
+      "Checkbox",
+      "Button",
+      "ActionsPanel"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["You need a highly customizable data grid with TanStack Table features (sorting, column visibility, row selection, grouping, virtualization) rendered with Gravity UI styling. BaseTable provides the headless rendering bridge while you control all behavior through TanStack Table APIs."],
-        "when_not_to_use": ["Simple read-only tables with static columns (use Table from uikit). Key-value pairs (use DefinitionList). Card-based list layouts (use Card with Flex). Spreadsheet-like inline editing (use a dedicated spreadsheet component)."],
+        "when_to_use": [
+          "You need a highly customizable data grid with TanStack Table features (sorting, column visibility, row selection, grouping, virtualization) rendered with Gravity UI styling. BaseTable provides the headless rendering bridge while you control all behavior through TanStack Table APIs."
+        ],
+        "when_not_to_use": [
+          "Simple read-only tables with static columns (use Table from uikit). Key-value pairs (use DefinitionList). Card-based list layouts (use Card with Flex). Spreadsheet-like inline editing (use a dedicated spreadsheet component)."
+        ],
         "choice_matrix": [
           {
             "situation": "Need full control over sorting, filtering, column visibility, and row models",
@@ -185,23 +204,11 @@
     ]
   },
   {
-    "id": "app-shell",
-    "title": "App Shell with Navigation",
+    "type": "recipe",
+    "name": "app-shell",
+    "library": "",
     "description": "Foundation recipe for building a full application shell with sidebar navigation using AsideHeader, logo branding, collapsible compact mode, footer links, and a responsive MobileHeader for small screens.",
-    "level": "organism",
-    "use_cases": [
-      "set up the main navigation layout for a new Gravity UI application",
-      "build a collapsible sidebar with menu items highlighting the active route",
-      "add a branded logo and footer links to the navigation shell",
-      "provide a responsive mobile navigation header for small viewports",
-      "integrate React Router or Next.js routing with sidebar menu items"
-    ],
-    "packages": [
-      "@gravity-ui/navigation",
-      "@gravity-ui/uikit",
-      "@gravity-ui/icons"
-    ],
-    "tags": [
+    "keywords": [
       "navigation",
       "sidebar",
       "aside",
@@ -218,11 +225,42 @@
       "collapse",
       "foundation"
     ],
+    "when_to_use": [
+      "You are building a single-page application that needs a persistent sidebar navigation with logo, menu items, and optional footer. AsideHeader provides the desktop shell while MobileHeader covers mobile viewports."
+    ],
+    "avoid": [
+      "Simple landing pages without navigation (use plain layout). Apps that only need a top horizontal navbar (use a custom header). Embedded widgets or micro-frontends that inherit navigation from a parent shell."
+    ],
+    "import_statement": "",
+    "related": [
+      "theming-dark-mode",
+      "user-feedback",
+      "search-with-suggestions"
+    ],
+    "title": "App Shell with Navigation",
+    "level": "organism",
+    "packages": [
+      "@gravity-ui/navigation",
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons"
+    ],
+    "components": [
+      "AsideHeader",
+      "Logo",
+      "Footer",
+      "MobileHeader",
+      "Button",
+      "Icon"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["You are building a single-page application that needs a persistent sidebar navigation with logo, menu items, and optional footer. AsideHeader provides the desktop shell while MobileHeader covers mobile viewports."],
-        "when_not_to_use": ["Simple landing pages without navigation (use plain layout). Apps that only need a top horizontal navbar (use a custom header). Embedded widgets or micro-frontends that inherit navigation from a parent shell."]
+        "when_to_use": [
+          "You are building a single-page application that needs a persistent sidebar navigation with logo, menu items, and optional footer. AsideHeader provides the desktop shell while MobileHeader covers mobile viewports."
+        ],
+        "when_not_to_use": [
+          "Simple landing pages without navigation (use plain layout). Apps that only need a top horizontal navbar (use a custom header). Embedded widgets or micro-frontends that inherit navigation from a parent shell."
+        ]
       },
       {
         "type": "setup",
@@ -364,21 +402,11 @@
     ]
   },
   {
-    "id": "confirmation-dialog",
-    "title": "Confirmation Dialog",
+    "type": "recipe",
+    "name": "confirmation-dialog",
+    "library": "",
     "description": "Modal dialog asking the user to confirm or cancel a single action before it proceeds.",
-    "level": "molecule",
-    "use_cases": [
-      "confirm deletion of an item or record",
-      "approve an irreversible operation (publish, send, deploy)",
-      "warn before discarding unsaved changes",
-      "confirm a bulk action on multiple selected items"
-    ],
-    "packages": [
-      "@gravity-ui/uikit",
-      "@gravity-ui/components"
-    ],
-    "tags": [
+    "keywords": [
       "confirmation",
       "dialog",
       "modal",
@@ -389,11 +417,37 @@
       "approve",
       "warning"
     ],
+    "when_to_use": [
+      "User must explicitly approve or reject a single action. The dialog blocks interaction until resolved."
+    ],
+    "avoid": [
+      "Multi-step wizards (use Stepper), forms requiring user input beyond a checkbox (use Dialog directly), or non-blocking notifications (use Toaster)."
+    ],
+    "import_statement": "",
+    "related": [
+      "user-feedback",
+      "page-states"
+    ],
+    "title": "Confirmation Dialog",
+    "level": "molecule",
+    "packages": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/components"
+    ],
+    "components": [
+      "ConfirmDialog",
+      "Dialog",
+      "Button"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["User must explicitly approve or reject a single action. The dialog blocks interaction until resolved."],
-        "when_not_to_use": ["Multi-step wizards (use Stepper), forms requiring user input beyond a checkbox (use Dialog directly), or non-blocking notifications (use Toaster)."]
+        "when_to_use": [
+          "User must explicitly approve or reject a single action. The dialog blocks interaction until resolved."
+        ],
+        "when_not_to_use": [
+          "Multi-step wizards (use Stepper), forms requiring user input beyond a checkbox (use Dialog directly), or non-blocking notifications (use Toaster)."
+        ]
       },
       {
         "type": "setup",
@@ -488,23 +542,11 @@
     ]
   },
   {
-    "id": "dashboard-layout",
-    "title": "Dashboard Layout with Sidebar Navigation",
+    "type": "recipe",
+    "name": "dashboard-layout",
+    "library": "",
     "description": "Full dashboard layout with a collapsible sidebar (AsideHeader), page-level action bar, date range filter in a popup, and metric cards. Combines navigation, date-components, and uikit libraries for a complete admin dashboard shell.",
-    "level": "organism",
-    "use_cases": [
-      "build an admin dashboard with sidebar navigation and collapsible menu",
-      "display metric cards with a date range filter for analytics pages",
-      "create a page layout with breadcrumbs, page-level actions, and structured content",
-      "provide a consistent app shell with logo, navigation items, and user footer"
-    ],
-    "packages": [
-      "@gravity-ui/navigation",
-      "@gravity-ui/uikit",
-      "@gravity-ui/date-components",
-      "@gravity-ui/date-utils"
-    ],
-    "tags": [
+    "keywords": [
       "dashboard",
       "layout",
       "sidebar",
@@ -520,11 +562,45 @@
       "collapsible",
       "menu"
     ],
+    "when_to_use": [
+      "You need a full application shell with sidebar navigation, page-level actions (breadcrumbs, buttons), and content areas with metric cards and date filtering. The sidebar should be collapsible and support multiple navigation items with icons."
+    ],
+    "avoid": [
+      "Simple single-page layouts without navigation (use plain div layout). Mobile-first apps (use MobileHeader from navigation). Landing or marketing pages (use page-constructor blocks). Settings panels with grouped options (use Settings from navigation)."
+    ],
+    "import_statement": "",
+    "related": [
+      "theming-dark-mode",
+      "data-table",
+      "page-states"
+    ],
+    "title": "Dashboard Layout with Sidebar Navigation",
+    "level": "organism",
+    "packages": [
+      "@gravity-ui/navigation",
+      "@gravity-ui/uikit",
+      "@gravity-ui/date-components",
+      "@gravity-ui/date-utils"
+    ],
+    "components": [
+      "AsideHeader",
+      "ActionBar",
+      "RangeCalendar",
+      "Card",
+      "Text",
+      "Button",
+      "Popup",
+      "Select"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["You need a full application shell with sidebar navigation, page-level actions (breadcrumbs, buttons), and content areas with metric cards and date filtering. The sidebar should be collapsible and support multiple navigation items with icons."],
-        "when_not_to_use": ["Simple single-page layouts without navigation (use plain div layout). Mobile-first apps (use MobileHeader from navigation). Landing or marketing pages (use page-constructor blocks). Settings panels with grouped options (use Settings from navigation)."]
+        "when_to_use": [
+          "You need a full application shell with sidebar navigation, page-level actions (breadcrumbs, buttons), and content areas with metric cards and date filtering. The sidebar should be collapsible and support multiple navigation items with icons."
+        ],
+        "when_not_to_use": [
+          "Simple single-page layouts without navigation (use plain div layout). Mobile-first apps (use MobileHeader from navigation). Landing or marketing pages (use page-constructor blocks). Settings panels with grouped options (use Settings from navigation)."
+        ]
       },
       {
         "type": "setup",
@@ -675,21 +751,11 @@
     ]
   },
   {
-    "id": "data-table",
-    "title": "Data Table with Filters and Actions",
+    "type": "recipe",
+    "name": "data-table",
+    "library": "",
     "description": "A full-featured data table with search filtering, column sorting, row selection, bulk actions via a floating panel, per-row context menus, and pagination. Designed for admin panels, dashboards, and list views where users browse, filter, and act on tabular data.",
-    "use_cases": [
-      "browsing and managing a list of entities (users, orders, deployments, resources)",
-      "filtering table rows by keyword or status",
-      "selecting multiple rows and applying bulk actions (delete, export, assign)",
-      "navigating large datasets with pagination",
-      "performing per-row actions via a context menu (edit, copy, delete)"
-    ],
-    "level": "organism",
-    "packages": [
-      "@gravity-ui/uikit"
-    ],
-    "tags": [
+    "keywords": [
       "table",
       "data-table",
       "filter",
@@ -704,11 +770,42 @@
       "list",
       "crud"
     ],
+    "when_to_use": [
+      "You need a paginated table where users search/filter rows, select items for bulk operations, and trigger per-row actions. Data is loaded from an API or local state and may span many pages."
+    ],
+    "avoid": [
+      "Simple read-only key-value display (use DefinitionList). Tree/hierarchical data (use TreeSelect). Fewer than 5 items with card-like layout (use Card list). Editable inline cells (use a spreadsheet-like component or custom solution)."
+    ],
+    "import_statement": "",
+    "related": [
+      "confirmation-dialog",
+      "user-feedback",
+      "page-states"
+    ],
+    "title": "Data Table with Filters and Actions",
+    "level": "organism",
+    "packages": [
+      "@gravity-ui/uikit"
+    ],
+    "components": [
+      "Table",
+      "TextInput",
+      "Select",
+      "Pagination",
+      "DropdownMenu",
+      "ActionsPanel",
+      "Checkbox",
+      "Label"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["You need a paginated table where users search/filter rows, select items for bulk operations, and trigger per-row actions. Data is loaded from an API or local state and may span many pages."],
-        "when_not_to_use": ["Simple read-only key-value display (use DefinitionList). Tree/hierarchical data (use TreeSelect). Fewer than 5 items with card-like layout (use Card list). Editable inline cells (use a spreadsheet-like component or custom solution)."]
+        "when_to_use": [
+          "You need a paginated table where users search/filter rows, select items for bulk operations, and trigger per-row actions. Data is loaded from an API or local state and may span many pages."
+        ],
+        "when_not_to_use": [
+          "Simple read-only key-value display (use DefinitionList). Tree/hierarchical data (use TreeSelect). Fewer than 5 items with card-like layout (use Card list). Editable inline cells (use a spreadsheet-like component or custom solution)."
+        ]
       },
       {
         "type": "setup",
@@ -836,22 +933,11 @@
     ]
   },
   {
-    "id": "date-range-filter",
-    "title": "Date Range Filter",
+    "type": "recipe",
+    "name": "date-range-filter",
+    "library": "",
     "description": "A date range picker molecule combining RangeCalendar with preset buttons (last 7 days, last 30 days, custom) inside a Popover. The trigger button displays the formatted date range, and DateField inputs allow manual date entry.",
-    "level": "molecule",
-    "use_cases": [
-      "filter dashboard data by a date range (last 7 days, last 30 days, custom)",
-      "select start and end dates for a report or analytics query",
-      "provide quick preset date ranges alongside a custom calendar picker",
-      "display the selected date range as a formatted label on the trigger button"
-    ],
-    "packages": [
-      "@gravity-ui/date-components",
-      "@gravity-ui/uikit",
-      "@gravity-ui/date-utils"
-    ],
-    "tags": [
+    "keywords": [
       "date",
       "range",
       "calendar",
@@ -865,11 +951,40 @@
       "report",
       "period"
     ],
+    "when_to_use": [
+      "Users need to select a start and end date to filter data, with quick preset options (last 7 days, last 30 days, this month) and a full calendar for custom ranges."
+    ],
+    "avoid": [
+      "Selecting a single date (use DatePicker). Selecting a single time without a date (use TimeInput). Always-visible calendar without a popover trigger (use RangeCalendar directly). Date input without a calendar dropdown (use DateField alone)."
+    ],
+    "import_statement": "",
+    "related": [
+      "data-table",
+      "page-states"
+    ],
+    "title": "Date Range Filter",
+    "level": "molecule",
+    "packages": [
+      "@gravity-ui/date-components",
+      "@gravity-ui/uikit",
+      "@gravity-ui/date-utils"
+    ],
+    "components": [
+      "RangeCalendar",
+      "DateField",
+      "Popup",
+      "Button",
+      "Label"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["Users need to select a start and end date to filter data, with quick preset options (last 7 days, last 30 days, this month) and a full calendar for custom ranges."],
-        "when_not_to_use": ["Selecting a single date (use DatePicker). Selecting a single time without a date (use TimeInput). Always-visible calendar without a popover trigger (use RangeCalendar directly). Date input without a calendar dropdown (use DateField alone)."]
+        "when_to_use": [
+          "Users need to select a start and end date to filter data, with quick preset options (last 7 days, last 30 days, this month) and a full calendar for custom ranges."
+        ],
+        "when_not_to_use": [
+          "Selecting a single date (use DatePicker). Selecting a single time without a date (use TimeInput). Always-visible calendar without a popover trigger (use RangeCalendar directly). Date input without a calendar dropdown (use DateField alone)."
+        ]
       },
       {
         "type": "setup",
@@ -997,21 +1112,11 @@
     ]
   },
   {
-    "id": "file-upload",
-    "title": "File Upload with Preview",
+    "type": "recipe",
+    "name": "file-upload",
+    "library": "",
     "description": "Drag-and-drop file upload area with image/file previews, upload progress indicators, and remove actions. Gravity UI provides FilePreview and Progress atoms but has no built-in dropzone component, so the drop area and upload logic are custom.",
-    "level": "organism",
-    "use_cases": [
-      "upload one or more files via drag-and-drop or file picker",
-      "show thumbnail previews for images and type icons for other files",
-      "display per-file upload progress with cancel/retry actions",
-      "attach files to a form (e.g. support ticket, profile avatar, document submission)"
-    ],
-    "packages": [
-      "@gravity-ui/uikit",
-      "@gravity-ui/icons"
-    ],
-    "tags": [
+    "keywords": [
       "file",
       "upload",
       "drag",
@@ -1023,11 +1128,43 @@
       "image",
       "thumbnail"
     ],
+    "when_to_use": [
+      "Users need to upload files with visual feedback: thumbnails, progress bars, and the ability to remove files before or during upload."
+    ],
+    "avoid": [
+      "Single-click download links (use Button with href). Pasting rich content into a text editor (use the editor's built-in paste handler). Server-side file import from another system (no UI needed)."
+    ],
+    "import_statement": "",
+    "related": [
+      "confirmation-dialog",
+      "user-feedback"
+    ],
+    "title": "File Upload with Preview",
+    "level": "organism",
+    "packages": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons"
+    ],
+    "components": [
+      "FilePreview",
+      "Progress",
+      "Button",
+      "Icon",
+      "Text",
+      "Card",
+      "Label",
+      "Alert",
+      "Toaster"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["Users need to upload files with visual feedback: thumbnails, progress bars, and the ability to remove files before or during upload."],
-        "when_not_to_use": ["Single-click download links (use Button with href). Pasting rich content into a text editor (use the editor's built-in paste handler). Server-side file import from another system (no UI needed)."]
+        "when_to_use": [
+          "Users need to upload files with visual feedback: thumbnails, progress bars, and the ability to remove files before or during upload."
+        ],
+        "when_not_to_use": [
+          "Single-click download links (use Button with href). Pasting rich content into a text editor (use the editor's built-in paste handler). Server-side file import from another system (no UI needed)."
+        ]
       },
       {
         "type": "setup",
@@ -1186,20 +1323,11 @@
     ]
   },
   {
-    "id": "flex-layout",
-    "title": "Flex Layout",
+    "type": "recipe",
+    "name": "flex-layout",
+    "library": "",
     "description": "Arrange items horizontally or vertically with consistent gaps using the Flex component. Supports responsive direction, alignment shortcuts, wrapping, and inline display.",
-    "level": "foundation",
-    "use_cases": [
-      "build a horizontal toolbar with evenly spaced action buttons",
-      "stack form fields or cards vertically with consistent gap",
-      "center content both horizontally and vertically in a container",
-      "switch from column layout on mobile to row layout on desktop"
-    ],
-    "packages": [
-      "@gravity-ui/uikit"
-    ],
-    "tags": [
+    "keywords": [
       "layout",
       "flex",
       "gap",
@@ -1209,11 +1337,36 @@
       "responsive",
       "direction"
     ],
+    "when_to_use": [
+      "You need a linear (single-axis) arrangement of elements with consistent gaps, optional alignment control, or responsive direction. Flex is the lowest-level layout primitive — reach for it whenever you need to line things up horizontally or vertically."
+    ],
+    "avoid": [
+      "Multi-column grid layouts with defined column widths (use grid-layout recipe with Row+Col). Page-level shells with sidebars (use page-layout recipe). Spacing/padding on a single element without siblings (use Box spacing prop)."
+    ],
+    "import_statement": "",
+    "related": [
+      "grid-layout",
+      "spacing-and-containers",
+      "page-layout"
+    ],
+    "title": "Flex Layout",
+    "level": "foundation",
+    "packages": [
+      "@gravity-ui/uikit"
+    ],
+    "components": [
+      "Flex",
+      "Box"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["You need a linear (single-axis) arrangement of elements with consistent gaps, optional alignment control, or responsive direction. Flex is the lowest-level layout primitive — reach for it whenever you need to line things up horizontally or vertically."],
-        "when_not_to_use": ["Multi-column grid layouts with defined column widths (use grid-layout recipe with Row+Col). Page-level shells with sidebars (use page-layout recipe). Spacing/padding on a single element without siblings (use Box spacing prop)."],
+        "when_to_use": [
+          "You need a linear (single-axis) arrangement of elements with consistent gaps, optional alignment control, or responsive direction. Flex is the lowest-level layout primitive — reach for it whenever you need to line things up horizontally or vertically."
+        ],
+        "when_not_to_use": [
+          "Multi-column grid layouts with defined column widths (use grid-layout recipe with Row+Col). Page-level shells with sidebars (use page-layout recipe). Spacing/padding on a single element without siblings (use Box spacing prop)."
+        ],
         "choice_matrix": [
           {
             "situation": "Horizontal row of buttons with gap between them",
@@ -1299,21 +1452,11 @@
     ]
   },
   {
-    "id": "form-with-validation",
-    "title": "Form with Validation",
+    "type": "recipe",
+    "name": "form-with-validation",
+    "library": "",
     "description": "Multi-field form with per-field validation, error messages, and disabled submit until all fields are valid. Uses FormRow for label-field layout and Gravity UI form controls for consistent styling.",
-    "level": "organism",
-    "use_cases": [
-      "user registration or sign-up form with name, email, and password fields",
-      "profile editing form with required and optional fields",
-      "contact or support form with email validation and message length requirements",
-      "settings form with mixed input types: text, dropdown, and checkbox"
-    ],
-    "packages": [
-      "@gravity-ui/uikit",
-      "@gravity-ui/components"
-    ],
-    "tags": [
+    "keywords": [
       "form",
       "validation",
       "input",
@@ -1328,11 +1471,41 @@
       "form-field",
       "form-layout"
     ],
+    "when_to_use": [
+      "You need a multi-field form where each field has its own validation rules (required, format, min length) and error messages must appear inline next to the invalid field. The submit button should be disabled until all fields pass validation."
+    ],
+    "avoid": [
+      "Single-input inline actions (use TextInput with a Button). Multi-step forms with per-step validation (use the multi-step-wizard recipe). Server-only validation without client-side feedback (still add client-side checks for UX)."
+    ],
+    "import_statement": "",
+    "related": [
+      "multi-step-wizard",
+      "confirmation-dialog",
+      "user-feedback"
+    ],
+    "title": "Form with Validation",
+    "level": "organism",
+    "packages": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/components"
+    ],
+    "components": [
+      "FormRow",
+      "TextInput",
+      "Select",
+      "Checkbox",
+      "Button",
+      "Text"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["You need a multi-field form where each field has its own validation rules (required, format, min length) and error messages must appear inline next to the invalid field. The submit button should be disabled until all fields pass validation."],
-        "when_not_to_use": ["Single-input inline actions (use TextInput with a Button). Multi-step forms with per-step validation (use the multi-step-wizard recipe). Server-only validation without client-side feedback (still add client-side checks for UX)."]
+        "when_to_use": [
+          "You need a multi-field form where each field has its own validation rules (required, format, min length) and error messages must appear inline next to the invalid field. The submit button should be disabled until all fields pass validation."
+        ],
+        "when_not_to_use": [
+          "Single-input inline actions (use TextInput with a Button). Multi-step forms with per-step validation (use the multi-step-wizard recipe). Server-only validation without client-side feedback (still add client-side checks for UX)."
+        ]
       },
       {
         "type": "setup",
@@ -1460,20 +1633,11 @@
     ]
   },
   {
-    "id": "grid-layout",
-    "title": "Grid Column Layout",
+    "type": "recipe",
+    "name": "grid-layout",
+    "library": "",
     "description": "Build responsive multi-column layouts with the Row and Col 12-column grid system. Columns adapt across breakpoints (s, m, l, xl, xxl) and wrap automatically.",
-    "level": "foundation",
-    "use_cases": [
-      "build a two-column form layout with equal-width fields",
-      "display three dashboard metric cards side-by-side, stacking on mobile",
-      "create a sidebar (narrow) + main content (wide) split layout",
-      "build a responsive card gallery that reflows from 1 to 2 to 3 columns"
-    ],
-    "packages": [
-      "@gravity-ui/uikit"
-    ],
-    "tags": [
+    "keywords": [
       "layout",
       "grid",
       "columns",
@@ -1483,11 +1647,37 @@
       "breakpoints",
       "12-column"
     ],
+    "when_to_use": [
+      "You need columns with defined widths based on a 12-column system. Use Row+Col when the relative proportions of columns matter or when columns must reflow across breakpoints."
+    ],
+    "avoid": [
+      "Simple horizontal alignment where all items share equal, auto-sized space (use Flex). Single-column vertical stacking (use Flex direction column). Content that needs precise CSS Grid (display:grid) features like areas or auto-fill tracks."
+    ],
+    "import_statement": "",
+    "related": [
+      "flex-layout",
+      "spacing-and-containers",
+      "page-layout"
+    ],
+    "title": "Grid Column Layout",
+    "level": "foundation",
+    "packages": [
+      "@gravity-ui/uikit"
+    ],
+    "components": [
+      "Row",
+      "Col",
+      "Flex"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["You need columns with defined widths based on a 12-column system. Use Row+Col when the relative proportions of columns matter or when columns must reflow across breakpoints."],
-        "when_not_to_use": ["Simple horizontal alignment where all items share equal, auto-sized space (use Flex). Single-column vertical stacking (use Flex direction column). Content that needs precise CSS Grid (display:grid) features like areas or auto-fill tracks."],
+        "when_to_use": [
+          "You need columns with defined widths based on a 12-column system. Use Row+Col when the relative proportions of columns matter or when columns must reflow across breakpoints."
+        ],
+        "when_not_to_use": [
+          "Simple horizontal alignment where all items share equal, auto-sized space (use Flex). Single-column vertical stacking (use Flex direction column). Content that needs precise CSS Grid (display:grid) features like areas or auto-fill tracks."
+        ],
         "choice_matrix": [
           {
             "situation": "Two equal columns",
@@ -1574,22 +1764,11 @@
     ]
   },
   {
-    "id": "landing-page",
-    "title": "Landing Page with Page Constructor",
+    "type": "recipe",
+    "name": "landing-page",
+    "library": "",
     "description": "A marketing or landing page built with @gravity-ui/page-constructor blocks for structured content, @gravity-ui/uikit for cards and typography, and @gravity-ui/blog-constructor for an authentication gate. Includes a hero section with a title and CTA, a features grid with cards, and a sign-in prompt for gated content.",
-    "level": "organism",
-    "use_cases": [
-      "build a product landing page with a hero section, feature grid, and call-to-action buttons",
-      "create a marketing page using page-constructor's structured block system",
-      "gate certain page sections behind authentication with PromptSignIn",
-      "combine page-constructor typography (Title, Button, Link) with uikit Card components for feature showcases"
-    ],
-    "packages": [
-      "@gravity-ui/page-constructor",
-      "@gravity-ui/uikit",
-      "@gravity-ui/blog-constructor"
-    ],
-    "tags": [
+    "keywords": [
       "landing",
       "marketing",
       "page-constructor",
@@ -1606,11 +1785,42 @@
       "landing-page",
       "product-page"
     ],
+    "when_to_use": [
+      "You are building a marketing, product, or informational landing page with structured sections (hero, features, CTA). Page-constructor provides themed blocks with built-in responsive grid layout, while uikit Card and Text components handle feature cards. Use PromptSignIn from blog-constructor to gate sections behind authentication."
+    ],
+    "avoid": [
+      "Application dashboards with dynamic data (use AsideHeader + ActionBar from navigation). Blog post pages with markdown content (use blog-constructor's full blog rendering). Single-component demos or documentation pages (use plain uikit layout)."
+    ],
+    "import_statement": "",
+    "related": [
+      "theming-dark-mode",
+      "page-states",
+      "dashboard-layout"
+    ],
+    "title": "Landing Page with Page Constructor",
+    "level": "organism",
+    "packages": [
+      "@gravity-ui/page-constructor",
+      "@gravity-ui/uikit",
+      "@gravity-ui/blog-constructor"
+    ],
+    "components": [
+      "Title",
+      "Button",
+      "Link",
+      "Card",
+      "Text",
+      "PromptSignIn"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["You are building a marketing, product, or informational landing page with structured sections (hero, features, CTA). Page-constructor provides themed blocks with built-in responsive grid layout, while uikit Card and Text components handle feature cards. Use PromptSignIn from blog-constructor to gate sections behind authentication."],
-        "when_not_to_use": ["Application dashboards with dynamic data (use AsideHeader + ActionBar from navigation). Blog post pages with markdown content (use blog-constructor's full blog rendering). Single-component demos or documentation pages (use plain uikit layout)."]
+        "when_to_use": [
+          "You are building a marketing, product, or informational landing page with structured sections (hero, features, CTA). Page-constructor provides themed blocks with built-in responsive grid layout, while uikit Card and Text components handle feature cards. Use PromptSignIn from blog-constructor to gate sections behind authentication."
+        ],
+        "when_not_to_use": [
+          "Application dashboards with dynamic data (use AsideHeader + ActionBar from navigation). Blog post pages with markdown content (use blog-constructor's full blog rendering). Single-component demos or documentation pages (use plain uikit layout)."
+        ]
       },
       {
         "type": "setup",
@@ -1753,21 +1963,11 @@
     ]
   },
   {
-    "id": "multi-step-wizard",
-    "title": "Multi-Step Wizard",
+    "type": "recipe",
+    "name": "multi-step-wizard",
+    "library": "",
     "description": "A Stepper-driven multi-step flow where each step has its own content and validation. Users advance through steps sequentially with Back/Next buttons, and a final Submit action. Optionally wrapped in a Dialog for modal use cases.",
-    "level": "organism",
-    "use_cases": [
-      "onboarding wizard that collects user profile info across multiple steps",
-      "multi-step checkout or order placement flow",
-      "resource creation wizard (e.g. create a project, cluster, or deployment) with configuration stages",
-      "guided setup flow for complex configuration (notifications, integrations, permissions)"
-    ],
-    "packages": [
-      "@gravity-ui/uikit",
-      "@gravity-ui/components"
-    ],
-    "tags": [
+    "keywords": [
       "stepper",
       "wizard",
       "multi-step",
@@ -1783,11 +1983,40 @@
       "sequential",
       "validation"
     ],
+    "when_to_use": [
+      "A task requires the user to complete multiple stages in sequence, where each stage has distinct fields or choices and must be validated before proceeding. A progress indicator (Stepper) shows the user where they are in the flow."
+    ],
+    "avoid": [
+      "Single-page forms with many fields (use the form-with-validation recipe). Tab-based navigation where users can jump freely between sections (use Tabs). Non-linear flows where steps can be completed in any order (use a checklist pattern)."
+    ],
+    "import_statement": "",
+    "related": [
+      "form-with-validation",
+      "confirmation-dialog",
+      "page-states"
+    ],
+    "title": "Multi-Step Wizard",
+    "level": "organism",
+    "packages": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/components"
+    ],
+    "components": [
+      "Stepper",
+      "Button",
+      "Dialog",
+      "Text",
+      "FormRow"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["A task requires the user to complete multiple stages in sequence, where each stage has distinct fields or choices and must be validated before proceeding. A progress indicator (Stepper) shows the user where they are in the flow."],
-        "when_not_to_use": ["Single-page forms with many fields (use the form-with-validation recipe). Tab-based navigation where users can jump freely between sections (use Tabs). Non-linear flows where steps can be completed in any order (use a checklist pattern)."]
+        "when_to_use": [
+          "A task requires the user to complete multiple stages in sequence, where each stage has distinct fields or choices and must be validated before proceeding. A progress indicator (Stepper) shows the user where they are in the flow."
+        ],
+        "when_not_to_use": [
+          "Single-page forms with many fields (use the form-with-validation recipe). Tab-based navigation where users can jump freely between sections (use Tabs). Non-linear flows where steps can be completed in any order (use a checklist pattern)."
+        ]
       },
       {
         "type": "setup",
@@ -1918,21 +2147,11 @@
     ]
   },
   {
-    "id": "page-layout",
-    "title": "Application Page Layout",
+    "type": "recipe",
+    "name": "page-layout",
+    "library": "",
     "description": "Assemble a complete application page with AsideHeader sidebar navigation and a structured content area using Container and Flex. Composes the flex-layout, grid-layout, and spacing-and-containers foundation recipes inside a navigation shell.",
-    "level": "organism",
-    "use_cases": [
-      "build an admin panel with persistent sidebar navigation and constrained content width",
-      "add a collapsible sidebar to an existing content page",
-      "create an application shell where every page shares the same navigation and content structure",
-      "combine AsideHeader with a Container+Flex content layout for consistent page anatomy"
-    ],
-    "packages": [
-      "@gravity-ui/uikit",
-      "@gravity-ui/navigation"
-    ],
-    "tags": [
+    "keywords": [
       "layout",
       "page",
       "sidebar",
@@ -1943,11 +2162,42 @@
       "container",
       "flex"
     ],
+    "when_to_use": [
+      "You are building the top-level page structure of an application that needs both sidebar navigation and a content area with controlled width. This recipe composes AsideHeader (navigation shell) with Container+Flex (content layout)."
+    ],
+    "avoid": [
+      "Layouts inside content sections — use Flex or Row+Col there. Pages without persistent sidebar navigation — use Container+Flex directly. Full navigation shell setup with routing (use app-shell recipe for the navigation concern)."
+    ],
+    "import_statement": "",
+    "related": [
+      "flex-layout",
+      "grid-layout",
+      "spacing-and-containers",
+      "app-shell"
+    ],
+    "title": "Application Page Layout",
+    "level": "organism",
+    "packages": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/navigation"
+    ],
+    "components": [
+      "AsideHeader",
+      "Container",
+      "Flex",
+      "Row",
+      "Col",
+      "Box"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["You are building the top-level page structure of an application that needs both sidebar navigation and a content area with controlled width. This recipe composes AsideHeader (navigation shell) with Container+Flex (content layout)."],
-        "when_not_to_use": ["Layouts inside content sections — use Flex or Row+Col there. Pages without persistent sidebar navigation — use Container+Flex directly. Full navigation shell setup with routing (use app-shell recipe for the navigation concern)."]
+        "when_to_use": [
+          "You are building the top-level page structure of an application that needs both sidebar navigation and a content area with controlled width. This recipe composes AsideHeader (navigation shell) with Container+Flex (content layout)."
+        ],
+        "when_not_to_use": [
+          "Layouts inside content sections — use Flex or Row+Col there. Pages without persistent sidebar navigation — use Container+Flex directly. Full navigation shell setup with routing (use app-shell recipe for the navigation concern)."
+        ]
       },
       {
         "type": "setup",
@@ -2068,21 +2318,11 @@
     ]
   },
   {
-    "id": "page-states",
-    "title": "Page States: Loading, Empty, Error",
+    "type": "recipe",
+    "name": "page-states",
+    "library": "",
     "description": "Branching pattern that renders the correct visual state for a page or section depending on whether data is loading, the result set is empty, an error occurred, or content is ready.",
-    "level": "molecule",
-    "use_cases": [
-      "show a skeleton placeholder while page data is fetching",
-      "display a centered spinner for lazy-loaded sections",
-      "present an empty-state illustration when query returns zero results",
-      "render an error message with a retry action after a failed request",
-      "gate content rendering behind a loading/error/empty check"
-    ],
-    "packages": [
-      "@gravity-ui/uikit"
-    ],
-    "tags": [
+    "keywords": [
       "loading",
       "empty",
       "error",
@@ -2097,11 +2337,37 @@
       "error-state",
       "loading-state"
     ],
+    "when_to_use": [
+      "A page, panel, or section fetches async data and must show distinct UI for loading, empty, error, and success states."
+    ],
+    "avoid": [
+      "Inline loading inside a button or label (use Spin directly), optimistic UI updates that skip the loading state, or skeleton-only table rows handled by the table component itself."
+    ],
+    "import_statement": "",
+    "related": [
+      "user-feedback",
+      "confirmation-dialog"
+    ],
+    "title": "Page States: Loading, Empty, Error",
+    "level": "molecule",
+    "packages": [
+      "@gravity-ui/uikit"
+    ],
+    "components": [
+      "Skeleton",
+      "PlaceholderContainer",
+      "Loader",
+      "Spin"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["A page, panel, or section fetches async data and must show distinct UI for loading, empty, error, and success states."],
-        "when_not_to_use": ["Inline loading inside a button or label (use Spin directly), optimistic UI updates that skip the loading state, or skeleton-only table rows handled by the table component itself."],
+        "when_to_use": [
+          "A page, panel, or section fetches async data and must show distinct UI for loading, empty, error, and success states."
+        ],
+        "when_not_to_use": [
+          "Inline loading inside a button or label (use Spin directly), optimistic UI updates that skip the loading state, or skeleton-only table rows handled by the table component itself."
+        ],
         "choice_matrix": [
           {
             "situation": "Full page is loading for the first time",
@@ -2213,21 +2479,11 @@
     ]
   },
   {
-    "id": "search-with-suggestions",
-    "title": "Search with Suggestions",
+    "type": "recipe",
+    "name": "search-with-suggestions",
+    "library": "",
     "description": "A molecule recipe for building a search input with an autocomplete dropdown. TextInput captures user input with debouncing, a Popup displays suggestion results using List with keyboard navigation, and Hotkey renders the keyboard shortcut hint to focus the search.",
-    "level": "molecule",
-    "use_cases": [
-      "global search bar with autocomplete suggestions in a header or sidebar",
-      "entity search (users, products, documents) with instant filtered results",
-      "command palette or quick-find input with keyboard shortcut activation",
-      "search field with recent searches and trending suggestions"
-    ],
-    "packages": [
-      "@gravity-ui/uikit",
-      "@gravity-ui/icons"
-    ],
-    "tags": [
+    "keywords": [
       "search",
       "autocomplete",
       "suggestions",
@@ -2242,11 +2498,40 @@
       "hotkey",
       "input"
     ],
+    "when_to_use": [
+      "Users need a search input that shows suggestion results as they type, with keyboard navigation (ArrowUp/Down to select, Enter to confirm, Escape to close). The suggestions are fetched from an API or filtered from a local dataset."
+    ],
+    "avoid": [
+      "Selecting from a predefined list of options (use Select with filterable prop). Multi-value tag input (use TextInput with labels or a custom tagger). Full-text search results displayed as a page (use a search results page with TextInput at the top, no dropdown)."
+    ],
+    "import_statement": "",
+    "related": [
+      "app-shell",
+      "page-states",
+      "data-table"
+    ],
+    "title": "Search with Suggestions",
+    "level": "molecule",
+    "packages": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons"
+    ],
+    "components": [
+      "TextInput",
+      "Popup",
+      "List",
+      "Loader",
+      "Hotkey"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["Users need a search input that shows suggestion results as they type, with keyboard navigation (ArrowUp/Down to select, Enter to confirm, Escape to close). The suggestions are fetched from an API or filtered from a local dataset."],
-        "when_not_to_use": ["Selecting from a predefined list of options (use Select with filterable prop). Multi-value tag input (use TextInput with labels or a custom tagger). Full-text search results displayed as a page (use a search results page with TextInput at the top, no dropdown)."]
+        "when_to_use": [
+          "Users need a search input that shows suggestion results as they type, with keyboard navigation (ArrowUp/Down to select, Enter to confirm, Escape to close). The suggestions are fetched from an API or filtered from a local dataset."
+        ],
+        "when_not_to_use": [
+          "Selecting from a predefined list of options (use Select with filterable prop). Multi-value tag input (use TextInput with labels or a custom tagger). Full-text search results displayed as a page (use a search results page with TextInput at the top, no dropdown)."
+        ]
       },
       {
         "type": "setup",
@@ -2384,21 +2669,11 @@
     ]
   },
   {
-    "id": "settings-page",
-    "title": "Settings Page",
+    "type": "recipe",
+    "name": "settings-page",
+    "library": "",
     "description": "A categorized settings panel using the Navigation Settings component with grouped sections. Each section contains controls like Switch for toggles, Select for choices, and RadioGroup for exclusive options. Includes Save/Cancel buttons and an unsaved changes warning.",
-    "level": "organism",
-    "use_cases": [
-      "application-wide settings page with grouped preferences (appearance, notifications, privacy)",
-      "user account settings with profile, security, and notification sections",
-      "project or workspace configuration panel with categorized options",
-      "admin panel settings with multiple pages of options organized by category"
-    ],
-    "packages": [
-      "@gravity-ui/navigation",
-      "@gravity-ui/uikit"
-    ],
-    "tags": [
+    "keywords": [
       "settings",
       "preferences",
       "configuration",
@@ -2415,11 +2690,42 @@
       "admin",
       "panel"
     ],
+    "when_to_use": [
+      "You need a full settings page with multiple categories/pages of options, where each category contains labeled settings with different control types (toggles, dropdowns, radio buttons). The Navigation Settings component provides built-in page navigation, filtering, and layout."
+    ],
+    "avoid": [
+      "A single form with a few fields (use the form-with-validation recipe). Feature flags managed by a backend system with no user-facing UI. Quick toggles in a toolbar or header (use Switch or DropdownMenu directly). A wizard-like guided setup (use the multi-step-wizard recipe)."
+    ],
+    "import_statement": "",
+    "related": [
+      "confirmation-dialog",
+      "form-with-validation",
+      "page-states"
+    ],
+    "title": "Settings Page",
+    "level": "organism",
+    "packages": [
+      "@gravity-ui/navigation",
+      "@gravity-ui/uikit"
+    ],
+    "components": [
+      "Settings",
+      "Switch",
+      "Select",
+      "RadioGroup",
+      "Button",
+      "Divider",
+      "Text"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["You need a full settings page with multiple categories/pages of options, where each category contains labeled settings with different control types (toggles, dropdowns, radio buttons). The Navigation Settings component provides built-in page navigation, filtering, and layout."],
-        "when_not_to_use": ["A single form with a few fields (use the form-with-validation recipe). Feature flags managed by a backend system with no user-facing UI. Quick toggles in a toolbar or header (use Switch or DropdownMenu directly). A wizard-like guided setup (use the multi-step-wizard recipe)."]
+        "when_to_use": [
+          "You need a full settings page with multiple categories/pages of options, where each category contains labeled settings with different control types (toggles, dropdowns, radio buttons). The Navigation Settings component provides built-in page navigation, filtering, and layout."
+        ],
+        "when_not_to_use": [
+          "A single form with a few fields (use the form-with-validation recipe). Feature flags managed by a backend system with no user-facing UI. Quick toggles in a toolbar or header (use Switch or DropdownMenu directly). A wizard-like guided setup (use the multi-step-wizard recipe)."
+        ]
       },
       {
         "type": "setup",
@@ -2574,20 +2880,11 @@
     ]
   },
   {
-    "id": "spacing-and-containers",
-    "title": "Spacing and Containers",
+    "type": "recipe",
+    "name": "spacing-and-containers",
+    "library": "",
     "description": "Control element spacing (padding and margin) with Box and constrain page-level width with Container. Replaces inline styles for spacing with design-token-based Space values.",
-    "level": "foundation",
-    "use_cases": [
-      "add consistent padding to a section wrapper using design tokens",
-      "center page content with a max-width constraint",
-      "use semantic HTML elements (section, article, nav, main) with design-system spacing",
-      "apply shorthand spacing (all sides, axis, or individual side) via a single prop"
-    ],
-    "packages": [
-      "@gravity-ui/uikit"
-    ],
-    "tags": [
+    "keywords": [
       "layout",
       "spacing",
       "padding",
@@ -2598,11 +2895,36 @@
       "semantic",
       "tokens"
     ],
+    "when_to_use": [
+      "You need to control the spacing of a single element (padding/margin) or constrain the width of a page section. Box is the spacing primitive; Container is the page-width wrapper."
+    ],
+    "avoid": [
+      "Gaps between sibling elements (use gap prop on Flex or space prop on Row). Column-based grid layouts (use Row+Col). Sidebar/navigation shells (use page-layout recipe)."
+    ],
+    "import_statement": "",
+    "related": [
+      "flex-layout",
+      "grid-layout",
+      "page-layout"
+    ],
+    "title": "Spacing and Containers",
+    "level": "foundation",
+    "packages": [
+      "@gravity-ui/uikit"
+    ],
+    "components": [
+      "Box",
+      "Container"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["You need to control the spacing of a single element (padding/margin) or constrain the width of a page section. Box is the spacing primitive; Container is the page-width wrapper."],
-        "when_not_to_use": ["Gaps between sibling elements (use gap prop on Flex or space prop on Row). Column-based grid layouts (use Row+Col). Sidebar/navigation shells (use page-layout recipe)."],
+        "when_to_use": [
+          "You need to control the spacing of a single element (padding/margin) or constrain the width of a page section. Box is the spacing primitive; Container is the page-width wrapper."
+        ],
+        "when_not_to_use": [
+          "Gaps between sibling elements (use gap prop on Flex or space prop on Row). Column-based grid layouts (use Row+Col). Sidebar/navigation shells (use page-layout recipe)."
+        ],
         "choice_matrix": [
           {
             "situation": "Section needs uniform padding",
@@ -2683,20 +3005,11 @@
     ]
   },
   {
-    "id": "theming-dark-mode",
-    "title": "Theming and Dark Mode Setup",
+    "type": "recipe",
+    "name": "theming-dark-mode",
+    "library": "",
     "description": "Foundation recipe for configuring Gravity UI theming, wrapping your app in ThemeProvider, and building a theme toggle that supports light, dark, and system-preference modes.",
-    "level": "foundation",
-    "use_cases": [
-      "set up Gravity UI theming from scratch in a new project",
-      "add a dark mode toggle to an existing application",
-      "respect the user's OS-level color scheme preference",
-      "scope a different theme to a specific section of the page"
-    ],
-    "packages": [
-      "@gravity-ui/uikit"
-    ],
-    "tags": [
+    "keywords": [
       "theme",
       "dark-mode",
       "light-mode",
@@ -2710,11 +3023,37 @@
       "setup",
       "foundation"
     ],
+    "when_to_use": [
+      "You are starting a new Gravity UI project, or adding theme switching to an existing one. ThemeProvider must wrap all Gravity UI components — it injects the CSS custom properties (--g-color-*) that every component depends on."
+    ],
+    "avoid": [
+      "Per-component color overrides (use className or style props instead). Branding that only changes the accent color (override --g-color-base-brand in CSS). Server-side-only pages with no client React tree."
+    ],
+    "import_statement": "",
+    "related": [
+      "confirmation-dialog",
+      "user-feedback"
+    ],
+    "title": "Theming and Dark Mode Setup",
+    "level": "foundation",
+    "packages": [
+      "@gravity-ui/uikit"
+    ],
+    "components": [
+      "ThemeProvider",
+      "useTheme",
+      "Switch",
+      "RadioGroup"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["You are starting a new Gravity UI project, or adding theme switching to an existing one. ThemeProvider must wrap all Gravity UI components — it injects the CSS custom properties (--g-color-*) that every component depends on."],
-        "when_not_to_use": ["Per-component color overrides (use className or style props instead). Branding that only changes the accent color (override --g-color-base-brand in CSS). Server-side-only pages with no client React tree."]
+        "when_to_use": [
+          "You are starting a new Gravity UI project, or adding theme switching to an existing one. ThemeProvider must wrap all Gravity UI components — it injects the CSS custom properties (--g-color-*) that every component depends on."
+        ],
+        "when_not_to_use": [
+          "Per-component color overrides (use className or style props instead). Branding that only changes the accent color (override --g-color-base-brand in CSS). Server-side-only pages with no client React tree."
+        ]
       },
       {
         "type": "setup",
@@ -2831,22 +3170,11 @@
     ]
   },
   {
-    "id": "user-feedback",
-    "title": "User Feedback: Toasts, Alerts, and Notifications",
+    "type": "recipe",
+    "name": "user-feedback",
+    "library": "",
     "description": "A molecule recipe for providing user feedback through three complementary channels: Toaster for transient success/error messages after actions, Alert for persistent inline warnings and info, and Notifications for a notification center with history.",
-    "level": "molecule",
-    "use_cases": [
-      "show a success toast after saving, deleting, or submitting data",
-      "display an error toast when an API call fails with a retry action",
-      "render persistent inline alerts for warnings, deprecation notices, or required actions",
-      "build a notification center (bell icon) showing recent activity and unread items",
-      "provide non-blocking feedback after bulk operations complete"
-    ],
-    "packages": [
-      "@gravity-ui/uikit",
-      "@gravity-ui/components"
-    ],
-    "tags": [
+    "keywords": [
       "toast",
       "toaster",
       "alert",
@@ -2862,11 +3190,38 @@
       "inline",
       "transient"
     ],
+    "when_to_use": [
+      "Your application needs to communicate outcomes of user actions (success, error), display persistent warnings or information, or maintain a notification history that users can review later."
+    ],
+    "avoid": [
+      "Form field validation errors (use TextInput validationState and errorMessage). Confirmation before an action (use ConfirmDialog). Loading states (use Loader or Skeleton). Tooltips for UI explanation (use Popover or HelpMark)."
+    ],
+    "import_statement": "",
+    "related": [
+      "confirmation-dialog",
+      "page-states",
+      "app-shell"
+    ],
+    "title": "User Feedback: Toasts, Alerts, and Notifications",
+    "level": "molecule",
+    "packages": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/components"
+    ],
+    "components": [
+      "Toaster",
+      "Alert",
+      "Notifications"
+    ],
     "sections": [
       {
         "type": "decision",
-        "when_to_use": ["Your application needs to communicate outcomes of user actions (success, error), display persistent warnings or information, or maintain a notification history that users can review later."],
-        "when_not_to_use": ["Form field validation errors (use TextInput validationState and errorMessage). Confirmation before an action (use ConfirmDialog). Loading states (use Loader or Skeleton). Tooltips for UI explanation (use Popover or HelpMark)."],
+        "when_to_use": [
+          "Your application needs to communicate outcomes of user actions (success, error), display persistent warnings or information, or maintain a notification history that users can review later."
+        ],
+        "when_not_to_use": [
+          "Form field validation errors (use TextInput validationState and errorMessage). Confirmation before an action (use ConfirmDialog). Loading states (use Loader or Skeleton). Tooltips for UI explanation (use Popover or HelpMark)."
+        ],
         "choice_matrix": [
           {
             "situation": "Action completed successfully or failed (transient, auto-dismissing)",

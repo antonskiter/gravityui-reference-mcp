@@ -1,5 +1,29 @@
 [
   {
+    "type": "library",
+    "name": "axios-wrapper",
+    "library": "axios-wrapper",
+    "description": "Base Axios HTTP client class with auto-cancellation of concurrent requests, CSRF token management, and optional request/error collection for debugging.",
+    "keywords": [
+      "gravity-ui",
+      "axios-wrapper",
+      "axios",
+      "wrapper"
+    ],
+    "when_to_use": [
+      "Base Axios HTTP client class with auto-cancellation of concurrent requests, CSRF token management, and optional request/error collection for debugging"
+    ],
+    "avoid": [
+      "Not for direct use — subclass it to define domain-specific API methods. Not for browser-unaware server environments."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/axios-wrapper",
+    "not_for": "Not for direct use — subclass it to define domain-specific API methods. Not for browser-unaware server environments.",
+    "depends_on": [],
+    "component_count": 0
+  },
+  {
     "type": "utility",
     "name": "AxiosWrapper",
     "library": "axios-wrapper",
@@ -27,7 +51,10 @@
       "Browser-unaware environments without polyfilling cancel tokens"
     ],
     "import_statement": "import AxiosWrapper from '@gravity-ui/axios-wrapper';",
-    "related": ["ApiMethodParams", "AxiosWrapperOptions"],
+    "related": [
+      "ApiMethodParams",
+      "AxiosWrapperOptions"
+    ],
     "signature": "new AxiosWrapper(options?: AxiosWrapperOptions): AxiosWrapper",
     "parameters": [
       {

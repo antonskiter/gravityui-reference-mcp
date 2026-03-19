@@ -2,7 +2,7 @@ import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import type MiniSearch from "minisearch";
-import type { Entity, RecipeDef, Overview } from "../schemas.js";
+import type { Entity } from "../schemas.js";
 import { buildSearchIndex } from "./index-builder.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -26,9 +26,6 @@ export interface LoadedData {
   entitiesByLibrary: Map<string, Entity[]>;
   entitiesByType: Map<string, Entity[]>;
   index: MiniSearch;
-  overview: Overview;
-  recipes: RecipeDef[];
-  recipeById: Map<string, RecipeDef>;
 }
 
 export function loadData(): LoadedData {
@@ -39,46 +36,18 @@ export function loadData(): LoadedData {
     for (const file of files) {
       try {
         const raw = JSON.parse(readFileSync(join(entitiesDir, file), "utf-8"));
-        if (Array.isArray(raw)) {
-          entities.push(...(raw as Entity[]));
-        }
-      } catch {
-        // skip malformed files
-      }
+        if (Array.isArray(raw)) entities.push(...(raw as Entity[]));
+      } catch { /* skip malformed */ }
     }
   }
 
-  let overview: Overview = { system: { description: "" }, libraries: [], categories: {}, component_categories: {} };
-  const overviewPath = join(DATA_DIR, "overview.json");
-  if (existsSync(overviewPath)) {
-    try {
-      const raw = JSON.parse(readFileSync(overviewPath, "utf-8"));
-      if (raw && typeof raw === "object" && raw.system) {
-        overview = raw as Overview;
-        if (!overview.categories) overview.categories = {};
-        if (!overview.component_categories) overview.component_categories = {};
-      }
-    } catch { /* use default */ }
-  }
-
-  const recipesPath = join(DATA_DIR, "recipes.json");
-  let recipes: RecipeDef[] = [];
-  if (existsSync(recipesPath)) {
-    try {
-      const raw = JSON.parse(readFileSync(recipesPath, "utf-8"));
-      if (Array.isArray(raw)) recipes = raw as RecipeDef[];
-    } catch { /* use default */ }
-  }
-
-  const entityByName = groupBy(entities, e => e.name);
+  const entityByName = groupBy(entities, e => e.name.toLowerCase());
   const entitiesByLibrary = groupBy(entities, e => e.library);
   const entitiesByType = groupBy(entities, e => e.type);
-  const recipeById = new Map(recipes.map(r => [r.id, r]));
-  const index = buildSearchIndex(entities, recipes);
+  const index = buildSearchIndex(entities);
 
-  console.error(
-    `Loaded: ${entities.length} entities, ${new Set(entities.map(e => e.library)).size} libraries, ${recipes.length} recipes`
-  );
+  const libs = new Set(entities.map(e => e.library)).size;
+  console.error(`Loaded: ${entities.length} entities, ${libs} libraries`);
 
-  return { entities, entityByName, entitiesByLibrary, entitiesByType, index, overview, recipes, recipeById };
+  return { entities, entityByName, entitiesByLibrary, entitiesByType, index };
 }

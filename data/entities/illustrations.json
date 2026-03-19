@@ -1,5 +1,27 @@
 [
   {
+    "type": "library",
+    "name": "illustrations",
+    "library": "illustrations",
+    "description": "SVG illustration asset library providing themed empty-state and error-state illustrations (404, 403, 500, no-results, resource types) that respond to Gravity UI CSS theme tokens.",
+    "keywords": [
+      "gravity-ui",
+      "illustrations"
+    ],
+    "when_to_use": [
+      "SVG illustration asset library providing themed empty-state and error-state illustrations (404, 403, 500, no-results, resource types) that respond to Gravity UI CSS theme tokens"
+    ],
+    "avoid": [
+      "Not for functional UI icons — use @gravity-ui/icons. Not for marketing or landing-page imagery."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/illustrations",
+    "not_for": "Not for functional UI icons — use @gravity-ui/icons. Not for marketing or landing-page imagery.",
+    "depends_on": [],
+    "component_count": 0
+  },
+  {
     "type": "asset",
     "name": "AccessDenied",
     "library": "illustrations",
@@ -21,7 +43,11 @@
       "Generic error states — use InternalError for 500-type errors instead"
     ],
     "import_statement": "import { AccessDenied } from '@gravity-ui/illustrations';",
-    "related": ["NotFound", "InternalError", "UnableToDisplay"],
+    "related": [
+      "NotFound",
+      "InternalError",
+      "UnableToDisplay"
+    ],
     "category": "error",
     "props": []
   },
@@ -43,7 +69,11 @@
     ],
     "avoid": [],
     "import_statement": "import { Bucket } from '@gravity-ui/illustrations';",
-    "related": ["Disk", "Database", "Snapshot"],
+    "related": [
+      "Disk",
+      "Database",
+      "Snapshot"
+    ],
     "category": "resource"
   },
   {
@@ -64,7 +94,10 @@
     ],
     "avoid": [],
     "import_statement": "import { Chart } from '@gravity-ui/illustrations';",
-    "related": ["Database", "Feature"],
+    "related": [
+      "Database",
+      "Feature"
+    ],
     "category": "resource"
   },
   {
@@ -85,7 +118,10 @@
     ],
     "avoid": [],
     "import_statement": "import { Database } from '@gravity-ui/illustrations';",
-    "related": ["Bucket", "Disk"],
+    "related": [
+      "Bucket",
+      "Disk"
+    ],
     "category": "resource"
   },
   {
@@ -105,7 +141,9 @@
     ],
     "avoid": [],
     "import_statement": "import { Detail } from '@gravity-ui/illustrations';",
-    "related": ["Feature"],
+    "related": [
+      "Feature"
+    ],
     "category": "resource"
   },
   {
@@ -125,7 +163,11 @@
     ],
     "avoid": [],
     "import_statement": "import { Disk } from '@gravity-ui/illustrations';",
-    "related": ["Bucket", "Database", "Snapshot"],
+    "related": [
+      "Bucket",
+      "Database",
+      "Snapshot"
+    ],
     "category": "resource"
   },
   {
@@ -145,7 +187,9 @@
     ],
     "avoid": [],
     "import_statement": "import { Feature } from '@gravity-ui/illustrations';",
-    "related": ["Project"],
+    "related": [
+      "Project"
+    ],
     "category": "resource"
   },
   {
@@ -165,7 +209,10 @@
     ],
     "avoid": [],
     "import_statement": "import { Folder } from '@gravity-ui/illustrations';",
-    "related": ["Project", "Bucket"],
+    "related": [
+      "Project",
+      "Bucket"
+    ],
     "category": "resource"
   },
   {
@@ -186,7 +233,9 @@
     ],
     "avoid": [],
     "import_statement": "import { History } from '@gravity-ui/illustrations';",
-    "related": ["Queue"],
+    "related": [
+      "Queue"
+    ],
     "category": "resource"
   },
   {
@@ -207,7 +256,9 @@
     ],
     "avoid": [],
     "import_statement": "import { Identity } from '@gravity-ui/illustrations';",
-    "related": ["AccessDenied"],
+    "related": [
+      "AccessDenied"
+    ],
     "category": "resource"
   },
   {
@@ -231,7 +282,11 @@
       "Not found pages — use NotFound instead"
     ],
     "import_statement": "import { InternalError } from '@gravity-ui/illustrations';",
-    "related": ["AccessDenied", "NotFound", "UnableToDisplay"],
+    "related": [
+      "AccessDenied",
+      "NotFound",
+      "UnableToDisplay"
+    ],
     "category": "error"
   },
   {
@@ -251,7 +306,9 @@
     ],
     "avoid": [],
     "import_statement": "import { Network } from '@gravity-ui/illustrations';",
-    "related": ["VirtualMachine"],
+    "related": [
+      "VirtualMachine"
+    ],
     "category": "resource"
   },
   {
@@ -274,7 +331,9 @@
       "Page not found (404) — use NotFound instead"
     ],
     "import_statement": "import { NoSearchResults } from '@gravity-ui/illustrations';",
-    "related": ["NotFound"],
+    "related": [
+      "NotFound"
+    ],
     "category": "empty-state"
   },
   {
@@ -297,7 +356,11 @@
       "Access denied scenarios — use AccessDenied instead"
     ],
     "import_statement": "import { NotFound } from '@gravity-ui/illustrations';",
-    "related": ["AccessDenied", "InternalError", "NoSearchResults"],
+    "related": [
+      "AccessDenied",
+      "InternalError",
+      "NoSearchResults"
+    ],
     "category": "error"
   },
   {
@@ -316,7 +379,10 @@
     ],
     "avoid": [],
     "import_statement": "import { Project } from '@gravity-ui/illustrations';",
-    "related": ["Folder", "Feature"],
+    "related": [
+      "Folder",
+      "Feature"
+    ],
     "category": "resource"
   },
   {
@@ -337,7 +403,9 @@
     ],
     "avoid": [],
     "import_statement": "import { Queue } from '@gravity-ui/illustrations';",
-    "related": ["History"],
+    "related": [
+      "History"
+    ],
     "category": "resource"
   },
   {
@@ -358,7 +426,10 @@
     ],
     "avoid": [],
     "import_statement": "import { Snapshot } from '@gravity-ui/illustrations';",
-    "related": ["Disk", "Bucket"],
+    "related": [
+      "Disk",
+      "Bucket"
+    ],
     "category": "resource"
   },
   {
@@ -379,7 +450,9 @@
     ],
     "avoid": [],
     "import_statement": "import { SuccessOperation } from '@gravity-ui/illustrations';",
-    "related": ["InternalError"],
+    "related": [
+      "InternalError"
+    ],
     "category": "status"
   },
   {
@@ -399,7 +472,10 @@
     ],
     "avoid": [],
     "import_statement": "import { Template } from '@gravity-ui/illustrations';",
-    "related": ["Feature", "Project"],
+    "related": [
+      "Feature",
+      "Project"
+    ],
     "category": "resource"
   },
   {
@@ -422,7 +498,10 @@
       "Missing resources — use NotFound instead"
     ],
     "import_statement": "import { UnableToDisplay } from '@gravity-ui/illustrations';",
-    "related": ["InternalError", "NotFound"],
+    "related": [
+      "InternalError",
+      "NotFound"
+    ],
     "category": "error"
   },
   {
@@ -444,7 +523,10 @@
     ],
     "avoid": [],
     "import_statement": "import { VirtualMachine } from '@gravity-ui/illustrations';",
-    "related": ["Network", "Disk"],
+    "related": [
+      "Network",
+      "Disk"
+    ],
     "category": "resource"
   }
 ]

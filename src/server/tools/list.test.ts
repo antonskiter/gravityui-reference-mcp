@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { handleList, formatList } from './list.js';
 import type { LoadedData } from '../loader.js';
-import type { Entity, Overview } from '../../schemas.js';
+import type { Entity } from '../../schemas.js';
 import { buildSearchIndex } from '../index-builder.js';
 
 const entities: Entity[] = [
@@ -27,35 +27,36 @@ const entities: Entity[] = [
   },
 ];
 
-const overview: Overview = {
-  system: { description: 'Gravity UI' },
-  libraries: [
-    { id: 'uikit', package: '@gravity-ui/uikit', purpose: 'Core', component_count: 70, depends_on: [], is_peer_dependency_of: [] },
-  ],
-  categories: { actions: 'Action components', forms: 'Form components' },
-  component_categories: { Button: 'actions', Select: 'forms' },
-};
-
 function makeData(): LoadedData {
   const entityByName = new Map<string, Entity[]>();
   const entitiesByLibrary = new Map<string, Entity[]>();
   const entitiesByType = new Map<string, Entity[]>();
   for (const e of entities) {
-    entityByName.set(e.name, [...(entityByName.get(e.name) ?? []), e]);
+    entityByName.set(e.name.toLowerCase(), [...(entityByName.get(e.name.toLowerCase()) ?? []), e]);
     entitiesByLibrary.set(e.library, [...(entitiesByLibrary.get(e.library) ?? []), e]);
     entitiesByType.set(e.type, [...(entitiesByType.get(e.type) ?? []), e]);
   }
   return {
     entities, entityByName, entitiesByLibrary, entitiesByType,
-    index: buildSearchIndex(entities, []),
-    overview, recipes: [], recipeById: new Map(),
+    index: buildSearchIndex(entities),
   };
 }
 
 describe('handleList', () => {
-  it('returns summary with no filters', () => {
+  it('returns intro with no filters', () => {
     const result = handleList(makeData(), {});
-    expect(result.kind).toBe('summary');
+    expect(result.kind).toBe('intro');
+  });
+
+  it('intro contains total and breakdown counts', () => {
+    const result = handleList(makeData(), {});
+    if (result.kind === 'intro') {
+      expect(result.total).toBe(4);
+      expect(result.byType['component']).toBe(3);
+      expect(result.byType['hook']).toBe(1);
+      expect(result.byLibrary['uikit']).toBe(3);
+      expect(result.byLibrary['navigation']).toBe(1);
+    }
   });
 
   it('filters by type', () => {
@@ -63,6 +64,7 @@ describe('handleList', () => {
     expect(result.kind).toBe('entities');
     if (result.kind === 'entities') {
       expect(result.items.every(e => e.type === 'component')).toBe(true);
+      expect(result.items).toHaveLength(3);
     }
   });
 
@@ -74,8 +76,22 @@ describe('handleList', () => {
     }
   });
 
-  it('filters by category', () => {
-    const result = handleList(makeData(), { category: 'actions' });
+  it('filters by category using entity category field', () => {
+    const entitiesWithCategory = [
+      { ...entities[0], category: 'actions' } as Entity & { category: string },
+      { ...entities[1], category: 'forms' } as Entity & { category: string },
+    ];
+    const data: LoadedData = {
+      entities: entitiesWithCategory,
+      entityByName: new Map([
+        ['button', [entitiesWithCategory[0]]],
+        ['select', [entitiesWithCategory[1]]],
+      ]),
+      entitiesByLibrary: new Map(),
+      entitiesByType: new Map(),
+      index: buildSearchIndex(entitiesWithCategory),
+    };
+    const result = handleList(data, { category: 'actions' });
     expect(result.kind).toBe('entities');
     if (result.kind === 'entities') {
       expect(result.items.some(e => e.name === 'Button')).toBe(true);
@@ -93,15 +109,20 @@ describe('handleList', () => {
 });
 
 describe('formatList', () => {
-  it('formats summary', () => {
+  it('formats intro with counts and example hint', () => {
     const result = handleList(makeData(), {});
     const text = formatList(result);
+    expect(text).toContain('Gravity UI');
     expect(text).toContain('entities');
+    expect(text).toContain('Filter by');
+    expect(text).toContain('Example:');
   });
 
-  it('formats filtered list', () => {
+  it('formats filtered list as Name [type] (library) — description', () => {
     const result = handleList(makeData(), { type: 'component' });
     const text = formatList(result);
     expect(text).toContain('Button');
+    expect(text).toContain('[component]');
+    expect(text).toContain('(uikit)');
   });
 });

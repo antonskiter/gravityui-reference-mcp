@@ -1,5 +1,33 @@
 [
   {
+    "type": "library",
+    "name": "components",
+    "library": "components",
+    "description": "Extended component library supplementing uikit with higher-level components: adaptive tabs, changelog dialog, confirm dialog, cookie consent, notifications, onboarding menu, reactions, share popover, stories, and more.",
+    "keywords": [
+      "gravity-ui",
+      "components"
+    ],
+    "when_to_use": [
+      "Extended component library supplementing uikit with higher-level components: adaptive tabs, changelog dialog, confirm dialog, cookie consent, notifications, onboarding menu, reactions, share popover, stories, and more"
+    ],
+    "avoid": [
+      "Not a replacement for uikit — extends it with app-level patterns. Not for AI interfaces (use aikit) or navigation shell (use navigation)."
+    ],
+    "import_statement": "",
+    "related": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons"
+    ],
+    "package": "@gravity-ui/components",
+    "not_for": "Not a replacement for uikit — extends it with app-level patterns. Not for AI interfaces (use aikit) or navigation shell (use navigation).",
+    "depends_on": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons"
+    ],
+    "component_count": 17
+  },
+  {
     "type": "component",
     "name": "AdaptiveTabs",
     "library": "components",
@@ -87,7 +115,8 @@
       "<AdaptiveTabs\n  items={[\n    {id: 'a', title: 'First'},\n    {id: 'b', title: 'Second'},\n    {id: 'c', title: 'Third', disabled: true},\n  ]}\n  activeTab={activeTab}\n  onSelectTab={(id) => setActiveTab(id)}\n/>",
       "<AdaptiveTabs\n  items={items}\n  activeTab={activeTab}\n  onSelectTab={setActiveTab}\n  wrapTo={(item, node) => (\n    <div style={{display: 'flex', alignItems: 'center'}}>\n      <span>extra</span>\n      {node}\n    </div>\n  )}\n/>",
       "<AdaptiveTabs\n  items={items}\n  activeTab={activeTab}\n  onSelectTab={setActiveTab}\n  breakpointsConfig={{400: 33, 900: 25, 1400: 20}}\n  size=\"l\"\n/>"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -115,7 +144,9 @@
       "Avoid when entries do not require images or story links; a simple list may be sufficient"
     ],
     "import_statement": "import {ChangelogDialog} from '@gravity-ui/components';",
-    "related": ["ConfirmDialog"],
+    "related": [
+      "ConfirmDialog"
+    ],
     "props": [
       {
         "name": "items",
@@ -204,7 +235,8 @@
     ],
     "examples": [
       "<ChangelogDialog\n  open={open}\n  onClose={() => setOpen(false)}\n  items={[\n    {\n      date: '03 Jul 2022',\n      isNew: true,\n      title: 'New navigation',\n      image: {src: 'https://example.com/img.png', ratio: 240/516},\n      description: 'New navigation description',\n      storyId: 'storyId1',\n    },\n    {\n      date: '15 Jun 2022',\n      title: 'Minor fixes',\n      description: 'Bug fixes and improvements',\n    },\n  ]}\n/>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -232,7 +264,9 @@
       "Avoid when no user confirmation is needed before the action"
     ],
     "import_statement": "import {ConfirmDialog} from '@gravity-ui/components';",
-    "related": ["ChangelogDialog"],
+    "related": [
+      "ChangelogDialog"
+    ],
     "props": [
       {
         "name": "onClickButtonApply",
@@ -291,7 +325,8 @@
     ],
     "examples": [
       "<ConfirmDialog\n  open={open}\n  title=\"Do you want to confirm?\"\n  message=\"This action cannot be undone.\"\n  textButtonApply=\"Yes\"\n  textButtonCancel=\"No\"\n  onClickButtonApply={() => { handleConfirm(); setOpen(false); }}\n  onClickButtonCancel={() => setOpen(false)}\n  onClose={() => setOpen(false)}\n/>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -379,7 +414,8 @@
     "examples": [
       "const consentManager = new ConsentManager('base');\n\n<CookieConsent consentManager={consentManager} />",
       "const consentManager = new ConsentManager('manage');\n\n<CookieConsent\n  consentManager={consentManager}\n  cookieList={[\n    {type: 'necessary', titleLabel: 'Necessary'},\n    {type: 'analytics', link: {href: '/privacy'}},\n  ]}\n  onConsentPopupClose={handleClose}\n/>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -430,7 +466,8 @@
     ],
     "examples": [
       "function SearchComponent() {\n  const [query, setQuery] = React.useState('');\n\n  return (\n    <DelayedTextInput\n      value={query}\n      onUpdate={setQuery}\n      delay={300}\n      hasClear\n      placeholder=\"Search...\"\n    />\n  );\n}"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -457,7 +494,9 @@
       "Avoid for non-form UI layouts — this is specifically for form field wrapping"
     ],
     "import_statement": "import {FormRow} from '@gravity-ui/components';",
-    "related": ["DelayedTextInput"],
+    "related": [
+      "DelayedTextInput"
+    ],
     "props": [
       {
         "name": "children",
@@ -505,7 +544,8 @@
     "examples": [
       "const nameFieldId = 'form-field-name';\n\n<FormRow label=\"Name\" fieldId={nameFieldId} required>\n  <TextInput id={nameFieldId} name=\"name\" />\n</FormRow>",
       "<FormRow\n  label=\"Description\"\n  direction=\"column\"\n  labelHelpPopover={<HelpPopover content=\"Describe your item\" />}\n>\n  <TextArea />\n  <FormRow.FieldDescription>Max 500 characters</FormRow.FieldDescription>\n</FormRow>"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -533,7 +573,10 @@
       "Avoid when only a single static image display is needed without navigation"
     ],
     "import_statement": "import {Gallery, GalleryItem, getGalleryItemImage, getGalleryItemVideo, getGalleryItemDocument} from '@gravity-ui/components';",
-    "related": ["Stories", "StoriesGroup"],
+    "related": [
+      "Stories",
+      "StoriesGroup"
+    ],
     "props": [
       {
         "name": "open",
@@ -581,18 +624,35 @@
     "examples": [
       "<Gallery open={open} onOpenChange={(v) => setOpen(v)}>\n  {images.map((src, i) => (\n    <GalleryItem key={i} {...getGalleryItemImage({src, name: src})} />\n  ))}\n</Gallery>",
       "<Gallery open={open} onOpenChange={(v) => setOpen(v)}>\n  <GalleryItem\n    {...getGalleryItemVideo({src: videoUrl, name: 'Demo Video'})}\n    actions={[\n      getGalleryItemDownloadAction({downloadUrl: videoUrl}),\n    ]}\n  />\n</Gallery>"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "hook",
     "name": "useGallery",
     "library": "components",
     "description": "A React hook that returns the Gallery context, providing openGallery and closeGallery functions along with the current open state. Must be used inside a GalleryProvider.",
-    "keywords": ["gallery", "open gallery", "close gallery", "gallery context", "hook", "lightbox", "media viewer"],
-    "when_to_use": ["When you need to imperatively open the gallery from anywhere inside a GalleryProvider tree", "When you need to read whether the gallery is currently open"],
-    "avoid": ["Do not use outside of a GalleryProvider — the context defaults are no-ops"],
+    "keywords": [
+      "gallery",
+      "open gallery",
+      "close gallery",
+      "gallery context",
+      "hook",
+      "lightbox",
+      "media viewer"
+    ],
+    "when_to_use": [
+      "When you need to imperatively open the gallery from anywhere inside a GalleryProvider tree",
+      "When you need to read whether the gallery is currently open"
+    ],
+    "avoid": [
+      "Do not use outside of a GalleryProvider — the context defaults are no-ops"
+    ],
     "import_statement": "import { useGallery } from '@gravity-ui/components';",
-    "related": ["Gallery", "GalleryProvider"],
+    "related": [
+      "Gallery",
+      "GalleryProvider"
+    ],
     "signature": "function useGallery(): { openGallery: (items: GalleryItemProps[], initialFileIndex?: number) => void; closeGallery: () => void; open: boolean }",
     "return_type": "{ openGallery: (items: GalleryItemProps[], initialFileIndex?: number) => void; closeGallery: () => void; open: boolean }",
     "examples": [
@@ -625,7 +685,9 @@
       "Avoid when users need precise control over when more data loads — use a manual 'Load more' button instead"
     ],
     "import_statement": "import {InfiniteScroll} from '@gravity-ui/components';",
-    "related": ["Notifications"],
+    "related": [
+      "Notifications"
+    ],
     "props": [
       {
         "name": "disabled",
@@ -654,7 +716,8 @@
     ],
     "examples": [
       "const {data, fetchNextPage} = useFeedQuery();\nconst allLoaded = data.items.length >= data.total;\n\n<InfiniteScroll onActivate={fetchNextPage} disabled={allLoaded}>\n  {data.items.map((item) => (\n    <FeedItem key={item.id} item={item} />\n  ))}\n</InfiniteScroll>"
-    ]
+    ],
+    "category": "utility"
   },
   {
     "type": "component",
@@ -753,7 +816,8 @@
     ],
     "examples": [
       "<ItemSelector\n  selectorTitle=\"Columns\"\n  items={[\n    {name: 'id', type: 'Uint32'},\n    {name: 'series', type: 'Utf8'},\n    {name: 'title', type: 'String'},\n  ]}\n  value={selected}\n  onUpdate={setSelected}\n  getItemId={(item) => item.name}\n  renderItemValue={(item) => `${item.name} (${item.type})`}\n/>"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -781,7 +845,9 @@
       "Avoid when a simple list without loading states is sufficient"
     ],
     "import_statement": "import {Notifications, NotificationAction} from '@gravity-ui/components';",
-    "related": ["InfiniteScroll"],
+    "related": [
+      "InfiniteScroll"
+    ],
     "props": [
       {
         "name": "notifications",
@@ -870,7 +936,8 @@
     ],
     "examples": [
       "<NotificationsPopupWrapper>\n  <Notifications\n    title=\"Notifications\"\n    notifications={notifications}\n    actions={<NotificationAction action={{icon: Plus, text: 'Add', onClick: handleAdd}} />}\n    emptyContent=\"No notifications yet\"\n  />\n</NotificationsPopupWrapper>"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
@@ -987,7 +1054,8 @@
     ],
     "examples": [
       "<OnboardingMenu\n  title=\"Getting Started\"\n  progress={50}\n  expanded={expanded}\n  onExpand={setExpanded}\n  onCompleteClick={handleComplete}\n>\n  <OnboardingMenu.Item title=\"Step 1\" status=\"completed\">\n    <OnboardingMenu.ItemText text=\"First step is done!\" />\n  </OnboardingMenu.Item>\n  <OnboardingMenu.Item title=\"Step 2\" status=\"pending\" hasDivider={false}>\n    <OnboardingMenu.ItemText text=\"Complete your profile\" />\n  </OnboardingMenu.Item>\n</OnboardingMenu>"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -1015,7 +1083,10 @@
       "Avoid for critical blocking confirmations — use ConfirmDialog instead"
     ],
     "import_statement": "import {PromoSheet} from '@gravity-ui/components';",
-    "related": ["ConfirmDialog", "StoreBadge"],
+    "related": [
+      "ConfirmDialog",
+      "StoreBadge"
+    ],
     "props": [
       {
         "name": "actionText",
@@ -1098,7 +1169,8 @@
     ],
     "examples": [
       "<PromoSheet\n  title=\"Try our mobile app!\"\n  message=\"Get the best experience on your phone.\"\n  actionText=\"Download now\"\n  closeText=\"Close\"\n  actionHref=\"https://example.com/app\"\n  imageSrc=\"/promo.png\"\n/>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -1228,7 +1300,8 @@
     "examples": [
       "<Reactions\n  reactions={[\n    {content: '👍', value: 'thumbs-up'},\n    {content: '😎', value: 'cool'},\n  ]}\n  reactionsState={[\n    {value: 'cool', counter: 2, selected: true},\n  ]}\n  onToggle={handleToggle}\n/>",
       "<Reactions\n  reactions={options}\n  reactionsState={reactionsState}\n  onToggle={onToggle}\n  renderTooltip={(state) => (\n    <div>{reactedUsers[state.value]?.map(u => u.name).join(', ')}</div>\n  )}\n  readOnly={!isLoggedIn}\n/>"
-    ]
+    ],
+    "category": "actions"
   },
   {
     "type": "component",
@@ -1401,7 +1474,8 @@
       "<SharePopover url={url} title={title} text={text} />",
       "<SharePopover\n  url={url}\n  title={title}\n  text={text}\n  withCopyLink={false}\n  shareOptions={[\n    ShareOptions.Telegram,\n    ShareOptions.Twitter,\n    ShareOptions.VK,\n  ]}\n/>",
       "<SharePopover\n  url={url}\n  title={title}\n  text={text}\n  useWebShareApi={true}\n/>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -1428,7 +1502,9 @@
       "Avoid for non-mobile-app contexts — this is specifically for app store links"
     ],
     "import_statement": "import {StoreBadge} from '@gravity-ui/components';",
-    "related": ["PromoSheet"],
+    "related": [
+      "PromoSheet"
+    ],
     "props": [
       {
         "name": "platform",
@@ -1465,7 +1541,8 @@
       "<StoreBadge platform=\"android\" />",
       "<StoreBadge platform=\"ios\" href=\"https://apps.apple.com/app/id123\" />",
       "<StoreBadge platform=\"android\" lang=\"ru\" href=\"https://play.google.com/store/apps/details?id=com.example\" />"
-    ]
+    ],
+    "category": "actions"
   },
   {
     "type": "component",
@@ -1493,7 +1570,10 @@
       "Avoid for inline image carousels — Stories is a fullscreen modal"
     ],
     "import_statement": "import {Stories} from '@gravity-ui/components';",
-    "related": ["StoriesGroup", "Gallery"],
+    "related": [
+      "StoriesGroup",
+      "Gallery"
+    ],
     "props": [
       {
         "name": "items",
@@ -1558,7 +1638,8 @@
     ],
     "examples": [
       "<Stories\n  open={open}\n  onClose={() => setOpen(false)}\n  items={[\n    {\n      title: 'New Feature',\n      content: <p>Here is what is new.</p>,\n      media: {type: 'image', url: '/feature.png'},\n    },\n    {\n      title: 'Another Update',\n      media: {type: 'video', url: '/update.mp4'},\n    },\n  ]}\n/>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -1586,7 +1667,10 @@
       "Avoid when group thumbnails would add unnecessary visual complexity"
     ],
     "import_statement": "import {StoriesGroup} from '@gravity-ui/components';",
-    "related": ["Stories", "Gallery"],
+    "related": [
+      "Stories",
+      "Gallery"
+    ],
     "props": [
       {
         "name": "groups",
@@ -1633,6 +1717,7 @@
     ],
     "examples": [
       "<StoriesGroup\n  open={open}\n  onClose={() => setOpen(false)}\n  groups={[\n    {\n      items: [\n        {\n          title: 'Feature A',\n          media: {type: 'image', url: '/feature-a.png'},\n        },\n      ],\n    },\n    {\n      items: [\n        {\n          title: 'Feature B',\n          media: {type: 'video', url: '/feature-b.mp4'},\n        },\n      ],\n    },\n  ]}\n/>"
-    ]
+    ],
+    "category": "overlays"
   }
 ]

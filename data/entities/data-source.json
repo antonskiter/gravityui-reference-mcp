@@ -1,5 +1,29 @@
 [
   {
+    "type": "library",
+    "name": "data-source",
+    "library": "data-source",
+    "description": "React-query wrapper providing typed data source definitions, tag-based cache invalidation, DataLoader/DataInfiniteLoader state components, and the ClientDataManager.",
+    "keywords": [
+      "gravity-ui",
+      "data-source",
+      "data",
+      "source"
+    ],
+    "when_to_use": [
+      "React-query wrapper providing typed data source definitions, tag-based cache invalidation, DataLoader/DataInfiniteLoader state components, and the ClientDataManager"
+    ],
+    "avoid": [
+      "Not a replacement for direct react-query — complements it with conventions for Gravity UI apps. Not for mutation-only patterns without query caching needs."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/data-source",
+    "not_for": "Not a replacement for direct react-query — complements it with conventions for Gravity UI apps. Not for mutation-only patterns without query caching needs.",
+    "depends_on": [],
+    "component_count": 4
+  },
+  {
     "type": "utility",
     "name": "ClientDataManager",
     "library": "data-source",
@@ -23,7 +47,13 @@
       "Direct react-query QueryClient usage when data-source patterns are in use — use ClientDataManager methods instead"
     ],
     "import_statement": "import { ClientDataManager } from '@gravity-ui/data-source';",
-    "related": ["DataManagerContext", "DataManagerProvider", "makePlainQueryDataSource", "makeInfiniteQueryDataSource", "DataSourceProvider"],
+    "related": [
+      "DataManagerContext",
+      "DataManagerProvider",
+      "makePlainQueryDataSource",
+      "makeInfiniteQueryDataSource",
+      "DataSourceProvider"
+    ],
     "signature": "new ClientDataManager(config?: ClientDataManagerConfig): ClientDataManager",
     "parameters": [
       {
@@ -63,7 +93,11 @@
       "Using as a user-facing key string — prefer composeKey for readable string keys"
     ],
     "import_statement": "import { composeFullKey } from '@gravity-ui/data-source';",
-    "related": ["composeKey", "hasTag", "makePlainQueryDataSource"],
+    "related": [
+      "composeKey",
+      "hasTag",
+      "makePlainQueryDataSource"
+    ],
     "signature": "composeFullKey<TDataSource extends AnyDataSource>(dataSource: TDataSource, params: DataSourceParams<TDataSource>): ReadonlyArray<string>",
     "parameters": [
       {
@@ -102,7 +136,11 @@
       "In most cases useQueryData handles this — use composeInfiniteQueryOptions only for advanced custom integration"
     ],
     "import_statement": "import { composeInfiniteQueryOptions } from '@gravity-ui/data-source';",
-    "related": ["composePlainQueryOptions", "makeInfiniteQueryDataSource", "useQueryData"],
+    "related": [
+      "composePlainQueryOptions",
+      "makeInfiniteQueryDataSource",
+      "useQueryData"
+    ],
     "signature": "composeInfiniteQueryOptions(context: DataSourceContext, dataSource: AnyInfiniteQueryDataSource, params: DataSourceParams, options?: Partial<DataSourceOptions>): InfiniteQueryObserverExtendedOptions",
     "parameters": [
       {
@@ -154,7 +192,10 @@
       "Using as the full react-query queryKey — use composeFullKey instead for tag support"
     ],
     "import_statement": "import { composeKey } from '@gravity-ui/data-source';",
-    "related": ["composeFullKey", "hasTag"],
+    "related": [
+      "composeFullKey",
+      "hasTag"
+    ],
     "signature": "composeKey<TDataSource extends AnyDataSource>(dataSource: TDataSource, params: DataSourceParams<TDataSource>): string",
     "parameters": [
       {
@@ -193,7 +234,11 @@
       "In most cases useQueryData handles this — use composePlainQueryOptions only for advanced custom integration"
     ],
     "import_statement": "import { composePlainQueryOptions } from '@gravity-ui/data-source';",
-    "related": ["composeInfiniteQueryOptions", "makePlainQueryDataSource", "useQueryData"],
+    "related": [
+      "composeInfiniteQueryOptions",
+      "makePlainQueryDataSource",
+      "useQueryData"
+    ],
     "signature": "composePlainQueryOptions(context: DataSourceContext, dataSource: AnyPlainQueryDataSource, params: DataSourceParams, options?: Partial<DataSourceOptions>): QueryObserverExtendedOptions",
     "parameters": [
       {
@@ -247,7 +292,11 @@
       "Non-paginated data — use DataLoader instead"
     ],
     "import_statement": "import { DataInfiniteLoader } from '@gravity-ui/data-source';",
-    "related": ["DataLoader", "useQueryData", "makeInfiniteQueryDataSource"],
+    "related": [
+      "DataLoader",
+      "useQueryData",
+      "makeInfiniteQueryDataSource"
+    ],
     "props": [
       {
         "name": "status",
@@ -312,7 +361,8 @@
     ],
     "examples": [
       "<DataInfiniteLoader\n  status={status}\n  error={error}\n  hasNextPage={hasNextPage}\n  fetchNextPage={fetchNextPage}\n  isFetchingNextPage={isFetchingNextPage}\n  LoadingView={Spinner}\n  ErrorView={ErrorMessage}\n  MoreView={LoadMoreButton}\n>\n  {data.map((item) => <Item key={item.id} data={item} />)}\n</DataInfiniteLoader>"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
@@ -337,7 +387,10 @@
       "Paginated or infinite-scroll data — use DataInfiniteLoader instead"
     ],
     "import_statement": "import { DataLoader } from '@gravity-ui/data-source';",
-    "related": ["DataInfiniteLoader", "useQueryData"],
+    "related": [
+      "DataInfiniteLoader",
+      "useQueryData"
+    ],
     "props": [
       {
         "name": "status",
@@ -378,7 +431,8 @@
     ],
     "examples": [
       "<DataLoader status={status} error={error} errorAction={refetch} LoadingView={Spinner} ErrorView={ErrorMessage}>\n  {data && <UserCard user={data} />}\n</DataLoader>"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
@@ -401,7 +455,12 @@
       "Use DataSourceProvider instead when using ClientDataManager, as it also sets up QueryClientProvider"
     ],
     "import_statement": "import { DataManagerProvider } from '@gravity-ui/data-source';",
-    "related": ["ClientDataManager", "DataManagerContext", "useDataManager", "DataSourceProvider"],
+    "related": [
+      "ClientDataManager",
+      "DataManagerContext",
+      "useDataManager",
+      "DataSourceProvider"
+    ],
     "props": [
       {
         "name": "dataManager",
@@ -415,7 +474,8 @@
         "required": true,
         "description": "React children."
       }
-    ]
+    ],
+    "category": "utility"
   },
   {
     "type": "component",
@@ -440,7 +500,11 @@
       "Nesting inside an existing QueryClientProvider — DataSourceProvider creates its own"
     ],
     "import_statement": "import { DataSourceProvider } from '@gravity-ui/data-source';",
-    "related": ["ClientDataManager", "DataManagerProvider", "useDataManager"],
+    "related": [
+      "ClientDataManager",
+      "DataManagerProvider",
+      "useDataManager"
+    ],
     "props": [
       {
         "name": "dataManager",
@@ -476,7 +540,11 @@
     ],
     "avoid": [],
     "import_statement": "import { getError } from '@gravity-ui/data-source';",
-    "related": ["getStatus", "mergeStatuses", "useQueryResponses"],
+    "related": [
+      "getStatus",
+      "mergeStatuses",
+      "useQueryResponses"
+    ],
     "signature": "getError<T>(states: { error: T | null }[]): NonNullable<T> | null",
     "parameters": [
       {
@@ -511,7 +579,9 @@
       "Static polling — use a plain number for refetchInterval instead"
     ],
     "import_statement": "import { getProgressiveRefetch } from '@gravity-ui/data-source';",
-    "related": ["makePlainQueryDataSource"],
+    "related": [
+      "makePlainQueryDataSource"
+    ],
     "signature": "getProgressiveRefetch(options: ProgressiveRefetchOptions): RefetchIntervalFunction",
     "parameters": [
       {
@@ -558,7 +628,11 @@
     ],
     "avoid": [],
     "import_statement": "import { getStatus } from '@gravity-ui/data-source';",
-    "related": ["getError", "mergeStatuses", "useQueryResponses"],
+    "related": [
+      "getError",
+      "mergeStatuses",
+      "useQueryResponses"
+    ],
     "signature": "getStatus(states: { status: DataLoaderStatus }[]): DataLoaderStatus",
     "parameters": [
       {
@@ -589,7 +663,10 @@
     ],
     "avoid": [],
     "import_statement": "import { hasTag } from '@gravity-ui/data-source';",
-    "related": ["composeFullKey", "composeKey"],
+    "related": [
+      "composeFullKey",
+      "composeKey"
+    ],
     "signature": "hasTag(key: DataSourceKey, tag: DataSourceTag): boolean",
     "parameters": [
       {
@@ -631,7 +708,10 @@
       "When you need the query to actively cancel — idle prevents execution but doesn't cancel in-flight requests"
     ],
     "import_statement": "import { idle } from '@gravity-ui/data-source';",
-    "related": ["useQueryData", "makePlainQueryDataSource"],
+    "related": [
+      "useQueryData",
+      "makePlainQueryDataSource"
+    ],
     "signature": "const idle: unique symbol",
     "parameters": [],
     "return_type": "symbol",
@@ -659,7 +739,10 @@
     ],
     "avoid": [],
     "import_statement": "import { isAbortable } from '@gravity-ui/data-source';",
-    "related": ["isCancellable", "withCancellation"],
+    "related": [
+      "isCancellable",
+      "withCancellation"
+    ],
     "signature": "isAbortable(value: unknown): value is { signal: AbortSignal }",
     "parameters": [
       {
@@ -689,7 +772,10 @@
     ],
     "avoid": [],
     "import_statement": "import { isCancellable } from '@gravity-ui/data-source';",
-    "related": ["isAbortable", "withCancellation"],
+    "related": [
+      "isAbortable",
+      "withCancellation"
+    ],
     "signature": "isCancellable(value: unknown): value is Cancellable",
     "parameters": [
       {
@@ -725,7 +811,11 @@
       "Simple single-fetch data — use makePlainQueryDataSource instead"
     ],
     "import_statement": "import { makeInfiniteQueryDataSource } from '@gravity-ui/data-source';",
-    "related": ["makePlainQueryDataSource", "useQueryData", "DataInfiniteLoader"],
+    "related": [
+      "makePlainQueryDataSource",
+      "useQueryData",
+      "DataInfiniteLoader"
+    ],
     "signature": "makeInfiniteQueryDataSource(config: InfiniteQueryDataSource): InfiniteQueryDataSource",
     "parameters": [
       {
@@ -788,7 +878,12 @@
       "Paginated or infinite-scroll data — use makeInfiniteQueryDataSource instead"
     ],
     "import_statement": "import { makePlainQueryDataSource } from '@gravity-ui/data-source';",
-    "related": ["makeInfiniteQueryDataSource", "useQueryData", "skipContext", "idle"],
+    "related": [
+      "makeInfiniteQueryDataSource",
+      "useQueryData",
+      "skipContext",
+      "idle"
+    ],
     "signature": "makePlainQueryDataSource(config: PlainQueryDataSource): PlainQueryDataSource",
     "parameters": [
       {
@@ -854,7 +949,11 @@
     ],
     "avoid": [],
     "import_statement": "import { mergeStatuses } from '@gravity-ui/data-source';",
-    "related": ["getStatus", "getError", "useQueryResponses"],
+    "related": [
+      "getStatus",
+      "getError",
+      "useQueryResponses"
+    ],
     "signature": "mergeStatuses(statuses: DataLoaderStatus[]): DataLoaderStatus",
     "parameters": [
       {
@@ -888,7 +987,10 @@
       "When using useQueryData — normalization is handled automatically"
     ],
     "import_statement": "import { normalizeStatus } from '@gravity-ui/data-source';",
-    "related": ["mergeStatuses", "getStatus"],
+    "related": [
+      "mergeStatuses",
+      "getStatus"
+    ],
     "signature": "normalizeStatus(status: QueryStatus, fetchStatus: FetchStatus): DataLoaderStatus",
     "parameters": [
       {
@@ -928,7 +1030,11 @@
       "When the function already handles context — implement the full fetch signature instead"
     ],
     "import_statement": "import { skipContext } from '@gravity-ui/data-source';",
-    "related": ["makePlainQueryDataSource", "withCatch", "withCancellation"],
+    "related": [
+      "makePlainQueryDataSource",
+      "withCatch",
+      "withCancellation"
+    ],
     "signature": "skipContext<T extends (...args: any[]) => any>(fn: T): Function",
     "parameters": [
       {
@@ -966,7 +1072,11 @@
       "Reading query data — use useQueryData instead"
     ],
     "import_statement": "import { useDataManager } from '@gravity-ui/data-source';",
-    "related": ["ClientDataManager", "DataManagerProvider", "useQueryData"],
+    "related": [
+      "ClientDataManager",
+      "DataManagerProvider",
+      "useQueryData"
+    ],
     "signature": "useDataManager(): DataManager",
     "parameters": [],
     "return_type": "DataManager"
@@ -991,7 +1101,11 @@
       "In normal component data fetching — use useQueryData instead"
     ],
     "import_statement": "import { useQueryContext } from '@gravity-ui/data-source';",
-    "related": ["composePlainQueryOptions", "composeInfiniteQueryOptions", "useQueryData"],
+    "related": [
+      "composePlainQueryOptions",
+      "composeInfiniteQueryOptions",
+      "useQueryData"
+    ],
     "signature": "useQueryContext(): QueryDataSourceContext",
     "parameters": [],
     "return_type": "QueryDataSourceContext"
@@ -1020,7 +1134,13 @@
       "Direct react-query useQuery when data-source patterns are in use"
     ],
     "import_statement": "import { useQueryData } from '@gravity-ui/data-source';",
-    "related": ["makePlainQueryDataSource", "makeInfiniteQueryDataSource", "idle", "useQueryResponses", "DataLoader"],
+    "related": [
+      "makePlainQueryDataSource",
+      "makeInfiniteQueryDataSource",
+      "idle",
+      "useQueryResponses",
+      "DataLoader"
+    ],
     "signature": "useQueryData(dataSource: AnyDataSource, params: Params | typeof idle, options?: QueryOptions): QueryResult",
     "parameters": [
       {
@@ -1068,7 +1188,12 @@
     ],
     "avoid": [],
     "import_statement": "import { useQueryResponses } from '@gravity-ui/data-source';",
-    "related": ["useQueryData", "DataLoader", "useRefetchAll", "useRefetchErrored"],
+    "related": [
+      "useQueryData",
+      "DataLoader",
+      "useRefetchAll",
+      "useRefetchErrored"
+    ],
     "signature": "useQueryResponses(responses: QueryResult[]): { status: DataLoaderStatus; error: unknown; refetch: Function; refetchErrored: Function }",
     "parameters": [
       {
@@ -1101,7 +1226,11 @@
     ],
     "avoid": [],
     "import_statement": "import { useRefetchAll } from '@gravity-ui/data-source';",
-    "related": ["useRefetchErrored", "useQueryResponses", "useQueryData"],
+    "related": [
+      "useRefetchErrored",
+      "useQueryResponses",
+      "useQueryData"
+    ],
     "signature": "useRefetchAll(states: { refetch: Function }[]): () => void",
     "parameters": [
       {
@@ -1131,7 +1260,11 @@
     ],
     "avoid": [],
     "import_statement": "import { useRefetchErrored } from '@gravity-ui/data-source';",
-    "related": ["useRefetchAll", "useQueryResponses", "useQueryData"],
+    "related": [
+      "useRefetchAll",
+      "useQueryResponses",
+      "useQueryData"
+    ],
     "signature": "useRefetchErrored<TError>(states: { error: TError | null; refetch: Function }[]): () => void",
     "parameters": [
       {
@@ -1164,7 +1297,12 @@
       "When the underlying fetch already handles AbortSignal natively"
     ],
     "import_statement": "import { withCancellation } from '@gravity-ui/data-source';",
-    "related": ["skipContext", "withCatch", "isCancellable", "isAbortable"],
+    "related": [
+      "skipContext",
+      "withCatch",
+      "isCancellable",
+      "isAbortable"
+    ],
     "signature": "withCancellation(fn: Function): Function",
     "parameters": [
       {
@@ -1195,7 +1333,10 @@
     ],
     "avoid": [],
     "import_statement": "import { withCatch } from '@gravity-ui/data-source';",
-    "related": ["skipContext", "withCancellation"],
+    "related": [
+      "skipContext",
+      "withCancellation"
+    ],
     "signature": "withCatch(fn: Function, errorHandler: (error: unknown) => unknown): Function",
     "parameters": [
       {
@@ -1235,7 +1376,10 @@
       "In function components — use useDataManager hook instead"
     ],
     "import_statement": "import { withDataManager } from '@gravity-ui/data-source';",
-    "related": ["useDataManager", "DataManagerProvider"],
+    "related": [
+      "useDataManager",
+      "DataManagerProvider"
+    ],
     "signature": "withDataManager<T>(Component: React.ComponentType<T & WithDataManagerProps>): React.FC<T>",
     "parameters": [
       {

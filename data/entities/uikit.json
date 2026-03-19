@@ -1,5 +1,31 @@
 [
   {
+    "type": "library",
+    "name": "uikit",
+    "library": "uikit",
+    "description": "Core component library for building application UI. Contains buttons, inputs, dialogs, tables, layout primitives, overlays, data display, and typography components.",
+    "keywords": [
+      "gravity-ui",
+      "uikit"
+    ],
+    "when_to_use": [
+      "Core component library for building application UI"
+    ],
+    "avoid": [
+      "Not for landing/marketing pages — use page-constructor. Not for AI chat interfaces — use aikit. Not for date pickers — use date-components. Not for advanced virtualized tables — use @gravity-ui/table."
+    ],
+    "import_statement": "",
+    "related": [
+      "@gravity-ui/icons"
+    ],
+    "package": "@gravity-ui/uikit",
+    "not_for": "Not for landing/marketing pages — use page-constructor. Not for AI chat interfaces — use aikit. Not for date pickers — use date-components. Not for advanced virtualized tables — use @gravity-ui/table.",
+    "depends_on": [
+      "@gravity-ui/icons"
+    ],
+    "component_count": 72
+  },
+  {
     "type": "component",
     "name": "Accordion",
     "library": "uikit",
@@ -86,7 +112,8 @@
     ],
     "examples": [
       "<Accordion>\n  <Accordion.Item value=\"a\"><Accordion.Summary>Section</Accordion.Summary>Content</Accordion.Item>\n</Accordion>"
-    ]
+    ],
+    "category": "utility"
   },
   {
     "type": "component",
@@ -143,7 +170,8 @@
     ],
     "examples": [
       "<ActionsPanel actions={[{id: 'del', text: 'Delete', handler: () => {}}]} renderNote={() => '3 selected'} onClose={() => {}} />"
-    ]
+    ],
+    "category": "actions"
   },
   {
     "type": "component",
@@ -219,7 +247,8 @@
     ],
     "examples": [
       "<ActionTooltip title=\"Save\" hotkey=\"mod+s\"><Button view=\"flat\"><Icon data={Save} /></Button></ActionTooltip>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -321,7 +350,8 @@
     "examples": [
       "<Alert theme=\"warning\" title=\"Unsaved changes\" message=\"Changes will be lost.\" onClose={() => {}} />",
       "<Alert theme=\"danger\" title=\"Error\" message=\"Request failed.\" actions={[{text: 'Retry', handler: () => {}}]} />"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
@@ -367,7 +397,8 @@
     ],
     "examples": [
       "<ArrowToggle direction={isOpen ? 'top' : 'bottom'} size={16} />"
-    ]
+    ],
+    "category": "actions"
   },
   {
     "type": "component",
@@ -473,7 +504,8 @@
     "examples": [
       "<Avatar imgUrl=\"https://example.com/photo.jpg\" size=\"m\" />",
       "<Avatar text=\"John Doe\" theme=\"brand\" size=\"l\" />"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "component",
@@ -536,7 +568,8 @@
     ],
     "examples": [
       "<AvatarStack max={3}>\n  <Avatar text=\"Alice\" />\n  <Avatar text=\"Bob\" />\n  <Avatar text=\"Carol\" />\n</AvatarStack>"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "component",
@@ -641,7 +674,8 @@
     "examples": [
       "<Box width={300} height={200} spacing={{mb: 2}}>content</Box>",
       "<Box as=\"section\" overflow=\"hidden\" spacing={{p: 4}}>content</Box>"
-    ]
+    ],
+    "category": "layout"
   },
   {
     "type": "component",
@@ -714,7 +748,8 @@
     ],
     "examples": [
       "<Breadcrumbs>\n  <Breadcrumbs.Item href=\"/\">Home</Breadcrumbs.Item>\n  <Breadcrumbs.Item href=\"/settings\">Settings</Breadcrumbs.Item>\n  <Breadcrumbs.Item>Profile</Breadcrumbs.Item>\n</Breadcrumbs>"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "token-set",
@@ -859,7 +894,8 @@
       "<Button view=\"action\" size=\"m\">Submit</Button>",
       "<Button view=\"outlined-danger\" onClick={handleDelete}>Delete</Button>",
       "<Button href=\"/docs\" view=\"flat\">Docs</Button>"
-    ]
+    ],
+    "category": "actions"
   },
   {
     "type": "component",
@@ -947,7 +983,8 @@
     "examples": [
       "<Card view=\"outlined\" size=\"m\"><p>Content</p></Card>",
       "<Card type=\"selection\" selected={isSelected} onClick={toggle}>Item</Card>"
-    ]
+    ],
+    "category": "layout"
   },
   {
     "type": "component",
@@ -1052,7 +1089,8 @@
     "examples": [
       "<Checkbox checked={isChecked} onUpdate={setChecked}>Accept terms</Checkbox>",
       "<Checkbox indeterminate>Partial selection</Checkbox>"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -1114,7 +1152,8 @@
     "examples": [
       "<ClipboardButton text=\"npm install @gravity-ui/uikit\" />",
       "<ClipboardButton text={apiKey} tooltipSuccessText=\"Copied!\" size=\"s\" />"
-    ]
+    ],
+    "category": "actions"
   },
   {
     "type": "component",
@@ -1154,7 +1193,8 @@
     ],
     "examples": [
       "<CopyToClipboard text=\"copy me\">\n  {(status) => <ClipboardIcon size={16} status={status} />}\n</CopyToClipboard>"
-    ]
+    ],
+    "category": "actions"
   },
   {
     "type": "component",
@@ -1200,7 +1240,8 @@
     "examples": [
       "<Row space=\"4\"><Col size=\"6\">Left</Col><Col size=\"6\">Right</Col></Row>",
       "<Col size={[12, {m: 6, l: 4}]}>Responsive col</Col>"
-    ]
+    ],
+    "category": "layout"
   },
   {
     "type": "component",
@@ -1265,7 +1306,8 @@
     ],
     "examples": [
       "<Container maxWidth=\"l\"><Row><Col size=\"12\">Content</Col></Row></Container>"
-    ]
+    ],
+    "category": "layout"
   },
   {
     "type": "component",
@@ -1319,7 +1361,8 @@
     ],
     "examples": [
       "<CopyToClipboard text=\"Hello\" timeout={1500}>\n  {(status) => <Button>{status === 'success' ? 'Copied!' : 'Copy'}</Button>}\n</CopyToClipboard>"
-    ]
+    ],
+    "category": "utility"
   },
   {
     "type": "component",
@@ -1383,7 +1426,8 @@
     ],
     "examples": [
       "<DefinitionList>\n  <DefinitionList.Item name=\"Status\">Active</DefinitionList.Item>\n  <DefinitionList.Item name=\"Created\">Jan 1, 2024</DefinitionList.Item>\n</DefinitionList>"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "component",
@@ -1479,7 +1523,8 @@
     ],
     "examples": [
       "<Dialog open={isOpen} onClose={() => setIsOpen(false)}>\n  <Dialog.Header caption=\"Confirm\" />\n  <Dialog.Body>Are you sure?</Dialog.Body>\n  <Dialog.Footer onClickButtonApply={handleOk} onClickButtonCancel={() => setIsOpen(false)} textButtonApply=\"OK\" />\n</Dialog>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -1566,7 +1611,8 @@
     ],
     "examples": [
       "<Disclosure summary=\"Advanced options\">Hidden settings</Disclosure>"
-    ]
+    ],
+    "category": "utility"
   },
   {
     "type": "component",
@@ -1620,7 +1666,8 @@
       "<Divider />",
       "<Divider orientation=\"vertical\" />",
       "<Divider align=\"start\">Section</Divider>"
-    ]
+    ],
+    "category": "layout"
   },
   {
     "type": "component",
@@ -1718,7 +1765,8 @@
     ],
     "examples": [
       "<Drawer open={isOpen} onOpenChange={setIsOpen} placement=\"right\"><p>Content</p></Drawer>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -1802,7 +1850,8 @@
     "examples": [
       "<DropdownMenu items={[\n  {text: 'Edit', action: () => {}},\n  {text: 'Delete', action: () => {}, theme: 'danger'},\n]} />",
       "<DropdownMenu items={[[{text: 'Group 1'}], [{text: 'Group 2'}]]} switcher={<Button>Actions</Button>} />"
-    ]
+    ],
+    "category": "actions"
   },
   {
     "type": "component",
@@ -1880,7 +1929,8 @@
     ],
     "examples": [
       "<FileDropZone accept={['image/*']} onUpdate={(files) => setFiles(files)} multiple />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -1962,7 +2012,8 @@
     ],
     "examples": [
       "<FilePreview file={file} actions={[{icon: <Icon data={Xmark} />, title: 'Remove', onClick: onRemove}]} />"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "component",
@@ -2079,7 +2130,8 @@
     "examples": [
       "<Flex gap={4} alignItems=\"center\"><Button>A</Button><Button>B</Button></Flex>",
       "<Flex direction={{s: 'column', m: 'row'}} gap={4}>responsive</Flex>"
-    ]
+    ],
+    "category": "layout"
   },
   {
     "type": "component",
@@ -2126,7 +2178,8 @@
     "examples": [
       "<HelpMark>This field accepts ISO date format</HelpMark>",
       "<HelpMark iconSize=\"m\" popoverProps={{placement: 'right'}}>Help text</HelpMark>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -2175,7 +2228,8 @@
     "examples": [
       "<Hotkey value=\"mod+s\" />",
       "<Hotkey value=\"ctrl+shift+p\" view=\"dark\" />"
-    ]
+    ],
+    "category": "typography"
   },
   {
     "type": "component",
@@ -2252,7 +2306,8 @@
     "examples": [
       "<Icon data={Gear} size={16} />",
       "<Icon data={CheckMark} size={20} color=\"green\" />"
-    ]
+    ],
+    "category": "utility"
   },
   {
     "type": "component",
@@ -2362,7 +2417,8 @@
       "<Label theme=\"success\">Active</Label>",
       "<Label theme=\"danger\" type=\"close\" onCloseClick={onRemove}>Error</Label>",
       "<Label value=\"env\">production</Label>"
-    ]
+    ],
+    "category": "typography"
   },
   {
     "type": "component",
@@ -2433,7 +2489,8 @@
     ],
     "examples": [
       "<Text>Read the <Link href=\"/docs\">documentation</Link> for more details.</Text>"
-    ]
+    ],
+    "category": "actions"
   },
   {
     "type": "component",
@@ -2535,7 +2592,8 @@
     ],
     "examples": [
       "<List\n  items={['Alice', 'Bob', 'Carol']}\n  renderItem={(item) => <span>{item}</span>}\n  onItemClick={(item) => console.log(item)}\n/>"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "component",
@@ -2577,7 +2635,8 @@
     "examples": [
       "<Loader size=\"m\" />",
       "<Box position=\"relative\"><Overlay visible={loading}><Loader /></Overlay><Content /></Box>"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
@@ -2624,7 +2683,8 @@
     ],
     "examples": [
       "<Menu size=\"m\">\n  <Menu.Group label=\"Actions\">\n    <Menu.Item iconStart={<Icon data={Pencil} />} onClick={onEdit}>Edit</Menu.Item>\n    <Menu.Item theme=\"danger\" onClick={onDelete}>Delete</Menu.Item>\n  </Menu.Group>\n</Menu>"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -2722,7 +2782,8 @@
     ],
     "examples": [
       "<Modal open={isOpen} onClose={() => setIsOpen(false)}><div>Custom modal content</div></Modal>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -2883,7 +2944,8 @@
     "examples": [
       "<NumberInput min={0} max={100} step={5} value={quantity} onUpdate={setQuantity} />",
       "<NumberInput min={1} label=\"Count\" allowDecimal={false} />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -2942,7 +3004,8 @@
     ],
     "examples": [
       "<Box position=\"relative\">\n  <Content />\n  <Overlay visible={loading}><Loader /></Overlay>\n</Box>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -3027,7 +3090,8 @@
     ],
     "examples": [
       "<Pagination page={currentPage} pageSize={20} total={items.length} onUpdate={(p, ps) => {setPage(p); setPageSize(ps);}} />"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -3125,7 +3189,8 @@
     ],
     "examples": [
       "<Palette\n  options={[\n    {content: '😎', value: 'cool'},\n    {content: '🎉', value: 'party'},\n  ]}\n  onUpdate={(selected) => setReactions(selected)}\n/>"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -3210,7 +3275,8 @@
     "examples": [
       "<PasswordInput value={password} onUpdate={setPassword} />",
       "<PasswordInput hideCopyButton hideRevealButton placeholder=\"Enter password\" />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -3344,7 +3410,8 @@
     "examples": [
       "<PinInput length={6} type=\"numeric\" otp onUpdateComplete={handleOtp} />",
       "<PinInput length={4} validationState=\"invalid\" errorMessage=\"Incorrect PIN\" />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -3436,7 +3503,8 @@
     ],
     "examples": [
       "<PlaceholderContainer\n  title=\"No results found\"\n  description=\"Try different search terms\"\n  image={<NoResultsIllustration />}\n  actions={[{text: 'Clear filters', view: 'normal', onClick: clearFilters}]}\n/>"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
@@ -3545,7 +3613,8 @@
     "examples": [
       "<Popover content={<div>Rich content here</div>}>\n  <Button>Hover me</Button>\n</Popover>",
       "<Popover content={info} trigger=\"click\" placement=\"bottom-start\">\n  <Icon data={InfoCircle} />\n</Popover>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -3656,7 +3725,8 @@
     ],
     "examples": [
       "<Popup anchorElement={triggerRef.current} open={isOpen} onClose={() => setIsOpen(false)}>\n  <Menu><Menu.Item>Option 1</Menu.Item></Menu>\n</Popup>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -3708,7 +3778,8 @@
     "examples": [
       "<Portal><div className=\"floating-panel\">Rendered in body</div></Portal>",
       "<Portal container={customRoot}>Custom container content</Portal>"
-    ]
+    ],
+    "category": "utility"
   },
   {
     "type": "component",
@@ -3794,7 +3865,8 @@
     "examples": [
       "<Progress value={65} theme=\"success\" size=\"m\" text=\"65%\" />",
       "<Progress stack={[{value: 40, theme: 'success'}, {value: 20, theme: 'warning'}]} />"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
@@ -3883,7 +3955,8 @@
     ],
     "examples": [
       "<RadioGroup value={selected} onUpdate={setSelected}>\n  <Radio value=\"a\">Option A</Radio>\n  <Radio value=\"b\">Option B</Radio>\n</RadioGroup>"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -3967,7 +4040,8 @@
     ],
     "examples": [
       "<RadioGroup value={val} onUpdate={setVal} direction=\"vertical\">\n  <RadioGroup.Option value=\"opt1\">Option 1</RadioGroup.Option>\n  <RadioGroup.Option value=\"opt2\">Option 2</RadioGroup.Option>\n</RadioGroup>"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -4018,7 +4092,8 @@
     ],
     "examples": [
       "<Row space=\"4\">\n  <Col size=\"8\">Main</Col>\n  <Col size=\"4\">Sidebar</Col>\n</Row>"
-    ]
+    ],
+    "category": "layout"
   },
   {
     "type": "component",
@@ -4127,7 +4202,8 @@
     ],
     "examples": [
       "<SegmentedRadioGroup value={view} onUpdate={setView}>\n  <SegmentedRadioGroup.Option value=\"grid\">Grid</SegmentedRadioGroup.Option>\n  <SegmentedRadioGroup.Option value=\"list\">List</SegmentedRadioGroup.Option>\n</SegmentedRadioGroup>"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -4276,7 +4352,8 @@
     "examples": [
       "<Select\n  options={[{value: 'a', content: 'Option A'}, {value: 'b', content: 'Option B'}]}\n  value={selected}\n  onUpdate={setSelected}\n  placeholder=\"Choose...\"\n/>",
       "<Select multiple filterable placeholder=\"Select tags\">\n  <Select.Option value=\"1\">Tag 1</Select.Option>\n  <Select.Option value=\"2\">Tag 2</Select.Option>\n</Select>"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -4382,7 +4459,8 @@
     ],
     "examples": [
       "<Sheet visible={isOpen} onClose={() => setIsOpen(false)} title=\"Options\">\n  <Menu>\n    <Menu.Item>Share</Menu.Item>\n    <Menu.Item>Delete</Menu.Item>\n  </Menu>\n</Sheet>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -4434,7 +4512,8 @@
     "examples": [
       "<Skeleton style={{width: 200, height: 20}} />",
       "<Skeleton className={styles.titleSkeleton} animation=\"pulse\" />"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
@@ -4557,7 +4636,8 @@
     "examples": [
       "<Slider min={0} max={100} value={volume} onUpdate={setVolume} />",
       "<Slider defaultValue={[20, 80]} min={0} max={100} marks={5} />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "token-set",
@@ -4654,7 +4734,8 @@
     "examples": [
       "<Spin size=\"s\" />",
       "<Button loading><Spin size=\"xs\" /> Loading...</Button>"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
@@ -4720,7 +4801,8 @@
     ],
     "examples": [
       "<Stepper value={currentStep} onUpdate={setStep}>\n  <Stepper.Item>Step 1</Stepper.Item>\n  <Stepper.Item view=\"success\">Step 2</Stepper.Item>\n  <Stepper.Item disabled>Step 3</Stepper.Item>\n</Stepper>"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -4843,7 +4925,8 @@
     "examples": [
       "<Switch checked={isEnabled} onUpdate={setEnabled}>Enable feature</Switch>",
       "<Switch defaultChecked size=\"l\">Dark mode</Switch>"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -4962,7 +5045,8 @@
     "examples": [
       "const columns = [\n  {id: 'name', name: 'Name'},\n  {id: 'status', name: 'Status'},\n];\n<Table data={items} columns={columns} onRowClick={(item) => console.log(item)} />",
       "const MyTable = withTableSorting(withTableSelection(Table));\n<MyTable data={data} columns={columns} getRowId=\"id\" selectedIds={selected} onSelectionChange={setSelected} />"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "component",
@@ -5056,7 +5140,8 @@
     ],
     "examples": [
       "<TableColumnSetup\n  items={columns.map(c => ({id: c.id, title: c.name, selected: visible.includes(c.id)}))}\n  onUpdate={handleColumnsUpdate}\n  sortable\n/>"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "component",
@@ -5141,7 +5226,8 @@
       "<Text variant=\"body-1\">Regular body text</Text>",
       "<Text variant=\"display-2\" as=\"h1\">Page Title</Text>",
       "<Text variant=\"caption-2\" color=\"secondary\" ellipsis>Truncated secondary text that is too long</Text>"
-    ]
+    ],
+    "category": "typography"
   },
   {
     "type": "component",
@@ -5294,7 +5380,8 @@
     "examples": [
       "<TextArea value={text} onUpdate={setText} minRows={3} maxRows={10} placeholder=\"Enter description\" />",
       "<TextArea rows={4} controlProps={{style: {resize: 'both'}}} />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -5469,7 +5556,8 @@
     "examples": [
       "<TextInput value={name} onUpdate={setName} placeholder=\"Enter name\" size=\"m\" />",
       "<TextInput label=\"Search\" hasClear startContent={<Icon data={Magnifier} />} validationState=\"invalid\" errorMessage=\"Required\" />"
-    ]
+    ],
+    "category": "forms"
   },
   {
     "type": "component",
@@ -5560,7 +5648,8 @@
     ],
     "examples": [
       "// Setup in app root:\n<ToasterProvider toaster={toaster}><App /><ToasterComponent /></ToasterProvider>\n\n// In component:\nconst {add} = useToaster();\nadd({name: 'save-ok', title: 'Saved', theme: 'success', autoHiding: 3000});"
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "component",
@@ -5610,7 +5699,8 @@
     ],
     "examples": [
       "<Toc\n  value={activeSection}\n  onUpdate={setActiveSection}\n  items={[\n    {value: 'intro', content: 'Introduction'},\n    {value: 'usage', content: 'Usage', items: [{value: 'props', content: 'Props'}]},\n  ]}\n/>"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -5730,7 +5820,8 @@
     "examples": [
       "<Tooltip content=\"Click to copy\">\n  <Button view=\"flat\"><Icon data={Copy} /></Button>\n</Tooltip>",
       "<Tooltip content=\"Save file\" role=\"label\" openDelay={200}>\n  <Button view=\"flat\"><Icon data={FloppyDisk} /></Button>\n</Tooltip>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -5790,7 +5881,8 @@
     ],
     "examples": [
       "<User\n  avatar={{text: 'John Smith', theme: 'brand'}}\n  name=\"John Smith\"\n  description=\"john@example.com\"\n  size=\"l\"\n/>"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "component",
@@ -6180,7 +6272,8 @@
     "examples": [
       "<UserLabel type=\"person\" text=\"Alice\" onCloseClick={onRemove} />",
       "<UserLabel type=\"email\" text=\"alice@example.com\" />"
-    ]
+    ],
+    "category": "data-display"
   },
   {
     "type": "hook",

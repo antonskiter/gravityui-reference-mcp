@@ -1,5 +1,29 @@
 [
   {
+    "type": "library",
+    "name": "date-utils",
+    "library": "date-utils",
+    "description": "Date utility library built on dayjs providing DateTime creation, parsing (including relative expressions like 'now-1d'), timezone utilities, duration, and locale settings.",
+    "keywords": [
+      "gravity-ui",
+      "date-utils",
+      "date",
+      "utils"
+    ],
+    "when_to_use": [
+      "Date utility library built on dayjs providing DateTime creation, parsing (including relative expressions like 'now-1d'), timezone utilities, duration, and locale settings"
+    ],
+    "avoid": [
+      "Not for rendering date pickers — use @gravity-ui/date-components. Not a React component library — pure utility functions."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/date-utils",
+    "not_for": "Not for rendering date pickers — use @gravity-ui/date-components. Not a React component library — pure utility functions.",
+    "depends_on": [],
+    "component_count": 0
+  },
+  {
     "type": "utility",
     "name": "dateTime",
     "library": "date-utils",
@@ -25,7 +49,13 @@
       "Parsing relative expressions like 'now-1d' — use dateTimeParse instead"
     ],
     "import_statement": "import { dateTime } from '@gravity-ui/date-utils';",
-    "related": ["dateTimeParse", "dateTimeUtc", "settings", "duration", "isDateTime"],
+    "related": [
+      "dateTimeParse",
+      "dateTimeUtc",
+      "settings",
+      "duration",
+      "isDateTime"
+    ],
     "signature": "dateTime(options?: { input?: DateTimeInput; format?: string; timeZone?: string; lang?: string }): DateTime",
     "parameters": [
       {
@@ -80,7 +110,11 @@
       "When input is always a known valid format — use dateTime instead for clarity"
     ],
     "import_statement": "import { dateTimeParse } from '@gravity-ui/date-utils';",
-    "related": ["dateTime", "isValid", "isLikeRelative"],
+    "related": [
+      "dateTime",
+      "isValid",
+      "isLikeRelative"
+    ],
     "signature": "dateTimeParse(input: DateTimeInput | string, options?: { timeZone?: string; format?: string; lang?: string }): DateTime | undefined",
     "parameters": [
       {
@@ -123,7 +157,11 @@
       "When time zone awareness is needed — use dateTime with timeZone option instead"
     ],
     "import_statement": "import { dateTimeUtc } from '@gravity-ui/date-utils';",
-    "related": ["dateTime", "dateTimeParse", "UtcTimeZone"],
+    "related": [
+      "dateTime",
+      "dateTimeParse",
+      "UtcTimeZone"
+    ],
     "signature": "dateTimeUtc(options?: { input?: DateTimeInput; format?: string }): DateTime",
     "parameters": [],
     "return_type": "DateTime",
@@ -153,7 +191,10 @@
       "Date arithmetic between two specific dates — use DateTime.diff instead"
     ],
     "import_statement": "import { duration } from '@gravity-ui/date-utils';",
-    "related": ["dateTime", "isDuration"],
+    "related": [
+      "dateTime",
+      "isDuration"
+    ],
     "signature": "duration(input: DurationInput): Duration",
     "parameters": [
       {
@@ -189,7 +230,10 @@
       "When you already know the full format string — use it directly in dateTime or dateTimeParse"
     ],
     "import_statement": "import { expandFormat } from '@gravity-ui/date-utils';",
-    "related": ["dateTime", "settings"],
+    "related": [
+      "dateTime",
+      "settings"
+    ],
     "signature": "expandFormat(format: string, locale?: string): string",
     "parameters": [
       {
@@ -227,7 +271,10 @@
     ],
     "avoid": [],
     "import_statement": "import { getTimeZonesList } from '@gravity-ui/date-utils';",
-    "related": ["guessUserTimeZone", "isValidTimeZone"],
+    "related": [
+      "guessUserTimeZone",
+      "isValidTimeZone"
+    ],
     "signature": "getTimeZonesList(): string[]",
     "parameters": [],
     "return_type": "string[]",
@@ -255,7 +302,11 @@
       "Server-side rendering where no browser Intl is available — provide a fallback"
     ],
     "import_statement": "import { guessUserTimeZone } from '@gravity-ui/date-utils';",
-    "related": ["getTimeZonesList", "isValidTimeZone", "timeZoneOffset"],
+    "related": [
+      "getTimeZonesList",
+      "isValidTimeZone",
+      "timeZoneOffset"
+    ],
     "signature": "guessUserTimeZone(): string",
     "parameters": [],
     "return_type": "string",
@@ -280,7 +331,10 @@
     ],
     "avoid": [],
     "import_statement": "import { HTML5_INPUT_FORMATS } from '@gravity-ui/date-utils';",
-    "related": ["dateTime", "dateTimeParse"],
+    "related": [
+      "dateTime",
+      "dateTimeParse"
+    ],
     "signature": "const HTML5_INPUT_FORMATS: string[]",
     "parameters": [],
     "return_type": "string[]",
@@ -303,7 +357,9 @@
     ],
     "avoid": [],
     "import_statement": "import { isDuration } from '@gravity-ui/date-utils';",
-    "related": ["duration"],
+    "related": [
+      "duration"
+    ],
     "signature": "isDuration(value: unknown): value is Duration",
     "parameters": [
       {
@@ -333,7 +389,10 @@
     ],
     "avoid": [],
     "import_statement": "import { isDateTime } from '@gravity-ui/date-utils';",
-    "related": ["dateTime", "dateTimeParse"],
+    "related": [
+      "dateTime",
+      "dateTimeParse"
+    ],
     "signature": "isDateTime(value: unknown): value is DateTime",
     "parameters": [
       {
@@ -367,7 +426,10 @@
       "Full validation — use dateTimeParse and check for undefined instead"
     ],
     "import_statement": "import { isLikeRelative } from '@gravity-ui/date-utils';",
-    "related": ["dateTimeParse", "isValid"],
+    "related": [
+      "dateTimeParse",
+      "isValid"
+    ],
     "signature": "isLikeRelative(value: string): boolean",
     "parameters": [
       {
@@ -401,7 +463,10 @@
       "Validating time zones — use isValidTimeZone instead"
     ],
     "import_statement": "import { isValid } from '@gravity-ui/date-utils';",
-    "related": ["dateTimeParse", "isLikeRelative"],
+    "related": [
+      "dateTimeParse",
+      "isLikeRelative"
+    ],
     "signature": "isValid(input: DateTimeInput | string, options?: { format?: string; timeZone?: string }): boolean",
     "parameters": [
       {
@@ -443,7 +508,10 @@
     ],
     "avoid": [],
     "import_statement": "import { isValidTimeZone } from '@gravity-ui/date-utils';",
-    "related": ["guessUserTimeZone", "getTimeZonesList"],
+    "related": [
+      "guessUserTimeZone",
+      "getTimeZonesList"
+    ],
     "signature": "isValidTimeZone(timeZone: string): boolean",
     "parameters": [
       {
@@ -479,7 +547,10 @@
       "Calling setLocale before loadLocale resolves — locale must be loaded first"
     ],
     "import_statement": "import { settings } from '@gravity-ui/date-utils';",
-    "related": ["dateTime", "dateTimeParse"],
+    "related": [
+      "dateTime",
+      "dateTimeParse"
+    ],
     "signature": "settings: PublicSettings",
     "parameters": [],
     "return_type": "PublicSettings",
@@ -510,7 +581,11 @@
     ],
     "avoid": [],
     "import_statement": "import { timeZoneOffset } from '@gravity-ui/date-utils';",
-    "related": ["guessUserTimeZone", "getTimeZonesList", "isValidTimeZone"],
+    "related": [
+      "guessUserTimeZone",
+      "getTimeZonesList",
+      "isValidTimeZone"
+    ],
     "signature": "timeZoneOffset(timeZone: string, date?: DateTimeInput): number",
     "parameters": [
       {
@@ -546,7 +621,10 @@
     ],
     "avoid": [],
     "import_statement": "import { UtcTimeZone } from '@gravity-ui/date-utils';",
-    "related": ["dateTimeUtc", "dateTime"],
+    "related": [
+      "dateTimeUtc",
+      "dateTime"
+    ],
     "signature": "const UtcTimeZone: string",
     "parameters": [],
     "return_type": "string",

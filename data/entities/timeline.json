@@ -1,14 +1,53 @@
 [
   {
+    "type": "library",
+    "name": "timeline",
+    "library": "timeline",
+    "description": "Canvas-based timeline/Gantt visualization with events, markers, sections, axes, zoom, and pan via TimelineCanvas React component and useTimeline hook.",
+    "keywords": [
+      "gravity-ui",
+      "timeline"
+    ],
+    "when_to_use": [
+      "Canvas-based timeline/Gantt visualization with events, markers, sections, axes, zoom, and pan via TimelineCanvas React component and useTimeline hook"
+    ],
+    "avoid": [
+      "Not for graph/flow diagrams — use @gravity-ui/graph. Not for bar/line/area charts — use chartkit or charts."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/timeline",
+    "not_for": "Not for graph/flow diagrams — use @gravity-ui/graph. Not for bar/line/area charts — use chartkit or charts.",
+    "depends_on": [],
+    "component_count": 1
+  },
+  {
     "type": "utility",
     "name": "AbstractEventRenderer",
     "library": "timeline",
     "description": "An abstract base class for custom timeline event renderers. Subclass it and implement render() to draw events on the canvas and getHitbox() to define the clickable area. The protected hitboxResult property provides a reusable Hitbox object to avoid allocations.",
-    "keywords": ["abstract", "event renderer", "canvas", "custom renderer", "timeline event", "hitbox", "draw"],
-    "when_to_use": ["When the default event rendering is insufficient and a fully custom canvas drawing is needed", "When events require a non-rectangular hitbox for click detection"],
-    "avoid": ["Do not instantiate directly — it is abstract and must be subclassed"],
+    "keywords": [
+      "abstract",
+      "event renderer",
+      "canvas",
+      "custom renderer",
+      "timeline event",
+      "hitbox",
+      "draw"
+    ],
+    "when_to_use": [
+      "When the default event rendering is insufficient and a fully custom canvas drawing is needed",
+      "When events require a non-rectangular hitbox for click detection"
+    ],
+    "avoid": [
+      "Do not instantiate directly — it is abstract and must be subclassed"
+    ],
     "import_statement": "import { AbstractEventRenderer } from '@gravity-ui/timeline';",
-    "related": ["Timeline", "AbstractMarkerRenderer", "AbstractSectionRenderer"],
+    "related": [
+      "Timeline",
+      "AbstractMarkerRenderer",
+      "AbstractSectionRenderer"
+    ],
     "kind": "class"
   },
   {
@@ -16,11 +55,27 @@
     "name": "AbstractMarkerRenderer",
     "library": "timeline",
     "description": "An abstract base class for custom timeline marker renderers. Subclass it and implement render() to draw markers on the canvas. Receives full rendering context including hover/select state, position, view configuration, and a label size calculator.",
-    "keywords": ["abstract", "marker renderer", "canvas", "custom renderer", "timeline marker", "draw"],
-    "when_to_use": ["When custom marker appearance is required beyond the default rendering", "When markers need special label sizing or positional logic"],
-    "avoid": ["Do not instantiate directly — it is abstract and must be subclassed"],
+    "keywords": [
+      "abstract",
+      "marker renderer",
+      "canvas",
+      "custom renderer",
+      "timeline marker",
+      "draw"
+    ],
+    "when_to_use": [
+      "When custom marker appearance is required beyond the default rendering",
+      "When markers need special label sizing or positional logic"
+    ],
+    "avoid": [
+      "Do not instantiate directly — it is abstract and must be subclassed"
+    ],
     "import_statement": "import { AbstractMarkerRenderer } from '@gravity-ui/timeline';",
-    "related": ["Timeline", "AbstractEventRenderer", "AbstractSectionRenderer"],
+    "related": [
+      "Timeline",
+      "AbstractEventRenderer",
+      "AbstractSectionRenderer"
+    ],
     "kind": "class"
   },
   {
@@ -28,11 +83,28 @@
     "name": "AbstractSectionRenderer",
     "library": "timeline",
     "description": "An abstract base class for custom timeline section renderers. Subclass it and implement render() to draw sections on the canvas and getHitbox() to define the interactive area. The protected hitboxResult property is reusable to reduce allocations.",
-    "keywords": ["abstract", "section renderer", "canvas", "custom renderer", "timeline section", "hitbox", "draw"],
-    "when_to_use": ["When sections need custom canvas drawing beyond the built-in appearance", "When section hit detection requires a custom bounding box"],
-    "avoid": ["Do not instantiate directly — it is abstract and must be subclassed"],
+    "keywords": [
+      "abstract",
+      "section renderer",
+      "canvas",
+      "custom renderer",
+      "timeline section",
+      "hitbox",
+      "draw"
+    ],
+    "when_to_use": [
+      "When sections need custom canvas drawing beyond the built-in appearance",
+      "When section hit detection requires a custom bounding box"
+    ],
+    "avoid": [
+      "Do not instantiate directly — it is abstract and must be subclassed"
+    ],
     "import_statement": "import { AbstractSectionRenderer } from '@gravity-ui/timeline';",
-    "related": ["Timeline", "AbstractEventRenderer", "AbstractMarkerRenderer"],
+    "related": [
+      "Timeline",
+      "AbstractEventRenderer",
+      "AbstractMarkerRenderer"
+    ],
     "kind": "class"
   },
   {
@@ -40,26 +112,76 @@
     "name": "TimelineCanvas",
     "library": "timeline",
     "description": "A React component that renders a Timeline instance onto an HTML canvas element. Calls timeline.init() on mount and timeline.destroy() on unmount. The canvas fills 100% of its parent container.",
-    "keywords": ["timeline", "canvas", "gantt", "events timeline", "time visualization", "interactive timeline", "zoom pan", "sections", "markers"],
-    "when_to_use": ["When rendering a Timeline instance in a React application", "As the visual output component paired with useTimeline hook", "For canvas-based timeline visualizations with events, markers, sections, and axes"],
-    "avoid": ["Without a corresponding Timeline instance — always create one with useTimeline or new Timeline() first", "When a DOM-based timeline is preferred over canvas rendering"],
+    "keywords": [
+      "timeline",
+      "canvas",
+      "gantt",
+      "events timeline",
+      "time visualization",
+      "interactive timeline",
+      "zoom pan",
+      "sections",
+      "markers"
+    ],
+    "when_to_use": [
+      "When rendering a Timeline instance in a React application",
+      "As the visual output component paired with useTimeline hook",
+      "For canvas-based timeline visualizations with events, markers, sections, and axes"
+    ],
+    "avoid": [
+      "Without a corresponding Timeline instance — always create one with useTimeline or new Timeline() first",
+      "When a DOM-based timeline is preferred over canvas rendering"
+    ],
     "import_statement": "import { TimelineCanvas } from '@gravity-ui/timeline/react';",
-    "related": ["useTimeline", "useTimelineEvent"],
+    "related": [
+      "useTimeline",
+      "useTimelineEvent"
+    ],
     "props": [
-      { "name": "timeline", "type": "Timeline<TEvent, TMarker, TSection>", "required": true, "description": "Initialized Timeline instance to render on the canvas" },
-      { "name": "className", "type": "string", "required": false, "description": "CSS class applied to the canvas element" }
-    ]
+      {
+        "name": "timeline",
+        "type": "Timeline<TEvent, TMarker, TSection>",
+        "required": true,
+        "description": "Initialized Timeline instance to render on the canvas"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "CSS class applied to the canvas element"
+      }
+    ],
+    "category": "data-display"
   },
   {
     "type": "utility",
     "name": "Timeline",
     "library": "timeline",
     "description": "The core Timeline class that manages canvas rendering, event/marker/section state, and user interaction (zoom, pan, click). Provides on/off/emit event emitter API and must be initialized with a canvas element via init().",
-    "keywords": ["timeline class", "canvas timeline", "gantt chart", "timeline core", "event emitter", "zoom", "pan", "timeline events", "sections", "markers"],
-    "when_to_use": ["When creating a timeline without React (plain JS/TS usage)", "When fine-grained control over the timeline lifecycle is needed"],
-    "avoid": ["In React applications — prefer useTimeline hook which memoizes the instance"],
+    "keywords": [
+      "timeline class",
+      "canvas timeline",
+      "gantt chart",
+      "timeline core",
+      "event emitter",
+      "zoom",
+      "pan",
+      "timeline events",
+      "sections",
+      "markers"
+    ],
+    "when_to_use": [
+      "When creating a timeline without React (plain JS/TS usage)",
+      "When fine-grained control over the timeline lifecycle is needed"
+    ],
+    "avoid": [
+      "In React applications — prefer useTimeline hook which memoizes the instance"
+    ],
     "import_statement": "import { Timeline } from '@gravity-ui/timeline';",
-    "related": ["TimelineCanvas", "useTimeline"],
+    "related": [
+      "TimelineCanvas",
+      "useTimeline"
+    ],
     "signature": "new Timeline<TEvent, TMarker, TSection>(config: TimeLineConfig): Timeline",
     "kind": "class"
   },
@@ -68,14 +190,34 @@
     "name": "useTimeline",
     "library": "timeline",
     "description": "Creates and memoizes a Timeline instance from a configuration object. Returns the timeline, its CanvasApi, and start/stop helpers for manual canvas initialization when not using TimelineCanvas.",
-    "keywords": ["timeline hook", "create timeline", "timeline config", "canvas timeline", "timeline instance", "react hook"],
-    "when_to_use": ["To create a Timeline instance in a React component", "When you need access to the CanvasApi for programmatic updates (setEvents, setMarkers, etc.)", "As the primary factory hook before passing the timeline to TimelineCanvas"],
-    "avoid": ["When only a static display is needed and no API calls are required — new Timeline() directly is also valid"],
+    "keywords": [
+      "timeline hook",
+      "create timeline",
+      "timeline config",
+      "canvas timeline",
+      "timeline instance",
+      "react hook"
+    ],
+    "when_to_use": [
+      "To create a Timeline instance in a React component",
+      "When you need access to the CanvasApi for programmatic updates (setEvents, setMarkers, etc.)",
+      "As the primary factory hook before passing the timeline to TimelineCanvas"
+    ],
+    "avoid": [
+      "When only a static display is needed and no API calls are required — new Timeline() directly is also valid"
+    ],
     "import_statement": "import { useTimeline } from '@gravity-ui/timeline/react';",
-    "related": ["TimelineCanvas", "useTimelineEvent"],
+    "related": [
+      "TimelineCanvas",
+      "useTimelineEvent"
+    ],
     "signature": "useTimeline<TEvent, TMarker, TSection>(config: TimeLineConfig<TEvent, TMarker, TSection>): { timeline: Timeline, api: CanvasApi, start: (canvas: HTMLCanvasElement) => void, stop: () => void }",
     "parameters": [
-      { "name": "config", "type": "TimeLineConfig<TEvent, TMarker, TSection>", "description": "Timeline configuration including settings (start, end, axes, events, markers, sections) and optional viewConfiguration" }
+      {
+        "name": "config",
+        "type": "TimeLineConfig<TEvent, TMarker, TSection>",
+        "description": "Timeline configuration including settings (start, end, axes, events, markers, sections) and optional viewConfiguration"
+      }
     ],
     "return_type": "{ timeline: Timeline, api: CanvasApi, start: (canvas) => void, stop: () => void }"
   },
@@ -84,16 +226,48 @@
     "name": "useTimelineEvent",
     "library": "timeline",
     "description": "Subscribes to a specific Timeline API event (e.g. 'click', 'zoom', 'select') and automatically unsubscribes on cleanup. Wraps timeline.on/off in a useLayoutEffect so the listener is always in sync with the latest callback.",
-    "keywords": ["timeline event", "event listener", "hook", "subscribe", "on", "off", "click", "zoom", "select", "timeline hook"],
-    "when_to_use": ["When reacting to user interactions on a timeline (clicks, zoom changes, selections)", "As the idiomatic way to attach timeline event listeners in React without managing lifecycle manually"],
-    "avoid": ["Do not call timeline.on() directly in React components — use this hook to avoid listener leaks on re-renders"],
+    "keywords": [
+      "timeline event",
+      "event listener",
+      "hook",
+      "subscribe",
+      "on",
+      "off",
+      "click",
+      "zoom",
+      "select",
+      "timeline hook"
+    ],
+    "when_to_use": [
+      "When reacting to user interactions on a timeline (clicks, zoom changes, selections)",
+      "As the idiomatic way to attach timeline event listeners in React without managing lifecycle manually"
+    ],
+    "avoid": [
+      "Do not call timeline.on() directly in React components — use this hook to avoid listener leaks on re-renders"
+    ],
     "import_statement": "import { useTimelineEvent } from '@gravity-ui/timeline/react';",
-    "related": ["useTimeline", "TimelineCanvas", "Timeline"],
+    "related": [
+      "useTimeline",
+      "TimelineCanvas",
+      "Timeline"
+    ],
     "signature": "useTimelineEvent<Event extends keyof ApiEvent>(timeline: Timeline | null, event: Event, cb: (data: UnwrapTimelineEventsDetail, event: UnwrapTimelineEvents) => void): void",
     "parameters": [
-      { "name": "timeline", "type": "Timeline | null", "description": "The Timeline instance to subscribe to; pass null to skip subscription" },
-      { "name": "event", "type": "keyof ApiEvent", "description": "The event name to listen to (e.g. 'click', 'zoom')" },
-      { "name": "cb", "type": "(data, event) => void", "description": "Callback invoked with event detail and the raw CustomEvent" }
+      {
+        "name": "timeline",
+        "type": "Timeline | null",
+        "description": "The Timeline instance to subscribe to; pass null to skip subscription"
+      },
+      {
+        "name": "event",
+        "type": "keyof ApiEvent",
+        "description": "The event name to listen to (e.g. 'click', 'zoom')"
+      },
+      {
+        "name": "cb",
+        "type": "(data, event) => void",
+        "description": "Callback invoked with event detail and the raw CustomEvent"
+      }
     ],
     "return_type": "void"
   }

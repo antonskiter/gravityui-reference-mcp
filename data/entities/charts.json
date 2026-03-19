@@ -1,45 +1,184 @@
 [
   {
+    "type": "library",
+    "name": "charts",
+    "library": "charts",
+    "description": "D3/SVG declarative chart library for line, bar, area, scatter, pie, and other chart types with automatic resize handling and full TypeScript types.",
+    "keywords": [
+      "gravity-ui",
+      "charts"
+    ],
+    "when_to_use": [
+      "D3/SVG declarative chart library for line, bar, area, scatter, pie, and other chart types with automatic resize handling and full TypeScript types"
+    ],
+    "avoid": [
+      "Not for canvas-based high-performance timeseries — use @gravity-ui/yagr. Not when chart type is managed via a plugin registry — use chartkit."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/charts",
+    "not_for": "Not for canvas-based high-performance timeseries — use @gravity-ui/yagr. Not when chart type is managed via a plugin registry — use chartkit.",
+    "depends_on": [],
+    "component_count": 2
+  },
+  {
     "type": "component",
     "name": "Chart",
     "library": "charts",
     "description": "A flexible React chart component built on D3 that renders various chart types (line, bar, area, scatter, pie, etc.) using a declarative ChartData configuration. Automatically handles window resize, exposes a reflow imperative handle, and fires onReady/onResize callbacks with current dimensions.",
-    "keywords": ["chart", "d3", "line chart", "bar chart", "area chart", "scatter", "pie chart", "data visualization", "svg", "responsive chart", "gravity ui charts"],
-    "when_to_use": ["When building data visualizations without needing the plugin abstraction of ChartKit", "For direct D3-based chart rendering with full TypeScript types", "When responsive auto-resize behavior is required"],
-    "avoid": ["When Yagr-style canvas-based performance is needed for large timeseries — use Yagr instead", "When chart type is managed through a plugin registry — use ChartKit instead"],
-    "import_statement": "import { Chart } from '@gravity-ui/charts';",
-    "related": ["ChartTooltipContent"],
-    "props": [
-      { "name": "data", "type": "ChartData", "required": true, "description": "Declarative chart configuration and series data" },
-      { "name": "lang", "type": "string", "required": false, "description": "Locale string for chart text (e.g. 'en', 'ru')" },
-      { "name": "onResize", "type": "(args: { dimensions?: ChartDimentions }) => void", "required": false, "description": "Called on every resize event with current dimensions" },
-      { "name": "onReady", "type": "(args: { dimensions?: ChartDimentions }) => void", "required": false, "description": "Called when chart is fully initialized" }
+    "keywords": [
+      "chart",
+      "d3",
+      "line chart",
+      "bar chart",
+      "area chart",
+      "scatter",
+      "pie chart",
+      "data visualization",
+      "svg",
+      "responsive chart",
+      "gravity ui charts"
     ],
-    "ref": "ChartRef — exposes reflow(options?: ChartReflowOptions) to trigger a manual resize update"
+    "when_to_use": [
+      "When building data visualizations without needing the plugin abstraction of ChartKit",
+      "For direct D3-based chart rendering with full TypeScript types",
+      "When responsive auto-resize behavior is required"
+    ],
+    "avoid": [
+      "When Yagr-style canvas-based performance is needed for large timeseries — use Yagr instead",
+      "When chart type is managed through a plugin registry — use ChartKit instead"
+    ],
+    "import_statement": "import { Chart } from '@gravity-ui/charts';",
+    "related": [
+      "ChartTooltipContent"
+    ],
+    "props": [
+      {
+        "name": "data",
+        "type": "ChartData",
+        "required": true,
+        "description": "Declarative chart configuration and series data"
+      },
+      {
+        "name": "lang",
+        "type": "string",
+        "required": false,
+        "description": "Locale string for chart text (e.g. 'en', 'ru')"
+      },
+      {
+        "name": "onResize",
+        "type": "(args: { dimensions?: ChartDimentions }) => void",
+        "required": false,
+        "description": "Called on every resize event with current dimensions"
+      },
+      {
+        "name": "onReady",
+        "type": "(args: { dimensions?: ChartDimentions }) => void",
+        "required": false,
+        "description": "Called when chart is fully initialized"
+      }
+    ],
+    "ref": "ChartRef — exposes reflow(options?: ChartReflowOptions) to trigger a manual resize update",
+    "category": "data-display"
   },
   {
     "type": "component",
     "name": "ChartTooltipContent",
     "library": "charts",
     "description": "A memoized React component that renders a chart tooltip. When a custom renderer is provided it delegates rendering to it; otherwise falls back to DefaultTooltipContent. Renders nothing when hovered data is absent.",
-    "keywords": ["tooltip", "chart tooltip", "hover", "custom tooltip", "renderer", "hovered data", "charts"],
-    "when_to_use": ["When building a custom tooltip UI outside of the Chart component", "When composing chart tooltips manually with custom renderer logic"],
-    "avoid": ["For standard tooltip rendering inside Chart — the Chart component uses this internally already"],
+    "keywords": [
+      "tooltip",
+      "chart tooltip",
+      "hover",
+      "custom tooltip",
+      "renderer",
+      "hovered data",
+      "charts"
+    ],
+    "when_to_use": [
+      "When building a custom tooltip UI outside of the Chart component",
+      "When composing chart tooltips manually with custom renderer logic"
+    ],
+    "avoid": [
+      "For standard tooltip rendering inside Chart — the Chart component uses this internally already"
+    ],
     "import_statement": "import { ChartTooltipContent } from '@gravity-ui/charts';",
-    "related": ["Chart"],
+    "related": [
+      "Chart"
+    ],
     "props": [
-      { "name": "hovered", "type": "TooltipDataChunk[]", "required": false, "description": "Currently hovered data chunks to display in the tooltip" },
-      { "name": "pinned", "type": "boolean", "required": false, "description": "Whether the tooltip is pinned (locked in place)" },
-      { "name": "renderer", "type": "ChartTooltip['renderer']", "required": false, "description": "Custom tooltip renderer function; overrides default content when provided" },
-      { "name": "rowRenderer", "type": "ChartTooltip['rowRenderer']", "required": false, "description": "Custom renderer for individual tooltip rows" },
-      { "name": "valueFormat", "type": "ChartTooltip['valueFormat']", "required": false, "description": "Format configuration for data values" },
-      { "name": "headerFormat", "type": "ChartTooltip['headerFormat']", "required": false, "description": "Format configuration for the tooltip header" },
-      { "name": "hoveredPlotLines", "type": "ChartTooltipRendererArgs['hoveredPlotLines']", "required": false, "description": "Hovered plot line data" },
-      { "name": "hoveredPlotBands", "type": "ChartTooltipRendererArgs['hoveredPlotBands']", "required": false, "description": "Hovered plot band data" },
-      { "name": "totals", "type": "ChartTooltip['totals']", "required": false, "description": "Aggregated totals to show in tooltip" },
-      { "name": "xAxis", "type": "ChartXAxis | null", "required": false, "description": "X-axis configuration for value formatting" },
-      { "name": "yAxis", "type": "ChartYAxis", "required": false, "description": "Y-axis configuration for value formatting" },
-      { "name": "qa", "type": "string", "required": false, "description": "data-qa attribute for testing" }
+      {
+        "name": "hovered",
+        "type": "TooltipDataChunk[]",
+        "required": false,
+        "description": "Currently hovered data chunks to display in the tooltip"
+      },
+      {
+        "name": "pinned",
+        "type": "boolean",
+        "required": false,
+        "description": "Whether the tooltip is pinned (locked in place)"
+      },
+      {
+        "name": "renderer",
+        "type": "ChartTooltip['renderer']",
+        "required": false,
+        "description": "Custom tooltip renderer function; overrides default content when provided"
+      },
+      {
+        "name": "rowRenderer",
+        "type": "ChartTooltip['rowRenderer']",
+        "required": false,
+        "description": "Custom renderer for individual tooltip rows"
+      },
+      {
+        "name": "valueFormat",
+        "type": "ChartTooltip['valueFormat']",
+        "required": false,
+        "description": "Format configuration for data values"
+      },
+      {
+        "name": "headerFormat",
+        "type": "ChartTooltip['headerFormat']",
+        "required": false,
+        "description": "Format configuration for the tooltip header"
+      },
+      {
+        "name": "hoveredPlotLines",
+        "type": "ChartTooltipRendererArgs['hoveredPlotLines']",
+        "required": false,
+        "description": "Hovered plot line data"
+      },
+      {
+        "name": "hoveredPlotBands",
+        "type": "ChartTooltipRendererArgs['hoveredPlotBands']",
+        "required": false,
+        "description": "Hovered plot band data"
+      },
+      {
+        "name": "totals",
+        "type": "ChartTooltip['totals']",
+        "required": false,
+        "description": "Aggregated totals to show in tooltip"
+      },
+      {
+        "name": "xAxis",
+        "type": "ChartXAxis | null",
+        "required": false,
+        "description": "X-axis configuration for value formatting"
+      },
+      {
+        "name": "yAxis",
+        "type": "ChartYAxis",
+        "required": false,
+        "description": "Y-axis configuration for value formatting"
+      },
+      {
+        "name": "qa",
+        "type": "string",
+        "required": false,
+        "description": "data-qa attribute for testing"
+      }
     ]
   },
   {
@@ -47,16 +186,44 @@
     "name": "getDefaultTooltipHeaderFormat",
     "library": "charts",
     "description": "Derives the default tooltip header format string for a set of chart series by inspecting series types and axis configuration. Returns undefined for chart types that do not use a header (pie, treemap, waterfall, sankey, radar, heatmap, funnel). For bar-y series it uses Y-axis domain; otherwise it uses X-axis domain.",
-    "keywords": ["tooltip", "header format", "default format", "value format", "series type", "axis", "charts utility"],
-    "when_to_use": ["When computing the automatic header format string to pass to ChartTooltipContent or a custom tooltip renderer", "When you need to replicate the default tooltip header logic in a custom chart tooltip"],
-    "avoid": ["Do not call on every render — memoize the result since series data rarely changes"],
+    "keywords": [
+      "tooltip",
+      "header format",
+      "default format",
+      "value format",
+      "series type",
+      "axis",
+      "charts utility"
+    ],
+    "when_to_use": [
+      "When computing the automatic header format string to pass to ChartTooltipContent or a custom tooltip renderer",
+      "When you need to replicate the default tooltip header logic in a custom chart tooltip"
+    ],
+    "avoid": [
+      "Do not call on every render — memoize the result since series data rarely changes"
+    ],
     "import_statement": "import { getDefaultTooltipHeaderFormat } from '@gravity-ui/charts';",
-    "related": ["ChartTooltipContent", "getFormattedValue"],
+    "related": [
+      "ChartTooltipContent",
+      "getFormattedValue"
+    ],
     "signature": "getDefaultTooltipHeaderFormat({ seriesData, yAxes, xAxis }: { seriesData: ChartSeries[]; yAxes?: ChartYAxis[]; xAxis?: ChartXAxis }): string | undefined",
     "parameters": [
-      { "name": "seriesData", "type": "ChartSeries[]", "description": "Array of chart series to derive the format from" },
-      { "name": "yAxes", "type": "ChartYAxis[]", "description": "Optional Y-axis configurations; used for bar-y series" },
-      { "name": "xAxis", "type": "ChartXAxis", "description": "Optional X-axis configuration; used for all other series types" }
+      {
+        "name": "seriesData",
+        "type": "ChartSeries[]",
+        "description": "Array of chart series to derive the format from"
+      },
+      {
+        "name": "yAxes",
+        "type": "ChartYAxis[]",
+        "description": "Optional Y-axis configurations; used for bar-y series"
+      },
+      {
+        "name": "xAxis",
+        "type": "ChartXAxis",
+        "description": "Optional X-axis configuration; used for all other series types"
+      }
     ],
     "return_type": "string | undefined"
   },
@@ -65,15 +232,39 @@
     "name": "getFormattedValue",
     "library": "charts",
     "description": "Formats a raw chart value (number, string, null, or undefined) using a ValueFormat or CustomFormat descriptor. Supports 'number' formatting via formatNumber, 'date' formatting via dateTimeUtc, and 'custom' formatting via a user-supplied formatter function. Falls back to String(value) for unrecognized formats.",
-    "keywords": ["format", "value format", "number format", "date format", "custom format", "charts utility", "formatter"],
-    "when_to_use": ["When rendering formatted values in custom tooltip renderers or chart labels", "When applying the same formatting logic used internally by the charts library to display consistent values"],
-    "avoid": ["Do not use for axis tick labels — use formatAxisTickLabel from the internal utils instead"],
+    "keywords": [
+      "format",
+      "value format",
+      "number format",
+      "date format",
+      "custom format",
+      "charts utility",
+      "formatter"
+    ],
+    "when_to_use": [
+      "When rendering formatted values in custom tooltip renderers or chart labels",
+      "When applying the same formatting logic used internally by the charts library to display consistent values"
+    ],
+    "avoid": [
+      "Do not use for axis tick labels — use formatAxisTickLabel from the internal utils instead"
+    ],
     "import_statement": "import { getFormattedValue } from '@gravity-ui/charts';",
-    "related": ["ChartTooltipContent", "getDefaultTooltipHeaderFormat"],
+    "related": [
+      "ChartTooltipContent",
+      "getDefaultTooltipHeaderFormat"
+    ],
     "signature": "getFormattedValue(args: { value: string | number | undefined | null; format?: ValueFormat | CustomFormat }): string",
     "parameters": [
-      { "name": "value", "type": "string | number | undefined | null", "description": "The raw value to format" },
-      { "name": "format", "type": "ValueFormat | CustomFormat", "description": "Optional format descriptor controlling output style" }
+      {
+        "name": "value",
+        "type": "string | number | undefined | null",
+        "description": "The raw value to format"
+      },
+      {
+        "name": "format",
+        "type": "ValueFormat | CustomFormat",
+        "description": "Optional format descriptor controlling output style"
+      }
     ],
     "return_type": "string"
   }

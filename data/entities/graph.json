@@ -1,5 +1,27 @@
 [
   {
+    "type": "library",
+    "name": "graph",
+    "library": "graph",
+    "description": "Canvas + React graph/flow diagram library with Preact signals for reactive block state, ELK auto-layout, custom HTML block rendering, layers, and portals.",
+    "keywords": [
+      "gravity-ui",
+      "graph"
+    ],
+    "when_to_use": [
+      "Canvas + React graph/flow diagram library with Preact signals for reactive block state, ELK auto-layout, custom HTML block rendering, layers, and portals"
+    ],
+    "avoid": [
+      "Not for charts or data visualizations — use chartkit/charts/yagr. Not for timeline visualizations — use @gravity-ui/timeline."
+    ],
+    "import_statement": "",
+    "related": [],
+    "package": "@gravity-ui/graph",
+    "not_for": "Not for charts or data visualizations — use chartkit/charts/yagr. Not for timeline visualizations — use @gravity-ui/timeline.",
+    "depends_on": [],
+    "component_count": 5
+  },
+  {
     "type": "utility",
     "name": "applyAlpha",
     "library": "graph",
@@ -18,7 +40,9 @@
     ],
     "avoid": [],
     "import_statement": "import { applyAlpha } from '@gravity-ui/graph';",
-    "related": ["clearColorCache"],
+    "related": [
+      "clearColorCache"
+    ],
     "signature": "applyAlpha(color: string, alpha: number): string",
     "parameters": [
       {
@@ -55,7 +79,9 @@
     ],
     "avoid": [],
     "import_statement": "import { clearColorCache } from '@gravity-ui/graph';",
-    "related": ["applyAlpha"],
+    "related": [
+      "applyAlpha"
+    ],
     "signature": "clearColorCache(): void",
     "parameters": [],
     "return_type": "void",
@@ -87,7 +113,10 @@
       "Setting this.state or this.props directly — use setState() and setProps()"
     ],
     "import_statement": "import { Component } from '@gravity-ui/graph';",
-    "related": ["Layer", "GraphComponent"],
+    "related": [
+      "Layer",
+      "GraphComponent"
+    ],
     "signature": "class Component<Props, State, Context> extends CoreComponent",
     "parameters": [],
     "return_type": "Component",
@@ -118,7 +147,11 @@
       "For time-only debouncing outside the graph context — use lodash debounce instead"
     ],
     "import_statement": "import { debounce } from '@gravity-ui/graph';",
-    "related": ["throttle", "schedule", "useSchedulerDebounce"],
+    "related": [
+      "throttle",
+      "schedule",
+      "useSchedulerDebounce"
+    ],
     "signature": "debounce<T extends (...args: unknown[]) => void>(fn: T, options: TDebounceOptions): T & { cancel(): void }",
     "parameters": [
       {
@@ -158,7 +191,11 @@
       "Creating Graph directly in React components — use useGraph hook instead for lifecycle management"
     ],
     "import_statement": "import { Graph } from '@gravity-ui/graph';",
-    "related": ["useGraph", "GraphCanvas", "Layer"],
+    "related": [
+      "useGraph",
+      "GraphCanvas",
+      "Layer"
+    ],
     "signature": "new Graph(config: TGraphConfig, rootEl?: HTMLDivElement, graphColors?: TGraphColors, graphConstants?: TGraphConstants): Graph",
     "parameters": [
       {
@@ -220,7 +257,12 @@
       "Do not use for purely canvas-rendered blocks at low zoom — GraphBlock only activates at detailed zoom level"
     ],
     "import_statement": "import { GraphBlock } from '@gravity-ui/graph'",
-    "related": ["GraphCanvas", "GraphBlockAnchor", "useGraph", "useBlockState"],
+    "related": [
+      "GraphCanvas",
+      "GraphBlockAnchor",
+      "useGraph",
+      "useBlockState"
+    ],
     "props": [
       {
         "name": "block",
@@ -269,7 +311,8 @@
       "<GraphBlock graph={graph} block={block}>\n  <div>Block name: {block.name}</div>\n  <button onClick={() => console.log('clicked')}>Click me</button>\n</GraphBlock>",
       "// With custom class names\n<GraphBlock\n  graph={graph}\n  block={block}\n  className=\"my-block-wrapper\"\n  containerClassName=\"my-block-container\"\n>\n  <CustomBlockContent block={block} />\n</GraphBlock>",
       "// Manual canvas visibility control\n<GraphBlock\n  graph={graph}\n  block={block}\n  autoHideCanvas={false}\n  canvasVisible={false}\n>\n  <div>{block.name}</div>\n</GraphBlock>"
-    ]
+    ],
+    "category": "layout"
   },
   {
     "type": "component",
@@ -298,7 +341,11 @@
       "Do not manually set anchor position via CSS; the component uses CSS variables to synchronize with canvas coordinates"
     ],
     "import_statement": "import { GraphBlockAnchor } from '@gravity-ui/graph'",
-    "related": ["GraphBlock", "GraphCanvas", "useBlockAnchorState"],
+    "related": [
+      "GraphBlock",
+      "GraphCanvas",
+      "useBlockAnchorState"
+    ],
     "props": [
       {
         "name": "anchor",
@@ -334,7 +381,8 @@
     "examples": [
       "<GraphBlockAnchor graph={graph} anchor={anchor} position=\"fixed\">\n  <div className=\"anchor-dot\" />\n</GraphBlockAnchor>",
       "// Render prop for state-aware styling\n<GraphBlockAnchor graph={graph} anchor={anchor} position=\"fixed\">\n  {(state) => (\n    <div className={state.$selected.value ? 'selected' : ''} />\n  )}\n</GraphBlockAnchor>"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -363,7 +411,13 @@
       "Do not use without a Graph instance; always pair with useGraph"
     ],
     "import_statement": "import { GraphCanvas } from '@gravity-ui/graph'",
-    "related": ["useGraph", "GraphBlock", "GraphBlockAnchor", "GraphLayer", "GraphPortal"],
+    "related": [
+      "useGraph",
+      "GraphBlock",
+      "GraphBlockAnchor",
+      "GraphLayer",
+      "GraphPortal"
+    ],
     "props": [
       {
         "name": "graph",
@@ -465,7 +519,8 @@
     "examples": [
       "const { graph } = useGraph({});\nreturn (\n  <GraphCanvas\n    graph={graph}\n    renderBlock={(g, block) => (\n      <GraphBlock graph={g} block={block}>\n        {block.name}\n      </GraphBlock>\n    )}\n  />\n);",
       "// With event callbacks\n<GraphCanvas\n  graph={graph}\n  renderBlock={renderBlock}\n  onBlockDragEnd={({ blocks }) => savePositions(blocks)}\n  onBlockSelectionChange={({ selectedBlockIds }) => setSelected(selectedBlockIds)}\n/>"
-    ]
+    ],
+    "category": "layout"
   },
   {
     "type": "component",
@@ -492,7 +547,12 @@
       "Prefer useLayer when you need the layer instance during render (e.g., in the same component)"
     ],
     "import_statement": "import { GraphLayer } from '@gravity-ui/graph'",
-    "related": ["GraphCanvas", "GraphPortal", "useLayer", "useGraph"],
+    "related": [
+      "GraphCanvas",
+      "GraphPortal",
+      "useLayer",
+      "useGraph"
+    ],
     "props": [
       {
         "name": "layer",
@@ -515,7 +575,8 @@
     ],
     "examples": [
       "const layerRef = useRef(null);\nreturn (\n  <GraphCanvas graph={graph} renderBlock={renderBlock}>\n    <GraphLayer layer={DevToolsLayer} props={{ showRuler: true }} ref={layerRef} />\n  </GraphCanvas>\n);"
-    ]
+    ],
+    "category": "utility"
   },
   {
     "type": "component",
@@ -543,7 +604,11 @@
       "Do not use for block-level rendering — use GraphBlock inside renderBlock instead"
     ],
     "import_statement": "import { GraphPortal } from '@gravity-ui/graph'",
-    "related": ["GraphCanvas", "GraphLayer", "useGraph"],
+    "related": [
+      "GraphCanvas",
+      "GraphLayer",
+      "useGraph"
+    ],
     "props": [
       {
         "name": "children",
@@ -573,7 +638,8 @@
     "examples": [
       "<GraphCanvas graph={graph} renderBlock={renderBlock}>\n  <GraphPortal zIndex={200}>\n    <div style={{ position: 'absolute', top: 10, left: 10 }}>\n      <h3>Custom Overlay</h3>\n    </div>\n  </GraphPortal>\n</GraphCanvas>",
       "// Render prop with access to layer and graph\n<GraphPortal transformByCameraPosition={true}>\n  {(layer, graph) => (\n    <div onClick={() => layer.hide()}>\n      Blocks: {graph.api.getBlocks().length}\n    </div>\n  )}\n</GraphPortal>"
-    ]
+    ],
+    "category": "utility"
   },
   {
     "type": "hook",
@@ -596,11 +662,23 @@
       "Do not use for block-level state — use useBlockState instead"
     ],
     "import_statement": "import { useBlockAnchorState } from '@gravity-ui/graph'",
-    "related": ["useBlockState", "GraphBlockAnchor", "useSignal"],
+    "related": [
+      "useBlockState",
+      "GraphBlockAnchor",
+      "useSignal"
+    ],
     "signature": "useBlockAnchorState(graph: Graph, anchor: TAnchor): AnchorState | undefined",
     "parameters": [
-      { "name": "graph", "type": "Graph", "description": "Graph instance." },
-      { "name": "anchor", "type": "TAnchor", "description": "Anchor object whose state to subscribe to." }
+      {
+        "name": "graph",
+        "type": "Graph",
+        "description": "Graph instance."
+      },
+      {
+        "name": "anchor",
+        "type": "TAnchor",
+        "description": "Anchor object whose state to subscribe to."
+      }
     ],
     "return_type": "AnchorState | undefined"
   },
@@ -625,11 +703,23 @@
       "Do not use outside a Graph context — the graph's rootStore must be initialized"
     ],
     "import_statement": "import { useBlockState } from '@gravity-ui/graph'",
-    "related": ["useBlockAnchorState", "GraphBlock", "useSignal"],
+    "related": [
+      "useBlockAnchorState",
+      "GraphBlock",
+      "useSignal"
+    ],
     "signature": "useBlockState<T extends TBlock>(graph: Graph, block: T | T['id']): BlockState | undefined",
     "parameters": [
-      { "name": "graph", "type": "Graph", "description": "Graph instance." },
-      { "name": "block", "type": "T | T['id']", "description": "Block object or block ID." }
+      {
+        "name": "graph",
+        "type": "Graph",
+        "description": "Graph instance."
+      },
+      {
+        "name": "block",
+        "type": "T | T['id']",
+        "description": "Block object or block ID."
+      }
     ],
     "return_type": "BlockState | undefined"
   },
@@ -655,11 +745,22 @@
       "Avoid heavy computations in the compute function; it runs on every signal change"
     ],
     "import_statement": "import { useComputedSignal } from '@gravity-ui/graph'",
-    "related": ["useSignal", "useSignalEffect"],
+    "related": [
+      "useSignal",
+      "useSignalEffect"
+    ],
     "signature": "useComputedSignal<T>(compute: () => T, deps: DependencyList): T",
     "parameters": [
-      { "name": "compute", "type": "() => T", "description": "Function that reads signals and returns a derived value." },
-      { "name": "deps", "type": "DependencyList", "description": "React dependency array that recreates the computed signal when changed." }
+      {
+        "name": "compute",
+        "type": "() => T",
+        "description": "Function that reads signals and returns a derived value."
+      },
+      {
+        "name": "deps",
+        "type": "DependencyList",
+        "description": "React dependency array that recreates the computed signal when changed."
+      }
     ],
     "return_type": "T"
   },
@@ -687,12 +788,26 @@
       "Not suitable for real-time interactive layout — ELK is async and best for initial placement"
     ],
     "import_statement": "import { useElk } from '@gravity-ui/graph'",
-    "related": ["useGraph"],
+    "related": [
+      "useGraph"
+    ],
     "signature": "useElk(config: ElkNode, elk: ELK, args?: ElkLayoutArguments & { onError?: (e: Error) => void }): { result: ConverterResult | null; isLoading: boolean }",
     "parameters": [
-      { "name": "config", "type": "ElkNode", "description": "ELK node configuration describing the graph topology." },
-      { "name": "elk", "type": "ELK", "description": "ELK instance (from elkjs)." },
-      { "name": "args", "type": "ElkLayoutArguments & { onError?: (e: Error) => void }", "description": "Optional layout arguments and error callback." }
+      {
+        "name": "config",
+        "type": "ElkNode",
+        "description": "ELK node configuration describing the graph topology."
+      },
+      {
+        "name": "elk",
+        "type": "ELK",
+        "description": "ELK instance (from elkjs)."
+      },
+      {
+        "name": "args",
+        "type": "ElkLayoutArguments & { onError?: (e: Error) => void }",
+        "description": "Optional layout arguments and error callback."
+      }
     ],
     "return_type": "{ result: ConverterResult | null; isLoading: boolean }"
   },
@@ -723,10 +838,18 @@
       "Do not pass new object literals as config on each render without useMemo — settings will update on every render"
     ],
     "import_statement": "import { useGraph } from '@gravity-ui/graph'",
-    "related": ["GraphCanvas", "useLayer", "useGraphEvent"],
+    "related": [
+      "GraphCanvas",
+      "useLayer",
+      "useGraphEvent"
+    ],
     "signature": "useGraph(config: HookGraphParams): { graph: Graph; api: PublicGraphApi; setSettings, start, stop, setViewConfiguration, addLayer, setEntities, updateEntities, zoomTo }",
     "parameters": [
-      { "name": "config", "type": "HookGraphParams", "description": "Configuration including settings, layers, viewConfiguration, and an optional existing graph instance." }
+      {
+        "name": "config",
+        "type": "HookGraphParams",
+        "description": "Configuration including settings, layers, viewConfiguration, and an optional existing graph instance."
+      }
     ],
     "return_type": "{ graph: Graph; api: PublicGraphApi; setSettings: (s) => void; start: () => void; stop: () => void; setViewConfiguration: (v) => void; addLayer: (ctor, props) => Layer; setEntities: (entities) => void; updateEntities: (entities) => void; zoomTo: (target, config?) => void }"
   },
@@ -754,13 +877,33 @@
       "Do not pass unstable callbacks without useFn or useCallback — it will resubscribe on each render"
     ],
     "import_statement": "import { useGraphEvent } from '@gravity-ui/graph'",
-    "related": ["useGraphEvents", "useGraph", "GraphCanvas"],
+    "related": [
+      "useGraphEvents",
+      "useGraph",
+      "GraphCanvas"
+    ],
     "signature": "useGraphEvent<Event extends keyof GraphEventsDefinitions>(graph: Graph | null, event: Event, cb: (data, event) => void, debounceParams?: object): void",
     "parameters": [
-      { "name": "graph", "type": "Graph | null", "description": "Graph instance to subscribe to." },
-      { "name": "event", "type": "keyof GraphEventsDefinitions", "description": "Event name to subscribe to." },
-      { "name": "cb", "type": "(data, event) => void", "description": "Callback invoked on each event." },
-      { "name": "debounceParams", "type": "{ priority?, frameInterval?, frameTimeout? }", "description": "Optional scheduler-based debounce options." }
+      {
+        "name": "graph",
+        "type": "Graph | null",
+        "description": "Graph instance to subscribe to."
+      },
+      {
+        "name": "event",
+        "type": "keyof GraphEventsDefinitions",
+        "description": "Event name to subscribe to."
+      },
+      {
+        "name": "cb",
+        "type": "(data, event) => void",
+        "description": "Callback invoked on each event."
+      },
+      {
+        "name": "debounceParams",
+        "type": "{ priority?, frameInterval?, frameTimeout? }",
+        "description": "Optional scheduler-based debounce options."
+      }
     ],
     "return_type": "void"
   },
@@ -784,11 +927,22 @@
       "Do not reconstruct the events object on every render without memoization — causes constant resubscription"
     ],
     "import_statement": "import { useGraphEvents } from '@gravity-ui/graph'",
-    "related": ["useGraphEvent", "GraphCanvas"],
+    "related": [
+      "useGraphEvent",
+      "GraphCanvas"
+    ],
     "signature": "useGraphEvents(graph: Graph | null, events: Partial<TGraphEventCallbacks>): void",
     "parameters": [
-      { "name": "graph", "type": "Graph | null", "description": "Graph instance to subscribe to." },
-      { "name": "events", "type": "Partial<TGraphEventCallbacks>", "description": "Map of event callback functions." }
+      {
+        "name": "graph",
+        "type": "Graph | null",
+        "description": "Graph instance to subscribe to."
+      },
+      {
+        "name": "events",
+        "type": "Partial<TGraphEventCallbacks>",
+        "description": "Map of event callback functions."
+      }
     ],
     "return_type": "void"
   },
@@ -816,12 +970,28 @@
       "Do not use when the layer is needed only declaratively inside GraphCanvas children — use GraphLayer component instead"
     ],
     "import_statement": "import { useLayer } from '@gravity-ui/graph'",
-    "related": ["GraphLayer", "GraphCanvas", "useGraph"],
+    "related": [
+      "GraphLayer",
+      "GraphCanvas",
+      "useGraph"
+    ],
     "signature": "useLayer<T extends Constructor<Layer>>(graph: Graph | null, layerCtor: T, props: LayerPublicProps<T>): InstanceType<T> | null",
     "parameters": [
-      { "name": "graph", "type": "Graph | null", "description": "Graph instance to add the layer to." },
-      { "name": "layerCtor", "type": "Constructor<Layer>", "description": "Layer class constructor." },
-      { "name": "props", "type": "LayerPublicProps<T>", "description": "Custom props for the layer (excluding internal props)." }
+      {
+        "name": "graph",
+        "type": "Graph | null",
+        "description": "Graph instance to add the layer to."
+      },
+      {
+        "name": "layerCtor",
+        "type": "Constructor<Layer>",
+        "description": "Layer class constructor."
+      },
+      {
+        "name": "props",
+        "type": "LayerPublicProps<T>",
+        "description": "Custom props for the layer (excluding internal props)."
+      }
     ],
     "return_type": "InstanceType<T> | null"
   },
@@ -846,11 +1016,22 @@
       "Do not use for block-specific updates — use useBlockState or useSignal instead"
     ],
     "import_statement": "import { useSceneChange } from '@gravity-ui/graph'",
-    "related": ["useGraphEvent", "useGraph"],
+    "related": [
+      "useGraphEvent",
+      "useGraph"
+    ],
     "signature": "useSceneChange(graph: Graph, fn: () => void): void",
     "parameters": [
-      { "name": "graph", "type": "Graph", "description": "Graph instance to observe." },
-      { "name": "fn", "type": "() => void", "description": "Callback invoked on any scene change." }
+      {
+        "name": "graph",
+        "type": "Graph",
+        "description": "Graph instance to observe."
+      },
+      {
+        "name": "fn",
+        "type": "() => void",
+        "description": "Callback invoked on any scene change."
+      }
     ],
     "return_type": "void"
   },
@@ -875,11 +1056,23 @@
       "Do not use for non-scheduler logic — prefer standard lodash debounce for time-only debouncing"
     ],
     "import_statement": "import { useSchedulerDebounce } from '@gravity-ui/graph'",
-    "related": ["useSchedulerThrottle", "useScheduledTask", "useGraphEvent"],
+    "related": [
+      "useSchedulerThrottle",
+      "useScheduledTask",
+      "useGraphEvent"
+    ],
     "signature": "useSchedulerDebounce<T extends (...args) => void>(fn: T, options: TDebounceOptions): T & { cancel(): void }",
     "parameters": [
-      { "name": "fn", "type": "T", "description": "Function to debounce." },
-      { "name": "options", "type": "TDebounceOptions", "description": "Options: priority, frameInterval, frameTimeout." }
+      {
+        "name": "fn",
+        "type": "T",
+        "description": "Function to debounce."
+      },
+      {
+        "name": "options",
+        "type": "TDebounceOptions",
+        "description": "Options: priority, frameInterval, frameTimeout."
+      }
     ],
     "return_type": "T & { cancel(): void }"
   },
@@ -903,11 +1096,22 @@
       "Do not use for repeating tasks — use useSchedulerDebounce or useSchedulerThrottle"
     ],
     "import_statement": "import { useScheduledTask } from '@gravity-ui/graph'",
-    "related": ["useSchedulerDebounce", "useSchedulerThrottle"],
+    "related": [
+      "useSchedulerDebounce",
+      "useSchedulerThrottle"
+    ],
     "signature": "useScheduledTask<T extends (...args: unknown[]) => void>(fn: T, options: Omit<TScheduleOptions, 'once'>): void",
     "parameters": [
-      { "name": "fn", "type": "T", "description": "Task function to schedule." },
-      { "name": "options", "type": "Omit<TScheduleOptions, 'once'>", "description": "Options: priority, frameInterval." }
+      {
+        "name": "fn",
+        "type": "T",
+        "description": "Task function to schedule."
+      },
+      {
+        "name": "options",
+        "type": "Omit<TScheduleOptions, 'once'>",
+        "description": "Options: priority, frameInterval."
+      }
     ],
     "return_type": "void"
   },
@@ -932,11 +1136,22 @@
       "Do not use when you want to wait for the last call — use useSchedulerDebounce instead"
     ],
     "import_statement": "import { useSchedulerThrottle } from '@gravity-ui/graph'",
-    "related": ["useSchedulerDebounce", "useScheduledTask"],
+    "related": [
+      "useSchedulerDebounce",
+      "useScheduledTask"
+    ],
     "signature": "useSchedulerThrottle<T extends (...args) => void>(fn: T, options: TDebounceOptions): T & { cancel(): void }",
     "parameters": [
-      { "name": "fn", "type": "T", "description": "Function to throttle." },
-      { "name": "options", "type": "TDebounceOptions", "description": "Options: priority, frameInterval, frameTimeout." }
+      {
+        "name": "fn",
+        "type": "T",
+        "description": "Function to throttle."
+      },
+      {
+        "name": "options",
+        "type": "TDebounceOptions",
+        "description": "Options: priority, frameInterval, frameTimeout."
+      }
     ],
     "return_type": "T & { cancel(): void }"
   },
@@ -962,10 +1177,17 @@
       "Do not use with unstable signal references — ensure the signal object is stable across renders"
     ],
     "import_statement": "import { useSignal } from '@gravity-ui/graph'",
-    "related": ["useComputedSignal", "useSignalEffect"],
+    "related": [
+      "useComputedSignal",
+      "useSignalEffect"
+    ],
     "signature": "useSignal<T>(signal: Signal<T>): T",
     "parameters": [
-      { "name": "signal", "type": "Signal<T>", "description": "Preact signal to subscribe to." }
+      {
+        "name": "signal",
+        "type": "Signal<T>",
+        "description": "Preact signal to subscribe to."
+      }
     ],
     "return_type": "T"
   },
@@ -990,11 +1212,22 @@
       "Avoid reading non-signal reactive state inside the effect function"
     ],
     "import_statement": "import { useSignalEffect } from '@gravity-ui/graph'",
-    "related": ["useSignal", "useComputedSignal"],
+    "related": [
+      "useSignal",
+      "useComputedSignal"
+    ],
     "signature": "useSignalEffect(effectFn: () => void, deps: DependencyList): void",
     "parameters": [
-      { "name": "effectFn", "type": "() => void", "description": "Effect function that reads signals; re-runs when signals change." },
-      { "name": "deps", "type": "DependencyList", "description": "React dependency array that recreates the effect subscription." }
+      {
+        "name": "effectFn",
+        "type": "() => void",
+        "description": "Effect function that reads signals; re-runs when signals change."
+      },
+      {
+        "name": "deps",
+        "type": "DependencyList",
+        "description": "React dependency array that recreates the effect subscription."
+      }
     ],
     "return_type": "void"
   },
@@ -1023,7 +1256,12 @@
       "Calling render() directly — use performRender()"
     ],
     "import_statement": "import { Layer } from '@gravity-ui/graph';",
-    "related": ["Graph", "Component", "useLayer", "GraphLayer"],
+    "related": [
+      "Graph",
+      "Component",
+      "useLayer",
+      "GraphLayer"
+    ],
     "signature": "class Layer<Props extends LayerProps, Context extends LayerContext, State> extends Component",
     "parameters": [],
     "return_type": "Layer",
@@ -1054,7 +1292,11 @@
       "For non-scheduler deferred logic — use requestAnimationFrame directly"
     ],
     "import_statement": "import { schedule } from '@gravity-ui/graph';",
-    "related": ["debounce", "throttle", "useScheduledTask"],
+    "related": [
+      "debounce",
+      "throttle",
+      "useScheduledTask"
+    ],
     "signature": "schedule(fn: () => void, options: TScheduleOptions): () => void",
     "parameters": [
       {
@@ -1094,7 +1336,11 @@
       "When you want to wait for the last call — use debounce instead"
     ],
     "import_statement": "import { throttle } from '@gravity-ui/graph';",
-    "related": ["debounce", "schedule", "useSchedulerThrottle"],
+    "related": [
+      "debounce",
+      "schedule",
+      "useSchedulerThrottle"
+    ],
     "signature": "throttle<T extends (...args: unknown[]) => void>(fn: T, options: TDebounceOptions): T & { cancel(): void }",
     "parameters": [
       {

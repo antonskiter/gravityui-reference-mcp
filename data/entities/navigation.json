@@ -1,5 +1,33 @@
 [
   {
+    "type": "library",
+    "name": "navigation",
+    "library": "navigation",
+    "description": "App-level navigation shell providing AsideHeader (collapsible sidebar), MobileHeader (burger menu), Footer, Settings panel, HotkeysPanel, PageLayout, and ActionBar for application-level navigation structures.",
+    "keywords": [
+      "gravity-ui",
+      "navigation"
+    ],
+    "when_to_use": [
+      "App-level navigation shell providing AsideHeader (collapsible sidebar), MobileHeader (burger menu), Footer, Settings panel, HotkeysPanel, PageLayout, and ActionBar for application-level navigation structures"
+    ],
+    "avoid": [
+      "Not for in-page navigation (tabs, breadcrumbs) — use uikit Tabs and Breadcrumbs. Not for landing pages — use page-constructor."
+    ],
+    "import_statement": "",
+    "related": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons"
+    ],
+    "package": "@gravity-ui/navigation",
+    "not_for": "Not for in-page navigation (tabs, breadcrumbs) — use uikit Tabs and Breadcrumbs. Not for landing pages — use page-constructor.",
+    "depends_on": [
+      "@gravity-ui/uikit",
+      "@gravity-ui/icons"
+    ],
+    "component_count": 15
+  },
+  {
     "type": "component",
     "name": "ActionBar",
     "library": "navigation",
@@ -27,7 +55,10 @@
       "Do not use as a main sidebar navigation — use AsideHeader for that"
     ],
     "import_statement": "import { ActionBar } from '@gravity-ui/navigation';",
-    "related": ["AsideHeader", "Title"],
+    "related": [
+      "AsideHeader",
+      "Title"
+    ],
     "props": [
       {
         "name": "aria-label",
@@ -63,7 +94,8 @@
     "examples": [
       "<ActionBar aria-label=\"Actions bar\">\n  <ActionBar.Section type=\"secondary\">\n    <ActionBar.Group>\n      <ActionBar.Item>\n        <Select value={['main']} options={[{content: 'main', value: 'main'}]} />\n      </ActionBar.Item>\n    </ActionBar.Group>\n  </ActionBar.Section>\n  <ActionBar.Section type=\"primary\">\n    <ActionBar.Group pull=\"left\">\n      <ActionBar.Item>\n        <Breadcrumbs items={[{text: 'Root', action() {}}]} />\n      </ActionBar.Item>\n    </ActionBar.Group>\n    <ActionBar.Group pull=\"right\">\n      <ActionBar.Item>\n        <Button>Action</Button>\n      </ActionBar.Item>\n    </ActionBar.Group>\n  </ActionBar.Section>\n</ActionBar>",
       "<ActionBar aria-label=\"Actions bar\">\n  <ActionBar.Section>\n    <ActionBar.Group pull=\"right\">\n      <ActionBar.Item><Button>Save</Button></ActionBar.Item>\n      <ActionBar.Separator />\n      <ActionBar.Item><Button>Cancel</Button></ActionBar.Item>\n    </ActionBar.Group>\n  </ActionBar.Section>\n</ActionBar>"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -95,7 +127,15 @@
       "If you need faster initial page content render, use PageLayout + PageLayoutAside instead of AsideHeader directly"
     ],
     "import_statement": "import { AsideHeader } from '@gravity-ui/navigation';",
-    "related": ["PageLayout", "PageLayoutAside", "AsideFallback", "FooterItem", "MobileHeader", "Logo", "TopAlert"],
+    "related": [
+      "PageLayout",
+      "PageLayoutAside",
+      "AsideFallback",
+      "FooterItem",
+      "MobileHeader",
+      "Logo",
+      "TopAlert"
+    ],
     "props": [
       {
         "name": "pinned",
@@ -263,7 +303,8 @@
     "examples": [
       "<AsideHeader\n  logo={{icon: LogoIcon, text: 'My App', href: '/'}}\n  pinned={isPinned}\n  onChangePinned={setIsPinned}\n  menuItems={[\n    {id: 'home', title: 'Home', icon: HomeIcon, current: true, onItemClick: handleClick},\n    {id: 'settings', title: 'Settings', icon: SettingsIcon, onItemClick: handleClick},\n  ]}\n  renderContent={({size}) => <main style={{paddingLeft: size}}>Content</main>}\n/>",
       "// With custom footer and top alert\n<AsideHeader\n  logo={{icon: LogoIcon, text: 'Service'}}\n  pinned={pinned}\n  topAlert={{theme: 'warning', message: 'Maintenance scheduled', closable: true, onCloseTopAlert: handleClose}}\n  renderFooter={() => <FooterItem icon={UserIcon} title=\"Profile\" />}\n/>"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -288,7 +329,12 @@
       "Do not use when AsideHeader is not lazy-loaded"
     ],
     "import_statement": "import { AsideFallback } from '@gravity-ui/navigation';",
-    "related": ["AsideHeader", "PageLayout", "PageLayoutAside"]
+    "related": [
+      "AsideHeader",
+      "PageLayout",
+      "PageLayoutAside"
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -313,7 +359,11 @@
       "Do not use inside the AsideHeader sidebar — use renderFooter/FooterItem for that"
     ],
     "import_statement": "import { Footer } from '@gravity-ui/navigation';",
-    "related": ["MobileFooter", "FooterItem", "Logo"],
+    "related": [
+      "MobileFooter",
+      "FooterItem",
+      "Logo"
+    ],
     "props": [
       {
         "name": "copyright",
@@ -373,7 +423,8 @@
     "examples": [
       "<Footer\n  copyright={`© ${new Date().getFullYear()} My Service`}\n  withDivider\n  logo={{icon: LogoIcon, iconSize: 24, text: 'My Service'}}\n  menuItems={[\n    {text: 'About', href: '/about'},\n    {text: 'Docs', href: '/docs'},\n  ]}\n/>",
       "<Footer copyright=\"© 2024 My Service\" view=\"clear\" />"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -396,7 +447,11 @@
       "Do not use in the main menuItems section of AsideHeader — configure those as AsideHeaderItem objects instead"
     ],
     "import_statement": "import { FooterItem } from '@gravity-ui/navigation';",
-    "related": ["AsideHeader", "PageLayoutAside"]
+    "related": [
+      "AsideHeader",
+      "PageLayoutAside"
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -421,7 +476,10 @@
       "Do not use as a general help panel with non-hotkey content"
     ],
     "import_statement": "import { HotkeysPanel } from '@gravity-ui/navigation';",
-    "related": ["AsideHeader", "MobileHeader"],
+    "related": [
+      "AsideHeader",
+      "MobileHeader"
+    ],
     "props": [
       {
         "name": "hotkeys",
@@ -516,7 +574,8 @@
     ],
     "examples": [
       "<HotkeysPanel\n  open={isPanelOpen}\n  onClose={() => setIsPanelOpen(false)}\n  title=\"Keyboard Shortcuts\"\n  togglePanelHotkey=\"?\"\n  hotkeys={[\n    {\n      title: 'Navigation',\n      items: [\n        {title: 'Go to home', value: 'g h'},\n        {title: 'Go to settings', value: 'g s'},\n      ],\n    },\n  ]}\n/>"
-    ]
+    ],
+    "category": "overlays"
   },
   {
     "type": "component",
@@ -541,7 +600,11 @@
       "Do not use for logos in the Footer — pass LogoProps to the Footer component directly"
     ],
     "import_statement": "import { Logo } from '@gravity-ui/navigation';",
-    "related": ["AsideHeader", "MobileLogo", "Footer"],
+    "related": [
+      "AsideHeader",
+      "MobileLogo",
+      "Footer"
+    ],
     "props": [
       {
         "name": "text",
@@ -603,7 +666,8 @@
         "required": false,
         "description": "HTML class attribute."
       }
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -625,30 +689,107 @@
       "Do not use on desktop layouts — use Footer instead"
     ],
     "import_statement": "import { MobileFooter } from '@gravity-ui/navigation';",
-    "related": ["Footer", "MobileHeader"]
+    "related": [
+      "Footer",
+      "MobileHeader"
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
     "name": "MobileLogo",
     "library": "navigation",
     "description": "A logo component designed for use inside the MobileHeader. Renders a clickable icon and text label as an anchor tag (or wraps them via a custom wrapper function). Unlike the desktop Logo, it does not animate based on sidebar expand state — it always shows both icon and text.",
-    "keywords": ["logo", "mobile logo", "mobile header", "brand", "icon", "navigation logo", "anchor", "app logo"],
-    "when_to_use": ["When building a mobile header and need the brand logo with icon and text as a link", "Inside MobileHeader's logo slot for mobile layouts"],
-    "avoid": ["Do not use in desktop AsideHeader — use Logo instead", "Do not use for logos outside of navigation contexts"],
+    "keywords": [
+      "logo",
+      "mobile logo",
+      "mobile header",
+      "brand",
+      "icon",
+      "navigation logo",
+      "anchor",
+      "app logo"
+    ],
+    "when_to_use": [
+      "When building a mobile header and need the brand logo with icon and text as a link",
+      "Inside MobileHeader's logo slot for mobile layouts"
+    ],
+    "avoid": [
+      "Do not use in desktop AsideHeader — use Logo instead",
+      "Do not use for logos outside of navigation contexts"
+    ],
     "import_statement": "import { MobileLogo } from '@gravity-ui/navigation';",
-    "related": ["MobileHeader", "Logo"],
+    "related": [
+      "MobileHeader",
+      "Logo"
+    ],
     "props": [
-      { "name": "isExpanded", "type": "boolean", "required": true, "description": "Whether the burger menu is expanded; passed to the wrapper function when used" },
-      { "name": "text", "type": "string | (() => React.ReactNode)", "required": false, "description": "Logo text label or a render function returning React content" },
-      { "name": "icon", "type": "IconProps['data']", "required": false, "description": "Icon component data for the logo icon" },
-      { "name": "iconSrc", "type": "string", "required": false, "description": "HTML src for an img tag logo icon" },
-      { "name": "iconSize", "type": "number", "required": false, "description": "Icon width and height in px (default 32)" },
-      { "name": "textSize", "type": "number", "required": false, "description": "Text font size in px (default 20)" },
-      { "name": "href", "type": "string", "required": false, "description": "URL the logo links to (default '/')" },
-      { "name": "target", "type": "HTMLAttributeAnchorTarget", "required": false, "description": "Anchor target attribute (default '_self')" },
-      { "name": "wrapper", "type": "(node: React.ReactNode, isExpanded: boolean) => React.ReactNode", "required": false, "description": "Custom wrapper replacing the anchor; receives icon+text node and isExpanded" },
-      { "name": "onClick", "type": "(event: React.MouseEvent<HTMLElement>) => void", "required": false, "description": "Click handler" },
-      { "name": "className", "type": "string", "required": false, "description": "Additional CSS class" }
+      {
+        "name": "isExpanded",
+        "type": "boolean",
+        "required": true,
+        "description": "Whether the burger menu is expanded; passed to the wrapper function when used"
+      },
+      {
+        "name": "text",
+        "type": "string | (() => React.ReactNode)",
+        "required": false,
+        "description": "Logo text label or a render function returning React content"
+      },
+      {
+        "name": "icon",
+        "type": "IconProps['data']",
+        "required": false,
+        "description": "Icon component data for the logo icon"
+      },
+      {
+        "name": "iconSrc",
+        "type": "string",
+        "required": false,
+        "description": "HTML src for an img tag logo icon"
+      },
+      {
+        "name": "iconSize",
+        "type": "number",
+        "required": false,
+        "description": "Icon width and height in px (default 32)"
+      },
+      {
+        "name": "textSize",
+        "type": "number",
+        "required": false,
+        "description": "Text font size in px (default 20)"
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "description": "URL the logo links to (default '/')"
+      },
+      {
+        "name": "target",
+        "type": "HTMLAttributeAnchorTarget",
+        "required": false,
+        "description": "Anchor target attribute (default '_self')"
+      },
+      {
+        "name": "wrapper",
+        "type": "(node: React.ReactNode, isExpanded: boolean) => React.ReactNode",
+        "required": false,
+        "description": "Custom wrapper replacing the anchor; receives icon+text node and isExpanded"
+      },
+      {
+        "name": "onClick",
+        "type": "(event: React.MouseEvent<HTMLElement>) => void",
+        "required": false,
+        "description": "Click handler"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Additional CSS class"
+      }
     ]
   },
   {
@@ -675,7 +816,11 @@
       "Do not use when you only need a simple top bar without a burger panel"
     ],
     "import_statement": "import { MobileHeader } from '@gravity-ui/navigation';",
-    "related": ["AsideHeader", "MobileFooter", "MobileLogo"],
+    "related": [
+      "AsideHeader",
+      "MobileFooter",
+      "MobileLogo"
+    ],
     "props": [
       {
         "name": "logo",
@@ -758,7 +903,8 @@
     ],
     "examples": [
       "<MobileHeader\n  logo={{icon: LogoIcon, text: 'My App', href: '/'}}\n  burgerMenu={{\n    items: [\n      {id: 'home', title: 'Home', icon: HomeIcon, onItemClick: () => navigate('/')},\n      {id: 'settings', title: 'Settings', icon: SettingsIcon, onItemClick: () => navigate('/settings')},\n    ],\n  }}\n  renderContent={({size}) => <main style={{paddingTop: size}}>Page content</main>}\n/>"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -782,7 +928,12 @@
       "Do not use when you can use AsideHeader with renderContent — PageLayout is for advanced optimization scenarios"
     ],
     "import_statement": "import { PageLayout } from '@gravity-ui/navigation';",
-    "related": ["AsideHeader", "PageLayoutAside", "AsideFallback"]
+    "related": [
+      "AsideHeader",
+      "PageLayoutAside",
+      "AsideFallback"
+    ],
+    "category": "layout"
   },
   {
     "type": "component",
@@ -806,7 +957,13 @@
       "Do not use when AsideHeader alone is sufficient"
     ],
     "import_statement": "import { PageLayoutAside } from '@gravity-ui/navigation';",
-    "related": ["PageLayout", "AsideHeader", "AsideFallback", "FooterItem"]
+    "related": [
+      "PageLayout",
+      "AsideHeader",
+      "AsideFallback",
+      "FooterItem"
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -833,7 +990,10 @@
       "Do not use when you need non-standard settings layout not based on title/content pairs"
     ],
     "import_statement": "import { Settings } from '@gravity-ui/navigation';",
-    "related": ["AsideHeader", "Title"],
+    "related": [
+      "AsideHeader",
+      "Title"
+    ],
     "props": [
       {
         "name": "children",
@@ -905,7 +1065,8 @@
     "examples": [
       "<Settings onClose={handleClose}>\n  <Settings.Page title=\"Appearance\">\n    <Settings.Section title=\"Theme\">\n      <Settings.Item title=\"Color scheme\">\n        <Select options={themeOptions} />\n      </Settings.Item>\n    </Settings.Section>\n  </Settings.Page>\n  <Settings.Page title=\"Notifications\">\n    <Settings.Section title=\"Email\">\n      <Settings.Item title=\"Send digests\">\n        <Switch checked={digestEnabled} onUpdate={setDigestEnabled} />\n      </Settings.Item>\n    </Settings.Section>\n  </Settings.Page>\n</Settings>",
       "<Settings>\n  <Settings.Group groupTitle=\"General\">\n    <Settings.Page title=\"Appearance\">...</Settings.Page>\n  </Settings.Group>\n  <Settings.Group groupTitle=\"Account\">\n    <Settings.Page title=\"Profile\">...</Settings.Page>\n  </Settings.Group>\n</Settings>"
-    ]
+    ],
+    "category": "navigation"
   },
   {
     "type": "component",
@@ -929,7 +1090,10 @@
       "Do not use inside Settings — that component manages its own title"
     ],
     "import_statement": "import { Title } from '@gravity-ui/navigation';",
-    "related": ["Settings", "HotkeysPanel"],
+    "related": [
+      "Settings",
+      "HotkeysPanel"
+    ],
     "props": [
       {
         "name": "children",
@@ -961,7 +1125,8 @@
         "required": false,
         "description": "Size of the close icon. Defaults to 23."
       }
-    ]
+    ],
+    "category": "typography"
   },
   {
     "type": "component",
@@ -986,7 +1151,10 @@
       "Do not configure directly — pass a TopAlertProps object to the topAlert prop of AsideHeader or MobileHeader"
     ],
     "import_statement": "import { TopAlert } from '@gravity-ui/navigation';",
-    "related": ["AsideHeader", "MobileHeader"],
+    "related": [
+      "AsideHeader",
+      "MobileHeader"
+    ],
     "props": [
       {
         "name": "alert",
@@ -1006,7 +1174,8 @@
         "required": false,
         "description": "Adapts rendering for mobile layout. Defaults to false."
       }
-    ]
+    ],
+    "category": "feedback"
   },
   {
     "type": "hook",
@@ -1027,11 +1196,22 @@
       "Do not use when React.forwardRef + useRef is sufficient without needing both an internal and external ref simultaneously"
     ],
     "import_statement": "import { useForwardRef } from '@gravity-ui/navigation';",
-    "related": ["AsideHeader", "MobileHeader"],
+    "related": [
+      "AsideHeader",
+      "MobileHeader"
+    ],
     "signature": "function useForwardRef<T>(ref: ((instance: T | null) => void) | React.MutableRefObject<T | null> | null, initialValue?: any): React.MutableRefObject<T>",
     "parameters": [
-      {"name": "ref", "type": "React.ForwardedRef<T>", "description": "The forwarded ref to synchronize."},
-      {"name": "initialValue", "type": "any", "description": "Initial value for the internal ref. Defaults to null."}
+      {
+        "name": "ref",
+        "type": "React.ForwardedRef<T>",
+        "description": "The forwarded ref to synchronize."
+      },
+      {
+        "name": "initialValue",
+        "type": "any",
+        "description": "Initial value for the internal ref. Defaults to null."
+      }
     ],
     "return_type": "React.MutableRefObject<T>"
   },
@@ -1059,13 +1239,32 @@
       "Do not use when all items should always be visible regardless of space"
     ],
     "import_statement": "import { useOverflowingHorizontalListItems } from '@gravity-ui/navigation';",
-    "related": ["Footer", "ActionBar"],
+    "related": [
+      "Footer",
+      "ActionBar"
+    ],
     "signature": "function useOverflowingHorizontalListItems<ItemType>({ containerRef, items, itemSelector, moreButtonWidth }: UseOverflowingContainerListItemsProps<ItemType>): { visibleItems: ItemType[]; hiddenItems: ItemType[]; measured: boolean }",
     "parameters": [
-      {"name": "containerRef", "type": "RefObject<HTMLElement>", "description": "Ref to the list container element."},
-      {"name": "items", "type": "ItemType[]", "description": "Array of items to evaluate for overflow."},
-      {"name": "itemSelector", "type": "string", "description": "CSS selector for individual item elements within the container."},
-      {"name": "moreButtonWidth", "type": "number", "description": "Width reserved for the overflow 'more' button. Defaults to 0."}
+      {
+        "name": "containerRef",
+        "type": "RefObject<HTMLElement>",
+        "description": "Ref to the list container element."
+      },
+      {
+        "name": "items",
+        "type": "ItemType[]",
+        "description": "Array of items to evaluate for overflow."
+      },
+      {
+        "name": "itemSelector",
+        "type": "string",
+        "description": "CSS selector for individual item elements within the container."
+      },
+      {
+        "name": "moreButtonWidth",
+        "type": "number",
+        "description": "Width reserved for the overflow 'more' button. Defaults to 0."
+      }
     ],
     "return_type": "{ visibleItems: ItemType[]; hiddenItems: ItemType[]; measured: boolean }"
   }
