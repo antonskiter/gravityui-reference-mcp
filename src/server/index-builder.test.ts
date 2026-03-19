@@ -76,7 +76,7 @@ describe('searchEntities', () => {
   it('filters by type', () => {
     const index = buildSearchIndex(mockEntities);
     const results = searchEntities(index, 'button', { type: 'hook' });
-    expect(results.every(r => r.entityType === 'hook' || r.entityType === 'recipe')).toBe(true);
+    expect(results.every(r => r.entityType === 'hook')).toBe(true);
   });
 
   it('returns empty for gibberish', () => {

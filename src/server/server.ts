@@ -29,9 +29,9 @@ server.tool(
 
 server.tool(
   'get',
-  'Get detailed info about a specific component, hook, recipe, or "overview" for the whole design system. Use after find.',
-  { name: z.string().describe('Entity name (e.g. "Button", "useTheme"), recipe id (e.g. "confirmation-dialog"), or "overview"'),
-    type: z.string().optional().describe('Filter by entity type: component, hook, token-set, asset, utility, config-doc, guide'),
+  'Get detailed info about any entity. Use type/library to disambiguate when multiple entities share a name.',
+  { name: z.string().describe('Entity name (e.g. "Button", "useTheme", "confirmation-dialog", "uikit", "Gravity UI")'),
+    type: z.string().optional().describe('Filter by entity type: component, hook, token-set, asset, utility, config-doc, guide, library, recipe'),
     library: z.string().optional().describe('Library id: uikit, navigation, date-components, etc.'),
     detail: z.enum(['compact', 'full']).optional().describe('Level of detail. compact (default) = top props + 1 example. full = everything.') },
   (args) => {

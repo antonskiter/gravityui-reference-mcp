@@ -48,7 +48,8 @@ export function formatGet(output: GetOutput, detail: 'compact' | 'full' = 'compa
 
 function formatEntity(entity: Entity, detail: 'compact' | 'full'): string {
   const lines: string[] = [];
-  lines.push(`${entity.name} [${entity.type}] (${entity.library})`);
+  const lib = entity.library ? ` (${entity.library})` : '';
+  lines.push(`${entity.name} [${entity.type}]${lib}`);
   lines.push(entity.description);
   lines.push('');
 

@@ -115,6 +115,7 @@ const EntityBase = z.object({
 
 export const ComponentEntitySchema = EntityBase.extend({
   type: z.literal('component'),
+  category: z.string().optional(),
   props: z.array(PropDefSchema).default([]),
   examples: z.array(z.string()).default([]),
 });

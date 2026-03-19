@@ -22,9 +22,8 @@ export function handleList(data: LoadedData, input: ListInput): ListOutput {
     for (const e of data.entities) {
       byType[e.type] = (byType[e.type] ?? 0) + 1;
       byLibrary[e.library] = (byLibrary[e.library] ?? 0) + 1;
-      if (e.type === 'component' && 'category' in e && typeof (e as any).category === 'string') {
-        const cat = (e as any).category as string;
-        byCategory[cat] = (byCategory[cat] ?? 0) + 1;
+      if (e.type === 'component' && e.category) {
+        byCategory[e.category] = (byCategory[e.category] ?? 0) + 1;
       }
     }
 
@@ -42,7 +41,7 @@ export function handleList(data: LoadedData, input: ListInput): ListOutput {
   if (input.category) {
     const cat = input.category;
     items = items.filter(e =>
-      e.type === 'component' && 'category' in e && (e as any).category === cat
+      e.type === 'component' && e.category === cat
     );
   }
 
@@ -81,7 +80,8 @@ export function formatList(output: ListOutput): string {
   // Filtered entity list
   const lines: string[] = [];
   for (const e of output.items) {
-    lines.push(`${e.name} [${e.type}] (${e.library}) — ${e.description}`);
+    const lib = e.library ? ` (${e.library})` : '';
+    lines.push(`${e.name} [${e.type}]${lib} — ${e.description}`);
   }
   return lines.join('\n');
 }

@@ -61,7 +61,7 @@ export function searchEntities(
   const limit = options?.limit ?? 10;
   const raw = index.search(query);
   const filtered = options?.type
-    ? raw.filter(r => r.entityType === options.type || r.entityType === 'recipe')
+    ? raw.filter(r => r.entityType === options.type)
     : raw;
   return filtered.slice(0, limit).map(r => ({
     id: r.id as string,
