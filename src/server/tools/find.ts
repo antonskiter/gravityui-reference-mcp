@@ -27,7 +27,8 @@ export function handleFind(data: LoadedData, input: FindInput): FindOutput {
   let results = searchResults
     .map((sr: SearchResult) => {
       const entities = data.entityByName.get(sr.name.toLowerCase());
-      const entity = entities?.find(e => !input.library || e.library === sr.library)
+      const entity = entities?.find(e => e.library === sr.library && e.type === sr.entityType)
+        ?? entities?.find(e => e.library === sr.library)
         ?? entities?.[0];
       const description = entity?.description ?? '';
 
