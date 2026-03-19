@@ -29,9 +29,9 @@ export function handleGet(data: LoadedData, input: GetInput): GetOutput {
     return { type: 'found', entities: matches };
   }
 
-  // Fuzzy fallback via search
-  const results = searchEntities(data.index, input.name.trim(), { limit: 5 });
-  const suggestions = results.map(r => r.name);
+  // Fuzzy fallback for suggestions (typo correction)
+  const fuzzyResults = data.index.search(input.name.trim(), { fuzzy: 0.3, prefix: true });
+  const suggestions = [...new Set(fuzzyResults.slice(0, 5).map(r => r.name as string))];
 
   return { type: 'not_found', name: input.name.trim(), suggestions };
 }

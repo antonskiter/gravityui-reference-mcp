@@ -32,7 +32,7 @@ export function buildSearchIndex(entities: Entity[]): MiniSearch {
   const ms = new MiniSearch<IndexDocument>({
     fields: FIELDS,
     storeFields: STORE_FIELDS,
-    searchOptions: { boost: BOOST, prefix: true, fuzzy: 0.2 },
+    searchOptions: { boost: BOOST, prefix: true },
   });
   // Deduplicate by id before indexing
   const seen = new Set<string>();
@@ -60,13 +60,7 @@ export function searchEntities(
 ): SearchResult[] {
   const limit = options?.limit ?? 10;
 
-  // First try exact + prefix (no fuzzy) for precise results
-  let raw = index.search(query, { fuzzy: false, prefix: true, boost: BOOST });
-
-  // Fallback to fuzzy only if no exact results
-  if (raw.length === 0) {
-    raw = index.search(query, { fuzzy: 0.2, prefix: true, boost: BOOST });
-  }
+  const raw = index.search(query, { fuzzy: false, prefix: true, boost: BOOST });
 
   const filtered = options?.type
     ? raw.filter(r => r.entityType === options.type)
