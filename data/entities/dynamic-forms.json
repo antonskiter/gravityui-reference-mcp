@@ -29,6 +29,18 @@
       { "name": "onToggle", "type": "(value: boolean) => void", "required": false, "description": "Callback fired when the open state changes." },
       { "name": "open", "type": "boolean", "required": false, "description": "Controlled open state of the accordion." },
       { "name": "titleSize", "type": "'s' | 'm'", "required": false, "description": "Size of the title text; defaults to 'm'." }
+    ],
+    "examples": [
+      {
+        "title": "Basic accordion card",
+        "description": "Collapsible accordion card used as a form layout section.",
+        "code": "<AccordeonCard name=\"settings\" header={<span>Settings</span>}>\n  <Text>Fields go here</Text>\n</AccordeonCard>"
+      },
+      {
+        "title": "Always-open accordion card",
+        "description": "Card that is permanently expanded — toggle button is hidden.",
+        "code": "<AccordeonCard name=\"info\" header={<span>Info</span>} alwaysOpen>\n  <Text>Always visible content</Text>\n</AccordeonCard>"
+      }
     ]
   },
   {
@@ -46,7 +58,26 @@
       "Do not use for multi-select from an enum — use MultiSelect instead"
     ],
     "import_statement": "import { ArrayBase } from '@gravity-ui/dynamic-forms'",
-    "related": ["TableArrayInput", "MultiSelect", "CheckboxGroup"]
+    "related": ["TableArrayInput", "MultiSelect", "CheckboxGroup"],
+    "props": [
+      { "name": "spec", "type": "ArraySpec", "required": true, "description": "Array spec describing items sub-spec, constraints, and view options (type, itemLabel, addButtonPosition, itemPrefix)." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name path used for QA attributes and child field names." },
+      { "name": "input", "type": "FieldRenderProps<ArrayValue>['input']", "required": true, "description": "Final Form input object providing value, onChange, onBlur, onFocus." },
+      { "name": "arrayInput", "type": "ArrayInputProps", "required": true, "description": "Array-specific helpers providing onItemAdd and onItemRemove callbacks and current array value." },
+      { "name": "meta", "type": "FieldRenderProps<ArrayValue>['meta']", "required": true, "description": "Final Form meta object used to detect child-level errors." }
+    ],
+    "examples": [
+      {
+        "title": "Array of strings via DynamicField",
+        "description": "Render a repeatable list of text inputs using ArraySpec with the 'base' type.",
+        "code": "const spec: ArraySpec = {\n  type: SpecTypes.Array,\n  items: {\n    type: SpecTypes.String,\n    viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Element' },\n  },\n  viewSpec: {\n    type: 'base',\n    layout: 'accordeon',\n    layoutTitle: 'Elements',\n    layoutOpen: true,\n    itemLabel: 'Add element',\n  },\n};\n\n<Form onSubmit={handleSubmit}>\n  {() => (\n    <DynamicField name=\"items\" spec={spec} config={dynamicConfig} />\n  )}\n</Form>"
+      },
+      {
+        "title": "Array with right-aligned add button",
+        "description": "Place the add button to the right of the list by setting addButtonPosition.",
+        "code": "const spec: ArraySpec = {\n  type: SpecTypes.Array,\n  items: { type: SpecTypes.String, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Tag' } },\n  viewSpec: {\n    type: 'base',\n    layout: 'section',\n    layoutTitle: 'Tags',\n    addButtonPosition: 'right',\n    itemLabel: 'Add tag',\n  },\n};"
+      }
+    ]
   },
   {
     "type": "component",
@@ -75,6 +106,18 @@
       { "name": "onToggle", "type": "(value: boolean) => void", "required": false, "description": "Callback fired when the open state changes." },
       { "name": "open", "type": "boolean", "required": false, "description": "Controlled open state." },
       { "name": "title", "type": "string | React.ReactNode", "required": false, "description": "Title content for the card header; string titles receive ellipsis truncation and a tooltip." }
+    ],
+    "examples": [
+      {
+        "title": "Basic collapsible card",
+        "description": "A titled card that can be toggled open/closed.",
+        "code": "<Card name=\"profile\" title=\"Profile\" open={true} onToggle={setOpen}>\n  <Text>Card body content</Text>\n</Card>"
+      },
+      {
+        "title": "Card with action slot",
+        "description": "Card with a remove button in the header action area.",
+        "code": "<Card\n  name=\"item\"\n  title=\"Item\"\n  actions={<Button view=\"flat\" onClick={onRemove}><Icon data={TrashBin} /></Button>}\n  alwaysOpen\n>\n  <Text>Item content</Text>\n</Card>"
+      }
     ]
   },
   {
@@ -91,7 +134,21 @@
       "Do not use when a flat or inline oneOf is preferred — use OneOf or OneOfFlat instead"
     ],
     "import_statement": "import { CardOneOf } from '@gravity-ui/dynamic-forms'",
-    "related": ["OneOf", "OneOfFlat", "Card", "useOneOf"]
+    "related": ["OneOf", "OneOfFlat", "Card", "useOneOf"],
+    "props": [
+      { "name": "spec", "type": "ObjectSpec", "required": true, "description": "Object spec with properties for oneOf options. Each property key becomes a selectable option." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name path used for QA and child controller names." },
+      { "name": "input", "type": "FieldRenderProps<ObjectValue>['input']", "required": true, "description": "Final Form input object providing value, onChange, onBlur, onFocus, onDrop." },
+      { "name": "meta", "type": "FieldRenderProps<ObjectValue>['meta']", "required": true, "description": "Final Form meta object used by useErrorChecker to auto-open the card on submit errors." },
+      { "name": "Layout", "type": "LayoutType | undefined", "required": false, "description": "Optional layout component wrapping the toggler input; defaults to Row if not provided." }
+    ],
+    "examples": [
+      {
+        "title": "CardOneOf via DynamicField",
+        "description": "Use card_oneof viewSpec.type to wrap a oneOf selector inside a Card.",
+        "code": "const spec: ObjectSpec = {\n  type: SpecTypes.Object,\n  properties: {\n    http: {\n      type: SpecTypes.Object,\n      properties: { url: { type: SpecTypes.String, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'URL' } } },\n      viewSpec: { type: 'base', layoutTitle: 'HTTP' },\n    },\n    grpc: {\n      type: SpecTypes.Object,\n      properties: { host: { type: SpecTypes.String, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Host' } } },\n      viewSpec: { type: 'base', layoutTitle: 'gRPC' },\n    },\n  },\n  description: { http: 'HTTP endpoint', grpc: 'gRPC endpoint' },\n  viewSpec: { type: 'card_oneof', layout: 'row', layoutTitle: 'Endpoint' },\n};\n\n<DynamicField name=\"endpoint\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -108,7 +165,20 @@
       "Do not use for multi-select from an array — use CheckboxGroup instead"
     ],
     "import_statement": "import { Checkbox } from '@gravity-ui/dynamic-forms'",
-    "related": ["Switch", "CheckboxGroup"]
+    "related": ["Switch", "CheckboxGroup"],
+    "props": [
+      { "name": "spec", "type": "BooleanSpec", "required": true, "description": "Boolean spec describing the field; viewSpec.disabled controls disabled state." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA attribute on the checkbox element." },
+      { "name": "input", "type": "FieldRenderProps<boolean>['input']", "required": true, "description": "Final Form input object providing value, onChange, onBlur, onFocus." },
+      { "name": "inputProps", "type": "CheckboxProps", "required": false, "description": "Additional GravityUI Checkbox props (excluding controlled props like checked, onChange, disabled, qa)." }
+    ],
+    "examples": [
+      {
+        "title": "Boolean checkbox via DynamicField",
+        "description": "Render a checkbox for a boolean field using the default dynamicConfig.",
+        "code": "const spec: BooleanSpec = {\n  type: SpecTypes.Boolean,\n  viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Enable feature' },\n};\n\n<Form onSubmit={handleSubmit}>\n  {() => (\n    <DynamicField name=\"enabled\" spec={spec} config={dynamicConfig} />\n  )}\n</Form>"
+      }
+    ]
   },
   {
     "type": "component",
@@ -125,7 +195,20 @@
       "Do not use when no enum is defined on the spec"
     ],
     "import_statement": "import { CheckboxGroup } from '@gravity-ui/dynamic-forms'",
-    "related": ["RadioGroup", "MultiSelect", "Checkbox"]
+    "related": ["RadioGroup", "MultiSelect", "Checkbox"],
+    "props": [
+      { "name": "spec", "type": "ArraySpec", "required": true, "description": "Array spec with enum defining available checkbox options. description map provides option labels. viewSpec.checkboxGroupParams.placement controls 'horizontal' (default) or 'vertical' layout." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA attributes on each checkbox." },
+      { "name": "input", "type": "FieldRenderProps<ArrayValue>['input']", "required": true, "description": "Final Form input object providing current array value and change handler." },
+      { "name": "inputProps", "type": "CheckboxGroupProps", "required": false, "description": "Additional GravityUI Checkbox props passed to each checkbox (excluding controlled props)." }
+    ],
+    "examples": [
+      {
+        "title": "Checkbox group for multiple selection",
+        "description": "Select multiple roles from a fixed enum using checkboxes.",
+        "code": "const spec: ArraySpec = {\n  type: SpecTypes.Array,\n  enum: ['admin', 'editor', 'viewer'],\n  description: { admin: 'Admin', editor: 'Editor', viewer: 'Viewer' },\n  viewSpec: {\n    type: 'checkbox_group',\n    layout: 'row',\n    layoutTitle: 'Roles',\n    checkboxGroupParams: { placement: 'vertical' },\n  },\n};\n\n<DynamicField name=\"roles\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -142,7 +225,25 @@
       "Avoid when the field type is not string"
     ],
     "import_statement": "import { DateInput } from '@gravity-ui/dynamic-forms'",
-    "related": ["Text", "TextArea"]
+    "related": ["Text", "TextArea"],
+    "props": [
+      { "name": "spec", "type": "StringSpec", "required": true, "description": "String spec with viewSpec.dateInput providing outputFormat ('string' | 'date_time' | 'date' | 'timestamp' | custom), printFormat, and timeZone." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA attribute on the date picker element." },
+      { "name": "input", "type": "FieldRenderProps<string>['input']", "required": true, "description": "Final Form input object providing current string value and change handler." },
+      { "name": "inputProps", "type": "DateProps", "required": false, "description": "Additional GravityUI DatePicker props (excluding value, disabled, placeholder, qa)." }
+    ],
+    "examples": [
+      {
+        "title": "Date picker outputting ISO string",
+        "description": "Render a date picker that stores the selected date as an ISO string.",
+        "code": "const spec: StringSpec = {\n  type: SpecTypes.String,\n  viewSpec: {\n    type: 'date_input',\n    layout: 'row',\n    layoutTitle: 'Start date',\n    dateInput: {\n      outputFormat: 'string',\n      printFormat: 'DD.MM.YYYY',\n    },\n  },\n};\n\n<DynamicField name=\"startDate\" spec={spec} config={dynamicConfig} />"
+      },
+      {
+        "title": "Date picker with timezone",
+        "description": "Render a date-time picker anchored to a specific timezone.",
+        "code": "const spec: StringSpec = {\n  type: SpecTypes.String,\n  viewSpec: {\n    type: 'date_input',\n    layout: 'row',\n    layoutTitle: 'Event time',\n    dateInput: {\n      outputFormat: 'string',\n      printFormat: 'DD.MM.YYYY HH:mm',\n      timeZone: 'Europe/Moscow',\n    },\n  },\n};"
+      }
+    ]
   },
   {
     "type": "component",
@@ -172,6 +273,18 @@
       { "name": "shared", "type": "Record<string, any>", "required": false, "description": "Shared state object available to all child components via context." },
       { "name": "storeSubscriber", "type": "(store: FieldValue) => void", "required": false, "description": "Callback that receives the current field store on every change." },
       { "name": "withoutInsertFFDebounce", "type": "boolean", "required": false, "description": "Disables debouncing when syncing values into React Final Form." }
+    ],
+    "examples": [
+      {
+        "title": "Basic string field inside a form",
+        "description": "Render a single text input using DynamicField inside a React Final Form.",
+        "code": "import { Form } from 'react-final-form';\nimport { DynamicField, dynamicConfig, SpecTypes } from '@gravity-ui/dynamic-forms';\n\nconst spec = {\n  type: SpecTypes.String,\n  viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Name', placeholder: 'Enter name' },\n};\n\n<Form onSubmit={handleSubmit}>\n  {({ handleSubmit }) => (\n    <form onSubmit={handleSubmit}>\n      <DynamicField name=\"name\" spec={spec} config={dynamicConfig} />\n    </form>\n  )}\n</Form>"
+      },
+      {
+        "title": "Object form with search filter",
+        "description": "Render a multi-field form with a search string to filter visible fields.",
+        "code": "const spec = {\n  type: SpecTypes.Object,\n  properties: {\n    firstName: { type: SpecTypes.String, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'First name' } },\n    lastName: { type: SpecTypes.String, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Last name' } },\n  },\n  viewSpec: { type: 'base', layout: 'accordeon', layoutTitle: 'Person', layoutOpen: true },\n};\n\n<Form onSubmit={handleSubmit}>\n  {() => <DynamicField name=\"person\" spec={spec} config={dynamicConfig} search={searchQuery} />}\n</Form>"
+      }
     ]
   },
   {
@@ -197,6 +310,13 @@
       { "name": "Monaco", "type": "React.ComponentType<MonacoEditorProps>", "required": false, "description": "Monaco editor component for monaco_input view fields." },
       { "name": "shared", "type": "Record<string, any>", "required": false, "description": "Shared state object available to all child view components." },
       { "name": "showLayoutDescription", "type": "boolean", "required": false, "description": "When true layout descriptions are shown in view layouts." }
+    ],
+    "examples": [
+      {
+        "title": "Read-only view of form values",
+        "description": "Display submitted form values in read-only mode using DynamicView.",
+        "code": "import { DynamicView, dynamicViewConfig, SpecTypes } from '@gravity-ui/dynamic-forms';\n\nconst spec = {\n  type: SpecTypes.Object,\n  properties: {\n    name: { type: SpecTypes.String, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Name' } },\n    age: { type: SpecTypes.Number, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Age' } },\n  },\n  viewSpec: { type: 'base', layout: 'section', layoutTitle: 'Profile' },\n};\n\nconst value = { name: 'Alice', age: 30 };\n\n<DynamicView spec={spec} config={dynamicViewConfig} value={value} />"
+      }
     ]
   },
   {
@@ -213,7 +333,19 @@
       "Do not use for plain text entry — use Text or TextArea instead"
     ],
     "import_statement": "import { FileInput } from '@gravity-ui/dynamic-forms'",
-    "related": ["Text", "TextArea"]
+    "related": ["Text", "TextArea"],
+    "props": [
+      { "name": "spec", "type": "StringSpec", "required": true, "description": "String spec with viewSpec.fileInput providing accept (file type filter) and readAsMethod ('readAsText' | 'readAsDataURL' | 'readAsArrayBuffer' | 'readAsBinaryString'). viewSpec.disabled controls the button disabled state." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA attributes on the upload and reset buttons." },
+      { "name": "input", "type": "FieldRenderProps<string>['input']", "required": true, "description": "Final Form input object providing current value and onChange." }
+    ],
+    "examples": [
+      {
+        "title": "File upload storing text content",
+        "description": "Upload a text file and store its contents as a string.",
+        "code": "const spec: StringSpec = {\n  type: SpecTypes.String,\n  viewSpec: {\n    type: 'file_input',\n    layout: 'row',\n    layoutTitle: 'Config file',\n    fileInput: {\n      accept: '.yaml,.yml,.json',\n      readAsMethod: 'readAsText',\n    },\n  },\n};\n\n<DynamicField name=\"configFile\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -229,7 +361,21 @@
       "Do not use when indentation is not wanted — use Section or Row instead"
     ],
     "import_statement": "import { Group, Group2 } from '@gravity-ui/dynamic-forms'",
-    "related": ["Section", "Row", "GroupIndent"]
+    "related": ["Section", "Row", "GroupIndent"],
+    "props": [
+      { "name": "children", "type": "React.ReactNode", "required": true, "description": "Field content rendered indented below the section title." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for error detection and remove button logic." },
+      { "name": "spec", "type": "Spec", "required": true, "description": "Spec providing layoutTitle and layoutDescription for the section header." },
+      { "name": "input", "type": "FieldRenderProps<FieldValue>['input']", "required": true, "description": "Final Form input object used to detect array item remove capability." },
+      { "name": "meta", "type": "FieldRenderProps<FieldValue>['meta']", "required": true, "description": "Final Form meta object passed to ErrorWrapper for validation feedback." }
+    ],
+    "examples": [
+      {
+        "title": "Group layout via viewSpec",
+        "description": "Use 'group' layout to indent child fields under a titled section.",
+        "code": "const spec: ObjectSpec = {\n  type: SpecTypes.Object,\n  properties: {\n    host: { type: SpecTypes.String, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Host' } },\n    port: { type: SpecTypes.Number, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Port' } },\n  },\n  viewSpec: { type: 'base', layout: 'group', layoutTitle: 'Connection', layoutOpen: true },\n};\n\n<DynamicField name=\"connection\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -244,7 +390,17 @@
       "Avoid using directly when a full section or group layout is appropriate"
     ],
     "import_statement": "import { GroupIndent } from '@gravity-ui/dynamic-forms'",
-    "related": ["Group", "OneOf", "Section"]
+    "related": ["Group", "OneOf", "Section"],
+    "props": [
+      { "name": "children", "type": "React.ReactNode", "required": true, "description": "Content to render with left-side indentation." }
+    ],
+    "examples": [
+      {
+        "title": "Visually indent nested fields",
+        "description": "Wrap a group of fields in GroupIndent to add left padding.",
+        "code": "<GroupIndent>\n  <DynamicField name=\"sub.field1\" spec={fieldSpec1} config={dynamicConfig} />\n  <DynamicField name=\"sub.field2\" spec={fieldSpec2} config={dynamicConfig} />\n</GroupIndent>"
+      }
+    ]
   },
   {
     "type": "component",
@@ -261,7 +417,21 @@
       "Do not use for plain single-line text — use Text instead"
     ],
     "import_statement": "import { MonacoInput } from '@gravity-ui/dynamic-forms'",
-    "related": ["TextArea", "Text"]
+    "related": ["TextArea", "Text"],
+    "props": [
+      { "name": "spec", "type": "StringSpec", "required": true, "description": "String spec with viewSpec.monacoParams: language, fontSize, headerIconSize, headerIconIndent, headerTitleVariant, headerDialogButtonSize, headerDialogIconSize." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA attributes on the expand dialog button." },
+      { "name": "input", "type": "FieldRenderProps<string>['input']", "required": true, "description": "Final Form input object providing current string value and onChange." },
+      { "name": "MonacoComponent", "type": "React.ComponentType<MonacoEditorProps>", "required": false, "description": "Monaco editor component to use. Falls back to the Monaco passed via DynamicField context if not provided." },
+      { "name": "withoutDialog", "type": "boolean", "required": false, "description": "When true the expand-to-dialog button is hidden." }
+    ],
+    "examples": [
+      {
+        "title": "JSON editor via DynamicField",
+        "description": "Render a Monaco JSON editor using the monaco_input viewSpec type.",
+        "code": "import MonacoEditor from 'react-monaco-editor';\n\nconst spec: StringSpec = {\n  type: SpecTypes.String,\n  viewSpec: {\n    type: 'monaco_input',\n    layout: 'row',\n    layoutTitle: 'Config JSON',\n    monacoParams: { language: 'json' },\n  },\n};\n\n<DynamicField\n  name=\"configJson\"\n  spec={spec}\n  config={dynamicConfig}\n  Monaco={MonacoEditor}\n/>"
+      }
+    ]
   },
   {
     "type": "component",
@@ -277,7 +447,21 @@
       "Do not use when only one sub-property can be active at a time — use OneOf instead"
     ],
     "import_statement": "import { MultiOneOf, MultiOneOfFlat } from '@gravity-ui/dynamic-forms'",
-    "related": ["OneOf", "MultiSelect", "ObjectBase"]
+    "related": ["OneOf", "MultiSelect", "ObjectBase"],
+    "props": [
+      { "name": "spec", "type": "ObjectSpec", "required": true, "description": "Object spec with properties map; each key appears as a selectable option in the multi-select. viewSpec.order controls option order. description provides per-option labels." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA attribute on the Select element." },
+      { "name": "input", "type": "FieldRenderProps<ObjectValue>['input']", "required": true, "description": "Final Form input object providing current object value and change/focus/blur handlers." },
+      { "name": "Layout", "type": "LayoutType | undefined", "required": false, "description": "Optional layout component wrapping the multi-select control." },
+      { "name": "withoutIndent", "type": "boolean", "required": false, "description": "When true removes the GroupIndent wrapper around the selected property controllers (used by MultiOneOfFlat)." }
+    ],
+    "examples": [
+      {
+        "title": "Multi-property selector via DynamicField",
+        "description": "Allow enabling multiple object sub-properties via a multi-select dropdown.",
+        "code": "const spec: ObjectSpec = {\n  type: SpecTypes.Object,\n  properties: {\n    logging: {\n      type: SpecTypes.Object,\n      properties: { level: { type: SpecTypes.String, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Level' } } },\n      viewSpec: { type: 'base', layoutTitle: 'Logging' },\n    },\n    metrics: {\n      type: SpecTypes.Object,\n      properties: { port: { type: SpecTypes.Number, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Port' } } },\n      viewSpec: { type: 'base', layoutTitle: 'Metrics' },\n    },\n  },\n  description: { logging: 'Logging config', metrics: 'Metrics config' },\n  viewSpec: { type: 'multi_oneof', layout: 'row', layoutTitle: 'Features' },\n};\n\n<DynamicField name=\"features\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -294,7 +478,20 @@
       "Do not use when checkbox-style multi-select is preferred — use CheckboxGroup instead"
     ],
     "import_statement": "import { MultiSelect } from '@gravity-ui/dynamic-forms'",
-    "related": ["Select", "CheckboxGroup", "ArrayBase"]
+    "related": ["Select", "CheckboxGroup", "ArrayBase"],
+    "props": [
+      { "name": "spec", "type": "ArraySpec", "required": true, "description": "Array spec with enum defining selectable options. description provides per-option labels. viewSpec.selectParams.meta adds secondary text per option. viewSpec.placeholder sets the select placeholder." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA attribute on the Select element." },
+      { "name": "input", "type": "FieldRenderProps<ArrayValue>['input']", "required": true, "description": "Final Form input object providing current array value and change/focus/blur handlers." },
+      { "name": "inputProps", "type": "MultiSelectProps", "required": false, "description": "Additional GravityUI Select props; set withCustomOptions:true and options to override the enum-derived options." }
+    ],
+    "examples": [
+      {
+        "title": "Multi-select dropdown via DynamicField",
+        "description": "Let users select multiple environment tags from an enum.",
+        "code": "const spec: ArraySpec = {\n  type: SpecTypes.Array,\n  enum: ['production', 'staging', 'development'],\n  description: { production: 'Production', staging: 'Staging', development: 'Development' },\n  viewSpec: {\n    type: 'select',\n    layout: 'row',\n    layoutTitle: 'Environments',\n    placeholder: 'Select environments',\n  },\n};\n\n<DynamicField name=\"environments\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -311,7 +508,19 @@
       "Do not use for plain number input without a scale — use NumInput instead"
     ],
     "import_statement": "import { NumberWithScale } from '@gravity-ui/dynamic-forms'",
-    "related": ["NumInput", "Text"]
+    "related": ["NumInput", "Text"],
+    "props": [
+      { "name": "spec", "type": "StringSpec", "required": true, "description": "String spec with viewSpec.sizeParams: defaultType (base unit key), scale (map of unit key to {factor: string, title: string}). Without sizeParams the component returns null." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA attributes on the text input and scale select." },
+      { "name": "input", "type": "FieldRenderProps<string>['input']", "required": true, "description": "Final Form input object providing current string value and change/focus/blur handlers." }
+    ],
+    "examples": [
+      {
+        "title": "Memory size with unit selector",
+        "description": "Input for a memory limit value that stores bytes but shows KB/MB/GB options.",
+        "code": "const spec: StringSpec = {\n  type: SpecTypes.String,\n  viewSpec: {\n    type: 'number_with_scale',\n    layout: 'row',\n    layoutTitle: 'Memory limit',\n    sizeParams: {\n      defaultType: 'B',\n      scale: {\n        B:  { factor: '1', title: 'B' },\n        KB: { factor: '1024', title: 'KB' },\n        MB: { factor: '1048576', title: 'MB' },\n        GB: { factor: '1073741824', title: 'GB' },\n      },\n    },\n  },\n};\n\n<DynamicField name=\"memoryLimit\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -327,7 +536,20 @@
       "Do not use for numbers stored as strings with a scale unit — use NumberWithScale instead"
     ],
     "import_statement": "import { NumInput } from '@gravity-ui/dynamic-forms'",
-    "related": ["NumberWithScale", "Text"]
+    "related": ["NumberWithScale", "Text"],
+    "props": [
+      { "name": "spec", "type": "NumberSpec", "required": true, "description": "Number spec with optional maximum, minimum constraints passed to NumberInput. viewSpec.disabled and viewSpec.placeholder are also applied." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA attribute on the NumberInput element." },
+      { "name": "input", "type": "FieldRenderProps<number>['input']", "required": true, "description": "Final Form input object providing current numeric value and change/focus/blur handlers." },
+      { "name": "inputProps", "type": "NumberProps", "required": false, "description": "Additional GravityUI NumberInput props (excluding value, onBlur, onFocus, onUpdate, disabled, placeholder, qa)." }
+    ],
+    "examples": [
+      {
+        "title": "Numeric input for age",
+        "description": "Render a number input with a min/max constraint via NumberSpec.",
+        "code": "const spec: NumberSpec = {\n  type: SpecTypes.Number,\n  minimum: 0,\n  maximum: 120,\n  viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Age' },\n};\n\n<DynamicField name=\"age\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -343,7 +565,21 @@
       "Do not use when a oneOf/multi-oneof selection pattern is needed — use OneOf or MultiOneOf instead"
     ],
     "import_statement": "import { ObjectBase, ObjectInline } from '@gravity-ui/dynamic-forms'",
-    "related": ["OneOf", "MultiOneOf", "Secret"]
+    "related": ["OneOf", "MultiOneOf", "Secret"],
+    "props": [
+      { "name": "spec", "type": "ObjectSpec", "required": true, "description": "Object spec with properties map. viewSpec.order controls render order, viewSpec.delimiter provides per-property separator text, viewSpec.disabled hides the add button." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name path used for QA on the add button and as prefix for child field names." },
+      { "name": "input", "type": "FieldRenderProps<ObjectValue>['input']", "required": true, "description": "Final Form input object; when value is undefined the add button is shown." },
+      { "name": "Layout", "type": "LayoutType | undefined", "required": false, "description": "Optional layout component wrapping the properties content." },
+      { "name": "inline", "type": "boolean", "required": false, "description": "When true renders properties side-by-side using ObjectInline filtering (used by ObjectInline export)." }
+    ],
+    "examples": [
+      {
+        "title": "Object form with multiple fields",
+        "description": "Render an object field with name, age, and license sub-fields.",
+        "code": "const spec: ObjectSpec = {\n  type: SpecTypes.Object,\n  properties: {\n    name: { type: SpecTypes.String, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Name' } },\n    age: { type: SpecTypes.Number, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Age' } },\n    license: { type: SpecTypes.Boolean, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'License' } },\n  },\n  viewSpec: { type: 'base', layout: 'accordeon', layoutTitle: 'Candidate', layoutOpen: true },\n};\n\n<DynamicField name=\"candidate\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -360,7 +596,26 @@
       "Do not use when a card-based toggler layout is needed — use CardOneOf instead"
     ],
     "import_statement": "import { OneOf, OneOfFlat } from '@gravity-ui/dynamic-forms'",
-    "related": ["CardOneOf", "MultiOneOf", "useOneOf"]
+    "related": ["CardOneOf", "MultiOneOf", "useOneOf"],
+    "props": [
+      { "name": "spec", "type": "ObjectSpec", "required": true, "description": "Object spec with properties; each key is a selectable option. viewSpec.oneOfParams.toggler forces a specific toggler type ('radio' | 'select' | 'checkbox' | 'switch' | 'card'). description map provides per-option labels." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name path used for QA and child controller names." },
+      { "name": "input", "type": "FieldRenderProps<ObjectValue>['input']", "required": true, "description": "Final Form input object providing current object value and change handler." },
+      { "name": "Layout", "type": "LayoutType | undefined", "required": false, "description": "Optional layout component wrapping the toggler element." },
+      { "name": "withoutIndent", "type": "boolean", "required": false, "description": "When true removes the GroupIndent wrapper around the active sub-spec controller (used by OneOfFlat)." }
+    ],
+    "examples": [
+      {
+        "title": "OneOf with radio/select toggler",
+        "description": "Render a toggler that switches between internal and external candidate sub-forms.",
+        "code": "const spec: ObjectSpec = {\n  type: SpecTypes.Object,\n  properties: {\n    internal: { required: true, type: SpecTypes.String, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Person id' } },\n    external: {\n      required: true,\n      type: SpecTypes.Object,\n      properties: {\n        name: { type: SpecTypes.String, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Name' } },\n        age: { type: SpecTypes.Number, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Age' } },\n      },\n      viewSpec: { type: 'base', layoutTitle: 'Person data' },\n    },\n  },\n  description: { external: 'External candidate', internal: 'Internal candidate' },\n  viewSpec: { type: 'oneof', layout: 'row', layoutTitle: 'Candidate', order: ['external', 'internal'] },\n};\n\n<DynamicField name=\"candidate\" spec={spec} config={dynamicConfig} />"
+      },
+      {
+        "title": "OneOf with checkbox toggler",
+        "description": "Use a boolean checkbox to toggle between two sub-property variants.",
+        "code": "const spec: ObjectSpec = {\n  type: SpecTypes.Object,\n  properties: {\n    enabled: { required: true, type: SpecTypes.String, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Value' } },\n    disabled: { required: true, type: SpecTypes.Object, viewSpec: { type: 'base', layoutTitle: 'Empty' } },\n  },\n  viewSpec: {\n    type: 'oneof',\n    layout: 'row',\n    layoutTitle: 'Feature flag',\n    oneOfParams: { toggler: 'checkbox', booleanMap: { true: 'enabled', false: 'disabled' } },\n  },\n};"
+      }
+    ]
   },
   {
     "type": "component",
@@ -377,7 +632,20 @@
       "Do not use for multi-select — use CheckboxGroup or MultiSelect instead"
     ],
     "import_statement": "import { RadioGroup } from '@gravity-ui/dynamic-forms'",
-    "related": ["Select", "CheckboxGroup", "MultiSelect"]
+    "related": ["Select", "CheckboxGroup", "MultiSelect"],
+    "props": [
+      { "name": "spec", "type": "StringSpec", "required": true, "description": "String spec with enum defining available options. description provides per-option labels. viewSpec.radioGroupParams.direction ('horizontal' | 'vertical') sets direction. radioGroupParams.disabled per-option disabling." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for the name and QA attributes on the RadioGroup element." },
+      { "name": "input", "type": "FieldRenderProps<string>['input']", "required": true, "description": "Final Form input object providing current value and change/focus/blur handlers." },
+      { "name": "inputProps", "type": "RadioGroupProps", "required": false, "description": "Additional GravityUI RadioGroup props; set withCustomOptions:true and options to override the enum-derived options." }
+    ],
+    "examples": [
+      {
+        "title": "Radio group for environment selection",
+        "description": "Render radio buttons for a small fixed set of string options.",
+        "code": "const spec: StringSpec = {\n  type: SpecTypes.String,\n  enum: ['development', 'staging', 'production'],\n  description: { development: 'Development', staging: 'Staging', production: 'Production' },\n  viewSpec: {\n    type: 'radio_group',\n    layout: 'row',\n    layoutTitle: 'Environment',\n    radioGroupParams: { direction: 'horizontal' },\n  },\n};\n\n<DynamicField name=\"environment\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -393,7 +661,21 @@
       "Do not use when a vertical section layout is preferred — use Section instead"
     ],
     "import_statement": "import { Row, RowVerbose } from '@gravity-ui/dynamic-forms'",
-    "related": ["Section", "Column", "Transparent"]
+    "related": ["Section", "Column", "Transparent"],
+    "props": [
+      { "name": "children", "type": "React.ReactNode", "required": true, "description": "The input element rendered on the right side of the row." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA on the remove button and to detect array item status." },
+      { "name": "spec", "type": "Spec", "required": true, "description": "Spec providing layoutTitle (label text), layoutDescription (help tooltip), required flag, and withGenerateButton flag." },
+      { "name": "input", "type": "FieldRenderProps<FieldValue>['input']", "required": true, "description": "Final Form input object providing onDrop for array item removal and onChange for generate button." },
+      { "name": "meta", "type": "FieldRenderProps<FieldValue>['meta']", "required": true, "description": "Final Form meta object passed to ErrorWrapper for inline validation messages." }
+    ],
+    "examples": [
+      {
+        "title": "Row layout via viewSpec",
+        "description": "Use 'row' layout to show label on the left and input on the right.",
+        "code": "const spec: StringSpec = {\n  type: SpecTypes.String,\n  required: true,\n  viewSpec: {\n    type: 'base',\n    layout: 'row',\n    layoutTitle: 'Username',\n    layoutDescription: 'Your display name.',\n    placeholder: 'Enter username',\n  },\n};\n\n<DynamicField name=\"username\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -409,7 +691,20 @@
       "Do not use when there is no 'raw' property in the object spec"
     ],
     "import_statement": "import { Secret } from '@gravity-ui/dynamic-forms'",
-    "related": ["Text", "ObjectBase"]
+    "related": ["Text", "ObjectBase"],
+    "props": [
+      { "name": "spec", "type": "ObjectSpec", "required": true, "description": "Object spec that must contain a 'raw' sub-property. The 'raw' property's spec can be any type; its layout is forced to 'transparent'." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name path used as prefix for the 'raw' child field name." },
+      { "name": "input", "type": "FieldRenderProps<ObjectValue>['input']", "required": true, "description": "Final Form input object providing current object value and change handler." },
+      { "name": "Layout", "type": "LayoutType | undefined", "required": false, "description": "Optional layout component wrapping the raw child field content." }
+    ],
+    "examples": [
+      {
+        "title": "Secret object field for a credential",
+        "description": "Wrap a sensitive string value under a 'raw' property using the secret type.",
+        "code": "const spec: ObjectSpec = {\n  type: SpecTypes.Object,\n  properties: {\n    raw: {\n      type: SpecTypes.String,\n      viewSpec: { type: 'password', layout: 'row', layoutTitle: 'API key' },\n    },\n  },\n  viewSpec: { type: 'secret', layout: 'row', layoutTitle: 'Credentials' },\n};\n\n<DynamicField name=\"credentials\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -425,7 +720,27 @@
       "Do not use when a side-by-side label-input layout is needed — use Row instead"
     ],
     "import_statement": "import { Section, Section2, SectionWithSubtitle, SectionWithSubtitle2, Group, Group2 } from '@gravity-ui/dynamic-forms'",
-    "related": ["Row", "Column", "Group", "Transparent"]
+    "related": ["Row", "Column", "Group", "Transparent"],
+    "props": [
+      { "name": "children", "type": "React.ReactNode", "required": true, "description": "Field content rendered below the section title." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for array item removal detection." },
+      { "name": "spec", "type": "Spec", "required": true, "description": "Spec providing layoutTitle for the header, layoutDescription for the help mark or subtitle, and layoutProps.variantTitle to override typography." },
+      { "name": "input", "type": "FieldRenderProps<FieldValue>['input']", "required": true, "description": "Final Form input object; onDrop used for array item remove button." },
+      { "name": "meta", "type": "FieldRenderProps<FieldValue>['meta']", "required": false, "description": "Final Form meta object passed to ErrorWrapper; omitting disables validation feedback." },
+      { "name": "ignoreDescription", "type": "boolean", "required": false, "description": "When true suppresses the layoutDescription help mark even if it is set." }
+    ],
+    "examples": [
+      {
+        "title": "Section layout via viewSpec",
+        "description": "Use 'section' layout to display a titled vertical section above the inputs.",
+        "code": "const spec: ObjectSpec = {\n  type: SpecTypes.Object,\n  properties: {\n    host: { type: SpecTypes.String, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Host' } },\n    port: { type: SpecTypes.Number, viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Port' } },\n  },\n  viewSpec: { type: 'base', layout: 'section', layoutTitle: 'Server', layoutOpen: true },\n};\n\n<DynamicField name=\"server\" spec={spec} config={dynamicConfig} />"
+      },
+      {
+        "title": "SectionWithSubtitle layout",
+        "description": "Show the section description as a subtitle below the title instead of in a tooltip.",
+        "code": "const spec: StringSpec = {\n  type: SpecTypes.String,\n  viewSpec: {\n    type: 'base',\n    layout: 'section_with_subtitle',\n    layoutTitle: 'API Token',\n    layoutDescription: 'Used for service authentication.',\n  },\n};"
+      }
+    ]
   },
   {
     "type": "component",
@@ -442,7 +757,20 @@
       "Do not use for radio button style — use RadioGroup for small enums instead"
     ],
     "import_statement": "import { Select } from '@gravity-ui/dynamic-forms'",
-    "related": ["MultiSelect", "RadioGroup", "CheckboxGroup"]
+    "related": ["MultiSelect", "RadioGroup", "CheckboxGroup"],
+    "props": [
+      { "name": "spec", "type": "StringSpec", "required": true, "description": "String spec with enum defining options. description provides per-option labels. viewSpec.selectParams.meta adds secondary text per option. viewSpec.placeholder sets the select placeholder. Filtering is auto-enabled for >9 options." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA attribute on the Select element." },
+      { "name": "input", "type": "FieldRenderProps<string>['input']", "required": true, "description": "Final Form input object providing current value and change/focus/blur handlers." },
+      { "name": "inputProps", "type": "SelectProps", "required": false, "description": "Additional GravityUI Select props; set withCustomOptions:true and options to override the enum-derived options." }
+    ],
+    "examples": [
+      {
+        "title": "Select dropdown for a string enum",
+        "description": "Render a dropdown to select a single status value from an enum.",
+        "code": "const spec: StringSpec = {\n  type: SpecTypes.String,\n  enum: ['active', 'inactive', 'pending'],\n  description: { active: 'Active', inactive: 'Inactive', pending: 'Pending' },\n  viewSpec: {\n    type: 'select',\n    layout: 'row',\n    layoutTitle: 'Status',\n    placeholder: 'Select status',\n  },\n};\n\n<DynamicField name=\"status\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -458,7 +786,19 @@
       "Do not use for checkbox-style UI — use Checkbox instead"
     ],
     "import_statement": "import { Switch } from '@gravity-ui/dynamic-forms'",
-    "related": ["Checkbox"]
+    "related": ["Checkbox"],
+    "props": [
+      { "name": "spec", "type": "BooleanSpec", "required": true, "description": "Boolean spec; viewSpec.disabled controls the disabled state of the switch." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA attribute on the Switch element." },
+      { "name": "input", "type": "FieldRenderProps<boolean>['input']", "required": true, "description": "Final Form input object providing current boolean value and change/focus/blur handlers." }
+    ],
+    "examples": [
+      {
+        "title": "Toggle switch for a boolean field",
+        "description": "Render a Switch toggle for an enable/disable boolean setting.",
+        "code": "const spec: BooleanSpec = {\n  type: SpecTypes.Boolean,\n  viewSpec: { type: 'switch', layout: 'row', layoutTitle: 'Enable notifications' },\n};\n\n<DynamicField name=\"notifications\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -475,7 +815,20 @@
       "Do not use without viewSpec.table column definitions — the component returns null"
     ],
     "import_statement": "import { TableArrayInput } from '@gravity-ui/dynamic-forms'",
-    "related": ["ArrayBase", "MultiSelect"]
+    "related": ["ArrayBase", "MultiSelect"],
+    "props": [
+      { "name": "spec", "type": "ArraySpec", "required": true, "description": "Array spec with items as ObjectSpec and viewSpec.table array defining columns: {property, label, description?, width?}. Without viewSpec.table the component renders null." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA attributes on add/remove row buttons." },
+      { "name": "input", "type": "FieldRenderProps<ArrayValue>['input']", "required": true, "description": "Final Form input object providing current array value and change handler." },
+      { "name": "arrayInput", "type": "ArrayInputProps", "required": true, "description": "Array-specific helpers providing onItemAdd and onItemRemove callbacks." }
+    ],
+    "examples": [
+      {
+        "title": "Tabular array of key-value pairs",
+        "description": "Render an editable table of environment variable objects.",
+        "code": "const spec: ArraySpec = {\n  type: SpecTypes.Array,\n  items: {\n    type: SpecTypes.Object,\n    properties: {\n      key: { type: SpecTypes.String, viewSpec: { type: 'base', layout: 'transparent', layoutTitle: 'Key' } },\n      value: { type: SpecTypes.String, viewSpec: { type: 'base', layout: 'transparent', layoutTitle: 'Value' } },\n    },\n    viewSpec: { type: 'base' },\n  },\n  viewSpec: {\n    type: 'table',\n    layout: 'section',\n    layoutTitle: 'Environment variables',\n    table: [\n      { property: 'key', label: 'Key' },\n      { property: 'value', label: 'Value' },\n    ],\n    itemLabel: 'Add variable',\n  },\n};\n\n<DynamicField name=\"envVars\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -492,7 +845,25 @@
       "Do not use for code editing — use MonacoInput instead"
     ],
     "import_statement": "import { Text } from '@gravity-ui/dynamic-forms'",
-    "related": ["TextArea", "MonacoInput", "Select"]
+    "related": ["TextArea", "MonacoInput", "Select"],
+    "props": [
+      { "name": "spec", "type": "StringSpec | NumberSpec", "required": true, "description": "String or number spec; viewSpec.type='password' switches to PasswordInput. viewSpec.disabled and viewSpec.placeholder are applied to the input." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA attribute on the input element." },
+      { "name": "input", "type": "FieldRenderProps<string | number>['input']", "required": true, "description": "Final Form input object providing current value and change/focus/blur handlers." },
+      { "name": "inputProps", "type": "TextProps", "required": false, "description": "Additional GravityUI TextInput props (excluding value, onBlur, onFocus, onUpdate, disabled, placeholder, qa)." }
+    ],
+    "examples": [
+      {
+        "title": "Plain text input",
+        "description": "Render a standard single-line text field.",
+        "code": "const spec: StringSpec = {\n  type: SpecTypes.String,\n  viewSpec: { type: 'base', layout: 'row', layoutTitle: 'Username', placeholder: 'Enter username' },\n};\n\n<DynamicField name=\"username\" spec={spec} config={dynamicConfig} />"
+      },
+      {
+        "title": "Password input",
+        "description": "Render a masked password input by setting viewSpec.type to 'password'.",
+        "code": "const spec: StringSpec = {\n  type: SpecTypes.String,\n  viewSpec: { type: 'password', layout: 'row', layoutTitle: 'Password' },\n};\n\n<DynamicField name=\"password\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -509,7 +880,20 @@
       "Do not use for code — use MonacoInput instead"
     ],
     "import_statement": "import { TextArea } from '@gravity-ui/dynamic-forms'",
-    "related": ["Text", "MonacoInput"]
+    "related": ["Text", "MonacoInput"],
+    "props": [
+      { "name": "spec", "type": "StringSpec", "required": true, "description": "String spec; viewSpec.disabled and viewSpec.placeholder are applied to the TextArea." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA attribute on the TextArea element." },
+      { "name": "input", "type": "FieldRenderProps<string>['input']", "required": true, "description": "Final Form input object providing current string value and change/focus/blur handlers." },
+      { "name": "inputProps", "type": "TextAreaProps", "required": false, "description": "Additional GravityUI TextArea props (excluding value, onBlur, onFocus, onUpdate, disabled, placeholder, qa). minRows defaults to 8, maxRows to 20." }
+    ],
+    "examples": [
+      {
+        "title": "Multi-line text area",
+        "description": "Render a textarea for multi-line string input.",
+        "code": "const spec: StringSpec = {\n  type: SpecTypes.String,\n  viewSpec: { type: 'textarea', layout: 'row', layoutTitle: 'Description', placeholder: 'Enter description' },\n};\n\n<DynamicField name=\"description\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "component",
@@ -525,7 +909,25 @@
       "Do not use for editable text — use Text or TextArea instead"
     ],
     "import_statement": "import { TextContent } from '@gravity-ui/dynamic-forms'",
-    "related": ["Text", "TextArea"]
+    "related": ["Text", "TextArea"],
+    "props": [
+      { "name": "spec", "type": "StringSpec", "required": true, "description": "String spec with viewSpec.textContentParams: text (HTML string), themeAlert (renders Alert with given theme), viewAlert, titleAlert, themeLabel (renders Label), icon (lazy-loaded GravityUI icon name), iconColor. Falls back to viewSpec.layoutDescription if textContentParams.text is absent." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name; used when wrapping the Layout component." },
+      { "name": "input", "type": "FieldRenderProps<string>['input']", "required": true, "description": "Final Form input object; input.value is shown alongside the static text in plain text mode." },
+      { "name": "Layout", "type": "LayoutType | undefined", "required": false, "description": "Optional layout component wrapping the rendered content." }
+    ],
+    "examples": [
+      {
+        "title": "Inline info alert in a form",
+        "description": "Embed an informational alert box inside a dynamic form using text_content.",
+        "code": "const spec: StringSpec = {\n  type: SpecTypes.String,\n  viewSpec: {\n    type: 'text_content',\n    layout: 'transparent',\n    textContentParams: {\n      text: 'Changes take effect after the next deployment.',\n      themeAlert: 'info',\n      titleAlert: 'Note',\n    },\n  },\n};\n\n<DynamicField name=\"note\" spec={spec} config={dynamicConfig} />"
+      },
+      {
+        "title": "Label badge in a form",
+        "description": "Render a styled label inside the form using themeLabel.",
+        "code": "const spec: StringSpec = {\n  type: SpecTypes.String,\n  viewSpec: {\n    type: 'text_content',\n    layout: 'transparent',\n    textContentParams: {\n      text: 'Beta feature',\n      themeLabel: 'warning',\n    },\n  },\n};"
+      }
+    ]
   },
   {
     "type": "component",
@@ -541,7 +943,21 @@
       "Do not use when a label or title is needed — use Row or Section instead"
     ],
     "import_statement": "import { Transparent } from '@gravity-ui/dynamic-forms'",
-    "related": ["Row", "Section", "Column"]
+    "related": ["Row", "Section", "Column"],
+    "props": [
+      { "name": "children", "type": "React.ReactNode", "required": true, "description": "The input content rendered without any layout wrapper." },
+      { "name": "name", "type": "string", "required": true, "description": "Field name used for QA on the remove button (if array item)." },
+      { "name": "spec", "type": "Spec", "required": true, "description": "Spec used to detect array/object type for error wrapper styling and to check generate button flag." },
+      { "name": "input", "type": "FieldRenderProps<FieldValue>['input']", "required": true, "description": "Final Form input object; onDrop used for array item removal." },
+      { "name": "meta", "type": "FieldRenderProps<FieldValue>['meta']", "required": true, "description": "Final Form meta object passed to ErrorWrapper for validation feedback." }
+    ],
+    "examples": [
+      {
+        "title": "Field without layout chrome",
+        "description": "Render a text input without any label or container by using 'transparent' layout.",
+        "code": "const spec: StringSpec = {\n  type: SpecTypes.String,\n  viewSpec: { type: 'base', layout: 'transparent' },\n};\n\n<DynamicField name=\"rawValue\" spec={spec} config={dynamicConfig} />"
+      }
+    ]
   },
   {
     "type": "hook",
@@ -564,7 +980,14 @@
       { "name": "open", "type": "boolean", "description": "Current open state of the collapsible container." },
       { "name": "setOpen", "type": "(flag: boolean) => void", "description": "Callback to change the open state." }
     ],
-    "return_type": "void"
+    "return_type": "void",
+    "examples": [
+      {
+        "title": "Auto-open accordion on validation error",
+        "description": "Use useErrorChecker to expand a collapsible section when submit validation fails.",
+        "code": "const MyCollapsible: ObjectIndependentInput = (props) => {\n  const { name, meta } = props;\n  const [open, setOpen] = React.useState(true);\n\n  useErrorChecker({ name, meta, open, setOpen });\n\n  return (\n    <AccordeonCard name={name} header={<span>Section</span>} open={open} onToggle={setOpen}>\n      {/* child controllers */}\n    </AccordeonCard>\n  );\n};"
+      }
+    ]
   },
   {
     "type": "hook",
@@ -586,7 +1009,14 @@
       { "name": "props", "type": "ObjectIndependentInputProps", "description": "The full props of the parent object input component." },
       { "name": "onTogglerChange", "type": "(value: string) => void", "description": "Optional callback fired when the selected property changes." }
     ],
-    "return_type": "{ oneOfValue: string, specProperties: Record<string, Spec>, toggler: React.ReactNode, togglerInput: React.ReactNode }"
+    "return_type": "{ oneOfValue: string, specProperties: Record<string, Spec>, toggler: React.ReactNode, togglerInput: React.ReactNode }",
+    "examples": [
+      {
+        "title": "Custom oneOf input using useOneOf",
+        "description": "Build a custom object input that reuses the toggler logic from useOneOf.",
+        "code": "const CustomOneOf: ObjectIndependentInput = (props) => {\n  const { name, input, spec } = props;\n  const { oneOfValue, specProperties, toggler } = useOneOf({ props });\n\n  const parentOnChange = React.useCallback(\n    (childName, childValue, childErrors) => {\n      const value = set({}, childName.split(`${input.name}.`).join(''), childValue);\n      input.onChange(value, childErrors);\n    },\n    [input.onChange, input.name],\n  );\n\n  return (\n    <div>\n      {toggler}\n      {specProperties[oneOfValue] && (\n        <GroupIndent>\n          <Controller\n            value={input.value?.[oneOfValue]}\n            spec={specProperties[oneOfValue]}\n            name={`${name}.${oneOfValue}`}\n            parentOnChange={parentOnChange}\n            parentOnUnmount={input.parentOnUnmount}\n          />\n        </GroupIndent>\n      )}\n    </div>\n  );\n};"
+      }
+    ]
   },
   {
     "type": "utility",
@@ -606,7 +1036,19 @@
     "signature": "dynamicConfig: DynamicFormConfig",
     "parameters": [],
     "return_type": "DynamicFormConfig",
-    "kind": "const"
+    "kind": "const",
+    "examples": [
+      {
+        "title": "Pass dynamicConfig to DynamicField",
+        "description": "Use the default config to enable all built-in input and layout components.",
+        "code": "import { DynamicField, dynamicConfig } from '@gravity-ui/dynamic-forms';\n\n<DynamicField name=\"myField\" spec={mySpec} config={dynamicConfig} />"
+      },
+      {
+        "title": "Extend dynamicConfig with a custom input",
+        "description": "Add a custom string input type on top of the default config.",
+        "code": "import { dynamicConfig } from '@gravity-ui/dynamic-forms';\n\nconst myConfig = {\n  ...dynamicConfig,\n  string: {\n    ...dynamicConfig.string,\n    inputs: {\n      ...dynamicConfig.string.inputs,\n      my_custom: { Component: MyCustomInput },\n    },\n  },\n};"
+      }
+    ]
   },
   {
     "type": "utility",
@@ -625,7 +1067,14 @@
     "signature": "dynamicViewConfig: DynamicViewConfig",
     "parameters": [],
     "return_type": "DynamicViewConfig",
-    "kind": "const"
+    "kind": "const",
+    "examples": [
+      {
+        "title": "Pass dynamicViewConfig to DynamicView",
+        "description": "Use the default view config to display form values in read-only mode.",
+        "code": "import { DynamicView, dynamicViewConfig } from '@gravity-ui/dynamic-forms';\n\n<DynamicView spec={mySpec} config={dynamicViewConfig} value={formValues} />"
+      }
+    ]
   },
   {
     "type": "utility",
@@ -647,7 +1096,14 @@
       { "name": "params", "type": "GetArrayValidatorParams", "description": "Optional flags to skip specific checks and custom error messages." }
     ],
     "return_type": "string | false",
-    "kind": "function"
+    "kind": "function",
+    "examples": [
+      {
+        "title": "Register a custom array validator",
+        "description": "Override the built-in array validator with a custom error message for required fields.",
+        "code": "import { getArrayValidator, dynamicConfig } from '@gravity-ui/dynamic-forms';\n\nconst myArrayValidator = getArrayValidator({\n  customErrorMessages: { required: 'At least one item is required.' },\n});\n\nconst myConfig = {\n  ...dynamicConfig,\n  array: { ...dynamicConfig.array, validators: { base: myArrayValidator } },\n};"
+      }
+    ]
   },
   {
     "type": "utility",
@@ -666,7 +1122,14 @@
       { "name": "params", "type": "GetBooleanValidatorParams", "description": "Optional flags and custom error messages." }
     ],
     "return_type": "string | false",
-    "kind": "function"
+    "kind": "function",
+    "examples": [
+      {
+        "title": "Register a boolean validator with custom message",
+        "description": "Provide a custom required error message for boolean fields.",
+        "code": "import { getBooleanValidator, dynamicConfig } from '@gravity-ui/dynamic-forms';\n\nconst myBoolValidator = getBooleanValidator({\n  customErrorMessages: { required: 'You must accept the terms.' },\n});\n\nconst myConfig = {\n  ...dynamicConfig,\n  boolean: { ...dynamicConfig.boolean, validators: { base: myBoolValidator } },\n};"
+      }
+    ]
   },
   {
     "type": "utility",
@@ -686,7 +1149,14 @@
       { "name": "params", "type": "GetNumberValidatorParams", "description": "Optional ignore flags for each numeric check and custom error messages." }
     ],
     "return_type": "string | false",
-    "kind": "function"
+    "kind": "function",
+    "examples": [
+      {
+        "title": "Number validator allowing decimals",
+        "description": "Register a number validator that disables the integer-only check.",
+        "code": "import { getNumberValidator, dynamicConfig } from '@gravity-ui/dynamic-forms';\n\nconst myNumberValidator = getNumberValidator({\n  ignoreInt64Check: true,\n  customErrorMessages: { required: 'A number is required.' },\n});\n\nconst myConfig = {\n  ...dynamicConfig,\n  number: { ...dynamicConfig.number, validators: { base: myNumberValidator } },\n};"
+      }
+    ]
   },
   {
     "type": "utility",
@@ -705,7 +1175,14 @@
       { "name": "params", "type": "GetObjectValidatorParams", "description": "Optional flags and custom error messages." }
     ],
     "return_type": "string | false",
-    "kind": "function"
+    "kind": "function",
+    "examples": [
+      {
+        "title": "Register an object validator with a custom message",
+        "description": "Provide a custom required error message for object fields.",
+        "code": "import { getObjectValidator, dynamicConfig } from '@gravity-ui/dynamic-forms';\n\nconst myObjValidator = getObjectValidator({\n  customErrorMessages: { required: 'This section is required.' },\n});\n\nconst myConfig = {\n  ...dynamicConfig,\n  object: { ...dynamicConfig.object, validators: { base: myObjValidator } },\n};"
+      }
+    ]
   },
   {
     "type": "utility",
@@ -725,6 +1202,13 @@
       { "name": "params", "type": "GetStringValidatorParams", "description": "Optional ignore flags for each string check and custom error messages." }
     ],
     "return_type": "string | false",
-    "kind": "function"
+    "kind": "function",
+    "examples": [
+      {
+        "title": "String validator with custom required message",
+        "description": "Register a string validator that skips the pattern check and uses a custom required message.",
+        "code": "import { getStringValidator, dynamicConfig } from '@gravity-ui/dynamic-forms';\n\nconst myStringValidator = getStringValidator({\n  ignorePatternCheck: true,\n  customErrorMessages: { required: 'This field is required.' },\n});\n\nconst myConfig = {\n  ...dynamicConfig,\n  string: { ...dynamicConfig.string, validators: { base: myStringValidator } },\n};"
+      }
+    ]
   }
 ]

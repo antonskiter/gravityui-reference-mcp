@@ -13,6 +13,9 @@
       { "name": "id", "type": "string", "required": true, "description": "The HTML id for the anchor element." },
       { "name": "className", "type": "string", "required": false, "description": "Additional CSS class." },
       { "name": "qa", "type": "string", "required": false, "description": "Test attribute." }
+    ],
+    "examples": [
+      "<Anchor id=\"features-section\" />"
     ]
   },
   {
@@ -32,6 +35,9 @@
       { "name": "onScroll", "type": "() => void", "required": false, "description": "Callback fired when the block enters the viewport." },
       { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
       { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles for the wrapper." }
+    ],
+    "examples": [
+      "<AnimateBlock animate={true}>\n  <div>Content that fades in on scroll</div>\n</AnimateBlock>"
     ]
   },
   {
@@ -51,6 +57,10 @@
       { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
       { "name": "theme", "type": "string", "required": false, "description": "Visual theme." },
       { "name": "type", "type": "'column' | 'row'", "required": false, "description": "Layout direction (default 'column')." }
+    ],
+    "examples": [
+      "<Author\n  author={{\n    firstName: 'Lorem',\n    secondName: 'Ipsum',\n    description: 'Lorem Ipsum',\n    avatar: '/path/to/avatar.png'\n  }}\n/>",
+      "<Author\n  author={{\n    firstName: 'Lorem',\n    secondName: 'Ipsum',\n    description: 'Lorem Ipsum',\n    avatar: '/path/to/avatar.png'\n  }}\n  type=\"line\"\n/>"
     ]
   },
   {
@@ -70,6 +80,9 @@
       { "name": "src", "type": "string", "required": false, "description": "Fallback image source URL." },
       { "name": "desktop", "type": "string", "required": false, "description": "Desktop image source URL." },
       { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles for the container." }
+    ],
+    "examples": [
+      "<BackgroundImage\n  src=\"/path/to/header-bg.png\"\n  alt=\"Background\"\n  disableCompress={true}\n  style={{ height: '500px' }}\n/>"
     ]
   },
   {
@@ -91,6 +104,10 @@
       { "name": "parallax", "type": "boolean", "required": false, "description": "Enable parallax scrolling (default true)." },
       { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
       { "name": "video", "type": "MediaVideoProps", "required": false, "description": "Video props (hidden on mobile)." }
+    ],
+    "examples": [
+      "<BackgroundMedia\n  image={{\n    desktop: '/path/to/header-bg.png',\n    mobile: '/path/to/mobile-bg.png',\n    alt: 'Picture',\n    disableCompress: true\n  }}\n/>",
+      "<BackgroundMedia\n  video={{\n    src: ['/path/to/video.mp4', '/path/to/video.webm'],\n    loop: { start: 0 }\n  }}\n  image=\"/path/to/fallback.png\"\n/>"
     ]
   },
   {
@@ -109,6 +126,9 @@
       { "name": "className", "type": "string", "required": true, "description": "CSS class for the container." },
       { "name": "columnClassName", "type": "string", "required": true, "description": "CSS class applied to each column." },
       { "name": "qa", "type": "string", "required": false, "description": "Test attribute." }
+    ],
+    "examples": [
+      "<BalancedMasonry\n  className=\"masonry-container\"\n  columnClassName=\"masonry-column\"\n  breakpointCols={{\n    576: 1,\n    768: 2,\n    992: 2,\n    1200: 3,\n    1400: 3\n  }}\n>\n  <CardBase><CardBase.Content>Card 1</CardBase.Content></CardBase>\n  <CardBase><CardBase.Content>Card 2</CardBase.Content></CardBase>\n  <CardBase><CardBase.Content>Card 3</CardBase.Content></CardBase>\n</BalancedMasonry>"
     ]
   },
   {
@@ -128,6 +148,10 @@
       { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
       { "name": "resetPaddings", "type": "boolean", "required": false, "description": "Remove default top/bottom padding." },
       { "name": "visible", "type": "string", "required": false, "description": "Breakpoint visibility." }
+    ],
+    "examples": [
+      "<BlockBase>\n  <div>Block content with standard spacing</div>\n</BlockBase>",
+      "<BlockBase anchor={{ url: 'features' }} resetPaddings={false}>\n  <div>Anchored block with id for in-page navigation</div>\n</BlockBase>"
     ]
   },
   {
@@ -142,6 +166,10 @@
     "related": ["PageConstructor"],
     "props": [
       { "name": "className", "type": "string", "required": false, "description": "Additional CSS class." }
+    ],
+    "examples": [
+      "<BrandFooter />",
+      "<PageConstructor content={pageContent} isBranded={true} />"
     ]
   },
   {
@@ -167,6 +195,11 @@
       { "name": "theme", "type": "'normal' | 'action' | 'outlined' | 'github' | 'app-store' | 'google-play' | 'scale'", "required": false, "description": "Visual theme (default 'normal')." },
       { "name": "urlTitle", "type": "string", "required": false, "description": "Title attribute for the link." },
       { "name": "width", "type": "string", "required": false, "description": "Button width mode." }
+    ],
+    "examples": [
+      "<Button text=\"Get started\" theme=\"action\" url=\"https://example.com\" size=\"l\" />",
+      "<Button text=\"Download on App Store\" theme=\"app-store\" url=\"https://apps.apple.com/...\" />",
+      "<Button text=\"View on GitHub\" theme=\"github\" url=\"https://github.com/gravity-ui\" />"
     ]
   },
   {
@@ -188,6 +221,9 @@
       { "name": "onSelectTab", "type": "(tabId: string | null, e: React.MouseEvent) => void", "required": false, "description": "Callback when a tab is selected." },
       { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
       { "name": "tabSize", "type": "ButtonSize", "required": false, "description": "Size of the tab buttons (default 'l')." }
+    ],
+    "examples": [
+      "<ButtonTabs\n  items={[\n    { id: 'tab1', title: 'Overview' },\n    { id: 'tab2', title: 'Features' },\n    { id: 'tab3', title: 'Pricing' }\n  ]}\n  activeTab=\"tab1\"\n  onSelectTab={(tabId) => setActiveTab(tabId)}\n/>"
     ]
   },
   {
@@ -207,6 +243,9 @@
       { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
       { "name": "size", "type": "'s' | 'l'", "required": false, "description": "Content size controlling button size (default 's')." },
       { "name": "titleId", "type": "string", "required": false, "description": "Id of a title element for aria-describedby." }
+    ],
+    "examples": [
+      "<Buttons\n  buttons={[\n    { text: 'Get started', theme: 'action', url: 'https://example.com' },\n    { text: 'Learn more', theme: 'outlined', url: '#' }\n  ]}\n  size=\"l\"\n/>"
     ]
   },
   {
@@ -230,6 +269,10 @@
       { "name": "target", "type": "React.HTMLAttributeAnchorTarget", "required": false, "description": "Link target attribute." },
       { "name": "url", "type": "string", "required": false, "description": "If provided, wraps card in a link." },
       { "name": "urlTitle", "type": "string", "required": false, "description": "Link title attribute." }
+    ],
+    "examples": [
+      "<CardBase border=\"shadow\">\n  <CardBase.Header>\n    <img src=\"/path/to/image.png\" alt=\"Card image\" />\n  </CardBase.Header>\n  <CardBase.Content>\n    <h3>Card Title</h3>\n    <p>Card description text</p>\n  </CardBase.Content>\n</CardBase>",
+      "<CardBase url=\"https://example.com\" urlTitle=\"Read more\" border=\"line\">\n  <CardBase.Content>Clickable card content</CardBase.Content>\n</CardBase>"
     ]
   },
   {
@@ -247,6 +290,9 @@
       { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
       { "name": "size", "type": "'s' | 'l'", "required": false, "description": "Content size controlling heading level (default 'l')." },
       { "name": "theme", "type": "string", "required": false, "description": "Visual theme." }
+    ],
+    "examples": [
+      "<ContentList\n  size=\"l\"\n  list={[\n    {\n      icon: { light: '/icons/icon1_light.svg', dark: '/icons/icon1_dark.svg' },\n      title: 'Feature One',\n      text: 'Description of feature one with **bold** and [link](https://example.com).'\n    },\n    {\n      icon: { light: '/icons/icon2_light.svg', dark: '/icons/icon2_dark.svg' },\n      title: 'Feature Two',\n      text: 'Description of feature two.'\n    }\n  ]}\n/>"
     ]
   },
   {
@@ -268,6 +314,9 @@
       { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
       { "name": "size", "type": "'xs' | 's' | 'm' | 'l'", "required": false, "description": "Button size (default 's')." },
       { "name": "theme", "type": "'primary' | 'secondary' | 'link' | 'accent'", "required": false, "description": "Visual theme (default 'primary')." }
+    ],
+    "examples": [
+      "<Control\n  icon={emailIconSvgString}\n  theme=\"primary\"\n  size=\"s\"\n  iconSize={16}\n  onClick={() => console.log('control clicked')}\n/>"
     ]
   },
   {
@@ -286,6 +335,10 @@
       { "name": "isError", "type": "boolean", "required": true, "description": "When true, shows the error UI instead of children." },
       { "name": "text", "type": "string", "required": true, "description": "Error message text." },
       { "name": "className", "type": "string", "required": false, "description": "CSS class." }
+    ],
+    "examples": [
+      "<ErrorWrapper\n  text=\"Something went wrong\"\n  isError={true}\n  buttonText=\"Try again\"\n  handler={() => refetch()}\n>\n  <div>Content that loaded successfully</div>\n</ErrorWrapper>",
+      "<ErrorWrapper\n  text=\"Temporary error — click retry to fix\"\n  isError={hasError}\n  buttonText=\"Fix\"\n  handler={() => window.location.reload()}\n>\n  Hidden content when error resolves\n</ErrorWrapper>"
     ]
   },
   {
@@ -309,6 +362,10 @@
       { "name": "theme", "type": "'default' | string", "required": false, "description": "Visual theme (default 'default')." },
       { "name": "type", "type": "'vertical' | 'horizontal'", "required": false, "description": "Layout type (default 'vertical')." },
       { "name": "urlTitle", "type": "string", "required": false, "description": "Title attribute." }
+    ],
+    "examples": [
+      "<FileLink href=\"document.pdf\" text=\"Download PDF\" />",
+      "<FileLink href=\"report.xls\" text=\"Download Report\" type=\"horizontal\" theme=\"default\" />"
     ]
   },
   {
@@ -325,6 +382,9 @@
       { "name": "isOpened", "type": "boolean", "required": true, "description": "Controls open/closed state." },
       { "name": "className", "type": "string", "required": false, "description": "CSS class." },
       { "name": "qa", "type": "string", "required": false, "description": "Test attribute." }
+    ],
+    "examples": [
+      "<Foldable isOpened={isOpen}>\n  <div>Collapsible content that animates height</div>\n</Foldable>"
     ]
   },
   {
@@ -341,6 +401,10 @@
       { "name": "className", "type": "string", "required": false, "description": "CSS class." },
       { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles." },
       { "name": "theme", "type": "'default' | 'rounded'", "required": false, "description": "Visual theme controlling edge rounding (default 'default')." }
+    ],
+    "examples": [
+      "<FullWidthBackground theme=\"default\" style={{ backgroundColor: '#ffbe5c' }}>\n  <div style={{ padding: '20px' }}>Full-width section content</div>\n</FullWidthBackground>",
+      "<FullWidthBackground theme=\"rounded\" style={{ backgroundColor: '#f0f0f0' }}>\n  <div>Rounded full-width section</div>\n</FullWidthBackground>"
     ]
   },
   {
@@ -360,6 +424,9 @@
       { "name": "imageStyle", "type": "React.CSSProperties", "required": false, "description": "Inline style for the image." },
       { "name": "modalImageClass", "type": "string", "required": false, "description": "CSS class for the modal image." },
       { "name": "sliderData", "type": "{ items: ImageProps[]; initialIndex: number }", "required": false, "description": "Slider configuration for the modal." }
+    ],
+    "examples": [
+      "<FullscreenImage\n  src=\"/path/to/image.png\"\n  alt=\"Description\"\n  imageStyle={{ maxWidth: '500px' }}\n/>"
     ]
   },
   {
@@ -375,6 +442,9 @@
     "props": [
       { "name": "children", "type": "(props?: ChildMediaRenderProps) => JSX.Element", "required": true, "description": "Render prop receiving media class names and fullscreen state." },
       { "name": "showFullscreenIcon", "type": "boolean", "required": false, "description": "Whether to show the expand icon button (default true)." }
+    ],
+    "examples": [
+      "<FullscreenMedia>\n  {(fullscreenProps = {}) => (\n    <Media\n      youtube=\"https://youtu.be/0Qd3T6skprA\"\n      previewImg=\"/path/to/preview.png\"\n      {...fullscreenProps}\n    />\n  )}\n</FullscreenMedia>"
     ]
   },
   {
@@ -398,6 +468,10 @@
       { "name": "onlyContent", "type": "boolean", "required": false, "description": "Render only the HTML content without the outer wrapper (default false)." },
       { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
       { "name": "tagName", "type": "'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'section' | 'p'", "required": false, "description": "HTML tag to use (default 'span')." }
+    ],
+    "examples": [
+      "<HTML content=\"<p><strong>Bold text</strong> and a <a href='#'>link</a></p>\" tagName=\"div\" />",
+      "<HTML content={sanitizedHtml} block={true} className=\"rich-text\" />"
     ]
   },
   {
@@ -415,6 +489,9 @@
       { "name": "analyticsEvents", "type": "AnalyticsEventsProp", "required": false, "description": "Analytics events on breadcrumb click." },
       { "name": "className", "type": "string", "required": false, "description": "CSS class." },
       { "name": "theme", "type": "'light' | 'dark'", "required": false, "description": "Visual theme (default 'light')." }
+    ],
+    "examples": [
+      "<HeaderBreadcrumbs\n  theme=\"light\"\n  items={[\n    { url: '#', text: 'Lorem ipsum' },\n    { url: '#', text: 'Dolor sit amet' },\n    { url: '#', text: 'Consectetur adipiscing elit' }\n  ]}\n/>"
     ]
   },
   {
@@ -432,6 +509,10 @@
       { "name": "gravityIcon", "type": "GravityIconData", "required": false, "description": "Gravity UI icon with position." },
       { "name": "icon", "type": "IconData", "required": false, "description": "Image-based icon data with value and position." },
       { "name": "size", "type": "string", "required": false, "description": "Icon size modifier." }
+    ],
+    "examples": [
+      "<IconWrapper\n  icon={{ light: { value: '/icons/icon.svg', position: 'top' }, dark: { value: '/icons/icon-dark.svg', position: 'top' } }}\n>\n  <p>Content with icon at top</p>\n</IconWrapper>",
+      "<IconWrapper gravityIcon={{ name: 'ChartColumn', color: 'text-color' }}>\n  <p>Content with Gravity UI icon</p>\n</IconWrapper>"
     ]
   },
   {
@@ -460,6 +541,9 @@
       { "name": "src", "type": "string", "required": false, "description": "Primary image URL." },
       { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles." },
       { "name": "tablet", "type": "string", "required": false, "description": "Tablet image URL." }
+    ],
+    "examples": [
+      "<Image\n  src=\"/path/to/image.png\"\n  alt=\"Description\"\n  disableCompress={true}\n  fetchPriority=\"high\"\n  style={{ height: '200px' }}\n/>"
     ]
   },
   {
@@ -481,6 +565,9 @@
       { "name": "onLoad", "type": "React.ReactEventHandler<HTMLDivElement>", "required": false, "description": "Load callback." },
       { "name": "src", "type": "string", "required": false, "description": "Image URL." },
       { "name": "style", "type": "React.CSSProperties", "required": false, "description": "Inline styles." }
+    ],
+    "examples": [
+      "<ImageBase src=\"/path/to/image.png\" alt=\"Image description\" fetchPriority=\"high\" />"
     ]
   },
   {
@@ -497,6 +584,9 @@
       { "name": "formData", "type": "FormBlockData", "required": true, "description": "Form configuration (Yandex or Hubspot)." },
       { "name": "onContentLoad", "type": "() => void", "required": true, "description": "Callback when the form iframe has loaded." },
       { "name": "className", "type": "string", "required": false, "description": "CSS class." }
+    ],
+    "examples": [
+      "<InnerForm\n  formData={{ id: '61a4e639d4d24e0dbba36f5c', customFormSection: 'cloud' }}\n  onContentLoad={() => setFormLoaded(true)}\n/>"
     ]
   },
   {
@@ -523,6 +613,11 @@
       { "name": "textSize", "type": "'l' | 'm' | 'sm' | 's' | 'xs'", "required": false, "description": "Text size (default 'm')." },
       { "name": "theme", "type": "'normal' | 'back' | 'file-link' | 'underline'", "required": false, "description": "Visual theme (default 'file-link')." },
       { "name": "urlTitle", "type": "string", "required": false, "description": "Title attribute." }
+    ],
+    "examples": [
+      "<Link text=\"Default link\" url=\"#\" />",
+      "<Link text=\"Normal link with an arrow\" url=\"#\" arrow={true} theme=\"normal\" textSize=\"m\" />",
+      "<Link url=\"#\" theme=\"back\">Back to list</Link>"
     ]
   },
   {
@@ -542,6 +637,9 @@
       { "name": "qa", "type": "string", "required": false, "description": "Test attribute for the container." },
       { "name": "size", "type": "'s' | 'l'", "required": false, "description": "Content size (default 's')." },
       { "name": "titleId", "type": "string", "required": false, "description": "Id of a title for aria-describedby." }
+    ],
+    "examples": [
+      "<Links\n  links={[\n    { url: '#', text: 'Link one', theme: 'normal', arrow: true },\n    { url: '#', text: 'Link two', theme: 'normal', arrow: true }\n  ]}\n  size=\"l\"\n/>"
     ]
   },
   {
@@ -556,6 +654,10 @@
     "related": [],
     "props": [
       { "name": "...MapProps", "type": "YMapProps | GMapProps", "required": false, "description": "Props forwarded to the active map implementation." }
+    ],
+    "examples": [
+      "<MapProvider scriptSrc={ymapsScriptSrc} apiKey={apiKey} type={MapType.Yandex}>\n  <Map\n    id=\"common-places\"\n    markers={[\n      { address: 'Moscow Arbat', label: { preset: 'islands#circleIcon' } },\n      { address: 'Moscow, Red square', label: { preset: 'islands#blackStretchyIcon', iconContent: 'Red square' } }\n    ]}\n  />\n</MapProvider>",
+      "<MapProvider scriptSrc={gmapsScriptSrc} type={MapType.Google} apiKey={googleApiKey}>\n  <Map address=\"Anthony Fokkerweg 1, 1059 CM Amsterdam\" />\n</MapProvider>"
     ]
   },
   {
@@ -591,6 +693,12 @@
       { "name": "videoMicrodata", "type": "VideoMicrodataProps", "required": false, "description": "Schema.org video microdata." },
       { "name": "youtube", "type": "string", "required": false, "description": "YouTube video ID or URL." },
       { "name": "youtubeClassName", "type": "string", "required": false, "description": "CSS class for the YouTube iframe." }
+    ],
+    "examples": [
+      "<Media\n  image={{ src: '/path/to/image.png', alt: 'Picture', disableCompress: true }}\n/>",
+      "<Media\n  youtube=\"https://youtu.be/0Qd3T6skprA\"\n  previewImg=\"/path/to/preview.png\"\n/>",
+      "<Media\n  video={{\n    src: ['/path/to/video.webm', '/path/to/video.mp4'],\n    loop: { start: 0 }\n  }}\n/>",
+      "<Media\n  iframe={{ src: 'https://www.google.com/maps/embed/', name: 'map' }}\n/>"
     ]
   },
   {
@@ -606,6 +714,9 @@
     "props": [
       { "name": "items", "type": "string[]", "required": true, "description": "Array of YFM-formatted meta-info strings." },
       { "name": "className", "type": "string", "required": false, "description": "CSS class." }
+    ],
+    "examples": [
+      "<MetaInfo items={['one', 'two', 'three']} />"
     ]
   },
   {
@@ -622,6 +733,9 @@
       { "name": "onOutsideClick", "type": "() => void", "required": true, "description": "Callback fired on outside click." },
       { "name": "className", "type": "string", "required": false, "description": "CSS class." },
       { "name": "onClick", "type": "() => void", "required": false, "description": "Click handler for the wrapper element." }
+    ],
+    "examples": [
+      "<OutsideClick onOutsideClick={() => setDropdownOpen(false)}>\n  <div className=\"dropdown\">\n    <DropdownMenu />\n  </div>\n</OutsideClick>"
     ]
   },
   {
@@ -640,6 +754,9 @@
       { "name": "className", "type": "string", "required": false, "description": "CSS class for the scroll container." },
       { "name": "onScrollEnd", "type": "() => void", "required": false, "description": "Callback after scrolling ends." },
       { "name": "onScrollStart", "type": "() => void", "required": false, "description": "Callback when scrolling starts." }
+    ],
+    "examples": [
+      "<div style={{ maxWidth: '300px' }}>\n  <OverflowScroller>\n    <div style={{ display: 'flex' }}>\n      <div style={{ padding: '10px' }}>Item 1</div>\n      <div style={{ padding: '10px' }}>Item 2</div>\n      <div style={{ padding: '10px' }}>Item 3</div>\n      <div style={{ padding: '10px' }}>Item 4</div>\n      <div style={{ padding: '10px' }}>Item 5</div>\n      <div style={{ padding: '10px' }}>Item 6</div>\n    </div>\n  </OverflowScroller>\n</div>"
     ]
   },
   {
@@ -660,6 +777,10 @@
       { "name": "navigation", "type": "NavigationData", "required": false, "description": "Navigation configuration." },
       { "name": "renderMenu", "type": "() => React.ReactNode", "required": false, "description": "Custom menu render function." },
       { "name": "shouldRenderBlock", "type": "ShouldRenderBlock", "required": false, "description": "Predicate to conditionally skip rendering blocks." }
+    ],
+    "examples": [
+      "<PageConstructor\n  content={{\n    blocks: [\n      {\n        type: 'header-block',\n        title: 'Welcome',\n        description: 'Page description text'\n      }\n    ]\n  }}\n/>",
+      "<PageConstructor\n  content={{ blocks: pageBlocks }}\n  navigation={navigationData}\n  isBranded={true}\n/>"
     ]
   },
   {
@@ -691,6 +812,10 @@
       { "name": "previewImgUrl", "type": "string", "required": false, "description": "Preview image shown before playback." },
       { "name": "ratio", "type": "number", "required": false, "description": "Aspect ratio (height/width, default 9/16)." },
       { "name": "showPreview", "type": "boolean", "required": false, "description": "Show preview externally." }
+    ],
+    "examples": [
+      "<ReactPlayer\n  src=\"/path/to/video.mp4\"\n  loop={true}\n  showPreview={true}\n/>",
+      "<ReactPlayer\n  src={['/path/to/video.webm', '/path/to/video.mp4']}\n  autoplay={true}\n  muted={true}\n  previewImgUrl=\"/path/to/preview.png\"\n/>"
     ]
   },
   {
@@ -705,6 +830,9 @@
     "related": ["Link", "BackLink"],
     "props": [
       { "name": "href", "type": "string", "required": true, "description": "The navigation URL." }
+    ],
+    "examples": [
+      "<RouterLink href=\"/about\">\n  <span>About us</span>\n</RouterLink>"
     ]
   },
   {
@@ -725,6 +853,10 @@
       { "name": "justify", "type": "Justify[]", "required": false, "description": "Per-column horizontal alignment." },
       { "name": "legend", "type": "string[]", "required": false, "description": "Legend labels for marker cells." },
       { "name": "marker", "type": "'disk' | 'tick'", "required": false, "description": "Marker type for legend cells (default 'disk')." }
+    ],
+    "examples": [
+      "<Table\n  content={[\n    ['Feature', 'Free', 'Pro', 'Enterprise'],\n    ['Users', '0', '0', '0'],\n    ['Storage', '0', '1', '1'],\n    ['Support', '0', '1', '1']\n  ]}\n  legend={['Free', 'Pro']}\n  justify={['start', 'center', 'center', 'center']}\n/>",
+      "<Table\n  content={[\n    ['Feature', 'Basic', 'Advanced'],\n    ['Analytics', '0', '1'],\n    ['API access', '1', '1']\n  ]}\n  marker=\"tick\"\n  hideLegend={true}\n/>"
     ]
   },
   {
@@ -744,6 +876,10 @@
       { "name": "subtitle", "type": "string", "required": false, "description": "YFM-formatted subtitle text." },
       { "name": "title", "type": "string | TitleItemProps", "required": false, "description": "Title text or full title configuration object." },
       { "name": "className", "type": "string", "required": false, "description": "CSS class." }
+    ],
+    "examples": [
+      "<Title\n  title=\"Lorem ipsum dolor sit amet, consectetur adipiscing elit\"\n  subtitle=\"**Ut enim ad minim veniam** [quis nostrud](https://example.com) exercitation ullamco laboris.\"\n/>",
+      "<Title\n  title={{ text: 'Lorem ipsum', url: 'https://example.com', urlTitle: 'Opens in a new window' }}\n/>"
     ]
   },
   {
@@ -764,6 +900,10 @@
       { "name": "slow", "type": "boolean", "required": false, "description": "Use slower animation (default false)." },
       { "name": "thin", "type": "boolean", "required": false, "description": "Use thin icon variant (default false)." },
       { "name": "type", "type": "'horizontal' | 'vertical'", "required": false, "description": "Arrow direction (default 'horizontal')." }
+    ],
+    "examples": [
+      "<ToggleArrow type=\"vertical\" iconType=\"default\" size={30} open={isOpen} />",
+      "<ToggleArrow type=\"horizontal\" iconType=\"navigation\" size={30} />"
     ]
   },
   {
@@ -779,6 +919,10 @@
     "props": [
       { "name": "className", "type": "string", "required": false, "description": "CSS class." },
       { "name": "type", "type": "'label' | 'line'", "required": false, "description": "Display style (default 'line')." }
+    ],
+    "examples": [
+      "<UnpublishedLabel type=\"label\" />",
+      "<UnpublishedLabel type=\"line\" />"
     ]
   },
   {
@@ -806,6 +950,9 @@
       { "name": "record", "type": "string", "required": false, "description": "YouTube video ID or URL." },
       { "name": "stream", "type": "string", "required": false, "description": "YouTube live stream channel ID or URL." },
       { "name": "videoIframe", "type": "string", "required": false, "description": "Custom iframe video URL." }
+    ],
+    "examples": [
+      "<VideoBlock\n  record=\"https://youtu.be/0Qd3T6skprA\"\n  previewImg=\"/path/to/preview.png\"\n  attributes={{ color: 'white', rel: '0' }}\n/>"
     ]
   },
   {
@@ -827,6 +974,9 @@
       { "name": "modifiers", "type": "Modifiers", "required": false, "description": "BEM modifiers applied to the yfm class." },
       { "name": "qa", "type": "string", "required": false, "description": "Test attribute." },
       { "name": "tagName", "type": "TagName", "required": false, "description": "Outer tag name." }
+    ],
+    "examples": [
+      "<YFMWrapper\n  content=\"<p><strong>Lorem ipsum dolor sit amet</strong> <a href='https://example.com'>consectetur adipiscing elit</a> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>\"\n  modifiers={{ constructor: true }}\n/>"
     ]
   },
   {
@@ -851,6 +1001,9 @@
       { "name": "onSubmit", "type": "() => void", "required": false, "description": "Callback on form submission." },
       { "name": "params", "type": "Record<string, string>", "required": false, "description": "Extra query parameters for the form URL." },
       { "name": "theme", "type": "string", "required": false, "description": "Form theme override." }
+    ],
+    "examples": [
+      "<YandexForm\n  id=\"61a4e639d4d24e0dbba36f5c\"\n  customFormSection=\"cloud\"\n/>"
     ]
   },
   {
@@ -863,7 +1016,10 @@
     "avoid": ["Avoid outside of page-constructor component tree where AnalyticsContext is not provided"],
     "import_statement": "import { useAnalytics } from '@gravity-ui/page-constructor'",
     "related": ["useMount"],
-    "signature": "useAnalytics(name?: string, target?: string): (e?: AnalyticsEventsProp | null, additionalContext?: Record<string, string>) => void"
+    "signature": "useAnalytics(name?: string, target?: string): (e?: AnalyticsEventsProp | null, additionalContext?: Record<string, string>) => void",
+    "examples": [
+      "const handleAnalytics = useAnalytics('button-click', 'cta');\n\n<button onClick={() => handleAnalytics()}>Click me</button>"
+    ]
   },
   {
     "type": "hook",
@@ -875,7 +1031,10 @@
     "avoid": ["Avoid when a CSS-only media query solution is sufficient"],
     "import_statement": "import { useDeviceValue } from '@gravity-ui/page-constructor'",
     "related": ["useWindowBreakpoint"],
-    "signature": "useDeviceValue<T>(value: DeviceSupporting<T>, inclusive?: boolean): T"
+    "signature": "useDeviceValue<T>(value: DeviceSupporting<T>, inclusive?: boolean): T",
+    "examples": [
+      "const imageUrl = useDeviceValue({\n  mobile: '/path/to/mobile.png',\n  tablet: '/path/to/tablet.png',\n  desktop: '/path/to/desktop.png'\n});\n\n<img src={imageUrl} alt=\"Responsive image\" />"
+    ]
   },
   {
     "type": "hook",
@@ -887,7 +1046,10 @@
     "avoid": ["Avoid for keyboard focus tracking; this hook is pointer/hover focused"],
     "import_statement": "import { useFocus } from '@gravity-ui/page-constructor'",
     "related": [],
-    "signature": "useFocus(element?: HTMLElement): { hasFocus: boolean; setFocus: () => void; unsetFocus: () => void }"
+    "signature": "useFocus(element?: HTMLElement): { hasFocus: boolean; setFocus: () => void; unsetFocus: () => void }",
+    "examples": [
+      "const ref = useRef<HTMLDivElement>(null);\nconst { hasFocus } = useFocus(ref.current);\n\n<div ref={ref} style={{ outline: hasFocus ? '2px solid blue' : 'none' }}>\n  Hover or focus me\n</div>"
+    ]
   },
   {
     "type": "hook",
@@ -899,7 +1061,10 @@
     "avoid": ["Avoid when ResizeObserver is available and preferred over window resize events"],
     "import_statement": "import { useHeightCalculator } from '@gravity-ui/page-constructor'",
     "related": ["Foldable"],
-    "signature": "useHeightCalculator(containerRef: React.RefObject<HTMLElement>, options?: { recalculateOnResizeDelay: number }): number | undefined"
+    "signature": "useHeightCalculator(containerRef: React.RefObject<HTMLElement>, options?: { recalculateOnResizeDelay: number }): number | undefined",
+    "examples": [
+      "const contentRef = useRef<HTMLDivElement>(null);\nconst contentHeight = useHeightCalculator(contentRef);\n\n<div style={{ height: isOpen ? contentHeight : 0, overflow: 'hidden', transition: 'height 0.3s' }}>\n  <div ref={contentRef}>Collapsible content</div>\n</div>"
+    ]
   },
   {
     "type": "hook",
@@ -911,7 +1076,10 @@
     "avoid": ["Avoid when the effect depends on props or state; use useEffect with dependencies instead"],
     "import_statement": "import { useMount } from '@gravity-ui/page-constructor'",
     "related": [],
-    "signature": "useMount(handler: () => (() => void) | void): void"
+    "signature": "useMount(handler: () => (() => void) | void): void",
+    "examples": [
+      "useMount(() => {\n  fetchInitialData();\n  return () => cleanup();\n});"
+    ]
   },
   {
     "type": "hook",
@@ -923,6 +1091,9 @@
     "avoid": ["Avoid when CSS media queries alone are sufficient"],
     "import_statement": "import { useWindowBreakpoint } from '@gravity-ui/page-constructor'",
     "related": ["useDeviceValue"],
-    "signature": "useWindowBreakpoint(): number"
+    "signature": "useWindowBreakpoint(): number",
+    "examples": [
+      "const breakpoint = useWindowBreakpoint();\nconst isMobile = breakpoint <= BREAKPOINTS.sm;\n\n<div>{isMobile ? 'Mobile layout' : 'Desktop layout'}</div>"
+    ]
   }
 ]

@@ -46,8 +46,20 @@ export function buildSearchIndex(entities: Entity[], recipes: RecipeDef[]): Mini
     storeFields: STORE_FIELDS,
     searchOptions: { boost: BOOST, prefix: true, fuzzy: 0.2 },
   });
-  ms.addAll(entities.map(entityToDoc));
-  ms.addAll(recipes.map(recipeToDoc));
+  // Deduplicate by id before indexing
+  const seen = new Set<string>();
+  const entityDocs = entities.map(entityToDoc).filter(d => {
+    if (seen.has(d.id)) return false;
+    seen.add(d.id);
+    return true;
+  });
+  const recipeDocs = recipes.map(recipeToDoc).filter(d => {
+    if (seen.has(d.id)) return false;
+    seen.add(d.id);
+    return true;
+  });
+  ms.addAll(entityDocs);
+  ms.addAll(recipeDocs);
   return ms;
 }
 
