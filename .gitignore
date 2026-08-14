@@ -3,3 +3,4 @@ dist/
 *.tsbuildinfo
 docs/superpowers
 .worktrees/
+.DS_Store
